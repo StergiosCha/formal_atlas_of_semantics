@@ -1,0 +1,33 @@
+# Coq build artifacts
+*.vo
+*.vok
+*.vos
+*.glob
+*.aux
+*.cmi
+*.cmx
+*.cmxs
+*.o
+.coq-native/
+.lia.cache
+.nia.cache
+
+# Generated Makefile (regenerate with: coq_makefile -f _CoqProject -o Makefile)
+Makefile.coq
+Makefile.coq.conf
+Makefile.coq.bak
+.Makefile.d
+
+# Emacs / ProofGeneral lock files and auto-saves
+.\#*
+\#*\#
+
+# Backup / editor files
+*~
+*.bak
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

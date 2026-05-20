@@ -1,0 +1,47 @@
+# Coq project file for the case-study formalisations.
+# Generate a Makefile with:   coq_makefile -f _CoqProject -o Makefile
+# Then build with:            make
+
+-Q . ""
+
+# --- Files used in the paper ---
+MontagueFragment.v
+PTQ.v
+kratzer2.v
+PTQ_deep2.v
+kratzer_deep2.v
+theorems_deep_PTQ.v
+
+# --- Other formalisations (broader research programme) ---
+AdjectivesExtension.v
+Aspect.v
+BarwiseCooper.v
+Champollion.v
+DonkeyScope.v
+DowtyTense.v
+FCS.v
+FCS2.v
+FocusEven.v
+FocusEven2.v
+Imperfective2.v
+ImperfectiveParadox.v
+LakoffPrototypes.v
+Link1983.v
+MTT_base.v
+MTTbase.v
+Montague.v
+PoC_Foundations.v
+PolydefiniteSemantics.v
+PresuppositionProjection.v
+Quantifiers.v
+Set_theoretic_Defs.v
+additive.v
+additive_new.v
+champollion_full.v
+dowty_roles.v
+indi.v
+kratzer_1977.v
+kratzer_deep.v
+mass.v
+quanrifiers2.v
+theorems_PTQ.v

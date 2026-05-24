@@ -1,6 +1,6 @@
 Require Import Setoid.
 Require Import List.
-Load "indi.v".
+Require Import indi.
 
 (* -------------------------------------------------------------- *)
 (* MASS/COUNT CLASSIFICATION SYSTEM                              *)

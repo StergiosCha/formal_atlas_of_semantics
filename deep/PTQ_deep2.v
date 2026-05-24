@@ -339,9 +339,9 @@ Fixpoint eval {Γ τ} (e : IL Γ τ) : Env Γ -> Index -> Den τ :=
   | @exists_ _ σ' body    => fun env i =>
       exists (v : Den σ'), eval body (env_cons v env) i
 
-  (* Necessity: □φ — true at all indices *)
-  | @nec_ _ φ             => fun env _ =>
-      forall i', eval φ env i'
+  (* Necessity: □φ — true at all worlds at the current time *)
+  | @nec_ _ φ             => fun env i =>
+      forall w', eval φ env (w', time_of i)
 
   (* Will: Wφ — true at some future time, same world *)
   | @will_ _ φ            => fun env i =>

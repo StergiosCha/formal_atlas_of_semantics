@@ -74,31 +74,31 @@ Qed.
 (* PART 4: nec_ AS A SPECIAL CASE                                     *)
 (* ================================================================== *)
 
-(** deep2's □ (nec_) is box_R with the total relation **)
-Theorem nec_equiv_box_total :
+(** deep2's □ (nec_) is the world-relativised box at fixed time **)
+Theorem nec_equiv_box_worlds :
   forall (φ : ILClosed ty_t) (i : Index),
     eval_closed (nec_ φ) i <->
-    box_R (fun _ _ => True) (eval_closed φ) i.
+    forall w', eval_closed φ (w', time_of i).
 Proof.
-  intros. unfold eval_closed, box_R. simpl. split.
-  - intros H j _. apply H.
-  - intros H j. apply H. exact I.
+  intros. unfold eval_closed. simpl. reflexivity.
 Qed.
 
 (** Corollary: if the conversational background is trivially
-    permissive (everything is accessible), kratzer_must = nec_ **)
-Theorem kratzer_must_total_is_nec :
+    permissive (empty modal base), kratzer_must implies nec_.
+    The converse fails: kratzer_must with empty base ranges over
+    all indices, whereas nec_ only ranges over worlds at the
+    current time. **)
+Theorem kratzer_must_total_implies_nec :
   forall (f : ConversationalBackground) (φ : ILClosed ty_t)
          (i : Index),
     (forall w, f w = nil) ->
-    (kratzer_must f (eval_closed φ) i <->
-     eval_closed (nec_ φ) i).
+    kratzer_must f (eval_closed φ) i ->
+    eval_closed (nec_ φ) i.
 Proof.
-  intros f φ i Hnil. unfold kratzer_must, kratzer_accessibility,
-    eval_closed. simpl. split.
-  - intros H j. apply H. intros q Hq.
-    rewrite Hnil in Hq. inversion Hq.
-  - intros H j _. apply H.
+  intros f φ i Hnil H. unfold kratzer_must, kratzer_accessibility,
+    eval_closed in *. simpl in *.
+  intros w'. apply (H (w', time_of i)). intros q Hq.
+  rewrite Hnil in Hq. inversion Hq.
 Qed.
 
 (* ================================================================== *)
@@ -200,7 +200,7 @@ Theorem nec_T :
   forall (φ : ILClosed ty_t) (i : Index),
     eval_closed (nec_ φ) i -> eval_closed φ i.
 Proof.
-  intros. unfold eval_closed in *. simpl in *. apply H.
+  intros φ [w t] H. unfold eval_closed in *. simpl in *. apply H.
 Qed.
 
 (** 4 axiom: □φ → □□φ **)
@@ -208,7 +208,7 @@ Theorem nec_4 :
   forall (φ : ILClosed ty_t) (i : Index),
     eval_closed (nec_ φ) i -> eval_closed (nec_ (nec_ φ)) i.
 Proof.
-  intros. unfold eval_closed in *. simpl in *. auto.
+  intros φ i H. unfold eval_closed in *. simpl in *. intros w' w''. apply H.
 Qed.
 
 (** 5 axiom: ¬□φ → □¬□φ  (or equivalently ◇φ → □◇φ) **)
@@ -218,7 +218,7 @@ Theorem nec_5 :
     eval_closed (nec_ (not_ (nec_ φ))) i.
 Proof.
   intros φ i Hnnec. unfold eval_closed in *. simpl in *.
-  intros i' Hnec. apply Hnnec. exact Hnec.
+  intros w' Hnec. apply Hnnec. exact Hnec.
 Qed.
 
 (* ================================================================== *)

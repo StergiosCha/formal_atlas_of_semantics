@@ -58,7 +58,7 @@ Qed.
 Theorem nec_T : forall (phi : ILClosed ty_t) (i : Index),
   eval_closed (nec_ phi) i -> eval_closed phi i.
 Proof.
-  intros phi i H. unfold eval_closed in *; simpl in *. apply H.
+  intros phi [w t] H. unfold eval_closed in *; simpl in *. apply H.
 Qed.
 
 (* 6. Nec phi -> Nec (Nec phi)  (S4 axiom) *)
@@ -66,7 +66,7 @@ Qed.
 Theorem nec_4 : forall (phi : ILClosed ty_t) (i : Index),
   eval_closed (nec_ phi) i -> eval_closed (nec_ (nec_ phi)) i.
 Proof.
-  intros phi i H. unfold eval_closed in *; simpl in *. auto.
+  intros phi i H. unfold eval_closed in *; simpl in *. intros w' w''. apply H.
 Qed.
 
 (* 7. extensional collapse: under the meaning postulate,

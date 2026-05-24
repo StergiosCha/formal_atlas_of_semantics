@@ -30,7 +30,7 @@ extras/    other formalisations, not part of the paper
 
 ### `extras/`
 
-Additional Coq formalisations from a broader research programme on type-theoretic and event semantics --- Champollion-style event semantics, Dowty's thematic proto-roles, Lakoff prototypes, file-change-style fragments, polydefinites, presupposition projection, and so on. These are not part of the paper's case study but are kept here for reference and reuse.
+Additional Coq formalisations from a broader research programme on type-theoretic and event semantics, Champollion-style event semantics, Dowty's thematic proto-roles, Lakoff prototypes, file-change-style fragments, polydefinites, presupposition projection, and so on. These are not part of the paper's case study but are kept here for reference and reuse.
 
 ## Building
 
@@ -63,8 +63,8 @@ If you use this code, please cite the accompanying paper:
 
 ## License
 
-MIT --- see `LICENSE`.
+MIT, see `LICENSE`.
 
 ## Acknowledgements
 
-The Coq development was written with assistance from an LLM-based coding assistant; the proof assistant acts as the independent validator. Thanks to Zhaohui Luo for discussions on MTT-semantics, and to Robin Cooper for collaboration on the deep/shallow comparison of Montague, TTR, and MTT.
+The Coq code development was written with assistance from Claude Opus-4.6/4.7-cowork; the proof assistant acts as the independent validator. 

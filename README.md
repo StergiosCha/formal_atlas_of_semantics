@@ -1,6 +1,6 @@
 # Revisiting Formal Semantics Using Proof Assistants
 
-Coq formalisations accompanying the paper *Revisiting formal semantics using proof assistants* (Stergios Chatzikyriakidis), written for Valeria de Paiva's Festschrift.
+Coq formalisations accompanying the paper *Revisiting formal semantics using proof assistants* (Stergios Chatzikyriakidis). 
 
 The paper argues that mechanisation in a proof assistant is a way to make formal-semantics theories precise and testable, and illustrates this with a case study of Montague's Intensional Logic (PTQ) and Kratzer's conversational backgrounds in Coq. The case study is run twice: once as a shallow embedding (Experiment A) and once as a deep embedding (Experiment B), so the two methodological choices can be compared side by side.
 
@@ -59,12 +59,8 @@ coqc deep/theorems_deep_PTQ.v
 
 If you use this code, please cite the accompanying paper:
 
-> Chatzikyriakidis, Stergios. *Revisiting formal semantics using proof assistants*. In the Festschrift for Valeria de Paiva.
+> Chatzikyriakidis, Stergios. *Revisiting formal semantics using proof assistants*. In progress.
 
 ## License
 
 MIT, see `LICENSE`.
-
-## Acknowledgements
-
-The Coq code development was written with assistance from Claude Opus-4.6/4.7-cowork; the proof assistant acts as the independent validator. 

@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 """Build atlas/site/index.html from atlas.json (or papers.json alone when no
-file records exist yet) by injecting the data into site/template.html."""
-import json, os, re, sys, datetime
+file records exist yet) by injecting the data into site/template.html.
+
+site/assets/ is vendored in the repo so the build works standalone; when the
+brand handoff folder is present alongside, it is re-synced first so a re-theme
+propagates without a manual copy."""
+import json, os, re, sys, shutil, datetime
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.join(HERE, "site")
+BRAND = os.path.join(os.path.dirname(HERE), "handoff", "assets")
 
 REGIONS = [
     ("model", "Model-theoretic core", ["Foundational Logic & Semantics", "Quantification Theory", "Plurality and Mereology", "Modality and Conditionals", "Focus and Alternatives", "Degree Semantics and Comparison", "Tense and Aspect", "Event Semantics Extensions", "Information Structure", "Vagueness and Gradability", "Hyperintensionality"]),
@@ -37,6 +42,27 @@ def file_region(rec, papers):
         if rec.get("file") in p.get("coq_files", []):
             return p["region"]
     return "model"
+
+
+def sync_assets():
+    """Refresh site/assets from the brand handoff, if it is checked out here."""
+    if not os.path.isdir(BRAND):
+        return 0
+    n = 0
+    for sub in ("svg", "favicon"):
+        src, dst = os.path.join(BRAND, sub), os.path.join(SITE, "assets", sub)
+        if not os.path.isdir(src):
+            continue
+        os.makedirs(dst, exist_ok=True)
+        for f in sorted(os.listdir(src)):
+            if f.startswith("."):
+                continue
+            shutil.copy2(os.path.join(src, f), os.path.join(dst, f))
+            n += 1
+    fav = os.path.join(BRAND, "svg", "favicon.svg")
+    if os.path.exists(fav):
+        shutil.copy2(fav, os.path.join(SITE, "assets", "favicon.svg"))
+    return n
 
 
 def main():
@@ -72,7 +98,10 @@ def main():
     html = tpl.replace("__ATLAS_DATA__", blob).replace("__GENERATED__", data["generated"])
     out = os.path.join(SITE, "index.html")
     open(out, "w").write(html)
-    print(f"wrote {out}: {len(papers)} papers, {len(slim_files)} file records, {len(html)//1024} KB")
+    n_assets = sync_assets()
+    print(f"wrote {out}: {len(papers)} papers, {len(slim_files)} file records, "
+          f"{len(edges)} edges, {len(html)//1024} KB"
+          + (f"; synced {n_assets} brand assets" if n_assets else ""))
 
 
 if __name__ == "__main__":

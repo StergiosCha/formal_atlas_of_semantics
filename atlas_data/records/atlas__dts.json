@@ -3,36 +3,101 @@
  "region": "modern type theories (MTT + Ranta pair)",
  "summary": "Dependent Type Semantics (Bekki): @-slots rendered as resolution spaces Ctx -> A with felicity = inhabitedness (type checking succeeds); the donkey conditional whose canonical projection-resolution recovers Ranta's donkey_sentence definitionally — DTS resolution generalizes the pronominalization rule; the strong reading inherited through the bridge; ambiguity = extensionally distinct resolvents (two-antecedent discourse over bool); presupposition as @-terms: bare 'the farmer talks' demands a witness (felicitous unit Farmer equivalent to Farmer), while inside the donkey conditional the definite resolves locally from the antecedent and the conditional projects nothing (context passing).",
  "sources": [
-  {"citation": "Bekki, D. (2014). Representing anaphora with dependent types. LACL, LNCS 8535.", "path": null, "available": "NOT in papers/ — cited from the literature; section references to be spot-checked when the PDF is added"},
-  {"citation": "Bekki, D. & Mineshima, K. (2017). Context-passing and underspecification in Dependent Type Semantics. In Chatzikyriakidis & Luo (eds), Modern Perspectives in Type-Theoretical Semantics.", "path": null, "available": "NOT in papers/ — same caveat"}
+  {
+   "citation": "Bekki, D. (2014). Representing anaphora with dependent types. LACL, LNCS 8535.",
+   "path": null,
+   "available": "STILL MISSING (Springer paywall; see misses.md) — the 2017 chapter substantiates the same mechanisms"
+  },
+  {
+   "citation": "Bekki, D. & Mineshima, K. (2017). Context-passing and underspecification in Dependent Type Semantics. In Chatzikyriakidis & Luo (eds), Modern Perspectives in Type-Theoretical Semantics.",
+   "path": "papers/foundations/Bekki_Mineshima_2017_CalculatingProjectionsViaTypeChecking.pdf",
+   "available": "full — SPOT-CHECKED 2026-09-05: title, §3.4 'Type Checking as the Felicity Condition', @-operators/underspecified terms, local contexts and context-passing, anaphora resolution as proof search, and the Ranta descent are all as DTS.v states"
+  }
  ],
  "definitions_mapped": [
-  {"coq": "resolution Ctx A := Ctx -> A; felicitous := resolution", "source": "B14 @-operators; typing obligation discharged by proof search", "match": "changed", "note": "underspecification as parameterization, resolution as application; the checking/search interleaving is meta-level (artifact i/ii)"},
-  {"coq": "ante := Ranta's donkey context; dts_donkey (he it : resolutions)", "source": "B14's donkey analysis over the Sigma-context", "match": "exact"},
-  {"coq": "the_farmer_talks (the : resolution Ctx Farmer)", "source": "BM17 presupposition as @-terms", "match": "simplified"}
+  {
+   "coq": "resolution Ctx A := Ctx -> A; felicitous := resolution",
+   "source": "B14 @-operators; typing obligation discharged by proof search",
+   "match": "changed",
+   "note": "underspecification as parameterization, resolution as application; the checking/search interleaving is meta-level (artifact i/ii)"
+  },
+  {
+   "coq": "ante := Ranta's donkey context; dts_donkey (he it : resolutions)",
+   "source": "B14's donkey analysis over the Sigma-context",
+   "match": "exact"
+  },
+  {
+   "coq": "the_farmer_talks (the : resolution Ctx Farmer)",
+   "source": "BM17 presupposition as @-terms",
+   "match": "simplified"
+  }
  ],
  "theorems": [
-  {"name": "dts_donkey_canonical", "status": "proved", "source_claim": "resolution generalizes Ranta's pronominalization (the projections are one resolvent)", "note": "reflexivity — the headline bridge"},
-  {"name": "dts_donkey_felicitous / dts_donkey_strong", "status": "proved", "source_claim": "felicity holds; strong reading inherited"},
-  {"name": "resolution_ambiguity", "status": "proved", "source_claim": "ambiguity = multiplicity of resolutions (two-antecedent discourse)"},
-  {"name": "the_bare_presupposes / the_conditional_projects_nothing / the_conditional_is_donkey", "status": "proved", "source_claim": "BM17 presupposition and projection via context passing"}
+  {
+   "name": "dts_donkey_canonical",
+   "status": "proved",
+   "source_claim": "resolution generalizes Ranta's pronominalization (the projections are one resolvent)",
+   "note": "reflexivity — the headline bridge"
+  },
+  {
+   "name": "dts_donkey_felicitous / dts_donkey_strong",
+   "status": "proved",
+   "source_claim": "felicity holds; strong reading inherited"
+  },
+  {
+   "name": "resolution_ambiguity",
+   "status": "proved",
+   "source_claim": "ambiguity = multiplicity of resolutions (two-antecedent discourse)"
+  },
+  {
+   "name": "the_bare_presupposes / the_conditional_projects_nothing / the_conditional_is_donkey",
+   "status": "proved",
+   "source_claim": "BM17 presupposition and projection via context passing"
+  }
  ],
- "counts": {"theorems": 7, "proved": 7, "admitted": 0, "propositional_axioms": 0},
+ "counts": {
+  "theorems": 7,
+  "proved": 7,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
  "faithfulness": {
   "verdict": "partial",
-  "evidence": ["All 7 audited theorems closed under the global context; the Ranta bridge is definitional."],
-  "simplifications": ["@-operators as lambda-abstracted parameters (no typed term-former)", "no CCG interface", "resolution exhibited, not searched"],
-  "omissions": ["B14's full @-calculus and its typing rules", "selectional features on resolution", "the lightblue pipeline"],
-  "additions": ["the concrete ambiguity and projection theorems"]
+  "evidence": [
+   "All 7 audited theorems closed under the global context; the Ranta bridge is definitional.",
+   "BM17 on disk and spot-checked: the abstract itself asserts local contexts, context-passing, underspecified terms, projection-as-type-checking and resolution-as-proof-search — the exact content of Parts 1-3."
+  ],
+  "simplifications": [
+   "@-operators as lambda-abstracted parameters (no typed term-former)",
+   "no CCG interface",
+   "resolution exhibited, not searched"
+  ],
+  "omissions": [
+   "B14's full @-calculus and its typing rules",
+   "selectional features on resolution",
+   "the lightblue pipeline"
+  ],
+  "additions": [
+   "the concrete ambiguity and projection theorems"
+  ]
  },
  "determination": "slight_modification",
  "determination_rationale": "The analyses go through, but the @-operator is genuinely a term-former with its own typing discipline in B14; rendering it as parameterization is a real (if standard) modification, and the sources were not on hand for spot-checks — hence partial/slight rather than faithful/as-is until the PDFs are added and checked.",
  "artifact_classes": [
-  {"class": "i", "description": "@-slots as resolution parameters; checking/search interleaving is meta-level"},
-  {"class": "ii", "description": "felicity as inhabitedness of the resolution space"},
-  {"class": "iv", "description": "zero axioms"}
+  {
+   "class": "i",
+   "description": "@-slots as resolution parameters; checking/search interleaving is meta-level"
+  },
+  {
+   "class": "ii",
+   "description": "felicity as inhabitedness of the resolution space"
+  },
+  {
+   "class": "iv",
+   "description": "zero axioms"
+  }
  ],
  "source_gap": null,
- "notes": "Third node of the type-theoretic cluster (edges/ranta__dts.json). PRIORITY FOLLOW-UP: add Bekki 2014 + Bekki-Mineshima 2017 PDFs to papers/foundations/ and spot-check the section references and the @-rendering.",
+ "notes": "Third node of the type-theoretic cluster (edges/ranta__dts.json). BM17 spot-check PASSED 2026-09-05 (felicity-as-type-checking = ARTIFACT-ii confirmed; the chapter's own abstract states the Ranta/Sundholm descent). Bekki 2014 remains to be obtained for the @-calculus typing rules; until then the @-as-parameterization simplification keeps determination at slight_modification.",
  "compiles": true
 }

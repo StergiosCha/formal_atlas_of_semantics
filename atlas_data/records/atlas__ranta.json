@@ -3,41 +3,141 @@
  "region": "modern type theories (MTT + Ranta pair)",
  "summary": "Type-Theoretical Grammar after Ranta 1995: the propositions-as-types kit at Type (every = Pi, some = Sigma, negation into Empty_set, separated subsets); quantifier sentences with the ordering principle and the type-theoretic choice iso (Ranta's 'reference to proofs of Pi propositions'); the donkey sentence as Pi over a Sigma-context with the pronouns he/it literally projT1/projT2 (the pronominalization rule), and the currying theorem that makes the strong reading a theorem rather than a stipulation; text as progressive conjunction with Sigma-associativity as the context workhorse; a deep-embedded fragment with a type-valued denotation and a linearization to word strings, sugaring adequacy proved by reflexivity, and many-to-one sugaring (some/a) proved.",
  "sources": [
-  {"citation": "Ranta, A. (1995). Type-Theoretical Grammar. OUP.", "path": "[Indices, 1] Aarne Ranta - Type-Theoretical Grammar (Indices, 1 (1995, Oxford University Press, USA) - libgen.li.djvu", "available": "full (djvutxt; djvu page ~ printed + 12)"}
+  {
+   "citation": "Ranta, A. (1995). Type-Theoretical Grammar. OUP.",
+   "path": "papers/foundations/Ranta_1995_TypeTheoreticalGrammar.djvu",
+   "available": "full (djvu; OCR PDF companion Ranta_1995_TypetheoreticalGrammar.pdf; djvu page ~ printed + 12)"
+  }
  ],
  "definitions_mapped": [
-  {"coq": "every = Pi / some = sigT / ror = sum / rnot = -> Empty_set / rand = prod", "source": "R95 §2.16-2.21, §3.1", "match": "exact"},
-  {"coq": "subset_cn = sigT", "source": "R95 §2.11-2.12 separated subsets", "match": "exact", "note": "the coincidence with the existential is Ranta's own point"},
-  {"coq": "donkey_ctx; he/it as projT1/projT2; donkey_sentence", "source": "R95 §3.2, §4.2 pronominalization rule, §4.13 discourse referents", "match": "exact", "note": "contexts reified as nested Sigma-types (artifact ii)"},
-  {"coq": "text2; sigma_assoc", "source": "R95 §6.1 text as progressive conjunction, §6.2 text as context", "match": "exact"},
-  {"coq": "tree / linear / denote over an abstract lexicon", "source": "R95 §1.7, ch. 9 sugaring", "match": "simplified", "note": "finite toy fragment; Ranta's sugaring is schematic over open-ended syntax (artifact iii)"},
-  {"coq": "tequiv = function pair", "source": "equivalence of Type-propositions", "match": "changed", "note": "props-as-types makes iff a prod (artifact i)"}
+  {
+   "coq": "every = Pi / some = sigT / ror = sum / rnot = -> Empty_set / rand = prod",
+   "source": "R95 §2.16-2.21, §3.1",
+   "match": "exact"
+  },
+  {
+   "coq": "subset_cn = sigT",
+   "source": "R95 §2.11-2.12 separated subsets",
+   "match": "exact",
+   "note": "the coincidence with the existential is Ranta's own point"
+  },
+  {
+   "coq": "donkey_ctx; he/it as projT1/projT2; donkey_sentence",
+   "source": "R95 §3.2, §4.2 pronominalization rule, §4.13 discourse referents",
+   "match": "exact",
+   "note": "contexts reified as nested Sigma-types (artifact ii)"
+  },
+  {
+   "coq": "text2; sigma_assoc",
+   "source": "R95 §6.1 text as progressive conjunction, §6.2 text as context",
+   "match": "exact"
+  },
+  {
+   "coq": "tree / linear / denote over an abstract lexicon",
+   "source": "R95 §1.7, ch. 9 sugaring",
+   "match": "simplified",
+   "note": "finite toy fragment; Ranta's sugaring is schematic over open-ended syntax (artifact iii)"
+  },
+  {
+   "coq": "tequiv = function pair",
+   "source": "equivalence of Type-propositions",
+   "match": "changed",
+   "note": "props-as-types makes iff a prod (artifact i)"
+  }
  ],
  "theorems": [
-  {"name": "no_every_not", "status": "proved", "source_claim": "R95 §3.9 negation"},
-  {"name": "ac_iso", "status": "proved", "source_claim": "R95 §3.7 reference to proofs of Pi propositions (type-theoretic choice)"},
-  {"name": "subset_some_flatten", "status": "proved", "source_claim": "R95 §2.12"},
-  {"name": "donkey_curry", "status": "proved", "source_claim": "R95 §3.2/§4.2: the Sigma-analysis gives the strong doubly-universal reading", "note": "the headline; both directions constructive"},
-  {"name": "donkey_choice", "status": "proved", "source_claim": "R95 §3.7 applied to the donkey antecedent"},
-  {"name": "sigma_assoc / text2_flatten", "status": "proved", "source_claim": "R95 §6.1-6.2"},
-  {"name": "sugar_every_man_walks / denote_every_man_walks / sugar_donkey / denote_donkey / denote_donkey_strong / denote_every_rel", "status": "proved", "source_claim": "R95 ch. 3-4 example configurations through the ch. 9 sugaring", "note": "all by reflexivity (or instance of donkey_curry)"},
-  {"name": "sugar_many_to_one", "status": "proved", "source_claim": "R95 §9.9 conditions of sugarability: sugaring is many-to-one"}
+  {
+   "name": "no_every_not",
+   "status": "proved",
+   "source_claim": "R95 §3.9 negation"
+  },
+  {
+   "name": "ac_iso",
+   "status": "proved",
+   "source_claim": "R95 §3.7 reference to proofs of Pi propositions (type-theoretic choice)"
+  },
+  {
+   "name": "subset_some_flatten",
+   "status": "proved",
+   "source_claim": "R95 §2.12"
+  },
+  {
+   "name": "donkey_curry",
+   "status": "proved",
+   "source_claim": "R95 §3.2/§4.2: the Sigma-analysis gives the strong doubly-universal reading",
+   "note": "the headline; both directions constructive"
+  },
+  {
+   "name": "donkey_choice",
+   "status": "proved",
+   "source_claim": "R95 §3.7 applied to the donkey antecedent"
+  },
+  {
+   "name": "sigma_assoc / text2_flatten",
+   "status": "proved",
+   "source_claim": "R95 §6.1-6.2"
+  },
+  {
+   "name": "sugar_every_man_walks / denote_every_man_walks / sugar_donkey / denote_donkey / denote_donkey_strong / denote_every_rel",
+   "status": "proved",
+   "source_claim": "R95 ch. 3-4 example configurations through the ch. 9 sugaring",
+   "note": "all by reflexivity (or instance of donkey_curry)"
+  },
+  {
+   "name": "sugar_many_to_one",
+   "status": "proved",
+   "source_claim": "R95 §9.9 conditions of sugarability: sugaring is many-to-one"
+  }
  ],
- "counts": {"theorems": 14, "proved": 14, "admitted": 0, "propositional_axioms": 0},
+ "counts": {
+  "theorems": 14,
+  "proved": 14,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
  "faithfulness": {
   "verdict": "faithful",
-  "evidence": ["The pronominalization rule is rendered literally: he/it ARE the projections, and the donkey sentence is Pi over the reified context.", "Sugaring adequacy is checkable by reflexivity because both the tree grammar and the word list are concrete Inductives.", "All 14 audited theorems closed under the global context."],
-  "simplifications": ["finite toy fragment for sugaring (no schematic syntax, no morphology)", "contexts reified as Sigma-types instead of judgmental telescopes"],
-  "omissions": ["parsing as inverse of sugaring (§9.7)", "definite phrases/genitive/nested anaphora (§4.3-4.7)", "temporal reference (ch. 5)", "belief contexts (ch. 7)", "questions (§6.11-6.14)", "higher-level type theory (ch. 8)"],
-  "additions": ["tequiv as the Type-level equivalence vehicle", "the fragment tree grammar itself (Ranta describes sugaring informally)"]
+  "evidence": [
+   "The pronominalization rule is rendered literally: he/it ARE the projections, and the donkey sentence is Pi over the reified context.",
+   "Sugaring adequacy is checkable by reflexivity because both the tree grammar and the word list are concrete Inductives.",
+   "All 14 audited theorems closed under the global context."
+  ],
+  "simplifications": [
+   "finite toy fragment for sugaring (no schematic syntax, no morphology)",
+   "contexts reified as Sigma-types instead of judgmental telescopes"
+  ],
+  "omissions": [
+   "parsing as inverse of sugaring (§9.7)",
+   "definite phrases/genitive/nested anaphora (§4.3-4.7)",
+   "temporal reference (ch. 5)",
+   "belief contexts (ch. 7)",
+   "questions (§6.11-6.14)",
+   "higher-level type theory (ch. 8)"
+  ],
+  "additions": [
+   "tequiv as the Type-level equivalence vehicle",
+   "the fragment tree grammar itself (Ranta describes sugaring informally)"
+  ]
  },
  "determination": "as_is",
  "determination_rationale": "Ranta's analyses are native to type theory, so the formalization is nearly transcription; the only substantive encodings are the reified contexts and the finite fragment, both documented.",
  "artifact_classes": [
-  {"class": "i", "description": "propositions are Types; equivalences are function pairs"},
-  {"class": "ii", "description": "judgmental telescopes reified as nested Sigma-types; pronominalization = projection"},
-  {"class": "iii", "description": "finite deep fragment makes sugaring adequacy decidable by reflexivity"},
-  {"class": "iv", "description": "zero axioms/Parameters"}
+  {
+   "class": "i",
+   "description": "propositions are Types; equivalences are function pairs"
+  },
+  {
+   "class": "ii",
+   "description": "judgmental telescopes reified as nested Sigma-types; pronominalization = projection"
+  },
+  {
+   "class": "iii",
+   "description": "finite deep fragment makes sugaring adequacy decidable by reflexivity"
+  },
+  {
+   "class": "iv",
+   "description": "zero axioms/Parameters"
+  }
  ],
  "source_gap": null,
  "notes": "Second file of the MTT+Ranta pair (designs/mtt_ranta.md); 416 lines. The djvu is read with djvutxt; cite by section.",

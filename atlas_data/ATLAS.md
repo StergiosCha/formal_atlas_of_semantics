@@ -292,8 +292,8 @@ Grades per phenomenon, from bridge theorems: 5 definitional / 4 equivalence / 3 
 
 | Level | Meaning | Papers |
 |---|---|---|
-| F0 | surveyed only (A-D prediction, no source on disk) | 175 |
-| F1 | sourced (PDF/djvu on disk) | 0 |
+| F0 | surveyed only (A-D prediction, no source on disk) | 158 |
+| F1 | sourced (PDF/djvu on disk) | 17 |
 | F2 | designed (design doc maps its content) | 21 |
 | F3 | piloted (some Coq exists; record may be partial) | 13 |
 | F4 | formalized (atlas-standard file, audited record) | 9 |

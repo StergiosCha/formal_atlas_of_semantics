@@ -1,8 +1,10 @@
 # A3 — verifier pass: state and plan
 
 Started 2026-09-05. `verify.py` exists and has run over all 64 records.
-This file is the handover: what is now measured, what it proved, and the five
-steps left.
+This file is the handover: what is now measured, what it proved, and the steps
+left. Steps 6-7, the L2/L3 revisions, and the three closing sections came out
+of a five-lens design review (proof engineering, learning science, NeSy
+research, hostile audit, citability) run the same day.
 
 ---
 
@@ -95,7 +97,41 @@ Rust, not green, for anything disputed.
 `python3 verify.py --all`, failing the build on a new admitted, a new
 undocumented axiom in `atlas/`, or a compile break. That makes A3
 self-maintaining instead of a snapshot, and it is what lets the badge stay
-honest between sessions.
+honest between sessions. Three cheap hardenings, none needing an LLM:
+- **`coqchk` on the `.vo` set.** Everything above trusts `coqc`; `coqchk`
+  independently revalidates the kernel terms and emits its own axiom census,
+  cross-checking `Print Assumptions`. One CI line, minutes of runtime, and the
+  claim upgrades from "coqc accepted it" to "the kernel checker rechecked it".
+- **Commit the `.mech.json` files and diff measured-vs-committed in CI.** They
+  are deterministic, so drift shows up as a reviewable PR diff instead of a
+  red wall of coqc output.
+- Lint for the unsafe flags (`-type-in-type`, `Unset Guard Checking`, etc.)
+  in files and `_CoqProject` — the one hole `Print Assumptions` cannot see.
+
+**6. Statement fingerprints + `claims.lock` (the hole steps 1-5 leave open).**
+Everything above fails CI on a new `Admitted` or axiom — but a theorem's
+*statement* can be silently weakened (`<->` downgraded to `->`, a hypothesis
+added, a `forall` narrowed) while its name, the counts, and axiom-freedom all
+stay green. The 7 edges and 64 records cite theorems by name; nothing
+mechanical ties an edge's grade to the statement as it exists at HEAD. Fix, in
+the Redirect driver verify.py already generates: emit `Check @<fqname>.` per
+proved theorem (never `Print` — it dumps proof terms), normalize whitespace,
+hash, and pin the hashes in a committed `atlas/claims.lock` mapping
+`fqname -> {statement_sha, since_tag, status: active|deprecated}`. CI fails on
+any hash change without a lock update, which forces statement changes to be
+deliberate, reviewed, and released — the precondition for anyone citing a
+theorem from a two-year-old paper. ~1 day, zero LLM calls. With one maintainer
+and LLM-assisted editing (L3 will rewrite files), silent statement drift is
+the realistic failure mode, and this is the only step that catches it.
+
+**7. Retire the regex census: one SerAPI/coq-lsp pass, three consumers.**
+The Notes below are a list of regex landmines that already bit once each.
+HOSTING.md §2 already plans a sentence-by-sentence SerAPI dump for the
+Proof-General reader; make that same AST-level artifact the source for (a) the
+declaration census, (b) the proof states, and (c) the per-theory signature
+manifests (see the loop section). Until it lands, differentially check the
+regex parser against it in CI so the two can never silently disagree. Build it
+once, use it three times — the parser stops existing as a thing that can drift.
 
 ---
 
@@ -131,15 +167,28 @@ Lemma probe_vacuous : <hypotheses of T> -> False.
 If `coqc` proves it, the hypotheses are unsatisfiable and `T` is vacuous —
 a machine-checked refutation, not an opinion. Run the same trick for
 triviality (`<conclusion of T>` provable with the hypotheses discharged).
-Start with the ~30 headline theorems the records name; do not fan out to all
-714 until the probe generator earns its keep.
 
-**L3. Axiom triage for the attic.** 335 distinct axioms across the pre-atlas
-files, each needing a judgement: genuine ontological primitive, dischargeable
-laziness, or a cheat that trivialises its theorem. LLM classifies and, for
-the "dischargeable" bucket, drafts the missing proof — which `coqc` then
-accepts or rejects. Every accepted proof is one axiom deleted, and the ones
-it cannot discharge are the honest argument for `extras/attic/`.
+**Revision (design review): make probe *generation* symbolic too.** Routing
+probe generation through the LLM contradicts the propose/dispose rule for no
+gain and caps coverage at ~30 theorems purely for budget. Ltac2 ships in Coq
+8.20 core (stdlib-only constraint holds): one tactic that walks a statement's
+Prod telescope via `Constr.Unsafe.kind`, splits binders from Prop premises,
+and mechanically builds the probe goals — non-vacuity witness
+(`exists <binders>, H1 /\ ... /\ Hn`), vacuity (`... -> False`), triviality
+(conclusion sans hypotheses). Full 714-theorem coverage, no LLM calls, no cap.
+The LLM's only remaining role in L2 is the residue: probes Ltac2 builds but no
+automatic tactic settles, where a drafted witness or refutation is worth a few
+calls. 2-3 days of fiddly-but-standard Ltac2; removes L2's budget risk entirely.
+
+**L3. Axiom triage for the attic — scoped down (design review).** Full triage
+of all 335 pre-atlas axioms is the worst value on this list: those files are
+headed to `extras/attic/` regardless, so classifying every axiom polishes
+material the project is about to demote. Do a *sample of ~20* — enough for the
+paper's narrative about what shallow `Parameter`-heavy embeddings cost — via
+the original mechanism (LLM classifies: ontological primitive / dischargeable
+laziness / theorem-trivialising cheat; drafts discharging proofs for the
+middle bucket; `coqc` accepts or rejects). Stop there. The 556-vs-0 table is
+already the argument for the attic; it does not need 335 case studies.
 
 **L4. Semantic faithfulness (this is step 3 above).** Adversarial, not
 single-shot: three verifiers per record with distinct lenses — *does the Coq
@@ -204,6 +253,20 @@ goal state>, hyps: [...]}` — and feed that. The available-constants list is wh
 turns a failure into a lesson: *DPL has no modal operator, which is why your
 sentence cannot be written*, rather than *error at line 3*.
 
+**Known violation to fix:** `tool/llm/loop.py` currently does
+`feedback = f"coqc failed:\n{resp['output'][-4000:]}"` — the raw stderr tail,
+exactly what this section forbids. The shipped scaffold predates the rule;
+replace it when the typed extractor lands, and keep both code paths, because
+the difference between them is a measurable experiment (see below).
+
+**The vocabulary must be an artifact, not a gesture.** Ship
+`signatures/<theory>.json` — every exported constant with its type, dumped from
+the same SerAPI pass as step 7. It is simultaneously (a) the evidence behind a
+NOT-STATABLE verdict, (b) the `available:` list in the typed feedback, and
+(c) a browsable "what can this theory even talk about?" page — arguably the
+most educational page the site could have. A NOT-STATABLE without a signature
+manifest behind it is a guess wearing a badge.
+
 We already have the goal states. `HOSTING.md` §2 dumps every sentence's goal
 state in CI as a build artefact, so the repair loop and the Proof-General
 reader read the **same** data structure. The loop costs no extra server.
@@ -245,6 +308,72 @@ consent is not possible.
   finding; silently trying twenty and reporting the first success is not.
 - Rate-limit and cache by statement hash — see `HOSTING.md`; the LLM is the
   budget line, not the hosting.
+
+---
+
+## The paper's experiments (ROADMAP A5, made concrete)
+
+Three instruments, in dependency order. Together they are §§4-5's empirical
+content; none exists in the current autoformalization literature in this form.
+
+**E1. ATLAS-Bench.** Curate the loop logs into a versioned eval set:
+`{nl_claim, theory, gold_bucket, gold_coq_statement}`. The four-bucket
+structure is the novelty — no existing benchmark has NOT-STATABLE as a *gold
+label*, and it is the label that requires a signature manifest to assign
+honestly. Score submissions by compiler, not by string match: a candidate
+statement is correct iff `coqc` proves it equivalent (`<->`) to the gold
+statement, and mutation-generated near-misses (from L2's machinery) supply the
+negatives. Licence and datasheet from day one; retrofit consent is impossible.
+
+**E2. The typed-feedback ablation.** The loop section's central assertion —
+typed feedback beats raw stderr — is currently an article of faith, and
+`loop.py` ships the *control arm*. Run four arms over ATLAS-Bench: A0
+independent resample (no feedback), A1 raw stderr tail (today's loop.py), A2
+typed error only, A3 typed error + signature manifest. Deterministic gold
+labels, fixed corpus, 12 rival object theories: an unusually clean setting,
+and the extractor is needed for the tool regardless, so the experiment's
+marginal cost is only the runs.
+
+**E3. The 12×P formalizability matrix.** Take the union of phenomenon names
+across `edges/*.json` (~25 unique), hand-author one canonical English claim
+per phenomenon following GUIDE.md's sharpening protocol (the only manual
+input, done once), and run the loop's best arm over all 12 theories. Output:
+a complete machine-graded matrix — *which phenomena resist formalization,
+measured in attempts-to-compile* — validated against the 7 hand-graded edges
+as ground truth where they overlap. ≤ ~900 LLM calls (25 × 12 × ≤3 attempts;
+NOT-STATABLE cells short-circuit on the signature check). This is the paper's
+core table, and the thesis of the project made measurable.
+
+## Educational additions (cheap, high leverage)
+
+- **Predict-the-verdict.** Before the checker answers, the student commits to
+  one of the four buckets. One extra click of vanilla JS; converts browsing
+  into active prediction (the intervention learning science actually backs),
+  and enriches every logged turn with *human prior vs compiler truth* — a
+  misconception corpus per phenomenon per framework that nobody has.
+- **Proof ladders.** DPL.v presents 171 theorems in compilation order, which
+  is not learning order. Rank each theory's theorems by measured proof
+  complexity — step count, max goal-state size, dependency depth, all from the
+  step-7 artifacts — and render each theory page as a ladder from starter
+  lemmas to headline results. Later: one-hole exercises (`Proof. ... ▢ ... Qed.`)
+  generated from real proofs and prevalidated by `coqc` in CI, so no student
+  ever meets an unsolvable exercise.
+- **Countermodel exhibits.** Every REFUTED verdict has a machine-checked
+  countermodel behind it (`negneg_witness` is the flagship). Render them as
+  walkable exhibits — the model, the assignment, the failing clause — with
+  every displayed value Coq-computed, not hand-copied into HTML.
+
+## Citability (zero server cost)
+
+- **Zenodo DOI per release**, wired to GitHub releases; release = the
+  `claims.lock` changes (step 6), so a DOI names a specific set of statement
+  hashes.
+- **Per-theorem permalinks**: `#/theorem/<theory>/<name>` pinned to commit +
+  statement hash, with a "cite this theorem" BibTeX button. The difference
+  between being browsed and being cited.
+- **One-command reproduction**: `make verify` reruns verify.py + coqchk and
+  diffs against the committed `.mech.json` and `claims.lock` — a reviewer
+  reproduces the whole evidentiary chain in one line.
 
 ---
 

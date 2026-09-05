@@ -1,0 +1,66 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "extras/FocusEven2.v",
+  "key": "extras__FocusEven2",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 3,
+    "proved": 3,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 26,
+    "toplevel_axioms": 1,
+    "section_assumptions": 11
+  },
+  "assumptions": {
+    "queried": 3,
+    "closed": 0,
+    "not_closed": 3,
+    "undocumented_axioms": [
+      "Entity"
+    ],
+    "detail": {
+      "FocusEven2.even_only_relationship": {
+        "closed": false,
+        "axioms": [
+          "Entity"
+        ],
+        "raw": "Axioms:\nEntity : Type"
+      },
+      "FocusEven2.even_requires_alternatives": {
+        "closed": false,
+        "axioms": [
+          "Entity"
+        ],
+        "raw": "Axioms:\nEntity : Type"
+      },
+      "FocusEven2.only_preserves_focus": {
+        "closed": false,
+        "axioms": [
+          "Entity"
+        ],
+        "raw": "Axioms:\nEntity : Type"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "Entity",
+      "kw": "Parameter",
+      "line": 11
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

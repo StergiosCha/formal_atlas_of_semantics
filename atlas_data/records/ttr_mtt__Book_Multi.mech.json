@@ -1,0 +1,104 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "ttr_mtt/Book_Multi.v",
+  "key": "ttr_mtt__Book_Multi",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 5,
+    "proved": 3,
+    "admitted": 0,
+    "aborted": 2,
+    "unparsed_status": 0,
+    "definitions": 7,
+    "toplevel_axioms": 3,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 3,
+    "closed": 0,
+    "not_closed": 3,
+    "undocumented_axioms": [
+      "Healthy",
+      "Human",
+      "John",
+      "mh"
+    ],
+    "detail": {
+      "Book_Multi.HEALTHY": {
+        "closed": false,
+        "axioms": [
+          "Healthy",
+          "Human",
+          "John",
+          "mh"
+        ],
+        "raw": "Axioms:\nmh : Man -> Human\nJohn : Man\nHuman : CN\nHealthy : Health -> Human -> Prop"
+      },
+      "Book_Multi.HEALTHY2": {
+        "closed": false,
+        "axioms": [
+          "Healthy",
+          "Human",
+          "John",
+          "mh"
+        ],
+        "raw": "Axioms:\nmh : Man -> Human\nJohn : Man\nHuman : CN\nHealthy : Health -> Human -> Prop"
+      },
+      "Book_Multi.HEALTHY5": {
+        "closed": false,
+        "axioms": [
+          "Healthy",
+          "Human",
+          "John",
+          "mh"
+        ],
+        "raw": "Axioms:\nmh : Man -> Human\nJohn : Man\nHuman : CN\nHealthy : Health -> Human -> Prop"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [
+    {
+      "name": "HEALTHY3",
+      "line": 20
+    },
+    {
+      "name": "HEALTHY4",
+      "line": 24
+    }
+  ],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "Healthy",
+      "kw": "Parameter",
+      "line": 6
+    },
+    {
+      "name": "F",
+      "kw": "Parameter",
+      "line": 33
+    },
+    {
+      "name": "STND_art",
+      "kw": "Parameter",
+      "line": 35
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 0,
+      "measured": 4,
+      "detail": "Healthy, Human, John, mh"
+    }
+  ]
+}

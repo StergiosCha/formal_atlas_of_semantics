@@ -1,0 +1,125 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "extras/DowtyTense.v",
+  "key": "extras__DowtyTense",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 2,
+    "stderr_tail": "File \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/DowtyTense.v\", line 7, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]\nFile \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/DowtyTense.v\", line 7, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]"
+  },
+  "counts": {
+    "theorems": 1,
+    "proved": 1,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 11,
+    "toplevel_axioms": 11,
+    "section_assumptions": 7
+  },
+  "assumptions": {
+    "queried": 1,
+    "closed": 0,
+    "not_closed": 1,
+    "undocumented_axioms": [
+      "AGENT",
+      "Event",
+      "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+      "PATIENT",
+      "Time",
+      "World",
+      "lt",
+      "open_ev",
+      "time_of"
+    ],
+    "detail": {
+      "DowtyTense.sentence_true_past": {
+        "closed": false,
+        "axioms": [
+          "AGENT",
+          "Event",
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "PATIENT",
+          "Time",
+          "World",
+          "lt",
+          "open_ev",
+          "time_of"
+        ],
+        "raw": "Axioms:\ntime_of : Event -> Time\nopen_ev : Event -> Prop\nlt : Time -> Time -> Prop\nWorld : Type\nTime : Type\nPATIENT :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  Event -> Prop\nEvent : Type\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type\nAGENT :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  Event -> Prop"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "Event",
+      "kw": "Parameter",
+      "line": 13
+    },
+    {
+      "name": "AGENT",
+      "kw": "Parameter",
+      "line": 14
+    },
+    {
+      "name": "open_ev",
+      "kw": "Parameter",
+      "line": 15
+    },
+    {
+      "name": "volitional",
+      "kw": "Parameter",
+      "line": 16
+    },
+    {
+      "name": "Time",
+      "kw": "Parameter",
+      "line": 25
+    },
+    {
+      "name": "lt",
+      "kw": "Parameter",
+      "line": 26
+    },
+    {
+      "name": "lt_trans",
+      "kw": "Axiom",
+      "line": 27
+    },
+    {
+      "name": "lt_irrefl",
+      "kw": "Axiom",
+      "line": 28
+    },
+    {
+      "name": "lt_total",
+      "kw": "Axiom",
+      "line": 29
+    },
+    {
+      "name": "time_of",
+      "kw": "Parameter",
+      "line": 34
+    },
+    {
+      "name": "World",
+      "kw": "Parameter",
+      "line": 40
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 3,
+      "measured": 9,
+      "detail": "AGENT, Event, MontagueFragment.MontagueFragment.MontagueExtensional.Entity, PATIENT, Time, World, lt, open_ev"
+    }
+  ]
+}

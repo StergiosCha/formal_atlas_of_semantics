@@ -1,0 +1,161 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "ttr_mtt/TTR_theorems_shallow.v",
+  "key": "ttr_mtt__TTR_theorems_shallow",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 12,
+    "proved": 12,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 8,
+    "toplevel_axioms": 9,
+    "section_assumptions": 4
+  },
+  "assumptions": {
+    "queried": 12,
+    "closed": 5,
+    "not_closed": 7,
+    "undocumented_axioms": [
+      "Ind",
+      "john",
+      "man",
+      "run",
+      "walk"
+    ],
+    "detail": {
+      "TTR_theorems_shallow.shallow_complex_inference": {
+        "closed": false,
+        "axioms": [
+          "Ind",
+          "man",
+          "run",
+          "walk"
+        ],
+        "raw": "Axioms:\nwalk : Ind -> Prop\nrun : Ind -> Prop\nman : Ind -> Prop\nInd : Set"
+      },
+      "TTR_theorems_shallow.shallow_john_runs": {
+        "closed": false,
+        "axioms": [
+          "Ind",
+          "john",
+          "man",
+          "run"
+        ],
+        "raw": "Axioms:\nrun : Ind -> Prop\nman : Ind -> Prop\njohn : Ind\nInd : Set"
+      },
+      "TTR_theorems_shallow.shallow_relabel_roundtrip": {
+        "closed": false,
+        "axioms": [
+          "Ind",
+          "man",
+          "run"
+        ],
+        "raw": "Axioms:\nrun : Ind -> Prop\nman : Ind -> Prop\nInd : Set"
+      },
+      "TTR_theorems_shallow.shallow_singleton_sub": {
+        "closed": false,
+        "axioms": [
+          "Ind",
+          "john",
+          "man"
+        ],
+        "raw": "Axioms:\nman : Ind -> Prop\njohn : Ind\nInd : Set"
+      },
+      "TTR_theorems_shallow.shallow_some_man_runs_witness": {
+        "closed": false,
+        "axioms": [
+          "Ind",
+          "man",
+          "run"
+        ],
+        "raw": "Axioms:\nrun : Ind -> Prop\nman : Ind -> Prop\nInd : Set"
+      },
+      "TTR_theorems_shallow.shallow_width_subtyping": {
+        "closed": false,
+        "axioms": [
+          "Ind",
+          "man",
+          "run"
+        ],
+        "raw": "Axioms:\nrun : Ind -> Prop\nman : Ind -> Prop\nInd : Set"
+      },
+      "TTR_theorems_shallow.shallow_width_subtyping_2": {
+        "closed": false,
+        "axioms": [
+          "Ind",
+          "man",
+          "run"
+        ],
+        "raw": "Axioms:\nrun : Ind -> Prop\nman : Ind -> Prop\nInd : Set"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "Ind",
+      "kw": "Parameter",
+      "line": 17
+    },
+    {
+      "name": "john",
+      "kw": "Parameter",
+      "line": 18
+    },
+    {
+      "name": "man",
+      "kw": "Parameter",
+      "line": 19
+    },
+    {
+      "name": "run",
+      "kw": "Parameter",
+      "line": 20
+    },
+    {
+      "name": "walk",
+      "kw": "Parameter",
+      "line": 21
+    },
+    {
+      "name": "dog",
+      "kw": "Parameter",
+      "line": 22
+    },
+    {
+      "name": "cat",
+      "kw": "Parameter",
+      "line": 23
+    },
+    {
+      "name": "love",
+      "kw": "Parameter",
+      "line": 24
+    },
+    {
+      "name": "Unicorn",
+      "kw": "Parameter",
+      "line": 239
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 0,
+      "measured": 5,
+      "detail": "Ind, john, man, run, walk"
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "extras/Link1983.v",
+  "key": "extras__Link1983",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 5,
+    "proved": 5,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 7,
+    "toplevel_axioms": 15,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 5,
+    "closed": 0,
+    "not_closed": 5,
+    "undocumented_axioms": [
+      "LinkPlurals.Entity",
+      "LinkPlurals.distinct_jm",
+      "LinkPlurals.john",
+      "LinkPlurals.john_atom",
+      "LinkPlurals.mary",
+      "LinkPlurals.part_of",
+      "LinkPlurals.part_of_def",
+      "LinkPlurals.sleep",
+      "LinkPlurals.sleep_dist",
+      "LinkPlurals.sum",
+      "LinkPlurals.sum_assoc",
+      "LinkPlurals.sum_comm",
+      "LinkPlurals.sum_idem"
+    ],
+    "detail": {
+      "Link1983.LinkPlurals.dist_inference": {
+        "closed": false,
+        "axioms": [
+          "LinkPlurals.Entity",
+          "LinkPlurals.john",
+          "LinkPlurals.john_atom",
+          "LinkPlurals.mary",
+          "LinkPlurals.part_of",
+          "LinkPlurals.part_of_def",
+          "LinkPlurals.sleep",
+          "LinkPlurals.sleep_dist",
+          "LinkPlurals.sum",
+          "LinkPlurals.sum_assoc",
+          "LinkPlurals.sum_idem"
+        ],
+        "raw": "Axioms:\nLinkPlurals.sum_idem : forall x : LinkPlurals.Entity, LinkPlurals.sum x x = x\nLinkPlurals.sum_assoc :\n  forall x y z : LinkPlurals.Entity,\n  LinkPlurals.sum x (LinkPlurals.sum y z) =\n  LinkPlurals.sum (LinkPlurals.sum x y) z\nLinkPlurals.sum :\n  LinkPlurals.Entity -> LinkPlurals.Entity -> LinkPlurals.Entity\nLinkPlurals.sleep_dist : LinkPlurals.Distributive LinkPlurals.sleep\nLinkPlurals.sleep : LinkPlurals.Entity -> Prop\nLinkPlurals.part_of_def :\n  forall x y : LinkPlurals.Entity,\n  LinkPlurals.part_of x y <-> LinkPlurals.sum x y = y\nLinkPlurals.part_of : LinkPlurals.Entity -> LinkPlurals.Entity -> Prop\nLinkPlurals.mary : LinkPlurals.Entity\nLinkPlurals.john_atom : LinkPlurals.Atom LinkPlurals.john\nLinkPlurals.john : LinkPlurals.Entity\nLinkPlurals.Entity : Type"
+      },
+      "Link1983.LinkPlurals.jm_is_plural": {
+        "closed": false,
+        "axioms": [
+          "LinkPlurals.Entity",
+          "LinkPlurals.distinct_jm",
+          "LinkPlurals.john",
+          "LinkPlurals.john_atom",
+          "LinkPlurals.mary",
+          "LinkPlurals.part_of",
+          "LinkPlurals.part_of_def",
+          "LinkPlurals.sum",
+          "LinkPlurals.sum_assoc",
+          "LinkPlurals.sum_comm",
+          "LinkPlurals.sum_idem"
+        ],
+        "raw": "Axioms:\nLinkPlurals.sum_idem : forall x : LinkPlurals.Entity, LinkPlurals.sum x x = x\nLinkPlurals.sum_comm :\n  forall x y : LinkPlurals.Entity, LinkPlurals.sum x y = LinkPlurals.sum y x\nLinkPlurals.sum_assoc :\n  forall x y z : LinkPlurals.Entity,\n  LinkPlurals.sum x (LinkPlurals.sum y z) =\n  LinkPlurals.sum (LinkPlurals.sum x y) z\nLinkPlurals.sum :\n  LinkPlurals.Entity -> LinkPlurals.Entity -> LinkPlurals.Entity\nLinkPlurals.part_of_def :\n  forall x y : LinkPlurals.Entity,\n  LinkPlurals.part_of x y <-> LinkPlurals.sum x y = y\nLinkPlurals.part_of : LinkPlurals.Entity -> LinkPlurals.Entity -> Prop\nLinkPlurals.mary : LinkPlurals.Entity\nLinkPlurals.john_atom : LinkPlurals.Atom LinkPlurals.john\nLinkPlurals.john : LinkPlurals.Entity\nLinkPlurals.distinct_jm : LinkPlurals.john <> LinkPlurals.mary\nLinkPlurals.Entity : Type"
+      },
+      "Link1983.LinkPlurals.john_in_plural": {
+        "closed": false,
+        "axioms": [
+          "LinkPlurals.Entity",
+          "LinkPlurals.john",
+          "LinkPlurals.mary",
+          "LinkPlurals.part_of",
+          "LinkPlurals.part_of_def",
+          "LinkPlurals.sum",
+          "LinkPlurals.sum_assoc",
+          "LinkPlurals.sum_idem"
+        ],
+        "raw": "Axioms:\nLinkPlurals.sum_idem : forall x : LinkPlurals.Entity, LinkPlurals.sum x x = x\nLinkPlurals.sum_assoc :\n  forall x y z : LinkPlurals.Entity,\n  LinkPlurals.sum x (LinkPlurals.sum y z) =\n  LinkPlurals.sum (LinkPlurals.sum x y) z\nLinkPlurals.sum :\n  LinkPlurals.Entity -> LinkPlurals.Entity -> LinkPlurals.Entity\nLinkPlurals.part_of_def :\n  forall x y : LinkPlurals.Entity,\n  LinkPlurals.part_of x y <-> LinkPlurals.sum x y = y\nLinkPlurals.part_of : LinkPlurals.Entity -> LinkPlurals.Entity -> Prop\nLinkPlurals.mary : LinkPlurals.Entity\nLinkPlurals.john : LinkPlurals.Entity\nLinkPlurals.Entity : Type"
+      },
+      "Link1983.LinkPlurals.part_of_refl": {
+        "closed": false,
+        "axioms": [
+          "LinkPlurals.Entity",
+          "LinkPlurals.part_of",
+          "LinkPlurals.part_of_def",
+          "LinkPlurals.sum",
+          "LinkPlurals.sum_idem"
+        ],
+        "raw": "Axioms:\nLinkPlurals.sum_idem : forall x : LinkPlurals.Entity, LinkPlurals.sum x x = x\nLinkPlurals.sum :\n  LinkPlurals.Entity -> LinkPlurals.Entity -> LinkPlurals.Entity\nLinkPlurals.part_of_def :\n  forall x y : LinkPlurals.Entity,\n  LinkPlurals.part_of x y <-> LinkPlurals.sum x y = y\nLinkPlurals.part_of : LinkPlurals.Entity -> LinkPlurals.Entity -> Prop\nLinkPlurals.Entity : Type"
+      },
+      "Link1983.LinkPlurals.part_of_trans": {
+        "closed": false,
+        "axioms": [
+          "LinkPlurals.Entity",
+          "LinkPlurals.part_of",
+          "LinkPlurals.part_of_def",
+          "LinkPlurals.sum",
+          "LinkPlurals.sum_assoc"
+        ],
+        "raw": "Axioms:\nLinkPlurals.sum_assoc :\n  forall x y z : LinkPlurals.Entity,\n  LinkPlurals.sum x (LinkPlurals.sum y z) =\n  LinkPlurals.sum (LinkPlurals.sum x y) z\nLinkPlurals.sum :\n  LinkPlurals.Entity -> LinkPlurals.Entity -> LinkPlurals.Entity\nLinkPlurals.part_of_def :\n  forall x y : LinkPlurals.Entity,\n  LinkPlurals.part_of x y <-> LinkPlurals.sum x y = y\nLinkPlurals.part_of : LinkPlurals.Entity -> LinkPlurals.Entity -> Prop\nLinkPlurals.Entity : Type"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "Entity",
+      "kw": "Parameter",
+      "line": 5
+    },
+    {
+      "name": "sum",
+      "kw": "Parameter",
+      "line": 7
+    },
+    {
+      "name": "part_of",
+      "kw": "Parameter",
+      "line": 9
+    },
+    {
+      "name": "sum_assoc",
+      "kw": "Axiom",
+      "line": 14
+    },
+    {
+      "name": "sum_comm",
+      "kw": "Axiom",
+      "line": 15
+    },
+    {
+      "name": "sum_idem",
+      "kw": "Axiom",
+      "line": 16
+    },
+    {
+      "name": "part_of_def",
+      "kw": "Axiom",
+      "line": 18
+    },
+    {
+      "name": "john",
+      "kw": "Parameter",
+      "line": 45
+    },
+    {
+      "name": "john_atom",
+      "kw": "Axiom",
+      "line": 46
+    },
+    {
+      "name": "mary_atom",
+      "kw": "Axiom",
+      "line": 47
+    },
+    {
+      "name": "distinct_jm",
+      "kw": "Axiom",
+      "line": 48
+    },
+    {
+      "name": "Boy",
+      "kw": "Parameter",
+      "line": 79
+    },
+    {
+      "name": "sleep",
+      "kw": "Parameter",
+      "line": 86
+    },
+    {
+      "name": "sleep_dist",
+      "kw": "Axiom",
+      "line": 87
+    },
+    {
+      "name": "gather",
+      "kw": "Parameter",
+      "line": 100
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 8,
+      "measured": 13,
+      "detail": "LinkPlurals.Entity, LinkPlurals.distinct_jm, LinkPlurals.john, LinkPlurals.john_atom, LinkPlurals.mary, LinkPlurals.part_of, LinkPlurals.part_of_def, LinkPlurals.sleep"
+    }
+  ]
+}

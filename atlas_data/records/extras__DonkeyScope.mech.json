@@ -1,0 +1,108 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "extras/DonkeyScope.v",
+  "key": "extras__DonkeyScope",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 2,
+    "stderr_tail": "File \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/DonkeyScope.v\", line 9, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]\nFile \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/DonkeyScope.v\", line 9, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]"
+  },
+  "counts": {
+    "theorems": 7,
+    "proved": 5,
+    "admitted": 2,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 30,
+    "toplevel_axioms": 0,
+    "section_assumptions": 17
+  },
+  "assumptions": {
+    "queried": 5,
+    "closed": 0,
+    "not_closed": 5,
+    "undocumented_axioms": [
+      "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+      "admires",
+      "professor",
+      "student"
+    ],
+    "detail": {
+      "DonkeyScope.continuation_scope_correspondence": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "admires",
+          "professor",
+          "student"
+        ],
+        "raw": "Axioms:\nstudent :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nprofessor :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nadmires :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "DonkeyScope.narrow_true": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "admires",
+          "professor",
+          "student"
+        ],
+        "raw": "Axioms:\nstudent :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nprofessor :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nadmires :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "DonkeyScope.scope_ambiguity_distinct_concrete": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "admires",
+          "professor",
+          "student"
+        ],
+        "raw": "Axioms:\nstudent :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nprofessor :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nadmires :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "DonkeyScope.wide_false": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "admires",
+          "professor",
+          "student"
+        ],
+        "raw": "Axioms:\nstudent :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nprofessor :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nadmires :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "DonkeyScope.wide_implies_narrow": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "admires",
+          "professor",
+          "student"
+        ],
+        "raw": "Axioms:\nstudent :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nprofessor :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nadmires :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [
+    {
+      "name": "narrow_not_imply_wide_counterexample",
+      "line": 126
+    },
+    {
+      "name": "choice_equiv_narrow",
+      "line": 236
+    }
+  ],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 2,
+      "measured": 4,
+      "detail": "MontagueFragment.MontagueFragment.MontagueExtensional.Entity, admires, professor, student"
+    }
+  ]
+}

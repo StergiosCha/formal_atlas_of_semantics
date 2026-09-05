@@ -1,0 +1,300 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "extras/mass.v",
+  "key": "extras__mass",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 3,
+    "proved": 3,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 36,
+    "toplevel_axioms": 46,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 3,
+    "closed": 0,
+    "not_closed": 3,
+    "undocumented_axioms": [
+      "measure_presupposition",
+      "noun_classification"
+    ],
+    "detail": {
+      "mass.count_to_mass_preservation": {
+        "closed": false,
+        "axioms": [
+          "noun_classification"
+        ],
+        "raw": "Axioms:\nnoun_classification : indi.DomCN -> noun_type"
+      },
+      "mass.mass_measurable": {
+        "closed": false,
+        "axioms": [
+          "noun_classification"
+        ],
+        "raw": "Axioms:\nnoun_classification : indi.DomCN -> noun_type"
+      },
+      "mass.measure_phrase_decomposition": {
+        "closed": false,
+        "axioms": [
+          "measure_presupposition",
+          "noun_classification"
+        ],
+        "raw": "Axioms:\nnoun_classification : indi.DomCN -> noun_type\nmeasure_presupposition :\n  forall mp : MeasurePhrase, exists _ : substance_type mp, True"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "noun_classification",
+      "kw": "Parameter",
+      "line": 15
+    },
+    {
+      "name": "Water",
+      "kw": "Parameter",
+      "line": 22
+    },
+    {
+      "name": "IC_Water",
+      "kw": "Parameter",
+      "line": 25
+    },
+    {
+      "name": "IC_Gold",
+      "kw": "Parameter",
+      "line": 26
+    },
+    {
+      "name": "IC_Air",
+      "kw": "Parameter",
+      "line": 27
+    },
+    {
+      "name": "IC_Milk",
+      "kw": "Parameter",
+      "line": 28
+    },
+    {
+      "name": "IC_Coffee",
+      "kw": "Parameter",
+      "line": 29
+    },
+    {
+      "name": "water_mass",
+      "kw": "Axiom",
+      "line": 39
+    },
+    {
+      "name": "gold_mass",
+      "kw": "Axiom",
+      "line": 40
+    },
+    {
+      "name": "air_mass",
+      "kw": "Axiom",
+      "line": 41
+    },
+    {
+      "name": "milk_mass",
+      "kw": "Axiom",
+      "line": 42
+    },
+    {
+      "name": "coffee_mass",
+      "kw": "Axiom",
+      "line": 43
+    },
+    {
+      "name": "human_count",
+      "kw": "Axiom",
+      "line": 46
+    },
+    {
+      "name": "man_count",
+      "kw": "Axiom",
+      "line": 47
+    },
+    {
+      "name": "book_count",
+      "kw": "Axiom",
+      "line": 48
+    },
+    {
+      "name": "Liter",
+      "kw": "Parameter",
+      "line": 55
+    },
+    {
+      "name": "cup_to_phy",
+      "kw": "Parameter",
+      "line": 58
+    },
+    {
+      "name": "glass_to_phy",
+      "kw": "Parameter",
+      "line": 59
+    },
+    {
+      "name": "IC_Liter",
+      "kw": "Parameter",
+      "line": 64
+    },
+    {
+      "name": "IC_Kilogram",
+      "kw": "Parameter",
+      "line": 65
+    },
+    {
+      "name": "IC_Cup",
+      "kw": "Parameter",
+      "line": 66
+    },
+    {
+      "name": "IC_Glass",
+      "kw": "Parameter",
+      "line": 67
+    },
+    {
+      "name": "IC_Bottle",
+      "kw": "Parameter",
+      "line": 68
+    },
+    {
+      "name": "liter_count",
+      "kw": "Axiom",
+      "line": 78
+    },
+    {
+      "name": "kilogram_count",
+      "kw": "Axiom",
+      "line": 79
+    },
+    {
+      "name": "cup_count",
+      "kw": "Axiom",
+      "line": 80
+    },
+    {
+      "name": "glass_count",
+      "kw": "Axiom",
+      "line": 81
+    },
+    {
+      "name": "bottle_count",
+      "kw": "Axiom",
+      "line": 82
+    },
+    {
+      "name": "contains",
+      "kw": "Parameter",
+      "line": 146
+    },
+    {
+      "name": "glass1",
+      "kw": "Parameter",
+      "line": 155
+    },
+    {
+      "name": "BookSubstance",
+      "kw": "Parameter",
+      "line": 178
+    },
+    {
+      "name": "IC_BookSubstance",
+      "kw": "Parameter",
+      "line": 179
+    },
+    {
+      "name": "book_to_substance",
+      "kw": "Parameter",
+      "line": 180
+    },
+    {
+      "name": "book_substance_mass",
+      "kw": "Axiom",
+      "line": 181
+    },
+    {
+      "name": "WaterContainer",
+      "kw": "Parameter",
+      "line": 189
+    },
+    {
+      "name": "IC_WaterContainer",
+      "kw": "Parameter",
+      "line": 190
+    },
+    {
+      "name": "water_container_contains",
+      "kw": "Parameter",
+      "line": 191
+    },
+    {
+      "name": "water_container_count",
+      "kw": "Axiom",
+      "line": 192
+    },
+    {
+      "name": "Information",
+      "kw": "Parameter",
+      "line": 224
+    },
+    {
+      "name": "IC_Information",
+      "kw": "Parameter",
+      "line": 225
+    },
+    {
+      "name": "information_mass",
+      "kw": "Axiom",
+      "line": 227
+    },
+    {
+      "name": "book_contains_info",
+      "kw": "Parameter",
+      "line": 229
+    },
+    {
+      "name": "measure_presupposition",
+      "kw": "Axiom",
+      "line": 247
+    },
+    {
+      "name": "worth",
+      "kw": "Parameter",
+      "line": 316
+    },
+    {
+      "name": "drinkable",
+      "kw": "Parameter",
+      "line": 330
+    },
+    {
+      "name": "these_glasses",
+      "kw": "Parameter",
+      "line": 331
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 17,
+      "measured": 2,
+      "detail": "measure_presupposition, noun_classification"
+    }
+  ]
+}

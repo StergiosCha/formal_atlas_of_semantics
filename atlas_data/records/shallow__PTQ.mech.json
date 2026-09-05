@@ -1,0 +1,560 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "shallow/PTQ.v",
+  "key": "shallow__PTQ",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 1,
+    "stderr_tail": "File \"/Users/graogro/Dropbox/revisiting-formal-semantics/shallow/PTQ.v\", line 471, characters 0-3282:\nWarning: Not a fully mutually defined fixpoint\n(e.g., interp_S depends on interp_TV but not conversely).\nWell-foundedness check may fail unexpectedly.\n [non-full-mutual,fixpoints,default]"
+  },
+  "counts": {
+    "theorems": 9,
+    "proved": 8,
+    "admitted": 1,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 77,
+    "toplevel_axioms": 49,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 8,
+    "closed": 0,
+    "not_closed": 8,
+    "undocumented_axioms": [
+      "Entity",
+      "Time",
+      "World",
+      "allegedly'",
+      "be'",
+      "believe_that'",
+      "bill_e",
+      "change'",
+      "conceive'",
+      "date'",
+      "eat'",
+      "find'",
+      "fish'",
+      "john_e",
+      "lose'",
+      "love'",
+      "man'",
+      "mary_e",
+      "ninety_e",
+      "park'",
+      "pen'",
+      "price'",
+      "rapidly'",
+      "rise'",
+      "run'",
+      "seek'",
+      "slowly'",
+      "talk'",
+      "temperature'",
+      "time_lt",
+      "unicorn'",
+      "voluntarily'",
+      "walk'",
+      "woman'"
+    ],
+    "detail": {
+      "PTQ.a_man_walks_correct": {
+        "closed": false,
+        "axioms": [
+          "Entity",
+          "Time",
+          "World",
+          "allegedly'",
+          "be'",
+          "believe_that'",
+          "bill_e",
+          "change'",
+          "conceive'",
+          "date'",
+          "eat'",
+          "find'",
+          "fish'",
+          "john_e",
+          "lose'",
+          "love'",
+          "man'",
+          "mary_e",
+          "ninety_e",
+          "park'",
+          "pen'",
+          "price'",
+          "rapidly'",
+          "rise'",
+          "run'",
+          "seek'",
+          "slowly'",
+          "talk'",
+          "temperature'",
+          "time_lt",
+          "unicorn'",
+          "voluntarily'",
+          "walk'",
+          "woman'"
+        ],
+        "raw": "Axioms:\nwoman' : CN_den\nwalk' : IV_den\nvoluntarily' : IAV_den\nunicorn' : CN_den\ntime_lt : Time -> Time -> Prop\ntemperature' : CN_den\ntalk' : IV_den\nslowly' : IAV_den\nseek' : TV_den\nrun' : IV_den\nrise' : IV_den\nrapidly' : IAV_den\nprice' : CN_den\npen' : CN_den\npark' : CN_den\nninety_e : Entity\nmary_e : Entity\nman' : CN_den\nlove' : TV_den\nlose' : TV_den\njohn_e : Entity\nfish' : CN_den\nfind' : TV_den\neat' : TV_den\ndate' : TV_den\nconceive' : TV_den\nchange' : IV_den\nbill_e : Entity\nbelieve_that' : S_den -> IV_den\nbe' : TV_den\nallegedly' : IAV_den\nWorld : Type\nTime : Type\nEntity : Type"
+      },
+      "PTQ.bill_walks_correct": {
+        "closed": false,
+        "axioms": [
+          "Entity",
+          "Time",
+          "World",
+          "allegedly'",
+          "be'",
+          "believe_that'",
+          "bill_e",
+          "change'",
+          "conceive'",
+          "date'",
+          "eat'",
+          "find'",
+          "fish'",
+          "john_e",
+          "lose'",
+          "love'",
+          "man'",
+          "mary_e",
+          "ninety_e",
+          "park'",
+          "pen'",
+          "price'",
+          "rapidly'",
+          "rise'",
+          "run'",
+          "seek'",
+          "slowly'",
+          "talk'",
+          "temperature'",
+          "time_lt",
+          "unicorn'",
+          "voluntarily'",
+          "walk'",
+          "woman'"
+        ],
+        "raw": "Axioms:\nwoman' : CN_den\nwalk' : IV_den\nvoluntarily' : IAV_den\nunicorn' : CN_den\ntime_lt : Time -> Time -> Prop\ntemperature' : CN_den\ntalk' : IV_den\nslowly' : IAV_den\nseek' : TV_den\nrun' : IV_den\nrise' : IV_den\nrapidly' : IAV_den\nprice' : CN_den\npen' : CN_den\npark' : CN_den\nninety_e : Entity\nmary_e : Entity\nman' : CN_den\nlove' : TV_den\nlose' : TV_den\njohn_e : Entity\nfish' : CN_den\nfind' : TV_den\neat' : TV_den\ndate' : TV_den\nconceive' : TV_den\nchange' : IV_den\nbill_e : Entity\nbelieve_that' : S_den -> IV_den\nbe' : TV_den\nallegedly' : IAV_den\nWorld : Type\nTime : Type\nEntity : Type"
+      },
+      "PTQ.every_man_walks_correct": {
+        "closed": false,
+        "axioms": [
+          "Entity",
+          "Time",
+          "World",
+          "allegedly'",
+          "be'",
+          "believe_that'",
+          "bill_e",
+          "change'",
+          "conceive'",
+          "date'",
+          "eat'",
+          "find'",
+          "fish'",
+          "john_e",
+          "lose'",
+          "love'",
+          "man'",
+          "mary_e",
+          "ninety_e",
+          "park'",
+          "pen'",
+          "price'",
+          "rapidly'",
+          "rise'",
+          "run'",
+          "seek'",
+          "slowly'",
+          "talk'",
+          "temperature'",
+          "time_lt",
+          "unicorn'",
+          "voluntarily'",
+          "walk'",
+          "woman'"
+        ],
+        "raw": "Axioms:\nwoman' : CN_den\nwalk' : IV_den\nvoluntarily' : IAV_den\nunicorn' : CN_den\ntime_lt : Time -> Time -> Prop\ntemperature' : CN_den\ntalk' : IV_den\nslowly' : IAV_den\nseek' : TV_den\nrun' : IV_den\nrise' : IV_den\nrapidly' : IAV_den\nprice' : CN_den\npen' : CN_den\npark' : CN_den\nninety_e : Entity\nmary_e : Entity\nman' : CN_den\nlove' : TV_den\nlose' : TV_den\njohn_e : Entity\nfish' : CN_den\nfind' : TV_den\neat' : TV_den\ndate' : TV_den\nconceive' : TV_den\nchange' : IV_den\nbill_e : Entity\nbelieve_that' : S_den -> IV_den\nbe' : TV_den\nallegedly' : IAV_den\nWorld : Type\nTime : Type\nEntity : Type"
+      },
+      "PTQ.every_man_walks_extensional": {
+        "closed": false,
+        "axioms": [
+          "Entity",
+          "Time",
+          "World",
+          "man'",
+          "walk'"
+        ],
+        "raw": "Axioms:\nwalk' : IV_den\nman' : CN_den\nWorld : Type\nTime : Type\nEntity : Type"
+      },
+      "PTQ.extensional_collapse_walk": {
+        "closed": false,
+        "axioms": [
+          "Entity",
+          "Time",
+          "World",
+          "walk'"
+        ],
+        "raw": "Axioms:\nwalk' : IV_den\nWorld : Type\nTime : Type\nEntity : Type"
+      },
+      "PTQ.john_walks_implies_some_man_walks": {
+        "closed": false,
+        "axioms": [
+          "Entity",
+          "Time",
+          "World",
+          "allegedly'",
+          "be'",
+          "believe_that'",
+          "bill_e",
+          "change'",
+          "conceive'",
+          "date'",
+          "eat'",
+          "find'",
+          "fish'",
+          "john_e",
+          "lose'",
+          "love'",
+          "man'",
+          "mary_e",
+          "ninety_e",
+          "park'",
+          "pen'",
+          "price'",
+          "rapidly'",
+          "rise'",
+          "run'",
+          "seek'",
+          "slowly'",
+          "talk'",
+          "temperature'",
+          "time_lt",
+          "unicorn'",
+          "voluntarily'",
+          "walk'",
+          "woman'"
+        ],
+        "raw": "Axioms:\nwoman' : CN_den\nwalk' : IV_den\nvoluntarily' : IAV_den\nunicorn' : CN_den\ntime_lt : Time -> Time -> Prop\ntemperature' : CN_den\ntalk' : IV_den\nslowly' : IAV_den\nseek' : TV_den\nrun' : IV_den\nrise' : IV_den\nrapidly' : IAV_den\nprice' : CN_den\npen' : CN_den\npark' : CN_den\nninety_e : Entity\nmary_e : Entity\nman' : CN_den\nlove' : TV_den\nlose' : TV_den\njohn_e : Entity\nfish' : CN_den\nfind' : TV_den\neat' : TV_den\ndate' : TV_den\nconceive' : TV_den\nchange' : IV_den\nbill_e : Entity\nbelieve_that' : S_den -> IV_den\nbe' : TV_den\nallegedly' : IAV_den\nWorld : Type\nTime : Type\nEntity : Type"
+      },
+      "PTQ.rigid_is_rigid": {
+        "closed": false,
+        "axioms": [
+          "Entity",
+          "Time",
+          "World"
+        ],
+        "raw": "Axioms:\nWorld : Type\nTime : Type\nEntity : Type"
+      },
+      "PTQ.seek_ambiguity": {
+        "closed": false,
+        "axioms": [
+          "Entity",
+          "Time",
+          "World",
+          "allegedly'",
+          "be'",
+          "believe_that'",
+          "bill_e",
+          "change'",
+          "conceive'",
+          "date'",
+          "eat'",
+          "find'",
+          "fish'",
+          "john_e",
+          "lose'",
+          "love'",
+          "man'",
+          "mary_e",
+          "ninety_e",
+          "park'",
+          "pen'",
+          "price'",
+          "rapidly'",
+          "rise'",
+          "run'",
+          "seek'",
+          "slowly'",
+          "talk'",
+          "temperature'",
+          "time_lt",
+          "unicorn'",
+          "voluntarily'",
+          "walk'",
+          "woman'"
+        ],
+        "raw": "Axioms:\nwoman' : CN_den\nwalk' : IV_den\nvoluntarily' : IAV_den\nunicorn' : CN_den\ntime_lt : Time -> Time -> Prop\ntemperature' : CN_den\ntalk' : IV_den\nslowly' : IAV_den\nseek' : TV_den\nrun' : IV_den\nrise' : IV_den\nrapidly' : IAV_den\nprice' : CN_den\npen' : CN_den\npark' : CN_den\nninety_e : Entity\nmary_e : Entity\nman' : CN_den\nlove' : TV_den\nlose' : TV_den\njohn_e : Entity\nfish' : CN_den\nfind' : TV_den\neat' : TV_den\ndate' : TV_den\nconceive' : TV_den\nchange' : IV_den\nbill_e : Entity\nbelieve_that' : S_den -> IV_den\nbe' : TV_den\nallegedly' : IAV_den\nWorld : Type\nTime : Type\nEntity : Type"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [
+    {
+      "name": "temperature_puzzle",
+      "line": 820
+    }
+  ],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "Entity",
+      "kw": "Parameter",
+      "line": 25
+    },
+    {
+      "name": "World",
+      "kw": "Parameter",
+      "line": 26
+    },
+    {
+      "name": "Time",
+      "kw": "Parameter",
+      "line": 27
+    },
+    {
+      "name": "time_le",
+      "kw": "Parameter",
+      "line": 35
+    },
+    {
+      "name": "time_le_refl",
+      "kw": "Axiom",
+      "line": 36
+    },
+    {
+      "name": "time_le_trans",
+      "kw": "Axiom",
+      "line": 37
+    },
+    {
+      "name": "time_lt",
+      "kw": "Parameter",
+      "line": 39
+    },
+    {
+      "name": "john_e",
+      "kw": "Parameter",
+      "line": 177
+    },
+    {
+      "name": "walk'",
+      "kw": "Parameter",
+      "line": 208
+    },
+    {
+      "name": "run'",
+      "kw": "Parameter",
+      "line": 209
+    },
+    {
+      "name": "talk'",
+      "kw": "Parameter",
+      "line": 210
+    },
+    {
+      "name": "rise'",
+      "kw": "Parameter",
+      "line": 211
+    },
+    {
+      "name": "change'",
+      "kw": "Parameter",
+      "line": 212
+    },
+    {
+      "name": "find'",
+      "kw": "Parameter",
+      "line": 217
+    },
+    {
+      "name": "lose'",
+      "kw": "Parameter",
+      "line": 218
+    },
+    {
+      "name": "eat'",
+      "kw": "Parameter",
+      "line": 219
+    },
+    {
+      "name": "love'",
+      "kw": "Parameter",
+      "line": 220
+    },
+    {
+      "name": "date'",
+      "kw": "Parameter",
+      "line": 221
+    },
+    {
+      "name": "be'",
+      "kw": "Parameter",
+      "line": 222
+    },
+    {
+      "name": "seek'",
+      "kw": "Parameter",
+      "line": 226
+    },
+    {
+      "name": "conceive'",
+      "kw": "Parameter",
+      "line": 227
+    },
+    {
+      "name": "man'",
+      "kw": "Parameter",
+      "line": 232
+    },
+    {
+      "name": "woman'",
+      "kw": "Parameter",
+      "line": 233
+    },
+    {
+      "name": "park'",
+      "kw": "Parameter",
+      "line": 234
+    },
+    {
+      "name": "fish'",
+      "kw": "Parameter",
+      "line": 235
+    },
+    {
+      "name": "pen'",
+      "kw": "Parameter",
+      "line": 236
+    },
+    {
+      "name": "unicorn'",
+      "kw": "Parameter",
+      "line": 237
+    },
+    {
+      "name": "price'",
+      "kw": "Parameter",
+      "line": 238
+    },
+    {
+      "name": "temperature'",
+      "kw": "Parameter",
+      "line": 239
+    },
+    {
+      "name": "rapidly'",
+      "kw": "Parameter",
+      "line": 242
+    },
+    {
+      "name": "slowly'",
+      "kw": "Parameter",
+      "line": 243
+    },
+    {
+      "name": "voluntarily'",
+      "kw": "Parameter",
+      "line": 244
+    },
+    {
+      "name": "allegedly'",
+      "kw": "Parameter",
+      "line": 245
+    },
+    {
+      "name": "necessarily'",
+      "kw": "Parameter",
+      "line": 248
+    },
+    {
+      "name": "in'",
+      "kw": "Parameter",
+      "line": 251
+    },
+    {
+      "name": "about'",
+      "kw": "Parameter",
+      "line": 252
+    },
+    {
+      "name": "believe_that'",
+      "kw": "Parameter",
+      "line": 254
+    },
+    {
+      "name": "assert_that'",
+      "kw": "Parameter",
+      "line": 255
+    },
+    {
+      "name": "try_to'",
+      "kw": "Parameter",
+      "line": 258
+    },
+    {
+      "name": "wish_to'",
+      "kw": "Parameter",
+      "line": 259
+    },
+    {
+      "name": "walk_extensional",
+      "kw": "Axiom",
+      "line": 621
+    },
+    {
+      "name": "run_extensional",
+      "kw": "Axiom",
+      "line": 622
+    },
+    {
+      "name": "talk_extensional",
+      "kw": "Axiom",
+      "line": 623
+    },
+    {
+      "name": "walk_reduces",
+      "kw": "Axiom",
+      "line": 634
+    },
+    {
+      "name": "run_reduces",
+      "kw": "Axiom",
+      "line": 635
+    },
+    {
+      "name": "talk_reduces",
+      "kw": "Axiom",
+      "line": 636
+    },
+    {
+      "name": "man_reduces",
+      "kw": "Axiom",
+      "line": 637
+    },
+    {
+      "name": "woman_reduces",
+      "kw": "Axiom",
+      "line": 638
+    },
+    {
+      "name": "seek_def",
+      "kw": "Axiom",
+      "line": 647
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 11,
+      "measured": 34,
+      "detail": "Entity, Time, World, allegedly', be', believe_that', bill_e, change'"
+    }
+  ]
+}

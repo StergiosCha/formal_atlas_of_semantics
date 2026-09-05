@@ -1,0 +1,103 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "ttr_mtt/Book_Event_Adv.v",
+  "key": "ttr_mtt__Book_Event_Adv",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 1,
+    "proved": 1,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 4,
+    "toplevel_axioms": 7,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 1,
+    "closed": 0,
+    "not_closed": 1,
+    "undocumented_axioms": [
+      "Human",
+      "John",
+      "Manner",
+      "illegible_m",
+      "m",
+      "mh",
+      "u",
+      "write"
+    ],
+    "detail": {
+      "Book_Event_Adv.MANNER": {
+        "closed": false,
+        "axioms": [
+          "Human",
+          "John",
+          "Manner",
+          "illegible_m",
+          "m",
+          "mh",
+          "u",
+          "write"
+        ],
+        "raw": "Axioms:\nwrite : forall m : Manner, Human -> Evt_m m -> Prop\nu : Evt_m m\nmh : Man -> Human\nm : Manner\nillegible_m : Manner -> Prop\nManner : Set\nJohn : Man\nHuman : CN"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "Manner",
+      "kw": "Parameter",
+      "line": 2
+    },
+    {
+      "name": "Agent",
+      "kw": "Parameter",
+      "line": 3
+    },
+    {
+      "name": "illegible_m",
+      "kw": "Parameter",
+      "line": 4
+    },
+    {
+      "name": "illegible_ma",
+      "kw": "Parameter",
+      "line": 5
+    },
+    {
+      "name": "write",
+      "kw": "Parameter",
+      "line": 10
+    },
+    {
+      "name": "m",
+      "kw": "Parameter",
+      "line": 14
+    },
+    {
+      "name": "u",
+      "kw": "Parameter",
+      "line": 15
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 0,
+      "measured": 8,
+      "detail": "Human, John, Manner, illegible_m, m, mh, u, write"
+    }
+  ]
+}

@@ -1,0 +1,259 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "extras/ImperfectiveParadox.v",
+  "key": "extras__ImperfectiveParadox",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 2,
+    "stderr_tail": "File \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/ImperfectiveParadox.v\", line 7, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]\nFile \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/ImperfectiveParadox.v\", line 7, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]"
+  },
+  "counts": {
+    "theorems": 7,
+    "proved": 6,
+    "admitted": 1,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 18,
+    "toplevel_axioms": 17,
+    "section_assumptions": 22
+  },
+  "assumptions": {
+    "queried": 6,
+    "closed": 0,
+    "not_closed": 6,
+    "undocumented_axioms": [
+      "AGENT",
+      "Event",
+      "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+      "PATIENT",
+      "Time",
+      "World",
+      "cross_street_ev",
+      "crossing_event_unique",
+      "culminates",
+      "lt",
+      "progressive_subevent",
+      "read_ev",
+      "result_state",
+      "simple_past_false",
+      "subevent",
+      "time_of"
+    ],
+    "detail": {
+      "ImperfectiveParadox.perfective_entails_progressive": {
+        "closed": false,
+        "axioms": [
+          "AGENT",
+          "Event",
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "PATIENT",
+          "Time",
+          "World",
+          "culminates",
+          "lt",
+          "progressive_subevent",
+          "read_ev",
+          "subevent",
+          "time_of"
+        ],
+        "raw": "Axioms:\ntime_of : Event -> Time\nsubevent : Event -> Event -> Prop\nread_ev : Event -> Prop\nprogressive_subevent :\n  forall e : Event,\n  exists e_prog : Event,\n    subevent e_prog e /\\ ~ culminates e_prog e /\\ time_of e_prog = time_of e\nlt : Time -> Time -> Prop\nculminates : Event -> Event -> Prop\nWorld : Type\nTime : Type\nPATIENT :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  Event -> Prop\nEvent : Type\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type\nAGENT :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  Event -> Prop"
+      },
+      "ImperfectiveParadox.perfective_entails_progressive_v2": {
+        "closed": false,
+        "axioms": [
+          "AGENT",
+          "Event",
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "PATIENT",
+          "Time",
+          "World",
+          "culminates",
+          "lt",
+          "progressive_subevent",
+          "read_ev",
+          "subevent",
+          "time_of"
+        ],
+        "raw": "Axioms:\ntime_of : Event -> Time\nsubevent : Event -> Event -> Prop\nread_ev : Event -> Prop\nprogressive_subevent :\n  forall e : Event,\n  exists e_prog : Event,\n    subevent e_prog e /\\ ~ culminates e_prog e /\\ time_of e_prog = time_of e\nlt : Time -> Time -> Prop\nculminates : Event -> Event -> Prop\nWorld : Type\nTime : Type\nPATIENT :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  Event -> Prop\nEvent : Type\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type\nAGENT :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  Event -> Prop"
+      },
+      "ImperfectiveParadox.perfective_is_false": {
+        "closed": false,
+        "axioms": [
+          "AGENT",
+          "Event",
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "PATIENT",
+          "Time",
+          "World",
+          "cross_street_ev",
+          "crossing_event_unique",
+          "lt",
+          "result_state",
+          "time_of"
+        ],
+        "raw": "Axioms:\ntime_of : Event -> Time\nresult_state : Event -> Prop\nlt : Time -> Time -> Prop\ncrossing_event_unique :\n  forall\n    (john\n     street : MontagueFragment.MontagueFragment.MontagueExtensional.Entity)\n    (e1 e2 : Event),\n  cross_street_ev e1 ->\n  AGENT john e1 ->\n  PATIENT street e1 ->\n  cross_street_ev e2 -> AGENT john e2 -> PATIENT street e2 -> e1 = e2\ncross_street_ev : Event -> Prop\nWorld : Type\nTime : Type\nPATIENT :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  Event -> Prop\nEvent : Type\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type\nAGENT :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  Event -> Prop"
+      },
+      "ImperfectiveParadox.progressive_does_not_entail_perfective": {
+        "closed": false,
+        "axioms": [
+          "AGENT",
+          "Event",
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "PATIENT",
+          "Time",
+          "World",
+          "culminates",
+          "lt",
+          "read_ev",
+          "result_state",
+          "simple_past_false",
+          "subevent",
+          "time_of"
+        ],
+        "raw": "Axioms:\ntime_of : Event -> Time\nsubevent : Event -> Event -> Prop\nsimple_past_false :\n  forall\n    (john\n     book : MontagueFragment.MontagueFragment.MontagueExtensional.Entity)\n    (e_reading e_interrupted : Event) (w0 : World) \n    (t_past t_speech : Time),\n  lt t_past t_speech ->\n  read_ev e_reading /\\ AGENT john e_reading /\\ PATIENT book e_reading ->\n  time_of e_interrupted = t_past /\\\n  subevent e_interrupted e_reading /\\\n  ~ culminates e_interrupted e_reading /\\ ~ result_state e_reading ->\n  ~ simple_past john book (w0, t_speech)\nresult_state : Event -> Prop\nread_ev : Event -> Prop\nlt : Time -> Time -> Prop\nculminates : Event -> Event -> Prop\nWorld : Type\nTime : Type\nPATIENT :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  Event -> Prop\nEvent : Type\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type\nAGENT :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  Event -> Prop"
+      },
+      "ImperfectiveParadox.progressive_is_true": {
+        "closed": false,
+        "axioms": [
+          "AGENT",
+          "Event",
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "PATIENT",
+          "Time",
+          "World",
+          "cross_street_ev",
+          "culminates",
+          "lt",
+          "subevent",
+          "time_of"
+        ],
+        "raw": "Axioms:\ntime_of : Event -> Time\nsubevent : Event -> Event -> Prop\nlt : Time -> Time -> Prop\nculminates : Event -> Event -> Prop\ncross_street_ev : Event -> Prop\nWorld : Type\nTime : Type\nPATIENT :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  Event -> Prop\nEvent : Type\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type\nAGENT :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  Event -> Prop"
+      },
+      "ImperfectiveParadox.progressive_true": {
+        "closed": false,
+        "axioms": [
+          "AGENT",
+          "Event",
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "PATIENT",
+          "Time",
+          "World",
+          "culminates",
+          "lt",
+          "read_ev",
+          "result_state",
+          "subevent",
+          "time_of"
+        ],
+        "raw": "Axioms:\ntime_of : Event -> Time\nsubevent : Event -> Event -> Prop\nresult_state : Event -> Prop\nread_ev : Event -> Prop\nlt : Time -> Time -> Prop\nculminates : Event -> Event -> Prop\nWorld : Type\nTime : Type\nPATIENT :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  Event -> Prop\nEvent : Type\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type\nAGENT :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  Event -> Prop"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [
+    {
+      "name": "simple_past_false",
+      "line": 319
+    }
+  ],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "Event",
+      "kw": "Parameter",
+      "line": 12
+    },
+    {
+      "name": "AGENT",
+      "kw": "Parameter",
+      "line": 13
+    },
+    {
+      "name": "Time",
+      "kw": "Parameter",
+      "line": 15
+    },
+    {
+      "name": "lt",
+      "kw": "Parameter",
+      "line": 16
+    },
+    {
+      "name": "lt_trans",
+      "kw": "Axiom",
+      "line": 17
+    },
+    {
+      "name": "lt_irrefl",
+      "kw": "Axiom",
+      "line": 18
+    },
+    {
+      "name": "lt_total",
+      "kw": "Axiom",
+      "line": 19
+    },
+    {
+      "name": "time_of",
+      "kw": "Parameter",
+      "line": 21
+    },
+    {
+      "name": "World",
+      "kw": "Parameter",
+      "line": 23
+    },
+    {
+      "name": "subevent",
+      "kw": "Parameter",
+      "line": 29
+    },
+    {
+      "name": "subevent_refl",
+      "kw": "Axiom",
+      "line": 30
+    },
+    {
+      "name": "subevent_trans",
+      "kw": "Axiom",
+      "line": 31
+    },
+    {
+      "name": "culminates",
+      "kw": "Parameter",
+      "line": 33
+    },
+    {
+      "name": "result_state",
+      "kw": "Parameter",
+      "line": 34
+    },
+    {
+      "name": "culminates_sub",
+      "kw": "Axiom",
+      "line": 35
+    },
+    {
+      "name": "cross_street_ev",
+      "kw": "Parameter",
+      "line": 40
+    },
+    {
+      "name": "interrupt",
+      "kw": "Parameter",
+      "line": 41
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 9,
+      "measured": 16,
+      "detail": "AGENT, Event, MontagueFragment.MontagueFragment.MontagueExtensional.Entity, PATIENT, Time, World, cross_street_ev, crossing_event_unique"
+    }
+  ]
+}

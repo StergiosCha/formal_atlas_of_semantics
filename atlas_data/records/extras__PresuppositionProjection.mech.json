@@ -1,0 +1,109 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "extras/PresuppositionProjection.v",
+  "key": "extras__PresuppositionProjection",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 2,
+    "stderr_tail": "File \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/PresuppositionProjection.v\", line 9, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]\nFile \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/PresuppositionProjection.v\", line 9, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]"
+  },
+  "counts": {
+    "theorems": 8,
+    "proved": 8,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 30,
+    "toplevel_axioms": 0,
+    "section_assumptions": 18
+  },
+  "assumptions": {
+    "queried": 8,
+    "closed": 3,
+    "not_closed": 5,
+    "undocumented_axioms": [
+      "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+      "bald",
+      "believes",
+      "france",
+      "john",
+      "king_of",
+      "knows",
+      "left",
+      "married",
+      "mary",
+      "pregnant",
+      "rich",
+      "wife_of"
+    ],
+    "detail": {
+      "PresuppositionProjection.belief_is_plug": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "believes"
+        ],
+        "raw": "Axioms:\nbelieves :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  Prop -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PresuppositionProjection.complex_presupposition": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "bald",
+          "france",
+          "john",
+          "king_of",
+          "knows",
+          "left",
+          "mary"
+        ],
+        "raw": "Axioms:\nmary : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nleft : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nknows :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  Prop -> Prop\nking_of :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\njohn : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nfrance : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nbald : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PresuppositionProjection.conditional_presupposition": {
+        "closed": false,
+        "axioms": [
+          "john",
+          "married",
+          "pregnant",
+          "rich",
+          "wife_of"
+        ],
+        "raw": "Axioms:\nwife_of :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nrich : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\npregnant :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nmarried :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\njohn : MontagueFragment.MontagueFragment.MontagueExtensional.Entity"
+      },
+      "PresuppositionProjection.same_presupposition_under_negation": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "bald",
+          "france",
+          "king_of"
+        ],
+        "raw": "Axioms:\nking_of :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nfrance : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nbald : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PresuppositionProjection.universal_presupposition_projection": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "john"
+        ],
+        "raw": "Axioms:\njohn : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 0,
+      "measured": 13,
+      "detail": "MontagueFragment.MontagueFragment.MontagueExtensional.Entity, bald, believes, france, john, king_of, knows, left"
+    }
+  ]
+}

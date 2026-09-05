@@ -1,6 +1,6 @@
 # Formalizability Atlas of Semantics — current state
 
-Coq files audited: **64** · theorem statements: **1045** (proved 1033, admitted 12) · papers assessed: **226** · records disputed by the verifier: **0**
+Coq files audited: **64** · theorem statements: **1045** (proved 1033, admitted 12) · papers assessed: **230** · records disputed by the verifier: **0**
 
 ## Determination (four-point scale) over formalized sources
 
@@ -283,7 +283,7 @@ Grades per phenomenon, from bridge theorems: 5 definitional / 4 equivalence / 3 
 
 | Category | Papers |
 |---|---|
-| A | 74 |
+| A | 78 |
 | B | 52 |
 | C | 50 |
 | D | 50 |
@@ -292,12 +292,12 @@ Grades per phenomenon, from bridge theorems: 5 definitional / 4 equivalence / 3 
 
 | Level | Meaning | Papers |
 |---|---|---|
-| F0 | surveyed only (A-D prediction, no source on disk) | 158 |
-| F1 | sourced (PDF/djvu on disk) | 17 |
+| F0 | surveyed only (A-D prediction, no source on disk) | 86 |
+| F1 | sourced (PDF/djvu on disk) | 90 |
 | F2 | designed (design doc maps its content) | 21 |
 | F3 | piloted (some Coq exists; record may be partial) | 13 |
 | F4 | formalized (atlas-standard file, audited record) | 9 |
-| F5 | verified & connected (verify agrees and/or in a graded edge) | 8 |
+| F5 | verified & connected (verify agrees and/or in a graded edge) | 11 |
 
 ### Survey prediction vs actual determination (findings)
 

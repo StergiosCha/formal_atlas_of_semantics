@@ -1,0 +1,386 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "extras/additive_new.v",
+  "key": "extras__additive_new",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 1,
+    "stderr_tail": "File \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/additive_new.v\", line 92, characters 0-169:\nWarning: Not a truly recursive fixpoint. [non-recursive,fixpoints,default]"
+  },
+  "counts": {
+    "theorems": 18,
+    "proved": 17,
+    "admitted": 1,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 29,
+    "toplevel_axioms": 26,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 17,
+    "closed": 1,
+    "not_closed": 16,
+    "undocumented_axioms": [
+      "AlternativeSemantics.Context",
+      "AlternativeSemantics.Entity",
+      "AlternativeSemantics.SumEntity",
+      "AlternativeSemantics.World",
+      "AlternativeSemantics.arrived",
+      "AlternativeSemantics.atom",
+      "AlternativeSemantics.atom_in_sum_only",
+      "AlternativeSemantics.ctx_contains_focus",
+      "AlternativeSemantics.ctx_entities",
+      "AlternativeSemantics.entity_eqb",
+      "AlternativeSemantics.entity_eqb_spec",
+      "AlternativeSemantics.example_ctx",
+      "AlternativeSemantics.example_ctx_entities",
+      "AlternativeSemantics.john",
+      "AlternativeSemantics.john_neq_mary",
+      "AlternativeSemantics.john_neq_susan",
+      "AlternativeSemantics.mary",
+      "AlternativeSemantics.predicate_injective",
+      "AlternativeSemantics.sing",
+      "AlternativeSemantics.sing_atom",
+      "AlternativeSemantics.sum",
+      "AlternativeSemantics.sum_has_atoms",
+      "AlternativeSemantics.susan",
+      "AlternativeSemantics.tall"
+    ],
+    "detail": {
+      "additive_new.AlternativeSemantics.additive_exclusive_incompatible": {
+        "closed": false,
+        "axioms": [
+          "AlternativeSemantics.World"
+        ],
+        "raw": "Axioms:\nAlternativeSemantics.World : Type"
+      },
+      "additive_new.AlternativeSemantics.alternatives_contains_focus": {
+        "closed": false,
+        "axioms": [
+          "AlternativeSemantics.Context",
+          "AlternativeSemantics.Entity",
+          "AlternativeSemantics.World",
+          "AlternativeSemantics.ctx_contains_focus",
+          "AlternativeSemantics.ctx_entities",
+          "AlternativeSemantics.entity_eqb"
+        ],
+        "raw": "Axioms:\nAlternativeSemantics.entity_eqb :\n  AlternativeSemantics.Entity -> AlternativeSemantics.Entity -> bool\nAlternativeSemantics.ctx_entities :\n  AlternativeSemantics.Context -> list AlternativeSemantics.Entity\nAlternativeSemantics.ctx_contains_focus :\n  forall (ctx : AlternativeSemantics.Context)\n    (e : AlternativeSemantics.Entity),\n  List.In e (AlternativeSemantics.ctx_entities ctx) ->\n  List.In e (AlternativeSemantics.entity_alternatives ctx e)\nAlternativeSemantics.World : Type\nAlternativeSemantics.Entity : Type\nAlternativeSemantics.Context : Type"
+      },
+      "additive_new.AlternativeSemantics.double_ke_both_tall": {
+        "closed": false,
+        "axioms": [
+          "AlternativeSemantics.Entity",
+          "AlternativeSemantics.SumEntity",
+          "AlternativeSemantics.World",
+          "AlternativeSemantics.atom",
+          "AlternativeSemantics.atom_in_sum_only",
+          "AlternativeSemantics.john",
+          "AlternativeSemantics.mary",
+          "AlternativeSemantics.sum",
+          "AlternativeSemantics.sum_has_atoms",
+          "AlternativeSemantics.tall"
+        ],
+        "raw": "Axioms:\nAlternativeSemantics.tall :\n  AlternativeSemantics.Entity -> AlternativeSemantics.Proposition\nAlternativeSemantics.sum_has_atoms :\n  forall e1 e2 : AlternativeSemantics.Entity,\n  AlternativeSemantics.atom (AlternativeSemantics.sum e1 e2) e1 /\\\n  AlternativeSemantics.atom (AlternativeSemantics.sum e1 e2) e2\nAlternativeSemantics.sum :\n  AlternativeSemantics.Entity ->\n  AlternativeSemantics.Entity -> AlternativeSemantics.SumEntity\nAlternativeSemantics.mary : AlternativeSemantics.Entity\nAlternativeSemantics.john : AlternativeSemantics.Entity\nAlternativeSemantics.atom_in_sum_only :\n  forall (s : AlternativeSemantics.SumEntity)\n    (e1 e2 x : AlternativeSemantics.Entity),\n  s = AlternativeSemantics.sum e1 e2 ->\n  AlternativeSemantics.atom s x -> x = e1 \\/ x = e2\nAlternativeSemantics.atom :\n  AlternativeSemantics.SumEntity -> AlternativeSemantics.Entity -> Prop\nAlternativeSemantics.World : Type\nAlternativeSemantics.SumEntity : Type\nAlternativeSemantics.Entity : Type"
+      },
+      "additive_new.AlternativeSemantics.entity_eqb_false_iff": {
+        "closed": false,
+        "axioms": [
+          "AlternativeSemantics.Entity",
+          "AlternativeSemantics.entity_eqb",
+          "AlternativeSemantics.entity_eqb_spec"
+        ],
+        "raw": "Axioms:\nAlternativeSemantics.entity_eqb_spec :\n  forall e1 e2 : AlternativeSemantics.Entity,\n  AlternativeSemantics.entity_eqb e1 e2 = true <-> e1 = e2\nAlternativeSemantics.entity_eqb :\n  AlternativeSemantics.Entity -> AlternativeSemantics.Entity -> bool\nAlternativeSemantics.Entity : Type"
+      },
+      "additive_new.AlternativeSemantics.greek_ke_requires_sisterhood": {
+        "closed": false,
+        "axioms": [
+          "AlternativeSemantics.World"
+        ],
+        "raw": "Axioms:\nAlternativeSemantics.World : Type"
+      },
+      "additive_new.AlternativeSemantics.john_arrived_too_requires_other": {
+        "closed": false,
+        "axioms": [
+          "AlternativeSemantics.Context",
+          "AlternativeSemantics.Entity",
+          "AlternativeSemantics.World",
+          "AlternativeSemantics.arrived",
+          "AlternativeSemantics.ctx_entities",
+          "AlternativeSemantics.entity_eqb",
+          "AlternativeSemantics.entity_eqb_spec",
+          "AlternativeSemantics.example_ctx",
+          "AlternativeSemantics.example_ctx_entities",
+          "AlternativeSemantics.john",
+          "AlternativeSemantics.john_neq_mary",
+          "AlternativeSemantics.john_neq_susan",
+          "AlternativeSemantics.mary",
+          "AlternativeSemantics.predicate_injective",
+          "AlternativeSemantics.susan"
+        ],
+        "raw": "Axioms:\nAlternativeSemantics.susan : AlternativeSemantics.Entity\nAlternativeSemantics.predicate_injective :\n  forall\n    (P : AlternativeSemantics.Entity -> AlternativeSemantics.Proposition)\n    (e1 e2 : AlternativeSemantics.Entity), P e1 = P e2 -> e1 = e2\nAlternativeSemantics.mary : AlternativeSemantics.Entity\nAlternativeSemantics.john_neq_susan :\n  AlternativeSemantics.john <> AlternativeSemantics.susan\nAlternativeSemantics.john_neq_mary :\n  AlternativeSemantics.john <> AlternativeSemantics.mary\nAlternativeSemantics.john : AlternativeSemantics.Entity\nAlternativeSemantics.example_ctx_entities :\n  AlternativeSemantics.ctx_entities AlternativeSemantics.example_ctx =\n  (AlternativeSemantics.john\n   :: AlternativeSemantics.mary :: AlternativeSemantics.susan :: nil)%list\nAlternativeSemantics.example_ctx : AlternativeSemantics.Context\nAlternativeSemantics.entity_eqb_spec :\n  forall e1 e2 : AlternativeSemantics.Entity,\n  AlternativeSemantics.entity_eqb e1 e2 = true <-> e1 = e2\nAlternativeSemantics.entity_eqb :\n  AlternativeSemantics.Entity -> AlternativeSemantics.Entity -> bool\nAlternativeSemantics.ctx_entities :\n  AlternativeSemantics.Context -> list AlternativeSemantics.Entity\nAlternativeSemantics.arrived :\n  AlternativeSemantics.Entity -> AlternativeSemantics.Proposition\nAlternativeSemantics.World : Type\nAlternativeSemantics.Entity : Type\nAlternativeSemantics.Context : Type"
+      },
+      "additive_new.AlternativeSemantics.ke_allows_collective": {
+        "closed": false,
+        "axioms": [
+          "AlternativeSemantics.Entity",
+          "AlternativeSemantics.SumEntity",
+          "AlternativeSemantics.World",
+          "AlternativeSemantics.atom",
+          "AlternativeSemantics.sum"
+        ],
+        "raw": "Axioms:\nAlternativeSemantics.sum :\n  AlternativeSemantics.Entity ->\n  AlternativeSemantics.Entity -> AlternativeSemantics.SumEntity\nAlternativeSemantics.atom :\n  AlternativeSemantics.SumEntity -> AlternativeSemantics.Entity -> Prop\nAlternativeSemantics.World : Type\nAlternativeSemantics.SumEntity : Type\nAlternativeSemantics.Entity : Type"
+      },
+      "additive_new.AlternativeSemantics.ke_double_is_distributive": {
+        "closed": false,
+        "axioms": [
+          "AlternativeSemantics.Entity",
+          "AlternativeSemantics.SumEntity",
+          "AlternativeSemantics.World",
+          "AlternativeSemantics.atom",
+          "AlternativeSemantics.sum",
+          "AlternativeSemantics.sum_has_atoms"
+        ],
+        "raw": "Axioms:\nAlternativeSemantics.sum_has_atoms :\n  forall e1 e2 : AlternativeSemantics.Entity,\n  AlternativeSemantics.atom (AlternativeSemantics.sum e1 e2) e1 /\\\n  AlternativeSemantics.atom (AlternativeSemantics.sum e1 e2) e2\nAlternativeSemantics.sum :\n  AlternativeSemantics.Entity ->\n  AlternativeSemantics.Entity -> AlternativeSemantics.SumEntity\nAlternativeSemantics.atom :\n  AlternativeSemantics.SumEntity -> AlternativeSemantics.Entity -> Prop\nAlternativeSemantics.World : Type\nAlternativeSemantics.SumEntity : Type\nAlternativeSemantics.Entity : Type"
+      },
+      "additive_new.AlternativeSemantics.mary_neq_john": {
+        "closed": false,
+        "axioms": [
+          "AlternativeSemantics.Entity",
+          "AlternativeSemantics.john",
+          "AlternativeSemantics.john_neq_mary",
+          "AlternativeSemantics.mary"
+        ],
+        "raw": "Axioms:\nAlternativeSemantics.mary : AlternativeSemantics.Entity\nAlternativeSemantics.john_neq_mary :\n  AlternativeSemantics.john <> AlternativeSemantics.mary\nAlternativeSemantics.john : AlternativeSemantics.Entity\nAlternativeSemantics.Entity : Type"
+      },
+      "additive_new.AlternativeSemantics.only_excludes_alternatives": {
+        "closed": false,
+        "axioms": [
+          "AlternativeSemantics.World"
+        ],
+        "raw": "Axioms:\nAlternativeSemantics.World : Type"
+      },
+      "additive_new.AlternativeSemantics.only_is_focus_sensitive": {
+        "closed": false,
+        "axioms": [
+          "AlternativeSemantics.World"
+        ],
+        "raw": "Axioms:\nAlternativeSemantics.World : Type"
+      },
+      "additive_new.AlternativeSemantics.only_john_excludes_others": {
+        "closed": false,
+        "axioms": [
+          "AlternativeSemantics.Context",
+          "AlternativeSemantics.Entity",
+          "AlternativeSemantics.World",
+          "AlternativeSemantics.arrived",
+          "AlternativeSemantics.ctx_entities",
+          "AlternativeSemantics.entity_eqb",
+          "AlternativeSemantics.entity_eqb_spec",
+          "AlternativeSemantics.example_ctx",
+          "AlternativeSemantics.example_ctx_entities",
+          "AlternativeSemantics.john",
+          "AlternativeSemantics.john_neq_mary",
+          "AlternativeSemantics.john_neq_susan",
+          "AlternativeSemantics.mary",
+          "AlternativeSemantics.predicate_injective",
+          "AlternativeSemantics.susan"
+        ],
+        "raw": "Axioms:\nAlternativeSemantics.susan : AlternativeSemantics.Entity\nAlternativeSemantics.predicate_injective :\n  forall\n    (P : AlternativeSemantics.Entity -> AlternativeSemantics.Proposition)\n    (e1 e2 : AlternativeSemantics.Entity), P e1 = P e2 -> e1 = e2\nAlternativeSemantics.mary : AlternativeSemantics.Entity\nAlternativeSemantics.john_neq_susan :\n  AlternativeSemantics.john <> AlternativeSemantics.susan\nAlternativeSemantics.john_neq_mary :\n  AlternativeSemantics.john <> AlternativeSemantics.mary\nAlternativeSemantics.john : AlternativeSemantics.Entity\nAlternativeSemantics.example_ctx_entities :\n  AlternativeSemantics.ctx_entities AlternativeSemantics.example_ctx =\n  (AlternativeSemantics.john\n   :: AlternativeSemantics.mary :: AlternativeSemantics.susan :: nil)%list\nAlternativeSemantics.example_ctx : AlternativeSemantics.Context\nAlternativeSemantics.entity_eqb_spec :\n  forall e1 e2 : AlternativeSemantics.Entity,\n  AlternativeSemantics.entity_eqb e1 e2 = true <-> e1 = e2\nAlternativeSemantics.entity_eqb :\n  AlternativeSemantics.Entity -> AlternativeSemantics.Entity -> bool\nAlternativeSemantics.ctx_entities :\n  AlternativeSemantics.Context -> list AlternativeSemantics.Entity\nAlternativeSemantics.arrived :\n  AlternativeSemantics.Entity -> AlternativeSemantics.Proposition\nAlternativeSemantics.World : Type\nAlternativeSemantics.Entity : Type\nAlternativeSemantics.Context : Type"
+      },
+      "additive_new.AlternativeSemantics.reanalysis_creates_additives": {
+        "closed": false,
+        "axioms": [
+          "AlternativeSemantics.Context",
+          "AlternativeSemantics.Entity",
+          "AlternativeSemantics.SumEntity",
+          "AlternativeSemantics.World",
+          "AlternativeSemantics.atom",
+          "AlternativeSemantics.ctx_entities",
+          "AlternativeSemantics.entity_eqb",
+          "AlternativeSemantics.entity_eqb_spec",
+          "AlternativeSemantics.predicate_injective",
+          "AlternativeSemantics.sing",
+          "AlternativeSemantics.sing_atom"
+        ],
+        "raw": "Axioms:\nAlternativeSemantics.sing_atom :\n  forall e : AlternativeSemantics.Entity,\n  AlternativeSemantics.atom (AlternativeSemantics.sing e) e\nAlternativeSemantics.sing :\n  AlternativeSemantics.Entity -> AlternativeSemantics.SumEntity\nAlternativeSemantics.predicate_injective :\n  forall\n    (P : AlternativeSemantics.Entity -> AlternativeSemantics.Proposition)\n    (e1 e2 : AlternativeSemantics.Entity), P e1 = P e2 -> e1 = e2\nAlternativeSemantics.entity_eqb_spec :\n  forall e1 e2 : AlternativeSemantics.Entity,\n  AlternativeSemantics.entity_eqb e1 e2 = true <-> e1 = e2\nAlternativeSemantics.entity_eqb :\n  AlternativeSemantics.Entity -> AlternativeSemantics.Entity -> bool\nAlternativeSemantics.ctx_entities :\n  AlternativeSemantics.Context -> list AlternativeSemantics.Entity\nAlternativeSemantics.atom :\n  AlternativeSemantics.SumEntity -> AlternativeSemantics.Entity -> Prop\nAlternativeSemantics.World : Type\nAlternativeSemantics.SumEntity : Type\nAlternativeSemantics.Entity : Type\nAlternativeSemantics.Context : Type"
+      },
+      "additive_new.AlternativeSemantics.susan_neq_john": {
+        "closed": false,
+        "axioms": [
+          "AlternativeSemantics.Entity",
+          "AlternativeSemantics.john",
+          "AlternativeSemantics.john_neq_susan",
+          "AlternativeSemantics.susan"
+        ],
+        "raw": "Axioms:\nAlternativeSemantics.susan : AlternativeSemantics.Entity\nAlternativeSemantics.john_neq_susan :\n  AlternativeSemantics.john <> AlternativeSemantics.susan\nAlternativeSemantics.john : AlternativeSemantics.Entity\nAlternativeSemantics.Entity : Type"
+      },
+      "additive_new.AlternativeSemantics.too_focus_sensitive": {
+        "closed": false,
+        "axioms": [
+          "AlternativeSemantics.World"
+        ],
+        "raw": "Axioms:\nAlternativeSemantics.World : Type"
+      },
+      "additive_new.AlternativeSemantics.too_requires_alternatives": {
+        "closed": false,
+        "axioms": [
+          "AlternativeSemantics.World"
+        ],
+        "raw": "Axioms:\nAlternativeSemantics.World : Type"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [
+    {
+      "name": "alternatives_nonempty",
+      "line": 597
+    }
+  ],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "Entity",
+      "kw": "Parameter",
+      "line": 24
+    },
+    {
+      "name": "World",
+      "kw": "Parameter",
+      "line": 25
+    },
+    {
+      "name": "entity_eqb",
+      "kw": "Parameter",
+      "line": 29
+    },
+    {
+      "name": "entity_eqb_spec",
+      "kw": "Axiom",
+      "line": 30
+    },
+    {
+      "name": "Context",
+      "kw": "Parameter",
+      "line": 59
+    },
+    {
+      "name": "ctx_entities",
+      "kw": "Parameter",
+      "line": 60
+    },
+    {
+      "name": "ctx_contains_focus",
+      "kw": "Axiom",
+      "line": 66
+    },
+    {
+      "name": "SumEntity",
+      "kw": "Parameter",
+      "line": 201
+    },
+    {
+      "name": "atom",
+      "kw": "Parameter",
+      "line": 202
+    },
+    {
+      "name": "sum",
+      "kw": "Parameter",
+      "line": 203
+    },
+    {
+      "name": "sum_has_atoms",
+      "kw": "Axiom",
+      "line": 206
+    },
+    {
+      "name": "atom_in_sum_only",
+      "kw": "Axiom",
+      "line": 209
+    },
+    {
+      "name": "sum_commutative",
+      "kw": "Axiom",
+      "line": 214
+    },
+    {
+      "name": "sum_extensional",
+      "kw": "Axiom",
+      "line": 217
+    },
+    {
+      "name": "sing",
+      "kw": "Parameter",
+      "line": 222
+    },
+    {
+      "name": "sing_atom",
+      "kw": "Axiom",
+      "line": 223
+    },
+    {
+      "name": "sing_atom_unique",
+      "kw": "Axiom",
+      "line": 224
+    },
+    {
+      "name": "predicate_injective",
+      "kw": "Axiom",
+      "line": 297
+    },
+    {
+      "name": "john",
+      "kw": "Parameter",
+      "line": 401
+    },
+    {
+      "name": "john_neq_mary",
+      "kw": "Axiom",
+      "line": 402
+    },
+    {
+      "name": "john_neq_susan",
+      "kw": "Axiom",
+      "line": 403
+    },
+    {
+      "name": "mary_neq_susan",
+      "kw": "Axiom",
+      "line": 404
+    },
+    {
+      "name": "example_ctx",
+      "kw": "Parameter",
+      "line": 407
+    },
+    {
+      "name": "example_ctx_entities",
+      "kw": "Axiom",
+      "line": 408
+    },
+    {
+      "name": "arrived",
+      "kw": "Parameter",
+      "line": 412
+    },
+    {
+      "name": "tall",
+      "kw": "Parameter",
+      "line": 553
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 13,
+      "measured": 24,
+      "detail": "AlternativeSemantics.Context, AlternativeSemantics.Entity, AlternativeSemantics.SumEntity, AlternativeSemantics.World, AlternativeSemantics.arrived, AlternativeSemantics.atom, AlternativeSemantics.atom_in_sum_only, AlternativeSemantics.ctx_contains_focus"
+    }
+  ]
+}

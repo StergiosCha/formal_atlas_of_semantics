@@ -1,0 +1,104 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "ttr_mtt/Book_Inter_Sub.v",
+  "key": "ttr_mtt__Book_Inter_Sub",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 1,
+    "stderr_tail": "File \"/Users/graogro/Dropbox/revisiting-formal-semantics/ttr_mtt/Book_Inter_Sub.v\", line 30, characters 9-20:\nWarning: Command \"Abort All.\" is not recommended in batch mode. In\nparticular, going back in the document is not efficient in batch mode due to\nCoq not caching previous states for memory optimization reasons. If your use\nis intentional, you may want to disable this warning and pass the\n\"-async-proofs-cache force\" option to Coq. [undo-batch-mode,default]"
+  },
+  "counts": {
+    "theorems": 4,
+    "proved": 3,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 1,
+    "definitions": 4,
+    "toplevel_axioms": 3,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 3,
+    "closed": 0,
+    "not_closed": 3,
+    "undocumented_axioms": [
+      "Delegate",
+      "Human",
+      "Irish",
+      "Man",
+      "Skillful",
+      "dh",
+      "mh",
+      "walk"
+    ],
+    "detail": {
+      "Book_Inter_Sub.delegate1": {
+        "closed": false,
+        "axioms": [
+          "Delegate",
+          "Irish",
+          "dh",
+          "walk"
+        ],
+        "raw": "Axioms:\nwalk : Human -> Prop\ndh : Delegate -> Human\nIrish : Human -> Prop\nDelegate : CN"
+      },
+      "Book_Inter_Sub.delegate2": {
+        "closed": false,
+        "axioms": [
+          "Human",
+          "Irish",
+          "Man",
+          "mh"
+        ],
+        "raw": "Axioms:\nmh : Man -> Human\nMan : CN\nIrish : Human -> Prop\nHuman : CN"
+      },
+      "Book_Inter_Sub.skill1": {
+        "closed": false,
+        "axioms": [
+          "Irish",
+          "Man",
+          "Skillful",
+          "mh"
+        ],
+        "raw": "Axioms:\nmh : Man -> Human\nSkillful : forall A : CN, A -> Prop\nMan : CN\nIrish : Human -> Prop"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [
+    {
+      "name": "skill2",
+      "line": 28
+    }
+  ],
+  "toplevel_axiom_names": [
+    {
+      "name": "Irish",
+      "kw": "Parameter",
+      "line": 3
+    },
+    {
+      "name": "Skillful",
+      "kw": "Parameter",
+      "line": 8
+    },
+    {
+      "name": "walk",
+      "kw": "Parameter",
+      "line": 14
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 0,
+      "measured": 8,
+      "detail": "Delegate, Human, Irish, Man, Skillful, dh, mh, walk"
+    }
+  ]
+}

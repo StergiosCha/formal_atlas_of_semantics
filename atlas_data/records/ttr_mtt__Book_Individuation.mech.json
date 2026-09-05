@@ -1,0 +1,410 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "ttr_mtt/Book_Individuation.v",
+  "key": "ttr_mtt__Book_Individuation",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 20,
+    "proved": 20,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 40,
+    "toplevel_axioms": 18,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 20,
+    "closed": 0,
+    "not_closed": 20,
+    "undocumented_axioms": [
+      "Book",
+      "Heavy",
+      "Human",
+      "IC_Human",
+      "IC_Info",
+      "IC_Phy",
+      "Info",
+      "Informative",
+      "John",
+      "Man",
+      "OTS",
+      "Phy",
+      "bf",
+      "mastered",
+      "mh",
+      "picked_up",
+      "walk"
+    ],
+    "detail": {
+      "Book_Individuation.EQ": {
+        "closed": false,
+        "axioms": [
+          "Human",
+          "IC_Human",
+          "Man",
+          "mh"
+        ],
+        "raw": "Axioms:\nmh : Man -> Human\nMan : DomCN\nIC_Human : Equiv Human\nHuman : DomCN"
+      },
+      "Book_Individuation.EQ1": {
+        "closed": false,
+        "axioms": [
+          "IC_Info",
+          "IC_Phy",
+          "Info",
+          "Phy"
+        ],
+        "raw": "Axioms:\nPhy : DomCN\nInfo : DomCN\nIC_Phy : Equiv Phy\nIC_Info : Equiv Info"
+      },
+      "Book_Individuation.EQ2": {
+        "closed": false,
+        "axioms": [
+          "Book",
+          "IC_Phy",
+          "Info",
+          "Phy",
+          "bf"
+        ],
+        "raw": "Axioms:\nbf : Book -> PhyInfo\nPhy : DomCN\nInfo : DomCN\nIC_Phy : Equiv Phy\nBook : DomCN"
+      },
+      "Book_Individuation.EQ3": {
+        "closed": false,
+        "axioms": [
+          "Book",
+          "IC_Info",
+          "Info",
+          "Phy",
+          "bf"
+        ],
+        "raw": "Axioms:\nbf : Book -> PhyInfo\nPhy : DomCN\nInfo : DomCN\nIC_Info : Equiv Info\nBook : DomCN"
+      },
+      "Book_Individuation.EQ4": {
+        "closed": false,
+        "axioms": [
+          "Book",
+          "Heavy",
+          "IC_Phy",
+          "Info",
+          "Phy",
+          "bf"
+        ],
+        "raw": "Axioms:\nbf : Book -> PhyInfo\nPhy : DomCN\nInfo : DomCN\nIC_Phy : Equiv Phy\nHeavy : Phy -> Prop\nBook : DomCN"
+      },
+      "Book_Individuation.EQ5": {
+        "closed": false,
+        "axioms": [
+          "Book",
+          "Heavy",
+          "IC_Info",
+          "Info",
+          "Phy",
+          "bf"
+        ],
+        "raw": "Axioms:\nbf : Book -> PhyInfo\nPhy : DomCN\nInfo : DomCN\nIC_Info : Equiv Info\nHeavy : Phy -> Prop\nBook : DomCN"
+      },
+      "Book_Individuation.EQ6": {
+        "closed": false,
+        "axioms": [
+          "Book",
+          "Heavy",
+          "IC_Phy",
+          "Info",
+          "Informative",
+          "Phy",
+          "bf"
+        ],
+        "raw": "Axioms:\nbf : Book -> PhyInfo\nPhy : DomCN\nInformative : Info -> Prop\nInfo : DomCN\nIC_Phy : Equiv Phy\nHeavy : Phy -> Prop\nBook : DomCN"
+      },
+      "Book_Individuation.EQ7": {
+        "closed": false,
+        "axioms": [
+          "Book",
+          "Heavy",
+          "IC_Info",
+          "Info",
+          "Informative",
+          "Phy",
+          "bf"
+        ],
+        "raw": "Axioms:\nbf : Book -> PhyInfo\nPhy : DomCN\nInformative : Info -> Prop\nInfo : DomCN\nIC_Info : Equiv Info\nHeavy : Phy -> Prop\nBook : DomCN"
+      },
+      "Book_Individuation.HEAVYBOOK": {
+        "closed": false,
+        "axioms": [
+          "Book",
+          "Heavy",
+          "IC_Info",
+          "Info",
+          "John",
+          "Phy",
+          "bf",
+          "mastered"
+        ],
+        "raw": "Axioms:\nmastered : Human -> Info -> Prop\nbf : Book -> PhyInfo\nPhy : DomCN\nJohn : Human\nInfo : DomCN\nIC_Info : Equiv Info\nHeavy : Phy -> Prop\nBook : DomCN"
+      },
+      "Book_Individuation.HEAVYBOOK1": {
+        "closed": false,
+        "axioms": [
+          "Book",
+          "Heavy",
+          "IC_Phy",
+          "Info",
+          "John",
+          "Phy",
+          "bf",
+          "picked_up"
+        ],
+        "raw": "Axioms:\npicked_up : Human -> Phy -> Prop\nbf : Book -> PhyInfo\nPhy : DomCN\nJohn : Human\nInfo : DomCN\nIC_Phy : Equiv Phy\nHeavy : Phy -> Prop\nBook : DomCN"
+      },
+      "Book_Individuation.HEAVYBOOK2": {
+        "closed": false,
+        "axioms": [
+          "Book",
+          "Heavy",
+          "IC_Phy",
+          "Info",
+          "John",
+          "Phy",
+          "bf",
+          "picked_up"
+        ],
+        "raw": "Axioms:\npicked_up : Human -> Phy -> Prop\nbf : Book -> PhyInfo\nPhy : DomCN\nJohn : Human\nInfo : DomCN\nIC_Phy : Equiv Phy\nHeavy : Phy -> Prop\nBook : DomCN"
+      },
+      "Book_Individuation.HEAVYBOOK3": {
+        "closed": false,
+        "axioms": [
+          "Book",
+          "Heavy",
+          "IC_Info",
+          "Info",
+          "John",
+          "Phy",
+          "bf",
+          "mastered"
+        ],
+        "raw": "Axioms:\nmastered : Human -> Info -> Prop\nbf : Book -> PhyInfo\nPhy : DomCN\nJohn : Human\nInfo : DomCN\nIC_Info : Equiv Info\nHeavy : Phy -> Prop\nBook : DomCN"
+      },
+      "Book_Individuation.HEAVYIBOOK2": {
+        "closed": false,
+        "axioms": [
+          "Book",
+          "Heavy",
+          "IC_Phy",
+          "Info",
+          "John",
+          "Phy",
+          "bf",
+          "picked_up"
+        ],
+        "raw": "Axioms:\npicked_up : Human -> Phy -> Prop\nbf : Book -> PhyInfo\nPhy : DomCN\nJohn : Human\nInfo : DomCN\nIC_Phy : Equiv Phy\nHeavy : Phy -> Prop\nBook : DomCN"
+      },
+      "Book_Individuation.HEAVYIBOOK3": {
+        "closed": false,
+        "axioms": [
+          "Book",
+          "Heavy",
+          "IC_Info",
+          "Info",
+          "Informative",
+          "John",
+          "Phy",
+          "bf",
+          "mastered"
+        ],
+        "raw": "Axioms:\nmastered : Human -> Info -> Prop\nbf : Book -> PhyInfo\nPhy : DomCN\nJohn : Human\nInformative : Info -> Prop\nInfo : DomCN\nIC_Info : Equiv Info\nHeavy : Phy -> Prop\nBook : DomCN"
+      },
+      "Book_Individuation.HEAVYIBOOK4": {
+        "closed": false,
+        "axioms": [
+          "Book",
+          "Heavy",
+          "IC_Phy",
+          "Info",
+          "Informative",
+          "John",
+          "Phy",
+          "bf",
+          "picked_up"
+        ],
+        "raw": "Axioms:\npicked_up : Human -> Phy -> Prop\nbf : Book -> PhyInfo\nPhy : DomCN\nJohn : Human\nInformative : Info -> Prop\nInfo : DomCN\nIC_Phy : Equiv Phy\nHeavy : Phy -> Prop\nBook : DomCN"
+      },
+      "Book_Individuation.HEAVYIBOOK5": {
+        "closed": false,
+        "axioms": [
+          "Book",
+          "Heavy",
+          "IC_Info",
+          "Info",
+          "Informative",
+          "John",
+          "Phy",
+          "bf",
+          "mastered"
+        ],
+        "raw": "Axioms:\nmastered : Human -> Info -> Prop\nbf : Book -> PhyInfo\nPhy : DomCN\nJohn : Human\nInformative : Info -> Prop\nInfo : DomCN\nIC_Info : Equiv Info\nHeavy : Phy -> Prop\nBook : DomCN"
+      },
+      "Book_Individuation.MANWALK": {
+        "closed": false,
+        "axioms": [
+          "Human",
+          "IC_Human",
+          "Man",
+          "mh",
+          "walk"
+        ],
+        "raw": "Axioms:\nwalk : HUMAN -> Prop\nmh : Man -> Human\nMan : DomCN\nIC_Human : Equiv Human\nHuman : DomCN"
+      },
+      "Book_Individuation.copred_dd1": {
+        "closed": false,
+        "axioms": [
+          "Book",
+          "IC_Info",
+          "IC_Phy",
+          "Info",
+          "John",
+          "Phy",
+          "bf",
+          "mastered",
+          "picked_up"
+        ],
+        "raw": "Axioms:\npicked_up : Human -> Phy -> Prop\nmastered : Human -> Info -> Prop\nbf : Book -> PhyInfo\nPhy : DomCN\nJohn : Human\nInfo : DomCN\nIC_Phy : Equiv Phy\nIC_Info : Equiv Info\nBook : DomCN"
+      },
+      "Book_Individuation.copred_dd2": {
+        "closed": false,
+        "axioms": [
+          "Book",
+          "IC_Info",
+          "IC_Phy",
+          "Info",
+          "John",
+          "Phy",
+          "bf",
+          "mastered",
+          "picked_up"
+        ],
+        "raw": "Axioms:\npicked_up : Human -> Phy -> Prop\nmastered : Human -> Info -> Prop\nbf : Book -> PhyInfo\nPhy : DomCN\nJohn : Human\nInfo : DomCN\nIC_Phy : Equiv Phy\nIC_Info : Equiv Info\nBook : DomCN"
+      },
+      "Book_Individuation.threedf": {
+        "closed": false,
+        "axioms": [
+          "IC_Phy",
+          "OTS",
+          "Phy"
+        ],
+        "raw": "Axioms:\nPhy : DomCN\nOTS : Phy -> Prop\nIC_Phy : Equiv Phy"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "Human",
+      "kw": "Parameter",
+      "line": 19
+    },
+    {
+      "name": "John",
+      "kw": "Parameter",
+      "line": 20
+    },
+    {
+      "name": "mh",
+      "kw": "Axiom",
+      "line": 21
+    },
+    {
+      "name": "IC_Human",
+      "kw": "Parameter",
+      "line": 24
+    },
+    {
+      "name": "walk",
+      "kw": "Parameter",
+      "line": 51
+    },
+    {
+      "name": "Phy",
+      "kw": "Parameters",
+      "line": 71
+    },
+    {
+      "name": "Info",
+      "kw": "Parameter",
+      "line": 72
+    },
+    {
+      "name": "Book",
+      "kw": "Parameter",
+      "line": 78
+    },
+    {
+      "name": "bf",
+      "kw": "Axiom",
+      "line": 79
+    },
+    {
+      "name": "IC_Phy",
+      "kw": "Parameter",
+      "line": 82
+    },
+    {
+      "name": "IC_Info",
+      "kw": "Parameter",
+      "line": 83
+    },
+    {
+      "name": "picked_up",
+      "kw": "Parameter",
+      "line": 122
+    },
+    {
+      "name": "mastered",
+      "kw": "Parameter",
+      "line": 123
+    },
+    {
+      "name": "Heavy",
+      "kw": "Parameter",
+      "line": 147
+    },
+    {
+      "name": "Informative",
+      "kw": "Parameter",
+      "line": 192
+    },
+    {
+      "name": "OTS",
+      "kw": "Parameter",
+      "line": 238
+    },
+    {
+      "name": "WL",
+      "kw": "Parameter",
+      "line": 239
+    },
+    {
+      "name": "WaP",
+      "kw": "Parameter",
+      "line": 240
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 3,
+      "measured": 17,
+      "detail": "Book, Heavy, Human, IC_Human, IC_Info, IC_Phy, Info, Informative"
+    }
+  ]
+}

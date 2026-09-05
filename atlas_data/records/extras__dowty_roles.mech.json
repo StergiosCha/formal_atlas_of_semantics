@@ -1,0 +1,112 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "extras/dowty_roles.v",
+  "key": "extras__dowty_roles",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 2,
+    "stderr_tail": "File \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/dowty_roles.v\", line 7, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]\nFile \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/dowty_roles.v\", line 7, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]"
+  },
+  "counts": {
+    "theorems": 1,
+    "proved": 1,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 4,
+    "toplevel_axioms": 10,
+    "section_assumptions": 4
+  },
+  "assumptions": {
+    "queried": 1,
+    "closed": 0,
+    "not_closed": 1,
+    "undocumented_axioms": [
+      "AGENT",
+      "Event",
+      "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+      "PATIENT",
+      "open_ev"
+    ],
+    "detail": {
+      "dowty_roles.sentence_true": {
+        "closed": false,
+        "axioms": [
+          "AGENT",
+          "Event",
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "PATIENT",
+          "open_ev"
+        ],
+        "raw": "Axioms:\nopen_ev : Event -> Prop\nPATIENT :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  Event -> Prop\nEvent : Type\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type\nAGENT :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  Event -> Prop"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "Event",
+      "kw": "Parameter",
+      "line": 13
+    },
+    {
+      "name": "AGENT",
+      "kw": "Parameter",
+      "line": 14
+    },
+    {
+      "name": "PATIENT",
+      "kw": "Parameter",
+      "line": 15
+    },
+    {
+      "name": "open_ev",
+      "kw": "Parameter",
+      "line": 18
+    },
+    {
+      "name": "volitional",
+      "kw": "Parameter",
+      "line": 23
+    },
+    {
+      "name": "score",
+      "kw": "Parameter",
+      "line": 33
+    },
+    {
+      "name": "score_true",
+      "kw": "Axiom",
+      "line": 36
+    },
+    {
+      "name": "score_false",
+      "kw": "Axiom",
+      "line": 37
+    },
+    {
+      "name": "score_range",
+      "kw": "Axiom",
+      "line": 38
+    },
+    {
+      "name": "ASP",
+      "kw": "Axiom",
+      "line": 40
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 4,
+      "measured": 5,
+      "detail": "AGENT, Event, MontagueFragment.MontagueFragment.MontagueExtensional.Entity, PATIENT, open_ev"
+    }
+  ]
+}

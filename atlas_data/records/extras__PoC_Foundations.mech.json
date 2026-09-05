@@ -1,0 +1,64 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "extras/PoC_Foundations.v",
+  "key": "extras__PoC_Foundations",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 3,
+    "proved": 3,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 9,
+    "toplevel_axioms": 2,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 3,
+    "closed": 2,
+    "not_closed": 1,
+    "undocumented_axioms": [
+      "DynamicSemantics.Entity"
+    ],
+    "detail": {
+      "PoC_Foundations.DynamicSemantics.dynamic_compositionality": {
+        "closed": false,
+        "axioms": [
+          "DynamicSemantics.Entity"
+        ],
+        "raw": "Axioms:\nDynamicSemantics.Entity : Type"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "Possible_World",
+      "kw": "Parameter",
+      "line": 22
+    },
+    {
+      "name": "Entity",
+      "kw": "Parameter",
+      "line": 75
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 0,
+      "measured": 1,
+      "detail": "DynamicSemantics.Entity"
+    }
+  ]
+}

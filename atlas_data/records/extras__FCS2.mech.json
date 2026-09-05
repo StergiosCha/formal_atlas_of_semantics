@@ -1,0 +1,224 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "extras/FCS2.v",
+  "key": "extras__FCS2",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 4,
+    "proved": 2,
+    "admitted": 2,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 20,
+    "toplevel_axioms": 30,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 2,
+    "closed": 1,
+    "not_closed": 1,
+    "undocumented_axioms": [
+      "MorseKelley.Class",
+      "MorseKelley.In",
+      "MorseKelley.class_comprehension",
+      "MorseKelley.class_comprehension_spec"
+    ],
+    "detail": {
+      "FCS2.MorseKelley.class_comprehension_inconsistent": {
+        "closed": false,
+        "axioms": [
+          "MorseKelley.Class",
+          "MorseKelley.In",
+          "MorseKelley.class_comprehension",
+          "MorseKelley.class_comprehension_spec"
+        ],
+        "raw": "Axioms:\nMorseKelley.class_comprehension_spec :\n  forall (P : MorseKelley.Class -> Prop) (x : MorseKelley.Class),\n  MorseKelley.In x (MorseKelley.class_comprehension P) <-> P x\nMorseKelley.class_comprehension :\n  (MorseKelley.Class -> Prop) -> MorseKelley.Class\nMorseKelley.In : MorseKelley.Class -> MorseKelley.Class -> Prop\nMorseKelley.Class : Type"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [
+    {
+      "name": "filter_exists",
+      "line": 200
+    },
+    {
+      "name": "random_reset_not_unique",
+      "line": 277
+    }
+  ],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "Ens",
+      "kw": "Parameter",
+      "line": 22
+    },
+    {
+      "name": "IN",
+      "kw": "Parameter",
+      "line": 23
+    },
+    {
+      "name": "EQ",
+      "kw": "Parameter",
+      "line": 24
+    },
+    {
+      "name": "extensionality",
+      "kw": "Axiom",
+      "line": 27
+    },
+    {
+      "name": "pairing",
+      "kw": "Axiom",
+      "line": 30
+    },
+    {
+      "name": "union",
+      "kw": "Axiom",
+      "line": 33
+    },
+    {
+      "name": "power_set",
+      "kw": "Axiom",
+      "line": 36
+    },
+    {
+      "name": "replacement",
+      "kw": "Axiom",
+      "line": 39
+    },
+    {
+      "name": "choice",
+      "kw": "Axiom",
+      "line": 44
+    },
+    {
+      "name": "Entity",
+      "kw": "Parameter",
+      "line": 49
+    },
+    {
+      "name": "Class",
+      "kw": "Parameter",
+      "line": 119
+    },
+    {
+      "name": "MKSet",
+      "kw": "Parameter",
+      "line": 120
+    },
+    {
+      "name": "SetToClass",
+      "kw": "Parameter",
+      "line": 121
+    },
+    {
+      "name": "In",
+      "kw": "Parameter",
+      "line": 124
+    },
+    {
+      "name": "ClassEq",
+      "kw": "Parameter",
+      "line": 125
+    },
+    {
+      "name": "class_comprehension",
+      "kw": "Axiom",
+      "line": 129
+    },
+    {
+      "name": "class_comprehension_spec",
+      "kw": "Axiom",
+      "line": 131
+    },
+    {
+      "name": "Entity2",
+      "kw": "Parameter",
+      "line": 175
+    },
+    {
+      "name": "belief",
+      "kw": "Parameter",
+      "line": 176
+    },
+    {
+      "name": "Ens",
+      "kw": "Parameter",
+      "line": 193
+    },
+    {
+      "name": "IN",
+      "kw": "Parameter",
+      "line": 194
+    },
+    {
+      "name": "EQ",
+      "kw": "Parameter",
+      "line": 195
+    },
+    {
+      "name": "Ens",
+      "kw": "Parameter",
+      "line": 254
+    },
+    {
+      "name": "IN",
+      "kw": "Parameter",
+      "line": 255
+    },
+    {
+      "name": "EQ",
+      "kw": "Parameter",
+      "line": 256
+    },
+    {
+      "name": "omega",
+      "kw": "Parameter",
+      "line": 268
+    },
+    {
+      "name": "omega_infinite",
+      "kw": "Axiom",
+      "line": 269
+    },
+    {
+      "name": "powerset",
+      "kw": "Parameter",
+      "line": 272
+    },
+    {
+      "name": "Entity",
+      "kw": "Parameter",
+      "line": 354
+    },
+    {
+      "name": "farmer",
+      "kw": "Parameter",
+      "line": 355
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.admitted",
+      "claimed": 5,
+      "measured": 2
+    },
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 8,
+      "measured": 4,
+      "detail": "MorseKelley.Class, MorseKelley.In, MorseKelley.class_comprehension, MorseKelley.class_comprehension_spec"
+    }
+  ]
+}

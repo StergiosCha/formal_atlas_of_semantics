@@ -1,0 +1,132 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "extras/Quantifiers.v",
+  "key": "extras__Quantifiers",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 11,
+    "proved": 9,
+    "admitted": 2,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 42,
+    "toplevel_axioms": 12,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 9,
+    "closed": 8,
+    "not_closed": 1,
+    "undocumented_axioms": [
+      "Book",
+      "Student",
+      "read"
+    ],
+    "detail": {
+      "Quantifiers.reading2_implies_reading1": {
+        "closed": false,
+        "axioms": [
+          "Book",
+          "Student",
+          "read"
+        ],
+        "raw": "Axioms:\nread : Student -> Book -> Prop\nStudent : AdjectivesExtension.CN\nBook : AdjectivesExtension.CN"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [
+    {
+      "name": "only_not_conservative",
+      "line": 226
+    },
+    {
+      "name": "scope_ambiguity",
+      "line": 286
+    }
+  ],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "domain_size",
+      "kw": "Parameter",
+      "line": 52
+    },
+    {
+      "name": "tolerance",
+      "kw": "Parameter",
+      "line": 106
+    },
+    {
+      "name": "walk",
+      "kw": "Parameter",
+      "line": 139
+    },
+    {
+      "name": "strong",
+      "kw": "Parameter",
+      "line": 140
+    },
+    {
+      "name": "innocent",
+      "kw": "Parameter",
+      "line": 141
+    },
+    {
+      "name": "fell",
+      "kw": "Parameter",
+      "line": 142
+    },
+    {
+      "name": "Student",
+      "kw": "Parameter",
+      "line": 239
+    },
+    {
+      "name": "read",
+      "kw": "Parameter",
+      "line": 240
+    },
+    {
+      "name": "White",
+      "kw": "Parameter",
+      "line": 331
+    },
+    {
+      "name": "taller_than",
+      "kw": "Parameter",
+      "line": 333
+    },
+    {
+      "name": "Patient",
+      "kw": "Parameter",
+      "line": 341
+    },
+    {
+      "name": "operates_on_daily",
+      "kw": "Parameter",
+      "line": 342
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.theorems",
+      "claimed": 10,
+      "measured": 11
+    },
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 0,
+      "measured": 3,
+      "detail": "Book, Student, read"
+    }
+  ]
+}

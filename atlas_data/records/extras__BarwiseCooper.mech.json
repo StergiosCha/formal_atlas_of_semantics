@@ -1,0 +1,94 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "extras/BarwiseCooper.v",
+  "key": "extras__BarwiseCooper",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 6,
+    "proved": 6,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 12,
+    "toplevel_axioms": 1,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 6,
+    "closed": 0,
+    "not_closed": 6,
+    "undocumented_axioms": [
+      "GeneralizedQuantifiers.e"
+    ],
+    "detail": {
+      "BarwiseCooper.GeneralizedQuantifiers.at_least_two_monotone_up": {
+        "closed": false,
+        "axioms": [
+          "GeneralizedQuantifiers.e"
+        ],
+        "raw": "Axioms:\nGeneralizedQuantifiers.e : Type"
+      },
+      "BarwiseCooper.GeneralizedQuantifiers.every_antipersistent": {
+        "closed": false,
+        "axioms": [
+          "GeneralizedQuantifiers.e"
+        ],
+        "raw": "Axioms:\nGeneralizedQuantifiers.e : Type"
+      },
+      "BarwiseCooper.GeneralizedQuantifiers.every_conservative": {
+        "closed": false,
+        "axioms": [
+          "GeneralizedQuantifiers.e"
+        ],
+        "raw": "Axioms:\nGeneralizedQuantifiers.e : Type"
+      },
+      "BarwiseCooper.GeneralizedQuantifiers.every_monotone_up": {
+        "closed": false,
+        "axioms": [
+          "GeneralizedQuantifiers.e"
+        ],
+        "raw": "Axioms:\nGeneralizedQuantifiers.e : Type"
+      },
+      "BarwiseCooper.GeneralizedQuantifiers.no_monotone_down": {
+        "closed": false,
+        "axioms": [
+          "GeneralizedQuantifiers.e"
+        ],
+        "raw": "Axioms:\nGeneralizedQuantifiers.e : Type"
+      },
+      "BarwiseCooper.GeneralizedQuantifiers.some_conservative": {
+        "closed": false,
+        "axioms": [
+          "GeneralizedQuantifiers.e"
+        ],
+        "raw": "Axioms:\nGeneralizedQuantifiers.e : Type"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "e",
+      "kw": "Parameter",
+      "line": 24
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 0,
+      "measured": 1,
+      "detail": "GeneralizedQuantifiers.e"
+    }
+  ]
+}

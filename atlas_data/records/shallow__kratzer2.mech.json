@@ -1,0 +1,148 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "shallow/kratzer2.v",
+  "key": "shallow__kratzer2",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 2,
+    "stderr_tail": "File \"/Users/graogro/Dropbox/revisiting-formal-semantics/shallow/kratzer2.v\", line 7, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]\nFile \"/Users/graogro/Dropbox/revisiting-formal-semantics/shallow/kratzer2.v\", line 7, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]"
+  },
+  "counts": {
+    "theorems": 10,
+    "proved": 10,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 19,
+    "toplevel_axioms": 3,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 10,
+    "closed": 0,
+    "not_closed": 10,
+    "undocumented_axioms": [
+      "KratzerClean.flying",
+      "KratzerClean.striding",
+      "MontagueFragment.MontagueFragment.MontagueWorldTime.Time",
+      "MontagueFragment.MontagueFragment.MontagueWorldTime.World"
+    ],
+    "detail": {
+      "kratzer2.KratzerClean.empty_base_characterization": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueWorldTime.Time",
+          "MontagueFragment.MontagueFragment.MontagueWorldTime.World"
+        ],
+        "raw": "Axioms:\nMontagueFragment.MontagueFragment.MontagueWorldTime.World : Type\nMontagueFragment.MontagueFragment.MontagueWorldTime.Time : Type"
+      },
+      "kratzer2.KratzerClean.kratzer_axiom_K": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueWorldTime.Time",
+          "MontagueFragment.MontagueFragment.MontagueWorldTime.World"
+        ],
+        "raw": "Axioms:\nMontagueFragment.MontagueFragment.MontagueWorldTime.World : Type\nMontagueFragment.MontagueFragment.MontagueWorldTime.Time : Type"
+      },
+      "kratzer2.KratzerClean.kratzer_can_disjunction": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueWorldTime.Time",
+          "MontagueFragment.MontagueFragment.MontagueWorldTime.World"
+        ],
+        "raw": "Axioms:\nMontagueFragment.MontagueFragment.MontagueWorldTime.World : Type\nMontagueFragment.MontagueFragment.MontagueWorldTime.Time : Type"
+      },
+      "kratzer2.KratzerClean.kratzer_conjunction_intro": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueWorldTime.Time",
+          "MontagueFragment.MontagueFragment.MontagueWorldTime.World"
+        ],
+        "raw": "Axioms:\nMontagueFragment.MontagueFragment.MontagueWorldTime.World : Type\nMontagueFragment.MontagueFragment.MontagueWorldTime.Time : Type"
+      },
+      "kratzer2.KratzerClean.kratzer_distribution": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueWorldTime.Time",
+          "MontagueFragment.MontagueFragment.MontagueWorldTime.World"
+        ],
+        "raw": "Axioms:\nMontagueFragment.MontagueFragment.MontagueWorldTime.World : Type\nMontagueFragment.MontagueFragment.MontagueWorldTime.Time : Type"
+      },
+      "kratzer2.KratzerClean.kratzer_duality": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic",
+          "MontagueFragment.MontagueFragment.MontagueWorldTime.Time",
+          "MontagueFragment.MontagueFragment.MontagueWorldTime.World"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P\nMontagueFragment.MontagueFragment.MontagueWorldTime.World : Type\nMontagueFragment.MontagueFragment.MontagueWorldTime.Time : Type"
+      },
+      "kratzer2.KratzerClean.kratzer_equals_montague": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueWorldTime.Time",
+          "MontagueFragment.MontagueFragment.MontagueWorldTime.World"
+        ],
+        "raw": "Axioms:\nMontagueFragment.MontagueFragment.MontagueWorldTime.World : Type\nMontagueFragment.MontagueFragment.MontagueWorldTime.Time : Type"
+      },
+      "kratzer2.KratzerClean.kratzer_monotonic": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueWorldTime.Time",
+          "MontagueFragment.MontagueFragment.MontagueWorldTime.World"
+        ],
+        "raw": "Axioms:\nMontagueFragment.MontagueFragment.MontagueWorldTime.World : Type\nMontagueFragment.MontagueFragment.MontagueWorldTime.Time : Type"
+      },
+      "kratzer2.KratzerClean.kratzer_necessitation": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueWorldTime.Time",
+          "MontagueFragment.MontagueFragment.MontagueWorldTime.World"
+        ],
+        "raw": "Axioms:\nMontagueFragment.MontagueFragment.MontagueWorldTime.World : Type\nMontagueFragment.MontagueFragment.MontagueWorldTime.Time : Type"
+      },
+      "kratzer2.KratzerClean.readings_are_different": {
+        "closed": false,
+        "axioms": [
+          "KratzerClean.flying",
+          "KratzerClean.striding",
+          "MontagueFragment.MontagueFragment.MontagueWorldTime.Time",
+          "MontagueFragment.MontagueFragment.MontagueWorldTime.World"
+        ],
+        "raw": "Axioms:\nKratzerClean.striding : MontagueFragment.MontagueFragment.MontagueWorldTime.t\nKratzerClean.flying : MontagueFragment.MontagueFragment.MontagueWorldTime.t\nMontagueFragment.MontagueFragment.MontagueWorldTime.World : Type\nMontagueFragment.MontagueFragment.MontagueWorldTime.Time : Type"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "murder_is_crime",
+      "kw": "Parameter",
+      "line": 124
+    },
+    {
+      "name": "learn_ancestors",
+      "kw": "Parameter",
+      "line": 125
+    },
+    {
+      "name": "striding",
+      "kw": "Parameter",
+      "line": 145
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 0,
+      "measured": 4,
+      "detail": "KratzerClean.flying, KratzerClean.striding, MontagueFragment.MontagueFragment.MontagueWorldTime.Time, MontagueFragment.MontagueFragment.MontagueWorldTime.World"
+    }
+  ]
+}

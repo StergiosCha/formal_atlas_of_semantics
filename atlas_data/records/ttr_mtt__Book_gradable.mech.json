@@ -1,0 +1,165 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "ttr_mtt/Book_gradable.v",
+  "key": "ttr_mtt__Book_gradable",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 5,
+    "proved": 5,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 12,
+    "toplevel_axioms": 10,
+    "section_assumptions": 1
+  },
+  "assumptions": {
+    "queried": 5,
+    "closed": 0,
+    "not_closed": 5,
+    "undocumented_axioms": [
+      "ADJ",
+      "ENORMOUS",
+      "Human",
+      "IDIOTIC",
+      "IHuman",
+      "John",
+      "Kim",
+      "Mary",
+      "PHY",
+      "STND",
+      "height"
+    ],
+    "detail": {
+      "Book_gradable.EI2": {
+        "closed": false,
+        "axioms": [
+          "ENORMOUS",
+          "Human",
+          "IDIOTIC",
+          "IHuman",
+          "PHY",
+          "STND"
+        ],
+        "raw": "Axioms:\nSTND : forall (d : Degree) (A : CN_G d), ADJ d A -> D d\nPHY : forall d : Degree, CN_G d\nIHuman : Idiocy -> CN_G IDIOCY\nIDIOTIC : ADJ IDIOCY Human\nHuman : CN_G HEIGHT\nENORMOUS : forall d : Degree, ADJ d (PHY d)"
+      },
+      "Book_gradable.EI3": {
+        "closed": false,
+        "axioms": [
+          "ADJ",
+          "ENORMOUS",
+          "Human",
+          "IDIOTIC",
+          "IHuman",
+          "PHY",
+          "STND"
+        ],
+        "raw": "Axioms:\nSTND : forall (d : Degree) (A : CN_G d), ADJ d A -> D d\nPHY : forall d : Degree, CN_G d\nIHuman : Idiocy -> CN_G IDIOCY\nIDIOTIC : ADJ IDIOCY Human\nHuman : CN_G HEIGHT\nENORMOUS : forall d : Degree, ADJ d (PHY d)\nADJ : forall d : Degree, CN_G d -> Set"
+      },
+      "Book_gradable.ENORMOUS1": {
+        "closed": false,
+        "axioms": [
+          "ENORMOUS",
+          "Human",
+          "IDIOTIC",
+          "IHuman",
+          "PHY",
+          "STND"
+        ],
+        "raw": "Axioms:\nSTND : forall (d : Degree) (A : CN_G d), ADJ d A -> D d\nPHY : forall d : Degree, CN_G d\nIHuman : Idiocy -> CN_G IDIOCY\nIDIOTIC : ADJ IDIOCY Human\nHuman : CN_G HEIGHT\nENORMOUS : forall d : Degree, ADJ d (PHY d)"
+      },
+      "Book_gradable.TALLER": {
+        "closed": false,
+        "axioms": [
+          "Human",
+          "John",
+          "Mary",
+          "height"
+        ],
+        "raw": "Axioms:\nheight : Human -> Height\nMary : Human\nJohn : Human\nHuman : CN_G HEIGHT"
+      },
+      "Book_gradable.trans": {
+        "closed": false,
+        "axioms": [
+          "Human",
+          "John",
+          "Kim",
+          "Mary",
+          "height"
+        ],
+        "raw": "Axioms:\nheight : Human -> Height\nMary : Human\nKim : Human\nJohn : Human\nHuman : CN_G HEIGHT"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "Human",
+      "kw": "Parameter",
+      "line": 14
+    },
+    {
+      "name": "John",
+      "kw": "Parameter",
+      "line": 15
+    },
+    {
+      "name": "height",
+      "kw": "Parameter",
+      "line": 16
+    },
+    {
+      "name": "PHY",
+      "kw": "Parameter",
+      "line": 19
+    },
+    {
+      "name": "ADJ",
+      "kw": "Parameter",
+      "line": 22
+    },
+    {
+      "name": "TALL",
+      "kw": "Parameter",
+      "line": 23
+    },
+    {
+      "name": "IDIOTIC",
+      "kw": "Parameter",
+      "line": 24
+    },
+    {
+      "name": "ENORMOUS",
+      "kw": "Parameter",
+      "line": 25
+    },
+    {
+      "name": "STND",
+      "kw": "Parameter",
+      "line": 28
+    },
+    {
+      "name": "IHuman",
+      "kw": "Parameter",
+      "line": 44
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 0,
+      "measured": 11,
+      "detail": "ADJ, ENORMOUS, Human, IDIOTIC, IHuman, John, Kim, Mary"
+    }
+  ]
+}

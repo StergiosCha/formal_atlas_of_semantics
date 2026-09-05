@@ -1,0 +1,139 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "extras/Montague.v",
+  "key": "extras__Montague",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 0,
+    "proved": 0,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 33,
+    "toplevel_axioms": 19,
+    "section_assumptions": 4
+  },
+  "assumptions": {
+    "queried": 0,
+    "closed": 0,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "Entity",
+      "kw": "Parameter",
+      "line": 37
+    },
+    {
+      "name": "size",
+      "kw": "Parameter",
+      "line": 38
+    },
+    {
+      "name": "size_ext",
+      "kw": "Axiom",
+      "line": 39
+    },
+    {
+      "name": "size_subset",
+      "kw": "Axiom",
+      "line": 40
+    },
+    {
+      "name": "john",
+      "kw": "Parameter",
+      "line": 47
+    },
+    {
+      "name": "Man",
+      "kw": "Parameter",
+      "line": 48
+    },
+    {
+      "name": "loves",
+      "kw": "Parameter",
+      "line": 49
+    },
+    {
+      "name": "Entity",
+      "kw": "Parameter",
+      "line": 89
+    },
+    {
+      "name": "World",
+      "kw": "Parameter",
+      "line": 90
+    },
+    {
+      "name": "john",
+      "kw": "Parameter",
+      "line": 93
+    },
+    {
+      "name": "Man",
+      "kw": "Parameter",
+      "line": 94
+    },
+    {
+      "name": "loves",
+      "kw": "Parameter",
+      "line": 95
+    },
+    {
+      "name": "seek",
+      "kw": "Parameter",
+      "line": 96
+    },
+    {
+      "name": "Entity",
+      "kw": "Parameter",
+      "line": 116
+    },
+    {
+      "name": "john",
+      "kw": "Parameter",
+      "line": 122
+    },
+    {
+      "name": "Dog",
+      "kw": "Parameter",
+      "line": 122
+    },
+    {
+      "name": "loves",
+      "kw": "Parameter",
+      "line": 123
+    },
+    {
+      "name": "R",
+      "kw": "Parameter",
+      "line": 125
+    },
+    {
+      "name": "R_refl",
+      "kw": "Axiom",
+      "line": 125
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 5,
+      "measured": 0,
+      "detail": ""
+    }
+  ]
+}

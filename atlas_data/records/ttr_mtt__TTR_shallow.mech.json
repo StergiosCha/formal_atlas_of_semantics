@@ -1,0 +1,125 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "ttr_mtt/TTR_shallow.v",
+  "key": "ttr_mtt__TTR_shallow",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 1,
+    "proved": 1,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 15,
+    "toplevel_axioms": 13,
+    "section_assumptions": 6
+  },
+  "assumptions": {
+    "queried": 1,
+    "closed": 0,
+    "not_closed": 1,
+    "undocumented_axioms": [
+      "Ind",
+      "john",
+      "man",
+      "run"
+    ],
+    "detail": {
+      "TTR_shallow.john_runs_proof": {
+        "closed": false,
+        "axioms": [
+          "Ind",
+          "john",
+          "man",
+          "run"
+        ],
+        "raw": "Axioms:\nrun : Ind -> Prop\nman : Ind -> Prop\njohn : Ind\nInd : Set"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "Ind",
+      "kw": "Parameter",
+      "line": 26
+    },
+    {
+      "name": "Prop_",
+      "kw": "Parameter",
+      "line": 27
+    },
+    {
+      "name": "john",
+      "kw": "Parameter",
+      "line": 30
+    },
+    {
+      "name": "run",
+      "kw": "Parameter",
+      "line": 42
+    },
+    {
+      "name": "walk",
+      "kw": "Parameter",
+      "line": 43
+    },
+    {
+      "name": "man",
+      "kw": "Parameter",
+      "line": 44
+    },
+    {
+      "name": "woman",
+      "kw": "Parameter",
+      "line": 45
+    },
+    {
+      "name": "dog",
+      "kw": "Parameter",
+      "line": 46
+    },
+    {
+      "name": "cat",
+      "kw": "Parameter",
+      "line": 47
+    },
+    {
+      "name": "love",
+      "kw": "Parameter",
+      "line": 48
+    },
+    {
+      "name": "chase",
+      "kw": "Parameter",
+      "line": 49
+    },
+    {
+      "name": "heavy",
+      "kw": "Parameter",
+      "line": 289
+    },
+    {
+      "name": "interesting",
+      "kw": "Parameter",
+      "line": 290
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 0,
+      "measured": 4,
+      "detail": "Ind, john, man, run"
+    }
+  ]
+}

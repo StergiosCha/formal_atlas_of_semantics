@@ -1,0 +1,60 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "extras/FocusEven.v",
+  "key": "extras__FocusEven",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 2,
+    "stderr_tail": "File \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/FocusEven.v\", line 9, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]\nFile \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/FocusEven.v\", line 9, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]"
+  },
+  "counts": {
+    "theorems": 3,
+    "proved": 3,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 26,
+    "toplevel_axioms": 0,
+    "section_assumptions": 11
+  },
+  "assumptions": {
+    "queried": 3,
+    "closed": 0,
+    "not_closed": 3,
+    "undocumented_axioms": [
+      "MontagueFragment.MontagueFragment.MontagueExtensional.Entity"
+    ],
+    "detail": {
+      "FocusEven.even_only_relationship": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity"
+        ],
+        "raw": "Axioms:\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "FocusEven.even_requires_alternatives": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity"
+        ],
+        "raw": "Axioms:\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "FocusEven.only_preserves_focus": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity"
+        ],
+        "raw": "Axioms:\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

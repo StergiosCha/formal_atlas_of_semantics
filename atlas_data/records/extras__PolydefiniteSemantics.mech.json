@@ -1,0 +1,672 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "extras/PolydefiniteSemantics.v",
+  "key": "extras__PolydefiniteSemantics",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 2,
+    "stderr_tail": "File \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/PolydefiniteSemantics.v\", line 8, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]\nFile \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/PolydefiniteSemantics.v\", line 8, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]"
+  },
+  "counts": {
+    "theorems": 47,
+    "proved": 46,
+    "admitted": 0,
+    "aborted": 1,
+    "unparsed_status": 0,
+    "definitions": 71,
+    "toplevel_axioms": 11,
+    "section_assumptions": 59
+  },
+  "assumptions": {
+    "queried": 46,
+    "closed": 0,
+    "not_closed": 46,
+    "undocumented_axioms": [
+      "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+      "MontagueFragment.MontagueFragment.MontagueExtensional.john",
+      "all_cobras_venomous",
+      "alleged_perpetrator",
+      "amazing",
+      "arch_galerius",
+      "aristotelous_square",
+      "author1",
+      "author2",
+      "author_pred",
+      "big",
+      "black",
+      "cat",
+      "cat_fluffy",
+      "cat_shadow",
+      "cat_snowball",
+      "cobra",
+      "cobra1",
+      "cobra2",
+      "cobras_exist",
+      "current_pm",
+      "deceased_pm",
+      "fast_entity",
+      "fast_speaker",
+      "former_pm",
+      "house",
+      "in_police_custody",
+      "landmark",
+      "landmark_pred",
+      "landmarks_distinct",
+      "make_first",
+      "maria",
+      "maria_has_cats",
+      "maria_only_black_cats",
+      "news_report",
+      "news_report_truth",
+      "other",
+      "owns_pet",
+      "paok",
+      "parrot1",
+      "parrot2",
+      "perpetrator",
+      "prime_minister",
+      "privative_property",
+      "rotonda_galerius",
+      "show",
+      "show_pred",
+      "show_properties",
+      "small",
+      "small_cat1",
+      "small_cat2",
+      "speaker_john",
+      "speaker_pred",
+      "subsective_property",
+      "suspect",
+      "suspect_andreas",
+      "thessaloniki",
+      "thessaloniki_landmarks",
+      "tower",
+      "tower_pred",
+      "two_authors",
+      "venomous",
+      "white",
+      "white_acc",
+      "white_not_black",
+      "white_pred",
+      "white_tower",
+      "white_tower_context",
+      "white_tower_unique"
+    ],
+    "detail": {
+      "PolydefiniteSemantics.LS_example1_works": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "black",
+          "cat",
+          "cat_fluffy",
+          "cat_shadow",
+          "cat_snowball",
+          "maria_has_cats",
+          "white",
+          "white_not_black"
+        ],
+        "raw": "Axioms:\nwhite_not_black :\n  forall x : MontagueFragment.MontagueFragment.MontagueExtensional.Entity,\n  white x -> ~ black x\nwhite : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nmaria_has_cats :\n  black cat_fluffy /\\\n  cat cat_fluffy /\\\n  black cat_shadow /\\\n  cat cat_shadow /\\ white cat_snowball /\\ cat cat_snowball\ncat_snowball : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\ncat_shadow : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\ncat_fluffy : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\ncat : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nblack : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.LS_example2_predicts_infelicity": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "black",
+          "cat",
+          "cat_fluffy",
+          "cat_shadow",
+          "maria_only_black_cats"
+        ],
+        "raw": "Axioms:\nmaria_only_black_cats :\n  black cat_fluffy /\\\n  cat cat_fluffy /\\\n  black cat_shadow /\\\n  cat cat_shadow /\\\n  (forall x : MontagueFragment.MontagueFragment.MontagueExtensional.Entity,\n   cat x -> black x)\ncat_shadow : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\ncat_fluffy : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\ncat : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nblack : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.LS_example3_contradiction": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "alleged_perpetrator",
+          "news_report",
+          "perpetrator",
+          "suspect_andreas"
+        ],
+        "raw": "Axioms:\nsuspect_andreas :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nperpetrator :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nnews_report :\n  alleged_perpetrator suspect_andreas /\\ ~ perpetrator suspect_andreas\nalleged_perpetrator :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.LS_example4_empty": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "current_pm",
+          "deceased_pm",
+          "former_pm",
+          "prime_minister",
+          "privative_property"
+        ],
+        "raw": "Axioms:\nprivative_property :\n  former_pm deceased_pm /\\\n  ~ prime_minister deceased_pm /\\ prime_minister current_pm\nprime_minister :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nformer_pm :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\ndeceased_pm : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\ncurrent_pm : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.LS_example5_wrong": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "fast_entity",
+          "fast_speaker",
+          "speaker_john",
+          "speaker_pred",
+          "subsective_property"
+        ],
+        "raw": "Axioms:\nsubsective_property :\n  fast_speaker speaker_john /\\\n  speaker_pred speaker_john /\\ ~ fast_entity speaker_john\nspeaker_pred :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nspeaker_john : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nfast_speaker :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nfast_entity :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.LS_example6_vacuous": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "all_cobras_venomous",
+          "cobra",
+          "venomous"
+        ],
+        "raw": "Axioms:\nvenomous :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\ncobra : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nall_cobras_venomous :\n  forall x : MontagueFragment.MontagueFragment.MontagueExtensional.Entity,\n  cobra x -> venomous x\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.LS_example7_vacuous": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "tower_pred",
+          "white_pred"
+        ],
+        "raw": "Axioms:\nwhite_pred :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\ntower_pred :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.alleged_prominence_difference": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "alleged_perpetrator",
+          "make_first"
+        ],
+        "raw": "Axioms:\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\nalleged_perpetrator :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.alleged_truth_conditional_equivalence": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "alleged_perpetrator",
+          "make_first"
+        ],
+        "raw": "Axioms:\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\nalleged_perpetrator :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.example1_both_work": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "black",
+          "cat",
+          "cat_fluffy",
+          "cat_shadow",
+          "cat_snowball",
+          "make_first",
+          "maria_has_cats",
+          "white"
+        ],
+        "raw": "Axioms:\nwhite : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nmaria_has_cats :\n  black cat_fluffy /\\\n  cat cat_fluffy /\\\n  black cat_shadow /\\\n  cat cat_shadow /\\ white cat_snowball /\\ cat cat_snowball\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\ncat_snowball : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\ncat_shadow : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\ncat_fluffy : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\ncat : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nblack : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.example1_truth_conditions": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "black",
+          "cat",
+          "cat_fluffy",
+          "cat_shadow",
+          "make_first",
+          "maria",
+          "owns_pet"
+        ],
+        "raw": "Axioms:\nowns_pet :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nmaria : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\ncat_shadow : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\ncat_fluffy : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\ncat : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nblack : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.example2_LS_fails_we_succeed": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "black",
+          "cat",
+          "cat_fluffy",
+          "cat_shadow",
+          "make_first",
+          "maria_only_black_cats"
+        ],
+        "raw": "Axioms:\nmaria_only_black_cats :\n  black cat_fluffy /\\\n  cat cat_fluffy /\\\n  black cat_shadow /\\\n  cat cat_shadow /\\\n  (forall x : MontagueFragment.MontagueFragment.MontagueExtensional.Entity,\n   cat x -> black x)\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\ncat_shadow : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\ncat_fluffy : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\ncat : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nblack : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.lekakou_szendroi_fails_alleged": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "alleged_perpetrator",
+          "perpetrator"
+        ],
+        "raw": "Axioms:\nperpetrator :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nalleged_perpetrator :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.mavres_gates_same_mechanism": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "cat_fluffy",
+          "make_first"
+        ],
+        "raw": "Axioms:\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\ncat_fluffy : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.modal_force_preserved": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "alleged_perpetrator",
+          "make_first"
+        ],
+        "raw": "Axioms:\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\nalleged_perpetrator :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.no_grammatical_restrictivity": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "MontagueFragment.MontagueFragment.MontagueExtensional.john"
+        ],
+        "raw": "Axioms:\nMontagueFragment.MontagueFragment.MontagueExtensional.john :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.non_restrictive_polydefinites_realistic": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "MontagueFragment.MontagueFragment.MontagueExtensional.john"
+        ],
+        "raw": "Axioms:\nMontagueFragment.MontagueFragment.MontagueExtensional.john :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.our_account_correct": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "alleged_perpetrator",
+          "in_police_custody",
+          "make_first",
+          "news_report_truth",
+          "perpetrator",
+          "suspect"
+        ],
+        "raw": "Axioms:\nsuspect : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nperpetrator :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nnews_report_truth : alleged_perpetrator suspect /\\ ~ perpetrator suspect\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\nin_police_custody :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nalleged_perpetrator :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.our_account_handles_alleged": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "alleged_perpetrator",
+          "in_police_custody",
+          "make_first",
+          "news_report_truth",
+          "perpetrator",
+          "suspect"
+        ],
+        "raw": "Axioms:\nsuspect : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nperpetrator :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nnews_report_truth : alleged_perpetrator suspect /\\ ~ perpetrator suspect\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\nin_police_custody :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nalleged_perpetrator :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.our_example10_anaphoric": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "author1",
+          "author2",
+          "author_pred",
+          "other",
+          "two_authors"
+        ],
+        "raw": "Axioms:\ntwo_authors :\n  author_pred author1 /\\\n  author_pred author2 /\\ other author2 author1 /\\ author1 <> author2\nother :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nauthor_pred :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nauthor2 : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nauthor1 : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.our_example1_works": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "black",
+          "cat",
+          "cat_fluffy",
+          "cat_shadow",
+          "cat_snowball",
+          "make_first"
+        ],
+        "raw": "Axioms:\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\ncat_snowball : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\ncat_shadow : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\ncat_fluffy : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\ncat : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nblack : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.our_example2_works": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "black",
+          "cat",
+          "cat_fluffy",
+          "cat_shadow",
+          "make_first",
+          "maria_only_black_cats"
+        ],
+        "raw": "Axioms:\nmaria_only_black_cats :\n  black cat_fluffy /\\\n  cat cat_fluffy /\\\n  black cat_shadow /\\\n  cat cat_shadow /\\\n  (forall x : MontagueFragment.MontagueFragment.MontagueExtensional.Entity,\n   cat x -> black x)\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\ncat_shadow : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\ncat_fluffy : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\ncat : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nblack : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.our_example3_correct": {
+        "closed": false,
+        "axioms": [
+          "alleged_perpetrator",
+          "news_report",
+          "perpetrator",
+          "suspect_andreas"
+        ],
+        "raw": "Axioms:\nsuspect_andreas :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nperpetrator :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nnews_report :\n  alleged_perpetrator suspect_andreas /\\ ~ perpetrator suspect_andreas\nalleged_perpetrator :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop"
+      },
+      "PolydefiniteSemantics.our_example4_correct": {
+        "closed": false,
+        "axioms": [
+          "current_pm",
+          "deceased_pm",
+          "former_pm",
+          "prime_minister",
+          "privative_property"
+        ],
+        "raw": "Axioms:\nprivative_property :\n  former_pm deceased_pm /\\\n  ~ prime_minister deceased_pm /\\ prime_minister current_pm\nprime_minister :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nformer_pm :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\ndeceased_pm : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\ncurrent_pm : MontagueFragment.MontagueFragment.MontagueExtensional.Entity"
+      },
+      "PolydefiniteSemantics.our_example4_with_contrast": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "current_pm",
+          "deceased_pm",
+          "former_pm",
+          "make_first",
+          "prime_minister",
+          "privative_property"
+        ],
+        "raw": "Axioms:\nprivative_property :\n  former_pm deceased_pm /\\\n  ~ prime_minister deceased_pm /\\ prime_minister current_pm\nprime_minister :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\nformer_pm :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\ndeceased_pm : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\ncurrent_pm : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.our_example5_correct": {
+        "closed": false,
+        "axioms": [
+          "fast_entity",
+          "fast_speaker",
+          "speaker_john",
+          "speaker_pred",
+          "subsective_property"
+        ],
+        "raw": "Axioms:\nsubsective_property :\n  fast_speaker speaker_john /\\\n  speaker_pred speaker_john /\\ ~ fast_entity speaker_john\nspeaker_pred :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nspeaker_john : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nfast_speaker :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nfast_entity :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop"
+      },
+      "PolydefiniteSemantics.our_example6_felicitous": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "all_cobras_venomous",
+          "cobra",
+          "cobra1",
+          "cobra2",
+          "cobras_exist",
+          "venomous"
+        ],
+        "raw": "Axioms:\nvenomous :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\ncobras_exist :\n  cobra cobra1 /\\ venomous cobra1 /\\ cobra cobra2 /\\ venomous cobra2\ncobra2 : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\ncobra1 : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\ncobra : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nall_cobras_venomous :\n  forall x : MontagueFragment.MontagueFragment.MontagueExtensional.Entity,\n  cobra x -> venomous x\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.our_example7_expressive": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "landmark_pred",
+          "make_first",
+          "tower_pred",
+          "white_pred",
+          "white_tower",
+          "white_tower_unique"
+        ],
+        "raw": "Axioms:\nwhite_tower_unique :\n  tower_pred white_tower /\\\n  white_pred white_tower /\\\n  landmark_pred white_tower /\\\n  (forall x : MontagueFragment.MontagueFragment.MontagueExtensional.Entity,\n   tower_pred x /\\ white_pred x -> x = white_tower)\nwhite_tower : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nwhite_pred :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\ntower_pred :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\nlandmark_pred :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.our_example8_subjective": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "amazing",
+          "cobra1",
+          "cobra2",
+          "make_first",
+          "show",
+          "show_pred",
+          "show_properties"
+        ],
+        "raw": "Axioms:\nshow_properties : amazing show /\\ show_pred show\nshow_pred :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nshow : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\ncobra2 : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\ncobra1 : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\namazing :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.our_example9_topic_shift": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "cat",
+          "make_first",
+          "parrot1",
+          "parrot2",
+          "small",
+          "small_cat1",
+          "small_cat2"
+        ],
+        "raw": "Axioms:\nsmall_cat2 : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nsmall_cat1 : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nsmall : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nparrot2 : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nparrot1 : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\ncat : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.paokara_chant_analysis": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "make_first",
+          "paok",
+          "thessaloniki",
+          "tower",
+          "white_acc",
+          "white_tower",
+          "white_tower_context"
+        ],
+        "raw": "Axioms:\nwhite_tower_context :\n  tower white_tower /\\\n  white_acc white_tower /\\\n  (forall x : MontagueFragment.MontagueFragment.MontagueExtensional.Entity,\n   tower x /\\ white_acc x -> x = white_tower)\nwhite_tower : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nwhite_acc :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\ntower : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nthessaloniki : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\npaok : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.pirgo_ton_lefko_among_landmarks": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "arch_galerius",
+          "aristotelous_square",
+          "landmark",
+          "landmarks_distinct",
+          "make_first",
+          "rotonda_galerius",
+          "thessaloniki_landmarks",
+          "tower",
+          "white_acc",
+          "white_tower"
+        ],
+        "raw": "Axioms:\nwhite_tower : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nwhite_acc :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\ntower : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nthessaloniki_landmarks :\n  landmark white_tower /\\\n  tower white_tower /\\\n  white_acc white_tower /\\\n  landmark rotonda_galerius /\\\n  ~ tower rotonda_galerius /\\\n  landmark arch_galerius /\\\n  ~ tower arch_galerius /\\\n  landmark aristotelous_square /\\ ~ tower aristotelous_square\nrotonda_galerius :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\nlandmarks_distinct :\n  rotonda_galerius <> white_tower /\\\n  arch_galerius <> white_tower /\\\n  aristotelous_square <> white_tower /\\\n  rotonda_galerius <> arch_galerius /\\\n  rotonda_galerius <> aristotelous_square /\\\n  arch_galerius <> aristotelous_square\nlandmark :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\naristotelous_square :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity\narch_galerius : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.pirgo_ton_lefko_equivalence": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "make_first",
+          "tower",
+          "white_acc",
+          "white_tower"
+        ],
+        "raw": "Axioms:\nwhite_tower : MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nwhite_acc :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\ntower : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.polydefinite_always_updates_prominence": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "big",
+          "house",
+          "make_first"
+        ],
+        "raw": "Axioms:\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\nhouse : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nbig : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.polydefinite_monadic_equivalence": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "black",
+          "cat"
+        ],
+        "raw": "Axioms:\ncat : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nblack : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.polydefinite_updates_prominence": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "make_first"
+        ],
+        "raw": "Axioms:\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.polydefinites_adjective_neutral": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "make_first"
+        ],
+        "raw": "Axioms:\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.prominence_among_alternatives": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "make_first"
+        ],
+        "raw": "Axioms:\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.prominence_among_alternatives1": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "make_first"
+        ],
+        "raw": "Axioms:\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.prominence_unified_mechanism": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "big",
+          "house",
+          "make_first"
+        ],
+        "raw": "Axioms:\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\nhouse : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nbig : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.restrictivity_not_always_required": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "MontagueFragment.MontagueFragment.MontagueExtensional.john"
+        ],
+        "raw": "Axioms:\nMontagueFragment.MontagueFragment.MontagueExtensional.john :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.restrictivity_not_required": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "make_first"
+        ],
+        "raw": "Axioms:\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.same_prominence_mechanism_everywhere": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "make_first"
+        ],
+        "raw": "Axioms:\nmake_first :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  ProminenceList -> ProminenceList\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.specific_polydefinite_equivalence": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "black",
+          "cat"
+        ],
+        "raw": "Axioms:\ncat : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nblack : MontagueFragment.MontagueFragment.MontagueExtensional.Entity -> Prop\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.truth_conditional_equivalence": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity"
+        ],
+        "raw": "Axioms:\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      },
+      "PolydefiniteSemantics.unified_analysis_holds": {
+        "closed": false,
+        "axioms": [
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity"
+        ],
+        "raw": "Axioms:\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [
+    {
+      "name": "polydefinite_non_compositional",
+      "line": 480
+    }
+  ],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "first",
+      "kw": "Parameter",
+      "line": 57
+    },
+    {
+      "name": "make_first",
+      "kw": "Parameter",
+      "line": 58
+    },
+    {
+      "name": "paok",
+      "kw": "Parameter",
+      "line": 647
+    },
+    {
+      "name": "white_tower",
+      "kw": "Parameter",
+      "line": 648
+    },
+    {
+      "name": "tower",
+      "kw": "Parameter",
+      "line": 649
+    },
+    {
+      "name": "bring_to",
+      "kw": "Parameter",
+      "line": 650
+    },
+    {
+      "name": "white_tower_context",
+      "kw": "Axiom",
+      "line": 653
+    },
+    {
+      "name": "rotonda_galerius",
+      "kw": "Parameter",
+      "line": 713
+    },
+    {
+      "name": "landmark",
+      "kw": "Parameter",
+      "line": 714
+    },
+    {
+      "name": "thessaloniki_landmarks",
+      "kw": "Axiom",
+      "line": 717
+    },
+    {
+      "name": "landmarks_distinct",
+      "kw": "Axiom",
+      "line": 730
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 25,
+      "measured": 69,
+      "detail": "MontagueFragment.MontagueFragment.MontagueExtensional.Entity, MontagueFragment.MontagueFragment.MontagueExtensional.john, all_cobras_venomous, alleged_perpetrator, amazing, arch_galerius, aristotelous_square, author1"
+    }
+  ]
+}

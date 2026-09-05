@@ -1,0 +1,152 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "extras/Aspect.v",
+  "key": "extras__Aspect",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 2,
+    "stderr_tail": "File \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/Aspect.v\", line 5, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]\nFile \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/Aspect.v\", line 5, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]"
+  },
+  "counts": {
+    "theorems": 1,
+    "proved": 1,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 9,
+    "toplevel_axioms": 16,
+    "section_assumptions": 6
+  },
+  "assumptions": {
+    "queried": 1,
+    "closed": 0,
+    "not_closed": 1,
+    "undocumented_axioms": [
+      "AGENT",
+      "Event",
+      "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+      "PATIENT",
+      "Time",
+      "World",
+      "culminates",
+      "open_ev",
+      "subevent",
+      "time_of"
+    ],
+    "detail": {
+      "Aspect.prog_sentence_true": {
+        "closed": false,
+        "axioms": [
+          "AGENT",
+          "Event",
+          "MontagueFragment.MontagueFragment.MontagueExtensional.Entity",
+          "PATIENT",
+          "Time",
+          "World",
+          "culminates",
+          "open_ev",
+          "subevent",
+          "time_of"
+        ],
+        "raw": "Axioms:\ntime_of : Event -> Time\nsubevent : Event -> Event -> Prop\nopen_ev : Event -> Prop\nculminates : Event -> Event -> Prop\nWorld : Type\nTime : Type\nPATIENT :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  Event -> Prop\nEvent : Type\nMontagueFragment.MontagueFragment.MontagueExtensional.Entity : Type\nAGENT :\n  MontagueFragment.MontagueFragment.MontagueExtensional.Entity ->\n  Event -> Prop"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "Event",
+      "kw": "Parameter",
+      "line": 11
+    },
+    {
+      "name": "AGENT",
+      "kw": "Parameter",
+      "line": 12
+    },
+    {
+      "name": "open_ev",
+      "kw": "Parameter",
+      "line": 13
+    },
+    {
+      "name": "Time",
+      "kw": "Parameter",
+      "line": 15
+    },
+    {
+      "name": "lt",
+      "kw": "Parameter",
+      "line": 16
+    },
+    {
+      "name": "lt_trans",
+      "kw": "Axiom",
+      "line": 17
+    },
+    {
+      "name": "lt_irrefl",
+      "kw": "Axiom",
+      "line": 18
+    },
+    {
+      "name": "lt_total",
+      "kw": "Axiom",
+      "line": 19
+    },
+    {
+      "name": "time_of",
+      "kw": "Parameter",
+      "line": 21
+    },
+    {
+      "name": "World",
+      "kw": "Parameter",
+      "line": 23
+    },
+    {
+      "name": "subevent",
+      "kw": "Parameter",
+      "line": 34
+    },
+    {
+      "name": "subevent_refl",
+      "kw": "Axiom",
+      "line": 35
+    },
+    {
+      "name": "subevent_trans",
+      "kw": "Axiom",
+      "line": 36
+    },
+    {
+      "name": "culminates",
+      "kw": "Parameter",
+      "line": 40
+    },
+    {
+      "name": "result_state",
+      "kw": "Parameter",
+      "line": 41
+    },
+    {
+      "name": "culminates_sub",
+      "kw": "Axiom",
+      "line": 42
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 6,
+      "measured": 10,
+      "detail": "AGENT, Event, MontagueFragment.MontagueFragment.MontagueExtensional.Entity, PATIENT, Time, World, culminates, open_ev"
+    }
+  ]
+}

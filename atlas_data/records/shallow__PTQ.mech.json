@@ -7,13 +7,15 @@
     "ok": true,
     "returncode": 0,
     "warnings": 1,
-    "stderr_tail": "File \"/Users/graogro/Dropbox/revisiting-formal-semantics/shallow/PTQ.v\", line 471, characters 0-3282:\nWarning: Not a fully mutually defined fixpoint\n(e.g., interp_S depends on interp_TV but not conversely).\nWell-foundedness check may fail unexpectedly.\n [non-full-mutual,fixpoints,default]"
+    "unsafe_flags": [],
+    "stderr_tail": "File \"shallow/PTQ.v\", line 471, characters 0-3282:\nWarning: Not a fully mutually defined fixpoint\n(e.g., interp_S depends on interp_TV but not conversely).\nWell-foundedness check may fail unexpectedly.\n [non-full-mutual,fixpoints,default]"
   },
   "counts": {
     "theorems": 9,
     "proved": 8,
     "admitted": 1,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 77,
     "toplevel_axioms": 49,
@@ -292,6 +294,16 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "PTQ.rigid_is_rigid": "13107af0cff822b8",
+    "PTQ.bill_walks_correct": "74724dc2eb05d048",
+    "PTQ.a_man_walks_correct": "903fce93e7681a9d",
+    "PTQ.john_walks_implies_some_man_walks": "c74efd9d046565d4",
+    "PTQ.every_man_walks_correct": "615e3034c7efdee3",
+    "PTQ.seek_ambiguity": "9c403e0a55ee6d58",
+    "PTQ.extensional_collapse_walk": "2ec5e53ba0bf79e6",
+    "PTQ.every_man_walks_extensional": "82401fb012c101e4"
   },
   "admitted_names": [
     {

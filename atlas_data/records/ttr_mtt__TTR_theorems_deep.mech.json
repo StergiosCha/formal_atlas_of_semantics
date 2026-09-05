@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 18,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 13,
     "toplevel_axioms": 0,
@@ -26,6 +28,26 @@
     "undocumented_axioms": [],
     "detail": {},
     "unresolved": []
+  },
+  "statements": {
+    "TTR_theorems_deep.deep_john_runs": "67d7c4dd2338843b",
+    "TTR_theorems_deep.deep_john_witnesses_run": "668fe46f87c312e2",
+    "TTR_theorems_deep.deep_width_subtyping": "472de5f382b4a4f8",
+    "TTR_theorems_deep.deep_meet_sub_l": "01f8b20af716e097",
+    "TTR_theorems_deep.deep_meet_sub_r": "ce6a6ab70a747bd9",
+    "TTR_theorems_deep.deep_join_sup_l": "424a00f3ce629d30",
+    "TTR_theorems_deep.deep_singleton_sub": "6bafbfdb01367665",
+    "TTR_theorems_deep.deep_sub_trans": "24d26fd26230df2c",
+    "TTR_theorems_deep.deep_type_recovery": "6795b1ec94671fea",
+    "TTR_theorems_deep.deep_merge_result": "b00de4fca08800a6",
+    "TTR_theorems_deep.deep_merge_overlap": "59dea116c4c367f6",
+    "TTR_theorems_deep.deep_no_unicorn_witnesses": "e0ea7a6cb289deff",
+    "TTR_theorems_deep.deep_unicorn_is_structured": "8273e2b01c9b499d",
+    "TTR_theorems_deep.deep_relabel_equivalent": "9958236762f631b5",
+    "TTR_theorems_deep.deep_type_eq_refl": "5a183699444ef3e3",
+    "TTR_theorems_deep.deep_type_eq_diff": "283556e7da254f09",
+    "TTR_theorems_deep.deep_dragon_possible": "3c9ef0afc904c1b4",
+    "TTR_theorems_deep.deep_dragon_not_necessary": "be4c9efa6e7b486d"
   },
   "admitted_names": [],
   "aborted_names": [],

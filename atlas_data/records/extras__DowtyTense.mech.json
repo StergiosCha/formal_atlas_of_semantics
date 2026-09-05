@@ -7,13 +7,15 @@
     "ok": true,
     "returncode": 0,
     "warnings": 2,
-    "stderr_tail": "File \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/DowtyTense.v\", line 7, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]\nFile \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/DowtyTense.v\", line 7, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]"
+    "unsafe_flags": [],
+    "stderr_tail": "File \"extras/DowtyTense.v\", line 7, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]\nFile \"extras/DowtyTense.v\", line 7, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]"
   },
   "counts": {
     "theorems": 1,
     "proved": 1,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 11,
     "toplevel_axioms": 11,
@@ -52,6 +54,9 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "DowtyTense.sentence_true_past": "3aeae5f76ccf15cb"
   },
   "admitted_names": [],
   "aborted_names": [],

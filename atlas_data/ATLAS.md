@@ -1,6 +1,6 @@
 # Formalizability Atlas of Semantics — current state
 
-Coq files audited: **64** · theorem statements: **1045** (proved 1033, admitted 12) · papers assessed: **230** · records disputed by the verifier: **0**
+Coq files audited: **64** · theorem statements: **1056** (proved 1043, admitted 12) · papers assessed: **230** · records disputed by the verifier: **0**
 
 ## Determination (four-point scale) over formalized sources
 
@@ -49,7 +49,7 @@ Coq files audited: **64** · theorem statements: **1045** (proved 1033, admitted
 
 | File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
 |---|---|---|---|---|---|---|
-| atlas/dynamic/DPL.v | Groenendijk, J. & Stokhof, M. (1991). Dynamic Predicate Logic. Linguistics and Philosophy 14(1):39-100.; Dekker, P. (2012). Dynamic Semantics. Springer. Sec. 2.1. (source gap) | 168/168 | faithful-with-corrections | 1 as-is | ii, iv, v | — |
+| atlas/dynamic/DPL.v | Groenendijk, J. & Stokhof, M. (1991). Dynamic Predicate Logic. Linguistics and Philosophy 14(1):39-100.; Dekker, P. (2012). Dynamic Semantics. Springer. Sec. 2.1. (source gap) | 171/171 | faithful-with-corrections | 1 as-is | ii, iv, v | — |
 | extras/DonkeyScope.v | Groenendijk, J. & Stokhof, M. (1991). Dynamic Predicate Logic. Linguistics and Philosophy 14:39-100. (section 4's DPL fragment); Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. PhD dissertation, UMass. (assignment-based dynamic binding, section 2 attempt 5) | 5/7 +2 adm | partial | n/a | iv | — |
 | extras/FCS2.v | Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. PhD dissertation, UMass Amherst.; Heim, I. (1983). File Change Semantics and the Familiarity Theory of Definiteness. In Meaning, Use, and Interpretation of Language, de Gruyter. | 2/4 +5 adm | unfaithful | 3 major restructuring | i, ii, iii, v | — |
 
@@ -70,7 +70,7 @@ Coq files audited: **64** · theorem statements: **1045** (proved 1033, admitted
 
 | File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
 |---|---|---|---|---|---|---|
-| extras/Quantifiers.v | Barwise, J. & Cooper, R. (1981). Generalized quantifiers and natural language. Linguistics and Philosophy 4:159-219.; Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. Wiley/ISTE. | 9/10 +2 adm | unfaithful | 3 major restructuring | ii, iv | — |
+| extras/Quantifiers.v | Barwise, J. & Cooper, R. (1981). Generalized quantifiers and natural language. Linguistics and Philosophy 4:159-219.; Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. Wiley/ISTE. | 9/11 +2 adm | unfaithful | 3 major restructuring | ii, iv | — |
 
 ## infrastructure
 
@@ -185,7 +185,7 @@ Coq files audited: **64** · theorem statements: **1045** (proved 1033, admitted
 
 | File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
 |---|---|---|---|---|---|---|
-| atlas/montague/PTQ.v | Montague, R. (1973). The proper treatment of quantification in ordinary English.; Dowty, Wall & Peters (1981). Introduction to Montague Semantics, ch. 7. | 16/16 | faithful | 1 as-is | i, ii, iv | — |
+| atlas/montague/PTQ.v | Montague, R. (1973). The proper treatment of quantification in ordinary English.; Dowty, Wall & Peters (1981). Introduction to Montague Semantics, ch. 7. | 19/19 | faithful | 1 as-is | i, ii, iv | — |
 | atlas/montague/PTQ_vs_Lambek.v | Montague 1973 (via atlas/montague/PTQ.v); Moot & Retore 2012 ch. 3, Lambek 1958 (via atlas/type_logical/Lambek.v). | 4/4 | faithful | 1 as-is | iv | — |
 | atlas/montague/PTQ_vs_MTT.v | Montague 1973 (via atlas/montague/PTQ.v); Chatzikyriakidis & Luo 2020 §3.2-3.3 (via atlas/mtt_ranta/MTT.v); Luo 2012. | 4/4 | faithful | 1 as-is | iv | — |
 
@@ -226,7 +226,7 @@ Coq files audited: **64** · theorem statements: **1045** (proved 1033, admitted
 | ttr_mtt/Book_gradable.v | Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. Wiley/ISTE. Ch. 4 'Advanced Modification', §4.2 (eqs. 4.17-4.27) and §4.3 (eqs. 4.31-4.36).; Chatzikyriakidis, S. & Luo, Z. (2013). Adjectives in a modern type-theoretical setting. (antecedent account the book's §4.2 builds on, with C&L 2014/2017a) (source gap) | 5/5 | partial | 3 major restructuring | ii, iv | — |
 | ttr_mtt/Book_veridical.v | Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. Wiley/ISTE. §4.5.1 (defs 4.50-4.53, claims 4.51-4.52), §6.3.1, Appendix A7.7.; Chatzikyriakidis, S. & Luo, Z. (2014). Natural Language Inference in Coq. J. of Logic, Language and Information 23 (background: veridical adverbs for FraCaS). (source gap) | 3/3 | partial | 1 as-is | iv | — |
 | ttr_mtt/Coq_book_ontology.v | Chatzikyriakidis, S. & Luo, Z. (2014). Natural Language Inference in Coq. Journal of Logic, Language and Information 23(4):441-480.; Luo, Z. (2012). Common Nouns as Types. LACL 2012, LNCS 7351. | 0/0 | partial | n/a | ii, iv | — |
-| ttr_mtt/TTR_base.v | Cooper, R. (2023). From Perception to Communication: A Theory of Types for Action and Meaning. Oxford University Press. Appendix A1 (underlying set theory), A11 (record types). | 0/0 | partial | 3 major restructuring | i, ii, iv | — |
+| ttr_mtt/TTR_base.v | Cooper, R. (2023). From Perception to Communication: A Theory of Types for Action and Meaning. Oxford University Press. Appendix A1 (underlying set theory), A11 (record types). | 4/4 | partial | 3 major restructuring | i, ii, iv | — |
 | ttr_mtt/TTR_records.v | Cooper, R. (2023). From Perception to Communication: A Theory of Types for Action and Meaning. Oxford University Press. Appendix A11 (records and record types). | 2/2 | partial | 3 major restructuring | ii, iv, v | — |
 | ttr_mtt/TTR_shallow.v | Cooper, R. (2023). From Perception to Communication: An Enriched Approach to the Semantics and Pragmatics of Dialogue. Oxford University Press. (Appendix A: A1, A4, A6, A9, A10, A11; p. 397 quoted in header.); Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. Wiley/ISTE. (Secondary source for the MTT comparison half.) | 1/1 | partial | 3 major restructuring | ii, iv | — |
 | ttr_mtt/TTR_theorems_deep.v | Cooper, R. (2023). From Perception to Communication: A Theory of Types for Action and Meaning. Oxford University Press. Appendices A1-A11 (cited in the headers of the imported TTR_base.v, TTR_types.v, TTR_records.v). | 18/18 | partial | 3 major restructuring | ii, iv, v | — |

@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 12,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 8,
     "toplevel_axioms": 9,
@@ -98,6 +100,20 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "TTR_theorems_shallow.shallow_john_runs": "da3c10228fd37b48",
+    "TTR_theorems_shallow.shallow_width_subtyping": "00f5f32b23f8cdb5",
+    "TTR_theorems_shallow.shallow_width_subtyping_2": "1dcfe1277985866a",
+    "TTR_theorems_shallow.shallow_meet_sub_l": "de9b8fc39f2411c7",
+    "TTR_theorems_shallow.shallow_meet_sub_r": "872aaa4daa1a10af",
+    "TTR_theorems_shallow.shallow_join_sup_l": "c95b883df7268e75",
+    "TTR_theorems_shallow.shallow_join_sup_r": "4673ab518523363c",
+    "TTR_theorems_shallow.shallow_singleton_sub": "8ba02cec99577853",
+    "TTR_theorems_shallow.shallow_sub_trans": "af230482628b698e",
+    "TTR_theorems_shallow.shallow_complex_inference": "ec21dd66ddaff1ea",
+    "TTR_theorems_shallow.shallow_some_man_runs_witness": "b53911f7dfec648a",
+    "TTR_theorems_shallow.shallow_relabel_roundtrip": "50026063b9c97f4c"
   },
   "admitted_names": [],
   "aborted_names": [],

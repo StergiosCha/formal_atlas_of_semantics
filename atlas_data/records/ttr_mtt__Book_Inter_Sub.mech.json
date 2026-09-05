@@ -7,14 +7,16 @@
     "ok": true,
     "returncode": 0,
     "warnings": 1,
-    "stderr_tail": "File \"/Users/graogro/Dropbox/revisiting-formal-semantics/ttr_mtt/Book_Inter_Sub.v\", line 30, characters 9-20:\nWarning: Command \"Abort All.\" is not recommended in batch mode. In\nparticular, going back in the document is not efficient in batch mode due to\nCoq not caching previous states for memory optimization reasons. If your use\nis intentional, you may want to disable this warning and pass the\n\"-async-proofs-cache force\" option to Coq. [undo-batch-mode,default]"
+    "unsafe_flags": [],
+    "stderr_tail": "File \"ttr_mtt/Book_Inter_Sub.v\", line 30, characters 9-20:\nWarning: Command \"Abort All.\" is not recommended in batch mode. In\nparticular, going back in the document is not efficient in batch mode due to\nCoq not caching previous states for memory optimization reasons. If your use\nis intentional, you may want to disable this warning and pass the\n\"-async-proofs-cache force\" option to Coq. [undo-batch-mode,default]"
   },
   "counts": {
     "theorems": 4,
     "proved": 3,
     "admitted": 0,
-    "aborted": 0,
-    "unparsed_status": 1,
+    "aborted": 1,
+    "admitted_definitions": 0,
+    "unparsed_status": 0,
     "definitions": 4,
     "toplevel_axioms": 3,
     "section_assumptions": 0
@@ -67,14 +69,19 @@
     },
     "unresolved": []
   },
+  "statements": {
+    "Book_Inter_Sub.delegate1": "1d42176166c871aa",
+    "Book_Inter_Sub.delegate2": "c76ec664f51206df",
+    "Book_Inter_Sub.skill1": "cfcea3dcbba9ee3b"
+  },
   "admitted_names": [],
-  "aborted_names": [],
-  "unparsed_names": [
+  "aborted_names": [
     {
       "name": "skill2",
       "line": 28
     }
   ],
+  "unparsed_names": [],
   "toplevel_axiom_names": [
     {
       "name": "Irish",

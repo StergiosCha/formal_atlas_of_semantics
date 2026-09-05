@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 4,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 0,
     "toplevel_axioms": 0,
@@ -26,6 +28,12 @@
     "undocumented_axioms": [],
     "detail": {},
     "unresolved": []
+  },
+  "statements": {
+    "montague.PTQ_vs_Lambek.lambek_computes_ptq_john": "a350f4adb8d58c00",
+    "montague.PTQ_vs_Lambek.lambek_computes_ptq_every": "7700f02657ea2023",
+    "montague.PTQ_vs_Lambek.lambek_computes_ptq_some": "a7f3398e8189ee6c",
+    "montague.PTQ_vs_Lambek.lambek_typeraise_is_star": "24ce8d83b1faa3f0"
   },
   "admitted_names": [],
   "aborted_names": [],

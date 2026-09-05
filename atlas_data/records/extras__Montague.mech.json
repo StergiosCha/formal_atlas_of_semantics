@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 0,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 33,
     "toplevel_axioms": 19,
@@ -27,6 +29,7 @@
     "detail": {},
     "unresolved": []
   },
+  "statements": {},
   "admitted_names": [],
   "aborted_names": [],
   "unparsed_names": [],

@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 2,
     "admitted": 2,
     "aborted": 0,
+    "admitted_definitions": 3,
     "unparsed_status": 0,
     "definitions": 20,
     "toplevel_axioms": 30,
@@ -43,6 +45,10 @@
     },
     "unresolved": []
   },
+  "statements": {
+    "FCS2.MorseKelley.class_comprehension_inconsistent": "0c7c013120050c6e",
+    "FCS2.ComputationVsExistence.donkey_sentence_has_semantics": "d7da2c479b1cf846"
+  },
   "admitted_names": [
     {
       "name": "filter_exists",
@@ -51,6 +57,21 @@
     {
       "name": "random_reset_not_unique",
       "line": 277
+    },
+    {
+      "name": "filter_info_state",
+      "line": 78,
+      "kw": "Definition"
+    },
+    {
+      "name": "existential_update",
+      "line": 98,
+      "kw": "Definition"
+    },
+    {
+      "name": "set_comprehension",
+      "line": 261,
+      "kw": "Definition"
     }
   ],
   "aborted_names": [],
@@ -209,11 +230,6 @@
   ],
   "parse_warnings": [],
   "disputes_vs_record": [
-    {
-      "field": "counts.admitted",
-      "claimed": 5,
-      "measured": 2
-    },
     {
       "field": "counts.propositional_axioms",
       "claimed": 8,

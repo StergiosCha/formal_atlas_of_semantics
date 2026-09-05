@@ -7,13 +7,15 @@
     "ok": true,
     "returncode": 0,
     "warnings": 1,
-    "stderr_tail": "File \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/additive_new.v\", line 92, characters 0-169:\nWarning: Not a truly recursive fixpoint. [non-recursive,fixpoints,default]"
+    "unsafe_flags": [],
+    "stderr_tail": "File \"extras/additive_new.v\", line 92, characters 0-169:\nWarning: Not a truly recursive fixpoint. [non-recursive,fixpoints,default]"
   },
   "counts": {
     "theorems": 18,
     "proved": 17,
     "admitted": 1,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 29,
     "toplevel_axioms": 26,
@@ -233,6 +235,25 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "additive_new.AlternativeSemantics.alternatives_contains_focus": "a913acffce7b72a0",
+    "additive_new.AlternativeSemantics.only_is_focus_sensitive": "492eb01a75f25036",
+    "additive_new.AlternativeSemantics.only_excludes_alternatives": "c79d434c523bb56c",
+    "additive_new.AlternativeSemantics.too_requires_alternatives": "c0721414ba78c15e",
+    "additive_new.AlternativeSemantics.too_focus_sensitive": "7d83e035562598d9",
+    "additive_new.AlternativeSemantics.ke_double_is_distributive": "e6421f9b7a6a8ff5",
+    "additive_new.AlternativeSemantics.ke_allows_collective": "1130a68f45031f69",
+    "additive_new.AlternativeSemantics.entity_eqb_false_iff": "ffabadb2e4726f4a",
+    "additive_new.AlternativeSemantics.reanalysis_creates_additives": "cb2d1a180ca13e95",
+    "additive_new.AlternativeSemantics.mono_ke_movement_asymmetry": "253919bb8bdf2bd3",
+    "additive_new.AlternativeSemantics.mary_neq_john": "157dc5bfd928461d",
+    "additive_new.AlternativeSemantics.susan_neq_john": "757374bf2b68e3fb",
+    "additive_new.AlternativeSemantics.john_arrived_too_requires_other": "3b9bdbcecdadfeb1",
+    "additive_new.AlternativeSemantics.only_john_excludes_others": "06e400e49eea3441",
+    "additive_new.AlternativeSemantics.double_ke_both_tall": "94b7283d1493eb12",
+    "additive_new.AlternativeSemantics.additive_exclusive_incompatible": "4d3f2272de007767",
+    "additive_new.AlternativeSemantics.greek_ke_requires_sisterhood": "5f2d6f26321bb077"
   },
   "admitted_names": [
     {

@@ -7,13 +7,15 @@
     "ok": true,
     "returncode": 0,
     "warnings": 2,
-    "stderr_tail": "File \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/FocusEven.v\", line 9, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]\nFile \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/FocusEven.v\", line 9, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]"
+    "unsafe_flags": [],
+    "stderr_tail": "File \"extras/FocusEven.v\", line 9, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]\nFile \"extras/FocusEven.v\", line 9, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]"
   },
   "counts": {
     "theorems": 3,
     "proved": 3,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 26,
     "toplevel_axioms": 0,
@@ -50,6 +52,11 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "FocusEven.even_only_relationship": "b2f0f077da2bc911",
+    "FocusEven.even_requires_alternatives": "183854d38474d5b9",
+    "FocusEven.only_preserves_focus": "4b1716fb36b6ed3d"
   },
   "admitted_names": [],
   "aborted_names": [],

@@ -87,6 +87,7 @@ def main():
             "definitions_mapped": r.get("definitions_mapped", []), "theorems": r.get("theorems", []),
             "duplicate_of": r.get("duplicate_of"), "source_gap": r.get("source_gap"), "notes": r.get("notes"),
             "final": r.get("_final", {}), "verify": {"agrees": v.get("agrees"), "disputes": v.get("disputes", []), "confidence": v.get("confidence")} if v else None,
+            "mech": r.get("_mech"), "counts_claimed": r.get("counts_claimed"),
         })
     known_files = {f["file"] for f in slim_files}
     for p in papers:

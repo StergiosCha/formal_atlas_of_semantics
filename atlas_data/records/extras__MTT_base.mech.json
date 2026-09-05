@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 2,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 15,
     "toplevel_axioms": 17,
@@ -56,6 +58,10 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "MTT_base.men_are_humans": "8406b74fecd5c0ce",
+    "MTT_base.surgeons_walk": "b6f3d9be1c12cb11"
   },
   "admitted_names": [],
   "aborted_names": [],

@@ -7,13 +7,15 @@
     "ok": true,
     "returncode": 0,
     "warnings": 2,
-    "stderr_tail": "File \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/PresuppositionProjection.v\", line 9, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]\nFile \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/PresuppositionProjection.v\", line 9, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]"
+    "unsafe_flags": [],
+    "stderr_tail": "File \"extras/PresuppositionProjection.v\", line 9, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]\nFile \"extras/PresuppositionProjection.v\", line 9, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]"
   },
   "counts": {
     "theorems": 8,
     "proved": 8,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 30,
     "toplevel_axioms": 0,
@@ -92,6 +94,16 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "PresuppositionProjection.negation_preserves_presupposition": "4aa9c2e7747b35b8",
+    "PresuppositionProjection.same_presupposition_under_negation": "78c29c1ecef90f73",
+    "PresuppositionProjection.conditional_presupposition": "7c785eb6126e722f",
+    "PresuppositionProjection.universal_presupposition_projection": "cdd795184d9479d5",
+    "PresuppositionProjection.global_accommodation": "60797b8b24072b66",
+    "PresuppositionProjection.negation_is_hole": "231dcc0ab2cb36ae",
+    "PresuppositionProjection.belief_is_plug": "7685bc9619ffb700",
+    "PresuppositionProjection.complex_presupposition": "8c39f119e5e47cd6"
   },
   "admitted_names": [],
   "aborted_names": [],

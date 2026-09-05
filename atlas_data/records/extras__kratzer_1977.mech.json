@@ -7,13 +7,15 @@
     "ok": true,
     "returncode": 0,
     "warnings": 2,
-    "stderr_tail": "File \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/kratzer_1977.v\", line 7, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]\nFile \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/kratzer_1977.v\", line 7, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]"
+    "unsafe_flags": [],
+    "stderr_tail": "File \"extras/kratzer_1977.v\", line 7, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]\nFile \"extras/kratzer_1977.v\", line 7, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]"
   },
   "counts": {
     "theorems": 6,
     "proved": 6,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 13,
     "toplevel_axioms": 3,
@@ -83,6 +85,14 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "kratzer_1977.KratzerClean.kratzer_equals_montague": "e6ba6392ef2a752b",
+    "kratzer_1977.KratzerClean.kratzer_duality": "6c34b34d8f714284",
+    "kratzer_1977.KratzerClean.kratzer_axiom_K": "087a5c06ce8beb37",
+    "kratzer_1977.KratzerClean.kratzer_monotonic": "6b21ed66bff13081",
+    "kratzer_1977.KratzerClean.empty_base_characterization": "732224c3c54ec97a",
+    "kratzer_1977.KratzerClean.readings_are_different": "96a598c4eee443c7"
   },
   "admitted_names": [],
   "aborted_names": [],

@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 10,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 16,
     "toplevel_axioms": 0,
@@ -26,6 +28,18 @@
     "undocumented_axioms": [],
     "detail": {},
     "unresolved": []
+  },
+  "statements": {
+    "TTR_types.meet_intro": "289b3ff25195c48a",
+    "TTR_types.meet_elim_l": "3ca8e62cb35b7175",
+    "TTR_types.meet_elim_r": "ade948448990c51f",
+    "TTR_types.join_supertype_l": "12b478fb4213ecc5",
+    "TTR_types.join_supertype_r": "3659f927350f3ac9",
+    "TTR_types.meet_subtype_l": "2a82ab560f5e88f1",
+    "TTR_types.meet_subtype_r": "308f40a188aa03ea",
+    "TTR_types.subtype_refl": "c6108fc90e3c1615",
+    "TTR_types.subtype_trans": "a6b54a0fb6bf9c84",
+    "TTR_types.singleton_subtype": "7a4d276ea501bcde"
   },
   "admitted_names": [],
   "aborted_names": [],

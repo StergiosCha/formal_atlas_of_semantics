@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 5,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 12,
     "toplevel_axioms": 10,
@@ -97,6 +99,13 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "Book_gradable.TALLER": "e3c016a031d0d845",
+    "Book_gradable.trans": "20183cb91234fa05",
+    "Book_gradable.ENORMOUS1": "ed3d7994a7e80a6e",
+    "Book_gradable.EI2": "c9dfef9324bf2027",
+    "Book_gradable.EI3": "ca45ffe0acccb69c"
   },
   "admitted_names": [],
   "aborted_names": [],

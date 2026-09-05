@@ -7,13 +7,15 @@
     "ok": true,
     "returncode": 0,
     "warnings": 2,
-    "stderr_tail": "File \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/ImperfectiveParadox.v\", line 7, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]\nFile \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/ImperfectiveParadox.v\", line 7, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]"
+    "unsafe_flags": [],
+    "stderr_tail": "File \"extras/ImperfectiveParadox.v\", line 7, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]\nFile \"extras/ImperfectiveParadox.v\", line 7, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]"
   },
   "counts": {
     "theorems": 7,
     "proved": 6,
     "admitted": 1,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 18,
     "toplevel_axioms": 17,
@@ -151,6 +153,14 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "ImperfectiveParadox.progressive_is_true": "e81e8b9debe5d7ac",
+    "ImperfectiveParadox.perfective_is_false": "43432988e0f2f680",
+    "ImperfectiveParadox.perfective_entails_progressive": "bd49b15e85c6e092",
+    "ImperfectiveParadox.perfective_entails_progressive_v2": "39d5ce4e0aff69be",
+    "ImperfectiveParadox.progressive_true": "490b177e6682c19f",
+    "ImperfectiveParadox.progressive_does_not_entail_perfective": "4f5d92c0c1d1efe3"
   },
   "admitted_names": [
     {

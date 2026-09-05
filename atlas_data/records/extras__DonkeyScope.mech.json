@@ -7,13 +7,15 @@
     "ok": true,
     "returncode": 0,
     "warnings": 2,
-    "stderr_tail": "File \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/DonkeyScope.v\", line 9, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]\nFile \"/Users/graogro/Dropbox/revisiting-formal-semantics/extras/DonkeyScope.v\", line 9, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]"
+    "unsafe_flags": [],
+    "stderr_tail": "File \"extras/DonkeyScope.v\", line 9, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]\nFile \"extras/DonkeyScope.v\", line 9, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]"
   },
   "counts": {
     "theorems": 7,
     "proved": 5,
     "admitted": 2,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 30,
     "toplevel_axioms": 0,
@@ -82,6 +84,13 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "DonkeyScope.narrow_true": "374339201449265f",
+    "DonkeyScope.wide_false": "9bb3be72f4b5bced",
+    "DonkeyScope.scope_ambiguity_distinct_concrete": "596b3375fe813b02",
+    "DonkeyScope.wide_implies_narrow": "211f7d376d66dca9",
+    "DonkeyScope.continuation_scope_correspondence": "db38d004ddf09713"
   },
   "admitted_names": [
     {

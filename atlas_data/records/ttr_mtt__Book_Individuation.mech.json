@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 20,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 40,
     "toplevel_axioms": 18,
@@ -302,6 +304,28 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "Book_Individuation.EQ": "dbc0fcec12563a36",
+    "Book_Individuation.MANWALK": "89b24f4d26782c52",
+    "Book_Individuation.EQ1": "722a8c5d366f6e6b",
+    "Book_Individuation.EQ2": "ae4b80460baeac24",
+    "Book_Individuation.EQ3": "802603cdb880a525",
+    "Book_Individuation.copred_dd1": "dea741b3eb8cc344",
+    "Book_Individuation.copred_dd2": "3439fc4330aea749",
+    "Book_Individuation.EQ4": "ee05cf961dd090a3",
+    "Book_Individuation.EQ5": "4e45094f7e0588dc",
+    "Book_Individuation.HEAVYBOOK": "5bc9b69adc64ac3c",
+    "Book_Individuation.HEAVYBOOK1": "169410705c4d08d4",
+    "Book_Individuation.HEAVYBOOK2": "4ebce6af25f480c0",
+    "Book_Individuation.HEAVYBOOK3": "80aaeaaa7947663a",
+    "Book_Individuation.EQ6": "22f2f1a14783afce",
+    "Book_Individuation.EQ7": "9c7e65b604bf0447",
+    "Book_Individuation.HEAVYIBOOK2": "1e2ffb84c81b77a1",
+    "Book_Individuation.HEAVYIBOOK3": "d64b8405c898c74c",
+    "Book_Individuation.HEAVYIBOOK4": "219230100cf4fd70",
+    "Book_Individuation.HEAVYIBOOK5": "ec0a29d4cc19e7d7",
+    "Book_Individuation.threedf": "4cf12507933856be"
   },
   "admitted_names": [],
   "aborted_names": [],

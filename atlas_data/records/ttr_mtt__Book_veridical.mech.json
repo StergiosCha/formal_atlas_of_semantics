@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 3,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 2,
     "toplevel_axioms": 1,
@@ -40,6 +42,11 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "Book_veridical.VER1": "587bd7056479407a",
+    "Book_veridical.VER3": "3b7966848d689eb3",
+    "Book_veridical.VER4": "18d2aaf592e7744c"
   },
   "admitted_names": [],
   "aborted_names": [],

@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 3,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 26,
     "toplevel_axioms": 1,
@@ -50,6 +52,11 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "FocusEven2.even_only_relationship": "3c1c4334c46c7989",
+    "FocusEven2.even_requires_alternatives": "89e789b57bb0b258",
+    "FocusEven2.only_preserves_focus": "d7392da5ad8965d4"
   },
   "admitted_names": [],
   "aborted_names": [],

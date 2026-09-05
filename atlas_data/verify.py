@@ -23,11 +23,16 @@ Usage:
   ./verify.py --all           # every .v listed in _CoqProject
   ./verify.py atlas/dynamic/DPL.v ...
 """
-import json, os, re, subprocess, sys, shutil, tempfile, glob
+import json, os, re, subprocess, sys, shutil, tempfile, glob, hashlib, datetime
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REC = os.path.join(HERE, "records")
-REPO = "/Users/graogro/Dropbox/revisiting-formal-semantics"
+# In the data folder REPO is the sibling Coq checkout; mirrored as atlas_data/
+# inside the repo itself (and in CI), the repo is simply the parent directory.
+_parent = os.path.dirname(HERE)
+REPO = os.environ.get("ATLAS_REPO") or (
+    _parent if os.path.exists(os.path.join(_parent, "_CoqProject"))
+    else "/Users/graogro/Dropbox/revisiting-formal-semantics")
 ROOTS = ["shallow", "deep", "extras", "ttr_mtt", "atlas"]
 INCLUDES = [a for r in ROOTS for a in ("-R", os.path.join(REPO, r), "")]
 
@@ -97,7 +102,8 @@ DECL_RE = re.compile(
     % "|".join(THEOREM_KW + DEF_KW + ASSUM_KW), re.M)
 SCOPE_RE = re.compile(
     CMD + r"(?P<kw>Module|Section|End)[ \t]+(?P<rest>[^.]*)\.", re.M)
-TERM_RE = re.compile(CMD + r"(?P<kw>%s)[ \t]*\." % "|".join(TERMINATOR), re.M)
+TERM_RE = re.compile(
+    CMD + r"(?P<kw>%s)(?:[ \t]+All)?[ \t]*\." % "|".join(TERMINATOR), re.M)
 
 
 def parse(path):
@@ -118,8 +124,10 @@ def parse(path):
     def settle(d, end_pos):
         """A theorem that reaches the next command without Qed/Admitted is
         either a term-mode proof (`Theorem foo : T := e.`) or genuinely
-        unfinished. Never silently count the second as the first."""
-        d["status"] = "proved" if ":=" in src[d["_pos"]:end_pos] else "unknown"
+        unfinished. Never silently count the second as the first. A definition
+        with no terminator is just a definition — no status."""
+        if d["kind"] == "theorem":
+            d["status"] = "proved" if ":=" in src[d["_pos"]:end_pos] else "unknown"
 
     decls, stack, pending, unbalanced = [], [], None, []
     for pos, kind, kw, arg in events:
@@ -158,9 +166,12 @@ def parse(path):
                           "assumption" if kw in ASSUM_KW else "definition"),
                  "status": None}
             decls.append(d)
-            # Only theorem-like decls await a terminator; a Definition may or
-            # may not have one, and would otherwise steal the next Qed.
-            pending = d if kw in THEOREM_KW else None
+            # Definitions also await a terminator: `Definition f : T. Proof.
+            # ... Admitted.` is an axiom in disguise (FCS2.v has three) and
+            # must be counted. `settle()` clears defs that never enter proof
+            # mode, and the next decl/scope event settles before replacing, so
+            # a plain `:=` definition cannot steal the following Qed.
+            pending = d if kw in THEOREM_KW + DEF_KW else None
             continue
 
         if kind == "term" and pending is not None:
@@ -196,10 +207,15 @@ def compile_check(path, scratch):
     os.makedirs(out, exist_ok=True)
     cmd = ["coqc", "-o", os.path.join(out, os.path.basename(path) + "o")] + INCLUDES + [path]
     p = subprocess.run(cmd, cwd=REPO, capture_output=True, text=True, timeout=900)
-    err = p.stderr.strip()
+    # Keep mech.json machine-independent: strip the checkout prefix so CI and
+    # local runs produce byte-identical records (the CI gate diffs them).
+    err = p.stderr.strip().replace(REPO + os.sep, "")
     warnings = [l for l in err.splitlines() if l.startswith("Warning:")]
+    src = open(path, encoding="utf-8", errors="replace").read()
+    unsafe = [f for f in ("Guard Checking", "Positivity Checking", "Universe Checking")
+              if re.search(r"Unset\s+%s" % f.replace(" ", r"\s+"), src)]
     return {"ok": p.returncode == 0, "returncode": p.returncode,
-            "warnings": len(warnings),
+            "warnings": len(warnings), "unsafe_flags": unsafe,
             "stderr_tail": "\n".join(err.splitlines()[-12:]) if err else ""}
 
 
@@ -207,14 +223,17 @@ ASSUM_HEAD = re.compile(r"^(Axioms|Variables|Parameters|Opaque constants)\s*:", 
 
 
 def assumptions(path, decls, scratch):
-    """Print Assumptions every theorem, one Redirect file each. An unresolvable
-    name aborts the run, so drop the reported name and retry."""
+    """Print Assumptions + Check every theorem, one Redirect file each. The
+    Check output, normalized and hashed, is the statement fingerprint that
+    claims.lock pins (A3 step 6). An unresolvable name aborts the run, so drop
+    the reported name and retry."""
     targets = [d for d in decls if d["kind"] == "theorem" and d["status"] == "proved"]
     if not targets:
-        return {}, []
+        return {}, [], {}
     work = os.path.join(scratch, "assum")
     shutil.rmtree(work, ignore_errors=True)
     os.makedirs(os.path.join(work, "out"), exist_ok=True)
+    os.makedirs(os.path.join(work, "hash"), exist_ok=True)
     mod = logical_name(path)
     qual = {}
     for i, d in enumerate(targets):
@@ -225,6 +244,7 @@ def assumptions(path, decls, scratch):
         drv = [f"Require Import {mod}."]
         for i in sorted(live):
             drv.append(f'Redirect "out/{i:05d}" Print Assumptions {live[i]}.')
+            drv.append(f'Redirect "hash/{i:05d}" Check @{live[i]}.')
         open(os.path.join(work, "drv.v"), "w").write("\n".join(drv) + "\n")
         p = subprocess.run(["coqc", "-output-directory", ".", "-o", "drv.vo"] + INCLUDES + ["drv.v"],
                            cwd=work, capture_output=True, text=True, timeout=900)
@@ -241,7 +261,7 @@ def assumptions(path, decls, scratch):
             unresolved.append(f"__driver_error__: {p.stderr.strip().splitlines()[-1] if p.stderr.strip() else '?'}")
             break
 
-    res = {}
+    res, stmts = {}, {}
     for i, q in qual.items():
         f = os.path.join(work, "out", f"{i:05d}.out")
         if not os.path.exists(f):
@@ -256,17 +276,27 @@ def assumptions(path, decls, scratch):
             names = [n for n in names if not ASSUM_HEAD.match(n + ":")]
             res[q] = {"closed": False, "axioms": sorted(set(names)),
                       "raw": txt[:1500]}
-    return res, unresolved
+        # Statement fingerprint: `Check @fq` prints the fully-applied statement;
+        # collapse whitespace (Coq wraps lines) so the hash is layout-stable.
+        hf = os.path.join(work, "hash", f"{i:05d}.out")
+        if os.path.exists(hf):
+            norm = " ".join(open(hf).read().split())
+            if norm:
+                stmts[q] = hashlib.sha256(norm.encode()).hexdigest()[:16]
+    return res, unresolved, stmts
 
 
 def verify_file(path, key, record, scratch):
     decls, unbalanced = parse(path)
     comp = compile_check(path, scratch)
-    assum, unresolved = assumptions(path, decls, scratch) if comp["ok"] else ({}, [])
+    assum, unresolved, stmts = (assumptions(path, decls, scratch)
+                                if comp["ok"] else ({}, [], {}))
 
     thms = [d for d in decls if d["kind"] == "theorem"]
     proved = [d for d in thms if d["status"] == "proved"]
     admitted = [d for d in thms if d["status"] == "admitted"]
+    adm_defs = [d for d in decls if d["kind"] == "definition"
+                and d["status"] == "admitted"]
     aborted = [d for d in thms if d["status"] == "aborted"]
     unknown = [d for d in thms if d["status"] not in ("proved", "admitted", "aborted")]
     # Top-level (non-Section) unproved declarations are real axioms; inside a
@@ -290,6 +320,7 @@ def verify_file(path, key, record, scratch):
         "counts": {
             "theorems": len(thms), "proved": len(proved),
             "admitted": len(admitted), "aborted": len(aborted),
+            "admitted_definitions": len(adm_defs),
             "unparsed_status": len(unknown),
             "definitions": len([d for d in decls if d["kind"] == "definition"]),
             "toplevel_axioms": len(hard),
@@ -302,7 +333,9 @@ def verify_file(path, key, record, scratch):
             "detail": {q: v for q, v in sorted(dirty.items())},
             "unresolved": unresolved,
         },
-        "admitted_names": [{"name": d["name"], "line": d["line"]} for d in admitted],
+        "statements": stmts,
+        "admitted_names": [{"name": d["name"], "line": d["line"]} for d in admitted]
+                        + [{"name": d["name"], "line": d["line"], "kw": d["kw"]} for d in adm_defs],
         "aborted_names": [{"name": d["name"], "line": d["line"]} for d in aborted],
         "unparsed_names": [{"name": d["name"], "line": d["line"]} for d in unknown],
         "toplevel_axiom_names": [{"name": d["name"], "kw": d["kw"], "line": d["line"]} for d in hard],
@@ -316,10 +349,16 @@ def verify_file(path, key, record, scratch):
         if record.get("compiles") is True and not comp["ok"]:
             disputes.append({"field": "compiles", "claimed": True, "measured": False,
                              "detail": comp["stderr_tail"][:400]})
+        # Auditors counted `Admitted.` occurrences, which include admitted
+        # definitions (axioms in disguise) — compare like with like.
+        measured_cmp = {"theorems": mech["counts"]["theorems"],
+                        "proved": mech["counts"]["proved"],
+                        "admitted": mech["counts"]["admitted"]
+                                    + mech["counts"]["admitted_definitions"]}
         for f in ("theorems", "proved", "admitted"):
-            if f in rc and isinstance(rc[f], int) and rc[f] != mech["counts"][f]:
+            if f in rc and isinstance(rc[f], int) and rc[f] != measured_cmp[f]:
                 disputes.append({"field": f"counts.{f}", "claimed": rc[f],
-                                 "measured": mech["counts"][f]})
+                                 "measured": measured_cmp[f]})
         pa = rc.get("propositional_axioms")
         if isinstance(pa, int) and pa != len(undocumented):
             disputes.append({"field": "counts.propositional_axioms",
@@ -329,10 +368,46 @@ def verify_file(path, key, record, scratch):
     return mech
 
 
+def write_lock():
+    """A3 step 6: pin every atlas-layer theorem's statement hash in
+    claims.lock. CI diffs the committed lock against a fresh run, so a
+    statement cannot be reworded without a deliberate, reviewed lock update.
+    Entries that disappear are kept as deprecated, never silently dropped."""
+    lock_path = os.path.join(HERE, "claims.lock")
+    old = {}
+    if os.path.exists(lock_path):
+        old = json.load(open(lock_path)).get("claims", {})
+    today = datetime.date.today().isoformat()
+    claims = {}
+    for p in sorted(glob.glob(os.path.join(REC, "atlas__*.mech.json"))):
+        m = json.load(open(p))
+        if not m["file"].startswith("atlas/"):
+            continue
+        for fq, sha in sorted((m.get("statements") or {}).items()):
+            prev = old.get(fq)
+            claims[fq] = {"statement_sha": sha, "file": m["file"],
+                          "since": (prev["since"] if prev and prev.get("statement_sha") == sha
+                                    else today), "status": "active"}
+    changed = sum(1 for fq in claims if fq in old
+                  and old[fq].get("statement_sha") != claims[fq]["statement_sha"])
+    for fq, e in old.items():  # a vanished theorem is a finding, not a deletion
+        if fq not in claims:
+            claims[fq] = {**e, "status": "deprecated", "deprecated": today}
+    out = {"_generated_by": "atlas/verify.py --lock (A3 step 6)",
+           "coq_version": COQ_VERSION, "claims": dict(sorted(claims.items()))}
+    open(lock_path, "w").write(json.dumps(out, indent=1, ensure_ascii=False) + "\n")
+    n_dep = sum(1 for c in claims.values() if c["status"] == "deprecated")
+    print(f"wrote {lock_path}: {len(claims)} claims "
+          f"({changed} statement change(s), {n_dep} deprecated)")
+
+
 def main():
     global COQ_VERSION
     COQ_VERSION = subprocess.run(["coqc", "--version"], capture_output=True, text=True
                                  ).stdout.split("version")[-1].strip().split()[0]
+
+    if "--lock" in sys.argv:  # standalone: build the lock from existing mech files
+        return write_lock() or 0
 
     args = [a for a in sys.argv[1:] if not a.startswith("-")]
     if "--all" in sys.argv:

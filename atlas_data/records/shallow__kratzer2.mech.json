@@ -7,13 +7,15 @@
     "ok": true,
     "returncode": 0,
     "warnings": 2,
-    "stderr_tail": "File \"/Users/graogro/Dropbox/revisiting-formal-semantics/shallow/kratzer2.v\", line 7, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]\nFile \"/Users/graogro/Dropbox/revisiting-formal-semantics/shallow/kratzer2.v\", line 7, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]"
+    "unsafe_flags": [],
+    "stderr_tail": "File \"shallow/kratzer2.v\", line 7, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]\nFile \"shallow/kratzer2.v\", line 7, characters 0-32:\nWarning: Trying to mask the absolute name \"MontagueFragment\"!\n[masking-absolute-name,deprecated-since-8.8,deprecated,default]"
   },
   "counts": {
     "theorems": 10,
     "proved": 10,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 19,
     "toplevel_axioms": 3,
@@ -115,6 +117,18 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "kratzer2.KratzerClean.kratzer_equals_montague": "e6ba6392ef2a752b",
+    "kratzer2.KratzerClean.kratzer_duality": "6c34b34d8f714284",
+    "kratzer2.KratzerClean.kratzer_axiom_K": "087a5c06ce8beb37",
+    "kratzer2.KratzerClean.kratzer_monotonic": "6b21ed66bff13081",
+    "kratzer2.KratzerClean.empty_base_characterization": "732224c3c54ec97a",
+    "kratzer2.KratzerClean.readings_are_different": "96a598c4eee443c7",
+    "kratzer2.KratzerClean.kratzer_necessitation": "84ddb122860a702c",
+    "kratzer2.KratzerClean.kratzer_distribution": "0bed035ddf398913",
+    "kratzer2.KratzerClean.kratzer_conjunction_intro": "7db1b9a6050887ad",
+    "kratzer2.KratzerClean.kratzer_can_disjunction": "db01c12c359900b9"
   },
   "admitted_names": [],
   "aborted_names": [],

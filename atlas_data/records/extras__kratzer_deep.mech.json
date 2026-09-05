@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 6,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 15,
     "toplevel_axioms": 4,
@@ -93,6 +95,14 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "kratzer_deep.deep_kratzer_equals_montague": "812c054fc444f927",
+    "kratzer_deep.nec_equiv_box_total": "b09e96c5db1ffa29",
+    "kratzer_deep.deep_kratzer_duality": "fa78033c396be567",
+    "kratzer_deep.deep_kratzer_axiom_K": "95ae19f0e0b3d2bc",
+    "kratzer_deep.deep_kratzer_monotonic": "7ff0488012f7a3fc",
+    "kratzer_deep.up_down_identity": "0d8ec50696eb86a0"
   },
   "admitted_names": [],
   "aborted_names": [],

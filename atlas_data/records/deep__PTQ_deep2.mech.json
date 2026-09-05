@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 13,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 49,
     "toplevel_axioms": 30,
@@ -512,6 +514,21 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "PTQ_deep2.bill_walks_c_eval": "027b1eb781003211",
+    "PTQ_deep2.a_man_walks_c_eval": "c875fe2ceba663f5",
+    "PTQ_deep2.every_man_walks_c_eval": "45f8638c63747ce9",
+    "PTQ_deep2.every_man_that_walks_runs_c_eval": "22457a8d6af254eb",
+    "PTQ_deep2.john_will_walk_c_eval": "73ea40502f87fb9b",
+    "PTQ_deep2.mp1_rigid_john": "1def789d58ee1e69",
+    "PTQ_deep2.up_down_identity": "0d8ec50696eb86a0",
+    "PTQ_deep2.beta_sound": "b0a60b3c41ea652e",
+    "PTQ_deep2.every_man_walks_beta_equiv": "c9d8682c542dfba4",
+    "PTQ_deep2.temp_ninety_holds": "8de16c491ecb614f",
+    "PTQ_deep2.temp_rises_holds": "8179a0bfe238c983",
+    "PTQ_deep2.ninety_rises_fails": "e49f87de58d500d4",
+    "PTQ_deep2.temperature_puzzle_non_entailment": "75e8e98c34a25cd9"
   },
   "admitted_names": [],
   "aborted_names": [],

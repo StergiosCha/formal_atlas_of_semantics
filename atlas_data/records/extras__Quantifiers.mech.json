@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 9,
     "admitted": 2,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 42,
     "toplevel_axioms": 12,
@@ -40,6 +42,17 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "Quantifiers.some_upward_monotone": "02c81a5fcca0474d",
+    "Quantifiers.all_upward_monotone": "b857a2f2ba863700",
+    "Quantifiers.no_downward_monotone": "6cf4250127fda605",
+    "Quantifiers.some_conservative": "70210bc393970ec9",
+    "Quantifiers.all_conservative": "b47c38d3a4972bcb",
+    "Quantifiers.only_conservative": "d64f1be6080687a8",
+    "Quantifiers.reading2_implies_reading1": "2fe694550755ec0e",
+    "Quantifiers.scope_readings_differ_bool": "d397d01fb16426b7",
+    "Quantifiers.scope_readings_coincide": "1461ca53c7533bfd"
   },
   "admitted_names": [
     {

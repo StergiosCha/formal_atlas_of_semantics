@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 4,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 22,
     "toplevel_axioms": 0,
@@ -26,6 +28,12 @@
     "undocumented_axioms": [],
     "detail": {},
     "unresolved": []
+  },
+  "statements": {
+    "TTR_base.ex_lookup_name": "c92d8323364ac340",
+    "TTR_base.ex_lookup_age": "d0bad9447c21adea",
+    "TTR_base.ex_nested_path": "bcc66a8e82373062",
+    "TTR_base.ex_wf": "b3b13d48cea36bc4"
   },
   "admitted_names": [],
   "aborted_names": [],

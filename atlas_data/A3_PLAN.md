@@ -61,13 +61,18 @@ record count to 128. Now skips both.
 
 ## What is left
 
-**1. Reconcile the counts (half a day).** For each of the 41 flagged files
-decide which side is wrong. Mostly mechanical: where the record's `theorems[]`
-prose names N theorems and `counts.theorems` says M≠N, the count field loses.
-Do not blanket-overwrite — `extras/FCS2.v`'s admitted discrepancy (5 claimed,
-2 found) could equally be a parser miss, so check that one by hand first.
-One `unparsed_status` remains across all 64 files; find it and confirm the
-parser is not silently dropping a theorem.
+**1. Reconcile the counts — DONE (2026-09-05), and the hand-check paid off.**
+Both suspicious discrepancies were the *parser's* fault, not the records':
+`extras/FCS2.v` really has 5 Admitted (3 are admitted `Definition`s — axioms
+in disguise the parser didn't track), and the lone `unparsed_status` was
+`Abort All.`, a terminator form the regex missed. Both fixed in verify.py.
+Reconciliation is an **overlay in consolidate.py**, not record edits: measured
+counts win at merge time, the auditor's claim stays visible as
+`counts_claimed`, and the record files are never touched. Had we
+blanket-overwritten, correct auditor data would have been destroyed by wrong
+parser output — the strongest possible argument for the overlay design.
+Post-fix aggregate: 1056 theorems, 1043 proved, 12 admitted (9 theorems +
+3 admitted definitions) — which *validates* the original claimed 12.
 
 **2. Emit `records/<key>.verify.json` (the schema already exists).**
 `consolidate.py:40-51` has been waiting for a producer since it was written:
@@ -87,13 +92,28 @@ faithfulness/determination verdicts and the `source_gap` claims. Do not attempt
 this for the 52 pre-atlas records or the ~101 survey entries with no PDF —
 `log` what was skipped rather than letting silence imply coverage.
 
-**4. Surface it on the site.** The green check has to mean something specific.
+**4. Surface it on the site — DONE (2026-09-05).** Theory pages now carry a
+MACHINE VERIFICATION block: coqc version, assumption-closed N/N, the named
+axioms, unsafe flags in rust if any ever appear, and a "record claimed X"
+line whenever the audit's numbers drift from measurement. Records without a
+mech sidecar get a rust "Self-reported only" banner instead. Original spec:
+The green check has to mean something specific.
 Show per-theory: compiled ✓, N/N closed under the global context, the named
 axioms where not closed, and the coq version it was checked with. A file that
 is merely *self-reported* clean must look different from one Coq confirmed.
 Rust, not green, for anything disputed.
 
-**5. Wire into CI (Track C).** GitHub Actions: `make -k -j8` then
+**5. Wire into CI — WRITTEN (2026-09-05), untested against GitHub runners.**
+`.github/workflows/verify.yml`: compile → `coqchk` kernel recheck (18 s
+locally for the whole atlas layer) → `verify.py --all && --lock` →
+`git diff --exit-code` on records + lock (drift IS the failure, reviewable as
+a diff) → an atlas-invariants gate (no Admitted, no top-level axioms, no
+undocumented axioms, no unsafe flags, no unresolved queries — passes clean
+locally). mech.json is machine-independent (checkout paths stripped) and a
+mirror-position run reproduces committed records byte-for-byte, so the diff
+gate is sound. First real push will shake out runner quirks (the
+`sudo chown` line, apt in the coq container). Original spec:
+GitHub Actions: `make -k -j8` then
 `python3 verify.py --all`, failing the build on a new admitted, a new
 undocumented axiom in `atlas/`, or a compile break. That makes A3
 self-maintaining instead of a snapshot, and it is what lets the badge stay
@@ -108,7 +128,12 @@ honest between sessions. Three cheap hardenings, none needing an LLM:
 - Lint for the unsafe flags (`-type-in-type`, `Unset Guard Checking`, etc.)
   in files and `_CoqProject` — the one hole `Print Assumptions` cannot see.
 
-**6. Statement fingerprints + `claims.lock` (the hole steps 1-5 leave open).**
+**6. Statement fingerprints + `claims.lock` — DONE (2026-09-05).**
+`verify.py` now emits `Check @<fqname>` per proved theorem in the same
+Redirect driver, hashes the normalized statement, and `--lock` writes
+`atlas/claims.lock`: **714 claims pinned** (fqname → statement_sha, file,
+since, status; vanished theorems become `deprecated`, never dropped).
+Original rationale, kept for the record:
 Everything above fails CI on a new `Admitted` or axiom — but a theorem's
 *statement* can be silently weakened (`<->` downgraded to `->`, a hypothesis
 added, a `forall` narrowed) while its name, the counts, and axiom-freedom all
@@ -167,6 +192,10 @@ Lemma probe_vacuous : <hypotheses of T> -> False.
 If `coqc` proves it, the hypotheses are unsatisfiable and `T` is vacuous —
 a machine-checked refutation, not an opinion. Run the same trick for
 triviality (`<conclusion of T>` provable with the hypotheses discharged).
+
+*Status 2026-09-05: the Ltac2 probe machinery below is being built
+(`probes/VacuityProbe.v` + `probes/run_probes.py`, output to
+`records/<key>.probe.json`); results not yet in.*
 
 **Revision (design review): make probe *generation* symbolic too.** Routing
 probe generation through the LLM contradicts the propose/dispose rule for no
@@ -276,10 +305,25 @@ reader read the **same** data structure. The loop costs no extra server.
 The loop can only ever be as honest as the corpus it checks against. Three
 concrete dependencies:
 
-- **`NOT STATABLE` needs a verified vocabulary.** Claiming "DPL cannot express
-  this" is only defensible if we know exactly what DPL's signature contains —
-  which is what the L1 theorem↔claim mapping and the assumption census produce.
-  Without A3 it is a guess dressed as a verdict.
+- **`NOT STATABLE` needs a verified vocabulary — and a mechanism, not
+  exhaustion.** The loop diagram above reaches NOT-STATABLE "after N failures",
+  which violates the iron rule at the tool's most citable feature: repeated
+  LLM failure is evidence about the LLM, not about the theory. The design
+  review's highest-scored idea fixes this with a **two-tier verdict**:
+  - *Tier 1, machine-checked:* `NOT_STATABLE_SIGNATURE` — the required
+    constant/type simply isn't in the theory's signature manifest, and a
+    generated `Fail Check (...)` probe compiled against the theory confirms
+    the term cannot even be *typed*. Coq's testimony, with a receipt. Honest
+    scope caveat, stated wherever shown: this establishes no *primitive* of
+    the required type exists, not that no lambda-definable encoding could —
+    inexpressibility-in-principle is a theorem we mostly don't have.
+  - *Tier 2, bounded search:* `NOT_STATED_AFTER_N_ATTEMPTS` — drafting failed
+    N times. Labeled as exactly that, never conflated with tier 1.
+  Every tier-1 verdict needs a positive control (a nearby claim that IS
+  statable, compiling against the same manifest) so an over-eager signature
+  check can't quietly mark everything unstatable. Claiming "DPL cannot express
+  this" is only defensible with the signature manifest + probe receipt behind
+  it; without A3 it is a guess dressed as a verdict.
 - **`NEEDS ASSUMPTION` needs the axiom census.** Naming the missing assumption
   means naming it *from the file's actual axiom set*. We now have that: zero for
   `atlas/`, `classic` and `functional_extensionality_dep` for DPL.

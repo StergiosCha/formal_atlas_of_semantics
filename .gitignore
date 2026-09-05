@@ -32,3 +32,5 @@ Makefile.coq.bak
 .DS_Store
 Thumbs.db
 .nra.cache
+__pycache__/
+*.pyc

@@ -1,7 +1,7 @@
 (* Degree is type of names of degrees -- d : Degree corresponds to type D(d) *)
 (* So, Degree is a Tarski universe! *)
 (* Here is an example with three degrees. *)
-Require Import Omega.
+Require Import Lia.
 Inductive Degree: Set:= HEIGHT | AGE | IDIOCY.
 Definition D (d: Degree):= nat.
 Definition Height:= D(HEIGHT).
@@ -34,11 +34,11 @@ Definition taller_than (h1:Human) (h2:Human) := gt (height h2) (height h1).
 (*Some simple theorems*)
 Theorem TALLER:
     taller_than Mary John /\ height Mary = 170 -> gt (height John) 170.
-    cbv. intro. omega. Qed.
+    cbv. intro. lia. Qed.
 
 Theorem trans:
     taller_than Mary John /\ taller_than Kim Mary -> taller_than Kim John.
-    cbv. intro. omega. Qed.
+    cbv. intro. lia. Qed.
 
 (**Definition for Idiot**)
 Parameter IHuman : Idiocy -> CN_G(IDIOCY).
@@ -59,12 +59,13 @@ Theorem EI2:
   enormousidiot -> exists H: Idiot,   projT1(H) > STND IDIOCY (PHY IDIOCY) (ENORMOUS IDIOCY) /\ projT1(H) >  (STND IDIOCY Human IDIOTIC).
   cbv. firstorder. unfold Idiot in h0. exists h0. firstorder.
   unfold enormous in H. firstorder. elim  h0. intros. destruct p.
-  omega. Qed.
+  lia. Qed.
 Theorem EI3:
   enormousidiot -> exists H: Idiot,   projT1(H) > STND IDIOCY (PHY IDIOCY) (ENORMOUS IDIOCY) /\ projT1(H) >
   (STND IDIOCY Human IDIOTIC) /\  STND IDIOCY (PHY IDIOCY) (ENORMOUS IDIOCY) > (STND IDIOCY Human IDIOTIC).
    cbv. firstorder. unfold Idiot in h0. exists h0. firstorder.
   unfold enormous in H. firstorder. elim  h0. intros. destruct p.
-  omega. Qed.
+  lia. Qed.
 
 
+End Enormous.

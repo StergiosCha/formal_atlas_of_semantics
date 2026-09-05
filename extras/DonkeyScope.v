@@ -411,4 +411,4 @@ End UnifiedAnalysis.
    - Shows need for richer semantic frameworks
    
    Both phenomena reveal the complexity lurking beneath 
-   seemingly simple natural language sentences! */
+   seemingly simple natural language sentences! *)

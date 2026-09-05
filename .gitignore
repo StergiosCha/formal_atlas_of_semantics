@@ -31,3 +31,4 @@ Makefile.coq.bak
 # OS
 .DS_Store
 Thumbs.db
+.nra.cache

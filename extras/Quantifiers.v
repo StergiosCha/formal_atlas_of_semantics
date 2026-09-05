@@ -213,6 +213,15 @@ Proof.
   firstorder. 
 Qed.
 
+(** NOTE: as defined above, [only A P := all A P], so [only] is
+    definitionally [all] and therefore IS conservative (see
+    [all_conservative]).  The example below is thus refutable, not
+    provable: the Barwise & Cooper non-conservativity of "only"
+    ("only birds fly" quantifies over the predicate, not the noun)
+    is not captured by this definition. **)
+Lemma only_conservative : conservative only.
+Proof. exact all_conservative. Qed.
+
 (** "Only" is not conservative **)
 Example only_not_conservative : ~ conservative only.
 Proof.
@@ -239,6 +248,39 @@ Definition every_some_reading1 : Prop :=
 (** Reading 2: Some > Every (there exists a book that every student read) **)
 Definition every_some_reading2 : Prop :=
   some Book (fun b => all Student (fun s => read s b)).
+
+(** The wide-scope-existential reading always entails the narrow one. **)
+Lemma reading2_implies_reading1 : every_some_reading2 -> every_some_reading1.
+Proof.
+  unfold every_some_reading1, every_some_reading2, some, all.
+  intros [b Hb] s. exists b. apply Hb.
+Qed.
+
+(** The converse fails in general: a concrete counter-instance with two
+    students and two books, each student reading "their own" book. **)
+Lemma scope_readings_differ_bool :
+  ~ (all bool (fun s => some bool (fun b => s = b))
+     <-> some bool (fun b => all bool (fun s => s = b))).
+Proof.
+  unfold some, all. intros [H1 _].
+  destruct H1 as [b Hb].
+  - intro s. exists s. reflexivity.
+  - specialize (Hb (negb b)). destruct b; discriminate.
+Qed.
+
+(** But the two readings COINCIDE for other instantiations of the
+    abstract parameters [Student], [Book], [read] (e.g. some book is
+    read by everyone), so [~ (reading1 <-> reading2)] is not provable
+    about the bare parameters below without further assumptions. **)
+Lemma scope_readings_coincide :
+  forall (S B : CN) (rd : S -> B -> Prop),
+    (exists b : B, forall s : S, rd s b) ->
+    (all S (fun s => some B (rd s)) <-> some B (fun b => all S (fun s => rd s b))).
+Proof.
+  unfold some, all. intros S B rd [b Hb]. split.
+  - intros _. exists b. exact Hb.
+  - intros _ s. exists b. apply Hb.
+Qed.
 
 (** These are logically different **)
 Theorem scope_ambiguity : ~ (every_some_reading1 <-> every_some_reading2).

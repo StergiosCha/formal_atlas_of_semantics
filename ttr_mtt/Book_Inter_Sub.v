@@ -27,4 +27,4 @@ Theorem skill1:
 	
 Theorem skill2: 
     (some Surgeon) (Skillful Surgeon) -> (some Man)( Skillful Man).
-    cbv. firstorder. Abort all.
+    cbv. firstorder. Abort All.

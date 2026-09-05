@@ -1076,12 +1076,12 @@ Theorem LS_example1_works :
   LS_black_cats cat_shadow /\
   ~ LS_black_cats cat_snowball.
 Proof.
-  repeat split.
-  - destruct maria_has_cats as [H _]. exact H.
-  - destruct maria_has_cats as [_ [_ [H _]]]. intuition. firstorder. 
- 
-    admit.
-Admitted.
+  destruct maria_has_cats as [H1 [H2 [H3 [H4 [H5 H6]]]]].
+  unfold LS_black_cats.
+  repeat split; try assumption.
+  intros [Hblack _].
+  exact (white_not_black cat_snowball H5 Hblack).
+Qed.
 
 (* OUR ACCOUNT: Same truth conditions + prominence *)
 Definition our_black_cats (ctx : Context) (x : Entity) : Context * Prop :=

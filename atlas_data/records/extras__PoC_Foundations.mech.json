@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 3,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 9,
     "toplevel_axioms": 2,
@@ -36,6 +38,11 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "PoC_Foundations.MontagueGrammar.every_monotonic": "eb9a78c43af994d0",
+    "PoC_Foundations.MontagueGrammar.every_conservative": "ef80e8918c41bd8e",
+    "PoC_Foundations.DynamicSemantics.dynamic_compositionality": "0049401b30211663"
   },
   "admitted_names": [],
   "aborted_names": [],

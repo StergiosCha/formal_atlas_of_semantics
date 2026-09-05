@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 12,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 41,
     "toplevel_axioms": 30,
@@ -158,6 +160,20 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "AdjectivesExtension.intersective_inheritance": "38f37dd60a920ee7",
+    "AdjectivesExtension.intersective_cross_type": "9ad74dc0bec79f47",
+    "AdjectivesExtension.subsective_type_specific": "9d1b7880f67029f8",
+    "AdjectivesExtension.privative_property": "b6fcedbbed356575",
+    "AdjectivesExtension.fake_not_real": "89a8836466ec0763",
+    "AdjectivesExtension.noncommittal_no_direct_entailment": "31873610876207f5",
+    "AdjectivesExtension.complex_composition": "f30e8ab9ed3a0d0c",
+    "AdjectivesExtension.intersective_inferences": "010d0ffb9c57d657",
+    "AdjectivesExtension.subsective_inferences": "69f2932bc7b878eb",
+    "AdjectivesExtension.privative_inferences": "1481e3dfa67c926f",
+    "AdjectivesExtension.skillful_surgeons_are_human": "a40e94502ca1fc9f",
+    "AdjectivesExtension.no_fake_guns_are_real": "f9e2706db0a3ae84"
   },
   "admitted_names": [],
   "aborted_names": [],

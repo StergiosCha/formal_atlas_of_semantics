@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 15,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 2,
     "toplevel_axioms": 0,
@@ -26,6 +28,23 @@
     "undocumented_axioms": [],
     "detail": {},
     "unresolved": []
+  },
+  "statements": {
+    "mtt_ranta.MTT_vs_Ranta.cn_agree": "5472ceb490e71a6d",
+    "mtt_ranta.MTT_vs_Ranta.every_agree": "6abb8f8b7d4595ad",
+    "mtt_ranta.MTT_vs_Ranta.no_agree_fwd": "61a12155080ecc00",
+    "mtt_ranta.MTT_vs_Ranta.no_agree_bwd": "f44e5d2ae05feca3",
+    "mtt_ranta.MTT_vs_Ranta.some_agree_fwd": "37191413ba757cfc",
+    "mtt_ranta.MTT_vs_Ranta.some_agree_bwd_inhabited": "0e6a4eca61e88928",
+    "mtt_ranta.MTT_vs_Ranta.ranta_witness_sound": "ce75475d4fa445f6",
+    "mtt_ranta.MTT_vs_Ranta.inter_subset_fwd": "393f64667598ce8f",
+    "mtt_ranta.MTT_vs_Ranta.inter_subset_bwd": "57a9429ce8c548be",
+    "mtt_ranta.MTT_vs_Ranta.inter_subset_some": "78a4a747ef30ac50",
+    "mtt_ranta.MTT_vs_Ranta.donkey_agree": "3e21533fdb42dbac",
+    "mtt_ranta.MTT_vs_Ranta.mtt_donkey_strong_fwd": "5d93e6c86301d5df",
+    "mtt_ranta.MTT_vs_Ranta.mtt_donkey_strong_bwd": "3adad4d47f0a8e5b",
+    "mtt_ranta.MTT_vs_Ranta.sub_sentence_agree": "095a20d9a136febd",
+    "mtt_ranta.MTT_vs_Ranta.ranta_some_mono": "359a6481746b4c8b"
   },
   "admitted_names": [],
   "aborted_names": [],

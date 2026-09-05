@@ -49,6 +49,31 @@ def merge_records():
                 final_det = ver.get("revised_determination") or final_det
         rec["_key"] = key
         rec["_verify"] = ver
+        # A3 reconciliation: measured counts (verify.py's coqc/Print Assumptions
+        # run) win over the auditor's self-report at merge time. The record file
+        # itself is never edited — the claim stays visible in counts_claimed.
+        # Twice the parser, not the record, turned out to be the wrong side
+        # (FCS2's admitted definitions, `Abort All.`), which is why the records
+        # are preserved rather than overwritten.
+        mech = load(path[:-5] + ".mech.json")
+        if mech and mech.get("compile", {}).get("ok"):
+            mc, ma = mech["counts"], mech["assumptions"]
+            rec["counts_claimed"] = rec.get("counts")
+            rec["counts"] = {
+                "theorems": mc["theorems"], "proved": mc["proved"],
+                "admitted": mc["admitted"] + mc.get("admitted_definitions", 0),
+                "propositional_axioms": len(ma["undocumented_axioms"]),
+            }
+            rec["_mech"] = {
+                "compiles": True, "coq_version": mech.get("coq_version"),
+                "closed": ma["closed"], "queried": ma["queried"],
+                "axioms": sorted({a for v in (ma.get("detail") or {}).values()
+                                  for a in v.get("axioms", [])}),
+                "undocumented_axioms": ma["undocumented_axioms"],
+                "unsafe_flags": mech["compile"].get("unsafe_flags", []),
+                "toplevel_axioms": mc.get("toplevel_axioms", 0),
+                "disputes": mech.get("disputes_vs_record", []),
+            }
         rec["_final"] = {"faithfulness": final_faith, "determination": final_det, "disputed": disputed}
         out.append(rec)
     return out

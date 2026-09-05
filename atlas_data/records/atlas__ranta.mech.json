@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 14,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 31,
     "toplevel_axioms": 0,
@@ -26,6 +28,22 @@
     "undocumented_axioms": [],
     "detail": {},
     "unresolved": []
+  },
+  "statements": {
+    "mtt_ranta.Ranta.no_every_not": "f9bf5b2b810e2de0",
+    "mtt_ranta.Ranta.ac_iso": "e3937b68199394b5",
+    "mtt_ranta.Ranta.subset_some_flatten": "bfbc6583c7283508",
+    "mtt_ranta.Ranta.donkey_curry": "b9379abceed0cb86",
+    "mtt_ranta.Ranta.donkey_choice": "26dc3680a5ad828d",
+    "mtt_ranta.Ranta.sigma_assoc": "a6b7fd3083705a1a",
+    "mtt_ranta.Ranta.text2_flatten": "76f257c5581b13ca",
+    "mtt_ranta.Ranta.sugar_every_man_walks": "82152ba5466dbda7",
+    "mtt_ranta.Ranta.denote_every_man_walks": "69bf6fff4468a67d",
+    "mtt_ranta.Ranta.sugar_donkey": "b76487f85fcc6efd",
+    "mtt_ranta.Ranta.denote_donkey": "8f317ab261d1ef8b",
+    "mtt_ranta.Ranta.denote_donkey_strong": "24b146e05a4ec6a8",
+    "mtt_ranta.Ranta.denote_every_rel": "4c1e6526f07759b7",
+    "mtt_ranta.Ranta.sugar_many_to_one": "bf836f9cb9d97a6f"
   },
   "admitted_names": [],
   "aborted_names": [],

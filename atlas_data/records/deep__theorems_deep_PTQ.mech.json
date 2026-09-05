@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 10,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 0,
     "toplevel_axioms": 9,
@@ -391,6 +393,18 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "theorems_deep_PTQ.every_to_some_man_walks": "7d6f1e5e55b7ff67",
+    "theorems_deep_PTQ.every_man_walks_inst_bill": "1e0d96e0926ccb83",
+    "theorems_deep_PTQ.the_entails_a_sem": "d5a6d24c3f9360c6",
+    "theorems_deep_PTQ.rel_clause_restricts": "dbbdc42666b99203",
+    "theorems_deep_PTQ.nec_T": "195e3cd7554a1934",
+    "theorems_deep_PTQ.nec_4": "664e2448228d06c6",
+    "theorems_deep_PTQ.every_man_walks_ext_collapse": "40fdc430b9f3a0b0",
+    "theorems_deep_PTQ.temperature_puzzle": "58de47dbe3880673",
+    "theorems_deep_PTQ.t4_beta_equiv": "6aee00c25a92c242",
+    "theorems_deep_PTQ.up_down_id": "7de184dc26800619"
   },
   "admitted_names": [],
   "aborted_names": [],

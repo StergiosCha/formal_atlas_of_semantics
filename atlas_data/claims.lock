@@ -1,0 +1,4290 @@
+{
+ "_generated_by": "atlas/verify.py --lock (A3 step 6)",
+ "coq_version": "8.20.1",
+ "claims": {
+  "categorical.DisCoCat.ExModel.ex1_false": {
+   "statement_sha": "730475b9411c6459",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.ExModel.ex1_true": {
+   "statement_sha": "60155b62ba0cbdf0",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.ExModel.ex1b_false": {
+   "statement_sha": "e9fbe59132bf2708",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.ExModel.ex1b_true": {
+   "statement_sha": "fed180f124d48c16",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.ExModel.ex3_graded": {
+   "statement_sha": "472dcca94082997d",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.ExModel.ex5_hates_likesg": {
+   "statement_sha": "be486ec7262b881a",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.ExModel.ex5_loves_hates": {
+   "statement_sha": "e233ad282a96e95c",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.ExModel.ex5_loves_likesg": {
+   "statement_sha": "773c954211124643",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.ExModel.ex_iv": {
+   "statement_sha": "3b8a496a984e9999",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.ExModel.readings_agree_computationally": {
+   "statement_sha": "634d21c6bd315429",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.Examples.Le_adj": {
+   "statement_sha": "ac0cf1c9e11ea66e",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.Examples.Le_iv": {
+   "statement_sha": "ff247e00f34f0b1f",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.Examples.Le_neg": {
+   "statement_sha": "7ab0a331676cec76",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.Examples.Le_tv": {
+   "statement_sha": "ff0c5ad8ef9c2a5d",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.Examples.deq_tv_alt": {
+   "statement_sha": "ce16a9ac8a90703d",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.Examples.deq_tv_obj": {
+   "statement_sha": "e2f1003594902265",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.Examples.deq_tv_subj": {
+   "statement_sha": "18725756fc35e853",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.F_cap_r": {
+   "statement_sha": "86ef2745c18a2a96",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.F_cast": {
+   "statement_sha": "9a35448bbd739651",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.F_cup_l": {
+   "statement_sha": "51fdbf2414719f3b",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.F_deq": {
+   "statement_sha": "3feb8c54c5f0b8e6",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.F_refl": {
+   "statement_sha": "3b308d2a04e6b711",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.F_tensor": {
+   "statement_sha": "d2c1a89b86bde5d0",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.F_trans": {
+   "statement_sha": "21caf4f06cf96ec7",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.F_tv_orders": {
+   "statement_sha": "f213c91a1dd476d9",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.Le_cap_l": {
+   "statement_sha": "08cb1c230f41445c",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.Le_cap_l_ty": {
+   "statement_sha": "3e336ab1f12a4e3f",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.Le_cap_r": {
+   "statement_sha": "4e1a7cbde24beeee",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.Le_cap_r_ty": {
+   "statement_sha": "a360d900706de3aa",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.Le_cap_rr": {
+   "statement_sha": "e65f99f358ff52a6",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.Le_contra_l": {
+   "statement_sha": "0a13542d52a2de7f",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.Le_contra_r": {
+   "statement_sha": "7b58119bd988a5d9",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.Le_cup_l": {
+   "statement_sha": "e434de8a113ce266",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.Le_cup_l_ty": {
+   "statement_sha": "3e6d73aa6055d872",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.Le_cup_ll": {
+   "statement_sha": "acf15fc351901e27",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.Le_cup_r": {
+   "statement_sha": "fdd3a5b46077c496",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.Le_cup_r_ty": {
+   "statement_sha": "607e32d518df7192",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.Le_refl": {
+   "statement_sha": "b11d86b14e6a5b05",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.Le_subst": {
+   "statement_sha": "40437674efb0a19f",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.Le_tensor": {
+   "statement_sha": "2e0532ffddb9e920",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.Le_trans": {
+   "statement_sha": "b41a1e4003780cfe",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.adjoint_unique_l": {
+   "statement_sha": "fe2884b2eee75cbd",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.cap_l_gen": {
+   "statement_sha": "3bf78be5dc102f35",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.cap_r_gen": {
+   "statement_sha": "2e59cdb3193cf4aa",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.cup_l_gen": {
+   "statement_sha": "6814261bd969bacf",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.cup_r_gen": {
+   "statement_sha": "4c640dd2a3fcb98d",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.deq_endpoints": {
+   "statement_sha": "ca31e6f62ee11ffb",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.dimT_app": {
+   "statement_sha": "330a8fffb65fe48d",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.dimT_ladj": {
+   "statement_sha": "50fa053887054439",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.dimT_radj": {
+   "statement_sha": "8a9d590d30df3d16",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.div_add_small": {
+   "statement_sha": "7b10bfe9347a8225",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.div_lt": {
+   "statement_sha": "1d5e9cbe99de95f3",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.div_mod_split": {
+   "statement_sha": "0a4928a7b7316a83",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.eps_general": {
+   "statement_sha": "71bb79d390af95d7",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.eps_inner": {
+   "statement_sha": "ddb5ab2134432a35",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.interchange": {
+   "statement_sha": "683f94b833104f7a",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.kron_assoc": {
+   "statement_sha": "bec685d3784d703f",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.kron_ext": {
+   "statement_sha": "6fd2c667cd87cd4e",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.kron_idm": {
+   "statement_sha": "7919a299247943ea",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.kron_unit_l": {
+   "statement_sha": "262816ce0c57d92e",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.kron_unit_r": {
+   "statement_sha": "6b9855eb65bcd6fd",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.ladj_radj": {
+   "statement_sha": "9b0b02e30337adf7",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.ladj_ty_app": {
+   "statement_sha": "68e0cbcebae4aec8",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.ladj_ty_nil": {
+   "statement_sha": "a8b296321c4a11d1",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.ladj_ty_radj_ty": {
+   "statement_sha": "7039f9c42efbb0c5",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.le_not_antisymmetric": {
+   "statement_sha": "93cdc6db6a210569",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.mat_eq_dims": {
+   "statement_sha": "8683418bf5d66dd7",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.mat_eq_refl": {
+   "statement_sha": "64e005ba358ff240",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.mat_eq_sym": {
+   "statement_sha": "6f5b012a7d1e4d8e",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.mat_eq_trans": {
+   "statement_sha": "07da73962c383994",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.mat_eqb_sound": {
+   "statement_sha": "afcf5b649820f275",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.meaning_deq": {
+   "statement_sha": "dd4ffbc7de1b252c",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.mmul_assoc": {
+   "statement_sha": "6ca99ffbcac6ee70",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.mmul_ext": {
+   "statement_sha": "8b1359f7832ac66e",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.mmul_idm_l": {
+   "statement_sha": "1595dab76cd1b056",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.mmul_idm_r": {
+   "statement_sha": "b65b2d6f8a93a727",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.mod_add_small": {
+   "statement_sha": "659b296853ff4514",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.mod_lt": {
+   "statement_sha": "c5fc24224089cdc7",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.qsum_app": {
+   "statement_sha": "8b175d82da8e7958",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.qsum_const1": {
+   "statement_sha": "a890223e8627c9a2",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.qsum_delta_l": {
+   "statement_sha": "3d659c6f923f0a6e",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.qsum_delta_r": {
+   "statement_sha": "2161c69282f51164",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.qsum_ext": {
+   "statement_sha": "9d38f679e6339078",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.qsum_mul": {
+   "statement_sha": "3948f38399fdda2e",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.qsum_plus": {
+   "statement_sha": "a30277c5fe2b2797",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.qsum_scale_l": {
+   "statement_sha": "2ec125ed20df98f9",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.qsum_scale_r": {
+   "statement_sha": "80ab882f85afe720",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.qsum_split": {
+   "statement_sha": "b96fab7975abebd3",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.qsum_swap": {
+   "statement_sha": "718ae96d7ad75da9",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.qsum_zero": {
+   "statement_sha": "05d8fcd60496eac0",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.radj_ladj": {
+   "statement_sha": "eac2e803b9284896",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.radj_ty_app": {
+   "statement_sha": "027625dbff5293c9",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.radj_ty_ladj_ty": {
+   "statement_sha": "a83cfbdb1edb17d5",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.radj_ty_nil": {
+   "statement_sha": "b7a07eb604918598",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.snake_A": {
+   "statement_sha": "cf8c1c6e26458a03",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.snake_B": {
+   "statement_sha": "0a0c61692ea1c534",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.three_digits": {
+   "statement_sha": "d9fdb2912669cd6f",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "categorical.DisCoCat.trace_eps_eta": {
+   "statement_sha": "d7a8160d93095232",
+   "file": "atlas/categorical/DisCoCat.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.In_FV_all": {
+   "statement_sha": "1bea5eeb7d85700d",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.In_FV_conj": {
+   "statement_sha": "ebc03e8c82084b04",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.In_FV_ex": {
+   "statement_sha": "80b495a0fa1e5f52",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.In_FV_impl": {
+   "statement_sha": "58bbfab378503187",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.agree_app_l": {
+   "statement_sha": "08b38c267f3be98b",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.agree_app_r": {
+   "statement_sha": "d8a6e77daf78325c",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.agree_incl": {
+   "statement_sha": "ad0bc69f0ce31d35",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.agree_refl": {
+   "statement_sha": "5e52c7ee8dfabfac",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.agree_sym": {
+   "statement_sha": "80ba923d0d6b91c3",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.agree_trans": {
+   "statement_sha": "6f3c45be2e50458e",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.aqv_dk1": {
+   "statement_sha": "90ab38382aa0bf2a",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.assign_ext": {
+   "statement_sha": "1f820ecec5ad4d6b",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.conj_g0_h1": {
+   "statement_sha": "f33d7f99aefa50e4",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d1": {
+   "statement_sha": "a69f481864265535",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d10": {
+   "statement_sha": "3bc0dcd581317b1d",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d11_not_equiv": {
+   "statement_sha": "3fe894e4c47a5521",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d12_not_s_equiv": {
+   "statement_sha": "4a9c58aa4fcb39c1",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d14": {
+   "statement_sha": "ef4bc736606fa439",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d16": {
+   "statement_sha": "509a7ec8e51374bc",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d17": {
+   "statement_sha": "c4d786e7e96ea6b0",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d18": {
+   "statement_sha": "56d4b14d33f14c26",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d19_clos_def": {
+   "statement_sha": "157b6ce022b2cd20",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d19_test": {
+   "statement_sha": "2989bb21714edd63",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d2": {
+   "statement_sha": "1a5f5c228d52b875",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d20": {
+   "statement_sha": "7dd7b2a86b08c516",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d21": {
+   "statement_sha": "f3a1363a50e4eea3",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d22_left": {
+   "statement_sha": "84a68615b672ffe1",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d22_right": {
+   "statement_sha": "f2a7ba60bbbaab27",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d23": {
+   "statement_sha": "a9808174245ee0e6",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d24": {
+   "statement_sha": "af03a3dcb1432e60",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d25": {
+   "statement_sha": "1338af473372a805",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d26": {
+   "statement_sha": "f87e3b31b2fe755f",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d27_conj_assoc": {
+   "statement_sha": "0a5ce50c2ece85f1",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d28": {
+   "statement_sha": "c1b013e9af430df9",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d29": {
+   "statement_sha": "12621e3cc6e76f51",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d3": {
+   "statement_sha": "0d8a3f37217a00d7",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d30": {
+   "statement_sha": "69fc050f9221bee0",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d31": {
+   "statement_sha": "87b3478fbf793d6d",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d32": {
+   "statement_sha": "d7ccb494f562cf26",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d33": {
+   "statement_sha": "cd7c2f43c12c201e",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d33_half": {
+   "statement_sha": "9346995ab57830bf",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d34_clos": {
+   "statement_sha": "bda25f0c4151f178",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d34_not_equiv": {
+   "statement_sha": "4c4d2d5266148c66",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d34_refuted": {
+   "statement_sha": "430512b51376d03b",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d34_s_equiv": {
+   "statement_sha": "60b049dfd73846e0",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d34_test": {
+   "statement_sha": "b8c59a5513588326",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d35": {
+   "statement_sha": "427fb591a1e61fcd",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d36": {
+   "statement_sha": "21c1adb5f90b3c3a",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d37": {
+   "statement_sha": "d2d81f4be3678569",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d38": {
+   "statement_sha": "7f1717a1c5f1d988",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d39": {
+   "statement_sha": "e0c132b425f74ac3",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d4": {
+   "statement_sha": "34949a00612a1a6b",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d40": {
+   "statement_sha": "870cb4011da19618",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d41": {
+   "statement_sha": "fd2aa833903caf1c",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d42": {
+   "statement_sha": "9c3fef6a52401fae",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d43": {
+   "statement_sha": "99e8faa183ad4ea4",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d44": {
+   "statement_sha": "7950baa944096da9",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d45": {
+   "statement_sha": "5e9027f82ee9f10e",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d46_egli": {
+   "statement_sha": "09adb9766270e45e",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d47": {
+   "statement_sha": "0670fc729fc8facf",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d48_egli_corollary": {
+   "statement_sha": "5d51de6ebf54268b",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d49": {
+   "statement_sha": "99ed77c75f856aa6",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d49_s_equiv": {
+   "statement_sha": "e5a1ffd4fa39d677",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d5": {
+   "statement_sha": "51be60d758642d98",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d5_not_equiv": {
+   "statement_sha": "c6ddd2f1b118fbfa",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d6": {
+   "statement_sha": "61c26f846a46593d",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d7": {
+   "statement_sha": "0d7f38f1428fa231",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d8_not_s_equiv": {
+   "statement_sha": "018599a7b17ab16b",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.d9": {
+   "statement_sha": "5ee889b1a50ee59a",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.dif_refl": {
+   "statement_sha": "e2db8236dff27b62",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.dif_sym": {
+   "statement_sha": "f65e8c182a168d7c",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.dif_trans": {
+   "statement_sha": "057ecddf7f5d4d70",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.dif_upd": {
+   "statement_sha": "74c307198b2d2a4d",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.disj_not_true_g0": {
+   "statement_sha": "8abdc17a5412fa04",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.disjoint_sym": {
+   "statement_sha": "d940651f35d202ca",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.dk1_meaning": {
+   "statement_sha": "638e34e44e2c39ca",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.dk1_truth": {
+   "statement_sha": "42f7dc2d2afd4e95",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.dk2_dk3_equiv": {
+   "statement_sha": "470fb9b0a26d1fd9",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.dk2_meaning": {
+   "statement_sha": "e7f8a36f933abece",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.dk2_truth": {
+   "statement_sha": "0169058eb498d782",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.dk3_truth": {
+   "statement_sha": "9369323681a383bd",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.dk_ante_in": {
+   "statement_sha": "c012cce4a29ea93f",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.dk_ante_out": {
+   "statement_sha": "fa48b6c902b1a066",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.e_weak": {
+   "statement_sha": "f7bd00eb05eb29f0",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.entails_ex_px": {
+   "statement_sha": "0c0a4101c5a61e7c",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.entails_not_reflexive": {
+   "statement_sha": "e1d2202be13aa776",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.entails_not_transitive": {
+   "statement_sha": "99dad332eeb506e2",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.entails_prod_sat": {
+   "statement_sha": "d050e4602061715b",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.entails_seq_nonmonotonic": {
+   "statement_sha": "6c7b0e921ffe91ea",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.entails_vars_entails": {
+   "statement_sha": "112bcabdbd4a7f66",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.entails_vars_nil": {
+   "statement_sha": "7162e2d3c9a04dce",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.equiv_refl": {
+   "statement_sha": "2091e49987b2ac95",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.equiv_sym": {
+   "statement_sha": "3372c49f8fec1b93",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.equiv_trans": {
+   "statement_sha": "c270b7a6ed303b3b",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.ex_px_g0_h1": {
+   "statement_sha": "5ba876ec44db8902",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.excl_mid_test": {
+   "statement_sha": "091b7c7d4764ebcc",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.fact1": {
+   "statement_sha": "6731ef1c8fd08590",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.fact10": {
+   "statement_sha": "fb449826f9ab2c48",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.fact11": {
+   "statement_sha": "8040ce8ec5fc0c79",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.fact12": {
+   "statement_sha": "f0b146ddb83a224d",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.fact13": {
+   "statement_sha": "6b1f19e9a3c8382d",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.fact14": {
+   "statement_sha": "d2284dd32c9c59c9",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.fact15": {
+   "statement_sha": "a614c3cc2f893346",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.fact16": {
+   "statement_sha": "aa6c36277134b828",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.fact2": {
+   "statement_sha": "fc77a129f5391f32",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.fact3": {
+   "statement_sha": "34c468d3b68b3393",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.fact4": {
+   "statement_sha": "bba2167c44fee033",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.fact5": {
+   "statement_sha": "099bb9a93f909943",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.fact6_if": {
+   "statement_sha": "0993b762ce880899",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.fact6_refuted": {
+   "statement_sha": "823b0af041d82e66",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.fact8": {
+   "statement_sha": "2801065e0b7b055b",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.fact9": {
+   "statement_sha": "6d9b2825c5240369",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.fact9_agree": {
+   "statement_sha": "7cd39dbd702fa883",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.fact9_src": {
+   "statement_sha": "c48df2f1e8abbdb6",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.fv_dk2": {
+   "statement_sha": "748613ce8174c9df",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.fv_qx_expx": {
+   "statement_sha": "79151499a47f3c21",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.h1_0": {
+   "statement_sha": "d8b3fbe0965ecefc",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.h1_neq_g0": {
+   "statement_sha": "2155d71b53254f3a",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.impl_true_g0": {
+   "statement_sha": "f224e5aedeee576c",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.inter_In": {
+   "statement_sha": "b6813bff3e1f468a",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.map_tval_agree": {
+   "statement_sha": "15ec34c3123d0f0b",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.meaning_incl_refl": {
+   "statement_sha": "130d4780cf575d51",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.mutual_entailment_not_equiv": {
+   "statement_sha": "97c4fbf36aa9be2e",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.neg_fails_g0_h1": {
+   "statement_sha": "0b8c2ccf7e1c3611",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.negneg_not_equiv": {
+   "statement_sha": "1313b3f9e86bfa2b",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.negneg_witness": {
+   "statement_sha": "c8df9fe779e5aa60",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.not_meaning_incl_ex_px": {
+   "statement_sha": "4cdd700593e03feb",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.not_s_entails_ex_px": {
+   "statement_sha": "d12694244006ce2e",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.not_test_ex": {
+   "statement_sha": "c6936543ffb84591",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.qx_ex_g0_h1": {
+   "statement_sha": "ccec6ad958ff946f",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.rclos_congr": {
+   "statement_sha": "96e3046b38b2aeab",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.rclos_rclos": {
+   "statement_sha": "883197d7562fcd6d",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.rclos_rneg": {
+   "statement_sha": "b6816e3bf5094980",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.rcomp_assoc": {
+   "statement_sha": "66d350071916e0ce",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.rcomp_rex": {
+   "statement_sha": "2272041b11090b45",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.rcomp_rtest_comm": {
+   "statement_sha": "45e1e26dca2b6b99",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.rel_eq_refl": {
+   "statement_sha": "ce8f9e1126d34fc9",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.rel_eq_sym": {
+   "statement_sha": "4da3debaa885d001",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.rel_eq_trans": {
+   "statement_sha": "a0ac21e894ee8f36",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.rimpl_rex": {
+   "statement_sha": "cbd4eac1ce701cf9",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.rneg_congr": {
+   "statement_sha": "133ae402e4acc20a",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.rneg_rclos": {
+   "statement_sha": "3bd149a835f24b6d",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.rtest_dup": {
+   "statement_sha": "1f8ddde71d5d7fef",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.rtest_is_test": {
+   "statement_sha": "76ec9867ca482f02",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.sat_rtest": {
+   "statement_sha": "6b950329de00e318",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.sem_all": {
+   "statement_sha": "59bfa0fee8c22dd0",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.sem_atom": {
+   "statement_sha": "cc1db963c0093770",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.sem_clos": {
+   "statement_sha": "1a9700977df1328e",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.sem_conj": {
+   "statement_sha": "77c5a879d04ae21e",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.sem_disj": {
+   "statement_sha": "deeddccf495b9d80",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.sem_eq": {
+   "statement_sha": "9067811af50250e5",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.sem_ex": {
+   "statement_sha": "c59a61a009e6700f",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.sem_impl": {
+   "statement_sha": "c98e4b0cf6271f3c",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.sem_neg": {
+   "statement_sha": "f59ed65016f531d2",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.seq_entailment_order_sensitive": {
+   "statement_sha": "666d48b486f67f15",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.setminus_In": {
+   "statement_sha": "2fec56e42b4439b2",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.test_all": {
+   "statement_sha": "4b7f7c3c8659c5be",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.test_atom": {
+   "statement_sha": "31de3937e8655518",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.test_clos": {
+   "statement_sha": "d106bb02a21b014a",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.test_conj": {
+   "statement_sha": "93a5b8fc8494ccf3",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.test_disj": {
+   "statement_sha": "5618b22ccb752ace",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.test_eq": {
+   "statement_sha": "b5d7ccae5cc74e3c",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.test_impl": {
+   "statement_sha": "6e5cd39cd1200a53",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.test_neg": {
+   "statement_sha": "b43bd29d065a262c",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.transfer": {
+   "statement_sha": "68ad3e08c933f61a",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.transfer_given": {
+   "statement_sha": "48db2c55b847017f",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.true_wrt_test": {
+   "statement_sha": "3ed15e1fd79c8740",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.tval_agree": {
+   "statement_sha": "94c5616bd54176ef",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.upd_eq": {
+   "statement_sha": "15ad7b5569ff1fb0",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.upd_neq": {
+   "statement_sha": "af65f81961bcebae",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "dynamic.DPL.valid_ex_impl": {
+   "statement_sha": "5dcacf94a8de23cc",
+   "file": "atlas/dynamic/DPL.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.Counter.DNE_fails_or_4": {
+   "statement_sha": "f5e86c693121acee",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.Counter.DNE_fails_quest_2": {
+   "statement_sha": "a0ac394a82db724b",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.Counter.LEM_fails_2": {
+   "statement_sha": "e079646fc89c5078",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.Counter.LEM_not_valid": {
+   "statement_sha": "53520f4cfb0d1c15",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.Counter.LEM_not_valid_in": {
+   "statement_sha": "d6a7ea14def08075",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.Counter.consistency": {
+   "statement_sha": "ccfeb3875e3e807f",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.Counter.no_uniform_substitution": {
+   "statement_sha": "f61c536f45518fdc",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.Counter.or_alts_4": {
+   "statement_sha": "82370ab64565c393",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.Counter.or_hybrid_4": {
+   "statement_sha": "acc503f9b7466a01",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.Counter.or_inquisitive_4": {
+   "statement_sha": "c82135ead7999e4e",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.Counter.quest_p_inquisitive": {
+   "statement_sha": "a5fd5c2008f0ec12",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.Counter.quest_p_question": {
+   "statement_sha": "c47070694b7fd0ac",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.Join_is_prop": {
+   "statement_sha": "8c33f3fa4bf1550e",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.Join_lub": {
+   "statement_sha": "01ed17b3fda2dd65",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.KP_valid": {
+   "statement_sha": "23592e928cf7ad73",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.Meet_glb": {
+   "statement_sha": "fc52c7dca10b6212",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.Meet_is_prop": {
+   "statement_sha": "cb17f02369ffe972",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.absorb_join_meet": {
+   "statement_sha": "e5800b525b9811f2",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.absorb_meet_join": {
+   "statement_sha": "7ba9d98b9507010e",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.alg_eq_sem": {
+   "statement_sha": "115985443c5313a3",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.alt_f_max": {
+   "statement_sha": "bd9d68b493335961",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.and_tc": {
+   "statement_sha": "6ccf7d728b5c8937",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.assertion_iff_equiv_bang": {
+   "statement_sha": "20e217f179ecde2e",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.assertion_iff_greatest": {
+   "statement_sha": "27fb887d947f0b02",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.assertion_iff_pow": {
+   "statement_sha": "f9fcd5ef2a299de0",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.assertion_iff_support_truthset": {
+   "statement_sha": "77246045f2696071",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.assertion_iff_tc": {
+   "statement_sha": "8c92a80deed1d889",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.atom_tc": {
+   "statement_sha": "a4c56a8996cc47d5",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.atomic_DNE_valid": {
+   "statement_sha": "9d0862203186bcf3",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.atomic_DN_valid_in": {
+   "statement_sha": "3c741f30d52cf2d6",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.axiom_valid": {
+   "statement_sha": "73a403f0dbee2697",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.bang_alt": {
+   "statement_sha": "44bd38209144bacf",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.bang_assertion": {
+   "statement_sha": "55a0e51005e654d7",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.bang_eq_starstar": {
+   "statement_sha": "587a3e27d1a912df",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.bang_idem_f": {
+   "statement_sha": "69920b76cdbc4063",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.bang_info": {
+   "statement_sha": "e481581ccb65d810",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.bang_info_f": {
+   "statement_sha": "a3715de53c2db9db",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.bang_is_prop": {
+   "statement_sha": "227099134fcd441b",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.bang_issue_cancelling": {
+   "statement_sha": "aaa62fd65f78f26d",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.bang_le_starstar": {
+   "statement_sha": "faf55ba1446b8b3a",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.bang_noninq": {
+   "statement_sha": "23f900e00c28f27b",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.bang_pointwise": {
+   "statement_sha": "d14ac5e35083ecb0",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.bang_strongest_assertion": {
+   "statement_sha": "041416f1eda7d72f",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.bang_tc": {
+   "statement_sha": "736fd08d0e3303bb",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.bang_unique": {
+   "statement_sha": "d9a879d05c733efb",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.boolean_complements_extremal": {
+   "statement_sha": "61d83e175f4c78a1",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.bot_is_prop": {
+   "statement_sha": "ab97cc5c76da061a",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.bot_least": {
+   "statement_sha": "4df44b324ccf9be5",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.bot_tc": {
+   "statement_sha": "6f98eb7b6a0285c2",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.ctruth_bang": {
+   "statement_sha": "f460123777be07f6",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.ctruth_neg": {
+   "statement_sha": "b3121cb944d75d35",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.ctruth_quest": {
+   "statement_sha": "b29f967036c00860",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.decided_info_sem": {
+   "statement_sha": "b0e84f808271feaf",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.decision_set": {
+   "statement_sha": "7d10ab44d2400c99",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.deduction_theorem": {
+   "statement_sha": "cb93a95786c505e1",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.deduction_theorem1": {
+   "statement_sha": "ab4f4d4eb66fa1ec",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.disjunction_property_in": {
+   "statement_sha": "840afcaabeaa291c",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.division_f": {
+   "statement_sha": "5742cbdba0311f2f",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.division_p": {
+   "statement_sha": "898a6d8e5b1584e5",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.dne_valid_iff_tc": {
+   "statement_sha": "bd7bc0a6844392f9",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.empty_in_prop": {
+   "statement_sha": "c41568e33bd5944e",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.empty_state": {
+   "statement_sha": "685544f795f254ec",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.entails1_refl": {
+   "statement_sha": "b0d8ec0864462d22",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.entails1_trans": {
+   "statement_sha": "440f6904b7bb95d0",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.entails_assertion_classical": {
+   "statement_sha": "c9657d232ea61bc8",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.entails_bang": {
+   "statement_sha": "82b7936b485191d8",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.entails_iff_ple": {
+   "statement_sha": "3146ec262c516cdf",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.equiv_iff": {
+   "statement_sha": "8f7b020ab41aea80",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.heyting_intro": {
+   "statement_sha": "967e81bd94880491",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.heyting_mp": {
+   "statement_sha": "97e72b377e40a18f",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.imp_adjunction": {
+   "statement_sha": "5827a7c6f23dfc9c",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.imp_intro": {
+   "statement_sha": "6f26aecbee5c8d84",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.imp_is_prop": {
+   "statement_sha": "b040f35b84950b19",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.imp_is_rpc": {
+   "statement_sha": "a66c8ea41133d50f",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.imp_meet_split": {
+   "statement_sha": "5d0cb599826d9d21",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.imp_self_top": {
+   "statement_sha": "eedd33e829d608b6",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.imp_tc": {
+   "statement_sha": "9072b4de31b7945e",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.imp_tc_antecedent": {
+   "statement_sha": "ef4492d990712221",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.info_eq_truthset": {
+   "statement_sha": "c33de252aacafee4",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.inq_heyting": {
+   "statement_sha": "547953541447a424",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.join_assoc": {
+   "statement_sha": "9e20b8b5a2f1aad6",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.join_comm": {
+   "statement_sha": "9dbc497ce6ae9710",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.join_idem": {
+   "statement_sha": "3beded099e00485c",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.join_is_prop": {
+   "statement_sha": "c1a4060ff3ced637",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.join_lub": {
+   "statement_sha": "72a37928a429264c",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.lem_tc": {
+   "statement_sha": "84accf1f6fa5ca21",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.lem_valid_iff": {
+   "statement_sha": "302f6f4ee98b6b8a",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.meet_assoc": {
+   "statement_sha": "edcd8c2768ed2653",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.meet_comm": {
+   "statement_sha": "6c0cca33595df987",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.meet_glb": {
+   "statement_sha": "f10478bc9492858c",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.meet_idem": {
+   "statement_sha": "6d33e8da378efbd5",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.meet_is_prop": {
+   "statement_sha": "d40ea0f11216e98d",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.meet_join_distrib": {
+   "statement_sha": "e82786d9e3b0e2c6",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.meet_star_bot": {
+   "statement_sha": "9845ff621d0b5597",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.mp_closed": {
+   "statement_sha": "f1f8b620c25d8682",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.neg_alt": {
+   "statement_sha": "4d1b8929d67f84c9",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.neg_antecedent": {
+   "statement_sha": "2a5d79818e28ad98",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.neg_pointwise": {
+   "statement_sha": "a3b3e67df1ec6bf5",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.neg_tc": {
+   "statement_sha": "da5eeb7d29808045",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.nil_in_prop": {
+   "statement_sha": "a2e383241fe7e92a",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.noninf_char_def": {
+   "statement_sha": "1b7ec5fe7fd1e5e1",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.noninf_dset": {
+   "statement_sha": "e135c77fc53133fc",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.noninf_sufficient": {
+   "statement_sha": "e14f28426615077b",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.noninq_1_2": {
+   "statement_sha": "988014f7c8dde065",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.noninq_2_3": {
+   "statement_sha": "60e3323a6b3e9ee6",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.noninq_3_4": {
+   "statement_sha": "7a2693943cd3770b",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.noninq_4_1": {
+   "statement_sha": "51d20a77edb080fc",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.noninq_alt": {
+   "statement_sha": "01c5bb589fc57a73",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.noninq_char_def": {
+   "statement_sha": "371d986e861b13e5",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.noninq_sufficient": {
+   "statement_sha": "0879180bc07cac6a",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.orfree_assertion": {
+   "statement_sha": "7882ff2fc7634d0e",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.orfree_tc": {
+   "statement_sha": "f7ec1f563a380f7c",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.peq_ple": {
+   "statement_sha": "5d7e5afb82f3bc69",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.peq_refl": {
+   "statement_sha": "6cdc3a85d9ff9fae",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.peq_sym": {
+   "statement_sha": "59f07e47fdb23cdb",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.peq_trans": {
+   "statement_sha": "0b4383a5c03cfb08",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.persistence": {
+   "statement_sha": "ad42fbf5ae3ef420",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.ple_antisym_peq": {
+   "statement_sha": "3a444b4c2548f99d",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.ple_bang": {
+   "statement_sha": "721b7d77b92a14cc",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.ple_info": {
+   "statement_sha": "c5c3277cd7119b51",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.ple_quest": {
+   "statement_sha": "8411c562d3572198",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.ple_refl": {
+   "statement_sha": "ea3f5931967f3508",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.ple_trans": {
+   "statement_sha": "aa415e79077a81f3",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.pow_is_prop": {
+   "statement_sha": "f126a2d76b92b167",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.prop_respects_seq": {
+   "statement_sha": "1ba5e0b4c70445c6",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.quest_decision": {
+   "statement_sha": "34a6a024ef42a484",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.quest_eq": {
+   "statement_sha": "0599c793fbad4a85",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.quest_idem_f": {
+   "statement_sha": "a6447e804f4d006f",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.quest_is_prop": {
+   "statement_sha": "f9a09cfdbf840cf3",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.quest_noninf": {
+   "statement_sha": "2efae71f757b35e0",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.quest_question": {
+   "statement_sha": "112ba8868c9f14c6",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.quest_unique": {
+   "statement_sha": "7c493f7bd9284e1f",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.question_entails_question": {
+   "statement_sha": "75c3b757490becb2",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.question_iff_contradiction_neg": {
+   "statement_sha": "3bd3fbc52ac18322",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.question_iff_equiv_quest": {
+   "statement_sha": "4fecc3d846758bc7",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.question_iff_taut": {
+   "statement_sha": "815b79a699fe4c18",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.sem_and": {
+   "statement_sha": "34f7028d4c665cfa",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.sem_atom": {
+   "statement_sha": "c47fd9387b96208f",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.sem_bang_peq": {
+   "statement_sha": "19582cf4bdbe7872",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.sem_bot": {
+   "statement_sha": "020c2be7261b2501",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.sem_imp": {
+   "statement_sha": "39f596cb06fbda30",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.sem_imp_adjunction": {
+   "statement_sha": "c9883b5d91b0b165",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.sem_imp_is_rpc": {
+   "statement_sha": "b0a5eb412c942338",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.sem_is_prop": {
+   "statement_sha": "a7315ff3a0e55d98",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.sem_neg": {
+   "statement_sha": "c0a3bb8df25c3c44",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.sem_or": {
+   "statement_sha": "f2a134a2d7d23684",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.sem_quest_peq": {
+   "statement_sha": "b1e8bf7bb90885d5",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.seq_refl": {
+   "statement_sha": "d46e51e24c1af4b3",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.seq_sub": {
+   "statement_sha": "2543e178f5d2a669",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.seq_sym": {
+   "statement_sha": "4dae01cbbd94c7f9",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.seq_trans": {
+   "statement_sha": "03cbcf69a8b141d8",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.singleton_collapse": {
+   "statement_sha": "971ce2c5f234ea3e",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.singleton_decides": {
+   "statement_sha": "9a692b27259a4aa7",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.soundness": {
+   "statement_sha": "330ad300127cf448",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.soundness_in": {
+   "statement_sha": "d4dec53a95b70ae2",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.soundness_valid": {
+   "statement_sha": "7c016aec55ef844f",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.star_antitone": {
+   "statement_sha": "834cf6fd5933a999",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.star_char": {
+   "statement_sha": "eb70e076efff08b8",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.star_is_prop": {
+   "statement_sha": "f2965f7425a57982",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.star_noninq": {
+   "statement_sha": "425bfb1dcb862940",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.star_pow": {
+   "statement_sha": "1c14da1e1ea51f8c",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.star_star_intro": {
+   "statement_sha": "2d8c731475806bc4",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.star_star_star": {
+   "statement_sha": "4b265ea4ffbdc230",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.sub_refl": {
+   "statement_sha": "525b24f84e9c1ec5",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.sub_trans": {
+   "statement_sha": "147cc88f906255ef",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.support_and": {
+   "statement_sha": "77f0b01f19c497cd",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.support_atom": {
+   "statement_sha": "34638aea2420cbec",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.support_bot": {
+   "statement_sha": "f479d092bd44a0b2",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.support_imp": {
+   "statement_sha": "250a253995b241c6",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.support_neg_unfold": {
+   "statement_sha": "eebe517eb2cf7275",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.support_or": {
+   "statement_sha": "42d2dfeae844e1c8",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.support_seq": {
+   "statement_sha": "d2c9410b0937d720",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.tautology_f_iff": {
+   "statement_sha": "e65a9832da4abc40",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.tautology_top": {
+   "statement_sha": "37bcf34c3e80cf13",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.top_greatest": {
+   "statement_sha": "ba72a653765228c6",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.top_is_prop": {
+   "statement_sha": "77cb707f11d51bf8",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.true_at_iff": {
+   "statement_sha": "83b9dfd7f464c10d",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.true_iff_single": {
+   "statement_sha": "67c2e220aebbd717",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.two_alts_inquisitive": {
+   "statement_sha": "60912a5f99cee8e1",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.two_alts_inquisitive_f": {
+   "statement_sha": "4b6e8d672ffd440e",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.valid_ax1": {
+   "statement_sha": "5ecc7086c2ac790d",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.valid_ax2": {
+   "statement_sha": "2cdbf181dbbe8ca1",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.valid_ax3": {
+   "statement_sha": "c71d94c0076edd34",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.valid_ax4": {
+   "statement_sha": "bc32ddb89c4e928f",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.valid_ax5": {
+   "statement_sha": "661e41a103b87a95",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.valid_ax6": {
+   "statement_sha": "58aacafe8cc9596a",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.valid_ax7": {
+   "statement_sha": "19f2e7392445c3d2",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.valid_ax8": {
+   "statement_sha": "34967664ffdaba49",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.valid_ax9": {
+   "statement_sha": "a956459e2e77f98c",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.valid_classical": {
+   "statement_sha": "65fd990173e0280f",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.valid_iff_ignorant": {
+   "statement_sha": "8dd85fed8f00267e",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "inquisitive.InqB.valid_iff_taut_assertion": {
+   "statement_sha": "2c0536e40b395e17",
+   "file": "atlas/inquisitive/InqB.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ.a_conservative": {
+   "statement_sha": "d764c05d0f6b0350",
+   "file": "atlas/montague/PTQ.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ.a_mon_up": {
+   "statement_sha": "9b95a50c808d1a6a",
+   "file": "atlas/montague/PTQ.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ.a_restr_up": {
+   "statement_sha": "ed2e1f6d625ef941",
+   "file": "atlas/montague/PTQ.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ.box_K": {
+   "statement_sha": "9f9e69ee62d06b00",
+   "file": "atlas/montague/PTQ.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ.box_Nec": {
+   "statement_sha": "2972f0ecd149d80f",
+   "file": "atlas/montague/PTQ.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ.box_T": {
+   "statement_sha": "791ef611b14bc600",
+   "file": "atlas/montague/PTQ.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ.dere_existence": {
+   "statement_sha": "63f57a9683e740bf",
+   "file": "atlas/montague/PTQ.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ.every_conservative": {
+   "statement_sha": "781af7d2edc589dc",
+   "file": "atlas/montague/PTQ.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ.every_man_walks_eq": {
+   "statement_sha": "ce6defffc17d72dc",
+   "file": "atlas/montague/PTQ.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ.every_mon_up": {
+   "statement_sha": "8e0c7d1e5c987f93",
+   "file": "atlas/montague/PTQ.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ.every_restr_down": {
+   "statement_sha": "393129d8de11b255",
+   "file": "atlas/montague/PTQ.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ.find_dedicto_dere": {
+   "statement_sha": "20c70b1d56303f17",
+   "file": "atlas/montague/PTQ.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ.inverse_entails_surface": {
+   "statement_sha": "092685270fe7e7c9",
+   "file": "atlas/montague/PTQ.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ.john_walks_eq": {
+   "statement_sha": "1f1d91683c7d1b6a",
+   "file": "atlas/montague/PTQ.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ.no_conservative": {
+   "statement_sha": "7aac869f98aff347",
+   "file": "atlas/montague/PTQ.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ.no_mon_down": {
+   "statement_sha": "684504bac2e3f75b",
+   "file": "atlas/montague/PTQ.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ.readings_distinct": {
+   "statement_sha": "bc5425344f553044",
+   "file": "atlas/montague/PTQ.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ.seek_no_existence": {
+   "statement_sha": "10f06a8c9f76becb",
+   "file": "atlas/montague/PTQ.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ.seek_not_liftable": {
+   "statement_sha": "441001f0fe183420",
+   "file": "atlas/montague/PTQ.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ_vs_Lambek.lambek_computes_ptq_every": {
+   "statement_sha": "7700f02657ea2023",
+   "file": "atlas/montague/PTQ_vs_Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ_vs_Lambek.lambek_computes_ptq_john": {
+   "statement_sha": "a350f4adb8d58c00",
+   "file": "atlas/montague/PTQ_vs_Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ_vs_Lambek.lambek_computes_ptq_some": {
+   "statement_sha": "a7f3398e8189ee6c",
+   "file": "atlas/montague/PTQ_vs_Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ_vs_Lambek.lambek_typeraise_is_star": {
+   "statement_sha": "24ce8d83b1faa3f0",
+   "file": "atlas/montague/PTQ_vs_Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ_vs_MTT.conservativity_transfers": {
+   "statement_sha": "0b3632a50a1353a6",
+   "file": "atlas/montague/PTQ_vs_MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ_vs_MTT.mtt_ptq_every": {
+   "statement_sha": "b061d3866d822871",
+   "file": "atlas/montague/PTQ_vs_MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ_vs_MTT.mtt_ptq_no": {
+   "statement_sha": "0664acb964643765",
+   "file": "atlas/montague/PTQ_vs_MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "montague.PTQ_vs_MTT.mtt_ptq_some": {
+   "statement_sha": "9cd7197eeefbef39",
+   "file": "atlas/montague/PTQ_vs_MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.DTS.dts_donkey_canonical": {
+   "statement_sha": "2461031f7abda737",
+   "file": "atlas/mtt_ranta/DTS.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.DTS.dts_donkey_felicitous": {
+   "statement_sha": "c2bc8de22058b848",
+   "file": "atlas/mtt_ranta/DTS.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.DTS.dts_donkey_strong": {
+   "statement_sha": "6a20519e4c74f36f",
+   "file": "atlas/mtt_ranta/DTS.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.DTS.resolution_ambiguity": {
+   "statement_sha": "9a784190d786f6d2",
+   "file": "atlas/mtt_ranta/DTS.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.DTS.the_bare_presupposes": {
+   "statement_sha": "dd634154f22a6604",
+   "file": "atlas/mtt_ranta/DTS.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.DTS.the_conditional_is_donkey": {
+   "statement_sha": "a35c7c727bd0a789",
+   "file": "atlas/mtt_ranta/DTS.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.DTS.the_conditional_projects_nothing": {
+   "statement_sha": "247e435a674e2015",
+   "file": "atlas/mtt_ranta/DTS.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.adv_some": {
+   "statement_sha": "d4b3251a58e133f7",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.adv_veridical": {
+   "statement_sha": "76a6985c053c242a",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.copred_coercion_demo": {
+   "statement_sha": "0a74278356845f8d",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.copred_left": {
+   "statement_sha": "45d5bda3ebe1cf97",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.copred_right": {
+   "statement_sha": "9fe4be065b59ca9f",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.copred_some": {
+   "statement_sha": "82853293de7be7e3",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.every_anti": {
+   "statement_sha": "a58567f1e033ad22",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.fake_is_gun": {
+   "statement_sha": "b059c795dbff017c",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.fake_not_real": {
+   "statement_sha": "29fa50b256ec48c7",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.gun_partition": {
+   "statement_sha": "bcfb471a78b40cde",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.in_prop_compose": {
+   "statement_sha": "cf6f87c55f3664ae",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.inter_adj_drop": {
+   "statement_sha": "7ad5108956b85710",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.inter_noun_drop": {
+   "statement_sha": "1e4f9265c5a61f10",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.intersective_every_iff": {
+   "statement_sha": "b6e48d99190e6620",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.intersective_iff": {
+   "statement_sha": "24ba07110db11919",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.judgment_to_prop": {
+   "statement_sha": "81ad175a6b1e7adf",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.nli_black_man_walks": {
+   "statement_sha": "a1e5591ac8ff15e0",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.nli_conj": {
+   "statement_sha": "ccf3f8b290fee4f2",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.nli_disj": {
+   "statement_sha": "ef6003215cd1f22e",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.nli_every_and_some": {
+   "statement_sha": "0d97be585fe638f6",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.nli_every_some": {
+   "statement_sha": "2228d78f37839807",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.nli_instance": {
+   "statement_sha": "07ec063585f1b9f6",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.nli_no_iff": {
+   "statement_sha": "f8489004345c078c",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.nli_no_some_absurd": {
+   "statement_sha": "6bd73be134bb33bf",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.no_anti": {
+   "statement_sha": "fd4aacc371a706f6",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.noncommittal_witness": {
+   "statement_sha": "a809c838a2b53f58",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.not_two_books_info": {
+   "statement_sha": "d5a79f7f010fa018",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.pred_lift_comp": {
+   "statement_sha": "982952e76712879a",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.quickly_veridical": {
+   "statement_sha": "63388a03243647f7",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.some_mono": {
+   "statement_sha": "d7c266fa1431801d",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.subs_noun_drop": {
+   "statement_sha": "5dbbc13f835ee4b5",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.subsective_not_transferable": {
+   "statement_sha": "cb35b3874f7638c2",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.two_books_phy": {
+   "statement_sha": "0dc2cdcbd13ff181",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT_vs_Ranta.cn_agree": {
+   "statement_sha": "5472ceb490e71a6d",
+   "file": "atlas/mtt_ranta/MTT_vs_Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT_vs_Ranta.donkey_agree": {
+   "statement_sha": "3e21533fdb42dbac",
+   "file": "atlas/mtt_ranta/MTT_vs_Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT_vs_Ranta.every_agree": {
+   "statement_sha": "6abb8f8b7d4595ad",
+   "file": "atlas/mtt_ranta/MTT_vs_Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT_vs_Ranta.inter_subset_bwd": {
+   "statement_sha": "57a9429ce8c548be",
+   "file": "atlas/mtt_ranta/MTT_vs_Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT_vs_Ranta.inter_subset_fwd": {
+   "statement_sha": "393f64667598ce8f",
+   "file": "atlas/mtt_ranta/MTT_vs_Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT_vs_Ranta.inter_subset_some": {
+   "statement_sha": "78a4a747ef30ac50",
+   "file": "atlas/mtt_ranta/MTT_vs_Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT_vs_Ranta.mtt_donkey_strong_bwd": {
+   "statement_sha": "3adad4d47f0a8e5b",
+   "file": "atlas/mtt_ranta/MTT_vs_Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT_vs_Ranta.mtt_donkey_strong_fwd": {
+   "statement_sha": "5d93e6c86301d5df",
+   "file": "atlas/mtt_ranta/MTT_vs_Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT_vs_Ranta.no_agree_bwd": {
+   "statement_sha": "f44e5d2ae05feca3",
+   "file": "atlas/mtt_ranta/MTT_vs_Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT_vs_Ranta.no_agree_fwd": {
+   "statement_sha": "61a12155080ecc00",
+   "file": "atlas/mtt_ranta/MTT_vs_Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT_vs_Ranta.ranta_some_mono": {
+   "statement_sha": "359a6481746b4c8b",
+   "file": "atlas/mtt_ranta/MTT_vs_Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT_vs_Ranta.ranta_witness_sound": {
+   "statement_sha": "ce75475d4fa445f6",
+   "file": "atlas/mtt_ranta/MTT_vs_Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT_vs_Ranta.some_agree_bwd_inhabited": {
+   "statement_sha": "0e6a4eca61e88928",
+   "file": "atlas/mtt_ranta/MTT_vs_Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT_vs_Ranta.some_agree_fwd": {
+   "statement_sha": "37191413ba757cfc",
+   "file": "atlas/mtt_ranta/MTT_vs_Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT_vs_Ranta.sub_sentence_agree": {
+   "statement_sha": "095a20d9a136febd",
+   "file": "atlas/mtt_ranta/MTT_vs_Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta.ac_iso": {
+   "statement_sha": "e3937b68199394b5",
+   "file": "atlas/mtt_ranta/Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta.denote_donkey": {
+   "statement_sha": "8f317ab261d1ef8b",
+   "file": "atlas/mtt_ranta/Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta.denote_donkey_strong": {
+   "statement_sha": "24b146e05a4ec6a8",
+   "file": "atlas/mtt_ranta/Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta.denote_every_man_walks": {
+   "statement_sha": "69bf6fff4468a67d",
+   "file": "atlas/mtt_ranta/Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta.denote_every_rel": {
+   "statement_sha": "4c1e6526f07759b7",
+   "file": "atlas/mtt_ranta/Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta.donkey_choice": {
+   "statement_sha": "26dc3680a5ad828d",
+   "file": "atlas/mtt_ranta/Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta.donkey_curry": {
+   "statement_sha": "b9379abceed0cb86",
+   "file": "atlas/mtt_ranta/Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta.no_every_not": {
+   "statement_sha": "f9bf5b2b810e2de0",
+   "file": "atlas/mtt_ranta/Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta.sigma_assoc": {
+   "statement_sha": "a6b7fd3083705a1a",
+   "file": "atlas/mtt_ranta/Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta.subset_some_flatten": {
+   "statement_sha": "bfbc6583c7283508",
+   "file": "atlas/mtt_ranta/Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta.sugar_donkey": {
+   "statement_sha": "b76487f85fcc6efd",
+   "file": "atlas/mtt_ranta/Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta.sugar_every_man_walks": {
+   "statement_sha": "82152ba5466dbda7",
+   "file": "atlas/mtt_ranta/Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta.sugar_many_to_one": {
+   "statement_sha": "bf836f9cb9d97a6f",
+   "file": "atlas/mtt_ranta/Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta.text2_flatten": {
+   "statement_sha": "76f257c5581b13ca",
+   "file": "atlas/mtt_ranta/Ranta.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.BergenTwoWorlds.bergen_all_truthful": {
+   "statement_sha": "df200f7fa1a5d099",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.BergenTwoWorlds.bergen_table": {
+   "statement_sha": "6dbc8ffc2854c020",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.Cookies.cookies_L0_value": {
+   "statement_sha": "33b798844aeaa4ce",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.Cookies.cookies_suppression": {
+   "statement_sha": "0c1ef542be759b1c",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.Cookies.cookies_values": {
+   "statement_sha": "245913f72ff305d5",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.Faces.faces_L0_ambiguous": {
+   "statement_sha": "6a2dfcd846cc1c07",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.Faces.faces_hat": {
+   "statement_sha": "aa48c84b9dd7562f",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.Faces.faces_implicature": {
+   "statement_sha": "8be25b7e0618ebd3",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L0_dist_iff": {
+   "statement_sha": "d4f669d81613adb2",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L0_false": {
+   "statement_sha": "ba34efbffff71711",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L0_is_conditioning": {
+   "statement_sha": "8e840a006ed0b30e",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L0_more_specific": {
+   "statement_sha": "f59b940d75a7e797",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L0_nonneg": {
+   "statement_sha": "678858e81c0ca8d2",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L0_norm_pos": {
+   "statement_sha": "12437cf7c7ecb214",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L0_prior_only": {
+   "statement_sha": "64e78b09a5226545",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L0_raw_nonneg": {
+   "statement_sha": "ba22e6a404e9fe98",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L0_sem_equiv": {
+   "statement_sha": "02bb781f246854c2",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L0_strictly_more_specific": {
+   "statement_sha": "28fbd3868466af40",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L0_support": {
+   "statement_sha": "d3278eb78e9fa1dc",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L0_tautology": {
+   "statement_sha": "ff528576a5ef4d0a",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L0_undefined": {
+   "statement_sha": "43df68d5bb55498d",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L0_uniform_card": {
+   "statement_sha": "b09309fdf383e28c",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L1_bayes": {
+   "statement_sha": "220f2fc74ea553fa",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L1_dist_iff": {
+   "statement_sha": "415c5fbdf9e398f8",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L1_dist_iff_alt": {
+   "statement_sha": "4367796cf3417ad9",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L1_odds": {
+   "statement_sha": "fffe6af1f287c5ae",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L1_order_from_S1": {
+   "statement_sha": "6e75b2f4a686533a",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L1_product": {
+   "statement_sha": "ba75888457a2e926",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L1_propto": {
+   "statement_sha": "b05c0fdd0b857a33",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L1_raw_nonneg": {
+   "statement_sha": "828fb3583d1a2738",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L1_support": {
+   "statement_sha": "64a5da600dc599f9",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L1_undefined": {
+   "statement_sha": "b3fc623a0f828f56",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L1_unique": {
+   "statement_sha": "55db24fb41787a26",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L_of_nonneg_gen": {
+   "statement_sha": "e80dc12c54d87ee5",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L_of_of_twist": {
+   "statement_sha": "727e166110dd427c",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.L_of_support_gen": {
+   "statement_sha": "2b11af3722e27d55",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.Ln_dist": {
+   "statement_sha": "789400eb16b93f77",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.Ln_invariant": {
+   "statement_sha": "6b5331b8c2ba7732",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.Ln_perm_invariant": {
+   "statement_sha": "10396063a74e4cae",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.Ln_sem_equiv": {
+   "statement_sha": "851d116c498db381",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.Ln_support": {
+   "statement_sha": "198cc3e92612b6b8",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.PS_pos_iff": {
+   "statement_sha": "706c2042a02b5f68",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.Pset_additive": {
+   "statement_sha": "b4dad7c71701cfc4",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.Pset_pos_of_witness": {
+   "statement_sha": "83ead201f256c2d2",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.Pset_true": {
+   "statement_sha": "fc67887f5efdfd68",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.Qdiv_nonneg": {
+   "statement_sha": "6e3aa63b5fc85d8c",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.Qdiv_pos": {
+   "statement_sha": "0fc6ee8d6046db82",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.Qinv_zero": {
+   "statement_sha": "8bd4fca3d1b7e58c",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.ne_of_lt": {
+   "statement_sha": "3b51ba8c135c727b",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.normalize_ext_in": {
+   "statement_sha": "c9653e0337a4e704",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.normalize_nonneg": {
+   "statement_sha": "d602d83da15ec7ab",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.normalize_perm": {
+   "statement_sha": "49b07bb773c68489",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.normalize_scale": {
+   "statement_sha": "e26c2f3514c8887c",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.normalize_spec": {
+   "statement_sha": "034ee3e0000f20b2",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.normalize_sum": {
+   "statement_sha": "6e7fba50fb73f997",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.normalize_zero": {
+   "statement_sha": "a947e5718cb9e567",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.qpow_mono": {
+   "statement_sha": "830283de814dc975",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.qpow_nonneg": {
+   "statement_sha": "2ee5ac5ef57dbf0e",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.qpow_one": {
+   "statement_sha": "df92656540f253d0",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.qpow_pos": {
+   "statement_sha": "0ba345887999032a",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.qpow_strict": {
+   "statement_sha": "618205094ee64a30",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.qpow_zero": {
+   "statement_sha": "7e188141b0d98f3f",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.qsum_app": {
+   "statement_sha": "5c9dd92f505fc263",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.qsum_div": {
+   "statement_sha": "f863c4b2f34163f4",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.qsum_indicator": {
+   "statement_sha": "fbd75c50685c6787",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.qsum_le_in": {
+   "statement_sha": "03373ab6b46cf374",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.qsum_le_lt_in": {
+   "statement_sha": "ede2daefeab92855",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.qsum_map_ext_in": {
+   "statement_sha": "c37d8d9920f87b07",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.qsum_nonneg": {
+   "statement_sha": "6788e8462fe59052",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.qsum_perm": {
+   "statement_sha": "7ae670c4a079b4a2",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.qsum_plus": {
+   "statement_sha": "37eff2ac3206de70",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.qsum_pos_of_mem": {
+   "statement_sha": "6ac9e57b789b0535",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.qsum_scale": {
+   "statement_sha": "71c68427040fb00d",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.qsum_zero_iff": {
+   "statement_sha": "9065646a304a2803",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.QSum.qsum_zero_of": {
+   "statement_sha": "a958365103cf7152",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.Qinv_le_anti": {
+   "statement_sha": "55ddae3751037b34",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.S1_alpha0": {
+   "statement_sha": "f9d90a76d32e37dd",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.S1_dist_iff": {
+   "statement_sha": "71a23478496294f7",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.S1_more_specific": {
+   "statement_sha": "dc3bb63cf6075ee8",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.S1_nonneg": {
+   "statement_sha": "ff083bb2688daf26",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.S1_norm_pos": {
+   "statement_sha": "c5c2e6ab6677e69f",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.S1_raw_false": {
+   "statement_sha": "248eb625ba5d1736",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.S1_raw_true": {
+   "statement_sha": "6f82eba572cf6e51",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.S1_strictly_more_specific": {
+   "statement_sha": "8f7e109d0e0a501c",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.S1_support": {
+   "statement_sha": "64112e40c8b1493b",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.S1_undefined": {
+   "statement_sha": "d99f5e043fb5542c",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.S_of_nonneg_gen": {
+   "statement_sha": "06b5cb978e4ee5c7",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.S_of_perm_ext": {
+   "statement_sha": "1cb9009809b4855a",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.S_of_support_gen": {
+   "statement_sha": "37fec653fdff6fac",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.S_of_twist": {
+   "statement_sha": "488a248224b9622d",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.S_raw_nonneg_L0": {
+   "statement_sha": "b45bf17a7a821282",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.S_raw_nonneg_gen": {
+   "statement_sha": "ddc16e72de312bde",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.S_raw_pos_gen": {
+   "statement_sha": "c706bf6d5279283b",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.S_raw_zero_gen": {
+   "statement_sha": "506d1b37bb441c05",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.ScalarImplicature.S1_prefers_informative": {
+   "statement_sha": "12567222d4e161db",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.ScalarImplicature.scalar_L0_fails": {
+   "statement_sha": "636c7b9a77170781",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.ScalarImplicature.scalar_L0_values": {
+   "statement_sha": "e74e01580677e642",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.ScalarImplicature.scalar_L1_values": {
+   "statement_sha": "110f703f2d48b19c",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.ScalarImplicature.scalar_alpha4": {
+   "statement_sha": "ed913fbd522e256d",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.ScalarImplicature.scalar_depth3": {
+   "statement_sha": "f663a06c86ff08f4",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.ScalarImplicature.scalar_implicature": {
+   "statement_sha": "aeea12d3e36921ea",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.ScalarImplicature.scalar_implicature_any_alpha": {
+   "statement_sha": "17aa06ff801931a4",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.Sn_dist": {
+   "statement_sha": "566ee499182c57cf",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.Sn_sem_equiv": {
+   "statement_sha": "84d6ac4e52df13a0",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.Symmetry.symmetry_broken": {
+   "statement_sha": "3f8b6caa27b824de",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.Symmetry.symmetry_neutral": {
+   "statement_sha": "5442e2bfb397e658",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.consistent_iff": {
+   "statement_sha": "887d9c25c5b1485e",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.existsb_false_forall": {
+   "statement_sha": "4cad40c9fae3a3d5",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.expressible_iff": {
+   "statement_sha": "ac21075f5ea73ccd",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.listener_false": {
+   "statement_sha": "21c2c8377bc41c05",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.no_M_implicature": {
+   "statement_sha": "483a3e20466fb0a6",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.normalize_ext": {
+   "statement_sha": "9ec8500bc953cc45",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.normalize_num_zero": {
+   "statement_sha": "5d79296eedf73ba5",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.qpow_1": {
+   "statement_sha": "6852214bf08b5161",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.qsum_pos_exists": {
+   "statement_sha": "0a83a0c3ae836540",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.size_principle": {
+   "statement_sha": "30001b28c32b351d",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "probabilistic.RSA.speaker_truthful": {
+   "statement_sha": "81036ef973442279",
+   "file": "atlas/probabilistic/RSA.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.Fragment.compose_sem": {
+   "statement_sha": "01affad21fe10d54",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.Fragment.every_man_walks_sem": {
+   "statement_sha": "11b2955413fe0be9",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.Fragment.john_walks_cut_sem": {
+   "statement_sha": "e2661fe523f4485e",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.Fragment.john_walks_sem": {
+   "statement_sha": "e58019ac0ebac921",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.Fragment.some_man_walks_sem": {
+   "statement_sha": "77725991b35224ba",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.Fragment.type_raise_sem": {
+   "statement_sha": "0c76f4ec28eb2a2d",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.app_not_nil_l": {
+   "statement_sha": "690a69fb504eb713",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.app_not_nil_r": {
+   "statement_sha": "bbd016169e5e9cba",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.ax_expand_atomic": {
+   "statement_sha": "7e2711d7128ab056",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.cf_derivable_derivable": {
+   "statement_sha": "da52ccf0f638e13e",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.conn_ctx_app": {
+   "statement_sha": "4b369ef323f69bb7",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.conn_ctx_cons": {
+   "statement_sha": "85e37652f549c8e6",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.cons_not_nil": {
+   "statement_sha": "91112fb82ddb077d",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.cut_adm": {
+   "statement_sha": "e5c767936c48d6da",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.cut_adm_aux": {
+   "statement_sha": "00c07fd72dc6ed42",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.denote_cut": {
+   "statement_sha": "43432b8091fd230a",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.deriv_nonempty": {
+   "statement_sha": "c6505639a21ebeab",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.derivable_iff_cf": {
+   "statement_sha": "11920d9155f67304",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.height_cast": {
+   "statement_sha": "2282a90585d71cc1",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.sequents_bsL": {
+   "statement_sha": "011ff17b21946e08",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.sequents_bsR": {
+   "statement_sha": "9926d9575d6008ba",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.sequents_cut": {
+   "statement_sha": "ce46b6c57ee120c8",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.sequents_end": {
+   "statement_sha": "bef859c718c3f9dd",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.sequents_slL": {
+   "statement_sha": "4a3652d5ed457cf5",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.sequents_slR": {
+   "statement_sha": "878138d2e803b6fb",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.split_app_app_T": {
+   "statement_sha": "c5e97e97c59bc5bb",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.split_app_cons_T": {
+   "statement_sha": "9f1a11cd7dfb914e",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.split_hole_bs_T": {
+   "statement_sha": "f7a12a67ebfe5fa2",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.split_hole_sl_T": {
+   "statement_sha": "5536bcf57fd483d2",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.sub_bsL_major": {
+   "statement_sha": "e5737db240ee17e4",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.sub_bsL_minor": {
+   "statement_sha": "8ca1b6952cafd9d1",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.sub_bsR": {
+   "statement_sha": "8d631e31e2cd05f6",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.sub_closed_refl": {
+   "statement_sha": "a8d178696d3676ff",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.sub_closed_trans": {
+   "statement_sha": "dec89a164bd0f209",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.sub_slL_major": {
+   "statement_sha": "b18f87275ee0031a",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.sub_slL_minor": {
+   "statement_sha": "d0bebcf0f80efe98",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.sub_slR": {
+   "statement_sha": "de4daa5de2893495",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.subformula_property": {
+   "statement_sha": "222c31e47cb2be20",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.subformula_property_derivable": {
+   "statement_sha": "37beaf807a77377c",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek.subformula_trans": {
+   "statement_sha": "8240a1d0b7cd869a",
+   "file": "atlas/type_logical/Lambek.v",
+   "since": "2026-09-05",
+   "status": "active"
+  }
+ }
+}

@@ -1,0 +1,65 @@
+# A3 step 5 — the atlas verifies itself on every push.
+#
+# Gate logic: verify.py --all regenerates records/*.mech.json and --lock
+# regenerates claims.lock deterministically (machine paths are stripped), so
+# `git diff --exit-code` IS the check. A new Admitted, a lost theorem, a new
+# axiom, an unsafe flag, or a silently reworded statement all surface as a
+# diff against the committed records — reviewable, not a wall of coqc output.
+name: verify
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    container: coqorg/coq:8.20.1
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile the corpus
+        run: |
+          sudo chown -R coq:coq .
+          make -k -j"$(nproc)" 2>&1 | tail -20
+
+      - name: coqchk — independent kernel recheck (atlas layer)
+        run: |
+          coqchk -silent -o \
+            -R shallow "" -R deep "" -R extras "" -R ttr_mtt "" -R atlas "" \
+            $(find atlas -name '*.vo' | sed 's|^atlas/||; s|/|.|g; s|\.vo$||')
+
+      - name: Mechanical verification (counts, assumptions, fingerprints)
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq python3
+          python3 atlas_data/verify.py --all
+          python3 atlas_data/verify.py --lock
+
+      - name: Gate — measured state must match the committed records
+        run: |
+          git config --global --add safe.directory "$PWD"
+          git diff --exit-code -- atlas_data/records atlas_data/claims.lock || {
+            echo '::error::Mechanical verification drifted from the committed records.'
+            echo 'If the change is intended, rerun verify.py --all && --lock locally and commit the diff.'
+            exit 1
+          }
+
+      - name: Gate — atlas layer invariants
+        run: |
+          python3 - <<'EOF'
+          import json, glob, sys
+          bad = []
+          for p in sorted(glob.glob('atlas_data/records/atlas__*.mech.json')):
+              m = json.load(open(p))
+              if not m['file'].startswith('atlas/'):
+                  continue
+              c, a = m['counts'], m['assumptions']
+              if not m['compile']['ok']: bad.append(f"{m['file']}: does not compile")
+              if c['admitted'] or c['admitted_definitions']: bad.append(f"{m['file']}: Admitted present")
+              if c['toplevel_axioms']: bad.append(f"{m['file']}: top-level Axiom/Parameter")
+              if a['undocumented_axioms']: bad.append(f"{m['file']}: undocumented axioms {a['undocumented_axioms']}")
+              if m['compile'].get('unsafe_flags'): bad.append(f"{m['file']}: unsafe flags {m['compile']['unsafe_flags']}")
+              if a['unresolved']: bad.append(f"{m['file']}: unresolved Print Assumptions {a['unresolved'][:3]}")
+          for b in bad: print('::error::' + b)
+          sys.exit(1 if bad else 0)
+          EOF

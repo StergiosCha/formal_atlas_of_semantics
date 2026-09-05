@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 13,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 7,
     "toplevel_axioms": 0,
@@ -514,6 +516,21 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "kratzer_deep2.kratzer_equals_montague": "405551a917b56370",
+    "kratzer_deep2.nec_equiv_box_worlds": "d81afcf6206e7875",
+    "kratzer_deep2.kratzer_must_total_implies_nec": "021c50d10ff11650",
+    "kratzer_deep2.kratzer_duality": "73e279a97032d555",
+    "kratzer_deep2.kratzer_duality_deep": "16e1873adbfb279d",
+    "kratzer_deep2.kratzer_axiom_K": "2daad79516d4316b",
+    "kratzer_deep2.kratzer_axiom_K_deep": "8c69d7d7fd48ef4f",
+    "kratzer_deep2.kratzer_monotonic": "5c892cf806e4020c",
+    "kratzer_deep2.nec_T": "e3b21e4baa71eb9f",
+    "kratzer_deep2.nec_4": "fd77c6a928916d78",
+    "kratzer_deep2.nec_5": "634a9c3b3be27000",
+    "kratzer_deep2.every_man_kratzer_must_walk": "794216f6900a743c",
+    "kratzer_deep2.bill_kratzer_must_walk": "8e556ec9895ebf80"
   },
   "admitted_names": [],
   "aborted_names": [],

@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 5,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 7,
     "toplevel_axioms": 15,
@@ -111,6 +113,13 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "Link1983.LinkPlurals.part_of_refl": "1d5299af5c8fd1c5",
+    "Link1983.LinkPlurals.part_of_trans": "88b87ef373e0303b",
+    "Link1983.LinkPlurals.john_in_plural": "ab2f81cd3e443458",
+    "Link1983.LinkPlurals.jm_is_plural": "7dca893caa75831c",
+    "Link1983.LinkPlurals.dist_inference": "b13747e028ff8f72"
   },
   "admitted_names": [],
   "aborted_names": [],

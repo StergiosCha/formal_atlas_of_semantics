@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 4,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 2,
     "toplevel_axioms": 0,
@@ -26,6 +28,12 @@
     "undocumented_axioms": [],
     "detail": {},
     "unresolved": []
+  },
+  "statements": {
+    "montague.PTQ_vs_MTT.mtt_ptq_every": "b061d3866d822871",
+    "montague.PTQ_vs_MTT.mtt_ptq_some": "9cd7197eeefbef39",
+    "montague.PTQ_vs_MTT.mtt_ptq_no": "0664acb964643765",
+    "montague.PTQ_vs_MTT.conservativity_transfers": "0b3632a50a1353a6"
   },
   "admitted_names": [],
   "aborted_names": [],

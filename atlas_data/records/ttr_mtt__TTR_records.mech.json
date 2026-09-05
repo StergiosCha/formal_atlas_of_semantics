@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 2,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 16,
     "toplevel_axioms": 0,
@@ -26,6 +28,10 @@
     "undocumented_axioms": [],
     "detail": {},
     "unresolved": []
+  },
+  "statements": {
+    "TTR_records.john_witnesses_ind_rt": "3993a27d0ef12881",
+    "TTR_records.rt_weaken_nil": "81c267dc985cda1b"
   },
   "admitted_names": [],
   "aborted_names": [],

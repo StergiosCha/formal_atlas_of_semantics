@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 12,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 0,
     "toplevel_axioms": 5,
@@ -340,6 +342,20 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "theorems_PTQ.every_to_some_man_walks": "f2750577469b6d8e",
+    "theorems_PTQ.every_man_walks_inst_john": "2ffba32f6abbbc12",
+    "theorems_PTQ.the_entails_a": "28a3b176c46af416",
+    "theorems_PTQ.rel_clause_restricts": "0855aa990601d4db",
+    "theorems_PTQ.nec_T": "0b30f81db4811ece",
+    "theorems_PTQ.nec_4": "c842948fd127bce0",
+    "theorems_PTQ.every_man_walks_ext_iff": "1e8e86f09262f4ed",
+    "theorems_PTQ.temperature_puzzle_proved": "3ae744590a6d5777",
+    "theorems_PTQ.s14_every_equiv_s4": "8f630c3e80efed5a",
+    "theorems_PTQ.assign_mod_lookup": "844cad476b6d0257",
+    "theorems_PTQ.assign_mod_other": "5064e3c7ccba32ee",
+    "theorems_PTQ.assign_mod_shadow": "7580a50713d745e2"
   },
   "admitted_names": [],
   "aborted_names": [],

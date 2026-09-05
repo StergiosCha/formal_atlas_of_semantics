@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 7,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 5,
     "toplevel_axioms": 0,
@@ -26,6 +28,15 @@
     "undocumented_axioms": [],
     "detail": {},
     "unresolved": []
+  },
+  "statements": {
+    "mtt_ranta.DTS.dts_donkey_canonical": "2461031f7abda737",
+    "mtt_ranta.DTS.dts_donkey_felicitous": "c2bc8de22058b848",
+    "mtt_ranta.DTS.dts_donkey_strong": "6a20519e4c74f36f",
+    "mtt_ranta.DTS.resolution_ambiguity": "9a784190d786f6d2",
+    "mtt_ranta.DTS.the_bare_presupposes": "dd634154f22a6604",
+    "mtt_ranta.DTS.the_conditional_projects_nothing": "247e435a674e2015",
+    "mtt_ranta.DTS.the_conditional_is_donkey": "a35c7c727bd0a789"
   },
   "admitted_names": [],
   "aborted_names": [],

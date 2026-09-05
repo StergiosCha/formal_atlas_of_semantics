@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 19,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 17,
     "toplevel_axioms": 0,
@@ -26,6 +28,27 @@
     "undocumented_axioms": [],
     "detail": {},
     "unresolved": []
+  },
+  "statements": {
+    "montague.PTQ.john_walks_eq": "1f1d91683c7d1b6a",
+    "montague.PTQ.every_man_walks_eq": "ce6defffc17d72dc",
+    "montague.PTQ.inverse_entails_surface": "092685270fe7e7c9",
+    "montague.PTQ.readings_distinct": "bc5425344f553044",
+    "montague.PTQ.find_dedicto_dere": "20c70b1d56303f17",
+    "montague.PTQ.dere_existence": "63f57a9683e740bf",
+    "montague.PTQ.seek_no_existence": "10f06a8c9f76becb",
+    "montague.PTQ.seek_not_liftable": "441001f0fe183420",
+    "montague.PTQ.every_conservative": "781af7d2edc589dc",
+    "montague.PTQ.a_conservative": "d764c05d0f6b0350",
+    "montague.PTQ.no_conservative": "7aac869f98aff347",
+    "montague.PTQ.every_mon_up": "8e0c7d1e5c987f93",
+    "montague.PTQ.a_mon_up": "9b95a50c808d1a6a",
+    "montague.PTQ.no_mon_down": "684504bac2e3f75b",
+    "montague.PTQ.every_restr_down": "393129d8de11b255",
+    "montague.PTQ.a_restr_up": "ed2e1f6d625ef941",
+    "montague.PTQ.box_K": "9f9e69ee62d06b00",
+    "montague.PTQ.box_Nec": "2972f0ecd149d80f",
+    "montague.PTQ.box_T": "791ef611b14bc600"
   },
   "admitted_names": [],
   "aborted_names": [],

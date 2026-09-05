@@ -583,6 +583,20 @@ function vTheory(key){
   </div>
 
   <aside class="side">
+    ${f.mech?`<div><span class="kicker">Machine verification</span>
+      <dl style="margin-top:10px">
+        <dt>Compiled</dt><dd>coqc ${esc(f.mech.coq_version||'')} ✓</dd>
+        <dt>Assumption-closed</dt><dd>${f.mech.closed}/${f.mech.queried}</dd>
+        ${f.mech.axioms.length?`<dt>Axioms used</dt><dd class="mono tiny" style="max-width:180px">${f.mech.axioms.map(esc).join('<br>')}</dd>`:''}
+        ${f.mech.unsafe_flags.length?`<dt>Unsafe flags</dt><dd class="mono tiny" style="color:var(--rust)">${f.mech.unsafe_flags.map(esc).join(', ')}</dd>`:''}
+      </dl>
+      <p class="tiny dim" style="max-width:none;margin-top:6px">Counts below are Coq-measured
+        (verify.py), not self-reported${f.counts_claimed&&JSON.stringify(f.counts_claimed)!==JSON.stringify(c)
+        ?'; the audit record claimed '+(f.counts_claimed.theorems??'?')+' theorems / '
+         +(f.counts_claimed.admitted??'?')+' admitted':''}.</p></div>
+    `:`<div><span class="kicker" style="color:var(--rust)">Self-reported only</span>
+      <p class="tiny dim" style="max-width:none;margin-top:6px">No mechanical verification
+        record — the numbers below are the auditor's own claim.</p></div>`}
     <div><span class="kicker">Audit</span></div>
     <dl>
       <dt>Theorems</dt><dd>${c.theorems||0}</dd>

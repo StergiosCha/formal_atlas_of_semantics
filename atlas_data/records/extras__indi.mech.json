@@ -7,6 +7,7 @@
     "ok": true,
     "returncode": 0,
     "warnings": 0,
+    "unsafe_flags": [],
     "stderr_tail": ""
   },
   "counts": {
@@ -14,6 +15,7 @@
     "proved": 20,
     "admitted": 0,
     "aborted": 0,
+    "admitted_definitions": 0,
     "unparsed_status": 0,
     "definitions": 40,
     "toplevel_axioms": 18,
@@ -302,6 +304,28 @@
       }
     },
     "unresolved": []
+  },
+  "statements": {
+    "indi.EQ": "dbc0fcec12563a36",
+    "indi.MANWALK": "89b24f4d26782c52",
+    "indi.EQ1": "722a8c5d366f6e6b",
+    "indi.EQ2": "ae4b80460baeac24",
+    "indi.EQ3": "802603cdb880a525",
+    "indi.copred_dd1": "dea741b3eb8cc344",
+    "indi.copred_dd2": "3439fc4330aea749",
+    "indi.EQ4": "ee05cf961dd090a3",
+    "indi.EQ5": "4e45094f7e0588dc",
+    "indi.HEAVYBOOK": "5bc9b69adc64ac3c",
+    "indi.HEAVYBOOK1": "169410705c4d08d4",
+    "indi.HEAVYBOOK2": "4ebce6af25f480c0",
+    "indi.HEAVYBOOK3": "80aaeaaa7947663a",
+    "indi.EQ6": "22f2f1a14783afce",
+    "indi.EQ7": "9c7e65b604bf0447",
+    "indi.HEAVYIBOOK2": "1e2ffb84c81b77a1",
+    "indi.HEAVYIBOOK3": "d64b8405c898c74c",
+    "indi.HEAVYIBOOK4": "219230100cf4fd70",
+    "indi.HEAVYIBOOK5": "ec0a29d4cc19e7d7",
+    "indi.threedf": "4cf12507933856be"
   },
   "admitted_names": [],
   "aborted_names": [],

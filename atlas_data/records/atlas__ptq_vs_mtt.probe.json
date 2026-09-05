@@ -1,0 +1,29 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/montague/PTQ_vs_MTT.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "montague.PTQ_vs_MTT.mtt_ptq_every": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "montague.PTQ_vs_MTT.mtt_ptq_some": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "montague.PTQ_vs_MTT.mtt_ptq_no": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "montague.PTQ_vs_MTT.conservativity_transfers": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    }
+  },
+  "summary": {
+    "probed": 4,
+    "vacuous": 0,
+    "trivial": 0,
+    "bailout": 0
+  }
+}

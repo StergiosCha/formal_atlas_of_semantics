@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Formal Atlas — Coq formalizations of linguistic semantics</title>
+<title>Formalizing Formal Semantics — A Coq-verified Atlas of Semantic Structures</title>
 <meta name="description" content="An atlas of semantic theories, machine-checked in Coq. Every theory is a module; every relation between theories is a graded, evidenced edge.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,6 +44,8 @@ nav{margin-left:auto;display:flex;gap:26px;align-items:center}
 nav a{font-size:14px;font-weight:600;color:var(--n700);padding:4px 0;border-bottom:2px solid transparent}
 nav a:hover{color:var(--ink)}
 nav a.on{color:var(--ink);border-bottom-color:var(--accent)}
+select{font:600 13px Archivo;color:var(--ink);background:var(--bg);border:2px solid var(--ink);border-radius:0;padding:6px 8px}
+textarea:focus,select:focus,input:focus{outline:2px solid var(--accent);outline-offset:0}
 .btn{display:inline-block;background:var(--accent);color:#fff;font:600 14px/1 var(--sans);
   padding:11px 18px;border:2px solid var(--accent);cursor:pointer;text-align:left}
 .btn:hover{background:var(--accent-700);border-color:var(--accent-700)}
@@ -180,6 +182,7 @@ footer .r{margin-left:auto}
     <a href="#/theories" data-r="theories">Theories</a>
     <a href="#/edges" data-r="edges">Edges</a>
     <a href="#/papers" data-r="papers">Papers</a>
+    <a href="#/check" data-r="check">Verifier</a>
     <a class="btn" href="#/plate">Open the atlas</a>
   </nav>
 </div></header>
@@ -192,7 +195,7 @@ footer .r{margin-left:auto}
   repository and need no browser at all.</p></div></noscript>
 
 <footer><div class="wrap" style="display:flex;gap:20px;width:100%;flex-wrap:wrap">
-  <span>Formal Atlas — Coq formalizations of linguistic semantics</span>
+  <span>Formalizing Formal Semantics — a Coq-verified atlas of semantic structures</span>
   <span class="r">Generated 2026-09-05 · zero <span class="mono">Admitted</span> in the atlas layer</span>
 </div></footer>
 
@@ -701,6 +704,93 @@ function notFound(){return `<div class="wrap empty"><h2>Not on the map.</h2>
 
 /* ---------- router ---------- */
 function go(h){location.hash=h;}
+/* ---- the verifier (B4): the model drafts, coqc disposes ---- */
+const CHECK_THEORIES=[
+  ['montague.PTQ','Montague PTQ'],['dynamic.DPL','DPL'],
+  ['inquisitive.InqB','Inquisitive InqB'],['mtt_ranta.MTT','MTT'],
+  ['mtt_ranta.Ranta','Ranta TTG'],['mtt_ranta.DTS','DTS'],
+  ['probabilistic.RSA','RSA'],['categorical.DisCoCat','DisCoCat'],
+  ['type_logical.Lambek','Lambek'],
+];
+const api=()=>localStorage.getItem('atlas_api')||'http://localhost:8477';
+function vCheck(){
+  return `<div class="wrap"><div class="crumb"><a href="#/">Atlas</a> / Verifier</div>
+  <section style="padding-top:24px">
+    <div class="sechead"><h2>Check a claim against a theory</h2>
+      <span class="note">You state it in English. A model of your choice drafts the Coq.
+      The compiler decides — every verdict below is coqc's, never the model's.</span></div>
+    <div class="grid g2" style="align-items:start">
+      <div>
+        <span class="kicker">The claim</span>
+        <textarea id="ck-claim" rows="5" style="width:100%;margin-top:10px;border:2px solid var(--ink);
+          background:var(--bg);font:15px/1.5 Archivo;padding:12px;resize:vertical"
+          placeholder="e.g. In DPL, a doubly negated existential no longer binds a later pronoun."></textarea>
+        <div style="display:flex;gap:14px;margin-top:14px;flex-wrap:wrap;align-items:end">
+          <label class="tiny dim">Theory<br>
+            <select id="ck-theory" style="margin-top:4px">${CHECK_THEORIES.map(t=>
+              `<option value="${t[0]}">${t[1]}</option>`).join('')}</select></label>
+          <label class="tiny dim">Model<br>
+            <select id="ck-model" style="margin-top:4px"><option value="">loading…</option></select></label>
+          <label class="tiny dim">Feedback<br>
+            <select id="ck-arm" style="margin-top:4px">
+              <option value="typed">typed (default)</option>
+              <option value="raw">raw stderr</option>
+              <option value="none">none</option></select></label>
+          <button class="btn" id="ck-go" onclick="runCheck()">Draft &amp; check</button>
+        </div>
+        <p class="tiny dim" style="margin-top:10px">Backend
+          <input id="ck-api" value="${esc(api())}" style="width:280px;border:0;border-bottom:2px solid var(--n400);
+            background:transparent;font:12px ui-monospace,monospace"
+          onchange="localStorage.setItem('atlas_api',this.value);loadModels()"> · rate-limited · identical requests are cached</p>
+      </div>
+      <div id="ck-out"><span class="kicker">Verdict</span>
+        <p class="tiny dim" style="margin-top:10px">Nothing checked yet. The four buckets:
+        <b>proved</b> (with its assumptions audit), <b>refuted</b> (with the countermodel),
+        <b>needs assumption</b> (named), <b>not statable</b> (with the reason the vocabulary
+        cannot express it).</p></div>
+    </div></section></div>`;
+}
+async function loadModels(){
+  const sel=document.getElementById('ck-model'); if(!sel) return;
+  try{
+    const r=await fetch(api()+'/models'); const j=await r.json();
+    sel.innerHTML=j.models.map(m=>`<option value="${m.deployment}"${m.deployment===j.default?' selected':''}>
+      ${m.deployment} (${m.family})</option>`).join('');
+  }catch(e){ sel.innerHTML='<option value="">backend offline</option>'; }
+}
+async function runCheck(){
+  const out=document.getElementById('ck-out'), btn=document.getElementById('ck-go');
+  const claim=document.getElementById('ck-claim').value.trim();
+  if(!claim){out.innerHTML='<span class="kicker" style="color:var(--rust)">Verdict</span><p class="tiny" style="margin-top:10px">Write the claim first.</p>';return;}
+  btn.disabled=true;
+  out.innerHTML='<span class="kicker">Verdict</span><p class="tiny dim" style="margin-top:10px">Drafting and compiling — up to a few minutes for reasoning models…</p>';
+  try{
+    const r=await fetch(api()+'/verify',{method:'POST',headers:{'content-type':'application/json'},
+      body:JSON.stringify({claim, model:document.getElementById('ck-model').value,
+        imports:[document.getElementById('ck-theory').value],
+        feedback:document.getElementById('ck-arm').value})});
+    const j=await r.json();
+    if(j.error&&!j.bucket){out.innerHTML=`<span class="kicker" style="color:var(--rust)">Verdict</span>
+      <p class="tiny" style="margin-top:10px">${esc(j.error)}</p>`;return;}
+    const b=j.bucket||'?';
+    const cls=/^PROVED$/.test(b)?'ok':/REFUTED/.test(b)?'bad':/UNVERIFIED|NOT_STATED/.test(b)?'q':'mid';
+    out.innerHTML=`<span class="kicker">Verdict — coqc's, not the model's</span>
+      <div style="margin-top:10px"><span class="b ${cls}">${esc(b.replaceAll('_',' ').toLowerCase())}</span>
+        <span class="tiny dim"> · ${esc(j.model)} · ${j.rounds} round${j.rounds>1?'s':''}${j.cached?' · cached':''}</span></div>
+      ${Object.keys(j.audit||{}).length?`<table style="margin-top:12px"><thead><tr><th>Audited theorem</th><th class="n">Assumptions</th></tr></thead>
+        <tbody>${Object.entries(j.audit).map(([k,v])=>`<tr><td class="mono tiny">${esc(k)}</td>
+        <td class="n"><span class="b ${v==='closed'?'ok':'q'}">${esc(v)}</span></td></tr>`).join('')}</tbody></table>`:''}
+      ${j.code?`<div style="margin-top:12px"><span class="kicker">The Coq the compiler accepted</span>
+        <pre class="mono tiny" style="margin-top:8px;border-left:2px solid var(--n400);padding:10px 14px;overflow:auto;max-height:340px">${esc(j.code)}</pre></div>`:''}
+      ${j.notes?`<p class="tiny dim" style="margin-top:10px;max-width:none">${esc(j.notes)}</p>`:''}
+      ${(j.turns||[]).some(t=>t.signals&&t.signals.length)?`<p class="tiny dim" style="margin-top:8px">Repair signals along the way:
+        ${j.turns.flatMap(t=>t.signals.map(s=>s.kind)).join(', ')}</p>`:''}`;
+  }catch(e){out.innerHTML=`<span class="kicker" style="color:var(--rust)">Verdict</span>
+    <p class="tiny" style="margin-top:10px">Backend unreachable at <span class="mono">${esc(api())}</span>.
+    Start it: <span class="mono">docker compose -f tool/docker-compose.yml up</span>, or point the field above at the deployed URL.</p>`;}
+  finally{btn.disabled=false;}
+}
+
 function route(){
   const raw=(location.hash||'#/').slice(1);
   const [path,qs]=raw.split('?');
@@ -715,8 +805,10 @@ function route(){
   else if(seg[0]==='edge') {html=vEdge(seg[1]); tab='edges';}
   else if(seg[0]==='region') {html=vRegion(seg[1]); tab='';}
   else if(seg[0]==='papers') html=vPapers(q);
+  else if(seg[0]==='check') html=vCheck();
   else html=notFound();
   $('#app').innerHTML=html;
+  if(seg[0]==='check') loadModels();
   document.querySelectorAll('#nav a[data-r]').forEach(a=>a.classList.toggle('on',a.dataset.r===tab));
   window.scrollTo(0,0);
 }

@@ -1,0 +1,145 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/mtt_ranta/MTT.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "mtt_ranta.MTT.every_anti": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.some_mono": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.no_anti": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.pred_lift_comp": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.MTT.judgment_to_prop": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.in_prop_compose": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.inter_noun_drop": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.inter_adj_drop": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.intersective_iff": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.intersective_every_iff": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.subs_noun_drop": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.subsective_not_transferable": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.fake_is_gun": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.fake_not_real": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.gun_partition": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.noncommittal_witness": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.adv_veridical": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.quickly_veridical": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.adv_some": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.copred_left": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.copred_right": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.copred_some": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.copred_coercion_demo": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.two_books_phy": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.not_two_books_info": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.MTT.nli_every_some": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.nli_every_and_some": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.nli_no_iff": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.MTT.nli_black_man_walks": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.nli_conj": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.nli_disj": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.nli_instance": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT.nli_no_some_absurd": {
+      "vacuity": "VACUOUS",
+      "triviality": "ok"
+    }
+  },
+  "summary": {
+    "probed": 33,
+    "vacuous": 1,
+    "trivial": 3,
+    "bailout": 0
+  }
+}

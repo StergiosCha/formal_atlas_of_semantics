@@ -1,0 +1,29 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/montague/PTQ_vs_Lambek.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "montague.PTQ_vs_Lambek.lambek_computes_ptq_john": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "montague.PTQ_vs_Lambek.lambek_computes_ptq_every": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "montague.PTQ_vs_Lambek.lambek_computes_ptq_some": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "montague.PTQ_vs_Lambek.lambek_typeraise_is_star": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    }
+  },
+  "summary": {
+    "probed": 4,
+    "vacuous": 0,
+    "trivial": 4,
+    "bailout": 0
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/mtt_ranta/Ranta.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "mtt_ranta.Ranta.no_every_not": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.Ranta.ac_iso": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.Ranta.subset_some_flatten": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.Ranta.donkey_curry": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.Ranta.donkey_choice": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.Ranta.sigma_assoc": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.Ranta.text2_flatten": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.Ranta.sugar_every_man_walks": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.Ranta.denote_every_man_walks": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.Ranta.sugar_donkey": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.Ranta.denote_donkey": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.Ranta.denote_donkey_strong": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.Ranta.denote_every_rel": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.Ranta.sugar_many_to_one": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    }
+  },
+  "summary": {
+    "probed": 14,
+    "vacuous": 0,
+    "trivial": 6,
+    "bailout": 0
+  }
+}

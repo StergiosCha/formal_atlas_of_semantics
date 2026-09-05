@@ -1,0 +1,89 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/montague/PTQ.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "montague.PTQ.john_walks_eq": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "montague.PTQ.every_man_walks_eq": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "montague.PTQ.inverse_entails_surface": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "montague.PTQ.readings_distinct": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "montague.PTQ.find_dedicto_dere": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "montague.PTQ.dere_existence": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "montague.PTQ.seek_no_existence": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "montague.PTQ.seek_not_liftable": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "montague.PTQ.every_conservative": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "montague.PTQ.a_conservative": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "montague.PTQ.no_conservative": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "montague.PTQ.every_mon_up": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "montague.PTQ.a_mon_up": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "montague.PTQ.no_mon_down": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "montague.PTQ.every_restr_down": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "montague.PTQ.a_restr_up": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "montague.PTQ.box_K": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "montague.PTQ.box_Nec": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "montague.PTQ.box_T": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    }
+  },
+  "summary": {
+    "probed": 19,
+    "vacuous": 0,
+    "trivial": 6,
+    "bailout": 0
+  }
+}

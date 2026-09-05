@@ -1,0 +1,21 @@
+FROM coqorg/coq:8.20.1
+
+USER root
+RUN apt-get update && apt-get install -y python3 python3-pip \
+    && pip3 install --break-system-packages fastapi uvicorn pydantic \
+    && rm -rf /var/lib/apt/lists/*
+
+# Bake the atlas library into the image and precompile it once.
+COPY --chown=coq . /atlas
+WORKDIR /atlas
+USER coq
+RUN coq_makefile -f _CoqProject -o Makefile && make -j4 || make -k
+
+USER root
+COPY tool/checker/server.py /srv/server.py
+# The draft-and-check loop (providers.py needs AZURE_AI_KEY at runtime —
+# an ACA secret, never baked into the image).
+COPY tool/llm /srv/llm
+EXPOSE 8477
+CMD ["uvicorn", "server:app", "--app-dir", "/srv", \
+     "--host", "0.0.0.0", "--port", "8477"]

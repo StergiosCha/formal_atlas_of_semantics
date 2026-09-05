@@ -31,8 +31,9 @@ def load(path):
 def merge_records():
     out = []
     for path in sorted(glob.glob(os.path.join(REC, "*.json"))):
-        if path.endswith(".verify.json"):
-            continue
+        if path.endswith((".verify.json", ".mech.json")):
+            continue  # sidecars, not records: .verify.json is merged below,
+                      # .mech.json is verify.py's raw coqc/Print Assumptions output
         rec = load(path)
         if not rec:
             continue

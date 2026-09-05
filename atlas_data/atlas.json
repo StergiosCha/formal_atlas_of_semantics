@@ -1,7 +1,7 @@
 {
  "generated_from": {
   "records": 64,
-  "papers": 226
+  "papers": 230
  },
  "stats": {
   "theorems": 1045,
@@ -11122,7 +11122,7 @@
    "year": 1944,
    "authors": "Tarski, A.",
    "title": "The Semantic Conception of Truth",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -11196,7 +11196,7 @@
    "year": 1967,
    "authors": "Davidson, D.",
    "title": "The Logical Form of Action Sentences",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -11217,7 +11217,7 @@
    "year": 1970,
    "authors": "Lewis, D.",
    "title": "General Semantics",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -11421,7 +11421,7 @@
    "year": 1995,
    "authors": "Partee, B.",
    "title": "Quantificational Structures and Compositionality",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -11487,7 +11487,7 @@
    "year": 1996,
    "authors": "Schwarzschild, R.",
    "title": "Pluralities",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -11600,7 +11600,7 @@
    "year": 1973,
    "authors": "Lewis, D.",
    "title": "Counterfactuals",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -11642,7 +11642,7 @@
    "year": 2001,
    "authors": "von Fintel, K.",
    "title": "Counterfactuals in a Dynamic Context",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -11663,7 +11663,7 @@
    "year": 2007,
    "authors": "Gillies, A.",
    "title": "Counterfactual Scorekeeping",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -11710,7 +11710,7 @@
    "year": 1993,
    "authors": "Krifka, M.",
    "title": "Focus and Presupposition in Dynamic Interpretation",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -11752,7 +11752,7 @@
    "year": 2006,
    "authors": "Wagner, M.",
    "title": "Association by Movement",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -11773,7 +11773,7 @@
    "year": 2008,
    "authors": "Beaver, D. & Clark, B.",
    "title": "Sense and Sensitivity",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -11997,7 +11997,7 @@
    "year": 2013,
    "authors": "Bekki, D. & Asher, N.",
    "title": "Logical Polysemy and Subtyping",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -12050,7 +12050,7 @@
    "year": 2014,
    "authors": "Retoré, C.",
    "title": "The Montagovian Generative Lexicon: From Formal Semantics to Compositional Lexical Semantics",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -12092,7 +12092,7 @@
    "year": 2013,
    "authors": "Retoré, C.",
    "title": "Semantic Types for Language: Montague's Framework Revisited",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -12134,7 +12134,7 @@
    "year": 2012,
    "authors": "Asudeh, A. & Giorgolo, G.",
    "title": "Flexible Composition for Optional and Derived Arguments",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -12155,7 +12155,7 @@
    "year": 2014,
    "authors": "Giorgolo, G. & Asudeh, A.",
    "title": "Monads as a Solution for Generalized Opacity",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -12176,7 +12176,7 @@
    "year": 2001,
    "authors": "Shan, C.",
    "title": "Monads for Natural Language Semantics",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -12423,7 +12423,7 @@
    "year": 2012,
    "authors": "Potts, C.",
    "title": "Goal-Driven Answers in the Cards Dialogue Corpus",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -12486,7 +12486,7 @@
    "year": 2005,
    "authors": "Kennedy, C. & McNally, L.",
    "title": "Scale Structure and the Semantic Typology of Gradable Predicates",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -12507,7 +12507,7 @@
    "year": 2009,
    "authors": "Beck, S., Krasikova, S., Fleischer, D., Gergel, R., Hofstetter, S., Savelsberg, C., ... & Villalta, E.",
    "title": "Crosslinguistic Variation in Comparison Constructions",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -12591,7 +12591,7 @@
    "year": 1975,
    "authors": "Grice, H. P.",
    "title": "Logic and Conversation",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -12654,7 +12654,7 @@
    "year": 2004,
    "authors": "Chierchia, G.",
    "title": "Scalar Implicatures, Polarity Phenomena, and the Syntax/Pragmatics Interface",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -12675,7 +12675,7 @@
    "year": 2004,
    "authors": "Sauerland, U.",
    "title": "Scalar Implicatures in Complex Sentences",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -12759,7 +12759,7 @@
    "year": 2001,
    "authors": "Beaver, D.",
    "title": "Presupposition and Assertion in Dynamic Semantics",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -12969,7 +12969,7 @@
    "year": 2003,
    "authors": "Büring, D.",
    "title": "On D-Trees, Beans, and B-Accents",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -12990,7 +12990,7 @@
    "year": 2011,
    "authors": "Beaver, D. & Velleman, D.",
    "title": "The Communicative Significance of Primary and Secondary Accents",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -13011,7 +13011,7 @@
    "year": 2004,
    "authors": "Matthewson, L.",
    "title": "On the Methodology of Semantic Fieldwork",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -13032,7 +13032,7 @@
    "year": 2011,
    "authors": "Chemla, E. & Spector, B.",
    "title": "Experimental Evidence for Embedded Scalar Implicatures",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -13053,7 +13053,7 @@
    "year": 2009,
    "authors": "Schwarz, F.",
    "title": "Two Types of Definites in Natural Language",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -13074,7 +13074,7 @@
    "year": 2009,
    "authors": "Syrett, K. & Lidz, J.",
    "title": "30-Month-Olds Use the Distribution and Meaning of Adverbs to Interpret Novel Adjectives",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -13116,7 +13116,7 @@
    "year": 1977,
    "authors": "Carlson, G.",
    "title": "Reference to Kinds in English",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -13221,7 +13221,7 @@
    "year": 2004,
    "authors": "Chung, S. & Ladusaw, W.",
    "title": "Restriction and Saturation",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -13323,7 +13323,7 @@
    "year": 1985,
    "authors": "Hobbs, J.",
    "title": "On the Coherence and Structure of Discourse",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -13386,7 +13386,7 @@
    "year": 2005,
    "authors": "Wolf, F. & Gibson, E.",
    "title": "Representing Discourse Coherence: A Corpus-Based Study",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -13449,7 +13449,7 @@
    "year": 1995,
    "authors": "Copestake, A. & Briscoe, T.",
    "title": "Semi-Productive Polysemy and Sense Extension",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -13491,7 +13491,7 @@
    "year": 2008,
    "authors": "Kennedy, C. & Levin, B.",
    "title": "Measure of Change: The Adjectival Core of Degree Achievements",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -13512,7 +13512,7 @@
    "year": 2010,
    "authors": "Rappaport Hovav, M. & Levin, B.",
    "title": "Reflections on Manner/Result Complementarity",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -13533,7 +13533,7 @@
    "year": 1980,
    "authors": "Klein, E.",
    "title": "A Semantics for Positive and Comparative Adjectives",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -13575,7 +13575,7 @@
    "year": 2007,
    "authors": "Kennedy, C.",
    "title": "Vagueness and Grammar: The Semantics of Relative and Absolute Gradable Adjectives",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -13596,7 +13596,7 @@
    "year": 2000,
    "authors": "Fara, D. G.",
    "title": "Shifting Sands: An Interest-Relative Theory of Vagueness",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -13701,7 +13701,7 @@
    "year": 1950,
    "authors": "Austin, J. L.",
    "title": "Truth",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -13766,7 +13766,7 @@
    "year": 1978,
    "authors": "Rosch, E.",
    "title": "Principles of Categorization",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -13913,7 +13913,7 @@
    "year": 1980,
    "authors": "Lakoff, G. & Johnson, M.",
    "title": "Metaphors We Live By",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -14186,7 +14186,7 @@
    "year": 1988,
    "authors": "Sweetser, E.",
    "title": "Grammaticalization and Semantic Bleaching",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -14228,7 +14228,7 @@
    "year": 1897,
    "authors": "Bréal, M.",
    "title": "Semantics: Studies in the Science of Meaning",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -14291,7 +14291,7 @@
    "year": 2009,
    "authors": "Franke, M.",
    "title": "Signal to Act: Game Theory in Pragmatics",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -14333,7 +14333,7 @@
    "year": 2000,
    "authors": "Blutner, R.",
    "title": "Some Aspects of Optimality in Natural Language Interpretation",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -14354,7 +14354,7 @@
    "year": 2000,
    "authors": "Zeevat, H.",
    "title": "The Asymmetry of Optimality Theoretic Syntax and Semantics",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -14375,7 +14375,7 @@
    "year": 1999,
    "authors": "Barsalou, L.",
    "title": "Perceptual Symbol Systems",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -14438,7 +14438,7 @@
    "year": 2006,
    "authors": "Zwaan, R. & Taylor, L.",
    "title": "Seeing, Acting, Understanding: Motor Resonance in Language Comprehension",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -14480,7 +14480,7 @@
    "year": 1997,
    "authors": "Landauer, T. & Dumais, S.",
    "title": "A Solution to Plato's Problem: The Latent Semantic Analysis Theory",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -14693,7 +14693,7 @@
    "year": 1927,
    "authors": "Heidegger, M.",
    "title": "Being and Time",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -14714,7 +14714,7 @@
    "year": 1975,
    "authors": "Gadamer, H.-G.",
    "title": "Truth and Method",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -14735,7 +14735,7 @@
    "year": 1945,
    "authors": "Merleau-Ponty, M.",
    "title": "Phenomenology of Perception",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -14798,7 +14798,7 @@
    "year": 1967,
    "authors": "Derrida, J.",
    "title": "Of Grammatology",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -14819,7 +14819,7 @@
    "year": 1972,
    "authors": "Derrida, J.",
    "title": "Signature Event Context",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -14903,7 +14903,7 @@
    "year": 1953,
    "authors": "Wittgenstein, L.",
    "title": "Philosophical Investigations",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -14924,7 +14924,7 @@
    "year": 1962,
    "authors": "Austin, J. L.",
    "title": "How to Do Things with Words",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -14966,7 +14966,7 @@
    "year": 1949,
    "authors": "Ryle, G.",
    "title": "The Concept of Mind",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -15008,7 +15008,7 @@
    "year": 1981,
    "authors": "Bakhtin, M.",
    "title": "The Dialogic Imagination",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -15050,7 +15050,7 @@
    "year": 1977,
    "authors": "Schegloff, E., Jefferson, G. & Sacks, H.",
    "title": "The Preference for Self-Correction in the Organization of Repair",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -15071,7 +15071,7 @@
    "year": 2000,
    "authors": "Goodwin, C.",
    "title": "Action and Embodiment within Situated Human Interaction",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -15176,7 +15176,7 @@
    "year": 2008,
    "authors": "Christiansen, M. & Chater, N.",
    "title": "Language as Shaped by the Brain",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -15197,7 +15197,7 @@
    "year": 1997,
    "authors": "Deacon, T.",
    "title": "The Symbolic Species",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -15218,7 +15218,7 @@
    "year": 1956,
    "authors": "Whorf, B. L.",
    "title": "Language, Thought, and Reality",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -15239,7 +15239,7 @@
    "year": 2009,
    "authors": "Evans, N. & Levinson, S.",
    "title": "The Myth of Language Universals",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -15323,7 +15323,7 @@
    "year": 1988,
    "authors": "Spivak, G.",
    "title": "Can the Subaltern Speak?",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -15344,7 +15344,7 @@
    "year": 1986,
    "authors": "Ngũgĩ wa Thiong'o",
    "title": "Decolonising the Mind",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -15449,7 +15449,7 @@
    "year": 2002,
    "authors": "Massumi, B.",
    "title": "Parables for the Virtual: Movement, Affect, Sensation",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -15470,7 +15470,7 @@
    "year": 2004,
    "authors": "Brennan, T.",
    "title": "The Transmission of Affect",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -15596,7 +15596,7 @@
    "year": 1970,
    "authors": "Barthes, R.",
    "title": "S/Z",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -15701,7 +15701,7 @@
    "year": 2013,
    "authors": "Pothos, E. & Busemeyer, J.",
    "title": "Can Quantum Probability Provide a New Direction for Cognitive Modeling?",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -15974,6 +15974,97 @@
    "title": "What 'Must' and 'Can' Must and Can Mean",
    "note": "ADDED 2026-09-05 (PDF on disk; formalized in pilots; ptq__kratzer edge evidence)",
    "level": "F3",
+   "determination_actual": "as_is",
+   "prediction_disputed": false
+  },
+  {
+   "citation": "Dowty, D. (1979) - \"Word Meaning and Montague Grammar\"",
+   "authors": "Dowty, D.",
+   "year": 1979,
+   "title": "Word Meaning and Montague Grammar",
+   "topic": "Tense and Aspect",
+   "category": "A",
+   "category_label": "fully formalizable",
+   "survey_determination": "slight_modification",
+   "n": 216,
+   "description": "Aspectual classes and the decomposition of verb meaning in a Montague-grammar setting; the source of the DO/BECOME/CAUSE operators.",
+   "fields": {
+    "formalization": "IL plus decomposition operators over an interval-based tense logic",
+    "key_insight": "Aktionsart is derivable from a small algebra of change predicates"
+   },
+   "coq_files": [],
+   "note": "survey omission — canonical textbook, on disk (front matter only)",
+   "level": "F1",
+   "determination_actual": null,
+   "prediction_disputed": false
+  },
+  {
+   "citation": "Dowty, D., Wall, R. & Peters, S. (1981) - \"Introduction to Montague Semantics\"",
+   "authors": "Dowty, D., Wall, R. & Peters, S.",
+   "year": 1981,
+   "title": "Introduction to Montague Semantics",
+   "topic": "Foundational Logic & Semantics",
+   "category": "A",
+   "category_label": "fully formalizable",
+   "survey_determination": "as_is",
+   "n": 217,
+   "description": "The standard exposition of PTQ: type theory, intensional logic, and the PTQ fragment worked in full detail.",
+   "fields": {
+    "formalization": "IL with explicit type and model definitions",
+    "key_insight": "PTQ made teachable — the reference against which atlas/montague/PTQ.v is checked"
+   },
+   "coq_files": [
+    "atlas/montague/PTQ.v"
+   ],
+   "note": "survey omission — on disk (djvu)",
+   "level": "F5",
+   "determination_actual": "as_is",
+   "prediction_disputed": false
+  },
+  {
+   "citation": "Morrill, G. (2011) - \"Categorial Grammar: Logical Syntax, Semantics, and Processing\"",
+   "authors": "Morrill, G.",
+   "year": 2011,
+   "title": "Categorial Grammar: Logical Syntax, Semantics, and Processing",
+   "topic": "Categorical Grammar and Linear Logic Approaches",
+   "category": "A",
+   "category_label": "fully formalizable",
+   "survey_determination": "as_is",
+   "n": 218,
+   "description": "Type-logical grammar from Lambek to displacement calculus, with Curry-Howard semantics and parsing.",
+   "fields": {
+    "formalization": "Sequent calculi with proof-term semantics",
+    "key_insight": "Discontinuity handled logically by the displacement connectives"
+   },
+   "coq_files": [
+    "atlas/type_logical/Lambek.v"
+   ],
+   "note": "survey omission — on disk",
+   "level": "F5",
+   "determination_actual": "as_is",
+   "prediction_disputed": false
+  },
+  {
+   "citation": "Moot, R. & Retoré, C. (2012) - \"The Logic of Categorial Grammars\"",
+   "authors": "Moot, R. & Retoré, C.",
+   "year": 2012,
+   "title": "The Logic of Categorial Grammars: A Deductive Account of Natural Language Syntax and Semantics",
+   "topic": "Categorical Grammar and Linear Logic Approaches",
+   "category": "A",
+   "category_label": "fully formalizable",
+   "survey_determination": "as_is",
+   "n": 219,
+   "description": "AB, Lambek, multimodal and linear-logic grammars with the Curry-Howard semantic interface; the standard modern reference.",
+   "fields": {
+    "formalization": "Lambek and multimodal calculi, proof nets, lambda-term semantics",
+    "key_insight": "Parsing as deduction, semantics as proof normalization"
+   },
+   "coq_files": [
+    "atlas/type_logical/Lambek.v",
+    "atlas/categorical/DisCoCat.v"
+   ],
+   "note": "survey omission — on disk",
+   "level": "F5",
    "determination_actual": "as_is",
    "prediction_disputed": false
   }

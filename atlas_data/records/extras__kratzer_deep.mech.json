@@ -1,0 +1,131 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "extras/kratzer_deep.v",
+  "key": "extras__kratzer_deep",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 6,
+    "proved": 6,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 15,
+    "toplevel_axioms": 4,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 6,
+    "closed": 0,
+    "not_closed": 6,
+    "undocumented_axioms": [
+      "Entity",
+      "Index",
+      "World",
+      "world_of"
+    ],
+    "detail": {
+      "kratzer_deep.deep_kratzer_axiom_K": {
+        "closed": false,
+        "axioms": [
+          "Entity",
+          "Index",
+          "World",
+          "world_of"
+        ],
+        "raw": "Axioms:\nworld_of : Index -> World\nWorld : Type\nIndex : Type\nEntity : Type"
+      },
+      "kratzer_deep.deep_kratzer_duality": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic",
+          "Entity",
+          "Index",
+          "World",
+          "world_of"
+        ],
+        "raw": "Axioms:\nworld_of : Index -> World\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P\nWorld : Type\nIndex : Type\nEntity : Type"
+      },
+      "kratzer_deep.deep_kratzer_equals_montague": {
+        "closed": false,
+        "axioms": [
+          "Entity",
+          "Index",
+          "World",
+          "world_of"
+        ],
+        "raw": "Axioms:\nworld_of : Index -> World\nWorld : Type\nIndex : Type\nEntity : Type"
+      },
+      "kratzer_deep.deep_kratzer_monotonic": {
+        "closed": false,
+        "axioms": [
+          "Entity",
+          "Index",
+          "World",
+          "world_of"
+        ],
+        "raw": "Axioms:\nworld_of : Index -> World\nWorld : Type\nIndex : Type\nEntity : Type"
+      },
+      "kratzer_deep.nec_equiv_box_total": {
+        "closed": false,
+        "axioms": [
+          "Entity",
+          "Index",
+          "World",
+          "world_of"
+        ],
+        "raw": "Axioms:\nworld_of : Index -> World\nWorld : Type\nIndex : Type\nEntity : Type"
+      },
+      "kratzer_deep.up_down_identity": {
+        "closed": false,
+        "axioms": [
+          "Entity",
+          "Index",
+          "World",
+          "world_of"
+        ],
+        "raw": "Axioms:\nworld_of : Index -> World\nWorld : Type\nIndex : Type\nEntity : Type"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "Entity",
+      "kw": "Parameter",
+      "line": 22
+    },
+    {
+      "name": "World",
+      "kw": "Parameter",
+      "line": 23
+    },
+    {
+      "name": "Index",
+      "kw": "Parameter",
+      "line": 24
+    },
+    {
+      "name": "world_of",
+      "kw": "Parameter",
+      "line": 25
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 0,
+      "measured": 4,
+      "detail": "Entity, Index, World, world_of"
+    }
+  ]
+}

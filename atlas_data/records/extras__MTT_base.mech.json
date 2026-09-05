@@ -1,0 +1,159 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "extras/MTT_base.v",
+  "key": "extras__MTT_base",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 2,
+    "proved": 2,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 15,
+    "toplevel_axioms": 17,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 2,
+    "closed": 0,
+    "not_closed": 2,
+    "undocumented_axioms": [
+      "Human",
+      "Man",
+      "Surgeon",
+      "bob",
+      "mh",
+      "sh",
+      "walks"
+    ],
+    "detail": {
+      "MTT_base.men_are_humans": {
+        "closed": false,
+        "axioms": [
+          "Human",
+          "Man",
+          "bob",
+          "mh",
+          "walks"
+        ],
+        "raw": "Axioms:\nwalks : Human -> Prop\nmh : Man -> Human\nbob : Man\nMan : CN\nHuman : CN"
+      },
+      "MTT_base.surgeons_walk": {
+        "closed": false,
+        "axioms": [
+          "Human",
+          "Surgeon",
+          "sh",
+          "walks"
+        ],
+        "raw": "Axioms:\nwalks : Human -> Prop\nsh : Surgeon -> Human\nSurgeon : CN\nHuman : CN"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "Human",
+      "kw": "Parameter",
+      "line": 35
+    },
+    {
+      "name": "Man",
+      "kw": "Parameter",
+      "line": 36
+    },
+    {
+      "name": "john",
+      "kw": "Parameter",
+      "line": 50
+    },
+    {
+      "name": "bob",
+      "kw": "Parameter",
+      "line": 51
+    },
+    {
+      "name": "alice",
+      "kw": "Parameter",
+      "line": 52
+    },
+    {
+      "name": "mh",
+      "kw": "Axiom",
+      "line": 70
+    },
+    {
+      "name": "wh",
+      "kw": "Axiom",
+      "line": 71
+    },
+    {
+      "name": "ha",
+      "kw": "Axiom",
+      "line": 72
+    },
+    {
+      "name": "ao",
+      "kw": "Axiom",
+      "line": 73
+    },
+    {
+      "name": "walks",
+      "kw": "Parameter",
+      "line": 90
+    },
+    {
+      "name": "heavy",
+      "kw": "Parameter",
+      "line": 91
+    },
+    {
+      "name": "pregnant",
+      "kw": "Parameter",
+      "line": 99
+    },
+    {
+      "name": "tall",
+      "kw": "Parameter",
+      "line": 152
+    },
+    {
+      "name": "mike",
+      "kw": "Parameter",
+      "line": 176
+    },
+    {
+      "name": "Surgeon",
+      "kw": "Parameter",
+      "line": 191
+    },
+    {
+      "name": "sh",
+      "kw": "Axiom",
+      "line": 192
+    },
+    {
+      "name": "th",
+      "kw": "Axiom",
+      "line": 193
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 0,
+      "measured": 7,
+      "detail": "Human, Man, Surgeon, bob, mh, sh, walks"
+    }
+  ]
+}

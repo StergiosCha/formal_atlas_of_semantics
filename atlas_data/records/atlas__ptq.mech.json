@@ -1,0 +1,47 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "atlas/montague/PTQ.v",
+  "key": "atlas__ptq",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 19,
+    "proved": 19,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 17,
+    "toplevel_axioms": 0,
+    "section_assumptions": 3
+  },
+  "assumptions": {
+    "queried": 19,
+    "closed": 19,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.theorems",
+      "claimed": 16,
+      "measured": 19
+    },
+    {
+      "field": "counts.proved",
+      "claimed": 16,
+      "measured": 19
+    }
+  ]
+}

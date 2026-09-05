@@ -1,0 +1,307 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "atlas/dynamic/DPL.v",
+  "key": "atlas__dpl",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 171,
+    "proved": 171,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 71,
+    "toplevel_axioms": 0,
+    "section_assumptions": 4
+  },
+  "assumptions": {
+    "queried": 171,
+    "closed": 134,
+    "not_closed": 37,
+    "undocumented_axioms": [],
+    "detail": {
+      "dynamic.DPL.assign_ext": {
+        "closed": false,
+        "axioms": [
+          "FunctionalExtensionality.functional_extensionality_dep"
+        ],
+        "raw": "Axioms:\nFunctionalExtensionality.functional_extensionality_dep :\n  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),\n  (forall x : A, f x = g x) -> f = g"
+      },
+      "dynamic.DPL.d1": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.d10": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.d14": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.d17": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.d18": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.d19_test": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.d2": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.d20": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.d21": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.d22_left": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.d22_right": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.d23": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.d26": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.d3": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.d32": {
+        "closed": false,
+        "axioms": [
+          "FunctionalExtensionality.functional_extensionality_dep"
+        ],
+        "raw": "Axioms:\nFunctionalExtensionality.functional_extensionality_dep :\n  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),\n  (forall x : A, f x = g x) -> f = g"
+      },
+      "dynamic.DPL.d33": {
+        "closed": false,
+        "axioms": [
+          "FunctionalExtensionality.functional_extensionality_dep"
+        ],
+        "raw": "Axioms:\nFunctionalExtensionality.functional_extensionality_dep :\n  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),\n  (forall x : A, f x = g x) -> f = g"
+      },
+      "dynamic.DPL.d33_half": {
+        "closed": false,
+        "axioms": [
+          "FunctionalExtensionality.functional_extensionality_dep"
+        ],
+        "raw": "Axioms:\nFunctionalExtensionality.functional_extensionality_dep :\n  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),\n  (forall x : A, f x = g x) -> f = g"
+      },
+      "dynamic.DPL.d34_clos": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.d37": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.d38": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.d40": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.d41": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.d42": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.d43": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.d44": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.d47": {
+        "closed": false,
+        "axioms": [
+          "FunctionalExtensionality.functional_extensionality_dep"
+        ],
+        "raw": "Axioms:\nFunctionalExtensionality.functional_extensionality_dep :\n  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),\n  (forall x : A, f x = g x) -> f = g"
+      },
+      "dynamic.DPL.d7": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.d9": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.dk1_meaning": {
+        "closed": false,
+        "axioms": [
+          "FunctionalExtensionality.functional_extensionality_dep"
+        ],
+        "raw": "Axioms:\nFunctionalExtensionality.functional_extensionality_dep :\n  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),\n  (forall x : A, f x = g x) -> f = g"
+      },
+      "dynamic.DPL.entails_not_transitive": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.excl_mid_test": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.fact12": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.fact3": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.fact6_refuted": {
+        "closed": false,
+        "axioms": [
+          "FunctionalExtensionality.functional_extensionality_dep"
+        ],
+        "raw": "Axioms:\nFunctionalExtensionality.functional_extensionality_dep :\n  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),\n  (forall x : A, f x = g x) -> f = g"
+      },
+      "dynamic.DPL.sem_clos": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      },
+      "dynamic.DPL.transfer_given": {
+        "closed": false,
+        "axioms": [
+          "FunctionalExtensionality.functional_extensionality_dep"
+        ],
+        "raw": "Axioms:\nFunctionalExtensionality.functional_extensionality_dep :\n  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),\n  (forall x : A, f x = g x) -> f = g"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.theorems",
+      "claimed": 168,
+      "measured": 171
+    },
+    {
+      "field": "counts.proved",
+      "claimed": 168,
+      "measured": 171
+    }
+  ]
+}

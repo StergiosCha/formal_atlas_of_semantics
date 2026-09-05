@@ -1,0 +1,63 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "ttr_mtt/Book_veridical.v",
+  "key": "ttr_mtt__Book_veridical",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 3,
+    "proved": 3,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 2,
+    "toplevel_axioms": 1,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 3,
+    "closed": 2,
+    "not_closed": 1,
+    "undocumented_axioms": [
+      "John",
+      "mh",
+      "walk"
+    ],
+    "detail": {
+      "Book_veridical.VER1": {
+        "closed": false,
+        "axioms": [
+          "John",
+          "mh",
+          "walk"
+        ],
+        "raw": "Axioms:\nwalk : Human -> Prop\nmh : Man -> Human\nJohn : Man"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "walk",
+      "kw": "Parameter",
+      "line": 2
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 0,
+      "measured": 3,
+      "detail": "John, mh, walk"
+    }
+  ]
+}

@@ -1,0 +1,326 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "extras/AdjectivesExtension.v",
+  "key": "extras__AdjectivesExtension",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 12,
+    "proved": 12,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 41,
+    "toplevel_axioms": 30,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 12,
+    "closed": 0,
+    "not_closed": 12,
+    "undocumented_axioms": [
+      "FakeGun",
+      "Man",
+      "Object",
+      "RealGun",
+      "Surgeon",
+      "Tcn",
+      "black",
+      "cn",
+      "cn_to_object",
+      "criminal_cn",
+      "skillful",
+      "surgeon_cn",
+      "surgeon_interp",
+      "tall"
+    ],
+    "detail": {
+      "AdjectivesExtension.complex_composition": {
+        "closed": false,
+        "axioms": [
+          "Object",
+          "Tcn",
+          "cn",
+          "cn_to_object",
+          "skillful",
+          "surgeon_cn",
+          "tall"
+        ],
+        "raw": "Axioms:\ntall : Intersective_Adj\nsurgeon_cn : cn\nskillful : Subsective_Adj\ncn_to_object : forall N : CN, N -> Object\ncn : Type\nTcn : cn -> CN\nObject : CN"
+      },
+      "AdjectivesExtension.fake_not_real": {
+        "closed": false,
+        "axioms": [
+          "FakeGun",
+          "RealGun"
+        ],
+        "raw": "Axioms:\nRealGun : CN\nFakeGun : CN"
+      },
+      "AdjectivesExtension.intersective_cross_type": {
+        "closed": false,
+        "axioms": [
+          "Man",
+          "Object",
+          "black",
+          "cn_to_object"
+        ],
+        "raw": "Axioms:\ncn_to_object : forall N : CN, N -> Object\nblack : Intersective_Adj\nObject : CN\nMan : CN"
+      },
+      "AdjectivesExtension.intersective_inferences": {
+        "closed": false,
+        "axioms": [
+          "Man",
+          "Object",
+          "black",
+          "cn_to_object"
+        ],
+        "raw": "Axioms:\ncn_to_object : forall N : CN, N -> Object\nblack : Intersective_Adj\nObject : CN\nMan : CN"
+      },
+      "AdjectivesExtension.intersective_inheritance": {
+        "closed": false,
+        "axioms": [
+          "Man",
+          "Object",
+          "black",
+          "cn_to_object"
+        ],
+        "raw": "Axioms:\ncn_to_object : forall N : CN, N -> Object\nblack : Intersective_Adj\nObject : CN\nMan : CN"
+      },
+      "AdjectivesExtension.no_fake_guns_are_real": {
+        "closed": false,
+        "axioms": [
+          "FakeGun",
+          "RealGun"
+        ],
+        "raw": "Axioms:\nRealGun : CN\nFakeGun : CN"
+      },
+      "AdjectivesExtension.noncommittal_no_direct_entailment": {
+        "closed": false,
+        "axioms": [
+          "Tcn",
+          "cn",
+          "criminal_cn"
+        ],
+        "raw": "Axioms:\ncriminal_cn : cn\ncn : Type\nTcn : cn -> CN"
+      },
+      "AdjectivesExtension.privative_inferences": {
+        "closed": false,
+        "axioms": [
+          "FakeGun",
+          "RealGun"
+        ],
+        "raw": "Axioms:\nRealGun : CN\nFakeGun : CN"
+      },
+      "AdjectivesExtension.privative_property": {
+        "closed": false,
+        "axioms": [
+          "FakeGun",
+          "RealGun"
+        ],
+        "raw": "Axioms:\nRealGun : CN\nFakeGun : CN"
+      },
+      "AdjectivesExtension.skillful_surgeons_are_human": {
+        "closed": false,
+        "axioms": [
+          "Tcn",
+          "cn",
+          "skillful",
+          "surgeon_cn"
+        ],
+        "raw": "Axioms:\nsurgeon_cn : cn\nskillful : Subsective_Adj\ncn : Type\nTcn : cn -> CN"
+      },
+      "AdjectivesExtension.subsective_inferences": {
+        "closed": false,
+        "axioms": [
+          "Surgeon",
+          "Tcn",
+          "cn",
+          "skillful",
+          "surgeon_cn",
+          "surgeon_interp"
+        ],
+        "raw": "Axioms:\nsurgeon_interp : surgeon_cn = Surgeon\nsurgeon_cn : cn\nskillful : Subsective_Adj\ncn : Type\nTcn : cn -> CN\nSurgeon : CN"
+      },
+      "AdjectivesExtension.subsective_type_specific": {
+        "closed": false,
+        "axioms": [
+          "Tcn",
+          "cn",
+          "skillful",
+          "surgeon_cn"
+        ],
+        "raw": "Axioms:\nsurgeon_cn : cn\nskillful : Subsective_Adj\ncn : Type\nTcn : cn -> CN"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "Human",
+      "kw": "Parameter",
+      "line": 18
+    },
+    {
+      "name": "john",
+      "kw": "Parameter",
+      "line": 21
+    },
+    {
+      "name": "bob",
+      "kw": "Parameter",
+      "line": 22
+    },
+    {
+      "name": "mh",
+      "kw": "Axiom",
+      "line": 25
+    },
+    {
+      "name": "wh",
+      "kw": "Axiom",
+      "line": 26
+    },
+    {
+      "name": "ha",
+      "kw": "Axiom",
+      "line": 27
+    },
+    {
+      "name": "ao",
+      "kw": "Axiom",
+      "line": 28
+    },
+    {
+      "name": "sh",
+      "kw": "Axiom",
+      "line": 29
+    },
+    {
+      "name": "dh",
+      "kw": "Axiom",
+      "line": 30
+    },
+    {
+      "name": "cn",
+      "kw": "Parameter",
+      "line": 50
+    },
+    {
+      "name": "Tcn",
+      "kw": "Parameter",
+      "line": 51
+    },
+    {
+      "name": "human_cn",
+      "kw": "Parameter",
+      "line": 55
+    },
+    {
+      "name": "man_cn",
+      "kw": "Parameter",
+      "line": 56
+    },
+    {
+      "name": "human_interp",
+      "kw": "Axiom",
+      "line": 59
+    },
+    {
+      "name": "animal_interp",
+      "kw": "Axiom",
+      "line": 60
+    },
+    {
+      "name": "object_interp",
+      "kw": "Axiom",
+      "line": 61
+    },
+    {
+      "name": "man_interp",
+      "kw": "Axiom",
+      "line": 62
+    },
+    {
+      "name": "woman_interp",
+      "kw": "Axiom",
+      "line": 63
+    },
+    {
+      "name": "surgeon_interp",
+      "kw": "Axiom",
+      "line": 64
+    },
+    {
+      "name": "doctor_interp",
+      "kw": "Axiom",
+      "line": 65
+    },
+    {
+      "name": "cn_to_object",
+      "kw": "Parameter",
+      "line": 75
+    },
+    {
+      "name": "black",
+      "kw": "Parameter",
+      "line": 81
+    },
+    {
+      "name": "skillful",
+      "kw": "Parameter",
+      "line": 144
+    },
+    {
+      "name": "cnH",
+      "kw": "Parameter",
+      "line": 197
+    },
+    {
+      "name": "cnH_sub_cn",
+      "kw": "Parameter",
+      "line": 198
+    },
+    {
+      "name": "human_cnH",
+      "kw": "Parameter",
+      "line": 201
+    },
+    {
+      "name": "intelligent",
+      "kw": "Parameter",
+      "line": 204
+    },
+    {
+      "name": "RealGun",
+      "kw": "Parameter",
+      "line": 218
+    },
+    {
+      "name": "RealDiamond",
+      "kw": "Parameter",
+      "line": 219
+    },
+    {
+      "name": "criminal_cn",
+      "kw": "Parameter",
+      "line": 295
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 7,
+      "measured": 14,
+      "detail": "FakeGun, Man, Object, RealGun, Surgeon, Tcn, black, cn"
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "ttr_mtt/Coq_book_ontology.v",
+  "key": "ttr_mtt__Coq_book_ontology",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 0,
+    "proved": 0,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 6,
+    "toplevel_axioms": 20,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 0,
+    "closed": 0,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "Bank",
+      "kw": "Parameters",
+      "line": 4
+    },
+    {
+      "name": "do",
+      "kw": "Axiom",
+      "line": 19
+    },
+    {
+      "name": "sw",
+      "kw": "Axiom",
+      "line": 20
+    },
+    {
+      "name": "mo2",
+      "kw": "Axiom",
+      "line": 21
+    },
+    {
+      "name": "mh2",
+      "kw": "Axiom",
+      "line": 22
+    },
+    {
+      "name": "co3",
+      "kw": "Axiom",
+      "line": 23
+    },
+    {
+      "name": "co2",
+      "kw": "Axiom",
+      "line": 24
+    },
+    {
+      "name": "maa",
+      "kw": "Axiom",
+      "line": 25
+    },
+    {
+      "name": "no1",
+      "kw": "Axiom",
+      "line": 26
+    },
+    {
+      "name": "sh1",
+      "kw": "Axiom",
+      "line": 27
+    },
+    {
+      "name": "dh",
+      "kw": "Axiom",
+      "line": 28
+    },
+    {
+      "name": "ma",
+      "kw": "Axiom",
+      "line": 29
+    },
+    {
+      "name": "mh",
+      "kw": "Axiom",
+      "line": 30
+    },
+    {
+      "name": "wh",
+      "kw": "Axiom",
+      "line": 31
+    },
+    {
+      "name": "ha",
+      "kw": "Axiom",
+      "line": 32
+    },
+    {
+      "name": "ao",
+      "kw": "Axiom",
+      "line": 33
+    },
+    {
+      "name": "ss",
+      "kw": "Axiom",
+      "line": 34
+    },
+    {
+      "name": "bi",
+      "kw": "Axiom",
+      "line": 35
+    },
+    {
+      "name": "John",
+      "kw": "Parameters",
+      "line": 42
+    },
+    {
+      "name": "Mary",
+      "kw": "Parameters",
+      "line": 43
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

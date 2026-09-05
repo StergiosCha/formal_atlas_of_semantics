@@ -1,0 +1,57 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "extras/Champollion.v",
+  "key": "extras__Champollion",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 0,
+    "proved": 0,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 11,
+    "toplevel_axioms": 4,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 0,
+    "closed": 0,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "man",
+      "kw": "Parameter",
+      "line": 8
+    },
+    {
+      "name": "date",
+      "kw": "Parameter",
+      "line": 20
+    },
+    {
+      "name": "beer",
+      "kw": "Parameter",
+      "line": 30
+    },
+    {
+      "name": "have",
+      "kw": "Parameter",
+      "line": 32
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

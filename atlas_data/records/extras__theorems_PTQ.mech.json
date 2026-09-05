@@ -1,0 +1,383 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "extras/theorems_PTQ.v",
+  "key": "extras__theorems_PTQ",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 12,
+    "proved": 12,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 0,
+    "toplevel_axioms": 5,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 12,
+    "closed": 0,
+    "not_closed": 12,
+    "undocumented_axioms": [
+      "PTQ.Entity",
+      "PTQ.Time",
+      "PTQ.World",
+      "PTQ.allegedly'",
+      "PTQ.be'",
+      "PTQ.believe_that'",
+      "PTQ.bill_e",
+      "PTQ.change'",
+      "PTQ.conceive'",
+      "PTQ.date'",
+      "PTQ.eat'",
+      "PTQ.find'",
+      "PTQ.fish'",
+      "PTQ.john_e",
+      "PTQ.lose'",
+      "PTQ.love'",
+      "PTQ.man'",
+      "PTQ.man_reduces",
+      "PTQ.mary_e",
+      "PTQ.ninety_e",
+      "PTQ.park'",
+      "PTQ.pen'",
+      "PTQ.price'",
+      "PTQ.rapidly'",
+      "PTQ.rise'",
+      "PTQ.run'",
+      "PTQ.seek'",
+      "PTQ.slowly'",
+      "PTQ.talk'",
+      "PTQ.temperature'",
+      "PTQ.time_lt",
+      "PTQ.unicorn'",
+      "PTQ.voluntarily'",
+      "PTQ.walk'",
+      "PTQ.walk_reduces",
+      "PTQ.woman'",
+      "cm_concept",
+      "cm_idx",
+      "cm_rigid_no",
+      "cm_rises",
+      "cm_unique"
+    ],
+    "detail": {
+      "theorems_PTQ.assign_mod_lookup": {
+        "closed": false,
+        "axioms": [
+          "PTQ.Entity",
+          "PTQ.Time",
+          "PTQ.World"
+        ],
+        "raw": "Axioms:\nPTQ.World : Type\nPTQ.Time : Type\nPTQ.Entity : Type"
+      },
+      "theorems_PTQ.assign_mod_other": {
+        "closed": false,
+        "axioms": [
+          "PTQ.Entity",
+          "PTQ.Time",
+          "PTQ.World"
+        ],
+        "raw": "Axioms:\nPTQ.World : Type\nPTQ.Time : Type\nPTQ.Entity : Type"
+      },
+      "theorems_PTQ.assign_mod_shadow": {
+        "closed": false,
+        "axioms": [
+          "FunctionalExtensionality.functional_extensionality_dep",
+          "PTQ.Entity",
+          "PTQ.Time",
+          "PTQ.World"
+        ],
+        "raw": "Axioms:\nFunctionalExtensionality.functional_extensionality_dep :\n  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),\n  (forall x : A, f x = g x) -> f = g\nPTQ.World : Type\nPTQ.Time : Type\nPTQ.Entity : Type"
+      },
+      "theorems_PTQ.every_man_walks_ext_iff": {
+        "closed": false,
+        "axioms": [
+          "PTQ.Entity",
+          "PTQ.Time",
+          "PTQ.World",
+          "PTQ.man'",
+          "PTQ.man_reduces",
+          "PTQ.walk'",
+          "PTQ.walk_reduces"
+        ],
+        "raw": "Axioms:\nPTQ.walk_reduces : PTQ.Extensional_reduces PTQ.walk'\nPTQ.walk' : PTQ.IV_den\nPTQ.man_reduces : PTQ.Extensional_reduces PTQ.man'\nPTQ.man' : PTQ.CN_den\nPTQ.World : Type\nPTQ.Time : Type\nPTQ.Entity : Type"
+      },
+      "theorems_PTQ.every_man_walks_inst_john": {
+        "closed": false,
+        "axioms": [
+          "PTQ.Entity",
+          "PTQ.Time",
+          "PTQ.World",
+          "PTQ.allegedly'",
+          "PTQ.be'",
+          "PTQ.believe_that'",
+          "PTQ.bill_e",
+          "PTQ.change'",
+          "PTQ.conceive'",
+          "PTQ.date'",
+          "PTQ.eat'",
+          "PTQ.find'",
+          "PTQ.fish'",
+          "PTQ.john_e",
+          "PTQ.lose'",
+          "PTQ.love'",
+          "PTQ.man'",
+          "PTQ.mary_e",
+          "PTQ.ninety_e",
+          "PTQ.park'",
+          "PTQ.pen'",
+          "PTQ.price'",
+          "PTQ.rapidly'",
+          "PTQ.rise'",
+          "PTQ.run'",
+          "PTQ.seek'",
+          "PTQ.slowly'",
+          "PTQ.talk'",
+          "PTQ.temperature'",
+          "PTQ.time_lt",
+          "PTQ.unicorn'",
+          "PTQ.voluntarily'",
+          "PTQ.walk'",
+          "PTQ.woman'"
+        ],
+        "raw": "Axioms:\nPTQ.woman' : PTQ.CN_den\nPTQ.walk' : PTQ.IV_den\nPTQ.voluntarily' : PTQ.IAV_den\nPTQ.unicorn' : PTQ.CN_den\nPTQ.time_lt : PTQ.Time -> PTQ.Time -> Prop\nPTQ.temperature' : PTQ.CN_den\nPTQ.talk' : PTQ.IV_den\nPTQ.slowly' : PTQ.IAV_den\nPTQ.seek' : PTQ.TV_den\nPTQ.run' : PTQ.IV_den\nPTQ.rise' : PTQ.IV_den\nPTQ.rapidly' : PTQ.IAV_den\nPTQ.price' : PTQ.CN_den\nPTQ.pen' : PTQ.CN_den\nPTQ.park' : PTQ.CN_den\nPTQ.ninety_e : PTQ.Entity\nPTQ.mary_e : PTQ.Entity\nPTQ.man' : PTQ.CN_den\nPTQ.love' : PTQ.TV_den\nPTQ.lose' : PTQ.TV_den\nPTQ.john_e : PTQ.Entity\nPTQ.fish' : PTQ.CN_den\nPTQ.find' : PTQ.TV_den\nPTQ.eat' : PTQ.TV_den\nPTQ.date' : PTQ.TV_den\nPTQ.conceive' : PTQ.TV_den\nPTQ.change' : PTQ.IV_den\nPTQ.bill_e : PTQ.Entity\nPTQ.believe_that' : PTQ.S_den -> PTQ.IV_den\nPTQ.be' : PTQ.TV_den\nPTQ.allegedly' : PTQ.IAV_den\nPTQ.World : Type\nPTQ.Time : Type\nPTQ.Entity : Type"
+      },
+      "theorems_PTQ.every_to_some_man_walks": {
+        "closed": false,
+        "axioms": [
+          "PTQ.Entity",
+          "PTQ.Time",
+          "PTQ.World",
+          "PTQ.allegedly'",
+          "PTQ.be'",
+          "PTQ.believe_that'",
+          "PTQ.bill_e",
+          "PTQ.change'",
+          "PTQ.conceive'",
+          "PTQ.date'",
+          "PTQ.eat'",
+          "PTQ.find'",
+          "PTQ.fish'",
+          "PTQ.john_e",
+          "PTQ.lose'",
+          "PTQ.love'",
+          "PTQ.man'",
+          "PTQ.mary_e",
+          "PTQ.ninety_e",
+          "PTQ.park'",
+          "PTQ.pen'",
+          "PTQ.price'",
+          "PTQ.rapidly'",
+          "PTQ.rise'",
+          "PTQ.run'",
+          "PTQ.seek'",
+          "PTQ.slowly'",
+          "PTQ.talk'",
+          "PTQ.temperature'",
+          "PTQ.time_lt",
+          "PTQ.unicorn'",
+          "PTQ.voluntarily'",
+          "PTQ.walk'",
+          "PTQ.woman'"
+        ],
+        "raw": "Axioms:\nPTQ.woman' : PTQ.CN_den\nPTQ.walk' : PTQ.IV_den\nPTQ.voluntarily' : PTQ.IAV_den\nPTQ.unicorn' : PTQ.CN_den\nPTQ.time_lt : PTQ.Time -> PTQ.Time -> Prop\nPTQ.temperature' : PTQ.CN_den\nPTQ.talk' : PTQ.IV_den\nPTQ.slowly' : PTQ.IAV_den\nPTQ.seek' : PTQ.TV_den\nPTQ.run' : PTQ.IV_den\nPTQ.rise' : PTQ.IV_den\nPTQ.rapidly' : PTQ.IAV_den\nPTQ.price' : PTQ.CN_den\nPTQ.pen' : PTQ.CN_den\nPTQ.park' : PTQ.CN_den\nPTQ.ninety_e : PTQ.Entity\nPTQ.mary_e : PTQ.Entity\nPTQ.man' : PTQ.CN_den\nPTQ.love' : PTQ.TV_den\nPTQ.lose' : PTQ.TV_den\nPTQ.john_e : PTQ.Entity\nPTQ.fish' : PTQ.CN_den\nPTQ.find' : PTQ.TV_den\nPTQ.eat' : PTQ.TV_den\nPTQ.date' : PTQ.TV_den\nPTQ.conceive' : PTQ.TV_den\nPTQ.change' : PTQ.IV_den\nPTQ.bill_e : PTQ.Entity\nPTQ.believe_that' : PTQ.S_den -> PTQ.IV_den\nPTQ.be' : PTQ.TV_den\nPTQ.allegedly' : PTQ.IAV_den\nPTQ.World : Type\nPTQ.Time : Type\nPTQ.Entity : Type"
+      },
+      "theorems_PTQ.nec_4": {
+        "closed": false,
+        "axioms": [
+          "PTQ.Time",
+          "PTQ.World"
+        ],
+        "raw": "Axioms:\nPTQ.World : Type\nPTQ.Time : Type"
+      },
+      "theorems_PTQ.nec_T": {
+        "closed": false,
+        "axioms": [
+          "PTQ.Time",
+          "PTQ.World"
+        ],
+        "raw": "Axioms:\nPTQ.World : Type\nPTQ.Time : Type"
+      },
+      "theorems_PTQ.rel_clause_restricts": {
+        "closed": false,
+        "axioms": [
+          "PTQ.Entity",
+          "PTQ.Time",
+          "PTQ.World",
+          "PTQ.allegedly'",
+          "PTQ.be'",
+          "PTQ.believe_that'",
+          "PTQ.bill_e",
+          "PTQ.change'",
+          "PTQ.conceive'",
+          "PTQ.date'",
+          "PTQ.eat'",
+          "PTQ.find'",
+          "PTQ.fish'",
+          "PTQ.john_e",
+          "PTQ.lose'",
+          "PTQ.love'",
+          "PTQ.man'",
+          "PTQ.mary_e",
+          "PTQ.ninety_e",
+          "PTQ.park'",
+          "PTQ.pen'",
+          "PTQ.price'",
+          "PTQ.rapidly'",
+          "PTQ.rise'",
+          "PTQ.run'",
+          "PTQ.seek'",
+          "PTQ.slowly'",
+          "PTQ.talk'",
+          "PTQ.temperature'",
+          "PTQ.time_lt",
+          "PTQ.unicorn'",
+          "PTQ.voluntarily'",
+          "PTQ.walk'",
+          "PTQ.woman'"
+        ],
+        "raw": "Axioms:\nPTQ.woman' : PTQ.CN_den\nPTQ.walk' : PTQ.IV_den\nPTQ.voluntarily' : PTQ.IAV_den\nPTQ.unicorn' : PTQ.CN_den\nPTQ.time_lt : PTQ.Time -> PTQ.Time -> Prop\nPTQ.temperature' : PTQ.CN_den\nPTQ.talk' : PTQ.IV_den\nPTQ.slowly' : PTQ.IAV_den\nPTQ.seek' : PTQ.TV_den\nPTQ.run' : PTQ.IV_den\nPTQ.rise' : PTQ.IV_den\nPTQ.rapidly' : PTQ.IAV_den\nPTQ.price' : PTQ.CN_den\nPTQ.pen' : PTQ.CN_den\nPTQ.park' : PTQ.CN_den\nPTQ.ninety_e : PTQ.Entity\nPTQ.mary_e : PTQ.Entity\nPTQ.man' : PTQ.CN_den\nPTQ.love' : PTQ.TV_den\nPTQ.lose' : PTQ.TV_den\nPTQ.john_e : PTQ.Entity\nPTQ.fish' : PTQ.CN_den\nPTQ.find' : PTQ.TV_den\nPTQ.eat' : PTQ.TV_den\nPTQ.date' : PTQ.TV_den\nPTQ.conceive' : PTQ.TV_den\nPTQ.change' : PTQ.IV_den\nPTQ.bill_e : PTQ.Entity\nPTQ.believe_that' : PTQ.S_den -> PTQ.IV_den\nPTQ.be' : PTQ.TV_den\nPTQ.allegedly' : PTQ.IAV_den\nPTQ.World : Type\nPTQ.Time : Type\nPTQ.Entity : Type"
+      },
+      "theorems_PTQ.s14_every_equiv_s4": {
+        "closed": false,
+        "axioms": [
+          "PTQ.Entity",
+          "PTQ.Time",
+          "PTQ.World",
+          "PTQ.allegedly'",
+          "PTQ.be'",
+          "PTQ.believe_that'",
+          "PTQ.bill_e",
+          "PTQ.change'",
+          "PTQ.conceive'",
+          "PTQ.date'",
+          "PTQ.eat'",
+          "PTQ.find'",
+          "PTQ.fish'",
+          "PTQ.john_e",
+          "PTQ.lose'",
+          "PTQ.love'",
+          "PTQ.man'",
+          "PTQ.mary_e",
+          "PTQ.ninety_e",
+          "PTQ.park'",
+          "PTQ.pen'",
+          "PTQ.price'",
+          "PTQ.rapidly'",
+          "PTQ.rise'",
+          "PTQ.run'",
+          "PTQ.seek'",
+          "PTQ.slowly'",
+          "PTQ.talk'",
+          "PTQ.temperature'",
+          "PTQ.time_lt",
+          "PTQ.unicorn'",
+          "PTQ.voluntarily'",
+          "PTQ.walk'",
+          "PTQ.woman'"
+        ],
+        "raw": "Axioms:\nPTQ.woman' : PTQ.CN_den\nPTQ.walk' : PTQ.IV_den\nPTQ.voluntarily' : PTQ.IAV_den\nPTQ.unicorn' : PTQ.CN_den\nPTQ.time_lt : PTQ.Time -> PTQ.Time -> Prop\nPTQ.temperature' : PTQ.CN_den\nPTQ.talk' : PTQ.IV_den\nPTQ.slowly' : PTQ.IAV_den\nPTQ.seek' : PTQ.TV_den\nPTQ.run' : PTQ.IV_den\nPTQ.rise' : PTQ.IV_den\nPTQ.rapidly' : PTQ.IAV_den\nPTQ.price' : PTQ.CN_den\nPTQ.pen' : PTQ.CN_den\nPTQ.park' : PTQ.CN_den\nPTQ.ninety_e : PTQ.Entity\nPTQ.mary_e : PTQ.Entity\nPTQ.man' : PTQ.CN_den\nPTQ.love' : PTQ.TV_den\nPTQ.lose' : PTQ.TV_den\nPTQ.john_e : PTQ.Entity\nPTQ.fish' : PTQ.CN_den\nPTQ.find' : PTQ.TV_den\nPTQ.eat' : PTQ.TV_den\nPTQ.date' : PTQ.TV_den\nPTQ.conceive' : PTQ.TV_den\nPTQ.change' : PTQ.IV_den\nPTQ.bill_e : PTQ.Entity\nPTQ.believe_that' : PTQ.S_den -> PTQ.IV_den\nPTQ.be' : PTQ.TV_den\nPTQ.allegedly' : PTQ.IAV_den\nPTQ.World : Type\nPTQ.Time : Type\nPTQ.Entity : Type"
+      },
+      "theorems_PTQ.temperature_puzzle_proved": {
+        "closed": false,
+        "axioms": [
+          "PTQ.Entity",
+          "PTQ.Time",
+          "PTQ.World",
+          "PTQ.allegedly'",
+          "PTQ.be'",
+          "PTQ.believe_that'",
+          "PTQ.bill_e",
+          "PTQ.change'",
+          "PTQ.conceive'",
+          "PTQ.date'",
+          "PTQ.eat'",
+          "PTQ.find'",
+          "PTQ.fish'",
+          "PTQ.john_e",
+          "PTQ.lose'",
+          "PTQ.love'",
+          "PTQ.man'",
+          "PTQ.mary_e",
+          "PTQ.ninety_e",
+          "PTQ.park'",
+          "PTQ.pen'",
+          "PTQ.price'",
+          "PTQ.rapidly'",
+          "PTQ.rise'",
+          "PTQ.run'",
+          "PTQ.seek'",
+          "PTQ.slowly'",
+          "PTQ.talk'",
+          "PTQ.temperature'",
+          "PTQ.time_lt",
+          "PTQ.unicorn'",
+          "PTQ.voluntarily'",
+          "PTQ.walk'",
+          "PTQ.woman'",
+          "cm_concept",
+          "cm_idx",
+          "cm_rigid_no",
+          "cm_rises",
+          "cm_unique"
+        ],
+        "raw": "Axioms:\nPTQ.woman' : PTQ.CN_den\nPTQ.walk' : PTQ.IV_den\nPTQ.voluntarily' : PTQ.IAV_den\nPTQ.unicorn' : PTQ.CN_den\nPTQ.time_lt : PTQ.Time -> PTQ.Time -> Prop\nPTQ.temperature' : PTQ.CN_den\nPTQ.talk' : PTQ.IV_den\nPTQ.slowly' : PTQ.IAV_den\nPTQ.seek' : PTQ.TV_den\nPTQ.run' : PTQ.IV_den\nPTQ.rise' : PTQ.IV_den\nPTQ.rapidly' : PTQ.IAV_den\nPTQ.price' : PTQ.CN_den\nPTQ.pen' : PTQ.CN_den\nPTQ.park' : PTQ.CN_den\nPTQ.ninety_e : PTQ.Entity\nPTQ.mary_e : PTQ.Entity\nPTQ.man' : PTQ.CN_den\nPTQ.love' : PTQ.TV_den\nPTQ.lose' : PTQ.TV_den\nPTQ.john_e : PTQ.Entity\nPTQ.fish' : PTQ.CN_den\nPTQ.find' : PTQ.TV_den\nPTQ.eat' : PTQ.TV_den\nPTQ.date' : PTQ.TV_den\nPTQ.conceive' : PTQ.TV_den\ncm_unique :\n  forall x : PTQ.IndivConcept, PTQ.temperature' x cm_idx <-> x = cm_concept\ncm_rises : PTQ.rise' cm_concept cm_idx\ncm_rigid_no : ~ PTQ.rise' (PTQ.rigid PTQ.ninety_e) cm_idx\ncm_idx : PTQ.Index\ncm_concept : PTQ.IndivConcept\nPTQ.change' : PTQ.IV_den\nPTQ.bill_e : PTQ.Entity\nPTQ.believe_that' : PTQ.S_den -> PTQ.IV_den\nPTQ.be' : PTQ.TV_den\nPTQ.allegedly' : PTQ.IAV_den\nPTQ.World : Type\nPTQ.Time : Type\nPTQ.Entity : Type"
+      },
+      "theorems_PTQ.the_entails_a": {
+        "closed": false,
+        "axioms": [
+          "PTQ.Entity",
+          "PTQ.Time",
+          "PTQ.World"
+        ],
+        "raw": "Axioms:\nPTQ.World : Type\nPTQ.Time : Type\nPTQ.Entity : Type"
+      }
+    },
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "cm_idx",
+      "kw": "Parameter",
+      "line": 86
+    },
+    {
+      "name": "cm_concept",
+      "kw": "Parameter",
+      "line": 87
+    },
+    {
+      "name": "cm_unique",
+      "kw": "Axiom",
+      "line": 88
+    },
+    {
+      "name": "cm_rises",
+      "kw": "Axiom",
+      "line": 89
+    },
+    {
+      "name": "cm_rigid_no",
+      "kw": "Axiom",
+      "line": 90
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 3,
+      "measured": 41,
+      "detail": "PTQ.Entity, PTQ.Time, PTQ.World, PTQ.allegedly', PTQ.be', PTQ.believe_that', PTQ.bill_e, PTQ.change'"
+    }
+  ]
+}

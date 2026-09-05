@@ -1,0 +1,114 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "extras/quanrifiers2.v",
+  "key": "extras__quanrifiers2",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 5,
+    "proved": 5,
+    "admitted": 0,
+    "aborted": 0,
+    "unparsed_status": 0,
+    "definitions": 42,
+    "toplevel_axioms": 14,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 5,
+    "closed": 5,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [
+    {
+      "name": "domain_size",
+      "kw": "Parameter",
+      "line": 51
+    },
+    {
+      "name": "tolerance",
+      "kw": "Parameter",
+      "line": 105
+    },
+    {
+      "name": "walk",
+      "kw": "Parameter",
+      "line": 138
+    },
+    {
+      "name": "strong",
+      "kw": "Parameter",
+      "line": 139
+    },
+    {
+      "name": "innocent",
+      "kw": "Parameter",
+      "line": 140
+    },
+    {
+      "name": "fell",
+      "kw": "Parameter",
+      "line": 141
+    },
+    {
+      "name": "only_not_conservative",
+      "kw": "Axiom",
+      "line": 217
+    },
+    {
+      "name": "Student",
+      "kw": "Parameter",
+      "line": 224
+    },
+    {
+      "name": "read",
+      "kw": "Parameter",
+      "line": 225
+    },
+    {
+      "name": "scope_ambiguity",
+      "kw": "Axiom",
+      "line": 238
+    },
+    {
+      "name": "White",
+      "kw": "Parameter",
+      "line": 277
+    },
+    {
+      "name": "taller_than",
+      "kw": "Parameter",
+      "line": 279
+    },
+    {
+      "name": "Patient",
+      "kw": "Parameter",
+      "line": 287
+    },
+    {
+      "name": "operates_on_daily",
+      "kw": "Parameter",
+      "line": 288
+    }
+  ],
+  "parse_warnings": [],
+  "disputes_vs_record": [
+    {
+      "field": "counts.propositional_axioms",
+      "claimed": 2,
+      "measured": 0,
+      "detail": ""
+    }
+  ]
+}

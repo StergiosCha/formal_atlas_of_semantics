@@ -1,0 +1,697 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/dynamic/DPL.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "dynamic.DPL.upd_eq": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.upd_neq": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.dif_refl": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.dif_upd": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.dif_sym": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.dif_trans": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.assign_ext": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.agree_refl": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.agree_sym": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.agree_trans": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.agree_app_l": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.agree_app_r": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.agree_incl": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.inter_In": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.rel_eq_refl": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.rel_eq_sym": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.rel_eq_trans": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.sem_atom": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.sem_eq": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.sem_neg": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.sem_conj": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.sem_disj": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.sem_impl": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.sem_ex": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.sem_all": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.sem_clos": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.equiv_refl": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.equiv_sym": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.equiv_trans": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.entails_prod_sat": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.rtest_is_test": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.sat_rtest": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.test_atom": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.test_eq": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.test_neg": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.test_disj": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.test_impl": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.test_all": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.test_clos": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.test_conj": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.true_wrt_test": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.fact1": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.fact2": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.fact4": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.fact5": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.fact6_if": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.h1_0": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.h1_neq_g0": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.ex_px_g0_h1": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.not_test_ex": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.fact6_refuted": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.setminus_In": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.In_FV_conj": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.In_FV_impl": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.In_FV_ex": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.In_FV_all": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.tval_agree": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.map_tval_agree": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.fact9": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.fact9_src": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.fact9_agree": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.transfer": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.fact8": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.transfer_given": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.rcomp_assoc": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.rcomp_rex": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.rimpl_rex": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.rcomp_rtest_comm": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.rtest_dup": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.rclos_congr": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.rneg_congr": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.rclos_rclos": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.rclos_rneg": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.rneg_rclos": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d1": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d2": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d3": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d7": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d9": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d10": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d16": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d17": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d18": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d19_clos_def": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.d19_test": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d20": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d21": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d22_left": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d22_right": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d23": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d24": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d25": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d26": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d27_conj_assoc": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.d30": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d31": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d32": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d33_half": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.disjoint_sym": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d33": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d34_clos": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d34_s_equiv": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d34_test": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d35": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.d36": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d37": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d38": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d39": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d40": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d41": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d42": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d43": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d44": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d45": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d46_egli": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.d47": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d48_egli_corollary": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d14": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.neg_fails_g0_h1": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.conj_g0_h1": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d4": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d5": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d6": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.negneg_witness": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.negneg_not_equiv": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d34_refuted": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d34_not_equiv": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d28": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d29": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d49": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d49_s_equiv": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.impl_true_g0": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.disj_not_true_g0": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d12_not_s_equiv": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d11_not_equiv": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d8_not_s_equiv": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.d5_not_equiv": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.excl_mid_test": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.fact3": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.fact10": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.fact11": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.fact12": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.fact13": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.fact14": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.meaning_incl_refl": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.fact15": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.e_weak": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.entails_vars_entails": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.entails_vars_nil": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.fact16": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.valid_ex_impl": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.not_s_entails_ex_px": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.entails_ex_px": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.not_meaning_incl_ex_px": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.mutual_entailment_not_equiv": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.qx_ex_g0_h1": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.entails_not_reflexive": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.entails_not_transitive": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.seq_entailment_order_sensitive": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.entails_seq_nonmonotonic": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.aqv_dk1": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.fv_dk2": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.fv_qx_expx": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.DPL.dk_ante_out": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.dk_ante_in": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.dk1_meaning": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.dk1_truth": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.dk2_meaning": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.dk2_truth": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.dk2_dk3_equiv": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.DPL.dk3_truth": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    }
+  },
+  "summary": {
+    "probed": 171,
+    "vacuous": 0,
+    "trivial": 33,
+    "bailout": 0
+  }
+}

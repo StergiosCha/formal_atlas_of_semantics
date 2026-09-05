@@ -1,0 +1,481 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/probabilistic/RSA.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "probabilistic.RSA.QSum.normalize_spec": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.ne_of_lt": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.qsum_nonneg": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.qsum_pos_of_mem": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.qsum_zero_iff": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.qsum_map_ext_in": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.qsum_le_in": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.qsum_le_lt_in": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.qsum_plus": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.qsum_scale": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.qsum_div": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.qsum_zero_of": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.qsum_app": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.qsum_perm": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.qsum_indicator": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.qpow_nonneg": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.qpow_pos": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.qpow_zero": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.qpow_one": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.qpow_mono": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.qpow_strict": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.Qdiv_pos": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.Qdiv_nonneg": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.normalize_nonneg": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.normalize_sum": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.Qinv_zero": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "probabilistic.RSA.QSum.normalize_zero": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.normalize_ext_in": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.normalize_perm": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.QSum.normalize_scale": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.consistent_iff": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.expressible_iff": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.existsb_false_forall": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.normalize_num_zero": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L0_raw_nonneg": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L0_norm_pos": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L0_dist_iff": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L0_undefined": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L0_false": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L0_support": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L0_is_conditioning": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.Pset_pos_of_witness": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L0_prior_only": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.Pset_true": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.Pset_additive": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L0_tautology": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L0_uniform_card": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L0_nonneg": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.S_raw_nonneg_L0": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.S1_raw_true": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.S1_raw_false": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.S1_norm_pos": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.S1_dist_iff": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.S1_undefined": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.speaker_truthful": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.S1_support": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.S1_alpha0": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.S1_nonneg": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L1_raw_nonneg": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.qsum_pos_exists": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L1_product": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L1_bayes": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.PS_pos_iff": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L1_dist_iff": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L1_dist_iff_alt": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L1_undefined": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.listener_false": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L1_support": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L1_propto": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L1_unique": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L1_odds": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.qpow_1": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.Qinv_le_anti": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L0_more_specific": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L0_strictly_more_specific": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.S1_more_specific": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.S1_strictly_more_specific": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L1_order_from_S1": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.size_principle": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L0_sem_equiv": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.S_of_twist": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L_of_of_twist": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.Ln_sem_equiv": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.Sn_sem_equiv": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.no_M_implicature": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.S_raw_nonneg_gen": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.S_raw_pos_gen": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.S_raw_zero_gen": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.S_of_support_gen": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.S_of_nonneg_gen": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L_of_support_gen": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.L_of_nonneg_gen": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.Ln_invariant": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.Ln_support": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.Ln_dist": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.Sn_dist": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.normalize_ext": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.S_of_perm_ext": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.Ln_perm_invariant": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.ScalarImplicature.scalar_L1_values": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "probabilistic.RSA.ScalarImplicature.scalar_implicature": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "probabilistic.RSA.ScalarImplicature.scalar_L0_values": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "probabilistic.RSA.ScalarImplicature.scalar_L0_fails": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "probabilistic.RSA.ScalarImplicature.scalar_alpha4": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "probabilistic.RSA.ScalarImplicature.scalar_depth3": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "probabilistic.RSA.ScalarImplicature.S1_prefers_informative": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "probabilistic.RSA.ScalarImplicature.scalar_implicature_any_alpha": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "probabilistic.RSA.Faces.faces_hat": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "probabilistic.RSA.Faces.faces_L0_ambiguous": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "probabilistic.RSA.Faces.faces_implicature": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "probabilistic.RSA.BergenTwoWorlds.bergen_table": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "probabilistic.RSA.BergenTwoWorlds.bergen_all_truthful": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "probabilistic.RSA.Cookies.cookies_values": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "probabilistic.RSA.Cookies.cookies_suppression": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "probabilistic.RSA.Cookies.cookies_L0_value": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "probabilistic.RSA.Symmetry.symmetry_neutral": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "probabilistic.RSA.Symmetry.symmetry_broken": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    }
+  },
+  "summary": {
+    "probed": 117,
+    "vacuous": 0,
+    "trivial": 18,
+    "bailout": 0
+  }
+}

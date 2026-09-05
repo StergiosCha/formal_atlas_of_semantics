@@ -1,0 +1,41 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/mtt_ranta/DTS.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "mtt_ranta.DTS.dts_donkey_canonical": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.DTS.dts_donkey_felicitous": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.DTS.dts_donkey_strong": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.DTS.resolution_ambiguity": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.DTS.the_bare_presupposes": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.DTS.the_conditional_projects_nothing": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.DTS.the_conditional_is_donkey": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    }
+  },
+  "summary": {
+    "probed": 7,
+    "vacuous": 0,
+    "trivial": 5,
+    "bailout": 0
+  }
+}

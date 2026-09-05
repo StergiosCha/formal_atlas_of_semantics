@@ -1,0 +1,173 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/type_logical/Lambek.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "type_logical.Lambek.conn_ctx_app": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.conn_ctx_cons": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "type_logical.Lambek.subformula_trans": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.cf_derivable_derivable": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.app_not_nil_l": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.app_not_nil_r": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.cons_not_nil": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "type_logical.Lambek.deriv_nonempty": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.sequents_end": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.sequents_bsR": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.sequents_slR": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.sequents_bsL": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.sequents_slL": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.sequents_cut": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.ax_expand_atomic": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.split_app_cons_T": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.split_app_app_T": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.split_hole_bs_T": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.split_hole_sl_T": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.height_cast": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.cut_adm_aux": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.cut_adm": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.derivable_iff_cf": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.sub_closed_refl": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.sub_closed_trans": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.sub_bsR": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.sub_slR": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.sub_bsL_minor": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.sub_bsL_major": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.sub_slL_minor": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.sub_slL_major": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.subformula_property": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.subformula_property_derivable": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "type_logical.Lambek.denote_cut": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "type_logical.Lambek.Fragment.john_walks_sem": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "type_logical.Lambek.Fragment.every_man_walks_sem": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "type_logical.Lambek.Fragment.some_man_walks_sem": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "type_logical.Lambek.Fragment.type_raise_sem": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "type_logical.Lambek.Fragment.compose_sem": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "type_logical.Lambek.Fragment.john_walks_cut_sem": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    }
+  },
+  "summary": {
+    "probed": 40,
+    "vacuous": 0,
+    "trivial": 9,
+    "bailout": 0
+  }
+}

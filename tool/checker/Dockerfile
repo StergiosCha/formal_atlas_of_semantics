@@ -13,6 +13,9 @@ RUN coq_makefile -f _CoqProject -o Makefile && make -j4 || make -k
 
 USER root
 COPY tool/checker/server.py /srv/server.py
+# The draft-and-check loop (providers.py needs AZURE_AI_KEY at runtime —
+# an ACA secret, never baked into the image).
+COPY tool/llm /srv/llm
 EXPOSE 8477
 CMD ["uvicorn", "server:app", "--app-dir", "/srv", \
      "--host", "0.0.0.0", "--port", "8477"]

@@ -1,0 +1,781 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/inquisitive/InqB.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "inquisitive.InqB.sub_refl": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.sub_trans": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.seq_refl": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.seq_sym": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.seq_sub": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.peq_refl": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.peq_sym": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.peq_trans": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.peq_ple": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.pow_is_prop": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.top_is_prop": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.bot_is_prop": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.nil_in_prop": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.empty_in_prop": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.prop_respects_seq": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.true_iff_single": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.noninq_char_def": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.noninf_char_def": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.tautology_top": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.noninq_1_2": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.noninq_2_3": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.noninq_3_4": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.noninq_4_1": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.ple_refl": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.ple_trans": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.ple_antisym_peq": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.bot_least": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.top_greatest": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.ple_info": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.two_alts_inquisitive": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.noninq_alt": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.meet_is_prop": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.join_is_prop": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.Meet_is_prop": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.Join_is_prop": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.imp_is_prop": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.star_is_prop": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.meet_glb": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.join_lub": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.Meet_glb": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.Join_lub": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.imp_adjunction": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.imp_is_rpc": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.heyting_mp": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.heyting_intro": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.imp_self_top": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.meet_star_bot": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.meet_comm": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.meet_assoc": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.meet_idem": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.join_comm": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.join_assoc": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.join_idem": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.absorb_meet_join": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.absorb_join_meet": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.meet_join_distrib": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.imp_meet_split": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.inq_heyting": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.star_char": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.star_pow": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.star_noninq": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.star_antitone": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.star_star_intro": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.star_star_star": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.boolean_complements_extremal": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.bang_is_prop": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.ple_bang": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.bang_info": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.bang_noninq": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.bang_issue_cancelling": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.bang_unique": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.decision_set": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.quest_is_prop": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.ple_quest": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.quest_decision": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.quest_noninf": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.noninf_dset": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.quest_unique": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.division_p": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.bang_le_starstar": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.bang_eq_starstar": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.quest_eq": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.support_atom": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.support_bot": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.support_and": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.support_or": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.support_imp": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.support_neg_unfold": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.persistence": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.empty_state": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.sem_is_prop": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.support_seq": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.singleton_collapse": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.singleton_decides": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.neg_pointwise": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.bang_pointwise": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.neg_tc": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.imp_tc_antecedent": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.neg_antecedent": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.info_eq_truthset": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.true_at_iff": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.sem_atom": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.sem_bot": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.sem_and": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.sem_or": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.sem_imp": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.sem_neg": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.alg_eq_sem": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.sem_imp_adjunction": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.sem_imp_is_rpc": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.ctruth_bang": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.ctruth_quest": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.ctruth_neg": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.sem_bang_peq": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.sem_quest_peq": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.decided_info_sem": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.question_iff_taut": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.assertion_iff_support_truthset": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.assertion_iff_pow": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.assertion_iff_greatest": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.tautology_f_iff": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.assertion_iff_tc": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.bang_assertion": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.bang_info_f": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.quest_question": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.division_f": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.question_iff_contradiction_neg": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.question_iff_equiv_quest": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.assertion_iff_equiv_bang": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.bang_idem_f": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.quest_idem_f": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.atom_tc": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.bot_tc": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.bang_tc": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.and_tc": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.imp_tc": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.noninq_sufficient": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.noninf_sufficient": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.orfree_tc": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.orfree_assertion": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.seq_trans": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.neg_alt": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.bang_alt": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.alt_f_max": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.two_alts_inquisitive_f": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.entails_iff_ple": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.equiv_iff": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.entails1_refl": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.entails1_trans": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.valid_iff_ignorant": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.valid_iff_taut_assertion": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.valid_classical": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.disjunction_property_in": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.deduction_theorem": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.deduction_theorem1": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.mp_closed": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.entails_assertion_classical": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.entails_bang": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.bang_strongest_assertion": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.question_entails_question": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.dne_valid_iff_tc": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.lem_valid_iff": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.lem_tc": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.imp_intro": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.valid_ax1": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.valid_ax2": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.valid_ax3": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.valid_ax4": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.valid_ax5": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.valid_ax6": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.valid_ax7": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "inquisitive.InqB.valid_ax8": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.valid_ax9": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.KP_valid": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.atomic_DN_valid_in": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.axiom_valid": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.soundness_in": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.soundness": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.soundness_valid": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.atomic_DNE_valid": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.Counter.LEM_fails_2": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.Counter.LEM_not_valid_in": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.Counter.LEM_not_valid": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.Counter.quest_p_question": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.Counter.quest_p_inquisitive": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.Counter.DNE_fails_quest_2": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.Counter.DNE_fails_or_4": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.Counter.or_hybrid_4": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.Counter.or_alts_4": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.Counter.or_inquisitive_4": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.Counter.no_uniform_substitution": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "inquisitive.InqB.Counter.consistency": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    }
+  },
+  "summary": {
+    "probed": 192,
+    "vacuous": 0,
+    "trivial": 56,
+    "bailout": 0
+  }
+}

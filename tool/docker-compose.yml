@@ -8,8 +8,6 @@ services:
     environment:
       ATLAS_REPO: /atlas
       CHECK_TIMEOUT: "30"
-    # Mount the consolidated data for GET /atlas (regenerate with
-    # consolidate.py in the formalizing folder and copy here, or point
-    # ATLAS_JSON at a mounted volume):
+      AZURE_AI_KEY: ${AZURE_AI_KEY}   # export before `docker compose up`
     volumes:
-      - ../atlas.json:/atlas/atlas.json:ro
+      - ../atlas_data/atlas.json:/atlas/atlas.json:ro

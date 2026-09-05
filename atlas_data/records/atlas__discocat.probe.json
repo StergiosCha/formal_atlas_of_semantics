@@ -1,0 +1,405 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/categorical/DisCoCat.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "categorical.DisCoCat.Le_refl": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.Le_trans": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.Le_tensor": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.Le_subst": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.Le_cup_l": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.Le_cup_r": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.Le_cap_l": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.Le_cap_r": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.Le_cup_ll": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.Le_cap_rr": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.radj_ladj": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.ladj_radj": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.radj_ty_ladj_ty": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.ladj_ty_radj_ty": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.ladj_ty_app": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.radj_ty_app": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.ladj_ty_nil": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "categorical.DisCoCat.radj_ty_nil": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "categorical.DisCoCat.le_not_antisymmetric": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.deq_endpoints": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.Examples.Le_tv": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.Examples.Le_iv": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.Examples.Le_adj": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.Examples.Le_neg": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.Examples.deq_tv_alt": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.Examples.deq_tv_subj": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.Examples.deq_tv_obj": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.mat_eqb_sound": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.dimT_app": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.dimT_ladj": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.dimT_radj": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.F_refl": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "categorical.DisCoCat.F_trans": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "categorical.DisCoCat.F_tensor": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "categorical.DisCoCat.F_cup_l": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "categorical.DisCoCat.F_cap_r": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "categorical.DisCoCat.F_cast": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.ExModel.ex1_true": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "categorical.DisCoCat.ExModel.ex1_false": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "categorical.DisCoCat.ExModel.ex1b_true": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "categorical.DisCoCat.ExModel.ex1b_false": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "categorical.DisCoCat.ExModel.ex_iv": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "categorical.DisCoCat.ExModel.ex3_graded": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "categorical.DisCoCat.ExModel.ex5_loves_likesg": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "categorical.DisCoCat.ExModel.ex5_hates_likesg": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "categorical.DisCoCat.ExModel.ex5_loves_hates": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "categorical.DisCoCat.ExModel.readings_agree_computationally": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "categorical.DisCoCat.qsum_ext": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.qsum_plus": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.qsum_scale_l": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.qsum_scale_r": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.qsum_zero": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.qsum_app": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.qsum_swap": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.qsum_mul": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.qsum_delta_l": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.qsum_delta_r": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.qsum_split": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.div_add_small": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.mod_add_small": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.div_lt": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.mod_lt": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.div_mod_split": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.mat_eq_refl": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "categorical.DisCoCat.mat_eq_sym": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.mat_eq_trans": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.mat_eq_dims": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.mmul_ext": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.kron_ext": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.mmul_idm_l": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.mmul_idm_r": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.mmul_assoc": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.interchange": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.kron_idm": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.kron_assoc": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.kron_unit_l": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.kron_unit_r": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.three_digits": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.snake_A": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.snake_B": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.eps_general": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.eps_inner": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.qsum_const1": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.trace_eps_eta": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.F_deq": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.meaning_deq": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.F_tv_orders": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.cup_l_gen": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.cup_r_gen": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.cap_l_gen": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.cap_r_gen": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.Le_cup_l_ty": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.Le_cup_r_ty": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.Le_cap_l_ty": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.Le_cap_r_ty": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.Le_contra_l": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.Le_contra_r": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "categorical.DisCoCat.adjoint_unique_l": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    }
+  },
+  "summary": {
+    "probed": 98,
+    "vacuous": 0,
+    "trivial": 18,
+    "bailout": 0
+  }
+}

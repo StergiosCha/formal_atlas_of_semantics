@@ -1,0 +1,73 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/mtt_ranta/MTT_vs_Ranta.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "mtt_ranta.MTT_vs_Ranta.cn_agree": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.MTT_vs_Ranta.every_agree": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.MTT_vs_Ranta.no_agree_fwd": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT_vs_Ranta.no_agree_bwd": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.MTT_vs_Ranta.some_agree_fwd": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.MTT_vs_Ranta.some_agree_bwd_inhabited": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT_vs_Ranta.ranta_witness_sound": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT_vs_Ranta.inter_subset_fwd": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.MTT_vs_Ranta.inter_subset_bwd": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.MTT_vs_Ranta.inter_subset_some": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT_vs_Ranta.donkey_agree": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.MTT_vs_Ranta.mtt_donkey_strong_fwd": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT_vs_Ranta.mtt_donkey_strong_bwd": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT_vs_Ranta.sub_sentence_agree": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.MTT_vs_Ranta.ranta_some_mono": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    }
+  },
+  "summary": {
+    "probed": 15,
+    "vacuous": 0,
+    "trivial": 9,
+    "bailout": 0
+  }
+}

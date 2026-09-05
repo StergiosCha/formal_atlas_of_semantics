@@ -79,3 +79,4 @@ atlas/montague/PTQ.v
 atlas/montague/PTQ_vs_Lambek.v
 atlas/montague/PTQ_vs_MTT.v
 atlas/probabilistic/RSA.v
+atlas/categorical/DisCoCat.v

@@ -15,7 +15,7 @@ Check INT (ER woman).
 Check ER woman. 
 Check and(ER man)(ER woman).
 
-Definition MIN:= fun Q: (e->Prop)->Prop=> fun P: (e->Prop)=> In Q P/\ forall P':e->Prop, (strict_included P' P)->not(In Q P').
+Definition MIN:= fun Q: (e->Prop)->Prop=> fun P: (e->Prop)=> Ensembles.In _ Q P/\ forall P':e->Prop, (strict_included P' P)->not(Ensembles.In _ Q P').
 Definition a:= fun P: (e->Prop)->Prop=> fun Q:(e->Prop)->Prop=> exists X, P X /\ Q X.
 Parameter date: (e->Prop)->Prop.
 Definition dated:= fun P:e->Prop=>  date P.

@@ -131,6 +131,19 @@ Axiom class_comprehension : forall (P : Class -> Prop), Class.
 Axiom class_comprehension_spec : forall (P : Class -> Prop) (x : Class),
   In x (class_comprehension P) <-> P x.
 
+(* WARNING (finding): as stated, [class_comprehension_spec] is UNRESTRICTED
+   comprehension -- [x] ranges over all classes, not just sets -- so it is
+   inconsistent by Russell's paradox.  Genuine MK restricts comprehension to
+   set members: [In x (class_comprehension P) <-> exists s : MKSet, x = s /\ P s].
+   Everything proved in this module is therefore vacuous. *)
+Lemma class_comprehension_inconsistent : False.
+Proof.
+  set (R := class_comprehension (fun x => ~ In x x)).
+  destruct (class_comprehension_spec (fun x => ~ In x x) R) as [H1 H2].
+  assert (HnR : ~ In R R) by (intro H; exact (H1 H H)).
+  exact (HnR (H2 HnR)).
+Qed.
+
 (* This is more powerful! Now we can define filtered classes *)
 
 Definition InfoState2 := Class.  (* class of files *)

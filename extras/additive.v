@@ -196,3 +196,5 @@ Proof.
   - unfold can_move. auto.
 Qed.
 
+
+End AlternativeSemantics.

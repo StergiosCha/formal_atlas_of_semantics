@@ -227,6 +227,16 @@ Section EntailmentAsymmetry.
   (* If "John read a book" then "John was reading a book"           *)
   (* -------------------------------------------------------------- *)
   
+  (* Every complete event has a progressive (non-culminating) subevent.
+     This axiom is needed by the theorem below: without it the entailment
+     fails (take [culminates := fun _ _ => True], [subevent := fun _ _ => True]).
+     It was originally declared after the first version of the theorem, which
+     was therefore left admitted; it is now declared here so both versions
+     can be proved. *)
+  Axiom progressive_subevent :
+    forall e, exists e_prog,
+      subevent e_prog e /\ ~ culminates e_prog e /\ time_of e_prog = time_of e.
+
   Theorem perfective_entails_progressive :
     forall ι, simple_past ι -> progressive_past_reading ι.
   Proof.
@@ -234,21 +244,19 @@ Section EntailmentAsymmetry.
     unfold simple_past, PST in H.
     unfold progressive_past_reading.
     destruct H as [e_complete [Hvp Hpast]].
-    
-    (* If there was a completed reading, there must have been a progressive part *)
-    (* We can use the complete event itself as both the full and progressive event *)
-    exists e_complete, e_complete.
-    split; [exact Hvp | split; [apply subevent_refl | split]].
-    - (* We need an axiom that completed events have progressive subevents *)
-      admit. (* This would need: every complete event has a non-culminating subevent *)
-    - exact Hpast.
-  Admitted.
-  
+
+    (* If there was a completed reading, there must have been a progressive part.
+       Note: the complete event itself cannot in general serve as the
+       progressive event, since nothing rules out [culminates e e]; we use
+       the progressive subevent provided by [progressive_subevent]. *)
+    destruct (progressive_subevent e_complete) as [e_prog [Hsub [Hnotculm Htime_eq]]].
+    exists e_prog, e_complete.
+    split; [exact Hvp | split; [exact Hsub | split]].
+    - exact Hnotculm.
+    - rewrite Htime_eq. exact Hpast.
+  Qed.
+
   (* Better version with explicit progressive subevent *)
-  Axiom progressive_subevent : 
-    forall e, exists e_prog, 
-      subevent e_prog e /\ ~ culminates e_prog e /\ time_of e_prog = time_of e.
-  
   Theorem perfective_entails_progressive_v2 :
     forall ι, simple_past ι -> progressive_past_reading ι.
   Proof.
@@ -329,6 +337,15 @@ Section EntailmentAsymmetry.
       (* For simple past to be true, we'd need result_state e_reading *)
       (* But we have ~ result_state e_reading *)
       (* This proof needs more structure about what simple past requires *)
+      (* NOT PROVABLE as stated: [PST] only requires [lt (time_of e) speech_time],
+         and nothing constrains [time_of e_reading].  Countermodel: Event := unit,
+         Time := nat, lt := Peano.lt, time_of _ := 0, t_past := 0, t_speech := 1,
+         culminates := fun _ _ => False, result_state := fun _ => False,
+         subevent := fun _ _ => True -- every axiom and section hypothesis holds,
+         yet [simple_past (w0, t_speech)] is true.  To make it provable the theory
+         would need either a [result_state e] conjunct in [PST] (i.e. simple past
+         of a telic VP = PERF, as the comment above intends) or a hypothesis
+         [~ lt (time_of e_reading) t_speech]. *)
       admit.
     Admitted.
     

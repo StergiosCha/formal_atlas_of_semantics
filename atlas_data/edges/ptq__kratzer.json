@@ -1,0 +1,19 @@
+{
+ "a": "atlas__ptq",
+ "b": "shallow__kratzer2",
+ "a_file": "atlas/montague/PTQ.v",
+ "b_file": "shallow/kratzer2.v",
+ "level": "intra-family",
+ "bridge_file": "shallow/kratzer2.v",
+ "grading": "5 definitional / 4 equivalence / 3 one-way or mediated / 2 divergent / 1 after re-encoding / null one-sided",
+ "phenomena": [
+  {"name": "necessity-empty-background", "attempted_by": ["a", "b"], "grade": 4, "evidence": "kratzer2.v kratzer_equals_montague + empty_base_characterization: Kratzer's must over the empty conversational background coincides with the Montague/PTQ box (PTQ.v Part 6)", "note": "Montague's box is the degenerate case of Kratzer's relativized necessity"},
+  {"name": "modal-axioms-K-Nec", "attempted_by": ["a", "b"], "grade": 4, "evidence": "PTQ.v box_K/box_Nec; kratzer2.v kratzer_axiom_K / kratzer_necessitation"},
+  {"name": "duality-must-can", "attempted_by": ["a", "b"], "grade": 4, "evidence": "kratzer2.v kratzer_duality"},
+  {"name": "context-dependent-modality", "attempted_by": ["b"], "grade": null, "evidence": "kratzer2.v conversational backgrounds, legal/tribal examples, readings_are_different", "note": "THE Kratzer divergence: modality relativized to a conversational background — PTQ has one fixed box"},
+  {"name": "ordering-sources-graded-modality", "attempted_by": ["b"], "grade": null, "evidence": "kratzer2.v maximal_consistent_subset / kratzer_must_fixed (the 1981 layer, partial)"},
+  {"name": "intensionality-seek-find", "attempted_by": ["a"], "grade": null, "evidence": "PTQ.v Part 4"},
+  {"name": "quantification-gq", "attempted_by": ["a"], "grade": null, "evidence": "PTQ.v Parts 2-3, 5"}
+ ],
+ "notes": "Kratzer BUILDS on the Montagovian modal base: the degenerate-background theorem (proved in shallow/kratzer2.v) is the formal content of 'Kratzer generalizes Montague's box'; the divergence is the context parameter itself. Caveat: shallow/kratzer2.v predates the atlas discipline (uses Parameters for its examples); the cited core theorems should be re-audited when kratzer2 gets its own atlas file."
+}

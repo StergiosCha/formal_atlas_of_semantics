@@ -1,0 +1,20 @@
+{
+ "file": "atlas/montague/PTQ_vs_Lambek.v",
+ "region": "montague lineage",
+ "summary": "Lineage edge: the Curry-Howard reading of Lambek-calculus derivations computes the PTQ meanings on the shared fragment — john/every/some sentences and type raising agree by rewrite+reflexivity against Lambek.v's fragment theorems; type raising np |- s/(np\\s) denotes Montague's star literally.",
+ "sources": [
+  {"citation": "Montague 1973 (via atlas/montague/PTQ.v); Moot & Retore 2012 ch. 3, Lambek 1958 (via atlas/type_logical/Lambek.v).", "path": "papers/type_logical/Moot_Retore_2012_LogicOfCategorialGrammars.pdf", "available": "full"}
+ ],
+ "definitions_mapped": [],
+ "theorems": [
+  {"name": "lambek_computes_ptq_john / _every / _some / lambek_typeraise_is_star", "status": "proved", "source_claim": "the categorial route computes the Montague meanings (M&R ch. 3's point, made cross-file)", "note": "all rewrite+reflexivity; grades in edges/ptq__lambek.json"}
+ ],
+ "counts": {"theorems": 4, "proved": 4, "admitted": 0, "propositional_axioms": 0},
+ "faithfulness": {"verdict": "faithful", "evidence": ["All four theorems close under the global context and are definitional after Lambek.v's fragment equations."], "simplifications": [], "omissions": ["scope ambiguity not yet bridged (one derivation per reading on the Lambek side)"], "additions": []},
+ "determination": "as_is",
+ "determination_rationale": "Pure bridge; no new encoding.",
+ "artifact_classes": [{"class": "iv", "description": "zero axioms"}],
+ "source_gap": null,
+ "notes": "Edge record: edges/ptq__lambek.json.",
+ "compiles": true
+}

@@ -1,0 +1,94 @@
+{
+ "file": "ttr_mtt/Book_veridical.v",
+ "region": "ttr pilots",
+ "summary": "Veridical sentence adverbs in MTT-semantics after Chatzikyriakidis & Luo (2020) §4.5.1/§6.3.1/Appendix A7.7: VER_PROP(Q) := forall P:Prop, P -> Q (the book's (4.50)), fortunately := VER_PROP, and three Qed theorems — the worked example 'Fortunately, John walks ⇒ John walks' (VER1), veridicality VER_PROP(Q) ⇒ Q for all Q (VER3 = book (4.51), via the impredicative self-instantiation trick), and minimality (P⇒Q) ⇒ (P ⇒ VER_PROP(Q)) (VER4 = book (4.52)). 17 lines; loads Coq_book_ontology for Human/John. The VP-adverb half of the source account (VER_VP (4.53), quickly, VER2) is not transcribed.",
+ "sources": [
+  {
+   "citation": "Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. Wiley/ISTE. §4.5.1 (defs 4.50-4.53, claims 4.51-4.52), §6.3.1, Appendix A7.7.",
+   "path": "papers/foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf",
+   "available": "full"
+  },
+  {
+   "citation": "Chatzikyriakidis, S. & Luo, Z. (2014). Natural Language Inference in Coq. J. of Logic, Language and Information 23 (background: veridical adverbs for FraCaS).",
+   "path": "papers/foundations/Chatzikyriakidis_Luo_2014_NLI_in_Coq.pdf",
+   "available": "full"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "VER_PROP (Q: Prop) := forall P: Prop, P -> Q",
+   "source": "book (4.50): VER_Prop(Q) = forall P:Prop. (P => Q)",
+   "match": "exact",
+   "note": "verbatim the book's own Coq line (§6.3.1 and A7.7)"
+  },
+  {
+   "coq": "fortunately := VER_PROP",
+   "source": "book §6.3.1/A7.7 lexical entry for 'fortunately'",
+   "match": "exact"
+  },
+  {
+   "coq": "Parameter walk : Human -> Prop (+ Load Coq_book_ontology: CN := Set, Parameters for CNs, Coercion-encoded subtyping, John : Man)",
+   "source": "the book's appendix ontology: CNs as types in a CN universe, coercive subtyping, verbs as predicates",
+   "match": "exact",
+   "note": "signature-only declarations; identical to the book's own appendix conventions (A7.7 declares the same Parameter walk)"
+  },
+  {
+   "coq": "(none)",
+   "source": "VER_VP(A,Q,x) = forall P: A -> Prop, P(x) -> Q(x) (book (4.53)), quickly := VER_VP, and theorem VER2 'quickly walk John -> walk John' — the VP-veridical half of A7.7",
+   "match": "missing",
+   "note": "the book presents sentence and VP veridicality as one account; only the sentence half is transcribed here"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "VER1",
+   "status": "proved",
+   "source_claim": "book §6.3.1 worked example (instance of (4.9)): 'Fortunately, John walks' entails 'John walks' — proof script verbatim from the book, including the impredicative apply H with (fortunately (walk John))"
+  },
+  {
+   "name": "VER3",
+   "status": "proved",
+   "source_claim": "book (4.51): VER_PROP(Q) => Q for any Q : Prop (veridicality)",
+   "note": "the book's appendix prints the misprint 'VER_PRO Q' in this proof; the file silently corrects it"
+  },
+  {
+   "name": "VER4",
+   "status": "proved",
+   "source_claim": "book (4.52): (P => Q) => (P => VER_PROP(Q)) — VER_PROP(Q) is the weakest proposition implying Q"
+  }
+ ],
+ "counts": {
+  "theorems": 3,
+  "proved": 3,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "Definition VER_PROP and all three theorems are character-for-character the book's own published Coq code (checked against the PDF: §6.3.1 p. 146 and Appendix A7.7), so the covered fragment is exact by construction.",
+   "All 3 theorems end in Qed; the only declaration is the signature Parameter walk : Human -> Prop (plus the loaded ontology's signature Parameters/coercions), so per rubric §3a the results carry zero propositional axioms.",
+   "The VP-veridicality half of the same source account — VER_VP (4.53), quickly, and theorem VER2 — is present in the book's A7.7 but absent from this file, so one of the source's demonstrated veridicality claims is missing (hence partial rather than faithful)."
+  ],
+  "simplifications": [],
+  "omissions": [
+   "VER_VP (book (4.53)), the lexical entry quickly, and theorem VER2 ('John walks quickly ⇒ John walks') from Appendix A7.7",
+   "non-veridical adverbs, which §6.3.1 names as the other side of the distinction being formalized"
+  ],
+  "additions": []
+ },
+ "determination": "as_is",
+ "determination_rationale": "The account is native to the substrate: the book ships this exact Coq code, and every covered definition is exact with all covered claims proved axiom-free in impredicative Prop (VER_PROP(Q) ⇒ Q needs only the self-instantiation P := VER_PROP(Q)). The file's partiality is an omission of transcription, not a resistance finding — the missing VP case is the same impredicative construction, proved in the source's own appendix by the same two-line script — so no §4 row-3 clause (changed definition, re-founding) applies. Artifacts are at most class (iv) (Coq's Coercion mechanism and CN := Set standing in for the book's coercive subtyping and CN universe — the source's own encoding moves).",
+ "artifact_classes": [
+  {
+   "class": "iv",
+   "description": "Inherited from Coq_book_ontology: Coq's Coercion mechanism emulates MTT coercive subtyping (only Man >-> Human is exercised here, for John) and CN := Set stands in for the CN universe; both are the book's own appendix encodings. The veridicality fragment itself uses only impredicative Prop, which Coq has natively — no artifact."
+  }
+ ],
+ "source_gap": {
+  "kind": "misprint",
+  "detail": "Appendix A7.7 of the book prints 'apply H with (VER_PRO Q)' (missing P) in the proof of VER3; the file has the corrected 'VER_PROP Q'. Cosmetic; the surrounding displayed statement (4.51) is unambiguous."
+ },
+ "notes": "Record produced by the batch audit sweep of 2026-09-05; the file predates the atlas zero-axiom discipline (uses Parameter walk and Loads Coq_book_ontology's Parameter/Axiom signatures, all signature-only) and uses legacy Load rather than Require.",
+ "compiles": true
+}

@@ -1,0 +1,225 @@
+{
+  "file": "extras/kratzer_deep.v",
+  "region": "model-theoretic (modality, deep)",
+  "summary": "Self-contained 257-line file. It builds a throwaway simply-typed intensional-logic GADT (types e, t, arrow, s; de Bruijn variables, lambda/app, the four connectives, quantifiers, Montague's up/down, an S5-style nec_) and then bolts three modal constructors onto it: box_R_ carrying a meta-level Coq relation Index -> Index -> Prop, and kratzer_must_ / kratzer_can_ carrying a meta-level ConversationalBackground := World -> list (Index -> Prop). A convoy-pattern evaluator gives kratzer_must_ the clause 'for all j, (every q in f(world_of i) holds at j) -> phi at j' and kratzer_can_ the dual existential. This is exactly Kratzer 1977 Definitions 5-6 (= Kratzer 2012 ch.1 sec.1.2 Definitions 5-6, p.11): must = 'p follows logically from f(w)', can = 'p is compatible with f(w)', with premise sets as finite lists. Six theorems, all Qed: the headline 'Kratzer-Montague equivalence' (must = Kripke box over the relation j in intersection f(w)) is proved by reflexivity because the two constructors were given syntactically identical eval clauses; nec_ = box over the total relation; must/can duality (needs excluded middle); axiom K; upward monotonicity; and Montague's down-up cancellation. Nothing beyond the paper's preliminary definitions is encoded: Definition 3 (consistency), Definitions 7-8 (the consistent-subset semantics that is the paper's actual contribution), the ex-falso/New Zealand argument, the Te Miti/Te Kini premise-individuation point, and all of the 1981 ordering-source machinery are absent. The IL has no constant constructor, so no atomic sentence (Kratzer's or Montague's) can be written in it, and no theorem uses any IL constructor other than not_/imp_/up/down; the deep embedding is inert.",
+  "sources": [
+    {
+      "citation": "Kratzer, A. (2012). Modals and Conditionals: New and Revised Perspectives. OUP. Ch.1 'What Must and Can Must and Can Mean' (revised Kratzer 1977), secs 1.1-1.4, pp.4-20; ch.2 'The Notional Category of Modality' (revised 1981), sec.2.3 'Basic notions' p.31.",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Kratzer_2012_ModalsAndConditionals.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Kratzer, A. (1977). What 'must' and 'can' must and can mean. Linguistics and Philosophy 1(3): 337-355. Definitions 1-4 p.344, Definition 5 p.346, Definition 6 p.347, sec.2.1 pp.347-349, Definitions 7-8 pp.351-352.",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Kratzer_1977_MustCan.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Dowty, Wall & Peters (1981). Introduction to Montague Semantics, ch.6 (the intensional logic of PTQ: types, up/down, the operator box, down-up cancellation). Secondary source for the non-Kratzer parts of the file (ILType, Den, up/down, nec_).",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Dowty_Wall_Peters_1981_IntroductionToMontagueSemantics.pdf",
+      "available": "full"
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "t := Index -> Prop (line 27), with Parameters World, Index, world_of : Index -> World (lines 23-25)",
+      "source": "Proposition = subset of W; 'A proposition is a set of possible worlds' (1977 Def.1 p.344; 2012 Def.1 p.10)",
+      "match": "changed",
+      "note": "Propositions are predicates over an abstract Index rather than sets of worlds. Kratzer's f is indexed by w and her propositions are subsets of the same W; here the premise set is selected by world_of i but its members are evaluated at indices j, so the two quantification domains are different types. Coincides with Kratzer under Index := World, world_of := id, but nothing in the file forces that."
+    },
+    {
+      "coq": "ModalBase := list t (line 29)",
+      "source": "Premise set A in P(P(W)) (1977 p.344; 2012 p.10 'a set of propositions')",
+      "match": "simplified",
+      "note": "Finite list in place of an arbitrary set of propositions. Kratzer 2012 fn.6 p.12 explicitly notes that her definitions 'do not assume compactness for premise sets'; the list encoding assumes finiteness outright. Harmless for Definitions 5-6 but would matter for Definitions 7-8."
+    },
+    {
+      "coq": "ConversationalBackground := World -> ModalBase (line 30)",
+      "source": "f : W -> P(P(W)), the meaning of a free relative such as 'what is known' (1977 p.345; 2012 p.11)",
+      "match": "simplified",
+      "note": "Exact apart from inheriting the finite-list restriction on the codomain."
+    },
+    {
+      "coq": "kratzer_accessibility f i j := forall q, In q (f (world_of i)) -> q j (lines 32-34)",
+      "source": "j in intersection f(w); Kratzer ch.2: 'the modal base determines the set of accessible worlds' (2012 sec.2.6, cf. sec.2.4 pp.39-40). Not defined anywhere in ch.1/1977.",
+      "match": "added",
+      "note": "The standard reduction of simple f-necessity to a Kripke relation. Kratzer 1977 never names an accessibility relation; the construct is the file's own bridge to box_R_."
+    },
+    {
+      "coq": "ILType (ty_e, ty_t, ty_arrow, ty_s) and Den (lines 40-52)",
+      "source": "Montague IL types e, t, <a,b>, <s,a> and their denotation domains (DWP 1981 ch.6). Not in Kratzer.",
+      "match": "added",
+      "note": "Den ty_t = Prop and Den (ty_s a) = Index -> Den a; Index carries no world/time structure (contrast kratzer_deep2.v, whose Index is World * Time)."
+    },
+    {
+      "coq": "IL : Ctx -> ILType -> Type (lines 60-80): var_z, var_s, lam, app, not_, and_, or_, imp_, forall_, exists_, up, down, nec_",
+      "source": "Montague IL syntax (PTQ; DWP ch.6). Kratzer 1977 has no object language at all: 'must in view of' is analysed directly as a function on pairs <f,p> (1977 p.345-346; 2012 p.11).",
+      "match": "added",
+      "note": "No constant constructor, so no atomic formula of any kind is expressible; every closed term of type ty_t is built from connectives over quantified variables. No theorem uses lam, app, forall_, exists_, and_, or_, var_z or var_s."
+    },
+    {
+      "coq": "kratzer_must_ : forall G, ConversationalBackground -> IL G ty_t -> IL G ty_t (lines 76-77)",
+      "source": "'must in view of' as a two-place relational modal taking the modal restriction (an individual concept f) and the modal scope p (1977 picture 1 p.345, Def.5(i) p.346; 2012 figure 1 and Def.5(i) p.11)",
+      "match": "simplified",
+      "note": "The first argument f is a meta-level Coq value fixed inside the constructor, not an object-language expression; the modal restriction ('what is known') has no IL type or syntactic category. Faithful to the semantic Definition 5, unfaithful to the syntactic picture 1 / figure 1."
+    },
+    {
+      "coq": "kratzer_can_ (lines 78-79)",
+      "source": "'can in view of' (1977 Def.6 p.347; 2012 Def.6 p.11)",
+      "match": "simplified",
+      "note": "Same remark as kratzer_must_."
+    },
+    {
+      "coq": "box_R_ : (Index -> Index -> Prop) -> IL G ty_t -> IL G ty_t (lines 74-75), eval clause 'forall j, R i j -> phi at j' (lines 146-147)",
+      "source": "Kripke box over an arbitrary accessibility relation. Not in Kratzer.",
+      "match": "added",
+      "note": "Carries an arbitrary Coq relation as a constructor parameter; exists only so that deep_kratzer_equals_montague has a right-hand side."
+    },
+    {
+      "coq": "eval clause for kratzer_must_ (lines 149-152): forall j, (forall q, In q (f (world_of i)) -> q j) -> eval phi env j",
+      "source": "Def.5(ii) 'p follows (logically) from f(w)' (1977 p.346; 2012 p.11: n(p,f) = {w : intersection f(w) subseteq p}), unfolded through Def.2 'no possible world where all members of A are true but p is false' (1977 p.344; 2012 p.10)",
+      "match": "exact",
+      "note": "Exact modulo the list encoding and the Index/World split noted above."
+    },
+    {
+      "coq": "eval clause for kratzer_can_ (lines 154-157): exists j, (forall q, In q (f (world_of i)) -> q j) /\\ eval phi env j",
+      "source": "Def.6(ii) 'p is (logically) compatible with f(w)' (1977 p.347; 2012 p.11: {w : intersection (f(w) union {p}) nonempty}), unfolded through Def.3-4 (1977 p.344; 2012 p.10)",
+      "match": "exact",
+      "note": "Exact modulo the same two caveats."
+    },
+    {
+      "coq": "eval clause for nec_ (lines 143-144): forall i', eval phi env i'",
+      "source": "Montague's box: truth at every index (PTQ; DWP ch.6 'The operators box and diamond'). Not in Kratzer.",
+      "match": "added",
+      "note": "S5 / total relation. Kratzer's notion of necessity is always relative to f; there is no absolute box in either paper."
+    },
+    {
+      "coq": "up / down (lines 71-72; eval lines 137-141)",
+      "source": "Montague's cap and check (intension/extension) operators (DWP ch.6).",
+      "match": "added"
+    },
+    {
+      "coq": "Env, env_head, env_tail, env_cons (lines 86-94); ILClosed, eval_closed (lines 164-167)",
+      "source": "none (evaluator infrastructure)",
+      "match": "added",
+      "note": "eval_closed is defined and never used; every theorem is stated for open terms with an arbitrary env."
+    },
+    {
+      "coq": "(none)",
+      "source": "Def.3 'a set of propositions is consistent iff there is a world where all its members are true' (1977 p.344; 2012 p.10)",
+      "match": "missing",
+      "note": "Consistency is only ever used implicitly inside the exists of kratzer_can_; it is not a named notion, so the ex-falso argument of sec.2.1 / 1.3 cannot even be stated."
+    },
+    {
+      "coq": "(none)",
+      "source": "Def.7 (1977 p.351; 2012 p.15): must = for every consistent subset X of f(w) there is a consistent superset in X from which p follows; Def.8 (1977 p.352; 2012 p.16): can = some consistent subset all of whose consistent supersets are compatible with p",
+      "match": "missing",
+      "note": "These are the paper's actual proposal ('the second part' announced in the 1977 abstract p.337). shallow/kratzer2.v sketches Def.7 as kratzer_must_fixed; this file has nothing."
+    },
+    {
+      "coq": "(none)",
+      "source": "1977 sec.2.1 pp.347-349 / 2012 sec.1.3 pp.12-14: the New Zealand judgments scenario showing Def.5-6 make both (6) 'murder must be a crime' and (7) 'it must be that murder is not a crime' true; 1977 sec.2.3 / 2012 sec.1.4: Te Miti's 'striding and flying' as one premise vs two",
+      "match": "missing",
+      "note": "No example, no premise set, no atomic proposition appears in the file."
+    },
+    {
+      "coq": "(none)",
+      "source": "2012 ch.2 (1981): modal base + ordering source, graded and comparative possibility, 'simple f-necessity' (sec.2.3 p.31), Necessity/Possibility relative to <f,g> (sec.2.4 p.39ff)",
+      "match": "missing",
+      "note": "Only the 'simple f-necessity / f-possibility' of sec.2.3 p.31, which is identical to Def.5-6, is covered."
+    }
+  ],
+  "theorems": [
+    {
+      "name": "deep_kratzer_equals_montague",
+      "status": "proved",
+      "source_claim": "Not stated in Kratzer 1977. Folklore: simple f-necessity (2012 sec.2.3 p.31) is the Kripke box over the accessibility relation j in intersection f(w) ('the modal base determines the set of accessible worlds', 2012 sec.2.6).",
+      "note": "Lines 173-183. Proof is simpl; unfold kratzer_accessibility; reflexivity: the eval clauses for box_R_ (146-147) and kratzer_must_ (149-152) are the same term once kratzer_accessibility is unfolded. The theorem would hold verbatim for any relation the author chose to write into line 34; it checks the encoding's self-consistency, not a claim of the source."
+    },
+    {
+      "name": "nec_equiv_box_total",
+      "status": "proved",
+      "source_claim": "Montague's box is the box over the total relation (S5) (DWP ch.6). Not a Kratzer claim.",
+      "note": "Lines 189-197. The PART 7 header reads 'S5 is not definitionally a special case', but no theorem in the file relates nec_ to kratzer_must_ at all (the informative statement, kratzer_must with empty base ranges over all indices, is proved in shallow/kratzer2.v empty_base_characterization and deep/kratzer_deep2.v kratzer_must_total_implies_nec, not here)."
+    },
+    {
+      "name": "deep_kratzer_duality",
+      "status": "proved",
+      "source_claim": "Kratzer 2012 fn.6 p.12: 'On the analysis proposed here, must and can are duals.'",
+      "note": "Lines 203-218. Depends on Classical_Prop.classic (Print Assumptions confirms; the only theorem that does). The footnote asserts duality for the Definition 7-8 analysis of sec.1.3, which is the non-trivial case; the file proves it only for Definitions 5-6, where it is the ordinary consequence/compatibility duality. Kratzer 1977 itself contains no duality statement."
+    },
+    {
+      "name": "deep_kratzer_axiom_K",
+      "status": "proved",
+      "source_claim": "new (distribution axiom K of normal modal logic; not claimed in either source)",
+      "note": "Lines 224-234. Proved via imp_ so that the antecedent is an IL term; otherwise identical to shallow/kratzer2.v kratzer_axiom_K."
+    },
+    {
+      "name": "deep_kratzer_monotonic",
+      "status": "proved",
+      "source_claim": "new (closure of 'follows from f(w)' under semantic entailment; implicit in Def.2 but never stated)",
+      "note": "Lines 236-246. Entailment hypothesis is a Coq-level forall over indices, not an IL term."
+    },
+    {
+      "name": "up_down_identity",
+      "status": "proved",
+      "source_claim": "Montague's down-up cancellation, check-cap alpha = alpha (DWP 1981 ch.6). Not a Kratzer claim.",
+      "note": "Lines 252-257. Holds by reflexivity from the eval clauses at 137-141."
+    }
+  ],
+  "counts": {
+    "theorems": 6,
+    "proved": 6,
+    "admitted": 0,
+    "propositional_axioms": 0
+  },
+  "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+      "kratzer_must_ eval clause (Coq 149-152) matches Def.5(ii) 'p follows (logically) from f(w)' (1977 p.346; 2012 p.11 'intersection f(w) subseteq p') read through Def.2 (1977 p.344; 2012 p.10), modulo ModalBase := list t (Coq 29) and t := Index -> Prop (Coq 27).",
+      "kratzer_can_ eval clause (Coq 154-157) matches Def.6(ii) 'p is (logically) compatible with f(w)' (1977 p.347; 2012 p.11) read through Def.3-4 (1977 p.344; 2012 p.10), same caveats.",
+      "ConversationalBackground (Coq 30) matches f : W -> P(P(W)) (1977 p.345; 2012 p.11) except that premise sets are finite lists; 2012 fn.6 p.12 states the definitions 'do not assume compactness for premise sets', so finiteness is an added restriction.",
+      "Kratzer's 'must in view of' is a two-argument relational modal whose first argument is a free relative denoting f (1977 picture 1 p.345; 2012 figure 1 p.11); in Coq f is a constructor parameter (Coq 76-79), so the modal restriction is not object-language.",
+      "deep_kratzer_duality (Coq 203-218) verifies 2012 fn.6 p.12 'must and can are duals' only for Definitions 5-6, not for the Definitions 7-8 the footnote is about.",
+      "deep_kratzer_equals_montague (Coq 173-183) is a reflexivity proof over two identical eval clauses (Coq 146-147 vs 149-152); it verifies no source claim.",
+      "Definitions 3, 7 and 8 (1977 pp.344, 351-352; 2012 pp.10, 15-16), the whole of sec.2 of 1977 / secs 1.3-1.4 of 2012, and all of ch.2 (1981) are absent; the paper's announced contribution ('in stepwise fashion, I make an attempt to avoid most of the consequences of this paradox', 1977 abstract p.337) is not formalized.",
+      "No example premise set and no atomic sentence occurs anywhere (the IL at Coq 60-80 has no constant constructor); none of sentences (2)-(17) of 1977 or the New Zealand / Whare Wananga scenarios are representable.",
+      "Compiles under coqc 8.20.1 (exit 0); 6 Theorems, 6 Qed, 0 Admitted, 0 Axiom; Parameters Entity, World, Index, world_of (Coq 22-25); Print Assumptions shows Classical_Prop.classic used only by deep_kratzer_duality."
+    ],
+    "additions": [
+      "kratzer_accessibility (Coq 32-34) and box_R_ (Coq 74-75, 146-147): an explicit Kripke relation and box, which Kratzer 1977 never defines",
+      "A Montague-style deep IL (Coq 40-158) with nec_, up, down: entirely from PTQ/DWP, not from Kratzer",
+      "Axiom K and monotonicity theorems (Coq 224-246): standard normal-modal-logic facts, not source claims",
+      "up_down_identity (Coq 252-257): Montague's down-up cancellation"
+    ],
+    "omissions": [
+      "Def.3 consistency as a named notion (1977 p.344; 2012 p.10)",
+      "Def.7 must over consistent subsets (1977 p.351; 2012 p.15) and Def.8 can over consistent subsets (1977 p.352; 2012 p.16)",
+      "The ex falso quodlibet argument and the New Zealand judgments scenario (1977 sec.2.1 pp.347-349; 2012 sec.1.3 pp.12-14)",
+      "Structuring premise sets / Te Miti and Te Kini, 'p and q' as one premise vs two (1977 sec.2.3 pp.352-355; 2012 sec.1.4 pp.16-20)",
+      "Ch.2 (1981): modal base vs ordering source, graded possibility, human necessity (2012 secs 2.4-2.8)",
+      "Any example premise set, conversational background or modalized sentence",
+      "The syntactic analysis of picture 1 / figure 1 (modal restriction as an object-language argument)"
+    ],
+    "simplifications": [
+      "Premise sets are finite lists (list t) rather than arbitrary sets of propositions",
+      "Propositions are Index -> Prop with an abstract Index and world_of : Index -> World, rather than subsets of W; the premise set is chosen by world but evaluated at indices",
+      "The conversational background f is a meta-level Coq parameter of the constructor rather than an object-language argument"
+    ]
+  },
+  "determination": "as_is",
+  "determination_rationale": "What this file actually evidences is that Kratzer's preliminary Definitions 5-6 (must = consequence from f(w), can = compatibility with f(w)) drop into Coq without any restructuring: each is a single universal or existential over an index guarded by membership in f(w), and every property proved about them (Kripke reduction, duality, K, monotonicity) is a one-line unfolding, with duality needing only the excluded middle that Kratzer's classical set-theoretic setting already assumes. The two departures (finite lists for premise sets, meta-level f) are encoding conveniences, not forced by Coq: `t -> Prop` sets and an IL type for modal restrictions would both work. The file gives no evidence either way about Definitions 7-8, which quantify over the set X of all consistent subsets of f(w) and its superset order; those are Prop-level quantifications over subsets and are expected to formalize with at most slight modification (shallow/kratzer2.v's kratzer_must_fixed is a partial attempt), but that cannot be read off this file. Determination is therefore scoped to the part of the theory encoded.",
+  "artifact_classes": [
+    {
+      "class": "iv",
+      "description": "Missing native set structure: Kratzer's premise sets are arbitrary elements of P(P(W)) (2012 p.11) and she explicitly declines to assume compactness (2012 fn.6 p.12); the file encodes them as `list t` with membership via `In` (Coq 29, 34, 151, 156), so infinite premise sets are unrepresentable and 'intersection f(w)' becomes a finite conjunction. Harmless for the six theorems but would block a faithful Definition 7-8 (quantification over all consistent subsets)."
+    },
+    {
+      "class": "v",
+      "description": "Decidability / classicality gap: Den ty_t = Prop (Coq 49), so the direction 'not can not-phi implies must phi' of deep_kratzer_duality needs `classic (eval phi env j)` (Coq 214) and the theorem depends on the axiom Classical_Prop.classic (confirmed by Print Assumptions). Kratzer's propositions are sets of worlds with classical membership, so this is a metatheory mismatch closed by importing Classical, not a defect in the source."
+    }
+  ],
+  "duplicate_of": "deep/kratzer_deep2.v",
+  "duplicate_note": "Duplicate group [extras/kratzer_1977.v, shallow/kratzer2.v, extras/kratzer_deep.v, deep/kratzer_deep2.v]; kratzer_1977.v is a strict prefix of kratzer2.v. All four files encode the same content: Kratzer 1977 Definitions 5-6 as list-based consequence/compatibility, plus the Kripke reduction, classical duality, K and monotonicity, with essentially identical proof scripts (compare deep_kratzer_duality Coq 209-217 with kratzer2.v 69-77 and kratzer_deep2.v 116-124). kratzer_deep.v's one distinctive feature is that must/can/box are genuine IL constructors on a self-contained toy IL, whereas kratzer_deep2.v defines them as Coq functions over denotations of PTQ_deep2's real IL. That feature buys nothing here: no theorem inducts over IL, no substitution or context lemma is proved, and the toy IL has no constants, so the 'deep' operators are never applied to a sentence. kratzer_deep2.v is the better of the two deep files: 13 theorems vs 6, an IL with constants (il_every_man_walks_c, il_bill_walks_c) so Kratzer's must is actually applied to sentences, S5 axioms for nec_, and the informative relation between an empty modal base and nec_ (kratzer_must_total_implies_nec) where kratzer_deep.v only restates nec_ as a total-relation box. shallow/kratzer2.v is the best file in the group for Kratzer content (Def.3 consistent, a maximal-consistent-subset sketch of Def.7, the striding-and-flying premise-individuation point, example backgrounds, an ordering-source sketch). Recommend retiring kratzer_deep.v or reducing it to a note that operator-as-constructor vs operator-as-function makes no difference for these theorems.",
+  "source_gap": "None for the primary source: Kratzer 2012 (full book) and Kratzer 1977 (full article, scanned with usable OCR; Greek letters and set symbols are garbled in the text layer but Definitions 1-8 are legible) are both on disk. The Montague side of the file (ILType, up/down, nec_, up_down_identity) is not Kratzer at all; it is sourced here to Dowty, Wall & Peters 1981 ch.6, which is on disk as an image-only PDF with an OCR .txt sidecar. Montague 1973 PTQ itself is listed in the manifest as living outside the papers/ tree (../montague73.pdf) and was not consulted.",
+  "notes": "Compiled with `coqc -R shallow \"\" -R deep \"\" -R extras \"\" -R ttr_mtt \"\" -R atlas \"\" extras/kratzer_deep.v` from the repo root: exit 0, no warnings. Inventory by grep: 6 `Theorem`, 6 `Qed`, 0 `Admitted`, 0 `Axiom`, 4 `Parameter` (three Types and world_of). Print Assumptions on all six theorems: only deep_kratzer_duality uses Classical_Prop.classic; the others depend only on the four Parameters. The convoy-pattern evaluator with @-prefixed constructor patterns (Coq 104-158) is a Coq dependent-pattern-matching idiom, not a source-driven design choice. Two labelling problems worth flagging for the atlas: (1) the PART 7 header 'S5 IS NOT DEFINITIONALLY A SPECIAL CASE' is not backed by any theorem relating nec_ to kratzer_must_; (2) the file's title 'Kratzer-Montague equivalence' names a theorem whose proof is `reflexivity` over two constructors the author gave the same semantics. eval_closed (Coq 166) is dead code. The file could be shortened to lines 22-34 plus the two semantic clauses without losing any proved fact."
+}

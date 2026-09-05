@@ -1,0 +1,3965 @@
+[
+ {
+  "id": 1,
+  "n": 1,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Foundational Logic & Semantics",
+  "citation": "Tarski, A. (1944) - \"The Semantic Conception of Truth\"",
+  "survey_determination": "as_is",
+  "description": "Complete model-theoretic framework for truth conditions",
+  "fields": {
+   "formalization": "Direct first-order logic implementation",
+   "key_insight": "Compositional truth definitions"
+  },
+  "coq_files": [],
+  "year": 1944,
+  "authors": "Tarski, A.",
+  "title": "The Semantic Conception of Truth"
+ },
+ {
+  "id": 2,
+  "n": 2,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Foundational Logic & Semantics",
+  "citation": "Church, A. (1940) - \"A Formulation of the Simple Theory of Types\"",
+  "survey_determination": "as_is",
+  "description": "Complete type-theoretic foundation",
+  "fields": {
+   "formalization": "Lambda calculus with types, direct Coq implementation",
+   "key_insight": "Type discipline for avoiding paradoxes"
+  },
+  "coq_files": [],
+  "year": 1940,
+  "authors": "Church, A.",
+  "title": "A Formulation of the Simple Theory of Types"
+ },
+ {
+  "id": 3,
+  "n": 3,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Foundational Logic & Semantics",
+  "citation": "Montague, R. (1973) - \"The Proper Treatment of Quantification in Ordinary English\" (PTQ)",
+  "survey_determination": "as_is",
+  "description": "Full higher-order intensional logic system",
+  "fields": {
+   "formalization": "Complete type-theoretic framework with world-time indices",
+   "key_insight": "Natural language as formal language"
+  },
+  "coq_files": [
+   "shallow/PTQ.v",
+   "shallow/MontagueFragment.v",
+   "deep/PTQ_deep2.v",
+   "deep/theorems_deep_PTQ.v",
+   "extras/theorems_PTQ.v",
+   "extras/Montague.v"
+  ],
+  "year": 1973,
+  "authors": "Montague, R.",
+  "title": "The Proper Treatment of Quantification in Ordinary English"
+ },
+ {
+  "id": 4,
+  "n": 4,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Foundational Logic & Semantics",
+  "citation": "Davidson, D. (1967) - \"The Logical Form of Action Sentences\"",
+  "survey_determination": "as_is",
+  "description": "Event-based first-order logic",
+  "fields": {
+   "formalization": "Direct existential quantification over events",
+   "key_insight": "Event arguments for adverbial modification"
+  },
+  "coq_files": [],
+  "year": 1967,
+  "authors": "Davidson, D.",
+  "title": "The Logical Form of Action Sentences"
+ },
+ {
+  "id": 5,
+  "n": 5,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Foundational Logic & Semantics",
+  "citation": "Lewis, D. (1970) - \"General Semantics\"",
+  "survey_determination": "as_is",
+  "description": "Possible worlds modal logic",
+  "fields": {
+   "formalization": "Kripke-style accessibility relations",
+   "key_insight": "Possible worlds as truth-condition parameters"
+  },
+  "coq_files": [],
+  "year": 1970,
+  "authors": "Lewis, D.",
+  "title": "General Semantics"
+ },
+ {
+  "id": 6,
+  "n": 6,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Dynamic Semantics Foundations",
+  "citation": "Kamp, H. (1981) - \"A Theory of Truth and Semantic Representation\" (DRT)",
+  "survey_determination": "as_is",
+  "description": "Algorithmic DRS construction rules",
+  "fields": {
+   "formalization": "Complete construction algorithm + model theory",
+   "key_insight": "Discourse referents and dynamic binding"
+  },
+  "coq_files": [
+   "extras/DonkeyScope.v",
+   "atlas/dynamic/DRT_DPL.v"
+  ],
+  "year": 1981,
+  "authors": "Kamp, H.",
+  "title": "A Theory of Truth and Semantic Representation"
+ },
+ {
+  "id": 7,
+  "n": 7,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Dynamic Semantics Foundations",
+  "citation": "Heim, I. (1982) - \"The Semantics of Definite and Indefinite Noun Phrases\"",
+  "survey_determination": "as_is",
+  "description": "File Change Semantics with context update functions",
+  "fields": {
+   "formalization": "Context update operators, direct functional implementation",
+   "key_insight": "Context change potential for indefinites"
+  },
+  "coq_files": [
+   "extras/FCS.v",
+   "extras/FCS2.v",
+   "extras/DonkeyScope.v"
+  ],
+  "year": 1982,
+  "authors": "Heim, I.",
+  "title": "The Semantics of Definite and Indefinite Noun Phrases"
+ },
+ {
+  "id": 8,
+  "n": 8,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Dynamic Semantics Foundations",
+  "citation": "Groenendijk, J. & Stokhof, M. (1991) - \"Dynamic Predicate Logic\"",
+  "survey_determination": "as_is",
+  "description": "Complete logical calculus for dynamic semantics",
+  "fields": {
+   "formalization": "Full proof system with dynamic quantification",
+   "key_insight": "Information growth through dynamic quantification"
+  },
+  "coq_files": [
+   "atlas/dynamic/DPL.v",
+   "extras/DonkeyScope.v"
+  ],
+  "year": 1991,
+  "authors": "Groenendijk, J. & Stokhof, M.",
+  "title": "Dynamic Predicate Logic"
+ },
+ {
+  "id": 9,
+  "n": 9,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Dynamic Semantics Foundations",
+  "citation": "Muskens, R. (1996) - \"Combining Montague Semantics and Discourse Representation\"",
+  "survey_determination": "as_is",
+  "description": "Compositional DRT in type theory",
+  "fields": {
+   "formalization": "Type-theoretic dynamic semantics",
+   "key_insight": "Compositional treatment of dynamic phenomena"
+  },
+  "coq_files": [
+   "atlas/dynamic/DRT_DPL.v"
+  ],
+  "year": 1996,
+  "authors": "Muskens, R.",
+  "title": "Combining Montague Semantics and Discourse Representation"
+ },
+ {
+  "id": 10,
+  "n": 10,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Dynamic Semantics Foundations",
+  "citation": "Dekker, P. (1993) - \"Transsentential Meditations\"",
+  "survey_determination": "as_is",
+  "description": "Predicate logic for discourse",
+  "fields": {
+   "formalization": "Dynamic predicate logic with assignments",
+   "key_insight": "Variable assignments as information states"
+  },
+  "coq_files": [],
+  "year": 1993,
+  "authors": "Dekker, P.",
+  "title": "Transsentential Meditations"
+ },
+ {
+  "id": 11,
+  "n": 11,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Quantification Theory",
+  "citation": "Barwise, J. & Cooper, R. (1981) - \"Generalized Quantifiers and Natural Language\"",
+  "survey_determination": "as_is",
+  "description": "Mathematical characterization of determiners",
+  "fields": {
+   "formalization": "Type <1,1> quantifiers with conservativity",
+   "key_insight": "Systematic quantifier properties"
+  },
+  "coq_files": [
+   "extras/BarwiseCooper.v",
+   "extras/Quantifiers.v"
+  ],
+  "year": 1981,
+  "authors": "Barwise, J. & Cooper, R.",
+  "title": "Generalized Quantifiers and Natural Language"
+ },
+ {
+  "id": 12,
+  "n": 12,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Quantification Theory",
+  "citation": "Keenan, E. & Stavi, J. (1986) - \"A Semantic Characterization of Natural Language Determiners\"",
+  "survey_determination": "as_is",
+  "description": "Complete mathematical constraints on determiners",
+  "fields": {
+   "formalization": "Boolean properties and complexity constraints",
+   "key_insight": "Universal constraints on quantification"
+  },
+  "coq_files": [],
+  "year": 1986,
+  "authors": "Keenan, E. & Stavi, J.",
+  "title": "A Semantic Characterization of Natural Language Determiners"
+ },
+ {
+  "id": 13,
+  "n": 13,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Quantification Theory",
+  "citation": "van Benthem, J. (1986) - \"Essays in Logical Semantics\"",
+  "survey_determination": "as_is",
+  "description": "Generalized quantifier theory",
+  "fields": {
+   "formalization": "Higher-order logic for quantifiers",
+   "key_insight": "Logical properties of natural language quantifiers"
+  },
+  "coq_files": [],
+  "year": 1986,
+  "authors": "van Benthem, J.",
+  "title": "Essays in Logical Semantics"
+ },
+ {
+  "id": 14,
+  "n": 14,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Quantification Theory",
+  "citation": "Partee, B. (1995) - \"Quantificational Structures and Compositionality\"",
+  "survey_determination": "as_is",
+  "description": "Type-flexible quantifier meanings",
+  "fields": {
+   "formalization": "Systematic type-lifting operations",
+   "key_insight": "Flexible types for compositional semantics"
+  },
+  "coq_files": [],
+  "year": 1995,
+  "authors": "Partee, B.",
+  "title": "Quantificational Structures and Compositionality"
+ },
+ {
+  "id": 15,
+  "n": 15,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Quantification Theory",
+  "citation": "Winter, Y. (2001) - \"Flexibility Principles in Boolean Semantics\"",
+  "survey_determination": "as_is",
+  "description": "Algebraic semantics for quantification",
+  "fields": {
+   "formalization": "Boolean algebra with flexible operations",
+   "key_insight": "Systematic flexibility in semantic composition"
+  },
+  "coq_files": [],
+  "year": 2001,
+  "authors": "Winter, Y.",
+  "title": "Flexibility Principles in Boolean Semantics"
+ },
+ {
+  "id": 16,
+  "n": 16,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Plurality and Mereology",
+  "citation": "Link, G. (1983) - \"The Logical Analysis of Plurals and Mass Terms\"",
+  "survey_determination": "as_is",
+  "description": "Join-semilattice semantics for plurality",
+  "fields": {
+   "formalization": "Complete lattice-theoretic implementation",
+   "key_insight": "Mereological foundations for plural semantics"
+  },
+  "coq_files": [
+   "extras/Link1983.v",
+   "extras/mass.v"
+  ],
+  "year": 1983,
+  "authors": "Link, G.",
+  "title": "The Logical Analysis of Plurals and Mass Terms"
+ },
+ {
+  "id": 17,
+  "n": 17,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Plurality and Mereology",
+  "citation": "Schwarzschild, R. (1996) - \"Pluralities\"",
+  "survey_determination": "as_is",
+  "description": "Distributivity and plurality in event semantics",
+  "fields": {
+   "formalization": "Event-based mereological structures",
+   "key_insight": "Events and individuals in parallel lattices"
+  },
+  "coq_files": [],
+  "year": 1996,
+  "authors": "Schwarzschild, R.",
+  "title": "Pluralities"
+ },
+ {
+  "id": 18,
+  "n": 18,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Plurality and Mereology",
+  "citation": "Landman, F. (2000) - \"Events and Plurality\"",
+  "survey_determination": "as_is",
+  "description": "Complete theory of plural events",
+  "fields": {
+   "formalization": "Lattice structures for events and individuals",
+   "key_insight": "Systematic plurality across domains"
+  },
+  "coq_files": [],
+  "year": 2000,
+  "authors": "Landman, F.",
+  "title": "Events and Plurality"
+ },
+ {
+  "id": 19,
+  "n": 19,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Plurality and Mereology",
+  "citation": "Champollion, L. (2017) - \"Parts of a Whole: Distributivity as a Bridge\"",
+  "survey_determination": "as_is",
+  "description": "Algebraic semantics connecting distributivity, aspect, measurement",
+  "fields": {
+   "formalization": "Stratified reference operator with formal definitions",
+   "key_insight": "Unified mereological treatment across categories"
+  },
+  "coq_files": [
+   "extras/champollion_full.v",
+   "extras/Champollion.v"
+  ],
+  "year": 2017,
+  "authors": "Champollion, L.",
+  "title": "Parts of a Whole: Distributivity as a Bridge"
+ },
+ {
+  "id": 20,
+  "n": 20,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Plurality and Mereology",
+  "citation": "Kratzer, A. (2007) - \"On the Plurality of Verbs\"",
+  "survey_determination": "as_is",
+  "description": "Event plurality and verbal semantics",
+  "fields": {
+   "formalization": "Lattice-theoretic event structures",
+   "key_insight": "Parallel structure of nominal and verbal plurality"
+  },
+  "coq_files": [],
+  "year": 2007,
+  "authors": "Kratzer, A.",
+  "title": "On the Plurality of Verbs"
+ },
+ {
+  "id": 21,
+  "n": 21,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Modality and Conditionals",
+  "citation": "Kratzer, A. (1991) - \"Modality\"",
+  "survey_determination": "as_is",
+  "description": "Modal bases and ordering sources",
+  "fields": {
+   "formalization": "Conversational backgrounds as accessibility relations",
+   "key_insight": "Context-dependent modal semantics"
+  },
+  "coq_files": [
+   "shallow/kratzer2.v",
+   "deep/kratzer_deep2.v",
+   "extras/kratzer_1977.v",
+   "extras/kratzer_deep.v"
+  ],
+  "year": 1991,
+  "authors": "Kratzer, A.",
+  "title": "Modality"
+ },
+ {
+  "id": 22,
+  "n": 22,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Modality and Conditionals",
+  "citation": "Lewis, D. (1973) - \"Counterfactuals\"",
+  "survey_determination": "as_is",
+  "description": "Possible worlds semantics for conditionals",
+  "fields": {
+   "formalization": "Similarity relations between worlds",
+   "key_insight": "Comparative similarity for counterfactuals"
+  },
+  "coq_files": [],
+  "year": 1973,
+  "authors": "Lewis, D.",
+  "title": "Counterfactuals"
+ },
+ {
+  "id": 23,
+  "n": 23,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Modality and Conditionals",
+  "citation": "Stalnaker, R. (1968) - \"A Theory of Conditionals\"",
+  "survey_determination": "as_is",
+  "description": "Conditional logic",
+  "fields": {
+   "formalization": "Selection functions for conditional semantics",
+   "key_insight": "Selection functions for possible worlds"
+  },
+  "coq_files": [],
+  "year": 1968,
+  "authors": "Stalnaker, R.",
+  "title": "A Theory of Conditionals"
+ },
+ {
+  "id": 24,
+  "n": 24,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Modality and Conditionals",
+  "citation": "von Fintel, K. (2001) - \"Counterfactuals in a Dynamic Context\"",
+  "survey_determination": "as_is",
+  "description": "Dynamic semantics for conditionals",
+  "fields": {
+   "formalization": "Context update with conditional information",
+   "key_insight": "Conditionals as context change potentials"
+  },
+  "coq_files": [],
+  "year": 2001,
+  "authors": "von Fintel, K.",
+  "title": "Counterfactuals in a Dynamic Context"
+ },
+ {
+  "id": 25,
+  "n": 25,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Modality and Conditionals",
+  "citation": "Gillies, A. (2007) - \"Counterfactual Scorekeeping\"",
+  "survey_determination": "as_is",
+  "description": "Dynamic theory of counterfactuals",
+  "fields": {
+   "formalization": "Information state updates for conditionals",
+   "key_insight": "Counterfactuals update conversational score"
+  },
+  "coq_files": [],
+  "year": 2007,
+  "authors": "Gillies, A.",
+  "title": "Counterfactual Scorekeeping"
+ },
+ {
+  "id": 26,
+  "n": 26,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Focus and Alternatives",
+  "citation": "Rooth, M. (1992) - \"A Theory of Focus Interpretation\"",
+  "survey_determination": "as_is",
+  "description": "Alternative semantics for focus",
+  "fields": {
+   "formalization": "Compositional alternative computation",
+   "key_insight": "Focus semantic value as set of alternatives"
+  },
+  "coq_files": [
+   "extras/FocusEven.v",
+   "extras/FocusEven2.v",
+   "extras/additive.v",
+   "extras/additive_new.v"
+  ],
+  "year": 1992,
+  "authors": "Rooth, M.",
+  "title": "A Theory of Focus Interpretation"
+ },
+ {
+  "id": 27,
+  "n": 27,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Focus and Alternatives",
+  "citation": "Krifka, M. (1993) - \"Focus and Presupposition in Dynamic Interpretation\"",
+  "survey_determination": "as_is",
+  "description": "Dynamic focus semantics",
+  "fields": {
+   "formalization": "Focus-sensitive operators in dynamic logic",
+   "key_insight": "Focus effects in dynamic interpretation"
+  },
+  "coq_files": [],
+  "year": 1993,
+  "authors": "Krifka, M.",
+  "title": "Focus and Presupposition in Dynamic Interpretation"
+ },
+ {
+  "id": 28,
+  "n": 28,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Focus and Alternatives",
+  "citation": "Beck, S. (2006) - \"Intervention Effects Follow from Focus Interpretation\"",
+  "survey_determination": "as_is",
+  "description": "Focus intervention in questions",
+  "fields": {
+   "formalization": "Alternative semantics with scope constraints",
+   "key_insight": "Focus alternatives block quantifier scope"
+  },
+  "coq_files": [],
+  "year": 2006,
+  "authors": "Beck, S.",
+  "title": "Intervention Effects Follow from Focus Interpretation"
+ },
+ {
+  "id": 29,
+  "n": 29,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Focus and Alternatives",
+  "citation": "Wagner, M. (2006) - \"Association by Movement\"",
+  "survey_determination": "as_is",
+  "description": "Syntactic focus association",
+  "fields": {
+   "formalization": "Movement-based focus-operator association",
+   "key_insight": "Syntactic constraints on focus interpretation"
+  },
+  "coq_files": [],
+  "year": 2006,
+  "authors": "Wagner, M.",
+  "title": "Association by Movement"
+ },
+ {
+  "id": 30,
+  "n": 30,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Focus and Alternatives",
+  "citation": "Beaver, D. & Clark, B. (2008) - \"Sense and Sensitivity\"",
+  "survey_determination": "as_is",
+  "description": "Comprehensive focus theory",
+  "fields": {
+   "formalization": "Structured meaning approach to focus",
+   "key_insight": "Focus as highlighting in structured meanings"
+  },
+  "coq_files": [],
+  "year": 2008,
+  "authors": "Beaver, D. & Clark, B.",
+  "title": "Sense and Sensitivity"
+ },
+ {
+  "id": 31,
+  "n": 31,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Modern Type Theory for Semantics",
+  "citation": "Chatzikyriakidis, S. & Luo, Z. (2013) - \"Natural Language Inference in Coq\"",
+  "survey_determination": "as_is",
+  "description": "First implementation of MTT semantics in Coq",
+  "fields": {
+   "formalization": "Direct Coq implementation with dependent types",
+   "key_insight": "Proof assistant verification of semantic inferences"
+  },
+  "coq_files": [
+   "extras/AdjectivesExtension.v",
+   "ttr_mtt/Book_Inter_Sub.v"
+  ],
+  "year": 2013,
+  "authors": "Chatzikyriakidis, S. & Luo, Z.",
+  "title": "Natural Language Inference in Coq"
+ },
+ {
+  "id": 32,
+  "n": 32,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Modern Type Theory for Semantics",
+  "citation": "Luo, Z. (2012) - \"Common Nouns as Types\"",
+  "survey_determination": "as_is",
+  "description": "Foundational MTT paper for CN-as-types",
+  "fields": {
+   "formalization": "Dependent type theory for noun semantics",
+   "key_insight": "Types vs. sets for common noun denotations"
+  },
+  "coq_files": [
+   "extras/MTT_base.v",
+   "extras/MTTbase.v",
+   "extras/indi.v"
+  ],
+  "year": 2012,
+  "authors": "Luo, Z.",
+  "title": "Common Nouns as Types"
+ },
+ {
+  "id": 33,
+  "n": 33,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Modern Type Theory for Semantics",
+  "citation": "Chatzikyriakidis, S. & Luo, Z. (2014) - \"Adjectival and Adverbial Modification in Modern Type Theoretical Semantics\"",
+  "survey_determination": "as_is",
+  "description": "MTT treatment of modification",
+  "fields": {
+   "formalization": "Subtyping and Σ-types for adjectives",
+   "key_insight": "Type-theoretic modification without intersection"
+  },
+  "coq_files": [
+   "ttr_mtt/Coq_book_ontology.v",
+   "ttr_mtt/Book_Individuation.v",
+   "ttr_mtt/Book_gradable.v",
+   "ttr_mtt/Book_Multi.v",
+   "ttr_mtt/Book_veridical.v",
+   "ttr_mtt/Book_Event_Adv.v",
+   "ttr_mtt/Book_Homonymy.v",
+   "extras/mass.v",
+   "extras/indi.v"
+  ],
+  "year": 2014,
+  "authors": "Chatzikyriakidis, S. & Luo, Z.",
+  "title": "Adjectival and Adverbial Modification in Modern Type Theoretical Semantics"
+ },
+ {
+  "id": 34,
+  "n": 34,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Modern Type Theory for Semantics",
+  "citation": "Luo, Z. (2011) - \"Contextual Analysis of Word Meanings in Type-Theoretical Semantics\"",
+  "survey_determination": "as_is",
+  "description": "Context-dependent types",
+  "fields": {
+   "formalization": "Dependent types for context sensitivity",
+   "key_insight": "Context as type parameter"
+  },
+  "coq_files": [],
+  "year": 2011,
+  "authors": "Luo, Z.",
+  "title": "Contextual Analysis of Word Meanings in Type-Theoretical Semantics"
+ },
+ {
+  "id": 35,
+  "n": 35,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Modern Type Theory for Semantics",
+  "citation": "Bekki, D. (2014) - \"Representing Anaphora with Dependent Types\"",
+  "survey_determination": "as_is",
+  "description": "Dependent types for anaphora resolution",
+  "fields": {
+   "formalization": "@-operators and context-passing with dependent types",
+   "key_insight": "Type checking for anaphora resolution"
+  },
+  "coq_files": [],
+  "year": 2014,
+  "authors": "Bekki, D.",
+  "title": "Representing Anaphora with Dependent Types"
+ },
+ {
+  "id": 36,
+  "n": 36,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Modern Type Theory for Semantics",
+  "citation": "Chatzikyriakidis, S. & Luo, Z. (2017) - \"Modern Perspectives in Type-Theoretical Semantics\"",
+  "survey_determination": "as_is",
+  "description": "Comprehensive MTT semantics collection",
+  "fields": {
+   "formalization": "Book-length treatment of MTT applications",
+   "key_insight": "Systematic MTT approach to multiple phenomena"
+  },
+  "coq_files": [
+   "ttr_mtt/Coq_book_ontology.v",
+   "ttr_mtt/Book_Individuation.v",
+   "ttr_mtt/Book_gradable.v",
+   "ttr_mtt/Book_Multi.v",
+   "ttr_mtt/Book_veridical.v",
+   "ttr_mtt/Book_Event_Adv.v",
+   "ttr_mtt/Book_Homonymy.v",
+   "extras/mass.v",
+   "extras/indi.v"
+  ],
+  "year": 2017,
+  "authors": "Chatzikyriakidis, S. & Luo, Z.",
+  "title": "Modern Perspectives in Type-Theoretical Semantics"
+ },
+ {
+  "id": 37,
+  "n": 37,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Modern Type Theory for Semantics",
+  "citation": "Luo, Z. (2010) - \"Type-Theoretical Semantics with Coercive Subtyping\"",
+  "survey_determination": "as_is",
+  "description": "Coercions in MTT",
+  "fields": {
+   "formalization": "Systematic subtyping mechanism",
+   "key_insight": "Coercive subtyping for semantic composition"
+  },
+  "coq_files": [
+   "ttr_mtt/Coq_book_ontology.v"
+  ],
+  "year": 2010,
+  "authors": "Luo, Z.",
+  "title": "Type-Theoretical Semantics with Coercive Subtyping"
+ },
+ {
+  "id": 38,
+  "n": 38,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Modern Type Theory for Semantics",
+  "citation": "Bekki, D. & Minami, K. (2017) - \"Calculating Projections via Type Checking\"",
+  "survey_determination": "as_is",
+  "description": "Presupposition projection via types",
+  "fields": {
+   "formalization": "Type-theoretic presupposition projection",
+   "key_insight": "Projection as type constraint"
+  },
+  "coq_files": [],
+  "year": 2017,
+  "authors": "Bekki, D. & Minami, K.",
+  "title": "Calculating Projections via Type Checking"
+ },
+ {
+  "id": 39,
+  "n": 39,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Modern Type Theory for Semantics",
+  "citation": "Bekki, D. & Asher, N. (2013) - \"Logical Polysemy and Subtyping\"",
+  "survey_determination": "as_is",
+  "description": "MTT approach to polysemy",
+  "fields": {
+   "formalization": "Dot types for systematic polysemy",
+   "key_insight": "Type-theoretic dot types vs. GL approach"
+  },
+  "coq_files": [],
+  "year": 2013,
+  "authors": "Bekki, D. & Asher, N.",
+  "title": "Logical Polysemy and Subtyping"
+ },
+ {
+  "id": 40,
+  "n": 40,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Modern Type Theory for Semantics",
+  "citation": "Chatzikyriakidis, S. & Luo, Z. (2018) - \"Formal Semantics in Modern Type Theories\"",
+  "survey_determination": "as_is",
+  "description": "MTT textbook/handbook",
+  "fields": {
+   "formalization": "Complete formal framework",
+   "key_insight": "MTT as alternative to Montague semantics"
+  },
+  "coq_files": [
+   "ttr_mtt/Coq_book_ontology.v",
+   "ttr_mtt/Book_Individuation.v",
+   "ttr_mtt/Book_gradable.v",
+   "ttr_mtt/Book_Multi.v",
+   "ttr_mtt/Book_veridical.v",
+   "ttr_mtt/Book_Event_Adv.v",
+   "ttr_mtt/Book_Homonymy.v",
+   "extras/mass.v",
+   "extras/indi.v"
+  ],
+  "year": 2018,
+  "authors": "Chatzikyriakidis, S. & Luo, Z.",
+  "title": "Formal Semantics in Modern Type Theories"
+ },
+ {
+  "id": 41,
+  "n": 41,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Categorical Grammar and Linear Logic Approaches",
+  "citation": "Retoré, C. (2014) - \"The Montagovian Generative Lexicon: From Formal Semantics to Compositional Lexical Semantics\"",
+  "survey_determination": "as_is",
+  "description": "System F for lexical semantics",
+  "fields": {
+   "formalization": "Second-order polymorphism for meaning",
+   "key_insight": "Type polymorphism for lexical variation"
+  },
+  "coq_files": [],
+  "year": 2014,
+  "authors": "Retoré, C.",
+  "title": "The Montagovian Generative Lexicon: From Formal Semantics to Compositional Lexical Semantics"
+ },
+ {
+  "id": 42,
+  "n": 42,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Categorical Grammar and Linear Logic Approaches",
+  "citation": "Retoré, C. & Mery, B. (2017) - \"Classifiers, Sorts, and Base Types in Montagovian Generative Lexicon and Related Type Theoretical Frameworks\"",
+  "survey_determination": "as_is",
+  "description": "Type-theoretic classifiers",
+  "fields": {
+   "formalization": "System F with base types",
+   "key_insight": "Systematic classifier semantics"
+  },
+  "coq_files": [],
+  "year": 2017,
+  "authors": "Retoré, C. & Mery, B.",
+  "title": "Classifiers, Sorts, and Base Types in Montagovian Generative Lexicon and Related Type Theoretical Frameworks"
+ },
+ {
+  "id": 43,
+  "n": 43,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Categorical Grammar and Linear Logic Approaches",
+  "citation": "Retoré, C. (2013) - \"Semantic Types for Language: Montague's Framework Revisited\"",
+  "survey_determination": "as_is",
+  "description": "Higher-order types for semantics",
+  "fields": {
+   "formalization": "System F and beyond for natural language",
+   "key_insight": "Polymorphic types for semantic flexibility"
+  },
+  "coq_files": [],
+  "year": 2013,
+  "authors": "Retoré, C.",
+  "title": "Semantic Types for Language: Montague's Framework Revisited"
+ },
+ {
+  "id": 44,
+  "n": 44,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Categorical Grammar and Linear Logic Approaches",
+  "citation": "Bassac, C., Mery, B. & Retoré, C. (2010) - \"Towards a Type-Theoretical Account of Lexical Semantics\"",
+  "survey_determination": "as_is",
+  "description": "Type theory for the lexicon",
+  "fields": {
+   "formalization": "Second-order types for word meaning",
+   "key_insight": "Type polymorphism for systematic polysemy"
+  },
+  "coq_files": [],
+  "year": 2010,
+  "authors": "Bassac, C., Mery, B. & Retoré, C.",
+  "title": "Towards a Type-Theoretical Account of Lexical Semantics"
+ },
+ {
+  "id": 45,
+  "n": 45,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Categorical Grammar and Linear Logic Approaches",
+  "citation": "Asudeh, A. & Giorgolo, G. (2012) - \"Flexible Composition for Optional and Derived Arguments\"",
+  "survey_determination": "as_is",
+  "description": "Monadic semantics for natural language",
+  "fields": {
+   "formalization": "Monads for semantic composition",
+   "key_insight": "Side effects as monadic operations"
+  },
+  "coq_files": [],
+  "year": 2012,
+  "authors": "Asudeh, A. & Giorgolo, G.",
+  "title": "Flexible Composition for Optional and Derived Arguments"
+ },
+ {
+  "id": 46,
+  "n": 46,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Categorical Grammar and Linear Logic Approaches",
+  "citation": "Giorgolo, G. & Asudeh, A. (2014) - \"Monads as a Solution for Generalized Opacity\"",
+  "survey_determination": "as_is",
+  "description": "Monads for intensionality",
+  "fields": {
+   "formalization": "Monad transformers for semantic phenomena",
+   "key_insight": "Intensional operators as monadic effects"
+  },
+  "coq_files": [],
+  "year": 2014,
+  "authors": "Giorgolo, G. & Asudeh, A.",
+  "title": "Monads as a Solution for Generalized Opacity"
+ },
+ {
+  "id": 47,
+  "n": 47,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Categorical Grammar and Linear Logic Approaches",
+  "citation": "Shan, C. (2001) - \"Monads for Natural Language Semantics\"",
+  "survey_determination": "as_is",
+  "description": "Monadic approach to continuations",
+  "fields": {
+   "formalization": "Continuation monad for scope",
+   "key_insight": "Delimited continuations for quantifier scope"
+  },
+  "coq_files": [],
+  "year": 2001,
+  "authors": "Shan, C.",
+  "title": "Monads for Natural Language Semantics"
+ },
+ {
+  "id": 48,
+  "n": 48,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Categorical Grammar and Linear Logic Approaches",
+  "citation": "Charlow, S. (2014) - \"On the Semantics of Exceptional Scope\"",
+  "survey_determination": "as_is",
+  "description": "Monadic scope-taking",
+  "fields": {
+   "formalization": "Monad for exceptional scope",
+   "key_insight": "Non-local effects via monads"
+  },
+  "coq_files": [],
+  "year": 2014,
+  "authors": "Charlow, S.",
+  "title": "On the Semantics of Exceptional Scope"
+ },
+ {
+  "id": 49,
+  "n": 49,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Categorical Grammar and Linear Logic Approaches",
+  "citation": "Maskharashvili, A., Bernardy, J.-P. & Chatzikyriakidis, S. (2018) - \"A Computational Treatment of Anaphora and Its Algorithmic Implementation\"",
+  "survey_determination": "as_is",
+  "description": "Algorithmic anaphora resolution in type theory",
+  "fields": {
+   "formalization": "Computational implementation of type-theoretic anaphora",
+   "key_insight": "Executable anaphora resolution algorithm"
+  },
+  "coq_files": [],
+  "year": 2018,
+  "authors": "Maskharashvili, A., Bernardy, J.-P. & Chatzikyriakidis, S.",
+  "title": "A Computational Treatment of Anaphora and Its Algorithmic Implementation"
+ },
+ {
+  "id": 50,
+  "n": 50,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Categorical Grammar and Linear Logic Approaches",
+  "citation": "Cooper, R. (2005) - \"Records and Record Types in Semantic Theory\"",
+  "survey_determination": "as_is",
+  "description": "Type Theory with Records (TTR) foundations",
+  "fields": {
+   "formalization": "Record types for linguistic meaning",
+   "key_insight": "Records as structured semantic objects"
+  },
+  "coq_files": [
+   "ttr_mtt/TTR_base.v",
+   "ttr_mtt/TTR_types.v",
+   "ttr_mtt/TTR_records.v",
+   "ttr_mtt/TTR_shallow.v",
+   "ttr_mtt/TTR_theorems_shallow.v",
+   "ttr_mtt/TTR_theorems_deep.v"
+  ],
+  "year": 2005,
+  "authors": "Cooper, R.",
+  "title": "Records and Record Types in Semantic Theory"
+ },
+ {
+  "id": 51,
+  "n": 36,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Questions and Inquisitive Semantics",
+  "citation": "Hamblin, C. (1973) - \"Questions in Montague English\"",
+  "survey_determination": "as_is",
+  "description": "Set-of-answers semantics for questions",
+  "fields": {
+   "formalization": "Questions as sets of propositions",
+   "key_insight": "Questions denote sets of possible answers"
+  },
+  "coq_files": [],
+  "year": 1973,
+  "authors": "Hamblin, C.",
+  "title": "Questions in Montague English"
+ },
+ {
+  "id": 52,
+  "n": 37,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Questions and Inquisitive Semantics",
+  "citation": "Karttunen, L. (1977) - \"Syntax and Semantics of Questions\"",
+  "survey_determination": "as_is",
+  "description": "Systematic question semantics",
+  "fields": {
+   "formalization": "Formal syntax-semantics interface for questions",
+   "key_insight": "Compositional question formation"
+  },
+  "coq_files": [],
+  "year": 1977,
+  "authors": "Karttunen, L.",
+  "title": "Syntax and Semantics of Questions"
+ },
+ {
+  "id": 53,
+  "n": 38,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Questions and Inquisitive Semantics",
+  "citation": "Groenendijk, J. & Stokhof, M. (1984) - \"Studies on the Semantics of Questions and the Pragmatics of Answers\"",
+  "survey_determination": "as_is",
+  "description": "Partition semantics for questions",
+  "fields": {
+   "formalization": "Questions as partitions of logical space",
+   "key_insight": "Questions structure information space"
+  },
+  "coq_files": [],
+  "year": 1984,
+  "authors": "Groenendijk, J. & Stokhof, M.",
+  "title": "Studies on the Semantics of Questions and the Pragmatics of Answers"
+ },
+ {
+  "id": 54,
+  "n": 39,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Questions and Inquisitive Semantics",
+  "citation": "Ciardelli, I., Groenendijk, J. & Roelofsen, F. (2019) - \"Inquisitive Semantics\"",
+  "survey_determination": "as_is",
+  "description": "Information and issue semantics",
+  "fields": {
+   "formalization": "Algebraic semantics for questions and assertions",
+   "key_insight": "Unified treatment of information and issues"
+  },
+  "coq_files": [
+   "atlas/inquisitive/InqB.v"
+  ],
+  "year": 2019,
+  "authors": "Ciardelli, I., Groenendijk, J. & Roelofsen, F.",
+  "title": "Inquisitive Semantics"
+ },
+ {
+  "id": 55,
+  "n": 40,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Questions and Inquisitive Semantics",
+  "citation": "Roelofsen, F. (2013) - \"Algebraic Foundations for the Semantic Treatment of Inquisitive Content\"",
+  "survey_determination": "as_is",
+  "description": "Mathematical foundations for inquisitive semantics",
+  "fields": {
+   "formalization": "Complete algebraic framework",
+   "key_insight": "Algebraic structure unifying statements and questions"
+  },
+  "coq_files": [
+   "atlas/inquisitive/InqB.v"
+  ],
+  "year": 2013,
+  "authors": "Roelofsen, F.",
+  "title": "Algebraic Foundations for the Semantic Treatment of Inquisitive Content"
+ },
+ {
+  "id": 56,
+  "n": 41,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Computational and Probabilistic Approaches",
+  "citation": "Goodman, N. & Lassiter, D. (2015) - \"Probabilistic Semantics and Pragmatics\"",
+  "survey_determination": "as_is",
+  "description": "Bayesian approaches to semantics",
+  "fields": {
+   "formalization": "Probabilistic programming for semantic models",
+   "key_insight": "Uncertainty and probabilistic inference in semantics"
+  },
+  "coq_files": [
+   "atlas/probabilistic/RSA.v"
+  ],
+  "year": 2015,
+  "authors": "Goodman, N. & Lassiter, D.",
+  "title": "Probabilistic Semantics and Pragmatics"
+ },
+ {
+  "id": 57,
+  "n": 42,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Computational and Probabilistic Approaches",
+  "citation": "Bergen, L., Levy, R. & Goodman, N. (2016) - \"Pragmatic Reasoning through Semantic Inference\"",
+  "survey_determination": "as_is",
+  "description": "Computational pragmatics",
+  "fields": {
+   "formalization": "Recursive reasoning about speaker intentions",
+   "key_insight": "Pragmatic inference through recursive modeling"
+  },
+  "coq_files": [
+   "atlas/probabilistic/RSA.v"
+  ],
+  "year": 2016,
+  "authors": "Bergen, L., Levy, R. & Goodman, N.",
+  "title": "Pragmatic Reasoning through Semantic Inference"
+ },
+ {
+  "id": 58,
+  "n": 43,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Computational and Probabilistic Approaches",
+  "citation": "Potts, C. (2012) - \"Goal-Driven Answers in the Cards Dialogue Corpus\"",
+  "survey_determination": "as_is",
+  "description": "Corpus-based formal semantics",
+  "fields": {
+   "formalization": "Statistical models for semantic inference",
+   "key_insight": "Data-driven approaches to formal semantics"
+  },
+  "coq_files": [],
+  "year": 2012,
+  "authors": "Potts, C.",
+  "title": "Goal-Driven Answers in the Cards Dialogue Corpus"
+ },
+ {
+  "id": 59,
+  "n": 44,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Computational and Probabilistic Approaches",
+  "citation": "Das, D., Chen, D., Martins, A., Schneider, N. & Smith, N. (2014) - \"Frame-Semantic Parsing\"",
+  "survey_determination": "as_is",
+  "description": "Computational semantic parsing",
+  "fields": {
+   "formalization": "Machine learning for semantic role labeling",
+   "key_insight": "Statistical learning of semantic structures"
+  },
+  "coq_files": [],
+  "year": 2014,
+  "authors": "Das, D., Chen, D., Martins, A., Schneider, N. & Smith, N.",
+  "title": "Frame-Semantic Parsing"
+ },
+ {
+  "id": 60,
+  "n": 45,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Computational and Probabilistic Approaches",
+  "citation": "Bisk, Y., Holtzman, A., Thomason, J., Andreas, J., Bengio, Y., Chai, J., ... & Zhang, Y. (2020) - \"Experience Grounds Language\"",
+  "survey_determination": "as_is",
+  "description": "Grounded computational semantics",
+  "fields": {
+   "formalization": "Neural networks for grounded meaning",
+   "key_insight": "Embodied experience for semantic grounding"
+  },
+  "coq_files": [],
+  "year": 2020,
+  "authors": "Bisk, Y., Holtzman, A., Thomason, J., Andreas, J., Bengio, Y., Chai, J., ... & Zhang, Y.",
+  "title": "Experience Grounds Language"
+ },
+ {
+  "id": 61,
+  "n": 46,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Degree Semantics and Comparison",
+  "citation": "Kennedy, C. & McNally, L. (2005) - \"Scale Structure and the Semantic Typology of Gradable Predicates\"",
+  "survey_determination": "as_is",
+  "description": "Degree semantics with scale types",
+  "fields": {
+   "formalization": "Formal scale structures for gradable predicates",
+   "key_insight": "Scale structure determines semantic behavior"
+  },
+  "coq_files": [],
+  "year": 2005,
+  "authors": "Kennedy, C. & McNally, L.",
+  "title": "Scale Structure and the Semantic Typology of Gradable Predicates"
+ },
+ {
+  "id": 62,
+  "n": 47,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Degree Semantics and Comparison",
+  "citation": "Beck, S., Krasikova, S., Fleischer, D., Gergel, R., Hofstetter, S., Savelsberg, C., ... & Villalta, E. (2009) - \"Crosslinguistic Variation in Comparison Constructions\"",
+  "survey_determination": "as_is",
+  "description": "Cross-linguistic degree semantics",
+  "fields": {
+   "formalization": "Parametric variation in degree constructions",
+   "key_insight": "Universal constraints with parametric variation"
+  },
+  "coq_files": [],
+  "year": 2009,
+  "authors": "Beck, S., Krasikova, S., Fleischer, D., Gergel, R., Hofstetter, S., Savelsberg, C., ... & Villalta, E.",
+  "title": "Crosslinguistic Variation in Comparison Constructions"
+ },
+ {
+  "id": 63,
+  "n": 48,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Degree Semantics and Comparison",
+  "citation": "Rett, J. (2015) - \"The Semantics of Evaluativity\"",
+  "survey_determination": "as_is",
+  "description": "Evaluative degree constructions",
+  "fields": {
+   "formalization": "Formal semantics for evaluative predicates",
+   "key_insight": "Standard-based interpretation of evaluative adjectives"
+  },
+  "coq_files": [],
+  "year": 2015,
+  "authors": "Rett, J.",
+  "title": "The Semantics of Evaluativity"
+ },
+ {
+  "id": 64,
+  "n": 49,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Degree Semantics and Comparison",
+  "citation": "Lassiter, D. (2017) - \"Graded Modality: Qualitative and Quantitative Perspectives\"",
+  "survey_determination": "as_is",
+  "description": "Probabilistic modality",
+  "fields": {
+   "formalization": "Probabilistic semantics for graded modals",
+   "key_insight": "Quantitative approaches to modal strength"
+  },
+  "coq_files": [],
+  "year": 2017,
+  "authors": "Lassiter, D.",
+  "title": "Graded Modality: Qualitative and Quantitative Perspectives"
+ },
+ {
+  "id": 65,
+  "n": 50,
+  "category": "A",
+  "category_label": "fully formalizable",
+  "topic": "Degree Semantics and Comparison",
+  "citation": "Sudo, Y. (2012) - \"On the Semantics of Phi Features on Pronouns\"",
+  "survey_determination": "as_is",
+  "description": "Feature-based pronoun semantics",
+  "fields": {
+   "formalization": "Feature structures in formal semantics",
+   "key_insight": "Phi-features as semantic constraints"
+  },
+  "coq_files": [],
+  "year": 2012,
+  "authors": "Sudo, Y.",
+  "title": "On the Semantics of Phi Features on Pronouns"
+ },
+ {
+  "id": 66,
+  "n": 51,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Pragmatics and Implicature",
+  "citation": "Grice, H. P. (1975) - \"Logic and Conversation\"",
+  "survey_determination": "slight_modification",
+  "description": "Conversational maxims and implicature",
+  "fields": {
+   "formalization": "Needs formalization of cooperative principle",
+   "gap": "Precise implicature derivation algorithm missing"
+  },
+  "coq_files": [],
+  "year": 1975,
+  "authors": "Grice, H. P.",
+  "title": "Logic and Conversation"
+ },
+ {
+  "id": 67,
+  "n": 52,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Pragmatics and Implicature",
+  "citation": "Horn, L. (1984) - \"Toward a New Taxonomy for Pragmatic Inference\"",
+  "survey_determination": "slight_modification",
+  "description": "Neo-Gricean pragmatics",
+  "fields": {
+   "formalization": "Q and R principles need formal characterization",
+   "gap": "Systematic competition mechanism"
+  },
+  "coq_files": [],
+  "year": 1984,
+  "authors": "Horn, L.",
+  "title": "Toward a New Taxonomy for Pragmatic Inference"
+ },
+ {
+  "id": 68,
+  "n": 53,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Pragmatics and Implicature",
+  "citation": "Levinson, S. (2000) - \"Presumptive Meanings\"",
+  "survey_determination": "slight_modification",
+  "description": "Default pragmatics",
+  "fields": {
+   "formalization": "Default hierarchy needs formal specification",
+   "gap": "Override conditions for defaults"
+  },
+  "coq_files": [],
+  "year": 2000,
+  "authors": "Levinson, S.",
+  "title": "Presumptive Meanings"
+ },
+ {
+  "id": 69,
+  "n": 54,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Pragmatics and Implicature",
+  "citation": "Chierchia, G. (2004) - \"Scalar Implicatures, Polarity Phenomena, and the Syntax/Pragmatics Interface\"",
+  "survey_determination": "slight_modification",
+  "description": "Grammaticalized implicatures",
+  "fields": {
+   "formalization": "Systematic implicature computation",
+   "gap": "Syntax-pragmatics interface mechanism"
+  },
+  "coq_files": [],
+  "year": 2004,
+  "authors": "Chierchia, G.",
+  "title": "Scalar Implicatures, Polarity Phenomena, and the Syntax/Pragmatics Interface"
+ },
+ {
+  "id": 70,
+  "n": 55,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Pragmatics and Implicature",
+  "citation": "Sauerland, U. (2004) - \"Scalar Implicatures in Complex Sentences\"",
+  "survey_determination": "slight_modification",
+  "description": "Embedded implicatures",
+  "fields": {
+   "formalization": "Local vs. global implicature computation",
+   "gap": "Systematic embedding algorithm"
+  },
+  "coq_files": [],
+  "year": 2004,
+  "authors": "Sauerland, U.",
+  "title": "Scalar Implicatures in Complex Sentences"
+ },
+ {
+  "id": 71,
+  "n": 56,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Presupposition Theory",
+  "citation": "Stalnaker, R. (1974) - \"Pragmatic Presuppositions\"",
+  "survey_determination": "slight_modification",
+  "description": "Presupposition as common ground",
+  "fields": {
+   "formalization": "Context update with presuppositions",
+   "gap": "Accommodation mechanism needs formalization"
+  },
+  "coq_files": [],
+  "year": 1974,
+  "authors": "Stalnaker, R.",
+  "title": "Pragmatic Presuppositions"
+ },
+ {
+  "id": 72,
+  "n": 57,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Presupposition Theory",
+  "citation": "van der Sandt, R. (1992) - \"Presupposition Projection as Anaphora Resolution\"",
+  "survey_determination": "slight_modification",
+  "description": "DRT-based presupposition theory",
+  "fields": {
+   "formalization": "Presupposition resolution algorithm",
+   "gap": "Accommodation vs. binding decision procedure"
+  },
+  "coq_files": [],
+  "year": 1992,
+  "authors": "van der Sandt, R.",
+  "title": "Presupposition Projection as Anaphora Resolution"
+ },
+ {
+  "id": 73,
+  "n": 58,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Presupposition Theory",
+  "citation": "Geurts, B. (1999) - \"Presuppositions and Pronouns\"",
+  "survey_determination": "slight_modification",
+  "description": "Binding theory for presuppositions",
+  "fields": {
+   "formalization": "Systematic presupposition binding",
+   "gap": "Complete resolution algorithm"
+  },
+  "coq_files": [],
+  "year": 1999,
+  "authors": "Geurts, B.",
+  "title": "Presuppositions and Pronouns"
+ },
+ {
+  "id": 74,
+  "n": 59,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Presupposition Theory",
+  "citation": "Beaver, D. (2001) - \"Presupposition and Assertion in Dynamic Semantics\"",
+  "survey_determination": "slight_modification",
+  "description": "Dynamic presupposition theory",
+  "fields": {
+   "formalization": "Presupposition as admittance condition",
+   "gap": "Systematic context repair mechanisms"
+  },
+  "coq_files": [],
+  "year": 2001,
+  "authors": "Beaver, D.",
+  "title": "Presupposition and Assertion in Dynamic Semantics"
+ },
+ {
+  "id": 75,
+  "n": 60,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Presupposition Theory",
+  "citation": "Schlenker, P. (2009) - \"Local Contexts\"",
+  "survey_determination": "slight_modification",
+  "description": "Local context computation",
+  "fields": {
+   "formalization": "Context computation for embedded environments",
+   "gap": "General local context algorithm"
+  },
+  "coq_files": [],
+  "year": 2009,
+  "authors": "Schlenker, P.",
+  "title": "Local Contexts"
+ },
+ {
+  "id": 76,
+  "n": 61,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Tense and Aspect",
+  "citation": "Reichenbach, H. (1947) - \"Elements of Symbolic Logic\" (tense theory)",
+  "survey_determination": "slight_modification",
+  "description": "Three-point temporal system",
+  "fields": {
+   "formalization": "Formal temporal logic",
+   "gap": "Compositional tense interpretation"
+  },
+  "coq_files": [],
+  "year": 1947,
+  "authors": "Reichenbach, H.",
+  "title": "Elements of Symbolic Logic"
+ },
+ {
+  "id": 77,
+  "n": 62,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Tense and Aspect",
+  "citation": "Klein, W. (1994) - \"Time in Language\"",
+  "survey_determination": "slight_modification",
+  "description": "Topic time theory",
+  "fields": {
+   "formalization": "Temporal reference system",
+   "gap": "Systematic temporal composition rules"
+  },
+  "coq_files": [],
+  "year": 1994,
+  "authors": "Klein, W.",
+  "title": "Time in Language"
+ },
+ {
+  "id": 78,
+  "n": 63,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Tense and Aspect",
+  "citation": "Parsons, T. (1990) - \"Events in the Semantics of English\"",
+  "survey_determination": "slight_modification",
+  "description": "Event-based temporal semantics",
+  "fields": {
+   "formalization": "Event structure with temporal properties",
+   "gap": "Aspectual composition algorithm"
+  },
+  "coq_files": [],
+  "year": 1990,
+  "authors": "Parsons, T.",
+  "title": "Events in the Semantics of English"
+ },
+ {
+  "id": 79,
+  "n": 64,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Tense and Aspect",
+  "citation": "Kratzer, A. (1998) - \"More Structural Analogies Between Pronouns and Tenses\"",
+  "survey_determination": "slight_modification",
+  "description": "Tense as temporal pronouns",
+  "fields": {
+   "formalization": "Binding theory for temporal reference",
+   "gap": "Complete temporal binding algorithm"
+  },
+  "coq_files": [],
+  "year": 1998,
+  "authors": "Kratzer, A.",
+  "title": "More Structural Analogies Between Pronouns and Tenses"
+ },
+ {
+  "id": 80,
+  "n": 65,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Tense and Aspect",
+  "citation": "von Stechow, A. (1995) - \"On the Proper Treatment of Tense\"",
+  "survey_determination": "slight_modification",
+  "description": "Intensional semantics for tense",
+  "fields": {
+   "formalization": "Tense in intensional type theory",
+   "gap": "Full compositional implementation"
+  },
+  "coq_files": [],
+  "year": 1995,
+  "authors": "von Stechow, A.",
+  "title": "On the Proper Treatment of Tense"
+ },
+ {
+  "id": 81,
+  "n": 66,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Information Structure",
+  "citation": "Halliday, M. A. K. (1967) - \"Notes on Transitivity and Theme in English\"",
+  "survey_determination": "slight_modification",
+  "description": "Theme-rheme structure",
+  "fields": {
+   "formalization": "Information structure representation",
+   "gap": "Formal composition with semantics"
+  },
+  "coq_files": [],
+  "year": 1967,
+  "authors": "Halliday, M. A. K.",
+  "title": "Notes on Transitivity and Theme in English"
+ },
+ {
+  "id": 82,
+  "n": 67,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Information Structure",
+  "citation": "Vallduví, E. (1992) - \"The Informational Component\"",
+  "survey_determination": "slight_modification",
+  "description": "Focus-ground articulation",
+  "fields": {
+   "formalization": "Information packaging theory",
+   "gap": "Systematic packaging algorithm"
+  },
+  "coq_files": [],
+  "year": 1992,
+  "authors": "Vallduví, E.",
+  "title": "The Informational Component"
+ },
+ {
+  "id": 83,
+  "n": 68,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Information Structure",
+  "citation": "Roberts, C. (2012) - \"Information Structure: Towards an Integrated Formal Theory\"",
+  "survey_determination": "slight_modification",
+  "description": "QUD-based information structure",
+  "fields": {
+   "formalization": "Question under discussion framework",
+   "gap": "Complete QUD resolution system"
+  },
+  "coq_files": [],
+  "year": 2012,
+  "authors": "Roberts, C.",
+  "title": "Information Structure: Towards an Integrated Formal Theory"
+ },
+ {
+  "id": 84,
+  "n": 69,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Information Structure",
+  "citation": "Büring, D. (2003) - \"On D-Trees, Beans, and B-Accents\"",
+  "survey_determination": "slight_modification",
+  "description": "Topic-focus semantics",
+  "fields": {
+   "formalization": "D-tree structures for information structure",
+   "gap": "Systematic D-tree computation"
+  },
+  "coq_files": [],
+  "year": 2003,
+  "authors": "Büring, D.",
+  "title": "On D-Trees, Beans, and B-Accents"
+ },
+ {
+  "id": 85,
+  "n": 70,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Information Structure",
+  "citation": "Beaver, D. & Velleman, D. (2011) - \"The Communicative Significance of Primary and Secondary Accents\"",
+  "survey_determination": "slight_modification",
+  "description": "Accent and information structure",
+  "fields": {
+   "formalization": "Accent-meaning correspondence",
+   "gap": "Systematic accent interpretation algorithm"
+  },
+  "coq_files": [],
+  "year": 2011,
+  "authors": "Beaver, D. & Velleman, D.",
+  "title": "The Communicative Significance of Primary and Secondary Accents"
+ },
+ {
+  "id": 86,
+  "n": 71,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Experimental Semantics",
+  "citation": "Matthewson, L. (2004) - \"On the Methodology of Semantic Fieldwork\"",
+  "survey_determination": "slight_modification",
+  "description": "Cross-linguistic semantic methodology",
+  "fields": {
+   "formalization": "Systematic elicitation procedures",
+   "gap": "Formalization of cultural context effects"
+  },
+  "coq_files": [],
+  "year": 2004,
+  "authors": "Matthewson, L.",
+  "title": "On the Methodology of Semantic Fieldwork"
+ },
+ {
+  "id": 87,
+  "n": 72,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Experimental Semantics",
+  "citation": "Chemla, E. & Spector, B. (2011) - \"Experimental Evidence for Embedded Scalar Implicatures\"",
+  "survey_determination": "slight_modification",
+  "description": "Experimental pragmatics",
+  "fields": {
+   "formalization": "Quantitative models of implicature",
+   "gap": "Individual variation modeling"
+  },
+  "coq_files": [],
+  "year": 2011,
+  "authors": "Chemla, E. & Spector, B.",
+  "title": "Experimental Evidence for Embedded Scalar Implicatures"
+ },
+ {
+  "id": 88,
+  "n": 73,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Experimental Semantics",
+  "citation": "Schwarz, F. (2009) - \"Two Types of Definites in Natural Language\"",
+  "survey_determination": "slight_modification",
+  "description": "Experimental definite semantics",
+  "fields": {
+   "formalization": "Type-theoretic definite interpretation",
+   "gap": "Processing model integration"
+  },
+  "coq_files": [],
+  "year": 2009,
+  "authors": "Schwarz, F.",
+  "title": "Two Types of Definites in Natural Language"
+ },
+ {
+  "id": 89,
+  "n": 74,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Experimental Semantics",
+  "citation": "Syrett, K. & Lidz, J. (2009) - \"30-Month-Olds Use the Distribution and Meaning of Adverbs to Interpret Novel Adjectives\"",
+  "survey_determination": "slight_modification",
+  "description": "Developmental semantics",
+  "fields": {
+   "formalization": "Learning models for semantic acquisition",
+   "gap": "Complete acquisition algorithm"
+  },
+  "coq_files": [],
+  "year": 2009,
+  "authors": "Syrett, K. & Lidz, J.",
+  "title": "30-Month-Olds Use the Distribution and Meaning of Adverbs to Interpret Novel Adjectives"
+ },
+ {
+  "id": 90,
+  "n": 75,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Experimental Semantics",
+  "citation": "Degen, J. & Tanenhaus, M. (2015) - \"Processing Scalar Implicature: A Constraint-Based Approach\"",
+  "survey_determination": "slight_modification",
+  "description": "Processing models for pragmatics",
+  "fields": {
+   "formalization": "Constraint satisfaction for implicature",
+   "gap": "Real-time processing algorithm"
+  },
+  "coq_files": [],
+  "year": 2015,
+  "authors": "Degen, J. & Tanenhaus, M.",
+  "title": "Processing Scalar Implicature: A Constraint-Based Approach"
+ },
+ {
+  "id": 91,
+  "n": 76,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Event Semantics Extensions",
+  "citation": "Carlson, G. (1977) - \"Reference to Kinds in English\"",
+  "survey_determination": "slight_modification",
+  "description": "Kind-referring expressions",
+  "fields": {
+   "formalization": "Kinds in event semantics",
+   "gap": "Systematic kind-individual mapping"
+  },
+  "coq_files": [],
+  "year": 1977,
+  "authors": "Carlson, G.",
+  "title": "Reference to Kinds in English"
+ },
+ {
+  "id": 92,
+  "n": 77,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Event Semantics Extensions",
+  "citation": "Chierchia, G. (1998) - \"Reference to Kinds across Languages\"",
+  "survey_determination": "slight_modification",
+  "description": "Cross-linguistic kind reference",
+  "fields": {
+   "formalization": "Parametric variation in kind semantics",
+   "gap": "Universal constraints on kind reference"
+  },
+  "coq_files": [],
+  "year": 1998,
+  "authors": "Chierchia, G.",
+  "title": "Reference to Kinds across Languages"
+ },
+ {
+  "id": 93,
+  "n": 78,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Event Semantics Extensions",
+  "citation": "Kratzer, A. (1996) - \"Severing the External Argument from its Verb\"",
+  "survey_determination": "slight_modification",
+  "description": "Neo-Davidsonian event semantics",
+  "fields": {
+   "formalization": "Systematic argument structure decomposition",
+   "gap": "Complete argument realization algorithm"
+  },
+  "coq_files": [],
+  "year": 1996,
+  "authors": "Kratzer, A.",
+  "title": "Severing the External Argument from its Verb"
+ },
+ {
+  "id": 94,
+  "n": 79,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Event Semantics Extensions",
+  "citation": "Marantz, A. (1984) - \"On the Nature of Grammatical Relations\"",
+  "survey_determination": "slight_modification",
+  "description": "Thematic role theory",
+  "fields": {
+   "formalization": "Thematic role assignment rules",
+   "gap": "Systematic role hierarchy"
+  },
+  "coq_files": [],
+  "year": 1984,
+  "authors": "Marantz, A.",
+  "title": "On the Nature of Grammatical Relations"
+ },
+ {
+  "id": 95,
+  "n": 80,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Event Semantics Extensions",
+  "citation": "Williams, A. (2015) - \"Arguments in Syntax and Semantics\"",
+  "survey_determination": "slight_modification",
+  "description": "Argument structure theory",
+  "fields": {
+   "formalization": "Syntax-semantics interface for arguments",
+   "gap": "Complete linking algorithm"
+  },
+  "coq_files": [],
+  "year": 2015,
+  "authors": "Williams, A.",
+  "title": "Arguments in Syntax and Semantics"
+ },
+ {
+  "id": 96,
+  "n": 81,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Cross-linguistic Semantics",
+  "citation": "Chung, S. & Ladusaw, W. (2004) - \"Restriction and Saturation\"",
+  "survey_determination": "slight_modification",
+  "description": "Cross-linguistic quantification",
+  "fields": {
+   "formalization": "Universal quantifier constraints",
+   "gap": "Language-specific variation modeling"
+  },
+  "coq_files": [],
+  "year": 2004,
+  "authors": "Chung, S. & Ladusaw, W.",
+  "title": "Restriction and Saturation"
+ },
+ {
+  "id": 97,
+  "n": 82,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Cross-linguistic Semantics",
+  "citation": "Matthewson, L. (2001) - \"Quantification and the Nature of Crosslinguistic Variation\"",
+  "survey_determination": "slight_modification",
+  "description": "Semantic universals and variation",
+  "fields": {
+   "formalization": "Parametric semantic variation",
+   "gap": "Complete parameter system"
+  },
+  "coq_files": [],
+  "year": 2001,
+  "authors": "Matthewson, L.",
+  "title": "Quantification and the Nature of Crosslinguistic Variation"
+ },
+ {
+  "id": 98,
+  "n": 83,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Cross-linguistic Semantics",
+  "citation": "Deal, A. R. (2011) - \"Modals without Scales\"",
+  "survey_determination": "slight_modification",
+  "description": "Cross-linguistic modality",
+  "fields": {
+   "formalization": "Modal systems without scalar structure",
+   "gap": "Systematic modal variation constraints"
+  },
+  "coq_files": [],
+  "year": 2011,
+  "authors": "Deal, A. R.",
+  "title": "Modals without Scales"
+ },
+ {
+  "id": 99,
+  "n": 84,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Cross-linguistic Semantics",
+  "citation": "Cable, S. (2010) - \"The Grammar of Q: Q-Particles, Wh-Movement, and Pied-Piping\"",
+  "survey_determination": "slight_modification",
+  "description": "Cross-linguistic question formation",
+  "fields": {
+   "formalization": "Systematic question particle semantics",
+   "gap": "Universal question formation constraints"
+  },
+  "coq_files": [],
+  "year": 2010,
+  "authors": "Cable, S.",
+  "title": "The Grammar of Q: Q-Particles, Wh-Movement, and Pied-Piping"
+ },
+ {
+  "id": 100,
+  "n": 85,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Cross-linguistic Semantics",
+  "citation": "Henderson, R. (2014) - \"Dependent Indefinites and their Post-Suppositions\" Cross-linguistic indefinites Formalization: Dependent indefinite interpretation Gap: Systematic dependency constraints",
+  "survey_determination": "slight_modification",
+  "description": null,
+  "fields": {},
+  "coq_files": [],
+  "year": 2014,
+  "authors": "Henderson, R.",
+  "title": "Dependent Indefinites and their Post-Suppositions"
+ },
+ {
+  "id": 101,
+  "n": 86,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Discourse and Coherence",
+  "citation": "Hobbs, J. (1985) - \"On the Coherence and Structure of Discourse\"",
+  "survey_determination": "slight_modification",
+  "description": "Discourse coherence relations",
+  "fields": {
+   "formalization": "Coherence relation taxonomy",
+   "gap": "Systematic coherence computation"
+  },
+  "coq_files": [],
+  "year": 1985,
+  "authors": "Hobbs, J.",
+  "title": "On the Coherence and Structure of Discourse"
+ },
+ {
+  "id": 102,
+  "n": 87,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Discourse and Coherence",
+  "citation": "Kehler, A. (2002) - \"Coherence, Reference, and the Theory of Grammar\"",
+  "survey_determination": "slight_modification",
+  "description": "Coherence-based discourse theory",
+  "fields": {
+   "formalization": "Coherence constraints on interpretation",
+   "gap": "Complete coherence resolution system"
+  },
+  "coq_files": [],
+  "year": 2002,
+  "authors": "Kehler, A.",
+  "title": "Coherence, Reference, and the Theory of Grammar"
+ },
+ {
+  "id": 103,
+  "n": 88,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Discourse and Coherence",
+  "citation": "Asher, N. & Lascarides, A. (2003) - \"Logics of Conversation\"",
+  "survey_determination": "slight_modification",
+  "description": "SDRT for discourse structure",
+  "fields": {
+   "formalization": "Discourse relation logic",
+   "gap": "Systematic relation identification algorithm"
+  },
+  "coq_files": [],
+  "year": 2003,
+  "authors": "Asher, N. & Lascarides, A.",
+  "title": "Logics of Conversation"
+ },
+ {
+  "id": 104,
+  "n": 89,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Discourse and Coherence",
+  "citation": "Wolf, F. & Gibson, E. (2005) - \"Representing Discourse Coherence: A Corpus-Based Study\"",
+  "survey_determination": "slight_modification",
+  "description": "Corpus-based coherence analysis",
+  "fields": {
+   "formalization": "Statistical coherence models",
+   "gap": "Integration with formal semantics"
+  },
+  "coq_files": [],
+  "year": 2005,
+  "authors": "Wolf, F. & Gibson, E.",
+  "title": "Representing Discourse Coherence: A Corpus-Based Study"
+ },
+ {
+  "id": 105,
+  "n": 90,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Discourse and Coherence",
+  "citation": "Webber, B., Stone, M., Joshi, A. & Knott, A. (2003) - \"Anaphora and Discourse Structure\"",
+  "survey_determination": "slight_modification",
+  "description": "Discourse structure and anaphora",
+  "fields": {
+   "formalization": "Structured discourse representation",
+   "gap": "Systematic structure-anaphora interface"
+  },
+  "coq_files": [],
+  "year": 2003,
+  "authors": "Webber, B., Stone, M., Joshi, A. & Knott, A.",
+  "title": "Anaphora and Discourse Structure"
+ },
+ {
+  "id": 106,
+  "n": 91,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Polysemy and Lexical Semantics",
+  "citation": "Pustejovsky, J. (1995) - \"The Generative Lexicon\"",
+  "survey_determination": "slight_modification",
+  "description": "Compositional lexical semantics",
+  "fields": {
+   "formalization": "Qualia structure and type coercion",
+   "gap": "Complete generative mechanism"
+  },
+  "coq_files": [],
+  "year": 1995,
+  "authors": "Pustejovsky, J.",
+  "title": "The Generative Lexicon"
+ },
+ {
+  "id": 107,
+  "n": 92,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Polysemy and Lexical Semantics",
+  "citation": "Copestake, A. & Briscoe, T. (1995) - \"Semi-Productive Polysemy and Sense Extension\"",
+  "survey_determination": "slight_modification",
+  "description": "Systematic polysemy",
+  "fields": {
+   "formalization": "Lexical rules for sense extension",
+   "gap": "Productivity constraints"
+  },
+  "coq_files": [],
+  "year": 1995,
+  "authors": "Copestake, A. & Briscoe, T.",
+  "title": "Semi-Productive Polysemy and Sense Extension"
+ },
+ {
+  "id": 108,
+  "n": 93,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Polysemy and Lexical Semantics",
+  "citation": "Asher, N. (2011) - \"Lexical Meaning in Context\"",
+  "survey_determination": "slight_modification",
+  "description": "Contextual meaning modulation",
+  "fields": {
+   "formalization": "Type composition logic",
+   "gap": "Systematic modulation algorithm"
+  },
+  "coq_files": [],
+  "year": 2011,
+  "authors": "Asher, N.",
+  "title": "Lexical Meaning in Context"
+ },
+ {
+  "id": 109,
+  "n": 94,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Polysemy and Lexical Semantics",
+  "citation": "Kennedy, C. & Levin, B. (2008) - \"Measure of Change: The Adjectival Core of Degree Achievements\"",
+  "survey_determination": "slight_modification",
+  "description": "Degree achievements",
+  "fields": {
+   "formalization": "Measure functions in event semantics",
+   "gap": "Systematic measure composition"
+  },
+  "coq_files": [],
+  "year": 2008,
+  "authors": "Kennedy, C. & Levin, B.",
+  "title": "Measure of Change: The Adjectival Core of Degree Achievements"
+ },
+ {
+  "id": 110,
+  "n": 95,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Polysemy and Lexical Semantics",
+  "citation": "Rappaport Hovav, M. & Levin, B. (2010) - \"Reflections on Manner/Result Complementarity\"",
+  "survey_determination": "slight_modification",
+  "description": "Verb meaning components",
+  "fields": {
+   "formalization": "Manner-result constraints",
+   "gap": "Complete constraint system"
+  },
+  "coq_files": [],
+  "year": 2010,
+  "authors": "Rappaport Hovav, M. & Levin, B.",
+  "title": "Reflections on Manner/Result Complementarity"
+ },
+ {
+  "id": 111,
+  "n": 96,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Vagueness and Gradability",
+  "citation": "Klein, E. (1980) - \"A Semantics for Positive and Comparative Adjectives\"",
+  "survey_determination": "slight_modification",
+  "description": "Degree semantics foundations",
+  "fields": {
+   "formalization": "Degree structures for adjectives",
+   "gap": "Complete degree composition algorithm"
+  },
+  "coq_files": [],
+  "year": 1980,
+  "authors": "Klein, E.",
+  "title": "A Semantics for Positive and Comparative Adjectives"
+ },
+ {
+  "id": 112,
+  "n": 97,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Vagueness and Gradability",
+  "citation": "Kamp, H. (1975) - \"Two Theories about Adjectives\"",
+  "survey_determination": "slight_modification",
+  "description": "Vague predicate semantics",
+  "fields": {
+   "formalization": "Supervaluations for vagueness",
+   "gap": "Systematic vagueness treatment"
+  },
+  "coq_files": [],
+  "year": 1975,
+  "authors": "Kamp, H.",
+  "title": "Two Theories about Adjectives"
+ },
+ {
+  "id": 113,
+  "n": 98,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Vagueness and Gradability",
+  "citation": "Kennedy, C. (2007) - \"Vagueness and Grammar: The Semantics of Relative and Absolute Gradable Adjectives\"",
+  "survey_determination": "slight_modification",
+  "description": "Scale structure and vagueness",
+  "fields": {
+   "formalization": "Scale types for gradable predicates",
+   "gap": "Complete vagueness-scale interface"
+  },
+  "coq_files": [],
+  "year": 2007,
+  "authors": "Kennedy, C.",
+  "title": "Vagueness and Grammar: The Semantics of Relative and Absolute Gradable Adjectives"
+ },
+ {
+  "id": 114,
+  "n": 99,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Vagueness and Gradability",
+  "citation": "Fara, D. G. (2000) - \"Shifting Sands: An Interest-Relative Theory of Vagueness\"",
+  "survey_determination": "slight_modification",
+  "description": "Interest-relative vagueness",
+  "fields": {
+   "formalization": "Context-dependent precision standards",
+   "gap": "Systematic context sensitivity mechanism"
+  },
+  "coq_files": [],
+  "year": 2000,
+  "authors": "Fara, D. G.",
+  "title": "Shifting Sands: An Interest-Relative Theory of Vagueness"
+ },
+ {
+  "id": 115,
+  "n": 100,
+  "category": "B",
+  "category_label": "mostly formalizable",
+  "topic": "Vagueness and Gradability",
+  "citation": "Barker, C. (2002) - \"The Dynamics of Vagueness\"",
+  "survey_determination": "slight_modification",
+  "description": "Dynamic vagueness",
+  "fields": {
+   "formalization": "Vagueness in dynamic semantics",
+   "gap": "Complete dynamic vagueness system"
+  },
+  "coq_files": [],
+  "year": 2002,
+  "authors": "Barker, C.",
+  "title": "The Dynamics of Vagueness"
+ },
+ {
+  "id": 116,
+  "n": 101,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Situation Semantics",
+  "citation": "Barwise, J. & Perry, J. (1983) - \"Situations and Attitudes\"",
+  "survey_determination": "major_restructuring",
+  "description": "Situation-based semantics",
+  "fields": {
+   "formalization": "Requires complete situation ontology",
+   "gap": "Fundamental issues with partial worlds and information content"
+  },
+  "coq_files": [],
+  "year": 1983,
+  "authors": "Barwise, J. & Perry, J.",
+  "title": "Situations and Attitudes"
+ },
+ {
+  "id": 117,
+  "n": 102,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Situation Semantics",
+  "citation": "Devlin, K. (1991) - \"Logic and Information\"",
+  "survey_determination": "major_restructuring",
+  "description": "Information-theoretic semantics",
+  "fields": {
+   "formalization": "Needs formalization of information flow",
+   "gap": "Mathematical foundations for information content"
+  },
+  "coq_files": [],
+  "year": 1991,
+  "authors": "Devlin, K.",
+  "title": "Logic and Information"
+ },
+ {
+  "id": 118,
+  "n": 103,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Situation Semantics",
+  "citation": "Kratzer, A. (2002) - \"Facts: Particulars or Information Units?\"",
+  "survey_determination": "major_restructuring",
+  "description": "Fact-based semantics",
+  "fields": {
+   "formalization": "Requires ontology of facts vs. propositions",
+   "gap": "Metaphysical foundations affect formalization"
+  },
+  "coq_files": [],
+  "year": 2002,
+  "authors": "Kratzer, A.",
+  "title": "Facts: Particulars or Information Units?"
+ },
+ {
+  "id": 119,
+  "n": 104,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Situation Semantics",
+  "citation": "Austin, J. L. (1950) - \"Truth\"",
+  "survey_determination": "major_restructuring",
+  "description": "Austinian propositions",
+  "fields": {
+   "formalization": "Needs situation-relative truth conditions",
+   "gap": "Complete situation individuation criteria"
+  },
+  "coq_files": [],
+  "year": 1950,
+  "authors": "Austin, J. L.",
+  "title": "Truth"
+ },
+ {
+  "id": 120,
+  "n": 105,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Situation Semantics",
+  "citation": "Recanati, F. (2004) - \"Literal Meaning\"",
+  "survey_determination": "major_restructuring",
+  "description": "Context-sensitive semantics",
+  "fields": {
+   "formalization": "Requires formalization of literal meaning",
+   "gap": "Context-dependence boundaries"
+  },
+  "coq_files": [],
+  "year": 2004,
+  "authors": "Recanati, F.",
+  "title": "Literal Meaning"
+ },
+ {
+  "id": 121,
+  "n": 106,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Cognitive Semantics Foundations",
+  "citation": "Lakoff, G. (1987) - \"Women, Fire, and Dangerous Things\"",
+  "survey_determination": "major_restructuring",
+  "description": "Prototype theory for semantics",
+  "fields": {
+   "formalization": "Requires mathematical prototypes",
+   "gap": "No systematic prototype algebra"
+  },
+  "coq_files": [
+   "extras/LakoffPrototypes.v"
+  ],
+  "year": 1987,
+  "authors": "Lakoff, G.",
+  "title": "Women, Fire, and Dangerous Things"
+ },
+ {
+  "id": 122,
+  "n": 107,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Cognitive Semantics Foundations",
+  "citation": "Rosch, E. (1978) - \"Principles of Categorization\"",
+  "survey_determination": "major_restructuring",
+  "description": "Cognitive categorization theory",
+  "fields": {
+   "formalization": "Needs formal prototype structures",
+   "gap": "Psychological reality constraints"
+  },
+  "coq_files": [],
+  "year": 1978,
+  "authors": "Rosch, E.",
+  "title": "Principles of Categorization"
+ },
+ {
+  "id": 123,
+  "n": 108,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Cognitive Semantics Foundations",
+  "citation": "Fillmore, C. (1976) - \"Frame Semantics and the Nature of Language\"",
+  "survey_determination": "major_restructuring",
+  "description": "Frame-based semantics",
+  "fields": {
+   "formalization": "Requires formal frame algebra",
+   "gap": "Frame activation and composition mechanisms"
+  },
+  "coq_files": [],
+  "year": 1976,
+  "authors": "Fillmore, C.",
+  "title": "Frame Semantics and the Nature of Language"
+ },
+ {
+  "id": 124,
+  "n": 109,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Cognitive Semantics Foundations",
+  "citation": "Talmy, L. (2000) - \"Toward a Cognitive Semantics\"",
+  "survey_determination": "major_restructuring",
+  "description": "Force dynamics in semantics",
+  "fields": {
+   "formalization": "Needs mathematical force dynamics",
+   "gap": "Complete force-dynamic calculus"
+  },
+  "coq_files": [],
+  "year": 2000,
+  "authors": "Talmy, L.",
+  "title": "Toward a Cognitive Semantics"
+ },
+ {
+  "id": 125,
+  "n": 110,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Cognitive Semantics Foundations",
+  "citation": "Jackendoff, R. (1983) - \"Semantics and Cognition\"",
+  "survey_determination": "major_restructuring",
+  "description": "Conceptual structure theory",
+  "fields": {
+   "formalization": "Requires formal conceptual representations",
+   "gap": "Complete conceptual algebra"
+  },
+  "coq_files": [],
+  "year": 1983,
+  "authors": "Jackendoff, R.",
+  "title": "Semantics and Cognition"
+ },
+ {
+  "id": 126,
+  "n": 111,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Mental Spaces and Blending",
+  "citation": "Fauconnier, G. (1994) - \"Mental Spaces\"",
+  "survey_determination": "major_restructuring",
+  "description": "Mental space theory",
+  "fields": {
+   "formalization": "Needs formal space operations",
+   "gap": "Mathematical space construction rules"
+  },
+  "coq_files": [],
+  "year": 1994,
+  "authors": "Fauconnier, G.",
+  "title": "Mental Spaces"
+ },
+ {
+  "id": 127,
+  "n": 112,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Mental Spaces and Blending",
+  "citation": "Fauconnier, G. & Turner, M. (2002) - \"The Way We Think: Conceptual Blending\"",
+  "survey_determination": "major_restructuring",
+  "description": "Conceptual blending theory",
+  "fields": {
+   "formalization": "Requires formal blending operations",
+   "gap": "Systematic blending constraints"
+  },
+  "coq_files": [],
+  "year": 2002,
+  "authors": "Fauconnier, G. & Turner, M.",
+  "title": "The Way We Think: Conceptual Blending"
+ },
+ {
+  "id": 128,
+  "n": 113,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Mental Spaces and Blending",
+  "citation": "Sweetser, E. (1990) - \"From Etymology to Pragmatics\"",
+  "survey_determination": "major_restructuring",
+  "description": "Metaphorical meaning change",
+  "fields": {
+   "formalization": "Needs formal metaphor mapping",
+   "gap": "Systematic metaphor computation"
+  },
+  "coq_files": [],
+  "year": 1990,
+  "authors": "Sweetser, E.",
+  "title": "From Etymology to Pragmatics"
+ },
+ {
+  "id": 129,
+  "n": 114,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Mental Spaces and Blending",
+  "citation": "Lakoff, G. & Johnson, M. (1980) - \"Metaphors We Live By\"",
+  "survey_determination": "major_restructuring",
+  "description": "Conceptual metaphor theory",
+  "fields": {
+   "formalization": "Requires formal metaphor systems",
+   "gap": "Mathematical metaphor operations"
+  },
+  "coq_files": [],
+  "year": 1980,
+  "authors": "Lakoff, G. & Johnson, M.",
+  "title": "Metaphors We Live By"
+ },
+ {
+  "id": 130,
+  "n": 115,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Mental Spaces and Blending",
+  "citation": "Grady, J. (1997) - \"Foundations of Meaning: Primary Metaphors and Primary Scenes\"",
+  "survey_determination": "major_restructuring",
+  "description": "Primary metaphor theory",
+  "fields": {
+   "formalization": "Needs formal correlation structures",
+   "gap": "Systematic correlation-metaphor mapping"
+  },
+  "coq_files": [],
+  "year": 1997,
+  "authors": "Grady, J.",
+  "title": "Foundations of Meaning: Primary Metaphors and Primary Scenes"
+ },
+ {
+  "id": 131,
+  "n": 116,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Construction Grammar",
+  "citation": "Goldberg, A. (1995) - \"Constructions: A Construction Grammar Approach\"",
+  "survey_determination": "major_restructuring",
+  "description": "Construction-based semantics",
+  "fields": {
+   "formalization": "Requires formal construction operations",
+   "gap": "Construction composition algebra"
+  },
+  "coq_files": [],
+  "year": 1995,
+  "authors": "Goldberg, A.",
+  "title": "Constructions: A Construction Grammar Approach"
+ },
+ {
+  "id": 132,
+  "n": 117,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Construction Grammar",
+  "citation": "Fillmore, C., Kay, P. & O'Connor, M. C. (1988) - \"Regularity and Idiomaticity in Grammatical Constructions\"",
+  "survey_determination": "major_restructuring",
+  "description": "Construction grammar foundations",
+  "fields": {
+   "formalization": "Needs systematic construction formalism",
+   "gap": "Complete inheritance hierarchy"
+  },
+  "coq_files": [],
+  "year": 1988,
+  "authors": "Fillmore, C., Kay, P. & O'Connor, M. C.",
+  "title": "Regularity and Idiomaticity in Grammatical Constructions"
+ },
+ {
+  "id": 133,
+  "n": 118,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Construction Grammar",
+  "citation": "Croft, W. (2001) - \"Radical Construction Grammar\"",
+  "survey_determination": "major_restructuring",
+  "description": "Cross-linguistic construction theory",
+  "fields": {
+   "formalization": "Requires universal construction constraints",
+   "gap": "Systematic cross-linguistic variation"
+  },
+  "coq_files": [],
+  "year": 2001,
+  "authors": "Croft, W.",
+  "title": "Radical Construction Grammar"
+ },
+ {
+  "id": 134,
+  "n": 119,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Construction Grammar",
+  "citation": "Tomasello, M. (2003) - \"Constructing a Language: A Usage-Based Theory\"",
+  "survey_determination": "major_restructuring",
+  "description": "Usage-based construction grammar",
+  "fields": {
+   "formalization": "Requires statistical learning models",
+   "gap": "Systematic usage-to-grammar mapping"
+  },
+  "coq_files": [],
+  "year": 2003,
+  "authors": "Tomasello, M.",
+  "title": "Constructing a Language: A Usage-Based Theory"
+ },
+ {
+  "id": 135,
+  "n": 120,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Construction Grammar",
+  "citation": "Langacker, R. (1987) - \"Foundations of Cognitive Grammar\"",
+  "survey_determination": "major_restructuring",
+  "description": "Cognitive grammar framework",
+  "fields": {
+   "formalization": "Needs formal cognitive construal operations",
+   "gap": "Mathematical cognitive model"
+  },
+  "coq_files": [],
+  "year": 1987,
+  "authors": "Langacker, R.",
+  "title": "Foundations of Cognitive Grammar"
+ },
+ {
+  "id": 136,
+  "n": 121,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Cross-linguistic Typology and Variation",
+  "citation": "Croft, W. (2003) - \"Typology and Universals\"",
+  "survey_determination": "major_restructuring",
+  "description": "Semantic typology",
+  "fields": {
+   "formalization": "Requires universal constraints with parameters",
+   "gap": "Complete parametric system"
+  },
+  "coq_files": [],
+  "year": 2003,
+  "authors": "Croft, W.",
+  "title": "Typology and Universals"
+ },
+ {
+  "id": 137,
+  "n": 122,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Cross-linguistic Typology and Variation",
+  "citation": "Haspelmath, M. (2003) - \"The Geometry of Grammatical Meaning\"",
+  "survey_determination": "major_restructuring",
+  "description": "Semantic maps for typology",
+  "fields": {
+   "formalization": "Needs formal semantic space",
+   "gap": "Systematic map construction algorithm"
+  },
+  "coq_files": [],
+  "year": 2003,
+  "authors": "Haspelmath, M.",
+  "title": "The Geometry of Grammatical Meaning"
+ },
+ {
+  "id": 138,
+  "n": 123,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Cross-linguistic Typology and Variation",
+  "citation": "van der Auwera, J. & Plungian, V. (1998) - \"Modality's Semantic Map\"",
+  "survey_determination": "major_restructuring",
+  "description": "Modal semantic maps",
+  "fields": {
+   "formalization": "Requires formalization of semantic connections",
+   "gap": "Universal mapping principles"
+  },
+  "coq_files": [],
+  "year": 1998,
+  "authors": "van der Auwera, J. & Plungian, V.",
+  "title": "Modality's Semantic Map"
+ },
+ {
+  "id": 139,
+  "n": 124,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Cross-linguistic Typology and Variation",
+  "citation": "Bybee, J., Perkins, R. & Pagliuca, W. (1994) - \"The Evolution of Grammar: Tense, Aspect, and Modality\"",
+  "survey_determination": "major_restructuring",
+  "description": "Grammaticalization paths",
+  "fields": {
+   "formalization": "Needs formal grammaticalization constraints",
+   "gap": "Systematic path prediction"
+  },
+  "coq_files": [],
+  "year": 1994,
+  "authors": "Bybee, J., Perkins, R. & Pagliuca, W.",
+  "title": "The Evolution of Grammar: Tense, Aspect, and Modality"
+ },
+ {
+  "id": 140,
+  "n": 125,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Cross-linguistic Typology and Variation",
+  "citation": "Aikhenvald, A. (2004) - \"Evidentiality\"",
+  "survey_determination": "major_restructuring",
+  "description": "Cross-linguistic evidential systems",
+  "fields": {
+   "formalization": "Requires formal evidential semantics",
+   "gap": "Universal evidential constraints"
+  },
+  "coq_files": [],
+  "year": 2004,
+  "authors": "Aikhenvald, A.",
+  "title": "Evidentiality"
+ },
+ {
+  "id": 141,
+  "n": 126,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Semantic Change and Historical Semantics",
+  "citation": "Traugott, E. & Dasher, R. (2001) - \"Regularity in Semantic Change\"",
+  "survey_determination": "major_restructuring",
+  "description": "Semantic change principles",
+  "fields": {
+   "formalization": "Needs formal change constraints",
+   "gap": "Predictive model for semantic change"
+  },
+  "coq_files": [],
+  "year": 2001,
+  "authors": "Traugott, E. & Dasher, R.",
+  "title": "Regularity in Semantic Change"
+ },
+ {
+  "id": 142,
+  "n": 127,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Semantic Change and Historical Semantics",
+  "citation": "Sweetser, E. (1988) - \"Grammaticalization and Semantic Bleaching\"",
+  "survey_determination": "major_restructuring",
+  "description": "Meaning change in grammaticalization",
+  "fields": {
+   "formalization": "Requires formal bleaching operations",
+   "gap": "Systematic bleaching prediction"
+  },
+  "coq_files": [],
+  "year": 1988,
+  "authors": "Sweetser, E.",
+  "title": "Grammaticalization and Semantic Bleaching"
+ },
+ {
+  "id": 143,
+  "n": 128,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Semantic Change and Historical Semantics",
+  "citation": "Hopper, P. & Traugott, E. (2003) - \"Grammaticalization\"",
+  "survey_determination": "major_restructuring",
+  "description": "Grammaticalization theory",
+  "fields": {
+   "formalization": "Needs formal grammaticalization paths",
+   "gap": "Complete constraint system"
+  },
+  "coq_files": [],
+  "year": 2003,
+  "authors": "Hopper, P. & Traugott, E.",
+  "title": "Grammaticalization"
+ },
+ {
+  "id": 144,
+  "n": 129,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Semantic Change and Historical Semantics",
+  "citation": "Bréal, M. (1897/1964) - \"Semantics: Studies in the Science of Meaning\"",
+  "survey_determination": "major_restructuring",
+  "description": "Historical semantics foundations",
+  "fields": {
+   "formalization": "Requires historical meaning tracking",
+   "gap": "Systematic change mechanisms"
+  },
+  "coq_files": [],
+  "year": 1897,
+  "authors": "Bréal, M.",
+  "title": "Semantics: Studies in the Science of Meaning"
+ },
+ {
+  "id": 145,
+  "n": 130,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Semantic Change and Historical Semantics",
+  "citation": "Blank, A. (1999) - \"Co-Presence and Succession: A Cognitive Typology of Metonymy\"",
+  "survey_determination": "major_restructuring",
+  "description": "Metonymic change",
+  "fields": {
+   "formalization": "Needs formal metonymy operations",
+   "gap": "Cognitive metonymy algebra"
+  },
+  "coq_files": [],
+  "year": 1999,
+  "authors": "Blank, A.",
+  "title": "Co-Presence and Succession: A Cognitive Typology of Metonymy"
+ },
+ {
+  "id": 146,
+  "n": 131,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Game-Theoretic and Optimality-Theoretic Approaches",
+  "citation": "Parikh, P. (2001) - \"The Use of Language\"",
+  "survey_determination": "major_restructuring",
+  "description": "Game-theoretic pragmatics",
+  "fields": {
+   "formalization": "Game theory for communication",
+   "gap": "Real-world game complexity"
+  },
+  "coq_files": [],
+  "year": 2001,
+  "authors": "Parikh, P.",
+  "title": "The Use of Language"
+ },
+ {
+  "id": 147,
+  "n": 132,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Game-Theoretic and Optimality-Theoretic Approaches",
+  "citation": "Franke, M. (2009) - \"Signal to Act: Game Theory in Pragmatics\"",
+  "survey_determination": "major_restructuring",
+  "description": "Signaling games for pragmatics",
+  "fields": {
+   "formalization": "Equilibrium concepts for communication",
+   "gap": "Multiple equilibria resolution"
+  },
+  "coq_files": [],
+  "year": 2009,
+  "authors": "Franke, M.",
+  "title": "Signal to Act: Game Theory in Pragmatics"
+ },
+ {
+  "id": 148,
+  "n": 133,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Game-Theoretic and Optimality-Theoretic Approaches",
+  "citation": "Jäger, G. (2007) - \"The Evolution of Convex Categories\"",
+  "survey_determination": "major_restructuring",
+  "description": "Evolutionary game theory for semantics",
+  "fields": {
+   "formalization": "Evolutionary dynamics for meaning",
+   "gap": "Population-level semantic dynamics"
+  },
+  "coq_files": [],
+  "year": 2007,
+  "authors": "Jäger, G.",
+  "title": "The Evolution of Convex Categories"
+ },
+ {
+  "id": 149,
+  "n": 134,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Game-Theoretic and Optimality-Theoretic Approaches",
+  "citation": "Blutner, R. (2000) - \"Some Aspects of Optimality in Natural Language Interpretation\"",
+  "survey_determination": "major_restructuring",
+  "description": "Optimality Theory for pragmatics",
+  "fields": {
+   "formalization": "Constraint ranking for interpretation",
+   "gap": "Systematic constraint interaction"
+  },
+  "coq_files": [],
+  "year": 2000,
+  "authors": "Blutner, R.",
+  "title": "Some Aspects of Optimality in Natural Language Interpretation"
+ },
+ {
+  "id": 150,
+  "n": 135,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Game-Theoretic and Optimality-Theoretic Approaches",
+  "citation": "Zeevat, H. (2000) - \"The Asymmetry of Optimality Theoretic Syntax and Semantics\"",
+  "survey_determination": "major_restructuring",
+  "description": "Bi-directional OT",
+  "fields": {
+   "formalization": "Optimization in production and comprehension",
+   "gap": "Complete bi-directional system"
+  },
+  "coq_files": [],
+  "year": 2000,
+  "authors": "Zeevat, H.",
+  "title": "The Asymmetry of Optimality Theoretic Syntax and Semantics"
+ },
+ {
+  "id": 151,
+  "n": 136,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Embodiment and Simulation",
+  "citation": "Barsalou, L. (1999) - \"Perceptual Symbol Systems\"",
+  "survey_determination": "major_restructuring",
+  "description": "Perceptual grounding of meaning",
+  "fields": {
+   "formalization": "Requires formal perceptual representations",
+   "gap": "Perceptual-symbolic interface"
+  },
+  "coq_files": [],
+  "year": 1999,
+  "authors": "Barsalou, L.",
+  "title": "Perceptual Symbol Systems"
+ },
+ {
+  "id": 152,
+  "n": 137,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Embodiment and Simulation",
+  "citation": "Bergen, B. (2012) - \"Louder than Words: The New Science of How the Mind Makes Meaning\"",
+  "survey_determination": "major_restructuring",
+  "description": "Simulation-based semantics",
+  "fields": {
+   "formalization": "Needs formal simulation mechanisms",
+   "gap": "Systematic simulation composition"
+  },
+  "coq_files": [],
+  "year": 2012,
+  "authors": "Bergen, B.",
+  "title": "Louder than Words: The New Science of How the Mind Makes Meaning"
+ },
+ {
+  "id": 153,
+  "n": 138,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Embodiment and Simulation",
+  "citation": "Gallese, V. & Lakoff, G. (2005) - \"The Brain's Concepts: The Role of the Sensory-Motor System\"",
+  "survey_determination": "major_restructuring",
+  "description": "Neural grounding of concepts",
+  "fields": {
+   "formalization": "Requires neural-semantic mapping",
+   "gap": "Complete neural implementation"
+  },
+  "coq_files": [],
+  "year": 2005,
+  "authors": "Gallese, V. & Lakoff, G.",
+  "title": "The Brain's Concepts: The Role of the Sensory-Motor System"
+ },
+ {
+  "id": 154,
+  "n": 139,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Embodiment and Simulation",
+  "citation": "Zwaan, R. & Taylor, L. (2006) - \"Seeing, Acting, Understanding: Motor Resonance in Language Comprehension\"",
+  "survey_determination": "major_restructuring",
+  "description": "Motor simulation in comprehension",
+  "fields": {
+   "formalization": "Needs formal motor representations",
+   "gap": "Motor-semantic composition"
+  },
+  "coq_files": [],
+  "year": 2006,
+  "authors": "Zwaan, R. & Taylor, L.",
+  "title": "Seeing, Acting, Understanding: Motor Resonance in Language Comprehension"
+ },
+ {
+  "id": 155,
+  "n": 140,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Embodiment and Simulation",
+  "citation": "Pecher, D. & Zwaan, R. (2005) - \"Grounding Cognition: The Role of Perception and Action\"",
+  "survey_determination": "major_restructuring",
+  "description": "Grounded cognition for semantics",
+  "fields": {
+   "formalization": "Requires perceptual-motor formalization",
+   "gap": "Complete grounding mechanism"
+  },
+  "coq_files": [],
+  "year": 2005,
+  "authors": "Pecher, D. & Zwaan, R.",
+  "title": "Grounding Cognition: The Role of Perception and Action"
+ },
+ {
+  "id": 156,
+  "n": 141,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Distributional and Vector Semantics",
+  "citation": "Landauer, T. & Dumais, S. (1997) - \"A Solution to Plato's Problem: The Latent Semantic Analysis Theory\"",
+  "survey_determination": "major_restructuring",
+  "description": "Statistical semantic spaces",
+  "fields": {
+   "formalization": "Vector space semantics",
+   "gap": "Integration with compositional semantics"
+  },
+  "coq_files": [],
+  "year": 1997,
+  "authors": "Landauer, T. & Dumais, S.",
+  "title": "A Solution to Plato's Problem: The Latent Semantic Analysis Theory"
+ },
+ {
+  "id": 157,
+  "n": 142,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Distributional and Vector Semantics",
+  "citation": "Turney, P. & Pantel, P. (2010) - \"From Frequency to Meaning: Vector Space Models of Semantics\"",
+  "survey_determination": "major_restructuring",
+  "description": "Distributional semantic models",
+  "fields": {
+   "formalization": "Vector operations for meaning",
+   "gap": "Composition beyond vectors"
+  },
+  "coq_files": [],
+  "year": 2010,
+  "authors": "Turney, P. & Pantel, P.",
+  "title": "From Frequency to Meaning: Vector Space Models of Semantics"
+ },
+ {
+  "id": 158,
+  "n": 143,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Distributional and Vector Semantics",
+  "citation": "Baroni, M. & Lenci, A. (2010) - \"Distributional Memory: A General Framework for Corpus-Based Semantics\"",
+  "survey_determination": "major_restructuring",
+  "description": "Structured distributional semantics",
+  "fields": {
+   "formalization": "Tensor-based semantic spaces",
+   "gap": "Formal semantic integration"
+  },
+  "coq_files": [],
+  "year": 2010,
+  "authors": "Baroni, M. & Lenci, A.",
+  "title": "Distributional Memory: A General Framework for Corpus-Based Semantics"
+ },
+ {
+  "id": 159,
+  "n": 144,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Distributional and Vector Semantics",
+  "citation": "Coecke, B., Sadrzadeh, M. & Clark, S. (2011) - \"Mathematical Foundations for a Compositional Distributional Model of Meaning\"",
+  "survey_determination": "major_restructuring",
+  "description": "Categorical compositional distributional semantics",
+  "fields": {
+   "formalization": "Category theory for composition",
+   "gap": "Empirical validation difficulties"
+  },
+  "coq_files": [
+   "atlas/categorical/DisCoCat.v"
+  ],
+  "year": 2011,
+  "authors": "Coecke, B., Sadrzadeh, M. & Clark, S.",
+  "title": "Mathematical Foundations for a Compositional Distributional Model of Meaning"
+ },
+ {
+  "id": 160,
+  "n": 145,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Distributional and Vector Semantics",
+  "citation": "Boleda, G. & Herbelot, A. (2016) - \"Formal Distributional Semantics: Introduction to the Special Issue\"",
+  "survey_determination": "major_restructuring",
+  "description": "Formal-distributional integration",
+  "fields": {
+   "formalization": "Hybrid formal-distributional models",
+   "gap": "Complete integration framework"
+  },
+  "coq_files": [],
+  "year": 2016,
+  "authors": "Boleda, G. & Herbelot, A.",
+  "title": "Formal Distributional Semantics: Introduction to the Special Issue"
+ },
+ {
+  "id": 161,
+  "n": 146,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Hyperintensionality",
+  "citation": "Cresswell, M. (1985) - \"Structured Meanings: The Semantics of Propositional Attitudes\"",
+  "survey_determination": "major_restructuring",
+  "description": "Structured propositions",
+  "fields": {
+   "formalization": "Requires formalization of structure",
+   "gap": "Complete structuring mechanism"
+  },
+  "coq_files": [],
+  "year": 1985,
+  "authors": "Cresswell, M.",
+  "title": "Structured Meanings: The Semantics of Propositional Attitudes"
+ },
+ {
+  "id": 162,
+  "n": 147,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Hyperintensionality",
+  "citation": "Soames, S. (1987) - \"Direct Reference, Propositional Attitudes, and Semantic Content\"",
+  "survey_determination": "major_restructuring",
+  "description": "Fine-grained content",
+  "fields": {
+   "formalization": "Needs hyperintensional individuation",
+   "gap": "Systematic individuation criteria"
+  },
+  "coq_files": [],
+  "year": 1987,
+  "authors": "Soames, S.",
+  "title": "Direct Reference, Propositional Attitudes, and Semantic Content"
+ },
+ {
+  "id": 163,
+  "n": 148,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Hyperintensionality",
+  "citation": "Jespersen, B. (2012) - \"Recent Work on Structured Meaning and Propositional Unity\"",
+  "survey_determination": "major_restructuring",
+  "description": "Transparent intensional logic",
+  "fields": {
+   "formalization": "Procedural semantics",
+   "gap": "Complete procedural composition"
+  },
+  "coq_files": [],
+  "year": 2012,
+  "authors": "Jespersen, B.",
+  "title": "Recent Work on Structured Meaning and Propositional Unity"
+ },
+ {
+  "id": 164,
+  "n": 149,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Hyperintensionality",
+  "citation": "Fox, C. & Lappin, S. (2005) - \"Foundations of Intensional Semantics\"",
+  "survey_determination": "major_restructuring",
+  "description": "Property theory for hyperintensionality",
+  "fields": {
+   "formalization": "Property-theoretic framework",
+   "gap": "Systematic property individuation"
+  },
+  "coq_files": [],
+  "year": 2005,
+  "authors": "Fox, C. & Lappin, S.",
+  "title": "Foundations of Intensional Semantics"
+ },
+ {
+  "id": 165,
+  "n": 150,
+  "category": "C",
+  "category_label": "partially formalizable",
+  "topic": "Hyperintensionality",
+  "citation": "Muskens, R. (2005) - \"Sense and the Computation of Reference\"",
+  "survey_determination": "major_restructuring",
+  "description": "Type-logical hyperintensionality",
+  "fields": {
+   "formalization": "Type theory for fine-grained content",
+   "gap": "Complete sense computation"
+  },
+  "coq_files": [],
+  "year": 2005,
+  "authors": "Muskens, R.",
+  "title": "Sense and the Computation of Reference"
+ },
+ {
+  "id": 166,
+  "n": 151,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Phenomenological and Hermeneutic Approaches",
+  "citation": "Heidegger, M. (1927/1962) - \"Being and Time\"",
+  "survey_determination": "cannot",
+  "description": "Phenomenological semantics",
+  "fields": {
+   "issue": "Fundamental rejection of formal methods",
+   "barrier": "Hermeneutic circle vs. systematic rules"
+  },
+  "coq_files": [],
+  "year": 1927,
+  "authors": "Heidegger, M.",
+  "title": "Being and Time"
+ },
+ {
+  "id": 167,
+  "n": 152,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Phenomenological and Hermeneutic Approaches",
+  "citation": "Gadamer, H.-G. (1975) - \"Truth and Method\"",
+  "survey_determination": "cannot",
+  "description": "Hermeneutic understanding",
+  "fields": {
+   "issue": "Historical horizon formalization impossible",
+   "barrier": "Infinite contextual dependencies"
+  },
+  "coq_files": [],
+  "year": 1975,
+  "authors": "Gadamer, H.-G.",
+  "title": "Truth and Method"
+ },
+ {
+  "id": 168,
+  "n": 153,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Phenomenological and Hermeneutic Approaches",
+  "citation": "Merleau-Ponty, M. (1945) - \"Phenomenology of Perception\"",
+  "survey_determination": "cannot",
+  "description": "Embodied meaning",
+  "fields": {
+   "issue": "Pre-reflective experience resists formalization",
+   "barrier": "Lived experience vs. formal representation"
+  },
+  "coq_files": [],
+  "year": 1945,
+  "authors": "Merleau-Ponty, M.",
+  "title": "Phenomenology of Perception"
+ },
+ {
+  "id": 169,
+  "n": 154,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Phenomenological and Hermeneutic Approaches",
+  "citation": "Ricoeur, P. (1976) - \"Interpretation Theory\"",
+  "survey_determination": "cannot",
+  "description": "Hermeneutic semantics",
+  "fields": {
+   "issue": "Dialectic of explanation and understanding",
+   "barrier": "Circular interpretative process"
+  },
+  "coq_files": [],
+  "year": 1976,
+  "authors": "Ricoeur, P.",
+  "title": "Interpretation Theory"
+ },
+ {
+  "id": 170,
+  "n": 155,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Phenomenological and Hermeneutic Approaches",
+  "citation": "Husserl, E. (1913) - \"Ideas Pertaining to a Pure Phenomenology\"",
+  "survey_determination": "cannot",
+  "description": "Phenomenological meaning constitution",
+  "fields": {
+   "issue": "Intentional consciousness formalization",
+   "barrier": "Subjective meaning-giving acts"
+  },
+  "coq_files": [],
+  "year": 1913,
+  "authors": "Husserl, E.",
+  "title": "Ideas Pertaining to a Pure Phenomenology"
+ },
+ {
+  "id": 171,
+  "n": 156,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Deconstructionist Approaches",
+  "citation": "Derrida, J. (1967) - \"Of Grammatology\"",
+  "survey_determination": "cannot",
+  "description": "Deconstruction of meaning",
+  "fields": {
+   "issue": "Explicit anti-formalism",
+   "barrier": "Meaning as trace and différance"
+  },
+  "coq_files": [],
+  "year": 1967,
+  "authors": "Derrida, J.",
+  "title": "Of Grammatology"
+ },
+ {
+  "id": 172,
+  "n": 157,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Deconstructionist Approaches",
+  "citation": "Derrida, J. (1972) - \"Signature Event Context\"",
+  "survey_determination": "cannot",
+  "description": "Iterability and context",
+  "fields": {
+   "issue": "Infinite contextual variation",
+   "barrier": "No stable meaning core"
+  },
+  "coq_files": [],
+  "year": 1972,
+  "authors": "Derrida, J.",
+  "title": "Signature Event Context"
+ },
+ {
+  "id": 173,
+  "n": 158,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Deconstructionist Approaches",
+  "citation": "de Man, P. (1979) - \"Allegories of Reading\"",
+  "survey_determination": "cannot",
+  "description": "Rhetorical reading",
+  "fields": {
+   "issue": "Unreadability and aporia",
+   "barrier": "Systematic undecidability"
+  },
+  "coq_files": [],
+  "year": 1979,
+  "authors": "de Man, P.",
+  "title": "Allegories of Reading"
+ },
+ {
+  "id": 174,
+  "n": 159,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Deconstructionist Approaches",
+  "citation": "Barthes, R. (1977) - \"The Death of the Author\"",
+  "survey_determination": "cannot",
+  "description": "Reader-based meaning",
+  "fields": {
+   "issue": "Infinite interpretation possibilities",
+   "barrier": "No determinate meaning"
+  },
+  "coq_files": [],
+  "year": 1977,
+  "authors": "Barthes, R.",
+  "title": "The Death of the Author"
+ },
+ {
+  "id": 175,
+  "n": 160,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Deconstructionist Approaches",
+  "citation": "Kristeva, J. (1980) - \"Desire in Language\"",
+  "survey_determination": "cannot",
+  "description": "Semiotic vs. symbolic",
+  "fields": {
+   "issue": "Pre-linguistic semiotic realm",
+   "barrier": "Drives and forces vs. structure"
+  },
+  "coq_files": [],
+  "year": 1980,
+  "authors": "Kristeva, J.",
+  "title": "Desire in Language"
+ },
+ {
+  "id": 176,
+  "n": 161,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Ordinary Language Philosophy",
+  "citation": "Wittgenstein, L. (1953) - \"Philosophical Investigations\"",
+  "survey_determination": "cannot",
+  "description": "Language games and family resemblances",
+  "fields": {
+   "issue": "Resists systematic rules by design",
+   "barrier": "Context-dependent use without system"
+  },
+  "coq_files": [],
+  "year": 1953,
+  "authors": "Wittgenstein, L.",
+  "title": "Philosophical Investigations"
+ },
+ {
+  "id": 177,
+  "n": 162,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Ordinary Language Philosophy",
+  "citation": "Austin, J. L. (1962) - \"How to Do Things with Words\"",
+  "survey_determination": "cannot",
+  "description": "Speech act theory",
+  "fields": {
+   "issue": "Open-ended social conventions",
+   "barrier": "Infinite cultural context"
+  },
+  "coq_files": [],
+  "year": 1962,
+  "authors": "Austin, J. L.",
+  "title": "How to Do Things with Words"
+ },
+ {
+  "id": 178,
+  "n": 163,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Ordinary Language Philosophy",
+  "citation": "Searle, J. (1969) - \"Speech Acts\"",
+  "survey_determination": "cannot",
+  "description": "Constitutive rules for speech acts",
+  "fields": {
+   "issue": "Social reality formalization required",
+   "barrier": "Cultural variation unbounded"
+  },
+  "coq_files": [],
+  "year": 1969,
+  "authors": "Searle, J.",
+  "title": "Speech Acts"
+ },
+ {
+  "id": 179,
+  "n": 164,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Ordinary Language Philosophy",
+  "citation": "Ryle, G. (1949) - \"The Concept of Mind\"",
+  "survey_determination": "cannot",
+  "description": "Ordinary language analysis",
+  "fields": {
+   "issue": "Category mistakes and informal logic",
+   "barrier": "No systematic category theory"
+  },
+  "coq_files": [],
+  "year": 1949,
+  "authors": "Ryle, G.",
+  "title": "The Concept of Mind"
+ },
+ {
+  "id": 180,
+  "n": 165,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Ordinary Language Philosophy",
+  "citation": "Strawson, P. F. (1959) - \"Individuals: An Essay in Descriptive Metaphysics\"",
+  "survey_determination": "cannot",
+  "description": "Ordinary ontology",
+  "fields": {
+   "issue": "Descriptive vs. revisionary metaphysics",
+   "barrier": "Intuitions resist formalization"
+  },
+  "coq_files": [],
+  "year": 1959,
+  "authors": "Strawson, P. F.",
+  "title": "Individuals: An Essay in Descriptive Metaphysics"
+ },
+ {
+  "id": 181,
+  "n": 166,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Dialogical and Interactive Approaches",
+  "citation": "Bakhtin, M. (1981) - \"The Dialogic Imagination\"",
+  "survey_determination": "cannot",
+  "description": "Dialogism and heteroglossia",
+  "fields": {
+   "issue": "Multiple voices and social languages",
+   "barrier": "Infinite social-historical parameters"
+  },
+  "coq_files": [],
+  "year": 1981,
+  "authors": "Bakhtin, M.",
+  "title": "The Dialogic Imagination"
+ },
+ {
+  "id": 182,
+  "n": 167,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Dialogical and Interactive Approaches",
+  "citation": "Clark, H. (1996) - \"Using Language\"",
+  "survey_determination": "cannot",
+  "description": "Joint action in language use",
+  "fields": {
+   "issue": "Real-time coordination complexity",
+   "barrier": "Open-ended interaction patterns"
+  },
+  "coq_files": [],
+  "year": 1996,
+  "authors": "Clark, H.",
+  "title": "Using Language"
+ },
+ {
+  "id": 183,
+  "n": 168,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Dialogical and Interactive Approaches",
+  "citation": "Schegloff, E., Jefferson, G. & Sacks, H. (1977) - \"The Preference for Self-Correction in the Organization of Repair\"",
+  "survey_determination": "cannot",
+  "description": "Conversation analysis",
+  "fields": {
+   "issue": "Emergent interactional order",
+   "barrier": "No prior formal structure"
+  },
+  "coq_files": [],
+  "year": 1977,
+  "authors": "Schegloff, E., Jefferson, G. & Sacks, H.",
+  "title": "The Preference for Self-Correction in the Organization of Repair"
+ },
+ {
+  "id": 184,
+  "n": 169,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Dialogical and Interactive Approaches",
+  "citation": "Goodwin, C. (2000) - \"Action and Embodiment within Situated Human Interaction\"",
+  "survey_determination": "cannot",
+  "description": "Embodied interaction",
+  "fields": {
+   "issue": "Multimodal meaning-making",
+   "barrier": "Body and environment integration"
+  },
+  "coq_files": [],
+  "year": 2000,
+  "authors": "Goodwin, C.",
+  "title": "Action and Embodiment within Situated Human Interaction"
+ },
+ {
+  "id": 185,
+  "n": 170,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Dialogical and Interactive Approaches",
+  "citation": "Enfield, N. (2013) - \"Relationship Thinking: Agency, Enchrony, and Human Sociality\"",
+  "survey_determination": "cannot",
+  "description": "Distributed cognition in interaction",
+  "fields": {
+   "issue": "Meaning as distributed across participants",
+   "barrier": "Social distribution resists individual formalization"
+  },
+  "coq_files": [],
+  "year": 2013,
+  "authors": "Enfield, N.",
+  "title": "Relationship Thinking: Agency, Enchrony, and Human Sociality"
+ },
+ {
+  "id": 186,
+  "n": 171,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Evolutionary and Emergent Approaches",
+  "citation": "Tomasello, M. (2008) - \"Origins of Human Communication\"",
+  "survey_determination": "cannot",
+  "description": "Evolutionary emergence of communication",
+  "fields": {
+   "issue": "Historical-biological emergence",
+   "barrier": "Evolutionary parameters unbounded"
+  },
+  "coq_files": [],
+  "year": 2008,
+  "authors": "Tomasello, M.",
+  "title": "Origins of Human Communication"
+ },
+ {
+  "id": 187,
+  "n": 172,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Evolutionary and Emergent Approaches",
+  "citation": "Steels, L. (2012) - \"Experiments in Cultural Language Evolution\"",
+  "survey_determination": "cannot",
+  "description": "Language evolution simulations",
+  "fields": {
+   "issue": "Cultural evolution complexity",
+   "barrier": "Population-level emergence"
+  },
+  "coq_files": [],
+  "year": 2012,
+  "authors": "Steels, L.",
+  "title": "Experiments in Cultural Language Evolution"
+ },
+ {
+  "id": 188,
+  "n": 173,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Evolutionary and Emergent Approaches",
+  "citation": "Kirby, S., Cornish, H. & Smith, K. (2008) - \"Cumulative Cultural Evolution in the Laboratory\"",
+  "survey_determination": "cannot",
+  "description": "Experimental language evolution",
+  "fields": {
+   "issue": "Iterated learning dynamics",
+   "barrier": "Historical contingency"
+  },
+  "coq_files": [],
+  "year": 2008,
+  "authors": "Kirby, S., Cornish, H. & Smith, K.",
+  "title": "Cumulative Cultural Evolution in the Laboratory"
+ },
+ {
+  "id": 189,
+  "n": 174,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Evolutionary and Emergent Approaches",
+  "citation": "Christiansen, M. & Chater, N. (2008) - \"Language as Shaped by the Brain\"",
+  "survey_determination": "cannot",
+  "description": "Co-evolution of language and brain",
+  "fields": {
+   "issue": "Biological constraints on language",
+   "barrier": "Neurobiological complexity"
+  },
+  "coq_files": [],
+  "year": 2008,
+  "authors": "Christiansen, M. & Chater, N.",
+  "title": "Language as Shaped by the Brain"
+ },
+ {
+  "id": 190,
+  "n": 175,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Evolutionary and Emergent Approaches",
+  "citation": "Deacon, T. (1997) - \"The Symbolic Species\"",
+  "survey_determination": "cannot",
+  "description": "Symbolic cognition evolution",
+  "fields": {
+   "issue": "Emergence of symbolic reference",
+   "barrier": "Symbolic threshold formalization"
+  },
+  "coq_files": [],
+  "year": 1997,
+  "authors": "Deacon, T.",
+  "title": "The Symbolic Species"
+ },
+ {
+  "id": 191,
+  "n": 176,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Indigenous and Non-Western Perspectives",
+  "citation": "Whorf, B. L. (1956) - \"Language, Thought, and Reality\"",
+  "survey_determination": "cannot",
+  "description": "Linguistic relativity",
+  "fields": {
+   "issue": "Radical meaning differences across languages",
+   "barrier": "Incommensurable conceptual systems"
+  },
+  "coq_files": [],
+  "year": 1956,
+  "authors": "Whorf, B. L.",
+  "title": "Language, Thought, and Reality"
+ },
+ {
+  "id": 192,
+  "n": 177,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Indigenous and Non-Western Perspectives",
+  "citation": "Evans, N. & Levinson, S. (2009) - \"The Myth of Language Universals\"",
+  "survey_determination": "cannot",
+  "description": "Radical cross-linguistic variation",
+  "fields": {
+   "issue": "Challenges to universal formal frameworks",
+   "barrier": "Diversity resists universal formalization"
+  },
+  "coq_files": [],
+  "year": 2009,
+  "authors": "Evans, N. & Levinson, S.",
+  "title": "The Myth of Language Universals"
+ },
+ {
+  "id": 193,
+  "n": 178,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Indigenous and Non-Western Perspectives",
+  "citation": "Everett, D. (2005) - \"Cultural Constraints on Grammar and Cognition in Pirahã\"",
+  "survey_determination": "cannot",
+  "description": "Culture-specific semantics",
+  "fields": {
+   "issue": "Cultural embedding of meaning",
+   "barrier": "Complete cultural context required"
+  },
+  "coq_files": [],
+  "year": 2005,
+  "authors": "Everett, D.",
+  "title": "Cultural Constraints on Grammar and Cognition in Pirahã"
+ },
+ {
+  "id": 194,
+  "n": 179,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Indigenous and Non-Western Perspectives",
+  "citation": "Basso, K. (1996) - \"Wisdom Sits in Places: Landscape and Language among the Western Apache\"",
+  "survey_determination": "cannot",
+  "description": "Place-based meaning",
+  "fields": {
+   "issue": "Meaning embedded in landscape",
+   "barrier": "Environmental context formalization"
+  },
+  "coq_files": [],
+  "year": 1996,
+  "authors": "Basso, K.",
+  "title": "Wisdom Sits in Places: Landscape and Language among the Western Apache"
+ },
+ {
+  "id": 195,
+  "n": 180,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Indigenous and Non-Western Perspectives",
+  "citation": "Cruikshank, J. (2005) - \"Do Glaciers Listen? Local Knowledge, Colonial Encounters, and Social Imagination\"",
+  "survey_determination": "cannot",
+  "description": "Indigenous knowledge systems",
+  "fields": {
+   "issue": "Non-Western ontologies",
+   "barrier": "Fundamentally different meaning frameworks"
+  },
+  "coq_files": [],
+  "year": 2005,
+  "authors": "Cruikshank, J.",
+  "title": "Do Glaciers Listen? Local Knowledge, Colonial Encounters, and Social Imagination"
+ },
+ {
+  "id": 196,
+  "n": 181,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Postcolonial and Critical Approaches",
+  "citation": "Spivak, G. (1988) - \"Can the Subaltern Speak?\"",
+  "survey_determination": "cannot",
+  "description": "Postcolonial semantics",
+  "fields": {
+   "issue": "Power and meaning",
+   "barrier": "Political context irreducible to formal systems"
+  },
+  "coq_files": [],
+  "year": 1988,
+  "authors": "Spivak, G.",
+  "title": "Can the Subaltern Speak?"
+ },
+ {
+  "id": 197,
+  "n": 182,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Postcolonial and Critical Approaches",
+  "citation": "Ngũgĩ wa Thiong'o (1986) - \"Decolonising the Mind\"",
+  "survey_determination": "cannot",
+  "description": "Language and colonialism",
+  "fields": {
+   "issue": "Colonial imposition of meaning systems",
+   "barrier": "Historical power dynamics"
+  },
+  "coq_files": [],
+  "year": 1986,
+  "authors": "Ngũgĩ wa Thiong'o",
+  "title": "Decolonising the Mind"
+ },
+ {
+  "id": 198,
+  "n": 183,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Postcolonial and Critical Approaches",
+  "citation": "Mignolo, W. (2000) - \"Local Histories/Global Designs\"",
+  "survey_determination": "cannot",
+  "description": "Border thinking and meaning",
+  "fields": {
+   "issue": "Geopolitics of knowledge",
+   "barrier": "Colonial difference in meaning-making"
+  },
+  "coq_files": [],
+  "year": 2000,
+  "authors": "Mignolo, W.",
+  "title": "Local Histories/Global Designs"
+ },
+ {
+  "id": 199,
+  "n": 184,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Postcolonial and Critical Approaches",
+  "citation": "Santos, B. (2014) - \"Epistemologies of the South\"",
+  "survey_determination": "cannot",
+  "description": "Southern epistemologies",
+  "fields": {
+   "issue": "Epistemological diversity",
+   "barrier": "Multiple incompatible frameworks"
+  },
+  "coq_files": [],
+  "year": 2014,
+  "authors": "Santos, B.",
+  "title": "Epistemologies of the South"
+ },
+ {
+  "id": 200,
+  "n": 185,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Postcolonial and Critical Approaches",
+  "citation": "Smith, L. T. (1999) - \"Decolonizing Methodologies\"",
+  "survey_determination": "cannot",
+  "description": "Indigenous research paradigms",
+  "fields": {
+   "issue": "Western formal methods as colonial",
+   "barrier": "Rejection of Western formalization"
+  },
+  "coq_files": [],
+  "year": 1999,
+  "authors": "Smith, L. T.",
+  "title": "Decolonizing Methodologies"
+ },
+ {
+  "id": 201,
+  "n": 186,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Affect and Embodied Meaning",
+  "citation": "Ahmed, S. (2004) - \"The Cultural Politics of Emotion\"",
+  "survey_determination": "cannot",
+  "description": "Affective meaning",
+  "fields": {
+   "issue": "Emotion and meaning inseparable",
+   "barrier": "Affective experience resists formalization"
+  },
+  "coq_files": [],
+  "year": 2004,
+  "authors": "Ahmed, S.",
+  "title": "The Cultural Politics of Emotion"
+ },
+ {
+  "id": 202,
+  "n": 187,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Affect and Embodied Meaning",
+  "citation": "Massumi, B. (2002) - \"Parables for the Virtual: Movement, Affect, Sensation\"",
+  "survey_determination": "cannot",
+  "description": "Affect theory",
+  "fields": {
+   "issue": "Pre-cognitive affective intensity",
+   "barrier": "Affect vs. representation"
+  },
+  "coq_files": [],
+  "year": 2002,
+  "authors": "Massumi, B.",
+  "title": "Parables for the Virtual: Movement, Affect, Sensation"
+ },
+ {
+  "id": 203,
+  "n": 188,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Affect and Embodied Meaning",
+  "citation": "Brennan, T. (2004) - \"The Transmission of Affect\"",
+  "survey_determination": "cannot",
+  "description": "Social transmission of feeling",
+  "fields": {
+   "issue": "Inter-bodily affect transmission",
+   "barrier": "Embodied resonance formalization"
+  },
+  "coq_files": [],
+  "year": 2004,
+  "authors": "Brennan, T.",
+  "title": "The Transmission of Affect"
+ },
+ {
+  "id": 204,
+  "n": 189,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Affect and Embodied Meaning",
+  "citation": "Colombetti, G. (2014) - \"The Feeling Body: Affective Science Meets the Enactive Mind\"",
+  "survey_determination": "cannot",
+  "description": "Enactive affective meaning",
+  "fields": {
+   "issue": "Feeling as sense-making",
+   "barrier": "Embodied enaction complexity"
+  },
+  "coq_files": [],
+  "year": 2014,
+  "authors": "Colombetti, G.",
+  "title": "The Feeling Body: Affective Science Meets the Enactive Mind"
+ },
+ {
+  "id": 205,
+  "n": 190,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Affect and Embodied Meaning",
+  "citation": "Sheets-Johnstone, M. (2009) - \"The Corporeal Turn\"",
+  "survey_determination": "cannot",
+  "description": "Kinesthetic meaning",
+  "fields": {
+   "issue": "Movement and meaning",
+   "barrier": "Dynamic bodily experience"
+  },
+  "coq_files": [],
+  "year": 2009,
+  "authors": "Sheets-Johnstone, M.",
+  "title": "The Corporeal Turn"
+ },
+ {
+  "id": 206,
+  "n": 191,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Creative and Artistic Meaning",
+  "citation": "Eco, U. (1962) - \"The Open Work\"",
+  "survey_determination": "cannot",
+  "description": "Open interpretation in art",
+  "fields": {
+   "issue": "Intentional semantic openness",
+   "barrier": "No determinate meaning by design"
+  },
+  "coq_files": [],
+  "year": 1962,
+  "authors": "Eco, U.",
+  "title": "The Open Work"
+ },
+ {
+  "id": 207,
+  "n": 192,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Creative and Artistic Meaning",
+  "citation": "Iser, W. (1978) - \"The Act of Reading\"",
+  "survey_determination": "cannot",
+  "description": "Reader-response theory",
+  "fields": {
+   "issue": "Meaning created in reading process",
+   "barrier": "Individual reading experience"
+  },
+  "coq_files": [],
+  "year": 1978,
+  "authors": "Iser, W.",
+  "title": "The Act of Reading"
+ },
+ {
+  "id": 208,
+  "n": 193,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Creative and Artistic Meaning",
+  "citation": "Fish, S. (1980) - \"Is There a Text in This Class?\"",
+  "survey_determination": "cannot",
+  "description": "Interpretive communities",
+  "fields": {
+   "issue": "Community-based meaning",
+   "barrier": "Social group variation"
+  },
+  "coq_files": [],
+  "year": 1980,
+  "authors": "Fish, S.",
+  "title": "Is There a Text in This Class?"
+ },
+ {
+  "id": 209,
+  "n": 194,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Creative and Artistic Meaning",
+  "citation": "Barthes, R. (1970) - \"S/Z\"",
+  "survey_determination": "cannot",
+  "description": "Codes and plurality of meaning",
+  "fields": {
+   "issue": "Multiple irreducible codes",
+   "barrier": "Systematic plurality"
+  },
+  "coq_files": [],
+  "year": 1970,
+  "authors": "Barthes, R.",
+  "title": "S/Z"
+ },
+ {
+  "id": 210,
+  "n": 195,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Creative and Artistic Meaning",
+  "citation": "Kristeva, J. (1974) - \"Revolution in Poetic Language\"",
+  "survey_determination": "cannot",
+  "description": "Poetic language and meaning",
+  "fields": {
+   "issue": "Semiotic disruption of symbolic",
+   "barrier": "Pre-symbolic forces"
+  },
+  "coq_files": [],
+  "year": 1974,
+  "authors": "Kristeva, J.",
+  "title": "Revolution in Poetic Language"
+ },
+ {
+  "id": 211,
+  "n": 196,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Quantum and Non-Classical Approaches",
+  "citation": "Aerts, D. & Gabora, L. (2005) - \"A Theory of Concepts and Their Combinations\"",
+  "survey_determination": "cannot",
+  "description": "Quantum cognition for concepts",
+  "fields": {
+   "issue": "Non-classical concept combination",
+   "barrier": "Quantum formalism controversy"
+  },
+  "coq_files": [],
+  "year": 2005,
+  "authors": "Aerts, D. & Gabora, L.",
+  "title": "A Theory of Concepts and Their Combinations"
+ },
+ {
+  "id": 212,
+  "n": 197,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Quantum and Non-Classical Approaches",
+  "citation": "Bruza, P., Kitto, K., Nelson, D. & McEvoy, C. (2009) - \"Is There Something Quantum-Like About the Human Mental Lexicon?\"",
+  "survey_determination": "cannot",
+  "description": "Quantum models of lexicon",
+  "fields": {
+   "issue": "Quantum-like interference effects",
+   "barrier": "Metaphorical vs. literal quantum mechanics"
+  },
+  "coq_files": [],
+  "year": 2009,
+  "authors": "Bruza, P., Kitto, K., Nelson, D. & McEvoy, C.",
+  "title": "Is There Something Quantum-Like About the Human Mental Lexicon?"
+ },
+ {
+  "id": 213,
+  "n": 198,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Quantum and Non-Classical Approaches",
+  "citation": "Busemeyer, J. & Bruza, P. (2012) - \"Quantum Models of Cognition and Decision\"",
+  "survey_determination": "cannot",
+  "description": "Quantum probability for meaning",
+  "fields": {
+   "issue": "Non-classical probability",
+   "barrier": "Physical vs. cognitive quantum mechanics"
+  },
+  "coq_files": [],
+  "year": 2012,
+  "authors": "Busemeyer, J. & Bruza, P.",
+  "title": "Quantum Models of Cognition and Decision"
+ },
+ {
+  "id": 214,
+  "n": 199,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Quantum and Non-Classical Approaches",
+  "citation": "Pothos, E. & Busemeyer, J. (2013) - \"Can Quantum Probability Provide a New Direction for Cognitive Modeling?\"",
+  "survey_determination": "cannot",
+  "description": "Quantum cognitive models",
+  "fields": {
+   "issue": "Order effects and context",
+   "barrier": "Interpretative debates"
+  },
+  "coq_files": [],
+  "year": 2013,
+  "authors": "Pothos, E. & Busemeyer, J.",
+  "title": "Can Quantum Probability Provide a New Direction for Cognitive Modeling?"
+ },
+ {
+  "id": 215,
+  "n": 200,
+  "category": "D",
+  "category_label": "resists formalization",
+  "topic": "Quantum and Non-Classical Approaches",
+  "citation": "Wang, Z., Busemeyer, J., Atmanspacher, H. & Pothos, E. (2013) - \"The Potential of Using Quantum Theory to Build Models of Cognition\"",
+  "survey_determination": "cannot",
+  "description": "Quantum theory for cognition",
+  "fields": {
+   "issue": "Mathematical convenience vs. ontology",
+   "barrier": "Whether quantum formalism is appropriate"
+  },
+  "coq_files": [],
+  "year": 2013,
+  "authors": "Wang, Z., Busemeyer, J., Atmanspacher, H. & Pothos, E.",
+  "title": "The Potential of Using Quantum Theory to Build Models of Cognition"
+ }
+]

@@ -1,0 +1,415 @@
+# Missing sources for the FORMAL-ATLAS paper survey
+
+Generated 2026-09-05. 196/226 surveyed papers have no PDF/djvu under papers/.
+Priority P1 = source of a COMMITTED atlas file; P2 = category A; P3 = B; P4 = C/D.
+
+## P1 (5)
+
+- [A] Montague, R. (1973) - "The Proper Treatment of Quantification in Ordinary English" (PTQ)
+  -> `papers/foundations/Montague_1973_TheProperTreatmentOfQuantification.pdf`
+- [A] Kamp, H. (1981) - "A Theory of Truth and Semantic Representation" (DRT)
+  -> `papers/dynamic/Kamp_1981_ATheoryOfTruthAnd.pdf`
+- [A] Ranta, A. (1995) - "Type-Theoretical Grammar"
+  -> `papers/foundations/Ranta_1995_TypetheoreticalGrammar.pdf`
+- [A] Bekki, D. (2014) - "Representing Anaphora with Dependent Types"
+  -> `papers/foundations/Bekki_2014_RepresentingAnaphoraWithDependentTypes.pdf`
+- [A] Bekki, D. & Mineshima, K. (2017) - "Context-Passing and Underspecification in Dependent Type Semantics"
+  -> `papers/foundations/Bekki_Mineshima_2017_CalculatingProjectionsViaTypeChecking.pdf`
+
+## P2 (43)
+
+- [A] Church, A. (1940) - "A Formulation of the Simple Theory of Types"
+  -> `papers/foundations/Church_1940_AFormulationOfTheSimple.pdf`
+- [A] Tarski, A. (1944) - "The Semantic Conception of Truth"
+  -> `papers/foundations/Tarski_1944_TheSemanticConceptionOfTruth.pdf`
+- [A] Davidson, D. (1967) - "The Logical Form of Action Sentences"
+  -> `papers/foundations/Davidson_1967_TheLogicalFormOfAction.pdf`
+- [A] Stalnaker, R. (1968) - "A Theory of Conditionals"
+  -> `papers/foundations/Stalnaker_1968_ATheoryOfConditionals.pdf`
+- [A] Lewis, D. (1970) - "General Semantics"
+  -> `papers/foundations/Lewis_1970_GeneralSemantics.pdf`
+- [A] Lewis, D. (1973) - "Counterfactuals"
+  -> `papers/foundations/Lewis_1973_Counterfactuals.pdf`
+- [A] Hamblin, C. (1973) - "Questions in Montague English"
+  -> `papers/inquisitive/Hamblin_1973_QuestionsInMontagueEnglish.pdf`
+- [A] Keenan, E. & Stavi, J. (1986) - "A Semantic Characterization of Natural Language Determiners"
+  -> `papers/foundations/Keenan_Stavi_1986_ASemanticCharacterizationOfNatural.pdf`
+- [A] van Benthem, J. (1986) - "Essays in Logical Semantics"
+  -> `papers/foundations/Benthem_1986_EssaysInLogicalSemantics.pdf`
+- [A] Kratzer, A. (1991) - "Modality"
+  -> `papers/foundations/Kratzer_1991_Modality.pdf`
+- [A] Dekker, P. (1993) - "Transsentential Meditations"
+  -> `papers/dynamic/Dekker_1993_TranssententialMeditations.pdf`
+- [A] Krifka, M. (1993) - "Focus and Presupposition in Dynamic Interpretation"
+  -> `papers/foundations/Krifka_1993_FocusAndPresuppositionInDynamic.pdf`
+- [A] Partee, B. (1995) - "Quantificational Structures and Compositionality"
+  -> `papers/foundations/Partee_1995_QuantificationalStructuresAndCompositionality.pdf`
+- [A] Schwarzschild, R. (1996) - "Pluralities"
+  -> `papers/foundations/Schwarzschild_1996_Pluralities.pdf`
+- [A] Landman, F. (2000) - "Events and Plurality"
+  -> `papers/foundations/Landman_2000_EventsAndPlurality.pdf`
+- [A] Winter, Y. (2001) - "Flexibility Principles in Boolean Semantics"
+  -> `papers/foundations/Winter_2001_FlexibilityPrinciplesInBooleanSemantics.pdf`
+- [A] von Fintel, K. (2001) - "Counterfactuals in a Dynamic Context"
+  -> `papers/foundations/Fintel_2001_CounterfactualsInADynamicContext.pdf`
+- [A] Shan, C. (2001) - "Monads for Natural Language Semantics"
+  -> `papers/foundations/Shan_2001_MonadsForNaturalLanguageSemantics.pdf`
+- [A] Cooper, R. (2005) - "Records and Record Types in Semantic Theory"
+  -> `papers/foundations/Cooper_2005_RecordsAndRecordTypesIn.pdf`
+- [A] Kennedy, C. & McNally, L. (2005) - "Scale Structure and the Semantic Typology of Gradable Predicates"
+  -> `papers/foundations/Kennedy_McNally_2005_ScaleStructureAndTheSemantic.pdf`
+- [A] Beck, S. (2006) - "Intervention Effects Follow from Focus Interpretation"
+  -> `papers/foundations/Beck_2006_InterventionEffectsFollowFromFocus.pdf`
+- [A] Wagner, M. (2006) - "Association by Movement"
+  -> `papers/foundations/Wagner_2006_AssociationByMovement.pdf`
+- [A] Kratzer, A. (2007) - "On the Plurality of Verbs"
+  -> `papers/foundations/Kratzer_2007_OnThePluralityOfVerbs.pdf`
+- [A] Gillies, A. (2007) - "Counterfactual Scorekeeping"
+  -> `papers/foundations/Gillies_2007_CounterfactualScorekeeping.pdf`
+- [A] Beaver, D. & Clark, B. (2008) - "Sense and Sensitivity"
+  -> `papers/foundations/Beaver_Clark_2008_SenseAndSensitivity.pdf`
+- [A] Beck, S., Krasikova, S., Fleischer, D., Gergel, R., Hofstetter, S., Savelsberg, C., ... & Villalta, E. (2009) - "Crosslinguistic Variation in Comparison Constructions"
+  -> `papers/foundations/Beck_Krasikova_Fleischer_2009_CrosslinguisticVariationInComparisonConstructions.pdf`
+- [A] Luo, Z. (2010) - "Type-Theoretical Semantics with Coercive Subtyping"
+  -> `papers/foundations/Luo_2010_TypetheoreticalSemanticsWithCoerciveSubtyping.pdf`
+- [A] Bassac, C., Mery, B. & Retoré, C. (2010) - "Towards a Type-Theoretical Account of Lexical Semantics"
+  -> `papers/foundations/Bassac_Mery_Retoré_2010_TowardsATypetheoreticalAccountOf.pdf`
+- [A] Luo, Z. (2011) - "Contextual Analysis of Word Meanings in Type-Theoretical Semantics"
+  -> `papers/foundations/Luo_2011_ContextualAnalysisOfWordMeanings.pdf`
+- [A] Asudeh, A. & Giorgolo, G. (2012) - "Flexible Composition for Optional and Derived Arguments"
+  -> `papers/foundations/Asudeh_Giorgolo_2012_FlexibleCompositionForOptionalAnd.pdf`
+- [A] Potts, C. (2012) - "Goal-Driven Answers in the Cards Dialogue Corpus"
+  -> `papers/probabilistic/Potts_2012_GoaldrivenAnswersInTheCards.pdf`
+- [A] Sudo, Y. (2012) - "On the Semantics of Phi Features on Pronouns"
+  -> `papers/foundations/Sudo_2012_OnTheSemanticsOfPhi.pdf`
+- [A] Bekki, D. & Asher, N. (2013) - "Logical Polysemy and Subtyping"
+  -> `papers/foundations/Bekki_Asher_2013_LogicalPolysemyAndSubtyping.pdf`
+- [A] Retoré, C. (2013) - "Semantic Types for Language: Montague's Framework Revisited"
+  -> `papers/foundations/Retoré_2013_SemanticTypesForLanguageMontagues.pdf`
+- [A] Retoré, C. (2014) - "The Montagovian Generative Lexicon: From Formal Semantics to Compositional Lexical Semantics"
+  -> `papers/foundations/Retoré_2014_TheMontagovianGenerativeLexiconFrom.pdf`
+- [A] Giorgolo, G. & Asudeh, A. (2014) - "Monads as a Solution for Generalized Opacity"
+  -> `papers/foundations/Giorgolo_Asudeh_2014_MonadsAsASolutionFor.pdf`
+- [A] Charlow, S. (2014) - "On the Semantics of Exceptional Scope"
+  -> `papers/foundations/Charlow_2014_OnTheSemanticsOfExceptional.pdf`
+- [A] Das, D., Chen, D., Martins, A., Schneider, N. & Smith, N. (2014) - "Frame-Semantic Parsing"
+  -> `papers/probabilistic/Das_Chen_Martins_2014_FramesemanticParsing.pdf`
+- [A] Rett, J. (2015) - "The Semantics of Evaluativity"
+  -> `papers/foundations/Rett_2015_TheSemanticsOfEvaluativity.pdf`
+- [A] Chatzikyriakidis, S. & Luo, Z. (2017) - "Modern Perspectives in Type-Theoretical Semantics"
+  -> `papers/foundations/Chatzikyriakidis_Luo_2017_ModernPerspectivesInTypetheoreticalSemantics.pdf`
+- [A] Retoré, C. & Mery, B. (2017) - "Classifiers, Sorts, and Base Types in Montagovian Generative Lexicon and Related Type Theoretical Frameworks"
+  -> `papers/foundations/Retoré_Mery_2017_ClassifiersSortsAndBaseTypes.pdf`
+- [A] Maskharashvili, A., Bernardy, J.-P. & Chatzikyriakidis, S. (2018) - "A Computational Treatment of Anaphora and Its Algorithmic Implementation"
+  -> `papers/foundations/Maskharashvili_Bernardy_Chatzikyriakidis_2018_AComputationalTreatmentOfAnaphora.pdf`
+- [A] Bisk, Y., Holtzman, A., Thomason, J., Andreas, J., Bengio, Y., Chai, J., ... & Zhang, Y. (2020) - "Experience Grounds Language"
+  -> `papers/probabilistic/Bisk_Holtzman_Thomason_2020_ExperienceGroundsLanguage.pdf`
+
+## P3 (50)
+
+- [B] Reichenbach, H. (1947) - "Elements of Symbolic Logic" (tense theory)
+  -> `papers/foundations/Reichenbach_1947_ElementsOfSymbolicLogic.pdf`
+- [B] Halliday, M. A. K. (1967) - "Notes on Transitivity and Theme in English"
+  -> `papers/foundations/Halliday_1967_NotesOnTransitivityAndTheme.pdf`
+- [B] Stalnaker, R. (1974) - "Pragmatic Presuppositions"
+  -> `papers/dynamic/Stalnaker_1974_PragmaticPresuppositions.pdf`
+- [B] Grice, H. P. (1975) - "Logic and Conversation"
+  -> `papers/foundations/Grice_1975_LogicAndConversation.pdf`
+- [B] Kamp, H. (1975) - "Two Theories about Adjectives"
+  -> `papers/foundations/Kamp_1975_TwoTheoriesAboutAdjectives.pdf`
+- [B] Carlson, G. (1977) - "Reference to Kinds in English"
+  -> `papers/foundations/Carlson_1977_ReferenceToKindsInEnglish.pdf`
+- [B] Klein, E. (1980) - "A Semantics for Positive and Comparative Adjectives"
+  -> `papers/foundations/Klein_1980_ASemanticsForPositiveAnd.pdf`
+- [B] Horn, L. (1984) - "Toward a New Taxonomy for Pragmatic Inference"
+  -> `papers/foundations/Horn_1984_TowardANewTaxonomyFor.pdf`
+- [B] Marantz, A. (1984) - "On the Nature of Grammatical Relations"
+  -> `papers/foundations/Marantz_1984_OnTheNatureOfGrammatical.pdf`
+- [B] Hobbs, J. (1985) - "On the Coherence and Structure of Discourse"
+  -> `papers/dynamic/Hobbs_1985_OnTheCoherenceAndStructure.pdf`
+- [B] Parsons, T. (1990) - "Events in the Semantics of English"
+  -> `papers/foundations/Parsons_1990_EventsInTheSemanticsOf.pdf`
+- [B] van der Sandt, R. (1992) - "Presupposition Projection as Anaphora Resolution"
+  -> `papers/dynamic/Sandt_1992_PresuppositionProjectionAsAnaphoraResolution.pdf`
+- [B] Vallduví, E. (1992) - "The Informational Component"
+  -> `papers/foundations/Vallduví_1992_TheInformationalComponent.pdf`
+- [B] Klein, W. (1994) - "Time in Language"
+  -> `papers/foundations/Klein_1994_TimeInLanguage.pdf`
+- [B] von Stechow, A. (1995) - "On the Proper Treatment of Tense"
+  -> `papers/foundations/Stechow_1995_OnTheProperTreatmentOf.pdf`
+- [B] Pustejovsky, J. (1995) - "The Generative Lexicon"
+  -> `papers/foundations/Pustejovsky_1995_TheGenerativeLexicon.pdf`
+- [B] Copestake, A. & Briscoe, T. (1995) - "Semi-Productive Polysemy and Sense Extension"
+  -> `papers/foundations/Copestake_Briscoe_1995_SemiproductivePolysemyAndSenseExtension.pdf`
+- [B] Kratzer, A. (1996) - "Severing the External Argument from its Verb"
+  -> `papers/foundations/Kratzer_1996_SeveringTheExternalArgumentFrom.pdf`
+- [B] Kratzer, A. (1998) - "More Structural Analogies Between Pronouns and Tenses"
+  -> `papers/foundations/Kratzer_1998_MoreStructuralAnalogiesBetweenPronouns.pdf`
+- [B] Chierchia, G. (1998) - "Reference to Kinds across Languages"
+  -> `papers/foundations/Chierchia_1998_ReferenceToKindsAcrossLanguages.pdf`
+- [B] Geurts, B. (1999) - "Presuppositions and Pronouns"
+  -> `papers/dynamic/Geurts_1999_PresuppositionsAndPronouns.pdf`
+- [B] Levinson, S. (2000) - "Presumptive Meanings"
+  -> `papers/foundations/Levinson_2000_PresumptiveMeanings.pdf`
+- [B] Fara, D. G. (2000) - "Shifting Sands: An Interest-Relative Theory of Vagueness"
+  -> `papers/foundations/Fara_2000_ShiftingSandsAnInterestrelativeTheory.pdf`
+- [B] Beaver, D. (2001) - "Presupposition and Assertion in Dynamic Semantics"
+  -> `papers/dynamic/Beaver_2001_PresuppositionAndAssertionInDynamic.pdf`
+- [B] Matthewson, L. (2001) - "Quantification and the Nature of Crosslinguistic Variation"
+  -> `papers/foundations/Matthewson_2001_QuantificationAndTheNatureOf.pdf`
+- [B] Kehler, A. (2002) - "Coherence, Reference, and the Theory of Grammar"
+  -> `papers/dynamic/Kehler_2002_CoherenceReferenceAndTheTheory.pdf`
+- [B] Barker, C. (2002) - "The Dynamics of Vagueness"
+  -> `papers/foundations/Barker_2002_TheDynamicsOfVagueness.pdf`
+- [B] Büring, D. (2003) - "On D-Trees, Beans, and B-Accents"
+  -> `papers/foundations/Büring_2003_OnDtreesBeansAndBaccents.pdf`
+- [B] Asher, N. & Lascarides, A. (2003) - "Logics of Conversation"
+  -> `papers/dynamic/Asher_Lascarides_2003_LogicsOfConversation.pdf`
+- [B] Webber, B., Stone, M., Joshi, A. & Knott, A. (2003) - "Anaphora and Discourse Structure"
+  -> `papers/dynamic/Webber_Stone_Joshi_2003_AnaphoraAndDiscourseStructure.pdf`
+- [B] Chierchia, G. (2004) - "Scalar Implicatures, Polarity Phenomena, and the Syntax/Pragmatics Interface"
+  -> `papers/foundations/Chierchia_2004_ScalarImplicaturesPolarityPhenomenaAnd.pdf`
+- [B] Sauerland, U. (2004) - "Scalar Implicatures in Complex Sentences"
+  -> `papers/foundations/Sauerland_2004_ScalarImplicaturesInComplexSentences.pdf`
+- [B] Matthewson, L. (2004) - "On the Methodology of Semantic Fieldwork"
+  -> `papers/foundations/Matthewson_2004_OnTheMethodologyOfSemantic.pdf`
+- [B] Chung, S. & Ladusaw, W. (2004) - "Restriction and Saturation"
+  -> `papers/foundations/Chung_Ladusaw_2004_RestrictionAndSaturation.pdf`
+- [B] Wolf, F. & Gibson, E. (2005) - "Representing Discourse Coherence: A Corpus-Based Study"
+  -> `papers/dynamic/Wolf_Gibson_2005_RepresentingDiscourseCoherenceACorpusbased.pdf`
+- [B] Kennedy, C. (2007) - "Vagueness and Grammar: The Semantics of Relative and Absolute Gradable Adjectives"
+  -> `papers/foundations/Kennedy_2007_VaguenessAndGrammarTheSemantics.pdf`
+- [B] Kennedy, C. & Levin, B. (2008) - "Measure of Change: The Adjectival Core of Degree Achievements"
+  -> `papers/foundations/Kennedy_Levin_2008_MeasureOfChangeTheAdjectival.pdf`
+- [B] Schlenker, P. (2009) - "Local Contexts"
+  -> `papers/dynamic/Schlenker_2009_LocalContexts.pdf`
+- [B] Schwarz, F. (2009) - "Two Types of Definites in Natural Language"
+  -> `papers/foundations/Schwarz_2009_TwoTypesOfDefinitesIn.pdf`
+- [B] Syrett, K. & Lidz, J. (2009) - "30-Month-Olds Use the Distribution and Meaning of Adverbs to Interpret Novel Adjectives"
+  -> `papers/foundations/Syrett_Lidz_2009_30montholdsUseTheDistributionAnd.pdf`
+- [B] Cable, S. (2010) - "The Grammar of Q: Q-Particles, Wh-Movement, and Pied-Piping"
+  -> `papers/foundations/Cable_2010_TheGrammarOfQQparticles.pdf`
+- [B] Rappaport Hovav, M. & Levin, B. (2010) - "Reflections on Manner/Result Complementarity"
+  -> `papers/foundations/Hovav_Levin_2010_ReflectionsOnMannerresultComplementarity.pdf`
+- [B] Beaver, D. & Velleman, D. (2011) - "The Communicative Significance of Primary and Secondary Accents"
+  -> `papers/foundations/Beaver_Velleman_2011_TheCommunicativeSignificanceOfPrimary.pdf`
+- [B] Chemla, E. & Spector, B. (2011) - "Experimental Evidence for Embedded Scalar Implicatures"
+  -> `papers/foundations/Chemla_Spector_2011_ExperimentalEvidenceForEmbeddedScalar.pdf`
+- [B] Deal, A. R. (2011) - "Modals without Scales"
+  -> `papers/foundations/Deal_2011_ModalsWithoutScales.pdf`
+- [B] Asher, N. (2011) - "Lexical Meaning in Context"
+  -> `papers/foundations/Asher_2011_LexicalMeaningInContext.pdf`
+- [B] Roberts, C. (2012) - "Information Structure: Towards an Integrated Formal Theory"
+  -> `papers/foundations/Roberts_2012_InformationStructureTowardsAnIntegrated.pdf`
+- [B] Henderson, R. (2014) - "Dependent Indefinites and their Post-Suppositions" Cross-linguistic indefinites Formalization: Dependent indefinite interpretation Gap: Systematic dependency constraints
+  -> `papers/foundations/Henderson_2014_DependentIndefinitesAndTheirPostsuppositions.pdf`
+- [B] Degen, J. & Tanenhaus, M. (2015) - "Processing Scalar Implicature: A Constraint-Based Approach"
+  -> `papers/foundations/Degen_Tanenhaus_2015_ProcessingScalarImplicatureAConstraintbased.pdf`
+- [B] Williams, A. (2015) - "Arguments in Syntax and Semantics"
+  -> `papers/foundations/Williams_2015_ArgumentsInSyntaxAndSemantics.pdf`
+
+## P4 (98)
+
+- [C] Bréal, M. (1897/1964) - "Semantics: Studies in the Science of Meaning"
+  -> `papers/foundations/Bréal_1897_SemanticsStudiesInTheScience.pdf`
+- [C] Austin, J. L. (1950) - "Truth"
+  -> `papers/foundations/Austin_1950_Truth.pdf`
+- [C] Fillmore, C. (1976) - "Frame Semantics and the Nature of Language"
+  -> `papers/foundations/Fillmore_1976_FrameSemanticsAndTheNature.pdf`
+- [C] Rosch, E. (1978) - "Principles of Categorization"
+  -> `papers/foundations/Rosch_1978_PrinciplesOfCategorization.pdf`
+- [C] Lakoff, G. & Johnson, M. (1980) - "Metaphors We Live By"
+  -> `papers/foundations/Lakoff_Johnson_1980_MetaphorsWeLiveBy.pdf`
+- [C] Barwise, J. & Perry, J. (1983) - "Situations and Attitudes"
+  -> `papers/foundations/Barwise_Perry_1983_SituationsAndAttitudes.pdf`
+- [C] Jackendoff, R. (1983) - "Semantics and Cognition"
+  -> `papers/foundations/Jackendoff_1983_SemanticsAndCognition.pdf`
+- [C] Cresswell, M. (1985) - "Structured Meanings: The Semantics of Propositional Attitudes"
+  -> `papers/foundations/Cresswell_1985_StructuredMeaningsTheSemanticsOf.pdf`
+- [C] Langacker, R. (1987) - "Foundations of Cognitive Grammar"
+  -> `papers/foundations/Langacker_1987_FoundationsOfCognitiveGrammar.pdf`
+- [C] Soames, S. (1987) - "Direct Reference, Propositional Attitudes, and Semantic Content"
+  -> `papers/foundations/Soames_1987_DirectReferencePropositionalAttitudesAnd.pdf`
+- [C] Fillmore, C., Kay, P. & O'Connor, M. C. (1988) - "Regularity and Idiomaticity in Grammatical Constructions"
+  -> `papers/foundations/Fillmore_Kay_O'Connor_1988_RegularityAndIdiomaticityInGrammatical.pdf`
+- [C] Sweetser, E. (1988) - "Grammaticalization and Semantic Bleaching"
+  -> `papers/foundations/Sweetser_1988_GrammaticalizationAndSemanticBleaching.pdf`
+- [C] Sweetser, E. (1990) - "From Etymology to Pragmatics"
+  -> `papers/foundations/Sweetser_1990_FromEtymologyToPragmatics.pdf`
+- [C] Devlin, K. (1991) - "Logic and Information"
+  -> `papers/foundations/Devlin_1991_LogicAndInformation.pdf`
+- [C] Fauconnier, G. (1994) - "Mental Spaces"
+  -> `papers/foundations/Fauconnier_1994_MentalSpaces.pdf`
+- [C] Bybee, J., Perkins, R. & Pagliuca, W. (1994) - "The Evolution of Grammar: Tense, Aspect, and Modality"
+  -> `papers/foundations/Bybee_Perkins_Pagliuca_1994_TheEvolutionOfGrammarTense.pdf`
+- [C] Goldberg, A. (1995) - "Constructions: A Construction Grammar Approach"
+  -> `papers/foundations/Goldberg_1995_ConstructionsAConstructionGrammarApproach.pdf`
+- [C] Grady, J. (1997) - "Foundations of Meaning: Primary Metaphors and Primary Scenes"
+  -> `papers/foundations/Grady_1997_FoundationsOfMeaningPrimaryMetaphors.pdf`
+- [C] Landauer, T. & Dumais, S. (1997) - "A Solution to Plato's Problem: The Latent Semantic Analysis Theory"
+  -> `papers/categorical/Landauer_Dumais_1997_ASolutionToPlatosProblem.pdf`
+- [C] van der Auwera, J. & Plungian, V. (1998) - "Modality's Semantic Map"
+  -> `papers/foundations/Auwera_Plungian_1998_ModalitysSemanticMap.pdf`
+- [C] Blank, A. (1999) - "Co-Presence and Succession: A Cognitive Typology of Metonymy"
+  -> `papers/foundations/Blank_1999_CopresenceAndSuccessionACognitive.pdf`
+- [C] Barsalou, L. (1999) - "Perceptual Symbol Systems"
+  -> `papers/foundations/Barsalou_1999_PerceptualSymbolSystems.pdf`
+- [C] Talmy, L. (2000) - "Toward a Cognitive Semantics"
+  -> `papers/foundations/Talmy_2000_TowardACognitiveSemantics.pdf`
+- [C] Blutner, R. (2000) - "Some Aspects of Optimality in Natural Language Interpretation"
+  -> `papers/foundations/Blutner_2000_SomeAspectsOfOptimalityIn.pdf`
+- [C] Zeevat, H. (2000) - "The Asymmetry of Optimality Theoretic Syntax and Semantics"
+  -> `papers/foundations/Zeevat_2000_TheAsymmetryOfOptimalityTheoretic.pdf`
+- [C] Croft, W. (2001) - "Radical Construction Grammar"
+  -> `papers/foundations/Croft_2001_RadicalConstructionGrammar.pdf`
+- [C] Traugott, E. & Dasher, R. (2001) - "Regularity in Semantic Change"
+  -> `papers/foundations/Traugott_Dasher_2001_RegularityInSemanticChange.pdf`
+- [C] Parikh, P. (2001) - "The Use of Language"
+  -> `papers/foundations/Parikh_2001_TheUseOfLanguage.pdf`
+- [C] Kratzer, A. (2002) - "Facts: Particulars or Information Units?"
+  -> `papers/foundations/Kratzer_2002_FactsParticularsOrInformationUnits.pdf`
+- [C] Fauconnier, G. & Turner, M. (2002) - "The Way We Think: Conceptual Blending"
+  -> `papers/foundations/Fauconnier_Turner_2002_TheWayWeThinkConceptual.pdf`
+- [C] Tomasello, M. (2003) - "Constructing a Language: A Usage-Based Theory"
+  -> `papers/foundations/Tomasello_2003_ConstructingALanguageAUsagebased.pdf`
+- [C] Croft, W. (2003) - "Typology and Universals"
+  -> `papers/foundations/Croft_2003_TypologyAndUniversals.pdf`
+- [C] Haspelmath, M. (2003) - "The Geometry of Grammatical Meaning"
+  -> `papers/foundations/Haspelmath_2003_TheGeometryOfGrammaticalMeaning.pdf`
+- [C] Hopper, P. & Traugott, E. (2003) - "Grammaticalization"
+  -> `papers/foundations/Hopper_Traugott_2003_Grammaticalization.pdf`
+- [C] Recanati, F. (2004) - "Literal Meaning"
+  -> `papers/foundations/Recanati_2004_LiteralMeaning.pdf`
+- [C] Aikhenvald, A. (2004) - "Evidentiality"
+  -> `papers/foundations/Aikhenvald_2004_Evidentiality.pdf`
+- [C] Gallese, V. & Lakoff, G. (2005) - "The Brain's Concepts: The Role of the Sensory-Motor System"
+  -> `papers/foundations/Gallese_Lakoff_2005_TheBrainsConceptsTheRole.pdf`
+- [C] Pecher, D. & Zwaan, R. (2005) - "Grounding Cognition: The Role of Perception and Action"
+  -> `papers/foundations/Pecher_Zwaan_2005_GroundingCognitionTheRoleOf.pdf`
+- [C] Fox, C. & Lappin, S. (2005) - "Foundations of Intensional Semantics"
+  -> `papers/foundations/Fox_Lappin_2005_FoundationsOfIntensionalSemantics.pdf`
+- [C] Muskens, R. (2005) - "Sense and the Computation of Reference"
+  -> `papers/foundations/Muskens_2005_SenseAndTheComputationOf.pdf`
+- [C] Zwaan, R. & Taylor, L. (2006) - "Seeing, Acting, Understanding: Motor Resonance in Language Comprehension"
+  -> `papers/foundations/Zwaan_Taylor_2006_SeeingActingUnderstandingMotorResonance.pdf`
+- [C] Jäger, G. (2007) - "The Evolution of Convex Categories"
+  -> `papers/foundations/Jäger_2007_TheEvolutionOfConvexCategories.pdf`
+- [C] Franke, M. (2009) - "Signal to Act: Game Theory in Pragmatics"
+  -> `papers/foundations/Franke_2009_SignalToActGameTheory.pdf`
+- [C] Turney, P. & Pantel, P. (2010) - "From Frequency to Meaning: Vector Space Models of Semantics"
+  -> `papers/categorical/Turney_Pantel_2010_FromFrequencyToMeaningVector.pdf`
+- [C] Baroni, M. & Lenci, A. (2010) - "Distributional Memory: A General Framework for Corpus-Based Semantics"
+  -> `papers/categorical/Baroni_Lenci_2010_DistributionalMemoryAGeneralFramework.pdf`
+- [C] Bergen, B. (2012) - "Louder than Words: The New Science of How the Mind Makes Meaning"
+  -> `papers/foundations/Bergen_2012_LouderThanWordsTheNew.pdf`
+- [C] Jespersen, B. (2012) - "Recent Work on Structured Meaning and Propositional Unity"
+  -> `papers/foundations/Jespersen_2012_RecentWorkOnStructuredMeaning.pdf`
+- [C] Boleda, G. & Herbelot, A. (2016) - "Formal Distributional Semantics: Introduction to the Special Issue"
+  -> `papers/categorical/Boleda_Herbelot_2016_FormalDistributionalSemanticsIntroductionTo.pdf`
+- [D] Husserl, E. (1913) - "Ideas Pertaining to a Pure Phenomenology"
+  -> `papers/foundations/Husserl_1913_IdeasPertainingToAPure.pdf`
+- [D] Heidegger, M. (1927/1962) - "Being and Time"
+  -> `papers/foundations/Heidegger_1927_BeingAndTime.pdf`
+- [D] Merleau-Ponty, M. (1945) - "Phenomenology of Perception"
+  -> `papers/foundations/Merleau-Ponty_1945_PhenomenologyOfPerception.pdf`
+- [D] Ryle, G. (1949) - "The Concept of Mind"
+  -> `papers/foundations/Ryle_1949_TheConceptOfMind.pdf`
+- [D] Wittgenstein, L. (1953) - "Philosophical Investigations"
+  -> `papers/foundations/Wittgenstein_1953_PhilosophicalInvestigations.pdf`
+- [D] Whorf, B. L. (1956) - "Language, Thought, and Reality"
+  -> `papers/foundations/Whorf_1956_LanguageThoughtAndReality.pdf`
+- [D] Strawson, P. F. (1959) - "Individuals: An Essay in Descriptive Metaphysics"
+  -> `papers/foundations/Strawson_1959_IndividualsAnEssayInDescriptive.pdf`
+- [D] Austin, J. L. (1962) - "How to Do Things with Words"
+  -> `papers/foundations/Austin_1962_HowToDoThingsWith.pdf`
+- [D] Eco, U. (1962) - "The Open Work"
+  -> `papers/foundations/Eco_1962_TheOpenWork.pdf`
+- [D] Derrida, J. (1967) - "Of Grammatology"
+  -> `papers/foundations/Derrida_1967_OfGrammatology.pdf`
+- [D] Searle, J. (1969) - "Speech Acts"
+  -> `papers/foundations/Searle_1969_SpeechActs.pdf`
+- [D] Barthes, R. (1970) - "S/Z"
+  -> `papers/foundations/Barthes_1970_Sz.pdf`
+- [D] Derrida, J. (1972) - "Signature Event Context"
+  -> `papers/foundations/Derrida_1972_SignatureEventContext.pdf`
+- [D] Kristeva, J. (1974) - "Revolution in Poetic Language"
+  -> `papers/foundations/Kristeva_1974_RevolutionInPoeticLanguage.pdf`
+- [D] Gadamer, H.-G. (1975) - "Truth and Method"
+  -> `papers/foundations/Gadamer_1975_TruthAndMethod.pdf`
+- [D] Ricoeur, P. (1976) - "Interpretation Theory"
+  -> `papers/foundations/Ricoeur_1976_InterpretationTheory.pdf`
+- [D] Barthes, R. (1977) - "The Death of the Author"
+  -> `papers/foundations/Barthes_1977_TheDeathOfTheAuthor.pdf`
+- [D] Schegloff, E., Jefferson, G. & Sacks, H. (1977) - "The Preference for Self-Correction in the Organization of Repair"
+  -> `papers/foundations/Schegloff_Jefferson_Sacks_1977_ThePreferenceForSelfcorrectionIn.pdf`
+- [D] Iser, W. (1978) - "The Act of Reading"
+  -> `papers/foundations/Iser_1978_TheActOfReading.pdf`
+- [D] de Man, P. (1979) - "Allegories of Reading"
+  -> `papers/foundations/Man_1979_AllegoriesOfReading.pdf`
+- [D] Kristeva, J. (1980) - "Desire in Language"
+  -> `papers/foundations/Kristeva_1980_DesireInLanguage.pdf`
+- [D] Fish, S. (1980) - "Is There a Text in This Class?"
+  -> `papers/foundations/Fish_1980_IsThereATextIn.pdf`
+- [D] Bakhtin, M. (1981) - "The Dialogic Imagination"
+  -> `papers/foundations/Bakhtin_1981_TheDialogicImagination.pdf`
+- [D] Ngũgĩ wa Thiong'o (1986) - "Decolonising the Mind"
+  -> `papers/foundations/Thiong'o_1986_DecolonisingTheMind.pdf`
+- [D] Spivak, G. (1988) - "Can the Subaltern Speak?"
+  -> `papers/foundations/Spivak_1988_CanTheSubalternSpeak.pdf`
+- [D] Clark, H. (1996) - "Using Language"
+  -> `papers/foundations/Clark_1996_UsingLanguage.pdf`
+- [D] Basso, K. (1996) - "Wisdom Sits in Places: Landscape and Language among the Western Apache"
+  -> `papers/foundations/Basso_1996_WisdomSitsInPlacesLandscape.pdf`
+- [D] Deacon, T. (1997) - "The Symbolic Species"
+  -> `papers/foundations/Deacon_1997_TheSymbolicSpecies.pdf`
+- [D] Smith, L. T. (1999) - "Decolonizing Methodologies"
+  -> `papers/foundations/Smith_1999_DecolonizingMethodologies.pdf`
+- [D] Goodwin, C. (2000) - "Action and Embodiment within Situated Human Interaction"
+  -> `papers/foundations/Goodwin_2000_ActionAndEmbodimentWithinSituated.pdf`
+- [D] Mignolo, W. (2000) - "Local Histories/Global Designs"
+  -> `papers/foundations/Mignolo_2000_LocalHistoriesglobalDesigns.pdf`
+- [D] Massumi, B. (2002) - "Parables for the Virtual: Movement, Affect, Sensation"
+  -> `papers/foundations/Massumi_2002_ParablesForTheVirtualMovement.pdf`
+- [D] Ahmed, S. (2004) - "The Cultural Politics of Emotion"
+  -> `papers/foundations/Ahmed_2004_TheCulturalPoliticsOfEmotion.pdf`
+- [D] Brennan, T. (2004) - "The Transmission of Affect"
+  -> `papers/foundations/Brennan_2004_TheTransmissionOfAffect.pdf`
+- [D] Everett, D. (2005) - "Cultural Constraints on Grammar and Cognition in Pirahã"
+  -> `papers/foundations/Everett_2005_CulturalConstraintsOnGrammarAnd.pdf`
+- [D] Cruikshank, J. (2005) - "Do Glaciers Listen? Local Knowledge, Colonial Encounters, and Social Imagination"
+  -> `papers/foundations/Cruikshank_2005_DoGlaciersListenLocalKnowledge.pdf`
+- [D] Aerts, D. & Gabora, L. (2005) - "A Theory of Concepts and Their Combinations"
+  -> `papers/foundations/Aerts_Gabora_2005_ATheoryOfConceptsAnd.pdf`
+- [D] Tomasello, M. (2008) - "Origins of Human Communication"
+  -> `papers/foundations/Tomasello_2008_OriginsOfHumanCommunication.pdf`
+- [D] Kirby, S., Cornish, H. & Smith, K. (2008) - "Cumulative Cultural Evolution in the Laboratory"
+  -> `papers/foundations/Kirby_Cornish_Smith_2008_CumulativeCulturalEvolutionInThe.pdf`
+- [D] Christiansen, M. & Chater, N. (2008) - "Language as Shaped by the Brain"
+  -> `papers/foundations/Christiansen_Chater_2008_LanguageAsShapedByThe.pdf`
+- [D] Evans, N. & Levinson, S. (2009) - "The Myth of Language Universals"
+  -> `papers/foundations/Evans_Levinson_2009_TheMythOfLanguageUniversals.pdf`
+- [D] Sheets-Johnstone, M. (2009) - "The Corporeal Turn"
+  -> `papers/foundations/Sheets-Johnstone_2009_TheCorporealTurn.pdf`
+- [D] Bruza, P., Kitto, K., Nelson, D. & McEvoy, C. (2009) - "Is There Something Quantum-Like About the Human Mental Lexicon?"
+  -> `papers/foundations/Bruza_Kitto_Nelson_2009_IsThereSomethingQuantumlikeAbout.pdf`
+- [D] Steels, L. (2012) - "Experiments in Cultural Language Evolution"
+  -> `papers/foundations/Steels_2012_ExperimentsInCulturalLanguageEvolution.pdf`
+- [D] Busemeyer, J. & Bruza, P. (2012) - "Quantum Models of Cognition and Decision"
+  -> `papers/foundations/Busemeyer_Bruza_2012_QuantumModelsOfCognitionAnd.pdf`
+- [D] Enfield, N. (2013) - "Relationship Thinking: Agency, Enchrony, and Human Sociality"
+  -> `papers/foundations/Enfield_2013_RelationshipThinkingAgencyEnchronyAnd.pdf`
+- [D] Pothos, E. & Busemeyer, J. (2013) - "Can Quantum Probability Provide a New Direction for Cognitive Modeling?"
+  -> `papers/foundations/Pothos_Busemeyer_2013_CanQuantumProbabilityProvideA.pdf`
+- [D] Wang, Z., Busemeyer, J., Atmanspacher, H. & Pothos, E. (2013) - "The Potential of Using Quantum Theory to Build Models of Cognition"
+  -> `papers/foundations/Wang_Busemeyer_Atmanspacher_2013_ThePotentialOfUsingQuantum.pdf`
+- [D] Santos, B. (2014) - "Epistemologies of the South"
+  -> `papers/foundations/Santos_2014_EpistemologiesOfTheSouth.pdf`
+- [D] Colombetti, G. (2014) - "The Feeling Body: Affective Science Meets the Enactive Mind"
+  -> `papers/foundations/Colombetti_2014_TheFeelingBodyAffectiveScience.pdf`
+
+## Not in the survey but needed by the queue
+
+- Cooper, R. (2023) - From Perception to Communication (OUP)
+  -> `papers/foundations/Cooper_2023_FromPerceptionToCommunication.pdf`  (TTR design doc source)
+- Bekki, D. & Kawazoe, A. (2016) - Implementing Variable Vectors in a CCG Parser (LACL)
+  -> `papers/foundations/Bekki_Kawazoe_2016_ImplementingVariableVectors.pdf`  (lightblue/DTS interface)

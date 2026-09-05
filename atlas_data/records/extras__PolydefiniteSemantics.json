@@ -1,0 +1,162 @@
+{
+ "file": "extras/PolydefiniteSemantics.v",
+ "region": "definiteness and prominence",
+ "summary": "Greek polydefinites ('i mavres i gates') as prominence markers, after Chatzikyriakidis & Spathas (2023): polydefinites are given truth conditions identical to monadic definites plus a context-update that fronts the referent in a prominence list; the rival Lekakou & Szendroi (2012) intersective/R-role account is staged against ten worked examples from the paper (alleged perpetrator, former PM, fast speaker, venomous cobras, White Tower chant, topic shift, other author, ...), each rendered as a scenario Axiom block with an 'LS fails / ours works' theorem pair. The prominence mechanism itself is hollow: make_first is an uninterpreted Parameter with no specification, so every prominence theorem is a reflexivity-unfolding, and the von Heusinger & Schumacher (2019) ProminenceMarking record (Defs 1-3) is declared but never instantiated or used. Truth-conditional identity is encoded by defining both readings as the same predicate, making the equivalence theorems trivial. 47 theorem statements, 46 Qed (many trivial or duplicated), 1 Abort, 25 propositional Axioms.",
+ "sources": [
+  {
+   "citation": "Chatzikyriakidis, S. & Spathas, G. (2023). A unified analysis of the semantics and pragmatics of Greek polydefinites. LENLS 20, Osaka (journal version 'Polydefinites as Markers of Prominence' under review). Header spells 'Chatzykiriakidis & Spathas (2023)'.",
+   "path": null,
+   "available": "none"
+  },
+  {
+   "citation": "von Heusinger, K. & Schumacher, P. B. (2019). Prominence in discourse (Defs 1-3 of prominence). Journal of Pragmatics 154.",
+   "path": null,
+   "available": "none"
+  },
+  {
+   "citation": "Lekakou, M. & Szendroi, K. (2012). Polydefinites in Greek: Ellipsis, close apposition and expletive determiners. Journal of Linguistics 48(1):107-149 (the rival account the file argues against).",
+   "path": null,
+   "available": "none"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "polydefinite / monadic_definite / general_polydefinite / our_polydefinite (syntactically identical predicates)",
+   "source": "C&S headline claim: polydefinites are truth-conditionally identical to monadic definites",
+   "match": "simplified",
+   "note": "the identity is stipulated by defining both as the same lambda term; no DP composition (determiner spreading) is formalized, so all equivalence theorems are reflexivity"
+  },
+  {
+   "coq": "Context record (prominence_list/discourse_entities/contextual_info) + polydefinite_prominence_update via make_first",
+   "source": "prominence ranking and its update on polydefinite use",
+   "match": "changed",
+   "note": "make_first : Entity -> ProminenceList -> ProminenceList is an uninterpreted Parameter with ZERO axioms (not even first (make_first x l) = Some x); 'target becomes most prominent' is never actually expressed"
+  },
+  {
+   "coq": "ProminenceMarking record (singles_out / dynamic_update / enables_operations)",
+   "source": "von Heusinger & Schumacher (2019) Definitions 1-3 of prominence",
+   "match": "missing",
+   "note": "declared as a record shell but never instantiated and never mentioned by any theorem"
+  },
+  {
+   "coq": "LS_* intersective definitions + ban_on_vacuous_identification Axiom",
+   "source": "Lekakou & Szendroi (2012) R-role identification and Ban on Vacuous R-role Identification",
+   "match": "changed",
+   "note": "the Ban is mis-rendered as emptiness of the denotation ((forall x, A x -> N x) -> ~exists x, A x /\\ N x), which with A=N=True contradicts any inhabited domain; harmless only because section-local and unused by any Qed proof"
+  },
+  {
+   "coq": "alleged_no_entailment / news_report_truth (~ perpetrator suspect)",
+   "source": "non-subsective modal adjective 'alleged' (paper's example 27, To Vima 05/03/2022)",
+   "match": "changed",
+   "note": "non-entailment strengthened to negative entailment: the axioms make every alleged perpetrator a non-perpetrator"
+  },
+  {
+   "coq": "scenario Axiom blocks for examples 16, 19-20, 26, 27, 42, 53, 60, 62 + questionnaire scores (6.7/7.3, 8.5, 8.1/8.6, 7.4/7.3) in comments",
+   "source": "the paper's worked examples and felicity-questionnaire study",
+   "match": "simplified",
+   "note": "contexts stipulated as axioms; the empirical data that carries the argument appears only in comments"
+  },
+  {
+   "coq": "felicity_condition fields, polydefinite_felicitous_everywhere, unified_analysis, restrictive_alternatives",
+   "source": "felicity conditions and the unified restrictive/non-restrictive analysis",
+   "match": "changed",
+   "note": "bodies are True or nil placeholders; unified_analysis is a conjunction of vacuous True-quantifications, so unified_analysis_holds establishes nothing"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "polydefinite_monadic_equivalence / truth_conditional_equivalence / specific_polydefinite_equivalence / example1_truth_conditions / pirgo_ton_lefko_equivalence / alleged_truth_conditional_equivalence / modal_force_preserved / our_example1_works",
+   "status": "proved",
+   "source_claim": "headline claim 1: identical truth conditions to monadic definites",
+   "note": "all reflexivity — the identity is built into the definitions, so these verify the encoding, not the claim"
+  },
+  {
+   "name": "polydefinite_updates_prominence / polydefinite_always_updates_prominence / prominence_unified_mechanism / same_prominence_mechanism_everywhere / mavres_gates_same_mechanism / polydefinites_adjective_neutral / alleged_prominence_difference / prominence_among_alternatives (+ verbatim duplicate ...1)",
+   "status": "proved",
+   "source_claim": "headline claim 2: polydefinites mark their referent as most prominent",
+   "note": "definitional unfoldings of the unaxiomatized make_first; true regardless of what make_first does, so prominence marking is not actually established"
+  },
+  {
+   "name": "no_grammatical_restrictivity",
+   "status": "proved",
+   "source_claim": "headline claim 3: no grammatical restrictivity requirement",
+   "note": "DEFECT: refutes a garbled statement (exists y, P y /\\ y<>x /\\ ~P y — note ~P y where the file's own traditional_restrictivity axiom has ~P x), i.e. a propositionally contradictory strawman"
+  },
+  {
+   "name": "restrictivity_not_always_required / non_restrictive_polydefinites_realistic",
+   "status": "proved",
+   "source_claim": "headline claim 3, weak form: universal predicates admit no restrictive alternatives",
+   "note": "correct but near-trivial witness (fun _ => True, john)"
+  },
+  {
+   "name": "LS_example3_contradiction / LS_example4_empty / LS_example5_wrong / LS_example6_vacuous / LS_example7_vacuous / lekakou_szendroi_fails_alleged / LS_example1_works / LS_example2_predicts_infelicity",
+   "status": "proved",
+   "source_claim": "the paper's argument that L&S's intersective account fails on non-subsective, privative, subsective and non-restrictive cases",
+   "note": "contradictions derived from stipulated scenario axioms; lekakou_szendroi_fails_alleged is a propositional triviality (P x /\\ ~P x) that never touches the Ban axiom"
+  },
+  {
+   "name": "our_account_correct / our_account_handles_alleged / our_example2..10 theorems / paokara_chant_analysis / pirgo_ton_lefko_among_landmarks / example1_both_work / example2_LS_fails_we_succeed / our_example6_felicitous / our_example7_expressive / our_example9_topic_shift",
+   "status": "proved",
+   "source_claim": "the paper's ten worked examples (exx. 16, 19-20, 26, 27, 42, 53, 60, 62) under the prominence account",
+   "note": "each proved from the corresponding scenario Axiom block; the prominence half of each conclusion is again a make_first unfolding"
+  },
+  {
+   "name": "unified_analysis_holds",
+   "status": "proved",
+   "source_claim": "headline claim 4: unified analysis of restrictive and non-restrictive uses",
+   "note": "the statement is vacuous (exists alts, True /\\ forall alts, True) — proves nothing"
+  },
+  {
+   "name": "polydefinite_non_compositional",
+   "status": "aborted",
+   "source_claim": "non-compositional 'wise-ass brother' reading (o eksipnos o aderfos mu)",
+   "note": "contains an admit then Abort; not in the compiled environment, so not Admitted-counted"
+  }
+ ],
+ "counts": {
+  "theorems": 47,
+  "proved": 46,
+  "admitted": 0,
+  "propositional_axioms": 25
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "The file tracks the source's actual argument structure: ten worked examples matching the paper's numbered examples (16, 19-20, 26, 27, 42, 53, 60, 62), the questionnaire scores (6.7/7.3, 8.5, 8.1/8.6, 7.4/7.3) quoted in comments, and the L&S contrast — so its theorems concern the source's objects.",
+   "But the two headline mechanisms are hollow: truth-conditional identity is stipulated (polydefinite := monadic_definite verbatim, equivalences by reflexivity), and prominence update rests on the uninterpreted Parameter make_first with zero axioms — no theorem can say the referent actually becomes most prominent; the von Heusinger & Schumacher ProminenceMarking record (Defs 1-3) is declared and never used.",
+   "no_grammatical_restrictivity refutes a mis-transcribed restrictivity requirement (~P y for ~P x — a self-contradictory strawman), and ban_on_vacuous_identification as axiomatized entails the emptiness of any A included in N, contradicting domain inhabitation (unused by Qed proofs, so latent).",
+   "46 Qed theorems, 0 Admitted, but most substantive ones depend on the 25 scenario/theory Axioms (loosely tied to the paper's example contexts, not documented per rubric 3b) and the rest are reflexivity-unfoldings; per rubric 3 the trivial ones would be excluded by a verifier."
+  ],
+  "simplifications": [
+   "no compositional syntax-semantics for determiner spreading — the polydefinite is a predicate, not a derived DP meaning",
+   "felicity conditions and restrictive_alternatives are True/nil placeholders",
+   "questionnaire evidence lives in comments only",
+   "example contexts stipulated as Axiom blocks rather than constructed models"
+  ],
+  "omissions": [
+   "the actual content of prominence (von Heusinger & Schumacher Defs 1-3: record declared, never instantiated)",
+   "any specification of make_first/first (the update mechanism)",
+   "the non-compositional 'wise-ass' reading (theorem Aborted)",
+   "the paper's questionnaire methodology and felicity-scale semantics"
+  ],
+  "additions": [
+   "traditional_restrictivity/_alt axioms attributed to 'traditional theories'",
+   "filter_entities helper (unused)",
+   "verbatim duplicate theorems (prominence_among_alternatives/...1) and duplicated comment blocks"
+  ]
+ },
+ "determination": "major_restructuring",
+ "determination_rationale": "By the rubric table this is the matching row — only a partial formalization exists, with core constructs changed (prominence rendered as an unaxiomatized list operation, 'alleged' strengthened to anti-subsective, L&S's Ban mis-rendered as denotation emptiness). The caveat is that none of these changes is shown to be FORCED by mechanization: they read as pilot-file shortcuts, and the theory's actual commitments (stipulated truth-conditional identity + a use-conditional prominence update over a salience ranking) look mechanizable with at most slight modification — e.g. make_first as remove-then-cons with first (make_first x l) = Some x proved, and felicity as a genuine condition on contexts. The determination is therefore provisional evidence from a weak formalization and should be revisited after an atlas-discipline rebuild; the one genuine substrate pressure it does reveal is that the prominence/felicity dimension is use-conditional meaning with no home in an extensional Prop fragment.",
+ "artifact_classes": [
+  {
+   "class": "iv",
+   "description": "missing native structure for use-conditional/expressive meaning and discourse salience: the extensional Montague fragment has no dimension for felicity or prominence, so prominence degrades to an uninterpreted list Parameter (make_first, no spec), felicity conditions to True placeholders, and von Heusinger & Schumacher's prominence definition to an uninstantiated record shell; all prominence theorems are consequently definitional unfoldings"
+  }
+ ],
+ "source_gap": {
+  "kind": "source unavailable locally",
+  "detail": "No PDF of Chatzikyriakidis & Spathas (2023) (LENLS 20 / journal version under review), von Heusinger & Schumacher (2019), or Lekakou & Szendroi (2012) exists under formalizing_formal_semantics/papers/; faithfulness judged from the file's own citations of the paper's example numbers, the To Vima 05/03/2022 news example, and quoted questionnaire scores, cross-checked against the paper's publicly listed abstract/venue. Header also misspells the first author as 'Chatzykiriakidis'."
+ },
+ "notes": "Record produced by the batch audit sweep of 2026-09-05; the file predates the atlas zero-axiom discipline (25 propositional Axioms, ~45 signature Parameters, Classical imported). Theorem count 47 uses any-indentation grep (the column-0 grep of the audit instructions gives 38 because sections indent 9 statements); 46 Qed + 1 Abort-with-admit; one Definition is also closed by Qed (exact I).",
+ "compiles": true
+}

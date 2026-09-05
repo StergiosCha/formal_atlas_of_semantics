@@ -1,0 +1,172 @@
+{
+  "file": "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/MTTbase.v",
+  "region": "type-theoretic (MTT)",
+  "summary": "A 249-line tutorial-style file ('MTT From Scratch') transcribing the introductory core of MTT-semantics: CN := Type, base common nouns and individuals as Parameters, coercive subtyping via Axiom+Coercion (mh/wh/ha/ao - identifiers copied from the book's Appendix A7.1), verbs as A -> Prop predicates, Pi-polymorphic quantifiers some/all, a polymorphic adjective type (forall A:CN, A -> Prop) with Sigma-type (sig) adjectival modification and a single per-instance first-projection coercion, plus an ad hoc 'SurgeonTeacher' intersection type not in the source. Two small theorems, both Qed. Byte-identical to extras/MTT_base.v.",
+  "sources": [
+    {
+      "citation": "Luo, Z. (2012). Common Nouns as Types. LACL 2012, LNCS 7351, pp. 173-185.",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Luo_2012_CommonNounsAsTypes.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. ISTE/Wiley (240 pp.). Relevant: sec. 1.4.1 (Table 1.3, (1.9)-(1.10)), 2.3.2 (universe CN, (2.20)-(2.22)), 2.4 (coercive subtyping, (2.38)-(2.42)), 3.1 ((3.1)-(3.16)), 3.2.1-3.2.2 ((3.21), (3.30)-(3.33)), 3.3.1-3.3.2 ((3.88)-(3.105)), 6.3 (ch.6 fn.12), Appendix A7.1/A7.3.",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Chatzikyriakidis, S. & Luo, Z. (2014). Natural Language Inference in Coq. (Secondary: its Coq preamble 'CN:=Set. Axiom mh ... Definition some ...' is the same template the file follows.)",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Chatzikyriakidis_Luo_2014_NLI_in_Coq.pdf",
+      "available": "full"
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "Definition CN := Type (L32)",
+      "source": "Universe CN of common nouns (book sec. 2.3.2, Fig. 2.1; Luo 2012 sec. 6 'type universe cn'); book's own Coq: 'Definition CN:= Set' (A7.1; ch.6 fn.12: Coq cannot define a separate universe)",
+      "match": "simplified",
+      "note": "A Coq sort stands in for a dedicated universe, so every type at that level counts as a CN; e.g. some (Prop -> Human) P type-checks, although book (3.16) says some(Prop -> Student, ...) must be ill-typed. Uses Type where the book uses Set."
+    },
+    {
+      "coq": "Parameter Human Animal Object Man Woman : CN (L35-36); Surgeon Teacher : CN (L191)",
+      "source": "(3.1) Man : Type; A7.1 'Parameters Man Object Surgeon Animal Human: CN'",
+      "match": "exact",
+      "note": "Teacher is added; Phy/Info/Institution/Delegate/Bank from A7.1 omitted."
+    },
+    {
+      "coq": "Parameter john mary : Human; bob : Man; alice : Woman (L50-52); mike : TallHuman (L176)",
+      "source": "(2.38) j : Man <= Human; A7.1 'Parameters John George: Man', 'Mary Helen: Woman'",
+      "match": "exact",
+      "note": "Renamed individuals; mike : TallHuman is an added element of a Sigma-type."
+    },
+    {
+      "coq": "Axiom mh wh ha ao + Coercion (L70-79); Axiom sh th + Coercion (L192-195)",
+      "source": "Coercive subtyping, book sec. 2.4 rules (CA)/(CD), (2.38), (3.30) Man <= Human; A7.1 'Axiom mh: Man -> Human. Coercion mh: Man >-> Human.' ... 'Axiom ao: Animal -> Object. Coercion ao: Animal>-> Object.'; 'Axiom sw: Surgeon -> Human'",
+      "match": "exact",
+      "note": "Identifiers mh/wh/ha/ao are verbatim from A7.1; sw renamed sh; th added. Coq coercions realize constant coercions exactly as sec. 3.2.2 ('constant coercion mh such that Man <=mh Human'). Coherence (fn.18) is not checked but no diamond exists in this hierarchy."
+    },
+    {
+      "coq": "Parameter walks sleeps talks : Human -> Prop; heavy red : Object -> Prop; pregnant : Woman -> Prop (L90-99)",
+      "source": "(3.2) talk : Human -> Prop; (3.88) black : Object -> Prop; A7.3 'Parameter walk: Human -> Prop'",
+      "match": "exact",
+      "note": "Verbs/intersective adjectives as predicates over the domain type; selectional restriction by typing (sec. 3.1, (3.5)-(3.7)) illustrated by the commented-out 'Check walks 5'."
+    },
+    {
+      "coq": "Definition some / all (A : CN) (P : A -> Prop) : Prop (L106-110)",
+      "source": "(1.10) some(A,P) = exists x:A.P(x); (3.12)-(3.13) some : Pi A:CN.(A -> Prop) -> Prop; A7.1 'Definition some:= fun A: CN=> fun P :A -> Prop=> exists x: A, P(x).' and 'all'",
+      "match": "exact",
+      "note": "Verbatim modulo syntax. A7.1's 'no' is omitted."
+    },
+    {
+      "coq": "Definition Adjective := forall A : CN, A -> Prop; Parameter tall short light : Adjective (L150-152)",
+      "source": "(3.102) subsective adjective typing Pi A:CN.(A -> Prop) (sec. 3.3.2); A7.3 'Parameter skilful: forall A: CN, A -> Prop'",
+      "match": "simplified",
+      "note": "Exact for subsective adjectives (tall/short/light are indeed subsective/gradable in the source), but the file labels this type 'Adjective' generically and never uses the intersective monomorphic form in modification, so the source's intersective/subsective split (Table 3.2, (3.99)-(3.101)) is flattened."
+    },
+    {
+      "coq": "Definition modified_noun (adj : Adjective) (N : CN) : CN := { x : N | adj N x } (L155-156); TallHuman, LightObject, TallLightHuman (L159-160, L172-173)",
+      "source": "(3.103) small elephant = Sigma x:Elephant. small(Elephant, x); (3.21)/(3.89) Sigma-type modified CNs; A7.3 'Record Skilfulhuman: CN:= ... {h1:> Human; S: skilful Human h1}'",
+      "match": "exact",
+      "note": "Uses sig instead of a Record; semantically the same Sigma-type over a Prop. Nested TallLightHuman = Sigma over TallHuman with light(TallHuman) is the source's intended subsective reading (light relative to tall humans)."
+    },
+    {
+      "coq": "Definition tall_human_to_human := proj1_sig; Coercion ... : TallHuman >-> Human (L163-165)",
+      "source": "(3.33) Sigma x:A.P(x) <=pi1 A; (3.94) Sigma x:[[N]].[[Adj]](x) <= [[N]]; (2.42) Man <=pi1 Human; A7.3 ':>' first-projection coercion",
+      "match": "simplified",
+      "note": "Declared for the single instance TallHuman only; LightObject and TallLightHuman get no coercion (TallLightHuman is not even a subtype of Human in Coq's eyes). Coq cannot declare the generic projective coercion sig A P >-> A because the target is a variable."
+    },
+    {
+      "coq": "Check tall Human mike; Check walks mike (L177-180)",
+      "source": "(3.92)-(3.97): Adj[N] => N via pi1 coercion and Adj[N] => Adj via pi2",
+      "match": "simplified",
+      "note": "Only well-typedness is checked. The comment 'True by construction!' (L177) is not a proof: the (3.97) fact would be 'proj2_sig mike : tall Human (proj1_sig mike)', which is never stated."
+    },
+    {
+      "coq": "Definition SurgeonTeacher : CN := { x : Human | exists s t, sh s = x /\\ th t = x } (L198-200)",
+      "source": "none (source handles objects of several types via dot-types, Ch. 5, and treats 'surgeon' only as a base CN with sw coercion)",
+      "match": "added",
+      "note": "Ad hoc pullback-like intersection over Human witnesses; never used, given no coercion, and not a construct of MTT-semantics."
+    },
+    {
+      "coq": "(absent) proof irrelevance, criteria of identity / setoid interpretation of CNs, mass nouns",
+      "source": "Luo 2012 sec. 3 (criteria of identity), sec. 4 (proof irrelevance required for Sigma-type modified CNs), sec. 5 (mass nouns with classifiers); book sec. 3.2.1 (setoids), sec. 3.3.1 second adequacy condition, sec. 5.3",
+      "match": "missing",
+      "note": "The substantive content of the first-listed primary source is not touched; no equality on TallHuman is ever considered, and Coq's sig over Prop is not definitionally proof-irrelevant."
+    },
+    {
+      "coq": "(absent) subtyping propagation through Sigma and function types",
+      "source": "book (3.32) contravariant propagation, (3.91) Sigma x:Cat.black(x) <= Sigma x:Object.black(x), fn.20 rule for Sigma",
+      "match": "missing",
+      "note": "Not expressible as Coq coercions; the book itself flags this (sec. 6.3.1: 'subtyping in Coq, unlike in UTT, does not propagate through the type constructors')."
+    }
+  ],
+  "theorems": [
+    {
+      "name": "men_are_humans : all Man walks -> some Human walks (L124-130)",
+      "status": "proved",
+      "source_claim": "new; nearest source analogue is A7.3 delegate2 '(some Man) Irish -> (some Human) Irish' (some-to-some along Man <= Human)",
+      "note": "all-to-some direction; the proof needs an inhabitant of Man and uses Parameter bob, so it is existential import, not a subtyping fact. Coercion mh is inserted implicitly in 'exists bob'."
+    },
+    {
+      "name": "surgeons_walk : all Human walks -> all Surgeon walks (L203-208)",
+      "status": "proved",
+      "source_claim": "instance of the Fundamental Principle of Subtyping (book sec. 2.4) applied to universal quantification; same pattern as A7.3 skill1/delegate1 (cbv; firstorder)",
+      "note": "Faithful: universal restriction to a subtype via the sh coercion. Proof script 'cbv. intro H. firstorder.' mirrors the book's 'cbv. firstorder. Qed.' style."
+    }
+  ],
+  "counts": {
+    "theorems": 2,
+    "proved": 2,
+    "admitted": 0,
+    "propositional_axioms": 0
+  },
+  "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+      "Identifiers and definitions match the book's Appendix A7.1 verbatim: Coq L70-79 'Axiom mh : Man -> Human. Coercion mh : Man >-> Human.' ... 'ao' vs A7.1 lines 8220-8223 of the extracted text; Coq L106-110 some/all vs A7.1 'Definition some:= fun A: CN=> fun P :A -> Prop=> exists x: A, P(x)'.",
+      "modified_noun (L155-156) = { x : N | adj N x } is exactly (3.103) Sigma x:A. adj(A, x) with the polymorphic adjective typing (3.102), i.e. the book's subsective treatment (sec. 3.3.2) and A7.3's Skilfulhuman record.",
+      "Coercion tall_human_to_human (L163-165) realizes the projective subtyping (3.33)/(3.94) for one instance, as the book's ':>' does for Irishhuman.",
+      "CN := Type (L32) vs the book's 'Definition CN:= Set' (A7.1) and ch.6 fn.12 ('Coq does not allow us to specify new universes ... So, we use Set to define CN, although CN should have been a separate universe').",
+      "Luo 2012's central claims have no counterpart: sec. 4 (proof irrelevance needed so that two handsome men are equal iff the same man) is never assumed or discussed; sec. 3 criteria of identity / setoids and sec. 5 mass nouns are absent. Only the slogan 'CNs are types' (Luo 2012 sec. 2, Fig. 1) is encoded.",
+      "Both theorems (L124-130, L203-208) are new but are the same inference pattern as A7.3 delegate1/delegate2/skill1; neither is a source-numbered result.",
+      "Tutorial prose is partly at odds with the source: STEP 8 (L140-147) calls 'tall : Human -> Prop' the 'bad' option, whereas in the source adjectives are predicates (Table 3.1, (3.3)) and only the modified CN is a type; the code itself does follow the source."
+    ],
+    "omissions": [
+      "Proof irrelevance (Luo 2012 sec. 4; book sec. 3.3.1 second condition, fn.22)",
+      "Criteria of identity / CNs as setoids (Luo 2012 sec. 3; book sec. 3.2.1, 5.3)",
+      "Mass nouns with classifiers (Luo 2012 sec. 5)",
+      "Intersective vs subsective distinction and the (3.101) overgeneration argument (book sec. 3.3.1-3.3.2)",
+      "Subtyping propagation through Sigma and -> ((3.32), (3.91))",
+      "Quantifier 'no' (A7.1), privative/non-committal adjectives, dot-types, homonymy (A7.2), adverbs",
+      "The second-projection inference Adj[N] => Adj (3.95)-(3.97) is only 'Check'ed, not proved"
+    ],
+    "additions": [
+      "SurgeonTeacher intersection type via equalities on coercion images (L198-200), unused",
+      "Teacher CN and th coercion (L191-195)",
+      "TallLightHuman nested modification (L172-173), without any coercion to Human",
+      "Universe Type instead of Set for CN"
+    ],
+    "simplifications": [
+      "Dedicated universe CN replaced by a Coq sort (over-approximation acknowledged by the source)",
+      "Single generic 'Adjective' type = subsective typing only",
+      "First-projection coercion declared per instance instead of generically",
+      "Records replaced by sig; Human-level hierarchy reduced to five base CNs"
+    ]
+  },
+  "determination": "slight_modification",
+  "determination_rationale": "The fragment this file exercises (CNs as types, constant coercive subtyping, Sigma-type adjectival modification with Pi-polymorphic adjectives, Pi-polymorphic some/all, subtype-restricted universal inference) transfers to Coq essentially line-for-line; the book's own Appendix A7.1/A7.3 is the template. But three features of the source theory require modification or extra axioms, all flagged by the source itself: (a) the universe CN must be approximated by a sort, admitting non-CN types (ch.6 fn.12; (3.16) fails); (b) generic projective subtyping Sigma x:A.P(x) <=pi1 A and propagation of subtyping through Sigma/Pi ((3.32), (3.33), (3.91)) cannot be declared as Coq coercions, forcing per-instance coercions and losing e.g. TallLightHuman <= Human (book sec. 6.3.1: 'a limitation of the system in Coq'); (c) proof irrelevance (Luo 2012 sec. 4) must be postulated or obtained via SProp, and the file does neither. The file stays inside the fragment that works as-is, so the evidence supports slight_modification rather than as_is, and nothing here suggests major restructuring is needed.",
+  "artifact_classes": [
+    {
+      "class": "ii",
+      "description": "CN := Type (L32) collapses the source's dedicated universe CN into a Coq sort: every type at that level is accepted as a common noun (some (Prop -> Human) P type-checks, contra book (3.16)); the book's Coq uses Set for the same reason (ch.6 fn.12)."
+    },
+    {
+      "class": "iv",
+      "description": "No generic projective coercion for sig and no coercion propagation through Sigma/->: the source's (3.33) Sigma x:A.P(x) <=pi1 A and (3.32)/(3.91) are native in UTT coercive subtyping but must be hand-declared per instance in Coq (only tall_human_to_human, L163-165; LightObject and TallLightHuman have none)."
+    }
+  ],
+  "compiles": true,
+  "duplicate_of": "extras/MTT_base.v",
+  "duplicate_note": "Byte-identical (MD5 943e38968a5796f97b424521ba30b8cd for both; diff is empty). Both are listed in _CoqProject (lines 35-36), both have .vo files, and neither is Required by any other .v in the repo. Neither is better; one should be deleted. Tie-break: keep MTTbase.v, since CamelCase names dominate extras/ (BarwiseCooper, DonkeyScope, DowtyTense, FocusEven, LakoffPrototypes, PolydefiniteSemantics, PresuppositionProjection, AdjectivesExtension, ImperfectiveParadox), and drop MTT_base.v.",
+  "source_gap": "None: Luo 2012 (13 pp.) and the 2020 book (240 pp., incl. Appendix 7 Coq code) are both fully on disk. Note that the file's direct textual ancestor is the book's Appendix A7.1/A7.3 (equivalently the preamble of Chatzikyriakidis & Luo 2014, also on disk, which uses 'CN:=Set'); Luo 2012 is only a conceptual source for the CNs-as-types slogan and its substantive content (criteria of identity, proof irrelevance, mass nouns) is not formalized here.",
+  "notes": "Inventory: 2 Theorems (both Qed), 0 Admitted, 0 Prop-typed axioms; 6 'Axiom' declarations are all function-typed coercions (Man->Human etc.), 21 Parameters. The axiomatized coercions are computationally opaque, but that matches the source's signature style (sec. 3.2.2 'constant coercion mh'), so it is not counted as an encoding artifact. men_are_humans (L124) silently depends on the existence of bob : Man (existential import). The L177 comment 'True by construction!' overstates a Check. The file is pedagogical scaffolding ('STEP 11: where we go from here') rather than a formalization of any numbered result; its value is as the shared MTT preamble, but it is not imported by anything in the repo."
+}

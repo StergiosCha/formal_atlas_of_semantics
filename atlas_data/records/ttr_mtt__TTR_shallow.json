@@ -1,0 +1,133 @@
+{
+ "file": "ttr_mtt/TTR_shallow.v",
+ "region": "ttr pilots",
+ "summary": "Shallow embedding pilot of Cooper's TTR (2023, Appendix A) that maps TTR directly onto Coq's native type system: ptypes as Prop-valued predicates (propositions-as-types), record types (A11) as dependent Coq Records (ManRuns, DogChasesCat, JohnRuns with a manifest field as an equality), witnesses as inhabitants, singleton types (A6) as sig-equality types, join/meet as sum/product, function types (A4) as Coq arrows, subtyping via a declared projection Coercion, and Luo-style generalized quantifiers. The second half is a structured feasibility essay in comments: five documented breakages of the shallow approach (types not first-class values; no reasoning about model-relative empty types; no merge of record types A11.3; no relabelling A1; no model-indexed modal systems A9) plus a two-way TTR-vs-MTT comparison (dot-types for copredication demoed via a PhyInfo record; coercive subtyping; CNs-as-types; universe hierarchy vs A10). One trivial demo theorem (john_runs_proof, modus ponens under section hypotheses). The file's stated conclusion: the features Cooper's dialogue theory needs are exactly the ones the shallow embedding cannot provide, motivating the companion deep embedding (TTR_base/types/records).",
+ "sources": [
+  {
+   "citation": "Cooper, R. (2023). From Perception to Communication: An Enriched Approach to the Semantics and Pragmatics of Dialogue. Oxford University Press. (Appendix A: A1, A4, A6, A9, A10, A11; p. 397 quoted in header.)",
+   "path": null,
+   "available": "none — not under papers/"
+  },
+  {
+   "citation": "Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. Wiley/ISTE. (Secondary source for the MTT comparison half.)",
+   "path": "papers/foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf",
+   "available": "full"
+  },
+  {
+   "citation": "Luo, Z. (2012). Common nouns as types. LACL 2012. (Dot-types, coercive subtyping, CNs-as-types referenced in the comparison.)",
+   "path": "papers/foundations/Luo_2012_CommonNounsAsTypes.pdf",
+   "available": "full"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "Parameter Ind, john, mary; run/walk/man/... : Ind -> Prop",
+   "source": "Cooper's basic types and ptypes P(a1,...,an) (witnesses are situations where the predicate holds)",
+   "match": "simplified",
+   "note": "propositions-as-types rendering the file itself advertises (Cooper p. 397); witnesses become Coq proof objects, with no model relativity"
+  },
+  {
+   "coq": "Record ManRuns / DogChasesCat / JohnRuns (manifest field as jr_eq : jr_x = john)",
+   "source": "Cooper A11 record types as labelled sets of dependent type assignments",
+   "match": "simplified",
+   "note": "dependency via Coq's dependent records; labelled-set structure, paths, and relabelling are not represented — the file documents this"
+  },
+  {
+   "coq": "singleton A a := { x : A | x = a }",
+   "source": "Cooper A6 singleton types T_a",
+   "match": "exact",
+   "note": "up to sig-type packaging"
+  },
+  {
+   "coq": "join A B := (A + B)%type",
+   "source": "Cooper join T1 ∨ T2 (witnessed by anything witnessing either)",
+   "match": "simplified",
+   "note": "sum-type witnesses carry an injection tag the source's witnesses lack"
+  },
+  {
+   "coq": "meet A B := (A * B)%type",
+   "source": "Cooper meet T1 ∧ T2 (the SAME object witnesses both)",
+   "match": "changed",
+   "note": "the file itself flags the mismatch: a product pairs two potentially different objects; Cooper's merge μ is not representable"
+  },
+  {
+   "coq": "Coercion ManRuns_to_Ind (projection)",
+   "source": "Cooper subtyping T1 ⊑ T2 as semantic set inclusion of witnesses",
+   "match": "changed",
+   "note": "Luo's declared coercive subtyping substituted for Cooper's semantic subtyping; per-projection, does not follow from witness inclusion"
+  },
+  {
+   "coq": "every/some as forall/exists; function types as ->",
+   "source": "Cooper A4 function types; Luo-style generalized quantifiers",
+   "match": "exact",
+   "note": "quantifiers imported from the MTT side of the comparison"
+  },
+  {
+   "coq": "Record PhyInfo + book_copred (heavy(phy b) /\\ interesting(info b))",
+   "source": "Luo's dot-types for copredication",
+   "match": "added",
+   "note": "MTT comparison machinery, no Cooper counterpart claimed"
+  },
+  {
+   "coq": "(comments only)",
+   "source": "Cooper A11.3 merge, A1 relabelling, A9 modal type systems TYPE_MC, A10 stratification, types-as-first-class-values",
+   "match": "missing",
+   "note": "each documented in the file as unrepresentable in the shallow embedding (Problems 1-5)"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "john_runs_proof",
+   "status": "proved",
+   "source_claim": "new — a section-local modus ponens demo (every man runs, john is a man ⊢ john runs) illustrating shallow-embedding proof ergonomics",
+   "note": "trivial per rubric §3 (true by two hypothesis applications under local Hypotheses); the anchored grep count is 0 because the Theorem is indented inside a Section"
+  }
+ ],
+ "counts": {
+  "theorems": 1,
+  "proved": 1,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "The covered fragment (ptypes, dependent record types A11, singletons A6, function types A4, witnesses-as-inhabitants) tracks Cooper's definitions closely and cites appendix items by number.",
+   "Two core definitions are changed by the file's own admission: meet as product (Cooper requires one object witnessing both types, lines 139-146) and subtyping as declared coercions rather than semantic inclusion (lines 110-119).",
+   "Cooper's headline dialogue machinery — merge A11.3, relabelling A1, model-indexed modality A9, types as first-class values — is entirely missing, and the file documents each omission explicitly as Problems 1-5 (lines 195-260).",
+   "No named source claim is proved as a theorem; the single Qed is a trivial demo. Zero propositional axioms: all 13 Parameters are signature-only (types, individual and predicate constants), rubric §3a."
+  ],
+  "simplifications": [
+   "ptype witnesses (situations) become Coq proof objects with no model parameter",
+   "record types lose labelled-set structure and paths",
+   "join carries an injection tag"
+  ],
+  "omissions": [
+   "merge of record types (A11.3)",
+   "relabelling (A1)",
+   "modal type family TYPE_MC (A9)",
+   "stratification Type^n (A10, noted as free in Coq's universe hierarchy but not formalized)",
+   "empty-type reasoning across models",
+   "all of Cooper's dialogue/update theory"
+  ],
+  "additions": [
+   "Luo MTT comparison block: dot-type copredication demo (PhyInfo), generalized quantifiers, coercive subtyping",
+   "extended comparative essay in comments (what each framework gives the other)"
+  ]
+ },
+ "determination": "major_restructuring",
+ "determination_rationale": "The file is a deliberate feasibility probe and its own verdict is the evidence: the MLTT-like core of TTR (dependent records, ptypes, singletons, function types) lands directly on Coq, but Cooper's distinctive operations — merge, relabelling, dynamic type creation, model-indexed modality — require types to be first-class values, which the shallow embedding provably cannot supply (Problem 1: type-value universe separation, artifact class ii); recovering them means re-founding via the companion deep embedding's VType injection (per OVERVIEW_ttr_mtt.tex). Meet and subtyping had to be changed even in the covered fragment. Determination is provisional on this pilot; the deep-embedding files are the ones that could raise or confirm it.",
+ "artifact_classes": [
+  {
+   "class": "ii",
+   "description": "type-value collapse blocked: Cooper's types-as-values (frames, dynamic type creation, storing types in record fields) cannot be expressed because Coq separates Set/Type from values — documented as Problems 1 and 5 and as 'the main thing we lose going shallow'"
+  },
+  {
+   "class": "iv",
+   "description": "missing native structure: no merge operation on Coq record types (A11.3), no relabelling of fields (A1), no semantic subtyping — coercions must be declared per projection; the deep embedding's VType is the workaround"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Record produced by the batch audit sweep of 2026-09-05; the file predates the atlas zero-axiom discipline and freely uses 13 Parameters, though all are signature-only (no propositional axioms); the anchored theorem grep returns 0 because the single trivial Theorem is section-indented.",
+ "compiles": true
+}

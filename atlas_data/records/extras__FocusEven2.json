@@ -1,0 +1,235 @@
+{
+  "file": "extras/FocusEven2.v",
+  "region": "model-theoretic (focus/alternatives)",
+  "summary": "337-line self-contained sketch (own `Parameter Entity`, no repository imports) of Rooth-style alternative semantics for the focus particles 'even' and 'only', plus a Horn-scale scalar-implicature section. It pairs an ordinary value with a Prop-valued alternative set (record FocusedExpr and, redundantly, product AltSem), defines even_basic as prejacent + 'some distinct alternative also satisfies P', only_basic as 'no distinct alternative satisfies P' + prejacent, transcribes the pointwise-application clause of Rooth 1985's p-set recursion (alt_apply), offers a vacuous focus_match where Rooth 1992's Focus Interpretation Principle should be, stipulates an <all,most,many,some> scale over opaque quantifier constants, posits one propositional Axiom, and proves three trivial theorems (all Qed). It compiles under Coq 8.20.1 with no warnings. Verified defects (scratch lemmas compiled against FocusEven2.vo): the scalar conjunct of 'even' is missing from even_basic and the one attempt at it (even_john_came_predicate, l.88-89) runs the wrong direction; narrow_only and wide_only (l.253-260) are the same term by reflexivity; only_even_john (l.237-242) is provably unsatisfiable; focus_match holds for every operator as soon as the argument's alternative set is inhabited; the Axiom at l.220 restates Theorem even_requires_alternatives at l.294. The file is extras/FocusEven.v with four cosmetic edits.",
+  "sources": [
+    {
+      "citation": "Rooth, Mats (1992). A Theory of Focus Interpretation. Natural Language Semantics 1: 75-116. Author preprint, 41 pp., full text layer. Used: sec.1 (2) focus semantic values and p.2 'the ordinary semantic value is always an element of the focus semantic value'; sec.2.1 (3)-(9): only as quantification over properties with domain C, fn.2 (P(m) as presupposition or assertion), fn.3 ('=' is identity in intension), (9c) C subset of [[VP]]f; sec.2.3 (16)-(22): scales as posets ordered by entailment, (22) constraint on scales; sec.3 (26a-d), (27) Focus Interpretation Principle, (30)-(31) only(C); sec.4 (32), (36)-(39), (40) presuppositions of the ~ operator, (42) closure clause.",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Rooth_1992_TheoryOfFocusInterpretation.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Rooth, Mats (1985). Association with Focus. PhD dissertation, UMass Amherst. Complete 237-page scan, image-only (pdftotext returns whitespace); dissertation page N = PDF page N+10. Read as page images: front matter pp.i-x; Ch.II sec.3 'Domain Selection Theory' (21)-(35) pp.41-45 (only'' with free domain variable C, the introduce-Bill/Sue example); 'Formalization' pp.45-59: (36) denotation spaces, (38) p-set intension/extension problem, (39) constant meanings, (40) ILF formation rules, (41a)-(41l) meaning assignment with p-sets, (42) restriction operator R, (43) translation rule for only; Ch.III sec.3 pp.120-124: (61) F_only/F_even, (62) crosscategorial family, (63)-(64) 'John_F even came', (65)-(66) 'John only likes Mary_F', (67)-(70) 'even John_F came'; Ch.IV sec.1 pp.139-143: KKP existential/scalar implicatures (3a,b), meaning postulate (4), scope ambiguity (5)-(7).",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Rooth_1985_AssociationWithFocus.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Karttunen, Lauri & Stanley Peters (1979). Conventional Implicature. In Oh & Dinneen (eds.), Syntax and Semantics 11. The existential + scalar analysis of 'even' that even_basic and even_john_came_predicate actually encode; reviewed as 'KKP' in Rooth 1985 Ch.IV pp.139-142. Not on disk, not in the manifest.",
+      "available": "missing"
+    },
+    {
+      "citation": "Horn, Laurence (1972). On the Semantic Properties of Logical Operators in English. PhD dissertation, UCLA. Source of the <all, most, many, some> scale (Section 5); cited by Rooth 1992 sec.2.3. Not on disk, not in the manifest.",
+      "available": "missing"
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "Parameter Entity : Type (l.11)",
+      "source": "Rooth 1985 (36): D_e = E, the set of individuals",
+      "match": "added",
+      "note": "Infrastructure replacing MontagueFragment.MontagueExtensional.Entity used by FocusEven.v. The justifying comment 'Since MontagueFragment is not available' (l.10) is stale: shallow/MontagueFragment.vo is built."
+    },
+    {
+      "coq": "Alternatives A := A -> Prop (l.20)",
+      "source": "Rooth 1985 (41)(ii): the p-set ||a|| of an ILF phrase of type a, a set of functions G x W -> D_a; Rooth 1992 (2): focus semantic value [[alpha]]f",
+      "match": "simplified",
+      "note": "Extensional: no world or assignment parameter. Rooth 1985 pp.46-49 ((38)) shows that p-set intensions are not recoverable from p-set extensions, which is why (41) is built over G x W; that problem is invisible here. Representing a set as a Prop-valued characteristic predicate does match Rooth 1985 p.43 ('C is the characteristic function of a set of properties')."
+    },
+    {
+      "coq": "Record FocusedExpr A := { ordinary_value : A; focus_alternatives : Alternatives A } (l.23-26)",
+      "source": "Two-dimensional value <[[alpha]]o, [[alpha]]f> of Rooth 1992 sec.1; Rooth 1985 (41)(i)-(ii) normal denotation |a| and p-set ||a||",
+      "match": "simplified",
+      "note": "No invariant that ordinary_value is a member of focus_alternatives, although Rooth 1992 p.2 states 'As I define things, the ordinary semantic value is always an element of the focus semantic value'."
+    },
+    {
+      "coq": "john_alternatives := fun x => x = john \\/ x = mary \\/ x = bill; john_focused (l.33-39); sue_alternatives (l.249-250)",
+      "source": "Rooth 1985 (41l): ||[a]_F|| = C_{a,E,W}, all constant meanings of the focused item's type (for type e, all of E); Rooth 1992 (9c)/(26a): the pragmatically restricted domain C with C subset of [[alpha]]f",
+      "match": "changed",
+      "note": "A hand-listed three-element set conflates the focus semantic value (the whole domain E) with the contextually restricted C. Keeping these apart, with C constrained by subset, is exactly the content of Rooth 1992 (9c)/(27)."
+    },
+    {
+      "coq": "came_alternatives := fun P => P = came \\/ P = left \\/ P = arrived; came_focused (l.44-50)",
+      "source": "Rooth 1985 (41l) for type <e,t>; Rooth 1992 (8) '{lambda x[R(x,c)] | R : E x E -> propositions}' for a focused verb",
+      "match": "changed",
+      "note": "Same conflation. P = came is Coq's Leibniz equality on Entity -> Prop: finer than extensional equality (absent funext) and not the identity-in-intension that Rooth 1992 fn.3 requires. came_focused is never used."
+    },
+    {
+      "coq": "even_basic focused P := P val /\\ (exists x, alts x /\\ x <> val /\\ P x) (l.65-72); even_john_came (l.75-76)",
+      "source": "Rooth 1985 (61) F_even(a) = Exists p[C(p) & vp & p != ^a & unlikely'(p)] & a; (70) instance for 'even John_F came'; KKP existential implicature (3a), Rooth 1985 p.141",
+      "match": "simplified",
+      "note": "Keeps the assertion and the existential conjunct with C = {P y | y in alts}, but drops the unlikely'(p) / scalar conjunct entirely; the file's gloss at l.81 ('John was least likely to come (scalar presupposition)') describes a conjunct the definition does not contain, and likelihood/surprise (l.61-62) are not used by it. p != ^a is rendered as individual inequality x <> val rather than propositional distinctness. Conjoining implicature and assertion is what Rooth 1985 (61) does ('combined by conjoining them'), though Ch.IV sec.2 (p.143) then separates them. The operator takes the focused NP and the predicate as separate arguments, the scope-theory signature Rooth 1985 Ch.II argues against, rather than a proposition plus a domain C. No scenario can make even_john_came true or false: john/mary/bill are Parameters without distinctness axioms, so x <> john is unprovable."
+    },
+    {
+      "coq": "even_john_came_predicate := came john /\\ (exists P, came_alternatives P /\\ P <> came /\\ P john) /\\ (forall P, came_alternatives P -> P <> came -> likelihood john P -> likelihood john came) (l.84-89)",
+      "source": "Rooth 1985 (64) with VP-level alternatives; KKP scalar implicature (3b)/(4), Rooth 1985 p.141: for all alternatives x, exceed(likelihood(Q x), likelihood(Q y))",
+      "match": "changed",
+      "note": "The scalar clause runs the wrong way. 'If John is likely to P then John is likely to come', for every alternative P, makes coming at least as likely as every alternative (scratch lemma scalar_clause_direction: it is satisfied whenever everything is likely), whereas KKP (3b) and the file's own gloss at l.94 ('coming was least likely') require every alternative to be more likely than coming. A monadic threshold predicate likelihood : Entity -> (Entity -> Prop) -> Prop also cannot express KKP's exceed comparison; the faithful monadic rendering would be likelihood john came -> likelihood john P."
+    },
+    {
+      "coq": "only_basic focused P := (forall x, alts x -> x <> val -> ~ P x) /\\ P val (l.105-112); only_john_came (l.115-116); john_only_came (l.123-125)",
+      "source": "Rooth 1985 (25) only'' = lambda P lambda x Forall Q[[Q{x} & C(Q)] -> Q = P], (29)-(35); (61) F_only(a) = Forall p[C(p) & vp -> p = ^a] & a; Rooth 1992 (4b)/(9b) with fn.2",
+      "match": "simplified",
+      "note": "Quantifies over individuals in alts with individual inequality, i.e. it encodes the scope-theory-equivalent forms (32)/(35) 'Forall x[introduce'(j,x,s) -> x = b]' rather than Rooth's quantification over properties with a free C; truth-conditionally equivalent when C = {P y | y in alts}. Contrapositive form x <> val -> ~P x is classically equivalent to P x -> x = val. Prejacent conjoined as in Rooth 1985 (61) and as fn.2 of Rooth 1992 contemplates. john_only_came inlines the VP-focus case with the three listed predicates; no source example is reproduced exactly."
+    },
+    {
+      "coq": "AltSem A := (A * Alternatives A)%type; lift x alts := (x, alts) (l.142-146)",
+      "source": "Rooth 1985 (41)(i)-(ii): the pair (normal denotation, p-set) assigned to every ILF phrase",
+      "match": "simplified",
+      "note": "Duplicates FocusedExpr as a bare pair. lift accepts any alternative set for any value, so the base clauses (41a),(41b) (unfocused constants and variables get singleton p-sets) and (41l) (focused items get all constant meanings of their type) are not encoded. Unused."
+    },
+    {
+      "coq": "alt_apply (f, f_alts) (x, x_alts) := (f x, fun y => exists g a, f_alts g /\\ x_alts a /\\ y = g a) (l.149-152)",
+      "source": "Rooth 1985 (41d) p.53: ||a(b)|| is the set of h with h(g,w) = h'(g,w)(h''(g,w)) for some h' in ||a||, h'' in ||b||; the gloss on p.56 'the p-set for a complex phrase is obtained by applying the semantic rule for the phrase to elements of the p-sets of component phrases'",
+      "match": "exact",
+      "note": "Faithful extensional transcription of the application clause, and the only clause of the (41) recursion present: (41a)-(41c), (41e)-(41l) (lambda, =, negation, connectives, quantifiers, ^, v, focus) are absent. Unused."
+    },
+    {
+      "coq": "focus_match op arg := let (_, arg_alts) := arg in let (_, result_alts) := op arg in forall y, result_alts y -> exists x, arg_alts x (l.156-160)",
+      "source": "Rooth 1992 (26a) C subset of [[alpha]]f and (27) Focus Interpretation Principle: Gamma subset of [[alpha]]f or gamma in [[alpha]]f",
+      "match": "changed",
+      "note": "Vacuous: the conclusion does not mention y, so the predicate relates no element of the result set to the argument set. Scratch lemma focus_match_vacuous: for every op, (exists x, arg_alts x) -> focus_match op arg. Neither subset nor membership is encoded, there is no free variable C and no anaphoric/pragmatic resolution. The FIP, the central claim of Rooth 1992, is therefore not formalized. Unused."
+    },
+    {
+      "coq": "HornScale A := A -> A -> Prop; quantifier_scale (l.171-181)",
+      "source": "Rooth 1992 sec.2.3 (18)-(21): a scale is a partially ordered set <C, <=_C> of propositions ordered by entailment, citing Horn (1972)",
+      "match": "changed",
+      "note": "The <all, most, many, some> scale is Horn's, not in either Rooth source. Its order is stipulated by enumerating pairs of opaque Parameters all/most/many/some_quant (l.174); entailment between them is never stated, so 'stronger_than' has no semantic content (all N P -> some_quant N P is underivable). The scale is over quantifier constants, not propositions."
+    },
+    {
+      "coq": "scalar_implicature Q N P := Q N P /\\ (forall Q', quantifier_scale Q' Q -> ~ Q' N P) (l.184-187); some_not_all (l.190-191)",
+      "source": "Rooth 1992 p.8: asserting phi in C 'implicates the negation of any higher element of the scale'; (22) constraint on scales C subset of [[phi]]f",
+      "match": "simplified",
+      "note": "Right shape, but the implicature is conjoined into the truth conditions (implicature becomes entailment) and the link to focus semantic values, constraint (22), which distinguishes (16) from (17) and is Rooth's whole point, is absent. 'Some students came' is the file's own example."
+    },
+    {
+      "coq": "said : Entity -> Prop -> Prop; embedded_even := said john (even_basic {| mary; john_alternatives |} left) (l.206-210)",
+      "source": "Rooth 1985 Ch.IV (5)-(6) p.142: KKP even-rule applying at either S level; Rooth 1992 sec.4 (40) presuppositions of ~ and their projection",
+      "match": "added",
+      "note": "One application term under an opaque said; no projection behaviour is defined or proved, and only the embedded-scope reading (6b) is represented. 'Focus projection' (F-percolation) is a misnomer for what the section contains."
+    },
+    {
+      "coq": "associates_with_focus op expr focus_alts := op {| ... |} (l.213-217)",
+      "source": "none",
+      "match": "added",
+      "note": "A record-constructor wrapper with no content; never used."
+    },
+    {
+      "coq": "Axiom even_requires_focus (l.220-222)",
+      "source": "loosely Rooth 1992 (40): the contrasting set contains 'an element distinct from the ordinary semantic value'; Rooth 1992 (46) syntactic requirement that only/even be sister to an F-marked phrase",
+      "match": "added",
+      "note": "Posited as an Axiom although the identical statement is proved as Theorem even_requires_alternatives at l.294-304 (scratch Check confirms the two types coincide). The file's only propositional axiom is redundant."
+    },
+    {
+      "coq": "only_even_john (l.237-242)",
+      "source": "none",
+      "match": "added",
+      "note": "'Only even JOHN came' appears in neither source, and the definition is provably unsatisfiable (scratch lemma only_even_john_unsat): if even_john_came holds with witness x <> john, then even_basic {| x; john_alternatives |} came also holds, with john as the distinct alternative that came, contradicting the second conjunct."
+    },
+    {
+      "coq": "introduced, sue/ann/kim, narrow_only, wide_only (l.246-260)",
+      "source": "Rooth 1985 (27)/(28) pp.44-45 and abstract p.vi; Rooth 1992 (3a)/(3b): 'only introduced BILL to Sue' vs 'only introduced Bill to SUE'",
+      "match": "changed",
+      "note": "narrow_only and wide_only are syntactically identical terms (scratch lemma narrow_eq_wide, by reflexivity), so the comment 'These give different truth conditions!' (l.262) is false. The source contrast is focus placement (Bill vs Sue), which would require varying the alternative set over the direct vs the indirect object; the file never does this."
+    },
+    {
+      "coq": "likelihood : Entity -> (Entity -> Prop) -> Prop; surprise : Prop -> Prop (l.61-62)",
+      "source": "Rooth 1985 (61) unlikely'(p); KKP (4) likelihood_e and exceed_e, Rooth 1985 p.141",
+      "match": "changed",
+      "note": "surprise is never used; likelihood is used once, in the mis-directed clause of even_john_came_predicate."
+    },
+    {
+      "coq": "(absent)",
+      "source": "Rooth 1985 (40)-(43): ILF syntax, the type-indexed recursive definition of p-sets over G x W, the restriction operator R(C,a,b) and the translation rule for only; (62) crosscategorial families F_only,a / F_even,a; Rooth 1992 (26)-(27) FIP, (40)-(42) the ~ operator with its presuppositions and closure clause, the [[alpha]]o in [[alpha]]f invariant, secs.2.2 and 2.4 (contrast, question-answer)",
+      "match": "missing",
+      "note": "Everything that makes the theory alternative semantics rather than a KKP-style lexical entry for only/even is absent."
+    }
+  ],
+  "theorems": [
+    {
+      "name": "even_only_relationship",
+      "status": "proved",
+      "source_claim": "new; no counterpart in Rooth 1985 or 1992",
+      "note": "l.273-291: even_basic F P -> ~ only_basic F (fun x => ~ P x). Holds from the prejacent conjuncts alone (P val vs ~P val); the alternative sets play no role (scratch lemma even_only_trivial reproves it from P (ordinary_value F) alone). The comment 'even and only are duals in some sense' (l.272) is not supported. Proof is constructive; Classical is not used."
+    },
+    {
+      "name": "even_requires_alternatives",
+      "status": "proved",
+      "source_claim": "new; loosely Rooth 1992 (40) (contrasting set contains an element distinct from the ordinary value)",
+      "note": "l.294-304: even_basic with the empty alternative set is False. Textually the same statement as Axiom even_requires_focus (l.220-222). Proof is a destruct of the existential."
+    },
+    {
+      "name": "only_preserves_focus",
+      "status": "proved",
+      "source_claim": "Rooth 1985 (61): the prejacent a is the conventional-implicature conjunct of F_only(a); Rooth 1992 fn.2 (P(m) as presupposition or assertion)",
+      "note": "l.307-317: only_basic F P -> P (ordinary_value _ F). Immediate projection of the second conjunct. Differs from FocusEven.v only in stating the conclusion with the record projection instead of a match."
+    },
+    {
+      "name": "even_requires_focus",
+      "status": "axiom",
+      "source_claim": "Rooth 1992 (46) / (40), see above",
+      "note": "l.220-222. Propositional axiom, derivable, and in fact derived 70 lines later as even_requires_alternatives; Print Assumptions shows none of the three theorems depends on it (each depends only on Entity : Type)."
+    }
+  ],
+  "counts": {
+    "theorems": 3,
+    "proved": 3,
+    "admitted": 0,
+    "propositional_axioms": 1
+  },
+  "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+      "alt_apply (l.149-152) is a correct extensional transcription of p-set clause (41d) (Rooth 1985 p.53), but it is the only clause of the (41) recursion present and is never used.",
+      "even_basic (l.65-72) = P val /\\ exists x in alts, x <> val /\\ P x reproduces the assertion and existential conjuncts of Rooth 1985 (61)/(70) but omits the unlikely'(p) scalar conjunct; the gloss at l.81 claims a scalar presupposition the definition lacks, and likelihood/surprise (l.61-62) are unused by it.",
+      "even_john_came_predicate (l.88-89): forall P in alts, P <> came -> likelihood john P -> likelihood john came makes 'came' at least as likely as every alternative, the reverse of KKP (3b)/(4) (Rooth 1985 p.141) and of the file's own gloss at l.94; scratch lemma scalar_clause_direction shows the clause is satisfied whenever every alternative is likely.",
+      "only_basic (l.105-112) matches the truth conditions of Rooth 1985 (32)/(35) and, for C = {P y | y in alts}, of (29)/(31) and Rooth 1992 (9b); treating the prejacent as a conjunct follows Rooth 1985 (61) and Rooth 1992 fn.2.",
+      "focus_match (l.156-160) reduces to 'result alternatives inhabited -> argument alternatives inhabited' (scratch lemma focus_match_vacuous); it encodes neither C subset of [[alpha]]f (Rooth 1992 (26a)) nor gamma in [[alpha]]f (27), and nothing in the file states [[alpha]]o in [[alpha]]f (Rooth 1992 p.2). The Focus Interpretation Principle is absent.",
+      "narrow_only and wide_only (l.253-260) are the same term (scratch lemma narrow_eq_wide by reflexivity); the comment 'These give different truth conditions!' (l.262) is false, and the actual source contrast, focus on Bill vs on Sue (Rooth 1985 (27)/(28), Rooth 1992 (3a)/(3b)), is not encoded.",
+      "only_even_john (l.237-242) is provably unsatisfiable (scratch lemma only_even_john_unsat).",
+      "quantifier_scale (l.177-181) stipulates Horn's order over opaque Parameters instead of deriving it from entailment (Rooth 1992 (18)-(21)), and constraint (22) tying scales to focus semantic values is absent; Section 5 is therefore not focus-sensitive at all.",
+      "Alternative sets are hand-listed three-element Prop-sets (l.33-34, 44-45, 249-250) standing in for both [[alpha]]f (all of E per Rooth 1985 (41l)) and the pragmatic domain C (Rooth 1992 (9c)); with no syntax there is no recursive definition of [[.]]f.",
+      "Intensionality is absent throughout: Rooth 1985 pp.46-57 argues p-sets must be defined over G x W because p-set intensions are not recoverable from extensions, and Rooth 1992 fn.3 requires '=' between alternatives to be identity in intension; Alternatives A := A -> Prop has no world parameter and identity is Leibniz equality on Entity or on Entity -> Prop.",
+      "The operator signatures even_basic/only_basic : FocusedExpr Entity -> (Entity -> Prop) -> Prop take the focused phrase and the abstract as separate arguments, the scope-theory architecture that Rooth 1985 (abstract pp.vi-vii, Ch.II secs.2-3) rejects in favour of domain selection.",
+      "No example proposition can be evaluated: john/mary/bill and came/left/arrived are Parameters without distinctness axioms, so the x <> val and P <> came premises are unprovable, and no scenario such as Rooth's 'John introduced Bill and Tom to Sue' is modelled.",
+      "Axiom even_requires_focus (l.220-222) is the same statement as Theorem even_requires_alternatives (l.294-304); Print Assumptions on all three theorems lists only Entity : Type, so the axiom and the imported Classical/Lia (l.8) are dead weight."
+    ],
+    "omissions": [
+      "Focus Interpretation Principle (Rooth 1992 (26)-(27)) and the ~ operator with its presuppositions (40) and closure clause (42), including the free variable C and its anaphoric/pragmatic resolution",
+      "Invariant [[alpha]]o in [[alpha]]f (Rooth 1992 p.2, (32))",
+      "Scalar (likelihood) conjunct of even (Rooth 1985 (61) unlikely'(p); KKP (3b)/(4))",
+      "Intensional p-sets over G x W and the p-set intension/extension problem (Rooth 1985 (36)-(39), pp.46-57)",
+      "ILF syntax (40) and p-set recursion clauses (41a)-(41c), (41e)-(41l); restriction operator R (42); translation rule for only (43)",
+      "'only' as quantification over properties with a free domain variable C (Rooth 1985 (25), Rooth 1992 (4b),(9)) rather than over individuals",
+      "Crosscategorial family F_only,a / F_even,a and type accommodation (Rooth 1985 (61)-(62), (68))",
+      "Scales as entailment-ordered posets of propositions and constraint (22) (Rooth 1992 sec.2.3); the focus-sensitive contrast (16) vs (17)",
+      "Contrast (sec.2.2), question-answer congruence (sec.2.4, (26d)), and Rooth 1985's adverbs of quantification, clefts, conditionals",
+      "The actual focus-placement contrast of the signature example (Rooth 1985 (27)/(28); Rooth 1992 (3))",
+      "Separation of assertion from conventional implicature/presupposition (Rooth 1985 Ch.IV sec.2 p.143; Rooth 1992 sec.4)"
+    ],
+    "additions": [
+      "Horn's <all, most, many, some> quantifier scale and the 'some students came' example (l.174-191), not in either Rooth source",
+      "'Only even JOHN came' (l.237-242), unsatisfiable",
+      "Axiom even_requires_focus (l.220-222) and the three theorems, none of which is a claim in either source",
+      "associates_with_focus wrapper, embedded_even, and the unused surprise parameter"
+    ],
+    "simplifications": [
+      "Purely extensional: no worlds, times, or assignment functions; identity of alternatives is Leibniz equality",
+      "Alternative sets are hand-listed finite Prop-sets doing duty for both the full focus semantic value and the contextual domain C",
+      "Presupposition/conventional implicature conjoined with the assertion (as Rooth 1985 (61) does presentationally, but not the later treatments)",
+      "Individual-level quantification for only/even instead of property/proposition-level quantification over C; operators applied to (focused NP, predicate) pairs"
+    ]
+  },
+  "determination": "slight_modification",
+  "determination_rationale": "What the file actually attempts of Rooth's theory transfers to Coq directly with no encoding tricks: an ordinary value paired with a Prop-valued alternative set, the pointwise application clause of the p-set recursion (alt_apply, an exact match for (41d)), and only/even as domain-restricted quantification with the prejacent conjoined, all of which compile and yield their trivial consequences by constructive proof. That is evidence that the extensional core embeds as is. But the file stops short of, or mis-encodes, everything distinctive: the intensional p-set recursion over G x W (Rooth 1985 (41)), the [[alpha]]o in [[alpha]]f invariant, the assertion/presupposition two-dimensionality that the ~ operator needs (Rooth 1992 (40)), and the FIP with a free C constrained by subset and resolved pragmatically (Rooth 1992 (27)). Each of these needs a modest but non-native addition (a World parameter with propositions as W -> Prop, a record invariant, a (assertion, presupposition) pair or partial semantics, an explicit LF/ILF datatype with a type-indexed interpretation, and an explicit C argument with a subset side-condition), and the file's own failures on exactly these points (vacuous focus_match, presupposition flattened into conjunction, alternative sets conflated with C, no syntax so no recursive [[.]]f) show that they did not go through unmodified. Hence slight_modification rather than as_is; the rating is inferred from the theory's shape, since this file does not demonstrate the distinctive parts either way.",
+  "artifact_classes": [
+    {
+      "class": "iv",
+      "description": "Missing native structure, incurred three ways. (1) No intensional layer: alternative identity is Leibniz equality on Entity (x <> val, l.71, l.109) or on Entity -> Prop (l.45, l.87-88, l.124), the latter too fine without functional extensionality and neither the identity-in-intension p != ^a of Rooth 1992 fn.3 / Rooth 1985 (41e); the p-set intension/extension distinction (Rooth 1985 pp.46-57) cannot even be stated. (2) No presupposition or conventional-implicature dimension, so implicatures are conjoined into assertions (l.69-71, l.109-111) and Rooth 1992's 'purely presuppositional' ~ operator (p.20) has no carrier. (3) No syntax/LF datatype, so [[.]]f cannot be defined recursively and alternative sets are stipulated per example (l.33-34, 44-45, 249-250), which is what lets the focus semantic value and the pragmatic domain C collapse into one object. Classes i (only a non-recursive record), ii, iii (nothing is computed; the opacity of the quantifier Parameters in Section 5 is a modelling choice, since MontagueFragment's every/some/g_most were available) and v (no decidability is demanded; Classical is imported but unused) are not incurred."
+    }
+  ],
+  "compiles": true,
+  "duplicate_of": "extras/FocusEven.v",
+  "duplicate_note": "Same file modulo four edits (diff verified): FocusEven2.v drops `Require Import MontagueFragment` / `Import MontagueFragment.MontagueExtensional` in favour of a local `Parameter Entity : Type` (l.10-11); states only_preserves_focus with the projection `ordinary_value _ focused` instead of a `match` (l.309); closes even_only_relationship with `auto` instead of `firstorder` (l.290); and drops three proof-narration comments plus the '(* Add missing student predicate *)' comment. Every definition, example, axiom, theorem and defect is otherwise identical, so the two records should be read together. On balance FocusEven2.v is the copy to keep: it is self-contained, compiles with no warnings, and has the cleaner theorem statement, whereas FocusEven.v's only advantage, sharing Entity with shallow/MontagueFragment.v, is undercut by its immediately redeclaring john and mary as fresh Parameters (FocusEven.v l.29), which mask MontagueExtensional.john/mary so that nothing from the import beyond the Entity type is actually used. The stale comment at FocusEven2.v l.10 ('Since MontagueFragment is not available') should be removed. Note that the previous atlas record for this file reached the opposite recommendation; the difference is marginal and turns on whether nominal type-sharing with MontagueFragment is worth a masking import. (extras/additive.v and additive_new.v also cite Rooth but treat additive particles; they are a separate group.)",
+  "source_gap": "None for the primary sources. Rooth 1992 is on disk in full as an author preprint with a text layer. Rooth 1985 is on disk in full as a 237-page image-only scan (no text layer; dissertation page N = PDF page N+10), so verification used page images of pp.i-x, 41-59, 120-124 and 139-143 rather than text search; pages not read may contain further relevant material (e.g. Ch.I sec.4 'Interpretation of Focus In Place', pp.15-18). The secondary sources the file's content actually descends from, Karttunen & Peters 1979 (existential/scalar implicatures of even) and Horn 1972 (the quantifier scale), are not on disk and not in the manifest, though Rooth 1985 Ch.IV sec.1 and Rooth 1992 sec.2.3 reproduce the relevant definitions.",
+  "notes": "Compile: `coqc -R shallow \"\" -R deep \"\" -R extras \"\" -R ttr_mtt \"\" -R atlas \"\" extras/FocusEven2.v` exits 0 with no output. Header comment (l.2) still names the file FocusEven.v. Sections declare no Variables, so nothing is generalized at End; all Parameters (l.11, 29-30, 42, 61-62, 174-175, 206, 246-247) and the Axiom (l.220) are global. Unused definitions: came_focused, lift, alt_apply, focus_match, associates_with_focus, surprise. The summary comment (l.325-336) overclaims: items 4 (alternative semantics framework), 6 (focus projection), 7 (scope ambiguities) and the scalar presupposition of item 2 are not delivered, so the file's prose should not be trusted as a description of its content. Scratch verification file (not part of the repository): /private/tmp/claude-501/-Users-graogro-Dropbox-formalizing-formal-semantics/c34891d7-ce39-4399-ad0f-31b3588ae898/scratchpad/VerifyFocusEven2.v, lemmas narrow_eq_wide, only_even_john_unsat, focus_match_vacuous, even_only_trivial, scalar_clause_direction, all Qed against the compiled FocusEven2.vo, plus Print Assumptions output showing each theorem depends only on Entity : Type. The Coq file was not modified."
+}

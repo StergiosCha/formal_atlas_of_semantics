@@ -1,0 +1,72 @@
+{
+ "file": "atlas/inquisitive/InqB.v",
+ "region": "inquisitive semantics",
+ "summary": "Propositional InqB over an arbitrary logical space: propositions as non-empty downward-closed sets of information states; the complete Heyting algebra of propositions with relative and absolute pseudo-complement and the extremal-Boolean-complements theorem; the bang/quest projections with uniqueness and division P = !P /\\ ?P; support semantics as a Fixpoint with persistence, the singleton collapse to classical truth, pointwise negation and the truth-conditional-antecedent lemma; alg f = sem f as Leibniz equality (R13 Fact 7); assertions = truth-conditional sentences, questions, hybrids, the or-free fragment; entailment as inclusion, deduction theorem, per-model disjunction property, InqL <= CPL, DNE valid iff truth-conditional; soundness of KP^n = IPL9 + KP + atomic DNE; countermodels in W2/W4 (LEM fails, DNE fails for ?p and p\\/q, hybrid disjunction with two incomparable alternatives, failure of uniform substitution); consistency. Constructive core: all 13 audited theorems axiom-free.",
+ "sources": [
+  {"citation": "Ciardelli, I., Groenendijk, J. & Roelofsen, F. (2018). Inquisitive Semantics. OUP. Chs. 2-4.", "path": "papers/inquisitive/Ciardelli_Groenendijk_Roelofsen_2018_InquisitiveSemantics.pdf", "available": "full"},
+  {"citation": "Roelofsen, F. (2013). Algebraic foundations for the semantic treatment of inquisitive content. Synthese 190:79-102.", "path": "papers/inquisitive/Roelofsen_2013_AlgebraicFoundations.pdf", "available": "full"},
+  {"citation": "Ciardelli, I. & Roelofsen, F. (2011). Inquisitive logic. JPL 40:55-94.", "path": "papers/inquisitive/Ciardelli_Roelofsen_2011_InquisitiveLogic.pdf", "available": "full"},
+  {"citation": "Ciardelli, I. (2016). Questions in Logic. PhD dissertation, ILLC.", "path": "papers/inquisitive/Ciardelli_2016_QuestionsInLogic.pdf", "available": "full"}
+ ],
+ "definitions_mapped": [
+  {"coq": "state / sub / empty / ignorant / single / pow", "source": "CGR18 Defs 2.1-2.2, p. 18; C16 Def 2.1.1", "match": "exact", "note": "states as predicates; the empty state only through the predicate empty"},
+  {"coq": "iprop / down_closed / is_prop / proposition", "source": "CGR18 Defs 2.3, 2.9; R13 Def 5", "match": "exact", "note": "raw predicate + side condition; the sigma bundle only for packaging; issues and propositions share the type"},
+  {"coq": "info / ptrue / informative / inquisitive / alt / greatest", "source": "CGR18 Defs 2.7-2.16, fn. 6 p. 25; R13 Defs 2, 10-11", "match": "exact", "note": "alt and greatest kept distinct (infinite case)"},
+  {"coq": "pmeet / pjoin / pMeet / pJoin / pimp / pstar", "source": "CGR18 Facts 3.1-3.4; R13 Defs 6, Facts 3-5", "match": "exact", "note": "pJoin carries the empty-state disjunct realising R13's {emptyset} stipulation"},
+  {"coq": "dset / issue_cancelling / info_cancelling / pbang / pquest", "source": "CGR18 Defs 3.6-3.13; R13 Thms 2-3, Def 12", "match": "exact"},
+  {"coq": "form (FAtom, FBot, FAnd, FOr, FImp); Neg/Bang/Quest as notations", "source": "CR11 p. 3; CGR18 p. 65; R13 Fact 12", "match": "exact"},
+  {"coq": "support (Fixpoint)", "source": "CR11 Def 2.3; CGR18 Fact 4.8(1-5); R13 Def 9; C16 Defs 2.1.3, 2.2.2", "match": "exact", "note": "must be a Fixpoint: strict positivity rejects the Inductive (artifact i)"},
+  {"coq": "V : W -> Atom -> bool", "source": "C16 Def 2.1.1 (V : W x P -> {0,1}); CR11 Def 2.1", "match": "exact", "note": "Boolean valuation makes the whole MUST list axiom-free (artifact v reversed)"},
+  {"coq": "sem / alg / ctruth / truthset / true_at", "source": "CGR18 Defs 4.2-4.7, Def 4.3(1-5); R13 Def 7, Fact 7; CR11 Def 2.9(3)", "match": "exact", "note": "alg's bot clause supplied (CGR18/R13 have Neg primitive; sem_neg = pstar is derived)"},
+  {"coq": "assertion := noninquisitive (sem f)", "source": "CGR18 Def 4.9; CR11 Def 2.14", "match": "changed", "note": "positive form of the sources' 'not inquisitive' (the file's D11 convention); the double-negation form is constructively weaker (no uniform realiser across the disjunction clause) and classically equivalent"},
+  {"coq": "entails / entails1 / valid_in / equiv; model / valid / ent / canon", "source": "CGR18 Def 4.6; CR11 Defs 3.1, 3.5, 2.1-2.2; C16 sec. 2.5", "match": "exact", "note": "contexts as predicates on formulas"},
+  {"coq": "axiom (IPL1-9, ax_KP, ax_DNatom) / deriv (d_hyp, d_ax, d_mp)", "source": "CR11 App. A.1, A.3, A.5; R13 Thm 1", "match": "exact", "note": "atomic DNE quantifies over atoms only, as required by Remark 3.8"}
+ ],
+ "theorems": [
+  {"name": "pow_is_prop .. empty_in_prop (T1); prop_respects_seq (T2); true_iff_single (T3)", "status": "proved", "source_claim": "CGR18 p. 18, Fact 2.14"},
+  {"name": "noninq_1_2 / noninq_2_3 / noninq_3_4 / noninq_4_1 (T4 chain)", "status": "proved", "source_claim": "CGR18 Fact 2.19"},
+  {"name": "trivial characterisations (T5); ple order + ple_info (T6); two_alts_inquisitive / noninq_alt (T7)", "status": "proved", "source_claim": "CGR18 Facts 2.18, 2.23, 2.25, 2.17<=, 2.19(3); R13 Fact 2"},
+  {"name": "meet/join/Meet/Join/imp/star_is_prop (T8); meet_glb/join_lub/Meet_glb/Join_lub (T9)", "status": "proved", "source_claim": "CGR18 Facts 3.1-3.2; R13 Facts 3-4"},
+  {"name": "imp_adjunction / imp_is_rpc (T10)", "status": "proved", "source_claim": "CGR18 Fact 3.3; R13 Def 6, Fact 5"},
+  {"name": "HeytingLaws record + inq_heyting (T11)", "status": "proved", "source_claim": "CGR18 p. 51; R13 p. 88"},
+  {"name": "star_char / star_pow / star_noninq / star_star_star (T12)", "status": "proved", "source_claim": "CGR18 Facts 3.4-3.5; R13 Fact 6"},
+  {"name": "boolean_complements_extremal (T13)", "status": "proved", "source_claim": "CGR18 pp. 51-52; R13 p. 88"},
+  {"name": "bang_* (T14); bang_unique (T15); decision_set (T16); quest_* (T17); quest_unique (T18)", "status": "proved", "source_claim": "CGR18 Facts 3.7, 3.10, 3.12; R13 Thms 2-3", "note": "quest_noninf under the explicit hypothesis decided_info P; discharged for every sem f by decided_info_sem"},
+  {"name": "division_p (T19)", "status": "proved", "source_claim": "CGR18 Fact 3.14; R13 Fact 14"},
+  {"name": "bang_le_starstar / bang_eq_starstar / quest_eq (T20)", "status": "proved", "source_claim": "CGR18 Fact 3.15; R13 Fact 11", "note": "equality under decided_info; inclusion unconditional"},
+  {"name": "persistence / empty_state (T22); sem_is_prop (T23)", "status": "proved", "source_claim": "CR11 Prop 2.4; CGR18 Fact 4.4; C16 Prop 2.2.3"},
+  {"name": "sem_atom .. sem_neg (T24, Leibniz by reflexivity); alg_eq_sem (T25); sem_imp_adjunction / sem_imp_is_rpc (T26)", "status": "proved", "source_claim": "CGR18 Def 4.3, Fact 3.3; R13 Fact 7 ('[phi] is precisely the set of supporting states')"},
+  {"name": "singleton_collapse / singleton_decides (T27)", "status": "proved", "source_claim": "CR11 Prop 2.5; C16 Props 2.1.7, 2.2.4"},
+  {"name": "neg_pointwise / bang_pointwise / neg_states (T28); imp_tc_antecedent / neg_antecedent (T29); info_eq_truthset / true_at_iff (T30)", "status": "proved", "source_claim": "CR11 Props 2.6, 2.21; C16 Prop 2.2.9; CGR18 Fact 4.14"},
+  {"name": "sem_bang_peq / sem_quest_peq / decided_info_sem (T31)", "status": "proved", "source_claim": "CGR18 Fact 4.12; CR11 Prop 2.12; R13 Fact 12"},
+  {"name": "question_iff_taut / assertion_iff_{support_truthset,pow,greatest} / tautology_f_iff (T32); assertion_iff_tc (T33)", "status": "proved", "source_claim": "CGR18 Facts 4.10, 4.15, 4.16; CR11 Props 2.23-2.24"},
+  {"name": "bang_assertion / bang_info_f / quest_question (T34); division_f (T35)", "status": "proved", "source_claim": "CGR18 Facts 4.17(3), 4.18(1), 4.13; CR11 Props 2.12(2), 2.18(1), 2.25"},
+  {"name": "question/assertion characterisations + idempotence (T36); noninq_sufficient (T37); noninf_sufficient (T38); orfree_tc (T39)", "status": "proved", "source_claim": "CR11 Props 2.23(3-4), 2.24(4), 2.18-2.20; CGR18 Facts 4.17-4.19; R13 Facts 10, 13"},
+  {"name": "neg_alt / bang_alt (T40); alt_f_max / two_alts_inquisitive_f (T41)", "status": "proved", "source_claim": "CR11 Prop 2.12, Def 2.13"},
+  {"name": "entails_iff_ple / equiv_iff (T42); valid_iff_ignorant (T43); valid_iff_taut_assertion / valid_classical (T44); disjunction_property_in (T45)", "status": "proved", "source_claim": "CR11 Props 3.6, 3.7, 3.9, sec. 3.3"},
+  {"name": "deduction_theorem / deduction_theorem1 (T46); mp_closed (T47); entails_assertion_classical (T48); entails_bang / bang_strongest_assertion (T49); question_entails_question (T50)", "status": "proved", "source_claim": "CR11 Props 3.10, 3.2-3.4; C16 Prop 2.5.16"},
+  {"name": "dne_valid_iff_tc (T51); lem_valid_iff / lem_tc (T52)", "status": "proved", "source_claim": "C16 Prop 2.5.17; CR11 sec. 3.3 p. 14"},
+  {"name": "Counter.LEM_fails_2 / LEM_not_valid / quest_p_inquisitive (T54); DNE_fails_quest_2 (T55); DNE_fails_or_4 (T56); or_hybrid_4 / or_alts_4 (T57); no_uniform_substitution (T58)", "status": "proved", "source_claim": "CR11 Exs 2.11, 2.16, 2.17, Remark 3.8; CGR18 sec. 4.4, Fig. 4.1"},
+  {"name": "valid_ax1..9 / KP_valid / atomic_DN_valid_in (T59-T61); axiom_valid / soundness_in / soundness / soundness_valid / Counter.consistency (T62)", "status": "proved", "source_claim": "CR11 App. A, Thm 3.34 / Cor 3.35 soundness half; R13 Thm 1 =>"}
+ ],
+ "counts": {"theorems": 192, "proved": 192, "admitted": 0, "propositional_axioms": 0},
+ "faithfulness": {
+  "verdict": "faithful",
+  "evidence": ["support transcribes CR11 Def 2.3 clause by clause; the five clause equations sem_atom..sem_imp hold by reflexivity and alg_eq_sem is Leibniz equality by induction with no extensionality (R13 Fact 7 exactly).", "The algebra follows CGR18 ch. 3 / R13 with hand-rolled glb/lub/rpc specifications; the Heyting record is inhabited constructively.", "The countermodels are CR11's own (Fig. 1, Exs 2.16-2.17, Remark 3.8), proved by explicit substates and worlds.", "Print Assumptions: all 13 audited theorems (sem_is_prop, singleton_collapse, info_eq_truthset, imp_adjunction, alg_eq_sem, sem_imp_is_rpc, division_p, division_f, orfree_tc, dne_valid_iff_tc, LEM_fails_2, DNE_fails_or_4, soundness) closed under the global context."],
+  "simplifications": ["propositional fragment only (first-order InqB out of scope)", "truth-conditionality is model-relative (C16 quantifies over all models)", "assertion rendered by the positive form noninquisitive (sem f) rather than the sources' double negation"],
+  "omissions": ["completeness (route documented in the closing comment)", "resolutions and inquisitive normal form", "cross-model disjunction/split property via disjoint unions", "normality/maximal supporting states (needs finiteness, flagged by the sources)", "Kripke correspondence and the finite decision procedure", "extensional epilogue (Leibniz corollaries under funext/propext)"],
+  "additions": ["decided_info as the explicit EM-hypothesis for abstract-proposition results (T17/T20), discharged for every sem f", "imp_intro introduction lemma (support frozen for simpl)", "deduction_theorem1 single-premise form"]
+ },
+ "determination": "as_is",
+ "determination_rationale": "With the faithful Boolean valuation the entire MUST list is constructive and axiom-free; the sources' residual classical steps survive only as the explicit decided_info hypothesis for abstract propositions, discharged unconditionally at sentence level. The one encoding choice with logical content is the positive rendering of 'assertion', which strengthens every downstream theorem and is classically equivalent.",
+ "artifact_classes": [
+  {"class": "i", "description": "support cannot be an Inductive relation (negative occurrence in the implication clause); Fixpoint into Prop, metatheory by induction on syntax"},
+  {"class": "ii", "description": "issues, propositions, decision sets and powersets are one type iprop W; membership in [[phi]] and support are the same Prop, making R13 Fact 7 reflexive"},
+  {"class": "iii", "description": "nothing computes: countermodels by explicit substates and worlds; the predicate empty s replaces s = emptyset"},
+  {"class": "iv", "description": "no lattice/Heyting classes in the stdlib: bespoke is_glb/is_lub/is_rpc and a HeytingLaws record over the extensional equality peq; Leibniz equality only in the five clause equations"},
+  {"class": "v", "description": "decidability gap reversed: Boolean V makes the MUST list axiom-free; residual EM isolated in decided_info for abstract P; assertion in positive form"}
+ ],
+ "source_gap": null,
+ "notes": "Built in-session following the 13-step build order of designs/inqb.md; 2445 lines. STRETCH items (T21, T53, T63-T70) dropped for budget and recorded in the header; completeness route documented in the closing comment.",
+ "compiles": true
+}

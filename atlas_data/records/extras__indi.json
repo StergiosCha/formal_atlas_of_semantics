@@ -1,0 +1,284 @@
+{
+  "file": "extras/indi.v",
+  "region": "type-theoretic (MTT individuation)",
+  "summary": "A 249-line self-contained Coq file (only `Require Import Setoid`) encoding the CNs-as-setoids account of individuation and copredication from Chatzikyriakidis & Luo 2020, ch.5 (s.5.3) and s.6.3.2. Lines 1-236 are a near-verbatim copy of the book's own Appendix A7.9 'Individuation' (pp. 200-207): the same records Equiv/Equiv_K/CN/CN_K, the same ontology (Human, Man, Phy, Info, Book, the PhyInfo record standing in for the dot-type PHY.INFO, the Sigma-records Heavybook and Heavyinfobook), the same identity-criterion (IC) inheritance definitions AIC_*/IC_*/capitalised setoids, and 19 of the file's 20 theorems including copred_dd1/copred_dd2, which verify the chapter's headline double-distinctness inference (6.3)/(5.47)-(5.48). The only edits are the renamings three_0 -> three_f and three -> three_c, five dropped and one added comment. Lines 238-249 are the file's own tail: the s.5.4 typing of the Liebesman & Magidor example (5.79) (OTS, WL, WaP) as two `Check`s, a quantifier `one` that is a byte-for-byte duplicate of `some`, and one trivial new theorem threedf (three -> one). All 20 theorems are Qed, 0 Admitted, 0 propositional axioms (two function-typed Axioms mh, bf serve as coercion witnesses); compiles under Coq 8.20.1. Faithful to the book's own Coq; the gaps relative to the chapter-5 theory (no generic THREE(A,B,P) with A <= B -- three_c has a phantom type argument and hard-codes Book/IC_PhyInfo; adjective cases (5.54)/(5.60) proved only in single-IC form; HIBook Sigma-nesting reversed vs (5.58); no dot-type formation constraint; no IC-respecting-predicate requirement; HEAVYIBOOK2 duplicating HEAVYBOOK2) are all inherited from A7.9. Byte-identical (modulo trailing newline) to ttr_mtt/Book_Individuation.v; extras/indi.v is the copy Required by extras/mass.v.",
+  "sources": [
+    {
+      "citation": "Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. ISTE/Wiley. Relevant: ch.5 'Copredication and Individuation' -- s.5.2 dot-types (Def 5.1 components, formation rule with C(A) cap C(B) = empty, (5.11)-(5.12)), s.5.3 (5.13) setoids, (5.15), s.5.3.1 (5.21)-(5.26) and Def 5.2 sub-setoid, s.5.3.2 Def 5.3 Three_0 (5.27) and Def 5.4 Three (5.34), s.5.3.3 (5.41)-(5.48) with Def 5.5 pre-setoids and Def 5.6 THREE, s.5.3.4 (5.49)-(5.60) adjectives; s.5.4 pp. 122-125 Liebesman & Magidor (5.69)-(5.80), fn 14; s.6.3.2 'Copredication and individuation in Coq' pp. 146-149, (6.3), (6.4), fn 12 p.142; Appendix A7.9 'Individuation' pp. 200-207 (the direct textual origin of l.1-236); Appendix 6 rules for dot-types.",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Luo, Z. (2012). Common Nouns as Types. LACL 2012, LNCS 7351, pp. 173-185. Cited by the book (s.5.3 p.109, as Luo 2012a) as the origin of the 'CN = type + identity criterion' proposal; background only, the file encodes nothing specific to it.",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Luo_2012_CommonNounsAsTypes.pdf",
+      "available": "full"
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "Definition DomCN := Set (l.3)",
+      "source": "A7.9 p.200 `Definition DomCN:=Set.`; s.6.3.2 p.147 'the old CN universe is replaced by DomCN'; universe CN of s.2.3.2; fn 12 p.142 'Coq does not allow us to specify new universes ... so we use Set to define CN, although CN should have been a separate universe'",
+      "match": "exact",
+      "note": "Exact to the book's Coq, but relative to the theory a universe collapse: every Set is a CN domain. Probe: `Check three_c nat` type-checks as `(PhyInfo -> Prop) -> Prop`."
+    },
+    {
+      "coq": "Record Equiv (A:DomCN) : Type := mkEquiv {eq1 :> A->A->Prop; _eq2 : reflexive A eq1 /\\ symmetric A eq1 /\\ transitive A eq1} (l.6-7)",
+      "source": "(5.13) setoid (A, =) with = : A -> A -> Prop an equivalence relation; A7.9 p.200 verbatim; s.6.3.2 p.147",
+      "match": "exact",
+      "note": "The relation field is a coercion, so `IC_Human x y` reads as the book's x =h y. Being Type-valued, an Equiv A is always inhabited (probe: Leibniz eq gives `Equiv Human`), so declaring IC_* as Parameters adds no propositional strength."
+    },
+    {
+      "coq": "Record Equiv_K (A:DomCN) : Type := mkEquiv_K {eq2 :> A->A->Prop; _eq3 : reflexive A eq2 /\\ symmetric A eq2} (l.8-9)",
+      "source": "Def 5.5(1) pre-setoid (A, kappa_A), kappa_A reflexive and symmetric (p.115); A7.9 p.200 verbatim",
+      "match": "exact",
+      "note": "s.6.3.2 p.148 calls this 'the partial equivalence relation K', a misnomer (a PER is symmetric+transitive); the record correctly encodes Def 5.5(1), and the book's remark p.116 says reflexive+symmetric is all that is needed."
+    },
+    {
+      "coq": "Record CN := mkCN {D :> DomCN; E : Equiv D}; Record CN_K := mkCN_K {D2 :> DomCN; E2 : Equiv_K D2} (l.13-16)",
+      "source": "(5.13) CN as setoid; Def 5.5 pre-setoid; A7.9 pp. 200-201 verbatim (s.6.3.2 body text p.147 spells the fields B/B2 instead)",
+      "match": "exact",
+      "note": "PHYINFO : CN_K (l.95) is built but consumed by no theorem; three_c refers to IC_PhyInfo directly. Probe: a generic `THREE_g (A:DomCN) (B:CN_K) (c:A->D2 B) P` over CN_K is definable and `three_c Book P <-> THREE_g Book PHYINFO bf P`."
+    },
+    {
+      "coq": "Parameter Human Man : DomCN; Parameter John : Human; Axiom mh : Man -> Human; Coercion mh (l.19-21)",
+      "source": "p.111 'if Man and Human are both base types with assumed coercion c such that Man <=_c Human'; A7.9 p.201 verbatim",
+      "match": "exact"
+    },
+    {
+      "coq": "Parameter IC_Human : Equiv Human; Definition HUMAN := mkCN Human IC_Human (l.24-27)",
+      "source": "(5.15) [human] = (Human, =h); s.6.3.2 p.147 verbatim",
+      "match": "exact"
+    },
+    {
+      "coq": "Definition AIC_Man := fun x y : Man => IC_Human x y; Theorem EQ; Definition IC_Man := mkEquiv Man AIC_Man EQ; Definition MAN := mkCN Man IC_Man (l.30-39, 56-57)",
+      "source": "(5.25) (=M) = (=H)|Man, realised as p.111 'given =H, we can define m =M m' as c(m) =H c(m')'; Def 5.2 sub-setoid MAN <| HUMAN; s.6.3.2 p.147 and A7.9 p.201-202 verbatim",
+      "match": "exact",
+      "note": "Coq inserts mh silently, so AIC_Man x y is IC_Human (mh x) (mh y), exactly the p.111 recipe. The sub-setoid relation <| of Def 5.2 is never defined as a predicate; it is witnessed instance by instance (EQ, EQ2-EQ7)."
+    },
+    {
+      "coq": "Definition three_f (A:CN) (P:A.(D)->Prop) := exists x, P x /\\ exists y, P y /\\ exists z, P z /\\ ~E x y /\\ ~E y z /\\ ~E x z (l.43-45)",
+      "source": "Def 5.3 Three_0(B, P) = exists x,y,z:B. D[B](x,y,z) /\\ P x /\\ P y /\\ P z, D[B](x,y,z) = x <>_B y /\\ y <>_B z /\\ x <>_B z (5.27) p.112; A7.9 p.201 `three_0` renamed",
+      "match": "exact",
+      "note": "Nested-existential form; probe lemma three_f_flat shows it is logically equivalent to the source's flat conjunction. Only Three_0 (the B = A case) is encoded; Def 5.4 Three(A, B, P) with A <= B is not."
+    },
+    {
+      "coq": "Definition some (A:CN) (P:A.(D)->Prop) := exists x:A.(D), P x (l.48); Definition one := identical body (l.241-242)",
+      "source": "(5.18)/(5.19) existential semantics p.110; A7.9 p.201 `some` verbatim; `one` has no source counterpart",
+      "match": "exact",
+      "note": "`one` is a byte-for-byte duplicate of `some` (probe: `one A P = some A P` by reflexivity); added, used only in threedf."
+    },
+    {
+      "coq": "Parameter walk : HUMAN.(D) -> Prop (l.51)",
+      "source": "talk : Human -> Prop (p.110); A7.9 p.201 verbatim (with walk for talk)",
+      "match": "exact",
+      "note": "The IC-respecting requirement of fn 7 p.110 / p.113 (x =B y -> (P x <-> P y)) is not imposed on walk, picked_up, mastered, Heavy, Informative, OTS or WL; also absent from the book's Coq."
+    },
+    {
+      "coq": "Parameters Phy : DomCN; Parameter Info : DomCN; Record PhyInfo : DomCN := mkPhyInfo {p :> Phy; i :> Info}; Parameter Book : DomCN; Axiom bf : Book -> PhyInfo; Coercion bf (l.71-79)",
+      "source": "Dot-type PHY . INFO (s.5.2 pp. 103-107; Appendix 6 formation/introduction/elimination rules with projections as coercions PHY.INFO <= PHY, INFO); (5.46) Book <= PHY . INFO; s.6.3.2 p.148 'we will define dot-types for types PHY and INFO only'",
+      "match": "simplified",
+      "note": "A plain product record with both projections declared as coercions stands in for the dot-type constructor. The formation side-condition C(A) cap C(B) = empty (Def 5.1, p.105) and a general A . B constructor are not encoded, so PHY . PHY would be formable. Coq's coercion chain Book >-> PhyInfo >-> Phy/Info reproduces Book <= PHY.INFO <= PHY, INFO (probe: `Print copred_dd2` with Set Printing Coercions shows `p (bf x)`, `i (bf x)`)."
+    },
+    {
+      "coq": "Parameter IC_Phy : Equiv Phy; IC_Info : Equiv Info; Definition PHY := mkCN Phy IC_Phy; INFO := mkCN Info IC_Info (l.82-85)",
+      "source": "PHY = (PHY, =p) p.112, INFO = (INFO, =i) p.114; s.6.3.2 p.148 and A7.9 p.202 verbatim",
+      "match": "exact"
+    },
+    {
+      "coq": "Definition AIC_PhyInfo a1 b1 := IC_Phy (p a1) (p b1) \\/ IC_Info (i a1) (i b1); Theorem EQ1 (refl /\\ sym); Definition IC_PhyInfo := mkEquiv_K PhyInfo AIC_PhyInfo EQ1; Definition PHYINFO := mkCN_K PhyInfo IC_PhyInfo (l.87-95)",
+      "source": "Def 5.5(2) kappa_{A.B}(a1,b1,a2,b2) = kappa_A(a1,a2) \\/ kappa_B(b1,b2) p.115; s.6.3.2 p.148 and A7.9 p.202 verbatim",
+      "match": "exact",
+      "note": "The disjunction is the mechanism that yields double distinctness under negation (p.116). copred_dd2's proof term is exactly ~(P \\/ Q) -> ~P /\\ ~Q: `Print copred_dd2` shows `H5 (or_introl H21)` / `H5 (or_intror H21)` and `H7 (or_introl H19)` / `H7 (or_intror H19)`."
+    },
+    {
+      "coq": "AIC_Book1/AIC_Book2 (restrict IC_Phy/IC_Info along bf), EQ2/EQ3, IC_Book1/IC_Book2, BOOK1 := mkCN Book IC_Book1, BOOK2 := mkCN Book IC_Book2 (l.98-120)",
+      "source": "(5.43) BOOK1 = (Book, =p), (5.44) BOOK2 = (Book, =i) p.114; A7.9 p.203 verbatim",
+      "match": "exact",
+      "note": "(5.45) IC_{N,V} (the verb's domain selects =p or =i) is not an operation in the file; the BOOK1/BOOK2 choice is made by hand per theorem. BOOK1/BOOK2 themselves appear only in the `Check` at l.245; theorems reach IC_Book1/2 via HBOOK1/2."
+    },
+    {
+      "coq": "Parameter picked_up : Human -> Phy -> Prop; Parameter mastered : Human -> Info -> Prop (l.122-123)",
+      "source": "pick up : Human -> PHY -> Prop, master : Human -> INFO -> Prop (p.104, p.115); A7.9 p.203 verbatim",
+      "match": "exact"
+    },
+    {
+      "coq": "Definition three_c (A:DomCN) (P:PhyInfo->Prop) := exists x y z : Book, ~IC_PhyInfo x y /\\ ~IC_PhyInfo y z /\\ ~IC_PhyInfo x z /\\ P x /\\ P y /\\ P z (l.125-128)",
+      "source": "Def 5.6 THREE(A, B, P) = exists x,y,z:A. D[B](x,y,z) /\\ P x /\\ P y /\\ P z, B a pre-setoid with A <= B, D[B](x,y,z) = ~kappa_B(x,y) /\\ ~kappa_B(y,z) /\\ ~kappa_B(x,z) (p.116); (5.47) THREE(Book, PHY.INFO, pm(j)); A7.9 p.203 `three` renamed",
+      "match": "simplified",
+      "note": "Monomorphic instance: it quantifies over Book and uses IC_PhyInfo regardless of its argument A, which is a phantom (probe: `three_c nat P <-> three_c Book P` closes by `reflexivity`; `Check three_c nat` and `Check three_c Human` both type-check). The book's own `three` in A7.9 has the same phantom. The generic THREE needs A <= B as a hypothesis, which Coq's coercive subtyping cannot supply as a term; probe shows the explicit-coercion `THREE_g A B c P` is definable and coincides with three_c Book for c = bf."
+    },
+    {
+      "coq": "Definition and (A:DomCN) (P Q : A -> Prop) (x:A) := P x /\\ Q x (l.130-131)",
+      "source": "polymorphic conjunction and : Pi A:LType. A -> A -> A instantiated at Book -> Prop / PHY.INFO -> Prop (p.107, (5.12); Appendix 4); A7.9 p.203 verbatim",
+      "match": "simplified",
+      "note": "Specialised to predicate conjunction over A -> Prop. Shadows the identifier `and` of Coq.Init.Logic for indi and every file that Requires it (probe: `Print and` shows this definition; `Locate \"/\\\\\"` still gives Logic.and, so the notation is unaffected). The application `and PhyInfo (picked_up John) (mastered John)` elaborates by eta-expanding coercion insertion to `and PhyInfo (fun x => picked_up John (p x)) (fun x => mastered John (i x))` (verified with Set Printing Coercions), which is the book's contravariant step PHY -> Prop <= PHY.INFO -> Prop (p.105/p.107, lines 4971-4972 of the extracted text)."
+    },
+    {
+      "coq": "Parameter Heavy : Phy -> Prop; Record Heavybook : DomCN := mkheavybook {b1 :> Book; b2 : Heavy b1} (l.147-148)",
+      "source": "(5.50) heavy : PHY -> Prop; (5.52) HBook = Sigma(Book, heavy); (5.53) HBook <= Book <= PHY.INFO (p.117); A7.9 p.204 verbatim",
+      "match": "exact",
+      "note": "Record-with-:> is the book's own Sigma-type idiom; `Heavy b1` type-checks via the chain Book >-> PhyInfo >-> Phy."
+    },
+    {
+      "coq": "AIC_HBook1/AIC_HBook2 (inherit IC_Book1/IC_Book2 along b1), EQ4/EQ5, IC_HBook1/IC_HBook2, HBOOK1/HBOOK2 (l.150-174)",
+      "source": "Sub-setoid inheritance (Def 5.2; 'red table'/'table' p.111) applied to heavy books; A7.9 pp. 204-205 verbatim",
+      "match": "exact"
+    },
+    {
+      "coq": "Parameter Informative : Info -> Prop; Record Heavyinfobook : DomCN := mkheavyinfobook {l4 :> Heavybook; _ : Informative l4} (l.192-194)",
+      "source": "(5.57) IBook = Sigma(Book, informative), (5.58) HIBook = Sigma(IBook, heavy), (5.59) HIBook <= IBook <= Book <= PHY.INFO (p.118); A7.9 p.205 verbatim",
+      "match": "changed",
+      "note": "Nesting order reversed relative to (5.58): the file (and the book's own A7.9) forms Sigma(Sigma(Book, heavy), informative), so the intermediate type is HBook, not IBook. The book's fn 9 p.118 allows alternative nestings; no theorem depends on the order."
+    },
+    {
+      "coq": "AIC_HIBook1/AIC_HIBook2, EQ6/EQ7, IC_HIBook1/IC_HIBook2, HIBOOK1/HIBOOK2 (l.195-219)",
+      "source": "IC inheritance to HIBook (s.5.3.4); A7.9 pp. 205-206 verbatim",
+      "match": "exact"
+    },
+    {
+      "coq": "Parameter OTS : Phy -> Prop; Parameter WL : Info -> Prop; Parameter WaP : Book; Check exists x : Book, OTS x /\\ (x = WaP) /\\ WL x; Check exists x : BOOK1.(D), OTS x /\\ BOOK2.(E) x x /\\ (x = WaP) /\\ WL x (l.238-245)",
+      "source": "s.5.4 p.124 'Some typing' with fn 14: OTS, WO : PHY -> Prop, XWL : INFO -> Prop, WaP : Book; (5.79) exists b:Book. OTS(b) /\\ WaP = b /\\ XWL(b) for Liebesman & Magidor's (5.77)",
+      "match": "added",
+      "note": "Not in Appendix A7.9 (the printed appendix ends at HEAVYIBOOK5, although s.6.3.2 p.149 promises it also has 'formalization of examples relevant to the discussion in section 5.4'). Only `Check`ed to be a well-typed Prop; nothing is proved. WL stands in for XWL; WO and (5.80) are omitted. The second Check adds a vacuous reflexive conjunct `BOOK2.(E) x x`. Both use Coq's Leibniz `=` on Book rather than either IC -- which is what (5.79) literally writes, but sits uneasily with the setoid view."
+    },
+    {
+      "coq": "(not present) Def 5.2 sub-setoid relation <| as a predicate; Def 5.4 generic Three(A, B, P); Def 5.6 generic THREE over arbitrary pre-setoids; Def 5.1 / Appendix 6 dot-type formation condition; IC-respecting predicates (fn 7 p.110); (5.45) IC selection by verb domain; (5.54)/(5.55)/(5.60) double-distinctness statements for adjective cases; (5.80) with WO; local-coercion context-dependence of ICs (p.123)",
+      "source": "as listed",
+      "match": "missing",
+      "note": "All of these are equally absent from the book's Appendix A7.9; the file adds none of them."
+    }
+  ],
+  "theorems": [
+    {
+      "name": "EQ (l.33-39)",
+      "status": "proved",
+      "source_claim": "(=M) inherited from (=H) along the coercion is an equivalence relation, i.e. (5.25) holds for the p.111 definition; A7.9 p.201 verbatim",
+      "note": "Proof destructs the Parameter IC_Human and relies on auto-generated names (_eq4, H0, H1); fragile but fine under 8.20.1."
+    },
+    {
+      "name": "MANWALK (l.60-66)",
+      "status": "proved",
+      "source_claim": "(5.26) (5.23) => (5.24): 'Three men talk => three humans talk' (walk for talk); = (6.4) p.147; A7.9 p.202 verbatim",
+      "note": "Print Assumptions: walk, mh, Man, IC_Human, Human. This is the inference the book says 'would not be provable if we only had the subtyping relation but not (5.25)' (p.111); it goes through because AIC_Man is definitionally IC_Human on the coerced elements."
+    },
+    {
+      "name": "EQ1 (l.90-92)",
+      "status": "proved",
+      "source_claim": "Def 5.5(2): kappa_{PHY.INFO} defined by disjunction is reflexive and symmetric (p.116 'our definition by means of disjunction does result in such a relation'); s.6.3.2 p.148 and A7.9 p.202 verbatim"
+    },
+    {
+      "name": "EQ2, EQ3 (l.101-115)",
+      "status": "proved",
+      "source_claim": "(5.43)/(5.44): =p and =i restricted to Book are equivalence relations; A7.9 p.203 verbatim"
+    },
+    {
+      "name": "copred_dd1 (l.133-136)",
+      "status": "proved",
+      "source_claim": "(6.3) p.146 / (5.47)-(5.48): 'John picked up and mastered three books => John picked up three physical objects and mastered three informational objects', i.e. THREE(Book, PHY.INFO, pm(j)) => Three_0(PHY, pick_up(j)) /\\ Three_0(INFO, master(j)); A7.9 pp. 203-204 verbatim",
+      "note": "Print Assumptions: picked_up, mastered, bf, Phy, John, Info, IC_Phy, IC_Info, Book -- no Prop-typed axioms."
+    },
+    {
+      "name": "copred_dd2 (l.138-145)",
+      "status": "proved",
+      "source_claim": "(5.48) in expanded form: exists x,y,z:Book. D[PHY](x,y,z) /\\ D[INFO](x,y,z) /\\ pm(j,x) /\\ pm(j,y) /\\ pm(j,z); printed in s.6.3.2 pp. 148-149 and A7.9 p.204 verbatim",
+      "note": "Statement applies PHY.(E) and INFO.(E) to Book elements via the coercion chain; `cbv. firstorder.` closes it. Same assumptions as copred_dd1."
+    },
+    {
+      "name": "EQ4, EQ5 (l.152-171)",
+      "status": "proved",
+      "source_claim": "IC inheritance to HBook = Sigma(Book, heavy) (5.52) yields equivalence relations; A7.9 pp. 204-205 verbatim"
+    },
+    {
+      "name": "HEAVYBOOK, HEAVYBOOK1 (l.176-182)",
+      "status": "proved",
+      "source_claim": "(5.20)-style existential subtyping inferences for heavy books: some HBOOK2 master(j) => some INFO master(j); some HBOOK1 pick_up(j) => some PHY pick_up(j); A7.9 p.205 verbatim",
+      "note": "No numbered claim in ch.5 for these; analogues of (5.20)."
+    },
+    {
+      "name": "HEAVYBOOK2, HEAVYBOOK3 (l.184-190)",
+      "status": "proved",
+      "source_claim": "(5.49) 'John mastered three heavy books' => three informational objects mastered, stated in the weakened single-IC form Three_0(HBOOK2, master(j)) => Three_0(INFO, master(j)) rather than (5.54) THREE(HBook, PHY.INFO, master(j)); A7.9 p.205 verbatim",
+      "note": "The premise uses only =i-distinctness, not the double distinctness D[PHY] /\\ D[INFO] of (5.55). Probe lemma dd_heavy: the (5.54) premise expressed with the explicit-coercion THREE_g over PHYINFO also yields three_f INFO (mastered John), so the stronger claim is provable but not stated."
+    },
+    {
+      "name": "EQ6, EQ7 (l.197-216)",
+      "status": "proved",
+      "source_claim": "IC inheritance to HIBook (5.58)/(5.59); A7.9 pp. 205-206 verbatim"
+    },
+    {
+      "name": "HEAVYIBOOK2 (l.222-224)",
+      "status": "proved",
+      "source_claim": "Presumably intended as the (5.60) HIBook case, but the statement is a verbatim duplicate of HEAVYBOOK2 (three_f HBOOK1 pick_up(j) => three_f PHY pick_up(j)) and never mentions HIBOOK1",
+      "note": "Probe confirms both theorems have the identical type. The duplication is inherited from A7.9 p.206, where HEAVYIBOOK2 also restates HEAVYBOOK2. There is no HEAVYIBOOK/HEAVYIBOOK1 in either."
+    },
+    {
+      "name": "HEAVYIBOOK3, HEAVYIBOOK4, HEAVYIBOOK5 (l.226-236)",
+      "status": "proved",
+      "source_claim": "(5.56)/(5.60) 'John mastered three heavy informative books' in single-IC form: three_f HIBOOK2 master(j) => three_f INFO master(j); plus sub-setoid monotonicity of Three_0: three_f HIBOOK1 => three_f HBOOK1, three_f HIBOOK2 => three_f HBOOK2; A7.9 pp. 206-207 verbatim",
+      "note": "Same weakening as HEAVYBOOK2/3: no D[PHY] /\\ D[INFO] premise. HEAVYIBOOK4 Print Assumptions: picked_up, bf, Phy, John, Informative, Info, IC_Phy, Heavy, Book."
+    },
+    {
+      "name": "threedf (l.247-249)",
+      "status": "proved",
+      "source_claim": "new; three_f PHY OTS -> one PHY OTS ('three physical objects on the shelf' implies 'one is'), loosely motivated by the (5.69)-(5.71) 'one/two/three books are on the shelf' discussion of s.5.4",
+      "note": "Trivial (drop two witnesses). Print Assumptions: Phy, OTS, IC_Phy. Not in A7.9."
+    }
+  ],
+  "counts": {
+    "theorems": 20,
+    "proved": 20,
+    "admitted": 0,
+    "propositional_axioms": 0
+  },
+  "faithfulness": {
+    "verdict": "faithful",
+    "evidence": [
+      "Lines 1-236 reproduce the book's Appendix A7.9 'Individuation' (pp. 200-207) essentially token-for-token: identical records Equiv/Equiv_K/CN/CN_K (l.6-16 = A7.9 pp. 200-201), identical ontology and coercion axioms mh/bf (l.19-21, 71-79 = pp. 201-202), identical AIC_*/IC_*/setoid definitions, identical proof scripts (e.g. `cbv. destruct IC_Human. destruct _eq4. destruct H0. ...` at l.36-39 = A7.9 p.201). The differences are the renamings three_0 -> three_f (l.43) and three -> three_c (l.125), five appendix comments dropped ('PhyInfo equiv is only reflexive and symmetric', 'The _K partial equivalence is used for PhyInfo', 'Double distinctness case', 'Double distinctness with conclusion expanded from the start', 'More than one adjectives and individuation') and one added (l.70).",
+      "19 of the file's 20 theorems are the book's, with the same statements and tactics; copred_dd2 (l.138-145) is additionally printed verbatim in s.6.3.2 pp. 148-149, and MANWALK (l.60-66) is (6.4) p.147 / (5.26) p.111.",
+      "Def 5.5(2) is encoded exactly as the disjunction AIC_PhyInfo (l.87-88) with the reflexive+symmetric proof EQ1 (l.90-92), and copred_dd1 (l.133-136) verifies the chapter's central double-distinctness claim (6.3)/(5.47)-(5.48) with no admits and no propositional axioms (Print Assumptions lists only Parameters and the two function-typed coercion axioms mh, bf).",
+      "The generic THREE of Def 5.6 is not encoded generically: three_c (l.125-128) hard-codes Book and IC_PhyInfo and its argument A is a phantom (probe: `three_c nat P <-> three_c Book P` by reflexivity). This simplification is the book's own (A7.9 p.203 `three`).",
+      "The adjective cases (5.54)/(5.55)/(5.60) are verified only in weakened single-IC form (HEAVYBOOK2/3, HEAVYIBOOK3-5, l.184-236), exactly as in A7.9 pp. 205-207; HEAVYIBOOK2 (l.222-224) duplicates HEAVYBOOK2, as in A7.9 p.206.",
+      "Heavyinfobook (l.193-194) nests Sigma(Sigma(Book, heavy), informative), reversing (5.58) HIBook = Sigma(IBook, heavy); A7.9 p.205 has the same order as the file.",
+      "The tail l.238-249 (OTS/WL/WaP, `one`, threedf) is the file's own addition: the two `Check`s type the s.5.4 formula (5.79) but prove nothing; `one` duplicates `some`; threedf is a trivial new theorem."
+    ],
+    "omissions": [
+      "Def 5.4 generic Three(A, B, P) with A <= B and Def 5.6 generic THREE over arbitrary pre-setoids (only Three_0 and one monomorphic Book/IC_PhyInfo instance).",
+      "Def 5.2 sub-setoid relation <| as a definable predicate (only per-instance witnesses EQ, EQ2-EQ7).",
+      "Def 5.1 / Appendix 6 dot-type formation rule with the component non-sharing condition; a general A . B constructor (only PhyInfo).",
+      "IC-respecting predicates (fn 7 p.110, p.113).",
+      "(5.45) verb-domain-determined IC selection as an operation.",
+      "Double-distinctness premises for the adjective cases (5.54)/(5.55)/(5.60).",
+      "s.5.4 (5.80) with WO; the local-coercion context-dependence of the informational IC (p.123)."
+    ],
+    "additions": [
+      "Parameters OTS, WL, WaP and two `Check`s for (5.79) (l.238-245), unproved.",
+      "Definition one := some (l.241-242).",
+      "Theorem threedf (l.247-249), trivial three -> one.",
+      "A second `Set Implicit Arguments` (l.244) left on to end of file (not exported)."
+    ],
+    "simplifications": [
+      "three_c is a monomorphic instance of THREE with a phantom DomCN argument (inherited from A7.9).",
+      "`and` specialised to predicate conjunction over A -> Prop instead of the polymorphic Pi A:LType. A -> A -> A; it also shadows the identifier of Coq's Logic.and.",
+      "PhyInfo is a plain two-field record with both projections as coercions; no formation constraint.",
+      "Heavyinfobook nesting order reversed relative to (5.58).",
+      "Eight near-identical equivalence-relation proofs (EQ, EQ1-EQ7) instead of one lemma that pulling back an equivalence along a function yields an equivalence."
+    ]
+  },
+  "determination": "slight_modification",
+  "determination_rationale": "The CNs-as-setoids theory of ch.5 encodes almost directly: setoids and pre-setoids as records with a coercion field, IC inheritance along a coercion (5.25), Sigma-types for adjectival modification (5.52)/(5.58), the disjunctive kappa for dot-types (Def 5.5) and the resulting double-distinctness derivation (5.47)-(5.48) all go through with 0 admits and 0 propositional axioms, and the book itself supplies this Coq code (A7.9). Three local adjustments are nevertheless forced by Coq: (a) no user-definable universe, so the CN-domain universe becomes Set (fn 12 p.142) and any Set is a CN domain; (b) coercive subtyping A <= B is not a first-class hypothesis, so the generic THREE(A, B, P) of Def 5.6 cannot be stated as written -- one either instantiates per pair (the file's and the book's choice, leaving a phantom argument in three_c) or threads an explicit coercion function (probe shows this works and is equivalent); (c) dot-types are not native, so PHY . INFO is simulated by a record with two `:>` projections and the formation side-condition of Def 5.1 is unenforced (the book concedes 'for types PHY and INFO only', p.148). A fourth, mechanical cost is that every sub-setoid needs its own equivalence proof (eight EQ lemmas). None of these changes the theory's structure, so the verdict is slight_modification rather than as_is.",
+  "artifact_classes": [
+    {
+      "class": "ii",
+      "description": "Universe collapse: `Definition DomCN := Set` (l.3) identifies the universe of CN domains with Set, so any Set is a common-noun domain and the book's separate universe CN (s.2.3.2, fn 12 p.142) is not represented. Verified: `Check three_c nat` and `Check three_c Human` both type-check as `(PhyInfo -> Prop) -> Prop`."
+    },
+    {
+      "class": "iv",
+      "description": "Missing native structure, two instances. (1) Coercive subtyping is not a first-class judgment in Coq, so Def 5.4/5.6's generic Three/THREE(A, B, P) 'for A <= B' cannot be written as stated; the file's three_c (l.125-128) hard-codes Book and IC_PhyInfo, its `A : DomCN` parameter is inert (probe: `three_c nat P <-> three_c Book P` by reflexivity), and the sub-setoid relation of Def 5.2 exists only as eight per-instance proofs (EQ, EQ1-EQ7). (2) Dot-types A . B with the component-non-sharing formation rule (Def 5.1, Appendix 6) are not native; PhyInfo (l.76-77) is an ordinary record with two `:>` projections, so the constraint is unenforced and only this one dot-type exists. Contravariant function subtyping (p.105) is recovered by Coq's eta-expanding coercion insertion (verified: `and PhyInfo (picked_up John) (mastered John)` elaborates to `and PhyInfo (fun x => picked_up John (p x)) (fun x => mastered John (i x))`), which happens to match the theory."
+    }
+  ],
+  "compiles": true,
+  "duplicate_of": "ttr_mtt/Book_Individuation.v",
+  "duplicate_note": "The two files differ only by a trailing newline (`diff` reports a single '\\ No newline at end of file' on l.249). Both are listed in _CoqProject (l.47 extras/indi.v, l.57 ttr_mtt/Book_Individuation.v) and both build. extras/indi.v is the better one to keep: it is the copy actually consumed downstream (`Require Import indi.` at extras/mass.v l.3, which builds mass-noun setoids WATER/GOLD/... on its Equiv/mkCN), whereas ttr_mtt/Book_Individuation.v is Required by nothing in the repo. Retiring the ttr_mtt copy requires editing _CoqProject, which this record must not do.",
+  "source_gap": "None. The primary source is on disk in full, including ch.5 (pp. 99-125), s.6.3.2 (pp. 146-149) and Appendix A7.9 (pp. 200-207), the direct textual origin of l.1-236. The book's earlier IC paper (Chatzikyriakidis & Luo 2018, cited p.106/p.119) and Gotham 2014/2017 are not on disk but are not needed: the file formalizes nothing from them. Note that s.6.3.2 p.149 says A7.9 also contains 'formalization of examples relevant to the discussion in section 5.4', but the printed A7.9 ends at HEAVYIBOOK5; the file's l.238-249 read as an attempt to supply that missing part.",
+  "notes": "Inventory (grep-verified): 20 `Theorem` statements (EQ, MANWALK, EQ1, EQ2, EQ3, copred_dd1, copred_dd2, EQ4, EQ5, HEAVYBOOK, HEAVYBOOK1, HEAVYBOOK2, HEAVYBOOK3, EQ6, EQ7, HEAVYIBOOK2, HEAVYIBOOK3, HEAVYIBOOK4, HEAVYIBOOK5, threedf), 20 `Qed.`, 0 Lemma/Corollary/Proposition/Fact/Example, 0 Admitted, 0 propositional axioms. 2 function-typed `Axiom`s used as coercion witnesses (mh : Man -> Human l.21, bf : Book -> PhyInfo l.79). 18 `Parameter`/`Parameters` names across 16 lines: 5 DomCN types (Human, Man, Phy, Info, Book), 2 individuals (John, WaP), 3 Type-valued IC structures (IC_Human, IC_Phy, IC_Info -- each bundles a Prop equivalence proof but is harmless since Leibniz equality inhabits Equiv A), 7 predicates (walk, picked_up, mastered, Heavy, Informative, OTS, WL). 33 Definitions, 7 Records. Four `Check`s print at compile time (walk John; three_f HUMAN walk; the two (5.79) formulas). Hygiene: `Definition and` (l.130) shadows the name Coq.Init.Logic.and for any file that Requires indi (extras/mass.v does), though `/\\` still denotes Logic.and; proofs destruct Parameters and use auto-generated hypothesis names (_eq4, H0, H1); `Set Implicit Arguments` is left on at l.244. Compiled with `coqc -R shallow \"\" -R deep \"\" -R extras \"\" -R ttr_mtt \"\" -R atlas \"\" extras/indi.v`, exit 0. Verification probe (outside the repo): /private/tmp/claude-501/-Users-graogro-Dropbox-formalizing-formal-semantics/c34891d7-ce39-4399-ad0f-31b3588ae898/scratchpad/probe_indi.v (output probe_out.txt, 0 errors). It establishes: Print Assumptions for copred_dd1/dd2, MANWALK, HEAVYIBOOK4, threedf list only Parameters plus mh/bf; three_c's first argument is a phantom; three_f is equivalent to the flat Three_0 form; `and` shadows Logic.and while `/\\` is unaffected; the coordinated predicate elaborates with eta-expanded coercions; a generic explicit-coercion THREE_g over CN_K is definable and coincides with three_c Book; the (5.54) double-distinctness premise for heavy books entails three_f INFO (mastered John); one = some definitionally; HEAVYIBOOK2 and HEAVYBOOK2 have the same type; Equiv Human is inhabited by Leibniz equality."
+}

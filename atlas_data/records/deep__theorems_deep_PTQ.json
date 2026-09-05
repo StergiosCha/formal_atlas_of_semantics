@@ -1,0 +1,193 @@
+{
+  "file": "deep/theorems_deep_PTQ.v",
+  "region": "model-theoretic (deep)",
+  "summary": "A 122-line companion to deep/PTQ_deep2.v (GADT deep embedding of Montague's IL with a Fixpoint eval into Coq denotations) proving ten small metatheorems, all Qed, over closed IL terms defined in the dependency: four sanity entailments (every->a given a witness, universal instantiation to the rigid concept of Bill, the->a stated on Coq denotations rather than IL terms, uncurrying of a hand-written relative-clause formula), the T and 4 schemata for the dependency's nec_, an 'extensional collapse' whose meaning-postulate hypothesis is provably vacuous (the theorem is bare universal instantiation to rigid concepts), a one-premise version of Partee's temperature puzzle asserted at a single index via six global Axioms (three of them dead), and verbatim re-proofs of two lemmas already in PTQ_deep2.v (T4 beta-equivalence, down-up cancellation). Every proof is unfold/simpl/auto: the deep embedding is used only as a front end to shallow denotations, and nothing is proved by induction over IL syntax. It is a near line-for-line port of extras/theorems_PTQ.v and inherits from PTQ_deep2.v two object-language deviations from PTQ: IV/CN are typed <<s,e>,<s,t>> instead of PTQ's f(IV) = <<s,e>,t> (forcing spurious extension operators in every formula), and nec_ quantifies over worlds at the current time only ('necessarily now') where PTQ clause 8 quantifies over all worlds and all times.",
+  "sources": [
+    {
+      "citation": "Montague, R. (1973). 'The Proper Treatment of Quantification in Ordinary English'. Reprint on disk (pp. 17-34 pagination): sec. 2 IL syntax/semantics pp. 23-25 (clauses 1-10, clause 8 for box/W/H, clauses 9-10 for ^ and v); sec. 3 type map f(A/B)=<<s,f(B)>,f(A)> p. 25, T1-T17 pp. 26-27, meaning postulates (1)-(9) p. 28, starred reductions p. 29; sec. 4 examples pp. 29-31 incl. the Partee temperature argument pp. 30-31; Thomason editorial notes 9 ('necessarily always'), 10 (corrected clauses 1/9 and the [v^alpha] corollary), 12 (T3 variable collision), pp. 33-34.",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/montague73.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Dowty, D., Wall, R. & Peters, S. (1981). Introduction to Montague Semantics. Ch. 5 p. 132 ('necessarily always' vs 'necessarily now', Montague used the former in PTQ); Ch. 5 p. 131 (system S5 'is essentially the one used by Montague in PTQ'); Ch. 5 Exercise 3 p. 139 (validity of box phi -> box box phi, schema (ii)); Ch. 6 (6-17) p. 154 ('down-up cancellation', with the remark that the converse fails); Ch. 7 (7-8) T4 p. 192 and derivation (7-18) p. 196 ('every man talks' via T2, T4, lambda-conversion, down-up); Appendix III pp. 279-282 (temperature puzzle (7-120)-(7-122'), f(IV)=f(CN)=<<s,e>,t> p. 280, MP6/MP7 p. 281).",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Dowty_Wall_Peters_1981_IntroductionToMontagueSemantics.txt",
+      "available": "full"
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "cm_idx : Index, cm_varying : IndivConcept, cm_other : Index (Parameters, lines 87-89)",
+      "source": "PTQ pp. 30-31: an interpretation <A,I,J,<=,F> (p. 24) in which 'the temperature is ninety' and 'the temperature rises' are true but 'ninety rises' is false, so that the Partee argument 'turns out not to be valid'; DWP App. III pp. 280-281.",
+      "match": "changed",
+      "note": "PTQ's non-validity claim is existential over interpretations. Here the 'countermodel' is three global Parameters inside the single abstract model of PTQ_deep2.v (whose Entity/World/Time and all constant denotations are themselves Parameters), so no interpretation is exhibited. cm_other is used by no theorem (Print Assumptions)."
+    },
+    {
+      "coq": "cm_eq_here, cm_diff_there, cm_nonrigid, cm_temp_spec, cm_rise_var, cm_rise_no (Axioms, lines 90-95)",
+      "source": "PTQ p. 28: postulate (2) excludes temperature from the rigidity requirement; p. 31: rise 'depends for its applicability on the full behavior of individual concepts'. The axioms describe one temporally varying temperature concept and make rise true of it but false of ^n.",
+      "match": "changed",
+      "note": "Global Axioms rather than Section hypotheses (PTQ_deep2.v lines 1099-1175 uses a Section for the same data) or a concrete model. Print Assumptions on temperature_puzzle lists only cm_idx, cm_varying, cm_temp_spec, cm_rise_var, cm_rise_no: cm_eq_here, cm_diff_there, cm_nonrigid are dead, and cm_nonrigid is derivable from cm_diff_there (scratch probe nonrigid_derivable). cm_temp_spec quantifies over all indices i (temperature is the same concept everywhere), stronger than needed. Joint consistency requires |Entity| >= 2 and |Index| >= 2, which Coq cannot check since the domains are Parameters."
+    },
+    {
+      "coq": "ty_iv := <ty_indconcept, ty_prop>, ty_cn := ty_iv, ty_t_den := <s<ty_iv>, ty_prop> (imported, PTQ_deep2.v lines 64-70)",
+      "source": "PTQ p. 25: f(e)=e, f(t)=t, f(A/B)=f(A//B)=<<s,f(B)>,f(A)>, so f(IV)=f(t/e)=<<s,e>,t>, f(CN)=f(t//e)=<<s,e>,t>, f(T)=<<s,<<s,e>,t>>,t>; DWP App. III p. 280 states f(IV)=f(CN)=<<s,e>,t> explicitly.",
+      "match": "changed",
+      "note": "Every category's result type carries an extra <s,.> in the Coq encoding (IV yields <s,t> where PTQ yields t). Denotationally (I x J -> (D_<s,e> -> 2)) and (D_<s,e> -> (I x J -> 2)) are isomorphic, so eval agrees with PTQ after evaluation at an index, but as IL syntax every predication man'(x) must be wrapped in an extension operator. The dependency's 235-line comment (PTQ_deep2.v lines 569-803) diagnosing a 'genuine design tension' and a 'type error' is a consequence of this mis-assignment, not of Montague's system. Not forced by Coq: ty_arrow ty_indconcept ty_t typechecks."
+    },
+    {
+      "coq": "eval_closed, il_every_man_walks_c, il_a_man_walks_c, il_bill_walks_c, il_every_man_that_walks_runs_c (imported, PTQ_deep2.v lines 394, 810-861)",
+      "source": "PTQ p. 29: Bill walks : walk'_*(b); a man walks : Ex.u[man'_*(u) & walk'_*(u)]; every man walks : All.u[man'_*(u) -> walk'_*(u)]; T3 p. 26 (with Thomason note 12) for the relative clause.",
+      "match": "simplified",
+      "note": "The Coq terms are the concept-level (un-starred) forms All.x[man'(x) -> walk'(x)] etc. with x : <s,e>, plus a down around every predication (see the type entry). PTQ lists the starred entity-level forms as the logically equivalent representatives; the concept-level forms are what T2+T4 literally produce (DWP (7-18) line 11). il_every_man_that_walks_runs_c is hand-written, not obtained from T3."
+    },
+    {
+      "coq": "nec_ constructor and its eval clause (imported, PTQ_deep2.v lines 217, 343-344): forall w', eval phi env (w', time_of i)",
+      "source": "PTQ p. 25 clause 8: [box phi]^{A,i,j,g} = 1 iff phi^{A,i',j',g} = 1 for all i' in I and j' in J; Thomason note 9: 'necessarily always'. DWP p. 132: Montague 'used this interpretation of the necessity operator in PTQ'.",
+      "match": "changed",
+      "note": "PTQ_deep2's nec_ is DWP's 'necessarily now' (all worlds, same time). shallow/PTQ.v line 87 has the PTQ form 'fun i => forall i', phi i''. nec_T and nec_4 hold under both readings (both are universal quantifications over an equivalence class of indices), so the theorem statements are unaffected, but they are theorems about an operator PTQ does not have."
+    },
+    {
+      "coq": "mp2_cn_extensional (imported, PTQ_deep2.v lines 990-996): nec_ (forall_ (imp_ (down (cn x)) (exists_ (eq_ x (up u)))))",
+      "source": "PTQ p. 28 meaning postulate (2): box[delta(x) -> Ex.u  x = ^u], delta translating any member of B_CN other than price or temperature; DWP App. III MP6 p. 281.",
+      "match": "exact",
+      "note": "Faithful modulo the down on delta(x) forced by the IV type. Used as a hypothesis of every_man_walks_ext_collapse, where it is never consumed (see theorem note)."
+    },
+    {
+      "coq": "up / down constructors and eval clauses (imported, PTQ_deep2.v lines 222-225, 357-362)",
+      "source": "PTQ p. 25 clauses 9-10 as corrected by Thomason note 10 (clause 9: [^alpha]^{A,i,j,g} is the function h on I x J with h(<i,j>) = alpha^{A,i,j,g}; corollary [v^alpha]^{A,i,j,g} = alpha^{A,i,j,g}); DWP (6-17) p. 154.",
+      "match": "exact",
+      "note": "up evaluates to fun i' => eval alpha env i', i.e. Thomason's corrected clause 9; down applies to the current index. The corollary is up_down_id by reflexivity."
+    },
+    {
+      "coq": "il_temp_is_ninety_c, il_temp_rises_c, il_ninety_rises_c (imported, PTQ_deep2.v lines 902-920)",
+      "source": "PTQ pp. 30-31: the temperature is ninety : Ex.y[All.x[temperature'(x) <-> x = y] & [v y] = n]; the temperature rises : Ex.y[All.x[temperature'(x) <-> x = y] & rise'(y)]; ninety rises : rise'(^n). DWP App. III (7.120')-(7.122') p. 281.",
+      "match": "simplified",
+      "note": "Structurally faithful (T2 'the' with x, y over <s,e>, [v y] = n for be, rise'(^n) for the conclusion) modulo the extra down wrappers. Equality x = y at type <s,e> becomes Coq Leibniz equality on Index -> Entity; without functional extensionality (not imported here, unlike extras/theorems_PTQ.v line 6) this is finer than PTQ's set-theoretic function identity. Latent only: no proof in this file needs it."
+    },
+    {
+      "coq": "il_every_man_walks_t4 (imported, PTQ_deep2.v lines 1069-1074)",
+      "source": "PTQ p. 26 T2 (every zeta -> lambda P All.x[zeta'(x) -> P{x}]) composed with T4 (F4(delta,beta) -> delta'(^beta')), reduced by lambda-conversion to the p. 29 form; DWP (7-8) p. 192, (7-18) p. 196.",
+      "match": "simplified",
+      "note": "The T-phrase is built at <<s,IV>,<s,t>> as lam (up (forall_ ...)) and the sentence is wrapped in down, instead of PTQ's f(T) = <<s,IV>,t>; the extra up/down are again artifacts of the type deviation."
+    },
+    {
+      "coq": "Den ty_t := Prop; eval_closed phi i : Prop (imported, PTQ_deep2.v lines 82-88, 394)",
+      "source": "PTQ p. 24: D_t = {0,1}; p. 25: phi is true at A,i,j iff phi^{A,i,j,g} = 1 for every assignment g.",
+      "match": "changed",
+      "note": "Truth values are Coq propositions; 'true at an index' is inhabitation, entailment is Coq implication, and 'logically equivalent' (p. 28: biconditional logically true) becomes <-> at an index (t4_beta_equiv). Classical is imported (line 5) but Print Assumptions shows no classical axiom is used by any theorem."
+    }
+  ],
+  "theorems": [
+    {
+      "name": "every_to_some_man_walks",
+      "status": "proved",
+      "source_claim": "new (sanity consequence of the PTQ p. 29 forms 'every man walks' and 'a man walks'); not stated in PTQ",
+      "note": "Lines 11-19. Needs a witness man (no existential import for 'every'). Proof: unfold eval_closed; simpl; exists z; auto."
+    },
+    {
+      "name": "every_man_walks_inst_bill",
+      "status": "proved",
+      "source_claim": "new; universal instantiation of 'every man walks' to ^b (PTQ p. 26 T1(d): Bill -> b* = lambda P P{^b}; p. 29 'Bill walks : walk'_*(b')",
+      "note": "Lines 23-30. Hypothesis man_den (fun _ => bill_e) i is man'(^b) at i; fun _ => bill_e is definitionally rigid bill_e."
+    },
+    {
+      "name": "the_entails_a_sem",
+      "status": "proved",
+      "source_claim": "new; consequence of PTQ p. 26 T2: the zeta -> lambda P Ex.y[All.x[zeta'(x) <-> x = y] & P{y}] and F2(zeta) -> lambda P Ex.x[zeta'(x) & P{x}]",
+      "note": "Lines 34-42. Quantifies over Den ty_cn and Den ty_iv, i.e. Coq denotations, not IL terms; PTQ_deep2.v defines no IL 'the' term, so this is a shallow-level theorem in a 'deep' file."
+    },
+    {
+      "name": "rel_clause_restricts",
+      "status": "proved",
+      "source_claim": "new; uncurrying of a T3-shaped formula (PTQ p. 26 T3: F3,n(zeta,phi) -> lambda x_n[zeta'(x_n) & phi'])",
+      "note": "Lines 47-54. il_every_man_that_walks_runs_c is hand-written as All.x[(man'(x) & walk'(x)) -> run'(x)] rather than produced by a T3 combinator; the theorem only splits the conjunction."
+    },
+    {
+      "name": "nec_T",
+      "status": "proved",
+      "source_claim": "validity of box phi -> phi: implicit in PTQ p. 25 clause 8 (box is unrestricted universal quantification over indices, i.e. S5; DWP p. 131 says S5 'is essentially the one used by Montague in PTQ')",
+      "note": "Lines 58-62. Proved for PTQ_deep2's 'necessarily now' operator (worlds only, time fixed), which differs from PTQ clause 8 / Thomason note 9 'necessarily always'; the schema is valid for both."
+    },
+    {
+      "name": "nec_4",
+      "status": "proved",
+      "source_claim": "DWP Ch. 5 Exercise 3(ii) p. 139: box phi -> box box phi is valid",
+      "note": "Lines 66-70. Same caveat as nec_T about which operator is being reasoned about."
+    },
+    {
+      "name": "every_man_walks_ext_collapse",
+      "status": "proved",
+      "source_claim": "claims the PTQ p. 29 reduction box[delta(x) <-> delta_*(v x)] for ordinary CN/IV (every man walks == All.u[man'_*(u) -> walk'_*(u)]) 'under the meaning postulate'; actually proves only universal instantiation to rigid concepts",
+      "note": "Lines 75-83. The hypothesis eval_closed (mp2_cn_extensional c_man) i is introduced as Hmp and never used; the identical statement without it compiles (scratch probe ext_collapse_no_mp). The direction that needs MP2 (entity-level universal implies concept-level universal) is absent, although it is provable from mp2_cn_extensional (scratch probe ext_collapse_real). The shallow twin extras/theorems_PTQ.v lines 70-81 proves the genuine biconditional; this port is strictly weaker under the same label. PTQ's reduction also needs postulate (3) for walk, which is not in PTQ_deep2.v at all."
+    },
+    {
+      "name": "temperature_puzzle",
+      "status": "proved",
+      "source_claim": "PTQ pp. 30-31 (Partee): from 'the temperature is ninety' and 'the temperature rises', 'ninety rises' does not follow; DWP App. III (7-120)-(7-122') pp. 280-281",
+      "note": "Lines 97-104. Asserts only eval_closed il_temp_rises_c cm_idx /\\ ~ eval_closed il_ninety_rises_c cm_idx. Premise 1 ('the temperature is ninety') is omitted, so what is shown is that the second premise alone does not force the conclusion at one index -- which does not need individual concepts at all and misses the point of Partee's argument (that the identity premise is only extensional). Premise 1 is provable from the file's own axioms via PTQ_deep2.temp_ninety_holds (scratch probe premise1_provable), and PTQ_deep2.temperature_puzzle_non_entailment (lines 1165-1173) already states all three conjuncts, so the omission is an unforced regression relative to the dependency. Non-validity is also not stated as a failure of 'forall i, premises -> conclusion' (the shallow twin does state it that way). Depends on Axioms cm_temp_spec, cm_rise_var, cm_rise_no only."
+    },
+    {
+      "name": "t4_beta_equiv",
+      "status": "proved",
+      "source_claim": "PTQ p. 26 T2+T4 with lambda-conversion: (lambda P All.x[man'(x) -> P{x}])(^walk') is logically equivalent to All.x[man'(x) -> walk'(x)]; DWP (7-18) p. 196 steps 8-11",
+      "note": "Lines 108-113. Verbatim duplicate (statement and proof) of PTQ_deep2.every_man_walks_beta_equiv, lines 1076-1081."
+    },
+    {
+      "name": "up_down_id",
+      "status": "proved",
+      "source_claim": "PTQ p. 25 clauses 9-10 with Thomason note 10 corollary: [v^alpha]^{A,i,j,g} = alpha^{A,i,j,g}; DWP (6-17) p. 154 'down-up cancellation'",
+      "note": "Lines 117-122. Verbatim duplicate of PTQ_deep2.up_down_identity, lines 1030-1035. Holds by reflexivity because eval (up e) = fun i' => eval e env i'. The converse ^v alpha = alpha correctly is not claimed (PTQ_deep2.v lines 1037-1040; DWP p. 154)."
+    }
+  ],
+  "counts": {
+    "theorems": 10,
+    "proved": 10,
+    "admitted": 0,
+    "propositional_axioms": 6
+  },
+  "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+      "temperature_puzzle (lines 97-99) conjoins only 'the temperature rises' and not-'ninety rises' at cm_idx, whereas PTQ pp. 30-31 and DWP App. III (7-120)-(7-122) give a two-premise argument whose interest lies in the identity premise. Print Assumptions confirms cm_eq_here (line 90), cm_diff_there (91), cm_nonrigid (92) and Parameter cm_other (89) are unused; the dependency's own PTQ_deep2.temperature_puzzle_non_entailment (lines 1165-1173) includes all three conjuncts.",
+      "every_man_walks_ext_collapse (lines 75-83) is labelled 'extensional collapse: under the meaning postulate' but its MP2 hypothesis is vacuous: the same statement compiles with it deleted (scratch probe). PTQ p. 29's reduction box[delta(x) <-> delta_*(v x)] needs postulate (2) for the converse direction, which is not proved here (it is, in extras/theorems_PTQ.v lines 70-81).",
+      "nec_T / nec_4 (lines 58-70) are about PTQ_deep2's nec_ (line 344: forall w', eval phi env (w', time_of i)), DWP's 'necessarily now'. PTQ p. 25 clause 8 reads 'for all i' in I and j' in J' (Thomason note 9 'necessarily always'; DWP p. 132 'Montague also used this interpretation'). Both schemata remain valid, so the theorems are not false, but they verify properties of a non-PTQ operator.",
+      "All IL terms reasoned about carry explicit down operators around every IV/CN predication because PTQ_deep2 sets ty_iv = <<s,e>,<s,t>> (line 66). PTQ p. 25 gives f(IV) = f(t/e) = <<s,e>,t> and DWP App. III p. 280 says the same; man'(x) is of type t in PTQ and the p. 29 / DWP (7-18) formulas contain no such operator.",
+      "the_entails_a_sem (lines 34-42) is stated over Den ty_cn / Den ty_iv and bypasses the IL entirely; rel_clause_restricts uncurries a hand-written formula rather than a T3 output.",
+      "The countermodel (lines 87-95) is six global Axioms over the single Parameter-model rather than an interpretation quintuple <A,I,J,<=,F> as on PTQ p. 24; PTQ's 'not valid' is existential over interpretations and the file cannot express that. Consistency of the axioms (needs |Entity| >= 2, |Index| >= 2) is unverified by Coq.",
+      "t4_beta_equiv and up_down_id (lines 108-122) are exact re-proofs of PTQ_deep2.every_man_walks_beta_equiv (1076-1081) and PTQ_deep2.up_down_identity (1030-1035) and add no verification content.",
+      "Positive: up_down_id matches PTQ clauses 9-10 / Thomason note 10 and DWP (6-17) exactly; t4_beta_equiv matches the T2+T4 lambda-conversion (PTQ p. 26/29, DWP (7-18) steps 8-11) modulo the type deviation; il_temp_rises_c / il_ninety_rises_c match the p. 31 symbolizations modulo down; Print Assumptions shows no reliance on Classical or functional extensionality."
+    ],
+    "omissions": [
+      "Premise 'the temperature is ninety' (PTQ p. 30) absent from temperature_puzzle although il_temp_is_ninety_c and temp_ninety_holds exist in the dependency and the file's own axioms suffice.",
+      "The MP2-dependent direction of the extensional reduction (PTQ p. 29) is not proved; postulate (3) for IVs is not encoded anywhere in the dependency.",
+      "No theorem exercises W/H (PTQ clause 8 tense operators), the de dicto / de re seek examples (p. 30), MP (9) seek = try to find (p. 28), or logical truth relative to the class of logically possible interpretations (p. 28), all of which exist as definitions in PTQ_deep2.v.",
+      "No IL-level 'the' term; no S14/quantifying-in theorem (the shallow twin has s14_every_equiv_s4); no theorem by induction over IL syntax (substitution, closure under eval, compositionality), which is what a deep embedding is for."
+    ],
+    "additions": [
+      "Six global Axioms and three Parameters constituting a countermodel for 'the temperature rises' -> 'ninety rises' (lines 87-95); three Axioms and one Parameter are dead code and cm_nonrigid is derivable from cm_diff_there.",
+      "The T and 4 modal schemata (nec_T, nec_4), which PTQ does not state (DWP exercise material)."
+    ],
+    "simplifications": [
+      "Necessity as 'necessarily now' (inherited from PTQ_deep2.v line 344) instead of PTQ's quantification over all world-time pairs.",
+      "IV/CN/T types intensionalised (<<s,e>,<s,t>>, <<s,IV>,<s,t>>) with compensating down/up operators, instead of PTQ's <<s,e>,t> and <<s,IV>,t>.",
+      "Countermodel as global axioms over an abstract model, at a single index, instead of an explicit interpretation refuting 'forall indices, premises -> conclusion'.",
+      "Truth values as Prop; equality on individual concepts as Coq's intensional equality on Index -> Entity."
+    ]
+  },
+  "determination": "slight_modification",
+  "determination_rationale": "What this file exercises of PTQ -- lambda-conversion of T2+T4 terms, down-up cancellation, modal T/4 validity, and the Partee non-entailment at an index -- all go through by simpl/reflexivity/auto over the GADT eval, showing that PTQ's IL semantics (pp. 24-25 clauses 1-10) embeds directly and that reasoning about specific IL terms is cheap once the embedding exists. Two things did not survive as-is. (a) PTQ's non-validity claim is existential over interpretations <A,I,J,<=,F>; with domains and lexical constants as global Parameters the file can only postulate a countermodel as global Axioms, and a faithful statement needs interpretations as records or a Module Functor -- a slight restructuring of the dependency, not of the theory. (b) The dependency's IV type and necessity clause deviate from PTQ, but neither deviation is forced by Coq (shallow/PTQ.v line 87 already has PTQ's necessity; ty_arrow ty_indconcept ty_t typechecks), so they are author choices rather than formalizability obstacles. The vacuous MP hypothesis, the dropped premise and the duplicated lemmas are proof-engineering defects and say nothing about the theory.",
+  "artifact_classes": [
+    {
+      "class": "ii",
+      "description": "PTQ's D_t = {0,1} (p. 24) is encoded as Den ty_t = Prop (PTQ_deep2.v line 85), so IL formulas denote Coq propositions rather than truth values: 'phi is true at <i,j>' becomes inhabitation of a Prop, entailment becomes Coq implication, logical equivalence becomes <-> at an index, and every theorem in this file is a statement about Prop-valued denotations with no {0,1}-valued truth function anywhere. Classical is imported to compensate but no proof needs it."
+    },
+    {
+      "class": "iv",
+      "description": "No first-class notion of interpretation <A,I,J,<=,F> (PTQ p. 24): Entity/World/Time and all constant denotations are global Parameters, so PTQ's 'the argument is not valid' (existence of an interpretation where premises hold and conclusion fails, p. 30) cannot be stated. The file substitutes six global Axioms (lines 90-95) whose consistency Coq does not check and which now constrain every file that imports this one. Relatedly, PTQ's set-theoretic identity of individual concepts (type <s,e>) has no native counterpart: eq_ at <s,e> evaluates to Leibniz equality on Index -> Entity, finer than function identity absent functional extensionality (latent here, since no proof needs the coarser equality)."
+    }
+  ],
+  "duplicate_of": "extras/theorems_PTQ.v",
+  "duplicate_note": "extras/theorems_PTQ.v (135 lines, over shallow/PTQ.v) has the same numbered items 1-8 in the same order with the same comments: every_to_some_man_walks, every_man_walks_inst_john/bill, the_entails_a(_sem), rel_clause_restricts, nec_T, nec_4, every_man_walks_ext_iff/ext_collapse, temperature_puzzle_proved/temperature_puzzle, each with a cm_* countermodel. The deep file swaps the shallow file's items 9-12 (s14_every_equiv_s4 and three assign_mod lemmas) for t4_beta_equiv and up_down_id, both already proved in PTQ_deep2.v. The shallow file is the better of the two: its item 7 is a genuine biconditional proved from the reduction postulates, its temperature theorem is stated as a real non-entailment ~(forall i, P -> C) with only three axioms (all used), and its Nec is PTQ's 'necessarily always'. The deep file's sole advantage -- theorems about IL terms rather than denotations -- is exploited only by the two copied lemmas. Both twins omit Partee's first premise. Neither twin is in the caller's candidate duplicate groups; the [PTQ.v, Montague.v] group concerns the substrate files, not these theorem files. Intra-dependency duplication with deep/PTQ_deep2.v (items 9-10 verbatim, item 8 a weakened restatement of temperature_puzzle_non_entailment) is also noted.",
+  "source_gap": "No gap for the primary source: montague73.pdf is a complete 18-page reprint with a text layer covering every section cited (IL pp. 23-25, T1-T17 pp. 26-27, postulates p. 28, starred reductions p. 29, examples pp. 29-31, Thomason notes 9/10/12 pp. 33-34). DWP 1981 is on disk as an image-only PDF plus a full OCR text layer (.txt); the OCR garbles formulas (e.g. 'D0-DD0' for box phi -> box box phi) but page markers and prose are reliable, so the citations above (pp. 132, 139, 154, 192, 196, 279-282) were verified from the text layer.",
+  "compiles": true,
+  "notes": "Compiled with coqc 8.20.1 from the repo root using the prescribed -R flags; exit 0, no warnings. Listed in _CoqProject line 18; no other .v file imports it. Inventory: 10 Theorem statements, 10 Qed, 0 Admitted, 0 Lemma/Corollary/Fact/Example; 6 Axiom (Prop) + 3 Parameter (Type) declarations; imports Classical/Classical_Prop/Nat/PeanoNat but Print Assumptions on all ten theorems (scratch probe) shows only PTQ_deep2's Parameters and, for temperature_puzzle, cm_idx, cm_varying, cm_temp_spec, cm_rise_var, cm_rise_no -- no classical axioms, no FunctionalExtensionality. Scratch probes compiled against the built .vo files (not part of the repo) confirmed: (1) every_man_walks_ext_collapse compiles with its MP2 hypothesis deleted; (2) the MP2-dependent collapse direction is provable from mp2_cn_extensional in four lines; (3) eval_closed il_temp_is_ninety_c cm_idx follows from cm_eq_here and cm_temp_spec via PTQ_deep2.temp_ninety_holds; (4) cm_nonrigid follows from cm_diff_there. The header comment names the file PTQ_deep_Theorems.v and the dependency PTQ_deep.v; on disk they are theorems_deep_PTQ.v and PTQ_deep2.v. Global Axioms in a theorems file are a hygiene concern: any downstream importer inherits a specific temperature/rise model. Every proof is unfold/simpl/auto with no induction over IL, so the 'deep' embedding is not actually exercised as such."
+}

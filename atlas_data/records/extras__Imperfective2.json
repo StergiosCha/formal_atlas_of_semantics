@@ -1,0 +1,214 @@
+{
+  "file": "extras/Imperfective2.v",
+  "region": "model-theoretic (aspect, imperfective paradox)",
+  "summary": "A 343-line neo-Davidsonian sketch of the imperfective paradox: events with a subevent/culmination/result-state mereology over a World*Time index, hand-written 'past progressive' and 'simple past' propositions, and seven Qed theorems showing (i) under stipulated hypotheses 'John was crossing the street' is true while 'John crossed the street' is false, (ii) simple past entails past progressive (via a stipulated axiom), (iii) the converse fails (restated as a second hypothetical scenario). The header attributes it to Dowty 1979 ch. 3, but none of Dowty's apparatus (interval semantics, inertia worlds, the PROG truth definition) is present; the only modal gesture, PROG_MODAL, is unused and its world quantification is vacuous. The paradox data are captured by construction; the analysis is not.",
+  "sources": [
+    {
+      "citation": "Dowty, D. R. 1979. Word Meaning and Montague Grammar. Reidel. Ch. 3 'Interval Semantics and the Progressive Tense': 3.1 The Imperfective Paradox (p. 133), 3.2 Truth Conditions Relative to Intervals, not Moments (p. 138), 3.4 Truth Conditions for the Progressive (p. 145), 3.6 On the Notion of 'Likeness' Among Possible Worlds (p. 150); also 7.5 The Present Perfect (p. 339).",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Dowty_1979_WordMeaningMontagueGrammar_FrontMatterOnly.pdf",
+      "available": "partial"
+    },
+    {
+      "citation": "Dowty, D. R. 1977. 'Toward a semantic analysis of verb aspect and the English \"imperfective\" progressive', Linguistics and Philosophy 1: 45-78 (the original version of ch. 3; cited as ref. 36 in DWP 1981).",
+      "available": "missing"
+    },
+    {
+      "citation": "Montague, R. 1973. 'The Proper Treatment of Quantification in Ordinary English' (PTQ): tense operators W ('it will be the case that') and H ('it has been the case that'), semantics [Hphi]^{A,i,j,g}=1 iff phi true at some j' <= j, j' != j; indices <i,j> in I x J with J linearly ordered; rules of tense T17 (F14 present perfect -> H).",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/montague73.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Dowty, Wall & Peters 1981. Introduction to Montague Semantics. Ch. 5 'Tense and Modal Operators': Syn/Sem B.10-B.11 (F, P as existential shifts to later/earlier moments, pp. 114-115); world-time indices <w,t> (p. ~131); explicit remark that the system offers no natural treatment of the progressive tenses (pp. 115-116); p. 197 refers the progressive reading of PTQ's present to Dowty 1979.",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Dowty_Wall_Peters_1981_IntroductionToMontagueSemantics.txt",
+      "available": "full"
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "Index := World * Time; speech_time := snd; I A := Index -> A; t := I Prop (lines 24-28)",
+      "source": "PTQ indices <i,j> in I x J (Montague 1973, intensional-logic semantics); DWP ch. 5 indices <w,t>, propositions as sets of indices",
+      "match": "exact",
+      "note": "Standard shallow embedding of world-time indexed propositions. The 'speech_time' reading of the index time is the DWP/PTQ convention that the evaluation time is the time of utterance for the top-level tense."
+    },
+    {
+      "coq": "Time, lt, lt_trans, lt_irrefl, lt_total (lines 16-20)",
+      "source": "PTQ: J with a simple (linear) ordering; DWP Sem B.10/B.11: moments ordered by <",
+      "match": "exact",
+      "note": "Strict linear order on MOMENTS. This is exactly the moment-based semantics Dowty 1979 sec. 3.2 argues must be replaced by intervals; see the 'missing' entry below."
+    },
+    {
+      "coq": "(no Coq counterpart)",
+      "source": "Dowty 1979 sec. 3.2 interval semantics: truth relative to intervals I, subinterval relation, 'I is a non-final subinterval of I''",
+      "match": "missing",
+      "note": "time_of : Event -> Time assigns each event a single instant (line 22). Every progressive definition in the file compares instants (time_of e_prog = speech_time / lt (time_of e_prog) (speech_time)). Dowty's central innovation for ch. 3 is absent."
+    },
+    {
+      "coq": "(no Coq counterpart)",
+      "source": "Dowty 1979 sec. 3.4/3.6 inertia worlds Inr(<w,I>) and the PROG truth condition: [PROG phi] true at <w,I> iff for all w' in Inr(<w,I>) there is I' with I a non-final subinterval of I' and phi true at <w',I'>",
+      "match": "missing",
+      "note": "PROG_MODAL (lines 177-183) is the only gesture toward this, and it is not a rendering of it: see its own entry."
+    },
+    {
+      "coq": "PST VP x := fun i => exists e, VP x e /\\ result_state e /\\ lt (time_of e) (speech_time i) (lines 69-71)",
+      "source": "PTQ H / DWP P: past tense as existential shift of a proposition to an earlier moment",
+      "match": "changed",
+      "note": "Not a propositional operator but an event existential; and it carries a result_state conjunct, so 'simple past' is defined as culminated past. PST is syntactically identical to PERF (lines 62-66). This conjunct is the sole difference from the duplicate ImperfectiveParadox.v and is what makes simple_past_is_false / simple_past_false provable: the falsity of the simple past is built into the definition of the tense, not derived from an analysis of aspect. As a tense operator it is wrong for activities/states (no result state)."
+    },
+    {
+      "coq": "PERF VP x (lines 62-66)",
+      "source": "PTQ present perfect (rule F14, translation H alpha'(^delta')); Dowty 1979 sec. 7.5 The Present Perfect",
+      "match": "changed",
+      "note": "Event-existential with result_state; identical to PST. Unused in any theorem. Dowty's 7.5 is not on disk."
+    },
+    {
+      "coq": "PROG VP x := fun i => exists e_prog e_full, VP x e_full /\\ subevent e_prog e_full /\\ ~ culminates e_prog e_full /\\ time_of e_prog = speech_time i (lines 54-60)",
+      "source": "Dowty 1979 sec. 3.4 truth conditions for the progressive",
+      "match": "changed",
+      "note": "A Parsons-1990-style (Cul/Hold) event-mereological progressive, not Dowty's modal-interval one. Requires an actual event e_full satisfying VP even when it never culminates, i.e. it posits the complete crossing as an actual-world event with cross_street_ev decoupled from culmination; this is precisely the ontological move the paradox is supposed to block. Present-tense only and never used: the theorems use hand-written copies with lt in place of = (progressive_past, lines 109-114; progressive_past_reading, lines 206-211) rather than composing PROG with a past operator."
+    },
+    {
+      "coq": "PROG_MODAL VP x := fun i => exists e_prog, time_of e_prog = speech_time i /\\ (forall w', accessible (fst i) w' -> exists e_c, VP x e_c /\\ result_state e_c) (lines 174-183)",
+      "source": "Dowty 1979 sec. 3.4/3.6 inertia-world analysis",
+      "match": "changed",
+      "note": "Semantically vacuous as a modal operator: VP, result_state and time_of are not world-indexed, so the body reduces to (exists w', accessible w w') -> exists e, VP x e /\\ result_state e, which (given any accessible world) ENTAILS the culminated simple past, the opposite of what Dowty's analysis is for. e_prog is unconstrained by VP. No theorem mentions it. No inertia condition (worlds identical to w through I, developing normally after I)."
+    },
+    {
+      "coq": "subevent (refl, trans), culminates, result_state, culminates_sub (lines 30-36)",
+      "source": "none in Dowty 1979 / PTQ / DWP",
+      "match": "added",
+      "note": "Neo-Davidsonian event-mereology vocabulary (Parsons 1990 Cul/Hold, Landman 1992 stages). Duplicated verbatim from extras/Aspect.v lines 34-42 instead of being imported (the comment 'Import aspect definitions' at line 12 is followed by fresh Parameters)."
+    },
+    {
+      "coq": "interrupt, interrupted, completes (lines 42-49); Hypothesis was_interrupted (line 96); Variable e_interrupted (line 78)",
+      "source": "Dowty sec. 3.1 scenario ('he got hit by a car')",
+      "match": "added",
+      "note": "Dead code: no proof uses interrupted/completes/was_interrupted. The absence of a result state is a separate hypothesis no_completion (line 99), not derived from interruption. The summary claim 'Interruption blocks result states' (line 337) is therefore not proved anywhere."
+    },
+    {
+      "coq": "Axiom crossing_event_unique (lines 135-139); Axiom reading_event_unique (lines 266-270)",
+      "source": "none",
+      "match": "added",
+      "note": "Declared inside Sections; Coq discharges them as GLOBAL axioms generalized over john/street (resp. john/book): forall john street e1 e2, cross_street_ev e1 -> AGENT john e1 -> PATIENT street e1 -> ... -> e1 = e2 (verified with Print Assumptions). Linguistically false (John cannot cross the street twice) and it is load-bearing: it is the only way simple_past_is_false identifies the PST witness with the non-culminated e_complete."
+    },
+    {
+      "coq": "Axiom progressive_subevent : forall e, result_state e -> exists e_prog, subevent e_prog e /\\ ~ culminates e_prog e /\\ time_of e_prog = time_of e (lines 219-224)",
+      "source": "none (folk entailment 'John read a book' -> 'John was reading a book')",
+      "match": "added",
+      "note": "Stipulates exactly what simple_past_entails_progressive needs. Its time_of e_prog = time_of e clause is an artifact of the instant model: a proper non-culminating subevent located at the same instant as the whole event."
+    },
+    {
+      "coq": "VP_cross_street, VP_read_book := fun x e => V e /\\ AGENT x e /\\ PATIENT y e (lines 101-102, 199-200)",
+      "source": "Dowty/PTQ ordered-argument IV translations, e.g. cross'(j, s)",
+      "match": "changed",
+      "note": "Neo-Davidsonian thematic roles instead of PTQ-style relations; Dowty 1979 uses the PTQ translation language without event arguments (ch. 4, 7)."
+    },
+    {
+      "coq": "progressive_past, simple_past (lines 109-117); progressive_past_reading, simple_past_reading (lines 203-211)",
+      "source": "Dowty sec. 3.1 sentences 'John was crossing the street' / 'John crossed the street'",
+      "match": "simplified",
+      "note": "The past progressive is written out by hand rather than obtained as PAST(PROG(...)); no general past operator exists in the file."
+    },
+    {
+      "coq": "Entity (imported from MontagueFragment.MontagueExtensional)",
+      "source": "PTQ type e",
+      "match": "exact",
+      "note": "Reuse of the shallow fragment's entity type. The Require triggers a harmless 'masking absolute name' warning because shallow/MontagueFragment.v declares Module MontagueFragment."
+    }
+  ],
+  "theorems": [
+    {
+      "name": "progressive_is_true",
+      "status": "proved",
+      "source_claim": "Dowty 1979 sec. 3.1: 'John was crossing the street' is true in the interrupted-crossing scenario",
+      "note": "Lines 123-132. True by hypothesis: ongoing_crossing (lines 90-93) hands over the two witnesses and the non-culmination fact; the proof only repackages them and uses timeline. No semantic content beyond the definition."
+    },
+    {
+      "name": "simple_past_is_false",
+      "status": "proved",
+      "source_claim": "Dowty 1979 sec. 3.1: 'John crossed the street' is false in that scenario",
+      "note": "Lines 141-157. Proof: any PST witness is a crossing event by John of the street, hence (by the global uniqueness axiom crossing_event_unique) equals e_complete, contradicting hypothesis no_completion. Depends on the result_state conjunct in PST and on the uniqueness axiom; the unused was_interrupted hypothesis plays no role."
+    },
+    {
+      "name": "imperfective_paradox",
+      "status": "proved",
+      "source_claim": "Dowty 1979 sec. 3.1: the imperfective paradox (progressive true, simple past false)",
+      "note": "Lines 160-166. Conjunction of the two previous theorems; after section discharge it is a universally quantified conditional over john, street, e_crossing, e_complete, w0, t_past, t_speech with four hypotheses. It demonstrates that the data pattern is CONSISTENT with the definitions, not that the definitions predict it."
+    },
+    {
+      "name": "simple_past_entails_progressive",
+      "status": "proved",
+      "source_claim": "new (not a numbered claim of Dowty ch. 3; the folk entailment simple past of an accomplishment -> past progressive)",
+      "note": "Lines 226-239. Immediate from Axiom progressive_subevent, which was written to make it go through. Cannot be checked against Dowty because ch. 3 is missing; note that under Dowty's inertia-world PROG this entailment is not automatically valid (the actual world need not be one of its own inertia worlds), so the Coq statement may be stronger than the source."
+    },
+    {
+      "name": "progressive_true",
+      "status": "proved",
+      "source_claim": "restatement of progressive_is_true for 'John was reading a book'",
+      "note": "Lines 273-282. Same proof shape as progressive_is_true."
+    },
+    {
+      "name": "simple_past_false",
+      "status": "proved",
+      "source_claim": "restatement of simple_past_is_false for 'John read a book'",
+      "note": "Lines 285-302. Uses reading_event_unique (global axiom) and the ~ result_state e_reading conjunct of reading_interrupted. In the duplicate ImperfectiveParadox.v this very lemma is Admitted with a countermodel comment; here it is provable only because PST acquired the result_state conjunct."
+    },
+    {
+      "name": "progressive_does_not_entail_simple_past",
+      "status": "proved",
+      "source_claim": "Dowty sec. 3.1: the progressive does not entail the completed event",
+      "note": "Lines 305-311. Non-entailment is shown as 'there are hypotheses under which P holds and Q fails', not as a countermodel of the closed axiom system. (I checked by hand that the global axioms plus the section hypotheses are jointly satisfiable: Event := unit, Time := nat, lt := Peano lt, subevent := True, culminates := False, result_state := False, t_past := 0, t_speech := 1; the file does not exhibit this.)"
+    }
+  ],
+  "counts": {
+    "theorems": 7,
+    "proved": 7,
+    "admitted": 0,
+    "propositional_axioms": 9
+  },
+  "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+      "Header (lines 340-341) claims 'Based on Dowty (1979) Chapter 3: The Imperfective Paradox'; the TOC on disk (front-matter pp. xiv-xv) confirms ch. 3 = 'Interval Semantics and the Progressive Tense', sec. 3.1 'The Imperfective Paradox' p. 133, sec. 3.2 'Truth Conditions Relative to Intervals, not Moments' p. 138, sec. 3.4 'Truth Conditions for the Progressive' p. 145, sec. 3.6 likeness among possible worlds p. 150. The Foreword (p. vii) states the progressive analysis 'leads to the major innovation of taking truth relative to an interval of time (rather than a moment of time) as the basic semantic definition'.",
+      "The file uses moments throughout: Parameter Time with a strict linear order (lines 16-20), time_of : Event -> Time (line 22), and every aspectual definition compares single instants (lines 60, 66, 71, 114, 180, 211, 224). Dowty's interval semantics is absent.",
+      "The file's PROG (lines 54-60) is an event-mereological (subevent / ~culminates) operator in the style of Parsons 1990, not Dowty's modal one; the Dowty-style PROG_MODAL (lines 177-183) is unused and vacuous because VP/result_state are not world-relative, so its accessibility quantifier does no work.",
+      "The theorems' content is supplied by hypotheses and added axioms: ongoing_crossing supplies the progressive witnesses; no_completion supplies non-culmination; crossing_event_unique / reading_event_unique (global, linguistically false uniqueness axioms) and the result_state conjunct baked into PST (line 71) supply the falsity of the simple past; progressive_subevent (lines 219-224) supplies the forward entailment. Print Assumptions on imperfective_paradox lists crossing_event_unique; on simple_past_entails_progressive lists progressive_subevent.",
+      "Interruption (interrupt, interrupted, completes, was_interrupted, e_interrupted; lines 42-49, 78, 96) is dead code; the summary line 337 'Interruption blocks result states' is asserted, not proved.",
+      "Index := World * Time and the linear order on times (lines 16-28) do match PTQ's <i,j> indices (Montague 1973, semantics clauses for W/H with J linearly ordered) and DWP ch. 5 <w,t>; but PST (lines 69-71) is not PTQ's H / DWP's P (an existential shift of a proposition to an earlier moment): it is an event existential with a result-state condition, identical to PERF.",
+      "DWP 1981 pp. 115-116 explicitly say the F/P tense logic 'does not ... offer a natural way of treating ... the various progressive tenses', and p. 197 refers to Dowty 1979 for the progressive; so PTQ/DWP cannot ground any of the aspect definitions here, only the index structure."
+    ],
+    "omissions": [
+      "Interval semantics (Dowty sec. 3.2): no interval type, no subinterval / non-final-subinterval relation.",
+      "Inertia worlds Inr(<w,I>) and Dowty's PROG truth condition (sec. 3.4, 3.6).",
+      "Any link between the progressive and the Vendler classes / BECOME / accomplishment structure (sec. 2.3, 3.3, 3.8).",
+      "A general past-tense operator composing with PROG (past progressive is hand-written twice).",
+      "Any theorem about PROG, PERF, or PROG_MODAL (all three are defined and never used)."
+    ],
+    "additions": [
+      "Neo-Davidsonian event ontology with AGENT/PATIENT, subevent, culminates, result_state (lines 13-36).",
+      "Global event-uniqueness axioms crossing_event_unique and reading_event_unique (lines 135-139, 266-270), generalized over the section's entity variables.",
+      "Axiom progressive_subevent (lines 219-224), tailored to the forward-entailment theorem.",
+      "Interruption predicates (unused)."
+    ],
+    "simplifications": [
+      "Simple past of an accomplishment is defined as culminated past (PST = PERF), which makes the 'paradox' definitional rather than derived.",
+      "Non-entailment is exhibited under section hypotheses rather than by a concrete countermodel."
+    ]
+  },
+  "determination": "slight_modification",
+  "determination_rationale": "What this file actually evidences is thin. The PTQ/DWP substrate it borrows (World*Time indices, a linearly ordered Time, propositions as Index -> Prop) goes into Coq as is. The sec. 3.1 data pattern (past progressive true, simple past false; simple past -> past progressive; not conversely) is also trivially expressible, but the file only obtains it by (a) baking result_state into the simple past, (b) a false global uniqueness axiom to pin down the past-tense witness, and (c) a bespoke progressive_subevent axiom, which is a modification of the theory's ontology rather than a faithful rendering. Dowty's real analysis (intervals, Inr, the PROG clause) is a set-theoretic definition that would need no restructuring to encode shallowly (Interval as a predicate on Time or as a pair, Inr : World -> Interval -> World -> Prop, PROG as a forall over Inr and exists over superintervals, VP predicates indexed by World*Interval), but this file does not attempt it, and its one modal definition (PROG_MODAL) shows the modification that is actually required: event predicates must be world-indexed for the modal quantifier to be non-vacuous. Because the source chapters are not on disk the determination rests on the TOC/Foreword and standard knowledge of Dowty's definitions, and should be revisited when ch. 3 is obtained.",
+  "artifact_classes": [
+    {
+      "class": "iv",
+      "description": "Missing native structure: (1) no interval type, so time_of assigns instants and 'progressive subevent at the same time as the whole event' (line 224) is incoherent; (2) event predicates (cross_street_ev, read_ev, result_state, time_of) are not world-relative, so PROG_MODAL's forall w' quantifier is vacuous and the modal analysis cannot even be stated; (3) no event-individuation structure, replaced by global uniqueness axioms (lines 135-139, 266-270) that forbid repeated events of the same type."
+    },
+    {
+      "class": "iii",
+      "description": "Every semantic primitive is a Parameter/Axiom; nothing evaluates. The 'paradox' and the non-entailment are demonstrated as consequences of section hypotheses whose joint satisfiability with the nine global axioms is not exhibited in the file (it does hold: Event := unit, Time := nat, lt := Peano lt, subevent := True, culminates := False, result_state := False), so the file cannot distinguish 'the definitions predict the data' from 'the data were assumed'."
+    }
+  ],
+  "compiles": true,
+  "duplicate_of": "extras/ImperfectiveParadox.v",
+  "duplicate_note": "Lines 1-160 and 190-326 of the two files are the same text modulo comments. Differences: (a) Imperfective2.v adds result_state to PST (line 71), which is exactly what lets simple_past_false be Qed here while it is Admitted in ImperfectiveParadox.v lines 319-350 (whose comment gives the countermodel and names this very fix); (b) ImperfectiveParadox.v additionally has perfective_is_false (PERF-based, Qed), an unused PROG_DOWTY / intended_completion definition, an unconditional progressive_subevent axiom, and a redundant perfective_entails_progressive_v2; (c) Imperfective2.v adds the conjunction theorem imperfective_paradox and renames the reading-scenario definitions. Imperfective2.v is the better file for the atlas: it compiles with 0 admits, drops dead definitions, and its header honestly says what it proves; but its 'improvement' over the duplicate is achieved by redefining the simple past as the perfect, and the duplicate's admitted-lemma comment (lines 340-348) is the more informative account of why the theory as written cannot derive the falsity of the simple past. Neither file imports the shared aspect layer extras/Aspect.v (which defines the identical PROG/PERF/subevent/culminates prelude); all three redeclare it. The file header (line 2) still reads 'ImperfectiveParadox.v'.",
+  "source_gap": "Dowty 1979 is present only as a 23-page front-matter PDF (title, Foreword, TOC): chapters 2, 3 and 7, where the imperfective paradox, interval semantics, the PROG truth condition, inertia worlds and the tense/perfect rules live, are missing (README.md line 104 records this). Dowty 1977 (L&P 1: 45-78), the original of ch. 3, is also not on disk. Montague 1973 and DWP 1981 are on disk in full but contain no analysis of the progressive (DWP pp. 115-116 disclaims one), so only the index/tense-operator baseline could be checked against a source. All statements above about Dowty's own definitions come from the TOC, the Foreword (p. vii), and general knowledge of the published text, and should be re-verified once the chapters are obtained.",
+  "notes": "Compiled with coqc 8.20.1 from the repo root: exit 0; only warnings are two 'Trying to mask the absolute name MontagueFragment' (shallow/MontagueFragment.v wraps its content in Module MontagueFragment). From Coq Require Import Classical Lia is unused (Print Assumptions shows no classical axiom). Propositional axioms (9): lt_trans, lt_irrefl, lt_total (18-20), subevent_refl, subevent_trans (31-32), culminates_sub (36), crossing_event_unique (135), progressive_subevent (219), reading_event_unique (266). Parameters (non-propositional): Event, AGENT, PATIENT, Time, lt, time_of, World, subevent, culminates, result_state, cross_street_ev, interrupt, accessible, read_ev. The two in-section Axioms and the in-section Parameters (accessible, read_ev) survive section closure as global constants, generalized over the section variables they mention. Sibling files on the same topic: extras/Aspect.v (PROG/PERF sentences, same prelude), extras/DowtyTense.v (tense layer)."
+}

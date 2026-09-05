@@ -1,0 +1,139 @@
+{
+ "file": "extras/additive.v",
+ "region": "focus and alternatives",
+ "summary": "Pilot sketch of Rooth's alternative semantics (1985, 1992) extended to Greek additive/exclusive operators (ke, mono) following an unidentified 'CSM&S' analysis: possible-worlds propositions, alternative sets as lists, pointwise application, a squiggle-style focus_interp, only/too semantics, a sisterhood-flagged mono/ke, Link-style DIST/COLL over parametric sum entities, a distributive-to-additive diachronic hypothesis as an unproved definition, and a toy syntactic-position table. The alternative-set generators are singleton stubs (the file's own comments say 'should be proper alternative set'), the FocusOperator record is uninhabited (its focus_sensitivity condition is self-contradictory at C = [p]), ke_conjunction's collective disjunct is trivially true (witness fun _ _ => True), and the single theorem (mono_ke_movement_asymmetry) is true by unfolding a hand-coded can_move table.",
+ "sources": [
+  {
+   "citation": "Rooth, M. (1985). Association with Focus. PhD dissertation, UMass Amherst.",
+   "path": "papers/foundations/Rooth_1985_AssociationWithFocus.pdf",
+   "available": "full"
+  },
+  {
+   "citation": "Rooth, M. (1992). A theory of focus interpretation. Natural Language Semantics 1:75-116.",
+   "path": "papers/foundations/Rooth_1992_TheoryOfFocusInterpretation.pdf",
+   "available": "full"
+  },
+  {
+   "citation": "'CSM&S' (cited only as such in the file's comments): analysis of Greek mono/ke with a sisterhood constraint on focus association, a mono-vs-ke movement asymmetry, and the hypothesis that additive ke arose from distributive ke misapplied to singulars; plausibly Spathas and colleagues on focus in Modern Greek, but the citation could not be verified and no PDF is in the papers directory.",
+   "path": null,
+   "available": "none"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "Proposition := World -> Prop; Parameters Entity, World",
+   "source": "Rooth's possible-worlds propositions over a domain of entities",
+   "match": "exact",
+   "note": "signature Parameters only, no propositional content"
+  },
+  {
+   "coq": "AlternativeSet A := list A; alt / entity_alternatives / prop_alternatives",
+   "source": "Rooth's focus semantic value: the set of alternatives obtained by substituting objects of matching type for the focused constituent",
+   "match": "changed",
+   "note": "degenerate: all three generators return the singleton of the ordinary value regardless of focus marking; the file's own comments admit 'Simplified - should be proper alternative set'. Focus value = {ordinary value} always, so focus is semantically inert"
+  },
+  {
+   "coq": "pointwise_alt (flat_map/map)",
+   "source": "Hamblin/Rooth pointwise functional application of alternative sets",
+   "match": "exact",
+   "note": "over lists rather than sets"
+  },
+  {
+   "coq": "focus_interp C p := In p C",
+   "source": "Rooth 1992's squiggle operator ~ (presupposes C is a subset of the focus value and contains the ordinary value)",
+   "match": "changed",
+   "note": "reduced to bare list membership stated as an ordinary Prop; no presupposition, no subset-of-focus-value constraint"
+  },
+  {
+   "coq": "Record FocusOperator {operator_meaning; focus_sensitivity}",
+   "source": "focus-sensitive operators (association with focus)",
+   "match": "added",
+   "note": "UNINHABITED: taking C = [p], focus_interp holds by In, and the field then demands operator_meaning [p] p <> operator_meaning [p] p, which is contradictory; no instance is (or can be) constructed"
+  },
+  {
+   "coq": "only_semantics / too_semantics",
+   "source": "Roothian 'only' (prejacent + exclusion of alternatives) and additive 'too' (prejacent + a distinct true alternative)",
+   "match": "simplified",
+   "note": "presuppositions flattened into truth-conditional conjuncts; alternative distinctness/exclusion via intensional inequality q <> p on World -> Prop functions"
+  },
+  {
+   "coq": "mono_semantics / ke_additive_semantics with sisterhood_satisfied : bool",
+   "source": "CSM&S sisterhood constraint on Greek association with focus",
+   "match": "changed",
+   "note": "a syntactic well-formedness condition is encoded as a boolean flag inside the truth conditions; failure of association denotes the false proposition"
+  },
+  {
+   "coq": "Parameters SumEntity, atom, sum; DIST; COLL; ke_conjunction; ke_double",
+   "source": "Link-style plural semantics behind distributive ke...ke vs plain ke conjunction",
+   "match": "changed",
+   "note": "no mereological axioms (atom/sum are bare signatures); ke_conjunction's collective disjunct 'exists P_sum, COLL P_sum sum_e w' is trivially true (witness fun _ _ => True), so plain-ke conjunction denotes the trivially true proposition; ke_double (DIST only) is the sensible half"
+  },
+  {
+   "coq": "singular_entity; distributive_to_additive",
+   "source": "CSM&S hypothesis: distributive ke misapplied to singulars yields the additive reading",
+   "match": "missing",
+   "note": "stated as an unproved Prop-valued definition, never asserted or established as a theorem; the headline diachronic claim is not formalized as a result"
+  },
+  {
+   "coq": "SyntacticPosition; sister; can_move; greek_association",
+   "source": "CSM&S syntactic distribution: mono can move, ke cannot; sisterhood positions",
+   "match": "changed",
+   "note": "hand-coded finite lookup tables; the empirical content is stipulated, not derived"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "mono_ke_movement_asymmetry",
+   "status": "proved",
+   "source_claim": "CSM&S's asymmetry that mono can move while additive ke cannot",
+   "note": "trivial by unfolding the hand-coded can_move table (both conjuncts close by auto); under rubric section 3 the verifier would exclude it from substantive counts. The section-8 comment 'Alternative semantics provides proper focus sensitivity' is followed by no theorem — the intended headline result was never written. Classical_Prop and FunctionalExtensionality are imported but unused by the proof"
+  }
+ ],
+ "counts": {
+  "theorems": 1,
+  "proved": 1,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "unfaithful",
+  "evidence": [
+   "The core construct of the source — the focus semantic value — is a singleton stub: alt returns cons s nil for both focused and unfocused input, and entity_alternatives/prop_alternatives likewise return singletons, with in-file comments conceding 'should be proper alternative set'; focus is therefore semantically inert, which is the negation of Rooth's theory.",
+   "The FocusOperator record meant to capture focus sensitivity is uninhabited: at C = cons p nil its focus_sensitivity field requires operator_meaning [p] p <> operator_meaning [p] p.",
+   "ke_conjunction's collective disjunct (exists P_sum, COLL P_sum sum_e w) is satisfied by fun _ _ => True at every world, making plain-ke conjunction trivially true.",
+   "The headline claims (focus sensitivity of alternative semantics; the distributive-to-additive development of ke) are stated only as a comment and an unproved definition; the sole Qed theorem verifies a hand-coded two-line movement table by unfolding."
+  ],
+  "simplifications": [
+   "presuppositions of only/too rendered as truth-conditional conjuncts",
+   "alternative sets as lists",
+   "sisterhood as a boolean flag inside truth conditions",
+   "alternative exclusion/distinctness via intensional inequality on World -> Prop functions"
+  ],
+  "omissions": [
+   "genuine alternative generation (substitution into the focused position)",
+   "the squiggle operator's presuppositional constraints (Rooth 1992)",
+   "any theorem about only/too semantics (entailments, additivity, projection)",
+   "mereological axioms for atom/sum",
+   "the distributive-to-additive derivation as a proved result"
+  ],
+  "additions": [
+   "the (uninhabited) FocusOperator record",
+   "the SyntacticPosition inventory with sister/can_move lookup tables"
+  ]
+ },
+ "determination": "not_applicable",
+ "determination_rationale": "A determination must be evidenced by a formalization (rubric section 4); this file supplies none. It is a skeleton whose alternative sets are degenerate singletons, whose focus-operator abstraction is contradictory, and whose only theorem is a trivial table lookup the section-3 verifier would exclude — so it evidences neither 'as-is' nor any resistance of Rooth's theory ('we did not manage' is not 'cannot'). Rooth 1985/1992 and the CSM&S analysis remain effectively unassessed pending a real formalization; per section 1 they should carry only the survey category.",
+ "artifact_classes": [
+  {
+   "class": "iv",
+   "description": "missing native structure: no presupposition machinery (only/too presuppositions flattened to assertions), no syntax-semantics interface (sisterhood becomes a boolean flag whose failure denotes falsity), lists standing in for alternative sets, and Link mereology reduced to unaxiomatized Parameters"
+  },
+  {
+   "class": "v",
+   "description": "identity/decidability gap: alternative exclusion and distinctness hinge on intensional inequality q <> p between World -> Prop functions, which is neither decidable nor the semantic (truth-conditional) equivalence the source's set-of-alternatives talk presumes"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Record produced by the 2026-09-05 batch audit sweep; pre-atlas pilot file predating the zero-axiom discipline (5 Parameter declarations, all pure type/constant signatures, so propositional_axioms = 0; Classical_Prop and FunctionalExtensionality imported but unused). Absolute path: /Users/graogro/Dropbox/revisiting-formal-semantics/extras/additive.v.",
+ "compiles": true
+}

@@ -1,0 +1,120 @@
+{
+  "file": "extras/Set_theoretic_Defs.v",
+  "region": "infrastructure",
+  "summary": "A 37-line helper module that re-implements naive set theory over a type `e` of entities as Prop-valued predicates: membership (In_s), intersection, union, inclusion, strict inclusion and emptiness. It imports Coq.Sets.Ensembles but uses none of it. It contains no theorems, no lemmas and no axioms, and is consumed only by extras/Champollion.v and extras/champollion_full.v. Its one real defect is `Definition e := Type` (line 9), which makes every 'entity' a Type (the probe `Check (nat : e)` succeeds), and its `Empty_set` (line 30) shadows both Datatypes.Empty_set and Ensembles.Empty_set for every importer.",
+  "sources": [
+    {
+      "citation": "None. Helper definitions only: textbook naive set theory (membership, intersection, union, subset, proper subset, empty set) encoded as Prop-valued predicates. The file header (lines 2-3) claims nothing beyond 'Provides the basic set operations used in Champollion.v'.",
+      "available": "missing"
+    },
+    {
+      "citation": "Downstream only, not a source for this file: Champollion, L. (2010) Parts of a Whole (dissertation) / (2017) Parts of a Whole (OUP). This is the source of the two consumers Champollion.v and champollion_full.v, which refer to it e.g. as 'Champollion 45'.",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Champollion_2017_PartsOfAWhole.pdf (also Champollion_2010_PartsOfAWhole_Dissertation.pdf and Champollion_2017_PartsOfAWhole_Excerpts.pdf in the same directory)",
+      "available": "full"
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "e (line 9): Definition e := Type.",
+      "source": "The domain of individuals D_e (type e) of standard Montagovian / Champollion semantics.",
+      "match": "changed",
+      "note": "Not an abstract type of individuals but the universe Type@{e.u0} itself. Probe output: `e : Type@{e.u0+1}`, `nat : e`, `bool : e`. So every 'entity' x : e in Champollion.v is a Type, and SetOfEntities is a predicate on Types (`SetOfEntities : Type@{max(Set+1,e.u0+1)}`). The intended encoding is `Parameter e : Type` (or `Set`). Downstream code never constructs a concrete entity (man, woman, beer, have are all Parameters), so the collapse is silent."
+    },
+    {
+      "coq": "SetOfEntities (line 10): e -> Prop",
+      "source": "P(D_e), the powerset of the domain / characteristic functions of type <e,t>.",
+      "match": "exact",
+      "note": "Standard predicate encoding of sets; inherits the e := Type problem."
+    },
+    {
+      "coq": "In_s (line 14): fun P x => P x",
+      "source": "x ∈ P",
+      "match": "exact",
+      "note": "Trivial wrapper; identical to Ensembles.In except for the argument order and name. Used by Champollion.v line 3 and champollion_full.v line 74 (ER)."
+    },
+    {
+      "coq": "intersection (line 16): fun x => P x /\\ Q x",
+      "source": "P ∩ Q",
+      "match": "exact",
+      "note": "Same as Ensembles.Intersection modulo inductive vs. conjunction encoding. Used in ER in both consumers."
+    },
+    {
+      "coq": "union (line 19): fun x => P x \\/ Q x",
+      "source": "P ∪ Q",
+      "match": "exact",
+      "note": "Defined but never used by either consumer (grep of Champollion.v and champollion_full.v finds no occurrence)."
+    },
+    {
+      "coq": "included (line 23): forall x, P x -> Q x",
+      "source": "P ⊆ Q",
+      "match": "exact",
+      "note": "Same as Ensembles.Included. Used in PDIST (Champollion.v line 29, champollion_full.v line 106)."
+    },
+    {
+      "coq": "strict_included (line 26): included P Q /\\ exists x, Q x /\\ ~ P x",
+      "source": "P ⊊ Q",
+      "match": "exact",
+      "note": "Correct proper-subset definition (Ensembles' Strict_Included instead uses P <> Q, which is weaker without extensionality). Used in the minimality operator MIN (Champollion.v line 18, champollion_full.v line 48)."
+    },
+    {
+      "coq": "Empty_set (line 30): forall x, ~ P x",
+      "source": "P = ∅ (emptiness predicate on a set)",
+      "match": "changed",
+      "note": "Semantically fine as an emptiness predicate, but the name shadows Coq.Init.Datatypes.Empty_set (the empty inductive type) and Coq.Sets.Ensembles.Empty_set in every module that does `Require Import Set_theoretic_Defs` (probe: `Locate Empty_set` lists Set_theoretic_Defs.Empty_set first). Used in PDIST via `not (Empty_set P)`."
+    },
+    {
+      "coq": "Global Arguments In_s P x; Global Arguments intersection P Q x (lines 35-36)",
+      "source": "n/a",
+      "match": "added",
+      "note": "Only asserts argument names; triggers the `arguments-assert` warning at compile time. The header comment 'Make sure e is recognized as a Type' describes nothing these commands do."
+    },
+    {
+      "coq": "Require Import Coq.Sets.Ensembles (line 6)",
+      "source": "n/a",
+      "match": "added",
+      "note": "No definition in this file uses Ensembles. The import survives only because Champollion.v line 18 writes `Ensembles.In _ Q P` alongside this file's `strict_included`, so the two set vocabularies are mixed downstream. Mixing them adds the universe constraint `e.u0 < Coq.Sets.Ensembles.1` (probe)."
+    }
+  ],
+  "theorems": [],
+  "counts": {
+    "theorems": 0,
+    "proved": 0,
+    "admitted": 0,
+    "propositional_axioms": 0
+  },
+  "faithfulness": {
+    "verdict": "not_applicable",
+    "evidence": [
+      "The file claims no source; its header (lines 2-3) says only that it provides basic set operations for Champollion.v, so there is no text to be faithful to.",
+      "Relative to ordinary set theory the six operations at lines 14-31 are the standard predicate encodings (membership, ∩, ∪, ⊆, ⊊, ∅) and are correct as stated.",
+      "Line 9 `Definition e := Type` is the one substantive slip: the probe `Check (nat : e)` succeeds, so the 'entities' quantified over in ER, MIN and PDIST of the consumers are types, not individuals. This does not break any consumer (they only use Parameters over e), but it is not a model of a domain of individuals.",
+      "Compile: `coqc -R shallow \"\" -R deep \"\" -R extras \"\" -R ttr_mtt \"\" -R atlas \"\" extras/Set_theoretic_Defs.v` exits 0 with one `arguments-assert` warning at line 35.",
+      "No lemma is stated, so none of the expected algebraic facts (reflexivity/transitivity of included, irreflexivity of strict_included, intersection P Q ⊆ P, etc.) are verified here or, per grep, anywhere downstream."
+    ],
+    "omissions": [
+      "No lemmas at all: the file provides definitions without a single proved property.",
+      "No complement, difference, singleton, or big union/intersection, which Champollion's mereological and choice-function machinery (e.g. champollion_full.v's CF at line 15) would ordinarily draw on; the consumers instead reach for raw exists/forall."
+    ],
+    "additions": [
+      "Unused `union` (line 19).",
+      "Unused `Require Import Coq.Sets.Ensembles` (line 6).",
+      "Name-asserting `Global Arguments` commands (lines 35-36) that do nothing beyond triggering a warning."
+    ],
+    "simplifications": [
+      "Sets are Prop-valued predicates rather than Ensembles or a mereological part structure; adequate for the two consumers, which only need ∩, ⊆, ⊊ and non-emptiness."
+    ]
+  },
+  "determination": "not_applicable",
+  "determination_rationale": "Pure infrastructure with no source theory of its own: it encodes six textbook set-theoretic operations as predicates and proves nothing. Formalizability of Champollion's theory is a question for the records of Champollion.v and champollion_full.v, which consume this file. What this file does evidence is that the naive-set fragment those consumers need (membership, intersection, subset, proper subset, non-emptiness) is trivially expressible in Coq; the only encoding mishap, `e := Type`, is a one-line authoring error, not a limitation of the type theory.",
+  "artifact_classes": [
+    {
+      "class": "ii",
+      "description": "Universe-level / type-value collapse actually incurred at line 9: `Definition e := Type` makes the type of entities a universe, so inhabitants of e are types (`nat : e`, `bool : e` typecheck) and SetOfEntities lives at Type@{max(Set+1,e.u0+1)}. Combining this e with Ensembles.In (as Champollion.v line 18 does) forces the universe constraint e.u0 < Coq.Sets.Ensembles.1. The intended encoding was an opaque `Parameter e : Type`."
+    }
+  ],
+  "compiles": true,
+  "duplicate_of": "",
+  "duplicate_note": "No other file in the repository defines this set-theoretic vocabulary (grep for In_s / strict_included / Set_theoretic_Defs finds only the two consumers). Champollion.v and champollion_full.v are consumers, not duplicates; their mutual overlap belongs to the candidate group [Champollion.v, champollion_full.v] and to those files' records. The closest overlap is with the standard library's Coq.Sets.Ensembles (In / Intersection / Union / Included / Strict_Included / Empty_set), which this file imports and then re-implements under lowercase names; Ensembles is the better-engineered version except that this file's strict_included (witness-based) is stronger than Ensembles' Strict_Included (P <> Q) in the absence of extensionality.",
+  "source_gap": "Not a gap: the file names no source and the task confirms it is a helper with none. For completeness, the downstream consumers' source (Champollion, Parts of a Whole, 2010 dissertation and 2017 OUP book) is fully on disk under papers/foundations/.",
+  "notes": "Two hazards for importers worth recording even though they are not among the five artifact classes: (1) `Empty_set` (line 30) shadows Coq.Init.Datatypes.Empty_set and Coq.Sets.Ensembles.Empty_set in any module that imports this file; (2) `In_s` differs from Ensembles.In only by name and the omitted universe argument, so a module mixing the two (Champollion.v does) carries two notions of membership that are not definitionally connected. Compile-time warning: line 35 `Global Arguments In_s P x` and line 36 are pure name assertions (Coq suggests `: assert`). The file was verified with a scratch probe (`Print e`, `Check (nat : e)`, `Locate Empty_set`, `Print` of each definition) compiled against the installed .vo; the target file itself was not modified."
+}

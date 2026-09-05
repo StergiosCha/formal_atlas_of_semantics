@@ -1,0 +1,205 @@
+{
+  "file": "extras/champollion_full.v",
+  "region": "model-theoretic (plurals/coordination: Boolean set-based semantics with choice functions; the region hint 'mereology/events' does not fit this file, which has no part structure and no events)",
+  "summary": "A 110-line file (over the 37-line helper extras/Set_theoretic_Defs.v) that transcribes the silent-operator toolkit of Champollion (2016), 'Ten men and women got married today: noun coordination and the intersective theory of conjunction' (J. Semantics 33(3)), which in turn is lifted from Winter (2001): choice-function type choiceF and predicate CF (lines 13-16), a three-element index type idx with a global assignment Parameter g : idx -> choiceF (22-24), Choice Raising CR i N P := P (g i N) (30-32), intersective 'and' INT (38-41), Winter's Minimization MIN (47-48), Choice Closure CC as an Inductive with a one-line destruct lemma (55-61), lexical Parameters man/woman/date/beer/have (67-68, 99-100), Existential Raising ER (74, defined but unused), the NP 'man and woman' as MIN (CR i1 Man INT CR i2 Woman) (80-81), the determiner 'a' as existential raising over sets (87-88), a collective 'dated' (90) and Predicate Distributivity PDIST with 'have a beer' (102-106). Its only outputs are two 'Eval cbv beta delta' unfoldings (92-93, 108-109) of 'a NP_pair dated' and 'a NP_pair (PDIST have_a_beer)', i.e. the paper's (57c)-(57d) NP under a fixed assignment fed to the (24)/(29)-style predicates. The operator definitions are literal one-line transcriptions of (12), (14)/(16), (19b), (23), (27), (28a), (46), (48)-(49), but: the entity type is the universe Type itself (e := Type in the helper); 'dated' is mistyped as an individual-level predicate and provably ignores its argument; CR drops the definedness condition N != {} and nothing asserts CF (g i); Choice Closure is defined but never applied, so both derivations stop at (57d) with free choice-function variables instead of reaching (57f)-(57h)/(29f). The single lemma (CC_destruct) verifies no claim of the source. Neither of the two nominated primary sources (Parts of a Whole 2017/2010) contains any of this material.",
+  "sources": [
+    {
+      "citation": "Champollion, L. (2016) 'Ten men and women got married today: noun coordination and the intersective theory of conjunction', Journal of Semantics 33(3): 561-622, doi:10.1093/jos/ffv008. The actual source of every construct in the file. NOT under papers/; the only on-disk copy, /Users/graogro/Dropbox/formal_semantics_coq/2016-noun-coordination.pdf, is a 0-byte placeholder ('file' reports 'empty'; pdftotext: 'Document stream is empty'). For this audit the author's final pre-publication version (lingbuzz/002025, 'Final pre-publication version, June 2015', 46 pp.) was fetched and text-extracted; example numbers below are the preprint's. Relevant loci: sec.2.2 (12) Existential Raising, (13), (14)-(16) INT and the intersective theory of and, (17) generalized conjunction, (18) ER(man) and ER(woman), (19a/b) Minimization, (20) MIN(ER(man) and ER(woman)) = mw-pair (10); sec.2.3 (21) 'A man and woman who dated met in the park', (22a) [[dated]] = lambda P_et. date(P), (22b) met, (23) [[a]], (24) hydra derivation, (25) 'A man and woman had a beer', (27) PDIST, (28a-b) have a beer, (29a-f) derivation; sec.3.1 (35) LIFT; sec.4.2 (45) [[some_i]]^g with definedness condition and 'where g(i) is a choice function', (46) Choice Raising CR_i, (47) Predicate Abstraction, (48)-(50) Choice Closure and the CF gloss, (51)-(55) John and some man; sec.4.3 (41) 'A doctor and lawyer met', (56) LF, (57a-h) derivation, (58); sec.5.2-5.3 (71)-(72) plurals via PDIST, (74)-(76) mixtures, (78)-(80) DCR.",
+      "path": "/Users/graogro/.claude/projects/-Users-graogro-Dropbox-formalizing-formal-semantics/c34891d7-ce39-4399-ad0f-31b3588ae898/tool-results/webfetch-1788582438035-4ob7oj.pdf",
+      "available": "missing"
+    },
+    {
+      "citation": "Champollion, L. (2017) Parts of a Whole: Distributivity as a Bridge between Aspect and Measurement, OUP (corrected proof, 331 pp.). Nominated as primary source but is not the source of anything in this file. Verified by grep of the full text layer: 'choice function' occurs only in the bibliography entry for Winter 1997; no PDIST, INT, CR, Choice Closure, 'man and woman', 'have a beer'; 'MIN' occurs only as min(V), a truthmaker-style minimal-event operator in the stratified-reference discussion around (46)-(47) of the aspect chapter (text-layer lines 9386-9391), unrelated to Winter's set minimization. The single contact point is one sentence in Ch. 8 'Overt distributivity' beside (101) (text-layer lines 11722-11727): the author remains 'noncommittal' between a sum-based and and 'an intersective denotation that involves Montague-lifting the two event predicates and then minimizing their intersection, as in Winter (2001) and Champollion (2015d, 2016d)'.",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Champollion_2017_PartsOfAWhole.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Champollion, L. (2010) Parts of a Whole: Distributivity as a Bridge between Aspect and Measurement, PhD dissertation, UPenn. Nominated as primary source; contains nothing relevant (grep of the text layer finds no choice functions, MIN, PDIST, INT, coordination of nouns; 'Winter (1997)' appears only in the bibliography).",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Champollion_2010_PartsOfAWhole_Dissertation.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Winter, Y. (2001) Flexibility Principles in Boolean Semantics, MIT Press. Origin of every operator the file encodes, cited by Champollion 2016 at each definition: E (= ER) p.53, MIN p.53, choice raising p.111, CF p.110, existential choice closure p.131, PDIST p.209, collective predicates as properties of sets ch.2. Not on disk.",
+      "available": "missing"
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "Set_theoretic_Defs (dependency): e := Type (line 9); SetOfEntities := e -> Prop; In_s, intersection, union, included, strict_included, Empty_set (lines 14-31)",
+      "source": "Domain of individuals D_e; sets as characteristic functions of type et with 'x in P interchangeable with P(x)' (Champollion 2016 sec.2.2, p.6); proper subset in (19b); P != {} in (27)",
+      "match": "changed",
+      "note": "e is the universe Type itself, not an abstract domain: probe 'Check (nat : e)' succeeds and 'g i1 Man : e' is a Type. Every 'exists x : e' in this file quantifies over types. The set operations themselves are the intended ones (strict_included is a witness-based proper subset; Empty_set P is forall x, ~P x and shadows Datatypes.Empty_set / Ensembles.Empty_set, per 'Locate Empty_set')."
+    },
+    {
+      "coq": "choiceF := (e -> Prop) -> e (line 13)",
+      "source": "Type <et,e> of choice functions, (45)-(48)",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "coq": "CF f := forall N, (exists x, N x) -> N (f N) (lines 15-16)",
+      "source": "CF gloss after (48): 'holds of any function f of type <et,e> iff ... for any nonempty set N of type et, we have f(N) in N' (Winter 2001 p.110)",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "coq": "Inductive idx := i1 | i2 | i3; Parameter g : idx -> choiceF (lines 22-24)",
+      "source": "The variable assignment g that 'maps the index of a given occurrence some_i to a choice function of type <et,e>', indices being natural numbers (sec.4.2, (45)-(46)), shifted by predicate abstraction (47)",
+      "match": "changed",
+      "note": "g is a closed global constant rather than a parameter of the interpretation function, so g[i -> f] (47) cannot be expressed; nothing asserts CF (g i) although the source stipulates 'where g(i) is a choice function' (probe: the goal CF (g i1) is not closable by assumption/auto/eauto/firstorder). Three indices instead of N; i3 unused."
+    },
+    {
+      "coq": "CR i N P := P (g i N); Notation '[[ N ]]^c i' (lines 30-32); header comment 'Champollion 45'",
+      "source": "(46) Choice Raising [[CR_i]]^g = lambda N_et : N != {}. lambda P_et. P(g(i)(N)), identical in body to (45) [[some_i]]^g (the comment's '45' points at the some_i entry)",
+      "match": "simplified",
+      "note": "Body transcribed literally, but the partial-function definedness condition 'lambda N : N != {}' is dropped (the source says it 'will do real work', e.g. making man and woman fail to denote in all-male models, p.17-18), and the CF requirement on g(i) is not imposed. CR is therefore a total function of an unconstrained g."
+    },
+    {
+      "coq": "INT Q R X := Q X /\\ R X; Notation Q ∧̂ R (lines 38-41)",
+      "source": "(14) [[INT]] = lambda P_tt lambda Q_tt lambda x_t. x in P /\\ x in Q; (16) [[and]] = [[INT]]; used at tau = et in (18a) and (57c)",
+      "match": "exact",
+      "note": "Fixed at type ((e->Prop)->Prop); the polymorphic tau and the recursive (17) are not encoded."
+    },
+    {
+      "coq": "MIN Q P := Q P /\\ forall P', strict_included P' P -> ~ Q P' (lines 47-48)",
+      "source": "(19b) [[MIN]] = lambda Q lambda P. P in Q /\\ forall P' [P' proper-subset P -> not (P' in Q)] (Winter 2001 p.53)",
+      "match": "exact",
+      "note": "The comment 'reused verbatim' refers to Champollion.v line 18, whose MIN is the same modulo Ensembles.In."
+    },
+    {
+      "coq": "Inductive CC (A : choiceF -> (e->Prop)->Prop) : (e->Prop)->Prop := cc_intro f P : CF f -> A f P -> CC A P; Lemma CC_destruct (lines 55-61)",
+      "source": "(49) Choice Closure at type <et,t>: [[exists]] = lambda A_<<et,e>,<et,t>> lambda P_et. exists f [CF(f) /\\ A(f)(P)] (Winter 2001 p.131)",
+      "match": "exact",
+      "note": "A faithful inductive encoding of the existential; CC_destruct recovers the (49) form. But CC is applied nowhere: the exists2/exists1 steps (57e)-(57f) are absent, and could not be taken on NP_pair as written because g is a global constant, not an abstractable assignment. No strict-positivity issue arises (A is a parameter, not recursive)."
+    },
+    {
+      "coq": "Parameter man woman : e -> Prop; Man := fun x => man x; Woman (lines 67-71)",
+      "source": "Lexical entries [[man]], [[woman]] of type et (sec.2)",
+      "match": "exact",
+      "note": "Man/Woman are eta-expansions."
+    },
+    {
+      "coq": "ER P Q := exists x, In_s (intersection P Q) x (line 74)",
+      "source": "(12) Existential Raising [[ER]] = lambda P lambda Q. exists x [x in (P ∩ Q)] (Winter's E, p.53)",
+      "match": "exact",
+      "note": "Defined 'as in user code' (= Champollion.v line 3) but never used in this file, so the ER-based derivations (18)-(20), (24), (29) are not reproduced here."
+    },
+    {
+      "coq": "NP_pair := MIN ((CR i1 Man) ∧̂ (CR i2 Woman)) (lines 80-81)",
+      "source": "(57c) [[and]]^g(CR1 doctor)(CR2 lawyer) = lambda P. P(g(1)(doctor)) /\\ P(g(2)(lawyer)); (57d) [[MIN]]^g(57c) = lambda P. P = {g(1)(doctor)} ∪ {g(2)(lawyer)}, with man/woman for doctor/lawyer (the CR analogue of (20)/(10) mw-pair)",
+      "match": "simplified",
+      "note": "Stops at (57d). Without the closure steps (57e)-(57f) the meaning depends on the free assignment g and is not (20c)/(57f) 'exists x exists y [man x /\\ woman y /\\ P = {x,y}]'. The source's collapse of the MIN clause to 'P = {..} ∪ {..}' needs set extensionality, which the file (reasonably) does not attempt."
+    },
+    {
+      "coq": "a P Q := exists X, P X /\\ Q X, with P Q : (e->Prop)->Prop (lines 87-88)",
+      "source": "(23) [[a]] = lambda P_tt lambda Q_tt. exists x_t [x in (P ∩ Q)] at tau = et ('a denotes the same thing as Existential Raising')",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "coq": "Parameter date : e -> Prop; dated P := exists z, date z (lines 68, 90)",
+      "source": "(22a) [[dated]] = lambda P_et. date(P), date being a property of sets (collective predicates 'represented as properties of sets (Winter, 2001, ch. 2)')",
+      "match": "changed",
+      "note": "Wrong type and wrong content: date ranges over individuals and dated ignores its set argument (probe: 'forall P Q, dated P <-> dated Q' is proved by tauto). Champollion.v lines 20-21 had it right (Parameter date : (e->Prop)->Prop; dated := date). The first Eval thus states only 'there is a man-woman pair, and something dated'."
+    },
+    {
+      "coq": "Eval cbv beta delta [...] in (a NP_pair dated) (lines 92-93)",
+      "source": "Closest: (24) [[a(MIN(ER(man) and ER(woman)) who dated)(met)]] for the hydra (21) 'A man and woman who dated met in the park', or its sec.4.3 CR analogue (57g)-(57h)",
+      "match": "changed",
+      "note": "Not a sentence of the source: no 'met', no intersective relative clause (mw-pair ∩ date), CR under fixed g instead of ER or closed CR, and dated broken as above. Printed result: exists X, (X (g i1 man) /\\ X (g i2 woman) /\\ forall P', strict_included P' X -> ~(P' (g i1 man) /\\ P' (g i2 woman))) /\\ exists z, date z."
+    },
+    {
+      "coq": "Parameter beer : e -> Prop; have : e -> e -> Prop; have_a_beer x := exists y, beer y /\\ have x y (lines 99-103)",
+      "source": "(28a) [[have a beer]] = lambda x. exists y [beer(y) /\\ have(x,y)]",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "coq": "PDIST P' P := ~ Empty_set P /\\ included P P' (lines 105-106)",
+      "source": "(27) Predicate Distributivity [[PDIST]] = lambda P'_et lambda P_et. P != {} /\\ P ⊆ P' (Winter 2001 p.209); (28b) PDIST(have a beer)",
+      "match": "exact",
+      "note": "~Empty_set P is ~(forall x, ~P x), classically P != {} (intuitionistically weaker than exists x, P x)."
+    },
+    {
+      "coq": "Eval cbv beta delta [...] in (a NP_pair (PDIST have_a_beer)) (lines 108-109)",
+      "source": "(29) [[a(MIN(ER(man) and ER(woman)))(PDIST(had a beer))]] for (25) 'A man and woman had a beer'",
+      "match": "simplified",
+      "note": "Same shape as (29c)-(29d) but with the unclosed CR-based NP under fixed g, so it does not reduce to (29f) 'exists x exists y [man x /\\ woman y /\\ each had a beer]'. Printed result ends '... /\\ ~ Empty_set X /\\ included X (fun x => exists y, beer y /\\ have x y)'."
+    },
+    {
+      "coq": "(absent) definedness condition lambda N : N != {}; CF(g(i)) requirement; Predicate Abstraction (47); application of Choice Closure (57e)-(57f) and closed meanings (57g)-(58); LIFT (35); generalized conjunction (17); [[met]] (22b); plurals via PDIST (71)-(72); mixtures (74)-(76); DCR (78)-(80); sec.6 and/or; sec.7 Heycock & Zamparelli comparison",
+      "source": "Champollion 2016 secs.2.3, 3.1, 4.2-4.4, 5, 6, 7",
+      "match": "missing",
+      "note": "The file covers the operator inventory of secs.2 and 4.2 only and applies it to one NP under a fixed assignment."
+    }
+  ],
+  "theorems": [
+    {
+      "name": "CC_destruct",
+      "status": "proved",
+      "source_claim": "new (bookkeeping): CC A P -> exists f, CF f /\\ A f P, i.e. the Inductive CC unfolds to the existential form of Choice Closure (49)",
+      "note": "One-line inversion (lines 59-61); 'Print Assumptions CC_destruct' reports 'Closed under the global context'. No claim of the source is verified anywhere; the file's substantive output is the two Eval commands, which only unfold definitions."
+    }
+  ],
+  "counts": {
+    "theorems": 1,
+    "proved": 1,
+    "admitted": 0,
+    "propositional_axioms": 0
+  },
+  "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+      "Operator definitions are literal transcriptions of Champollion 2016 (preprint numbering): CF (lines 15-16) = the CF gloss under (48); INT (38-39) = (14)/(16) at tau = et; MIN (47-48) = (19b) with strict_included as proper subset; CC (55-56) = (49); a (87-88) = (23) at tau = et; ER (74) = (12); PDIST (105-106) = (27); have_a_beer (102-103) = (28a).",
+      "CR (lines 30-31) reproduces the body P(g(i)(N)) of (45)/(46) but omits the definedness condition 'lambda N : N != {}' and the side condition 'where g(i) is a choice function'; no CF (g i) hypothesis exists in the file (grep) and the goal CF (g i1) is not provable in a scratch probe.",
+      "NP_pair (lines 80-81) is (57c)-(57d) with man/woman for doctor/lawyer, but the Choice Closure steps exists2 (57e) and exists1 (57f) are never taken; CC is defined (55-61) and applied nowhere, so both derived meanings depend on the free global g.",
+      "dated (line 90) contradicts (22a): the source's date is a property of sets; the Coq date : e -> Prop and dated P := exists z, date z ignores P (scratch lemma 'forall P Q, dated P <-> dated Q' closes by tauto, assuming only the Parameter date). The predecessor Champollion.v (lines 20-21) typed it correctly.",
+      "The first Eval (lines 92-93) is not the source's (24): 'met' and the relative-clause intersection mw-pair ∩ date are missing; the second Eval (108-109) has the shape of (29c-d) except for the unclosed CR-based NP, and does not reach (29f).",
+      "e := Type (Set_theoretic_Defs line 9) makes the domain of individuals a universe: 'Check (nat : e)' succeeds and 'g i1 Man : e' is a Type, whereas the source's D_e is a set of individuals.",
+      "No source claim is stated as a theorem: nothing shows NP_pair X <-> (X = {g i1 Man, g i2 Woman}) (57d), nothing shows the local equivalence of closed CR with ER noted on p.17 (Reinhart 1997), nothing evaluates a model such as (54).",
+      "The two nominated sources (Parts of a Whole 2017 and 2010) contain none of the file's constructs; the 2017 book's only contact is one sentence in Ch. 8 'Overt distributivity' beside (101) deferring to Winter (2001) and Champollion (2015d, 2016d). Compile: exit 0 under Coq 8.20.1, no warnings, two Eval outputs printed."
+    ],
+    "omissions": [
+      "Application of Choice Closure to the NP (57e)-(57f) and the resulting closed meanings (57g)-(57h), (58), (51)-(55)",
+      "Definedness condition N != {} of some_i/CR_i (45)-(46) and its consequence that man and woman fails to denote in all-male/all-female models",
+      "Requirement CF(g(i)) on the assignment; Predicate Abstraction (47) and assignment shifting",
+      "LIFT (35) and the John-and-some-man derivation (51)-(55); the ER-based derivations (18)-(20), (24), (29) (ER is defined but unused)",
+      "The source's target sentences with 'met' (21)/(24), (41)/(56)-(58); [[met]] (22b)",
+      "Distributive Choice Raising (78)-(80), plurals via PDIST (71)-(72), man-woman mixtures (74)-(76), and/or (sec.6), the Heycock & Zamparelli comparison (sec.7), generalized conjunction (17)",
+      "Any theorem about the constructions"
+    ],
+    "additions": [
+      "Inductive encoding of Choice Closure (CC) plus CC_destruct (lines 55-61), introduced 'to enable structural proofs' that never follow",
+      "Finite index type idx := i1 | i2 | i3 (line 22) in place of natural-number indices; i3 unused",
+      "The degenerate individual-level 'date' with a constant 'dated' (lines 68, 90)",
+      "The unicode notations [[ N ]]^c i and ∧̂ (lines 32, 41)"
+    ],
+    "simplifications": [
+      "All operators fixed at tau = e / et instead of the source's polymorphic tau",
+      "Assignment g as a global Parameter instead of a parameter of the interpretation function",
+      "Total CR instead of the source's partial function",
+      "MIN left in its (19b) quantifier form rather than collapsed to 'P = {x} ∪ {y}' as in (57d)/(20c), which would require set extensionality"
+    ]
+  },
+  "determination": "slight_modification",
+  "determination_rationale": "The algebraic core of the Winter/Champollion account, ER, INT, MIN, PDIST, CF, the determiner a, and collective predicates as properties of sets, consists of closed lambda-terms over sets-as-predicates, and each transfers to Coq as a one-line Definition with no encoding trick (lines 15-16, 38-39, 47-48, 74, 87-88, 105-106 are (48), (14), (19b), (12), (23), (27) verbatim). What does not go through as written is the binding layer of sec.4.2: Choice Raising is interpreted relative to a Heim-Kratzer assignment g, is a partial function guarded by N != {}, and is bound by Predicate Abstraction (47) plus Choice Closure (48)-(50). The file's response, a global Parameter g (line 24) with a total CR (line 30), leaves the choice-function variables free and makes the closure steps (57e)-(57f) inexpressible on NP_pair, which is why CC (lines 55-61) sits unused. A faithful rendering needs only a mild restructuring: make CR take the choice function (or the assignment) as an explicit argument so that CC can bind it, add CF (g i) as a hypothesis, encode the definedness condition as a side condition or a sigma-type, and assume set extensionality if the (57d)/(20c) identities are to be proved. None of this changes the theory, so slight_modification rather than as_is; the file's own gaps show the assignment/partiality layer does not transfer verbatim.",
+  "artifact_classes": [
+    {
+      "class": "ii",
+      "description": "Universe-level / type-value collapse actually incurred: Set_theoretic_Defs line 9 defines the entity type as the universe itself (Definition e := Type), so individuals are types ('nat : e' typechecks), choice functions have type (Type -> Prop) -> Type, and 'exists x : e' in CF, ER, have_a_beer and strict_included ranges over a universe rather than a domain of individuals. Every construct in champollion_full.v inherits this."
+    },
+    {
+      "class": "iii",
+      "description": "Computational opacity: g, man, woman, date, beer, have are opaque Parameters and the file's only outputs are 'Eval cbv beta delta' unfoldings (lines 92-93, 108-109) that expand definitions without deciding or simplifying anything; the source's model computation (54) {{j},{j,b},{j,s}} and its reduced truth conditions (24d), (29f), (58) cannot be reproduced or checked."
+    },
+    {
+      "class": "iv",
+      "description": "Missing native structure: no counterpart to the Heim-Kratzer assignment g, index nodes and Predicate Abstraction (47), nor to partial functions 'lambda N : N != {}. ...' of (45)-(46). The file substitutes a global Parameter g and a total CR, dropping the definedness and CF(g(i)) side conditions, and thereby cannot express the Choice Closure steps (57e)-(57f); the Inductive CC is left unapplied."
+    }
+  ],
+  "compiles": true,
+  "duplicate_of": "extras/Champollion.v",
+  "duplicate_note": "Both files formalize the sec.2-4 toolkit of Champollion 2016 over the same Set_theoretic_Defs, with the same examples ('a man and woman dated', 'had a beer'). Champollion.v (39 lines) has ER, INT/and, MIN (via Ensembles.In), a, date : (e->Prop)->Prop, dated, PDIST, have_a_beer and Check/Eval derivations of ER-based NPs, i.e. exactly the source's (18)-(20), (24)-minus-met and (29); its closing comment says choice closure 'needs probably an inductive type'. champollion_full.v is its successor: it adds CF, idx, g, CR (45)/(46), CC (49) with CC_destruct, notations and section headers, switches the NP to the CR-based (57c-d), keeps ER unused, and regresses date to an individual-level constant. champollion_full.v is the better file to keep (strict superset of operators, the only proof, the only one reaching sec.4), but it should take back Champollion.v's typing of date/dated, and until Choice Closure is actually applied Champollion.v's ER-based Evals are the more faithful rendering of the source's final meanings (20c), (29f).",
+  "source_gap": "The primary source is missing from papers/. The two nominated sources, Champollion 2017 Parts of a Whole (OUP) and the 2010 dissertation, are on disk in full but are not the source of anything in this file: neither contains choice functions, CR, Choice Closure, Winter's MIN over quantifiers, PDIST, INT, 'a man and woman', or 'have a beer' (the book's only 'choice function' hit is the Winter 1997 bibliography entry; its only contact is one sentence in Ch. 8 beside (101) deferring to Winter 2001 / Champollion 2016d; its 'min(V)' near (47) of the aspect chapter is a different, event-minimality operator). The actual source, Champollion 2016 'Ten men and women got married today', J. Semantics 33(3): 561-622, exists on disk only as a 0-byte placeholder at /Users/graogro/Dropbox/formal_semantics_coq/2016-noun-coordination.pdf; the June 2015 final pre-publication version (lingbuzz/002025) was fetched for this audit and every construct in the file was matched against it. Winter 2001, the origin of every operator, is also not on disk. Recommend adding Champollion 2016 (and ideally Winter 2001) to papers/foundations, re-pointing this file's source metadata, and relabelling the region (it is Boolean plural semantics, not mereology/events).",
+  "notes": "Compiles with 'coqc -R shallow \"\" -R deep \"\" -R extras \"\" -R ttr_mtt \"\" -R atlas \"\" extras/champollion_full.v' under Coq 8.20.1, exit 0, no warnings; the two Eval outputs are printed at compile time. The header comment's 'Champollion 45' refers to the some_i entry (45), whose body coincides with CR (46). Set Implicit Arguments makes the choice function f implicit in cc_intro ('About cc_intro' shows [f : choiceF]). Empty_set in PDIST resolves to Set_theoretic_Defs.Empty_set, not Datatypes/Ensembles.Empty_set. The comments 'ER as in user code' and 'MIN reused verbatim' refer to Champollion.v. The six Parameters (g, man, woman, date, beer, have) are non-propositional and are the only global assumptions. Auxiliary checks (Print e, Check (nat : e), Print Assumptions CC_destruct, Lemma dated_const, the unprovability probe for CF (g i1), Locate Empty_set) were compiled in scratch files against the built .vo and not added to the repository; the target file was not modified."
+}

@@ -1,0 +1,126 @@
+{
+ "file": "ttr_mtt/TTR_records.v",
+ "region": "ttr pilots",
+ "summary": "Records and record types from Cooper (2023) Appendix A11: distinguished labels and a boolean record well-formedness check (A11.1); record types as lists of plain or dependent fields, with dependent fields as shallow Coq functions (Val -> TTRType) plus a path list (A11.2); an inductive witnessing relation witnesses_rt over a TTRModel; a 'simple' merge (A11.3) that on shared labels keeps rt2's field rather than taking the meet; linguistic record types (man_runs, john_tall, dog_chases_cat) with chase(x,y) downgraded to a 0-ary ptype because multi-path dependencies are unsupported; one worked witnessing example (john_witnesses_ind_rt) and one trivial weakening theorem (rt_weaken_nil). The file's own summary block lists A9, A10, full recursive merge, A11.4 fixed points, A11.5-A11.8, relabelling and lambda-terms-as-labelled-sets as not covered, and six known issues including lists-not-sets and the universal Val domain vs Cooper's stratified universe.",
+ "sources": [
+  {
+   "citation": "Cooper, R. (2023). From Perception to Communication: A Theory of Types for Action and Meaning. Oxford University Press. Appendix A11 (records and record types).",
+   "path": "/Users/graogro/Dropbox/china/books_formalise/[Oxford Studies in Semantics and Pragmatics] Robin Cooper - From Perception to Communication_ A Theory of Types for Action and Meaning (2023, Oxford University Press) - libgen.li.pdf",
+   "available": "full (located outside formalizing_formal_semantics/papers/, in china/books_formalise/)"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "is_distinguished / is_record over LabelledSet",
+   "source": "A11.1: records are finite labelled sets with labels in L but not D, labels unique, every value witnessing some type",
+   "match": "simplified",
+   "note": "checks only the label conditions; the 'every value witnesses some type' clause is not enforced by is_record (witnessing lives separately in witnesses_rt); labelled sets are lists with no permutation-invariance lemma"
+  },
+  {
+   "coq": "RecField (RF_plain / RF_dep with Val -> TTRType and list Path); RecType := list RecField",
+   "source": "A11.2: record types as RT-flavoured labelled sets; dependent fields <l, <F, paths>>",
+   "match": "simplified",
+   "note": "dependent type families are shallow Coq functions inside the deep embedding (file's known issue 3); dependency restricted to a single path via hd with a dummy default (known issue 5)"
+  },
+  {
+   "coq": "witnesses_rt (inductive over TTRModel)",
+   "source": "A11.2 witnessing conditions: r : RT iff for each field r.l exists and witnesses T resp. F applied to the resolved dependency",
+   "match": "simplified",
+   "note": "clause-by-clause for plain fields; the dependent clause consults only the first declared path, so chase(x,y)-style multi-path dependencies are inexpressible"
+  },
+  {
+   "coq": "rt_merge_simple",
+   "source": "A11.3 merge: combine fields, taking the meet at shared labels",
+   "match": "changed",
+   "note": "the comment states the meet clause but the code drops rt1's field on a label clash and keeps rt2's unchanged — no meet is computed; asymmetric and not the source operation"
+  },
+  {
+   "coq": "man_runs / john_tall / dog_chases_cat / john_rec / ind_rt",
+   "source": "Cooper's situation-type worked examples ('a man runs' etc.)",
+   "match": "simplified",
+   "note": "dog_chases_cat renders chase as a 0-ary ptype (RF_plain) because two-path dependency is unsupported — flagged in a comment"
+  },
+  {
+   "coq": "(comment only, lines 200-206)",
+   "source": "width subtyping for record types (any record witnessing RT1 witnesses its sub-record-type RT2)",
+   "match": "missing",
+   "note": "stated in prose; only the trivial nil instance rt_weaken_nil is proved"
+  },
+  {
+   "coq": "(none)",
+   "source": "A9 modal systems; A10 stratified Type^n universes; full recursive merge with dependent fields; A11.4 fixed-point types; A11.5-A11.8; relabelling; lambda terms as labelled sets",
+   "match": "missing",
+   "note": "acknowledged in the file's own NOT YET COVERED list"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "john_witnesses_ind_rt",
+   "status": "proved",
+   "source_claim": "worked instance of A11.2 witnessing: the record {x = john} witnesses [x : Ind]",
+   "note": "premise m_basic_assign M \"Ind\" (VStr \"john\") is a section Hypothesis discharged into the statement — an assumption, not an axiom; missed by anchored grep because it is section-indented (line 187)"
+  },
+  {
+   "name": "rt_weaken_nil",
+   "status": "proved",
+   "source_claim": "new (trivial nil instance of the width-subtyping rule stated only in a comment)",
+   "note": "one-constructor proof (apply wrt_nil); the rubric's verifier would exclude it as trivial, leaving effectively one substantive theorem"
+  }
+ ],
+ "counts": {
+  "theorems": 2,
+  "proved": 2,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "The header and closing summary explicitly map the file to Cooper (2023) A11.1-A11.3 and list what is and is not covered, and the covered fragment does track the source's witnessing clauses field-by-field.",
+   "rt_merge_simple contradicts its own comment and the source: A11.3's meet at shared labels is replaced by keeping rt2's field (lines 124-131), a changed core definition.",
+   "Dependent fields support only one path (hd trick, line 99), so the file's own dog_chases_cat example cannot express chase(x,y) and substitutes a 0-ary ptype.",
+   "The headline structural claim in scope (width subtyping for record types) is stated only in prose; the sole general theorem proved is the trivial nil case, so headline claims of A11 are missing.",
+   "Zero Admitted, zero Axioms/Parameters; both Qed theorems close under a discharged section hypothesis only."
+  ],
+  "simplifications": [
+   "single-path dependencies instead of Cooper's n-tuples of paths",
+   "record well-formedness checks labels only, deferring value-typing to witnesses_rt",
+   "labelled sets as lists (order artifact, no permutation lemma)",
+   "Val as a universal domain instead of Cooper's stratified Type^n universes"
+  ],
+  "omissions": [
+   "A9 modal systems",
+   "A10 stratification",
+   "full recursive/dependent merge (A11.3)",
+   "A11.4 fixed-point types",
+   "A11.5-A11.8 (unique identifiers, dependency/generalization, restriction T||r, path alignment)",
+   "relabelling",
+   "general width-subtyping theorem",
+   "decidability results"
+  ],
+  "additions": [
+   "is_distinguished hard-codes the reserved-label inventory as a boolean predicate",
+   "resolve_path_in_val helper",
+   "rt_has_label / rt_lookup lookup machinery"
+  ]
+ },
+ "determination": "major_restructuring",
+ "determination_rationale": "Provisional, evidenced only by this thin pilot: the covered core already required re-founding moves — dependent record types become a hybrid shallow/deep encoding (Coq functions over a universal Val domain, collapsing Cooper's stratified Type^n universes), multi-path dependency is cut to one path, and merge is replaced by an operation that is not the source's (rt2-wins instead of meet). No headline A11 claim (subtyping, merge laws, fixed points) is proved. Nothing here diagnoses a foundational impossibility ('cannot'), but nothing supports as-is or slight-modification either: what exists is a partial formalization with changed/simplified core definitions, which is the rubric's criterion for determination 3. A deeper treatment of A10 stratification and A11.4 fixed points could revise this either way.",
+ "artifact_classes": [
+  {
+   "class": "ii",
+   "description": "Val as an unstratified universal domain in place of Cooper's Type^n hierarchy, with shallow Val -> TTRType functions inside the deep embedding (the file's known issues 2-3) — type/value structure collapsed"
+  },
+  {
+   "class": "iv",
+   "description": "missing native structure: no dependent record types with labels/paths in the substrate, so labelled sets are lists (ordering artifact, known issue 1) and multi-path dependency is faked by hd on a path list (known issue 5)"
+  },
+  {
+   "class": "v",
+   "description": "no decidability results (known issue 6); witnessing is propositional rather than computational (known issue 4), so record/type checking does not compute"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Record produced by the batch audit sweep of 2026-09-05; the file predates the atlas zero-axiom discipline but happens to declare no Axioms/Parameters (its one Hypothesis is section-discharged) — its weakness is coverage (2 theorems, 1 trivial), not assumptions; the anchored theorem grep undercounts (1) because john_witnesses_ind_rt is section-indented.",
+ "compiles": true
+}

@@ -1,0 +1,162 @@
+{
+  "file": "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/Link1983.v",
+  "region": "model-theoretic (plurals/mereology)",
+  "summary": "A 103-line, comment-free axiomatic sketch of the join-semilattice core of Link (1983), wrapped in Module LinkPlurals. An opaque Entity type carries a primitive binary sum ⊕ with associativity, commutativity and idempotence as axioms; the individual-part relation ≤ is fixed by Link's biconditional aΠb ↔ a⊕b = b ((15)/(16)/(T.31)); Atom is Link's (D.10); Singular := Atom and Plural := ~Atom; a finitary Inductive Star P closes P under binary ⊕; Distributive VP := closure of VP under passage to atomic parts. Illustrative constants john, mary (atoms, distinct), john_and_mary := john ⊕ mary, Boy, sleep (axiomatised Distributive) and an unused gather are postulated. Five Theorems, all Qed and constructive: ≤ reflexive, ≤ transitive (two of the three conjuncts of (T.5) PO(Π)), john ≤ john⊕mary, john⊕mary is not an atom, and sleep(john⊕mary) → sleep john (inference (28)/(29) with the star dropped and the key closure step assumed as the axiom sleep_dist). Everything beyond the semilattice reduct is absent: the null element 0 and the E∖{0} convention, completeness/atomicity and the Boolean meet/complement of E, the portions-of-matter semilattice D, the materialisation homomorphism h, material part ≤m, constitution ▷, the σ/σ*/μ description-operator terms, the proper-plural ⊕P, mass-term correspondent ᵐP and partakes ᵀP operators, the LPM object language and model definition (D.25)-(D.32), the theorem list (T.1)-(T.32) except the fragment noted, and all of Sec. 3 (TITL', quantifier translations, hydras). Coq.Sets.Ensembles is imported but unused.",
+  "sources": [
+    {
+      "citation": "Link, G. (1983). The Logical Analysis of Plurals and Mass Terms: A Lattice-theoretical Approach. In R. Bäuerle, C. Schwarze & A. von Stechow (eds.), Meaning, Use, and Interpretation of Language, de Gruyter, 302-323. The copy on disk is the reprint as ch. 4 of P. Portner & B. Partee (eds.) 2002, Formal Semantics: The Essential Readings, Blackwell, pp. 127-146 (20 scanned pages); all page numbers below refer to the reprint. Relevant parts: Sec. 1 pp. 130-134 (star operator, atoms, (15) Π-biconditional, (16), (17) σ/σ*, (18) μ, (19)-(22) material part and h, (23)-(26) ᵐP, (27) Distr, (28)-(32) distributive inference and ᵀ, (33)-(46) formalisations); Sec. 2 pp. 135-139 (LPM: (D.1)-(D.21), (MP.1)-(MP.2), boosk (D.22), (D.23)-(D.24) ≤m/∼m, model (D.25), truth conditions (D.26)-(D.32), (47)-(64), theorems (T.1)-(T.32)); Sec. 3 pp. 140-144 (TITL', (65)-(76)).",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Link_1983_LogicalAnalysisPluralsMassTerms.pdf",
+      "available": "full"
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "Parameter Entity : Type (line 5)",
+      "source": "E, the domain of individuals: a complete atomic Boolean algebra with join ⊔_i and intrinsic ordering ≤_i (D.22 clause 1, p. 137; prose p. 130: 'E becomes an atomic Boolean algebra which is taken to be complete so that every subset of E possesses a sum')",
+      "match": "simplified",
+      "note": "A bare type. No null element 0 (whose role as dummy denotation is fixed on p. 132 and in D.25 2(ii) and D.27-D.31), no completeness (sup of arbitrary subsets), no atomicity axiom, no meet or complement. The companion structures D (portions of matter, a complete join-semilattice, D.22 clause 3) and h : E∖{0} → D (D.22 clause 4) are absent, so the model structure is the join-semilattice reduct of E only."
+    },
+    {
+      "coq": "Parameter sum : Entity -> Entity -> Entity; Infix ⊕ (lines 7, 11); Axiom sum_assoc, sum_comm, sum_idem (lines 14-16)",
+      "source": "Join ⊔_i on E (D.22 clause 1, p. 137; (16) p. 131); denotation clause (62) ||a ⊕ b|| = ||a|| ⊔_i ||b|| (p. 139). In the object language a ⊕ b is a defined term, (D.16) a ⊕ b := σx(I_a ⊕ I_b)x (p. 136).",
+      "match": "simplified",
+      "note": "The semantic join is taken as a primitive binary operation satisfying the three semilattice laws. This is the finitary reduct of Link's complete Boolean join: no sup of arbitrary (in particular infinite) subsets, no 0 as unit. The definitional route of (D.16) through σ, I_a and predicate join (D.3) is bypassed."
+    },
+    {
+      "coq": "Parameter part_of; Infix ≤ (lines 9, 12); Axiom part_of_def : forall x y, x ≤ y <-> x ⊕ y = y (line 18)",
+      "source": "(15) aΠb ↔ a ⊕ b = b (p. 130); semantic counterpart (16) ||a|| ≤_i ||b|| iff ||a|| ⊔_i ||b|| = ||b|| (p. 131); listed as (T.31) ∧x∧y(xΠy ↔ x ⊕ y = y) (p. 139). Truth condition (D.29) ||aΠb|| = 1 iff ||a|| ≠ 0 and ||a|| ≤_i ||b|| (p. 138).",
+      "match": "exact",
+      "note": "Verbatim transcription of (15)/(16)/(T.31), posited as an axiom rather than a definition (Link's ≤_i is 'the intrinsic ordering' of the Boolean algebra, i.e. also defined by this equation). The ||a|| ≠ 0 side condition of (D.29) is vacuous because the Coq structure has no 0."
+    },
+    {
+      "coq": "Definition Atom (x : Entity) : Prop := forall y, y ≤ x -> y = x (lines 38-39)",
+      "source": "(D.10) At a ↔ ∧x(xΠa → x = a) (p. 136); (55) ||At a|| = 1 iff ||a|| ∈ A (p. 138); A = set of atoms of E = the 'singular objects' (p. 130; D.22 clause 2)",
+      "match": "exact",
+      "note": "Verbatim under Π ↦ ≤. Correct only because 0 is absent: in Link, quantification runs over E∖{0} (p. 138), and if a bottom element were added to the Coq structure this definition would make 0 the unique atom."
+    },
+    {
+      "coq": "Definition Singular := Atom; Definition Plural (x) := ~ Atom x (lines 41-43)",
+      "source": "Atoms = 'singular objects' (p. 130); non-atomic i-sums = 'proper i-sums'; the ¬At a conjunct of the proper plural predicate (D.12) ⊕Pa ↔ *Pa ∧ ¬At a (p. 136), (58) ||⊕P|| = ||*P|| ∖ A (p. 138)",
+      "match": "added",
+      "note": "Link has no absolute one-place predicate 'plural' on individuals; plurality is relativised to a predicate P via ⊕P. Plural here is the absolute notion 'proper i-sum'. Harmless in a 0-free domain, but ⊕P itself is not defined and Singular/Plural are used nowhere except in jm_is_plural."
+    },
+    {
+      "coq": "Parameter john mary : Entity; Axiom john_atom, mary_atom, distinct_jm; Definition john_and_mary := john ⊕ mary (lines 45-50)",
+      "source": "p. 130: 'let a and b denote two atoms in A ... a ⊕ b is the individual sum or plural object of a and b'; example sentences (7) 'Mary and Sue are room-mates', (39)-(40) P(a ⊕ b) for 'Tom and Dick' (p. 134)",
+      "match": "added",
+      "note": "Illustrative constants, not part of Link's theory. Print Assumptions (scratch check) shows mary_atom is used by no theorem in the file."
+    },
+    {
+      "coq": "Inductive Star (P : Entity -> Prop) : Entity -> Prop := star_base : P x -> Star P x | star_sum : Star P x -> Star P y -> Star P (x ⊕ y) (lines 75-77); Parameter Boy; Definition PluralBoys := Star Boy (lines 79-81)",
+      "source": "Star operator '*' (p. 130): ||*P|| = the complete join-subsemilattice of E generated by ||P|| (D.32, p. 138); (57) ||*P|| = {x ∈ E | ∃X ⊆ ||P|| & X ≠ ∅ s.t. x = sup_i X} (p. 138); starred count nouns *child' in the quantifier translations (p. 141)",
+      "match": "simplified",
+      "note": "The least closure under binary ⊕ is the sub-join-semilattice generated by P, i.e. the sups of finite non-empty subsets of P. Link's *P also contains sups of infinite subsets of ||P||, which cannot be expressed here since the structure has no sup operator. The two constructors are exactly (T.7) P ⊂ *P and (T.11) ∧x∧y(*Px ∧ *Py → *P(x ⊕ y)) (p. 139), verified in a scratch file to be provable by 'constructor'; they are not stated as theorems in the file, and (T.8), (T.9), (T.10) about * are not proved. PluralBoys is declared and unused."
+    },
+    {
+      "coq": "Definition Distributive (VP : Entity -> Prop) := forall x, VP x -> forall y, (Atom y /\\ y ≤ x) -> VP y (lines 83-84); Parameter sleep; Axiom sleep_dist : Distributive sleep (lines 86-87)",
+      "source": "(27)/(D.19) Distr(P) ↔ ∧x(Px → At x) 'P is true of atomic individuals only' (pp. 133, 136); DP predicates have ||P|| ⊆ A (D.25 2(iii), p. 138); derived closure facts (T.10) Distr(P) → ∧x∧y(*Py ∧ xΠy → *Px) and (T.8) ∧x(At x → (Px ↔ *Px)) (p. 139); p. 133: 'distributive predicates working on plural terms have to be starred'",
+      "match": "changed",
+      "note": "Link's distributivity is a lexical property of the unstarred predicate (true only of atoms) and downward closure to parts is a theorem about the starred predicate *P ((T.10), which holds for all non-zero parts, not just atomic ones). The Coq definition makes 'closed under passage to atomic parts' the definition and applies it to a single predicate used both on sums and on atoms, i.e. it conflates P with *P. Under Link's (D.19) a distributive sleep is never true of the non-atom john ⊕ mary, so the premise of dist_inference would be unsatisfiable. This is the meaning-postulate style of later literature (e.g. Champollion/Winter), not Link's construction."
+    },
+    {
+      "coq": "Parameter gather : Entity -> Prop (line 100)",
+      "source": "Collective predicate Q for gather: (9a) 'The children gather around their teacher' (p. 127), (31b) Q(σ*xPx) entered unstarred (p. 133)",
+      "match": "missing",
+      "note": "Declared on the last line of the module and never used; nothing about collective/non-distributive or mixed predication ((30) vs (31), carry on p. 132-133) is stated."
+    },
+    {
+      "coq": "(absent)",
+      "source": "Null element 0 and quantification over E∖{0} (p. 132; D.25 2(ii), D.27-D.31); completeness and atomicity of E, Boolean meet ⊓ and complement (D.22 clause 1; p. 140 TITL'); D, h, (47)-(48), material part ⊤/≤_m (19)-(22), (D.23), m-equivalence ∼ (D.9, D.24); constitution ▷ (D.31), Mp (D.11); description operator ι (D.27) and the terms σxPx, σ*xPx, μxPx, a + b (D.14-D.18, (60)-(64)); proper plural ⊕P (D.12); mass-term correspondent ᵐP (D.13, (23), (26)); M(P), Inv(P) (D.20-D.21); partakes ᵀP with (MP.1)-(MP.2), (32); the LPM language with ι and λ (Sec. 2, p. 135) and (D.1)-(D.7); model (D.25) and truth/denotation conditions (D.26)-(D.32), (49)-(64); theorems (T.1)-(T.4), (T.6)-(T.32) and antisymmetry from (T.5); Massey's symmetry/expansion/contraction (40)-(42) and formalisations (33)-(46); Sec. 3: TITL' Boolean type hierarchy, DISTR (66), quantifier translations 1-11 (p. 141), numerals, hydras (67)-(76)",
+      "match": "missing"
+    }
+  ],
+  "theorems": [
+    {
+      "name": "part_of_refl",
+      "status": "proved",
+      "source_claim": "(T.5) PO(Π) (p. 139), reflexivity conjunct via (D.6) PO(R) ↔ Refl(R) ∧ Trans(R) ∧ Antisym(R) (p. 135). Stated without proof in the source ('a list of theorems of LPM that come out valid').",
+      "note": "Lines 20-23. Print Assumptions: sum_idem and part_of_def only."
+    },
+    {
+      "name": "part_of_trans",
+      "status": "proved",
+      "source_claim": "(T.5) PO(Π) (p. 139), transitivity conjunct.",
+      "note": "Lines 25-36. Print Assumptions: sum_assoc and part_of_def only. The antisymmetry conjunct is not stated in the file; it follows in three tactic steps from part_of_def and sum_comm (proved in a scratch file: part_of_antisym, depending only on sum_comm and part_of_def), so (T.5)'s PO(Π) half is two-thirds covered and the PrO(⊤) half is not expressible (no ⊤)."
+    },
+    {
+      "name": "john_in_plural",
+      "status": "proved",
+      "source_claim": "new (instance): the lattice fact a ≤_i a ⊔_i b behind premise (29c) bΠ(a⊕b⊕c⊕d) of inference (29) (p. 133); not a numbered claim in the source.",
+      "note": "Lines 52-59. Print Assumptions: sum_assoc, sum_idem, part_of_def (plus the constants john, mary)."
+    },
+    {
+      "name": "jm_is_plural",
+      "status": "proved",
+      "source_claim": "new (instance): the sum of two distinct atoms is a proper i-sum, implicit in p. 130 ('a ⊕ b is the individual sum or plural object of a and b') and in ⊕P(a ⊕ b) of (41)-(42) (p. 134).",
+      "note": "Lines 61-73. Constructive; Print Assumptions: sum_assoc, sum_comm, sum_idem, part_of_def, john_atom, distinct_jm — mary_atom is not needed. The only theorem in the file that uses sum_comm."
+    },
+    {
+      "name": "dist_inference",
+      "status": "proved",
+      "source_claim": "Inference (28)/(29) (p. 133): *P(a⊕b⊕c⊕d), Distr(P), bΠ(a⊕b⊕c⊕d) ⊢ *Pb ⊢ Pb; cf. (30b) *Q(σ*xPx) ⇒ ∧x(Px → Qx).",
+      "note": "Lines 89-98. Verified only in a changed form: the star is dropped (sleep is applied to the sum and to the atom alike) and Link's Distr(P) together with (T.10) and (T.8) is replaced by the downward-closure axiom sleep_dist, so the theorem is a single application of that axiom to john_in_plural and john_atom. Print Assumptions: sum_assoc, sum_idem, part_of_def, sleep_dist, john_atom."
+    }
+  ],
+  "counts": {
+    "theorems": 5,
+    "proved": 5,
+    "admitted": 0,
+    "propositional_axioms": 8
+  },
+  "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+      "part_of_def (line 18) is a verbatim transcription of Link's (15) aΠb ↔ a⊕b = b (p. 130) / (16) (p. 131) / (T.31) (p. 139); Atom (lines 38-39) is verbatim (D.10) At a ↔ ∧x(xΠa → x = a) (p. 136); sum_assoc/sum_comm/sum_idem (lines 14-16) are the join-semilattice laws of the Boolean algebra E (D.22 clause 1, p. 137).",
+      "part_of_refl and part_of_trans (lines 20-36) verify two of the three conjuncts of (T.5) PO(Π) (p. 139) from those axioms alone; antisymmetry is omitted although immediate (checked in scratch).",
+      "Star (lines 75-77) matches the generating clauses (T.7) and (T.11) (p. 139) exactly (both provable by 'constructor' in scratch) but yields only finite sups, whereas (D.32)/(57) (p. 138) define *P as the complete sub-join-semilattice generated by ||P||; without completeness (no sup operator, no 0) the file cannot state Link's definition.",
+      "Distributive (lines 83-84) is not Link's (D.19) Distr(P) ↔ ∧x(Px → At x) (p. 136); it is the derived downward-closure property (T.10) weakened to atomic parts and applied to an unstarred predicate. dist_inference (lines 89-98) therefore verifies inference (29) (p. 133) only with the star dropped and with the key premise assumed as an axiom (sleep_dist) instead of derived from Distr(P) via (T.10) and (T.8). Under Link's own definition the premise sleep(john ⊕ mary) of a distributive sleep is false.",
+      "Scope is a small fraction of the paper: no 0 element or E∖{0} convention (p. 132, D.25-D.31), no completeness/atomicity or Boolean meet/complement, no D/h/≤_m/▷ material side (pp. 131-132, D.22-D.24), no ι and no σ/σ*/μ operators (D.14-D.18, (60)-(63)), no ⊕P/ᵐP/ᵀP (D.12-D.13, MP.1-2), none of (T.1)-(T.4), (T.6)-(T.30), (T.32), and nothing of Sec. 3 (TITL', quantifier translations, hydras, pp. 140-144). Parameter gather (line 100) and PluralBoys (line 81) are dangling placeholders.",
+      "Print Assumptions on all five theorems (scratch file) reports only the file's own Parameters/Axioms; no classical axiom is used. Coq.Sets.Ensembles is imported (line 1) but never used, although it is exactly what a faithful complete-lattice or powerset-model encoding of E would need.",
+      "The eight axioms are jointly consistent: a three-element structure {A, B, AB} with A⊕B = AB (non-empty subsets of a two-element set under union) satisfies every axiom schema (assoc/comm/idem, the Π-biconditional, atomicity of A and B, A ≠ B, and a Distributive predicate), discharged in a scratch Coq file; in such a finite model the finitary Star coincides with Link's complete closure, so the discrepancy in Star only bites in infinite models."
+    ],
+    "omissions": [
+      "Null element 0 and quantification restricted to E∖{0} (p. 132; D.25 2(ii), D.27-D.31).",
+      "Completeness and atomicity of E; Boolean meet and complement (D.22 clause 1); the sup operator on which σ, μ and * depend.",
+      "Portions of matter D, materialisation homomorphism h, (47)-(48), material part relation ⊤/≤_m (19)-(22), (D.23), m-equivalence (D.9)/(D.24), constitution ▷ (D.31) and Mp (D.11) — the entire mass-term half of the paper.",
+      "Description operator ι (D.27, with the '0 otherwise' clause) and the defined terms σxPx, σ*xPx, μxPx, a + b (D.14-D.18, (60)-(64)).",
+      "Proper plural predicate ⊕P (D.12), mass-term correspondent ᵐP (D.13, (23), (26)), material and invariant predicates M(P), Inv(P) (D.20-D.21), partakes-in ᵀP with (MP.1)-(MP.2) and (32).",
+      "The LPM object language (Sec. 2, (D.1)-(D.7)), the model definition (D.25) and all truth/denotation conditions (D.26)-(D.32), (49)-(64).",
+      "Theorems (T.1)-(T.4), (T.6)-(T.30), (T.32), and antisymmetry from (T.5); the homogeneous-reference properties (T.11)-(T.12); existence/identity criteria (T.16)-(T.21).",
+      "Massey's symmetry, expansion and contraction inferences (40)-(42) and the formalisations (33)-(46).",
+      "Sec. 3: TITL' Boolean type hierarchy, DISTR (66), translations of a/some/the/all the/every (p. 141), numerals, and the hydra constructions (67)-(76)."
+    ],
+    "simplifications": [
+      "E reduced to a join-semilattice given by three equational axioms on an opaque Parameter, with no 0 and no infinite joins.",
+      "a ⊕ b taken as a primitive semantic join rather than defined via σ and I_a (D.16).",
+      "Star is the finitary inductive closure under ⊕ rather than the complete sub-join-semilattice generated by ||P|| (D.32)/(57).",
+      "Plural := ~Atom is an absolute notion standing in for the relativised ⊕P."
+    ],
+    "additions": [
+      "Constants john, mary with atomicity and distinctness axioms and the derived object john_and_mary (lines 45-50).",
+      "A Distributive property and axiom sleep_dist (lines 83-87) not found in Link in that form (it conflates P with *P and replaces (T.10)/(T.8) by a postulate).",
+      "Labels Singular/Plural (lines 41-43), PluralBoys (line 81) and the unused Parameters Boy, gather."
+    ]
+  },
+  "determination": "slight_modification",
+  "determination_rationale": "What the file actually exercises — the semilattice laws, the Π-biconditional (15)/(T.31), atoms (D.10), and the partial-order facts of (T.5) — transfers to Coq verbatim as an axiomatic first-order theory, and the proofs are short rewriting chains with no classical assumptions; that part of Link is formalisable as-is. But the file stops exactly where Link's theory needs more than a bare semilattice, and what it did at the boundary is evidence of required adaptation rather than direct transfer: (a) completeness of E (arbitrary sups, D.22 clause 1) and hence the true star operator (D.32)/(57) and the σ/σ*/μ terms ((60)-(63)) need either a sup : Ensemble Entity -> Entity with its own axioms or a concrete powerset model (Ensemble of atoms, where equality of sums needs Extensionality_Ensembles) — the file substituted a finitary Inductive Star; (b) the null element 0 with Link's convention that ⊔_i is total on E while predicates, Π, ⊤, ▷ and the quantifiers live on E∖{0} (p. 132, D.25-D.31) needs a subset type or a non-zero side condition on every clause, which the file avoided by dropping 0 altogether (and its Atom definition would break if 0 were added naively); (c) the description operator ι with its '0 otherwise' clause (D.27) and Link's explicitly assumed bivalence (p. 138) need a classical description/choice principle or an axiomatised iota. These are standard shallow-embedding adaptations (Ensembles plus extensionality, side conditions, a classical iota), not a restructuring of the theory: the mass-term side (D, h, ≤_m, ▷, D.22-D.24) is plain first-order algebra over two carriers, and Sec. 3's Boolean type hierarchy lifts pointwise over Coq function types. The changed Distributive definition is an authorial choice, not a Coq-forced one, and does not bear on formalisability. Rated slight_modification; the rating is partly extrapolated because the file never attempts the parts that need the modifications.",
+  "artifact_classes": [
+    {
+      "class": "iii",
+      "description": "The entire structure is an opaque Parameter/Axiom theory (8 propositional Axioms over 8 Parameters, lines 5-18, 45-48, 79-87): sum does not compute, every identity is obtained by rewriting with the three semilattice axioms, and no model is instantiated even though Coq.Sets.Ensembles is imported (line 1) and a powerset-of-atoms model would make ⊕, ≤ and Atom computable and give completeness and atomicity for free. Consistency of the axiom set is not witnessed in the file (verified externally with a 3-element model in scratch)."
+    },
+    {
+      "class": "iv",
+      "description": "No native complete atomic Boolean algebra: the file keeps only the join-semilattice reduct with no 0, no sup of arbitrary subsets, no meet/complement, and no ι description operator, so Link's *P (D.32), σxPx, σ*xPx, μxPx ((60)-(63)), ⊕P and the E∖{0} quantification convention are unrepresentable; Star (lines 75-77) is a finitary substitute strictly weaker than (57) in infinite models. No strict-positivity (i), universe (ii) or decidability (v) artifacts arise in what is encoded: Star is strictly positive, Entity is an ordinary Type, and all proofs are constructive — though a faithful ι (D.27, '0 otherwise') would introduce a class-v gap."
+    }
+  ],
+  "compiles": true,
+  "duplicate_of": null,
+  "duplicate_note": "No other file in the repository targets Link 1983 or defines a Link-style i-sum lattice (full .v inventory checked across deep/, extras/, shallow/, ttr_mtt/). extras/Champollion.v and extras/champollion_full.v are choice-function/INT/MIN/PDIST operators over Set_theoretic_Defs (Champollion 2016 / Winter 2001 Boolean semantics) with no sum, part-of, atom or star. extras/mass.v is an MTT setoid-based mass/count classification (noun_classification, measure phrases over indi.v's DomCN) with no mereology. extras/Aspect.v has an event subevent preorder (subevent_refl/trans) for the Dowty tense layer, unrelated to individual sums. ttr_mtt/TTR_base.v has a TPlurality type constructor, not a lattice. The candidate duplicate groups supplied with the task do not involve this file.",
+  "source_gap": "Primary source is fully on disk as the Portner & Partee 2002 reprint (ch. 4, pp. 127-146, 20 scanned pages including notes and references). It is image-only: pdftotext returns only noise (≈520 bytes for three pages), so all page and definition citations above were read visually from the scan with the Read tool (pages 1-20 in two passes); the scan is clean and every numbered definition (D.1)-(D.32), formula (1)-(76), meaning postulate (MP.1)-(MP.2) and theorem (T.1)-(T.32) is legible. The original 1983 de Gruyter pagination (302-323) is not on disk.",
+  "notes": "Compiled with coqc 8.20.1 from the repo root (exit 0, no warnings). A scratch file (scratchpad/link_check.v, requiring Link1983 and importing LinkPlurals) ran Print Assumptions on all five theorems: each depends only on the file's own Parameters and Axioms, mary_atom is used by none, jm_is_plural is the only theorem using sum_comm; the same scratch proved part_of_antisym (from sum_comm and part_of_def), (T.7) and (T.11) for Star by 'constructor', and built the 3-element model {A, B, AB} discharging all eight axiom schemata, so the axiom set is consistent. The file has no header comment identifying its source, no section structure, and ends with the unused Parameter gather, suggesting an unfinished sketch that was to continue with collective predication."
+}

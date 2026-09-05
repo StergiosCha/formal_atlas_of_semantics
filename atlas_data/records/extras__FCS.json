@@ -1,0 +1,174 @@
+{
+  "file": "extras/FCS.v",
+  "region": "dynamic (file change semantics)",
+  "summary": "A 482-line essay-in-Coq (title comment l. 2: 'Why File Change Semantics Cannot Be Fully Formalized in Coq') with zero Theorem/Lemma statements, zero proofs and zero declared axioms. Seven Sections each declare Entity/Index Variables and one or two Ensemble- or option-based Definitions (File_n := Index -> option Entity, InfoState_n := Ensemble File_n, exists_ccp, random_reset, donkey_sentence_impossible, accommodate, file_satisfies, filter_files); the surrounding comments assert six 'Problems' and a seven-item 'Conclusion' that FCS is non-mechanizable. coqc 8.20.1 accepts every definition (exit 0, no output), including exists_ccp (ll. 73-84), which the file's own comment at l. 86 calls 'ill-typed'. The impossibility thesis is never stated as a Coq proposition, so nothing in the file is a machine-checked negative result. Checked against Heim 1983 (defs (9)-(11), rules (13), (15), (16), (18), (21), (34), (35)) and Heim 1982 ch. III, most of the asserted barriers concern constructs that are not in Heim (DPL's random-reset operator, 'information state = set of files', attitude-verb impredicativity, an unsourced 'Update Semantics with Structured Contexts') or invert Heim's explicit design (file-relative truth (21); truth conditions assigned to files, not logical forms, per diagram (8) and p. 227). The only construct that does track the source, exists_ccp ~ rule (18), is direct evidence that Heim's set-comprehension semantics over partial sequences encodes as Prop-valued operations on Ensembles without difficulty.",
+  "sources": [
+    {
+      "citation": "Heim, Irene (1983). 'File Change Semantics and the Familiarity Theory of Definiteness'. In Bauerle, Schwarze & von Stechow (eds.), Meaning, Use, and Interpretation of Language, de Gruyter, pp. 164-189. On disk as a scan of the Portner & Partee (2002) reprint, ch. 9, pp. 223-248; pdftotext extraction is clean. All page numbers in this record are the reprint's. Sections used: 3 (file metaphor, diagram (8), p. 227-228), 4 (sequences, Sat(F) (9), Dom(F) (10), truth of a file (11), pp. 228-229), 6 (atomic rule (13) p. 232, Novelty/Familiarity Condition (15) p. 233, appropriateness as domain of definition of + p. 234, composition (16) and general rule (18) p. 235, (19)-(20) and truth criterion (21) p. 236), 7 (non-quantificational indefinites, pp. 236-240), 8 (0-place predicates (30) pp. 240-241, three-step procedure for universals pp. 241-242, donkey examples (31)-(33) pp. 243-245, universal rule (34) p. 245, negation rule (35) p. 246).",
+      "available": "full",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/dynamic/Heim_1983_FileChangeSemantics.pdf"
+    },
+    {
+      "citation": "Heim, Irene (1982). The Semantics of Definite and Indefinite Noun Phrases. PhD dissertation, UMass Amherst. On disk as the Schoubye & Glick retypeset edition (README: pagination differs from the original); page numbers cited are the retypeset edition's. Chapter III 'Definiteness in File Change Semantics': 1.3 'File cards as discourse referents' (pp. 182-185), 1.4 'Files as common ground' (files as sets of world/sequence pairs F = {<w, a_N> : a_N satisfies F in w}, p. 186), 1.5 'File change potential and satisfaction conditions' (principle (A): S(F + phi) = S(F) intersect {a_N : a_N satisfies phi}, rules (i)/(i'), pp. 191-192), 3.2 'A truth criterion for utterances' (criterion (C), p. 214), 3.3 'Truth of an utterance with respect to a false file' (pp. 218-221), 5.1 Extended Novelty-Familiarity-Condition (p. 235 ff.), 5.2 'Novel definites and accommodation' (pp. 238-241). Also ch. II sec. 7 'On So-called Discourse Referents and Their Lifespans' (modals and propositional attitude verbs as operators subject to Existential Closure, pp. 170-172).",
+      "available": "full",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/dynamic/Heim_1982_DefiniteIndefiniteNPs.pdf"
+    },
+    {
+      "citation": "Groenendijk, J. & Stokhof, M. (1991). 'Dynamic Predicate Logic', Linguistics and Philosophy 14: 39-100. Not declared by the file, but the actual origin of the 'random reset' / random-assignment operator that Problem 2 (ll. 105-136) and Conclusion item 2 (ll. 405-408) attribute to FCS.",
+      "available": "full",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/dynamic/Groenendijk_Stokhof_1991_DPL.pdf"
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "File1 .. File6 := Index -> option Entity (ll. 44, 102, 148, 198, 268, 309)",
+      "source": "Heim 1983 sec. 4 p. 228: a *sequence* is 'a function from some subset of N (the natural numbers) into A (the domain of all individuals)', domains need not be initial segments. A *file* is characterised by Dom(F) (def (10) p. 229) and Sat(F) (def (9) p. 229); Heim 1982 III.1.4 p. 186 construes a file as {<w, a_N> : a_N satisfies F in w}.",
+      "match": "changed",
+      "note": "The Coq type is Heim's sequence (a partial assignment of individuals to card numbers), not her file. The comment at l. 22 ('A FILE is a partial function from indices to individuals') is one level off. Index is abstract in Part 1; Heim's card numbers are natural numbers (Part 2 l. 366 uses nat, which is correct)."
+    },
+    {
+      "coq": "InfoState1 .. InfoState5 := Ensemble File_n (ll. 55, 103, 199, 269)",
+      "source": "Sat(F) = {a_N : a_N satisfies F}, Heim 1983 def (9) p. 229 (extensional); Heim 1982 III.1.4 relativises to worlds (satisfaction set 'in a certain world', p. 186).",
+      "match": "changed",
+      "note": "Labelled (l. 23) 'an INFORMATION STATE is a set of files'. Neither Heim text contains the phrase 'information state' (pdftotext grep: 0 hits in both); the set-of-assignments-as-state architecture is Veltman/Groenendijk-Stokhof. What Ensemble (Index -> option Entity) actually encodes is the satisfaction set of a single file. Dom(F) (def (10)) has no counterpart, so the Novelty/Familiarity Condition (15) is not even statable in this encoding."
+    },
+    {
+      "coq": "CCP1 := InfoState1 -> InfoState1 (l. 58); dynamic_semantics := InfoState5 -> InfoState5 (l. 273)",
+      "source": "File change potential: 'a function from files into files', Heim 1983 sec. 3 p. 227; sec. 6 p. 231 restricts the formal task to defining Sat(F + p). Heim 1982 III.1.5 p. 191.",
+      "match": "simplified",
+      "note": "A total function on Sat-sets. Heim's + is partial: 'Unless p is appropriate w.r.t. F, there is no file change result F + p determined' (1983 p. 234), and it acts on the pair <Dom(F), Sat(F)>."
+    },
+    {
+      "coq": "exists_ccp (x : Index) (P : File1 -> Prop) : CCP1 (ll. 73-84)",
+      "source": "Heim 1983 rule (18) p. 235 for a 1-place predicate whose index is not in Dom(F): Sat(F + p) = {a_N u b_M in A^(N u M) : a_N in Sat(F), M = {i}, b_i in Ext(R)}; worked instance (19) p. 236, Sat(F0 + [NP1 a cat]) = {<b1> : b1 in Ext('cat')}.",
+      "match": "simplified",
+      "note": "A serviceable Prop-level rendering of (18): f' agrees with f off x and is defined at x, and f' is filtered by P. Differences: P is applied to the whole extended sequence rather than to b_x alone, and the precondition x not in Dom(F) (Novelty, (15)) is not enforced (if f x = Some d0 the definition silently overwrites). The file's comment at l. 86 that this definition 'is ill-typed' is false: coqc 8.20.1 accepts it with type CCP1, and the comment's reasons ('Ensemble expects a predicate, but we're trying to compute') misdescribe what was written, which is a predicate."
+    },
+    {
+      "coq": "random_reset (x : Index) : File2 -> File2 -> Prop (ll. 118-121); CCP_relational := InfoState2 -> InfoState2 -> Prop (l. 126)",
+      "source": "Not in Heim. This is DPL's random assignment [x] (Groenendijk & Stokhof 1991) or Veltman's random reset.",
+      "match": "added",
+      "note": "grep of both Heim texts for 'random', 'reset', 'nondetermin' returns 0 hits. Heim's indefinite rule (18) is a deterministic set comprehension over Sat(F); lifting random_reset pointwise to Ensembles gives back exactly the functional exists_ccp of l. 73. Problem 2's claim that FCS 'is not a FUNCTION anymore' and 'loses compositionality' therefore attaches to an operator the source does not use; Heim's composition rule (16) p. 235 is ordinary function composition."
+    },
+    {
+      "coq": "donkey_sentence_impossible : Prop (ll. 176-182)",
+      "source": "Heim 1983 sec. 8: three-step procedure pp. 241-242 for (12c), donkey example (31) pp. 243-244 with Sat(F') and Sat(F'') as comprehensions over a_N u b_{1,2}, and the general universal rule (34) p. 245: Sat(F + p) = {a_N in Sat(F) : for every b_M ⊇ a_N with b_M in Sat(F + q), there is c_L ⊇ b_M with c_L in Sat((F + q) + r)}.",
+      "match": "changed",
+      "note": "A static first-order formula ('too weak', l. 182) that is not Heim's rule at all; the surrounding prose then declares the FCS treatment 'impossible' in typed lambda calculus (l. 158) and says it needs 'dependent types where the TYPE depends on the RUNTIME VALUE of the file' (ll. 185-186). Rule (34) is a first-order comprehension over sequences and encodes directly as fun F a => In F a /\\ forall b, extends a b -> In (F+q) b -> exists c, extends b c /\\ In ((F+q)+r) c. The sibling file extras/DonkeyScope.v ll. 263-291 (dpl_exists, dpl_and, dpl_forall, donkey_dpl) already encodes the analogous DPL rule as relations on assignments in this repository, with no dependent types."
+    },
+    {
+      "coq": "accommodate (i : Index) (I : InfoState4) : InfoState4 (ll. 222-232)",
+      "source": "Heim 1982 III.5.2 pp. 238-241: accommodation (Lewis 1979) 'is an adjustment of the file that is triggered by a violation of a felicity condition and consists of adding to the file enough information to remedy the infelicity'; F is adjusted to F' containing a new card with cross-references (bridging). Heim: 'I can say only very little about the rules that govern accommodation, none of which is new' (p. 240). Not in Heim 1983.",
+      "match": "changed",
+      "note": "Returns I union {extensions at i of members of I that are undefined at i}, i.e. keeps the unaccommodated sequences alongside the accommodated ones (Heim replaces F by F') and writes no descriptive content or cross-reference on the new card. Heim explicitly leaves accommodation informal and pragmatic; Problem 4 ('cannot be mechanized without AI-complete reasoning', l. 433) criticises something the source never presents as a formal rule."
+    },
+    {
+      "coq": "static_semantics := Prop; dynamic_semantics := InfoState5 -> InfoState5 (ll. 272-273)",
+      "source": "Heim 1983 diagram (8) p. 228 and p. 227: 'Note that logical forms themselves are not assigned truth conditions, only files are. Only in an indirect way, i.e. via the files they affect, will logical forms be associated with truth conditions.' Truth of a file (11) p. 229; truth criterion for logical forms (21) p. 236.",
+      "match": "changed",
+      "note": "The file asserts (ll. 275-276) 'FCS wants these to be the SAME function! This is a type error in Coq.' Heim says the opposite and keeps exactly the two levels the Coq definitions keep. The one-line definition of file truth (11), exists f, In _ I f, is never written down."
+    },
+    {
+      "coq": "file_satisfies f i P (ll. 324-328); the_x_is_smart i (ll. 340-345)",
+      "source": "Heim 1983 atomic rule (13) p. 232 for a definite with i in Dom(F), together with the three-valued criterion (21) p. 236: p is 'truth-value-less w.r.t. F if F + p is undefined'.",
+      "match": "changed",
+      "note": "Maps f i = None to False, collapsing Heim's 'undefined' into 'false'. That distinction is the whole point of (15)/(21): a definite whose index is outside Dom(F) makes F + p undefined (p. 234), not false. The prose (ll. 347-348: 'like exception handling, which Coq doesn't have') ignores option-valued outputs or a definedness predicate, which are the standard encodings."
+    },
+    {
+      "coq": "File7 := nat -> option Entity; InfoState7 := list File7; filter_files (ll. 366-374)",
+      "source": "Sequences over N (Heim 1983 p. 228, def (10) p. 229); Sat(F) approximated by a finite list; rule (13) restricted to a boolean test.",
+      "match": "simplified",
+      "note": "nat indices match Heim better than Part 1's abstract Index. The list/bool restriction is self-imposed: Heim's rules are set comprehensions and nothing in either source demands computability."
+    },
+    {
+      "coq": "access_file f i := f i (ll. 320-321)",
+      "source": "none",
+      "match": "added",
+      "note": "Identity wrapper with no source counterpart."
+    },
+    {
+      "coq": "(none)",
+      "source": "Dom(F), def (10) p. 229; Novelty/Familiarity Condition (15) p. 233; appropriateness as the domain of definition of +, p. 234.",
+      "match": "missing",
+      "note": "The paper's title thesis (definites require i in Dom(F), indefinites i not in Dom(F)) is never mentioned. Without Dom(F) the encoding cannot distinguish a definite from an indefinite."
+    },
+    {
+      "coq": "(none)",
+      "source": "Truth of a file (11) p. 229; composition (16) p. 235; n-ary rule (18) p. 235; truth criterion (21) p. 236; 0-place predicates (30) pp. 240-241; universal rule (34) p. 245; negation rule (35) p. 246.",
+      "match": "missing",
+      "note": "None of the recursive file-change rules beyond a 1-place existential fragment is encoded."
+    },
+    {
+      "coq": "(none)",
+      "source": "Heim 1982 III.1.4 files as sets of <w, a_N> pairs (p. 186); III.1.5 principle (A) S(F + phi) = S(F) intersect {a_N : a_N satisfies phi} and rules (i)/(i') (pp. 191-192); III.3.2 criterion (C) (p. 214); III.5.1 Extended Novelty-Familiarity-Condition.",
+      "match": "missing",
+      "note": "The intensional 1982 setting and the satisfaction-to-file-change bridge (A) are absent."
+    }
+  ],
+  "theorems": [],
+  "counts": {
+    "theorems": 0,
+    "proved": 0,
+    "admitted": 0,
+    "propositional_axioms": 0
+  },
+  "faithfulness": {
+    "verdict": "unfaithful",
+    "evidence": [
+      "l. 22 vs Heim 1983 sec. 4 p. 228 and defs (9)-(10) p. 229: the file calls Index -> option Entity a 'file'; in Heim that object is a sequence, and a file is characterised by <Dom(F), Sat(F)> (or, 1982 III.1.4 p. 186, a set of <w, a_N> pairs). Dom(F) is dropped entirely.",
+      "l. 23 'An INFORMATION STATE is a set of files': the term does not occur in Heim 1983 or Heim 1982 (pdftotext grep, 0 hits in both); it is Veltman / Groenendijk-Stokhof vocabulary.",
+      "ll. 105-136 and Conclusion item 2 (ll. 405-408): 'random reset operator ... inherently non-deterministic'. 0 occurrences of 'random', 'reset' or 'nondetermin' in either Heim text. Heim's rule (18) p. 235 is a deterministic comprehension, and the file's own exists_ccp (ll. 73-84) is that comprehension written as a function of type CCP1.",
+      "l. 86: 'The above definition is ill-typed'. False: coqc 8.20.1 compiles the file with exit 0 and no warnings; exists_ccp : (File1 -> Prop) -> CCP1.",
+      "ll. 158, 185-186 (Problem 3): 'In typed lambda calculus, this is impossible!' / needs 'dependent types where the TYPE depends on the RUNTIME VALUE of the file'. Heim's universal rule (34) p. 245 is a first-order comprehension over sequences; extras/DonkeyScope.v ll. 263-291 encodes the analogous DPL rule as a relation on assignments in this same repository without dependent types.",
+      "ll. 275-276 (Problem 5): 'FCS wants these [truth conditions and updates] to be the SAME function'. Heim 1983 p. 227: 'logical forms themselves are not assigned truth conditions, only files are'; diagram (8) p. 228 separates the two levels exactly as the file's static_semantics / dynamic_semantics do.",
+      "ll. 281-296: file-relative truth is presented as a defect that 'contradicts classical semantics'. It is Heim's explicit truth criterion (21) p. 236 (and 1982 III.3.2 criterion (C) p. 214); its restriction to true input files is acknowledged on the same page and treated at length in 1982 III.3.3 pp. 218-221.",
+      "ll. 324-345 (Problem 6): an undefined card is mapped to False, contradicting (21)'s three-way true / false / truth-value-less distinction and p. 234's statement that + is simply undefined when (15) fails.",
+      "Conclusion item 3 (ll. 410-413): 'Files contain info states (for attitude verbs) ... impredicative definitions that Coq rejects'. Heim 1983 contains no attitude verbs (grep: 0 hits); Heim 1982 ch. II sec. 7 pp. 170-172 treats attitude verbs as operators over worlds subject to Existential Closure, never as files nested inside files. No such type is written anywhere in FCS.v, so no positivity or universe failure is exhibited.",
+      "ll. 478-480: 'Such a theory EXISTS: It's called \"Update Semantics with Structured Contexts\" and has been successfully formalized.' No such work is in the paper corpus; the only files on disk containing the phrase are FCS.v, its byte-identical copy CoqFiles/FCS.v, and the atlas outputs derived from them. Unsourced.",
+      "The 1983 paper's central construct, the Novelty/Familiarity Condition (15) p. 233, and the Dom(F) it needs are never mentioned or encoded.",
+      "Zero theorems: the impossibility claim of the title and Conclusion is asserted in comments only."
+    ],
+    "additions": [
+      "random_reset / CCP_relational (DPL random assignment, not FCS)",
+      "'information state = set of files' architecture",
+      "attitude-verb nesting of info states inside files (Conclusion item 3)",
+      "'type confusion' between propositions and updates (Problem 5)",
+      "pragmatic accommodation presented as part of the formal theory (Problem 4)",
+      "citation of 'Update Semantics with Structured Contexts' (unsourced)"
+    ],
+    "omissions": [
+      "Dom(F), def (10)",
+      "Novelty/Familiarity Condition (15) and appropriateness as the domain of +",
+      "truth of a file (11) and truth criterion (21)",
+      "atomic rule (13), composition (16), general n-ary rule (18)",
+      "sec. 8 rules: 0-place predicates (30), universal (34), negation (35)",
+      "Heim 1982 III.1.4 world-relative files, III.1.5 principle (A), III.5.1 Extended Novelty-Familiarity-Condition"
+    ],
+    "simplifications": [
+      "abstract Index for N in Part 1 (nat in Part 2)",
+      "exists_ccp restricted to 1-place predicates with P applied to the whole extended sequence and no Novelty precondition",
+      "Part 2 replaces Sat(F) by a finite list and predicates by bool tests"
+    ]
+  },
+  "determination": "slight_modification",
+  "determination_rationale": "The file's own verdict is 'cannot', but it proves nothing, and what it manages to write down points the other way. Every construct it states in Heim's own terms (sequences as Index -> option Entity, Sat(F) as an Ensemble, exists_ccp as rule (18)) type-checks and is a fair Prop-level rendering of a set comprehension from Heim 1983 sec. 6. The formal core of the source (1983 secs. 4, 6, 8: defs (9)-(11), rules (13), (16), (18), (21), (34), (35); 1982 III.1.4-1.5, 3.2) is an extensional set-theoretic semantics over partial assignments, mathematically the same kind of object as DPL, and it encodes in Coq as Ensembles of nat -> option A with Prop-valued update relations. The required modifications are slight and standard: (i) carry Dom(F) explicitly as a second component of a file so that (15) can be stated; (ii) make + partial (option-valued or guarded by an appropriateness predicate) to capture undefinedness and the three-valued criterion (21); (iii) accept Prop-level, non-computational definitions, which is exactly what Heim's comprehensions are, and which the 1983 paper's own remark (p. 231) that it defines only Sat(F + p), not F + p, already licenses. The genuinely non-formal part, accommodation (1982 III.5.2), is left informal by Heim herself ('I can say only very little about the rules that govern accommodation') and is not among the theory's formal rules. The remaining 'barriers' the file lists (random reset, impredicativity via attitude verbs, type confusion, dependent types for donkey sentences) are not properties of the source theory. extras/DonkeyScope.v shows the relevant relational encoding already working in this repository.",
+  "artifact_classes": [
+    {
+      "class": "iii",
+      "description": "Computational opacity: all Part 1 definitions are Prop-valued Ensemble operations (exists_ccp l. 73, accommodate l. 222) that do not compute. The file treats this as fatal; it merely mirrors Heim's set-comprehension presentation. Genuinely incurred by the Ensemble encoding."
+    },
+    {
+      "class": "iv",
+      "description": "Missing native structure: no native sets-with-comprehension (Ensemble = predicate is used instead), no native partial functions (option-valued sequences), and no representation of Heim's file as a <Dom(F), Sat(F)> pair, so the domain component is silently lost."
+    },
+    {
+      "class": "v",
+      "description": "Decidability gap: Part 2 (ll. 366-390) can only make updates compute by restricting to list-valued states and bool predicates; the commented-out test (ll. 384-387) would need excluded_middle_informative. Self-inflicted by insisting on computability the source does not require, but incurred."
+    }
+  ],
+  "compiles": true,
+  "duplicate_of": "extras/FCS2.v",
+  "duplicate_note": "Same source (Heim 1983), same thesis ('FCS cannot be fully formalized'), same misattributions (random reset, attitude-verb impredicativity, 'type confusion'), different route: FCS2.v (500 lines) axiomatises ZFC (Werner-style Ens/IN/EQ with extensionality, pairing, union, power set, replacement, choice) and a Morse-Kelley class theory instead of using Ensembles. Neither file formalizes FCS. FCS.v is the better of the two on soundness: it compiles with no Admitted, no admit, and no declared axioms, and its exists_ccp is a usable seed for an Ensemble-based encoding of rule (18). FCS2.v has 5 Admitted (Lemmas filter_exists l. 200 and random_reset_not_unique l. 277, plus Definitions filter_info_state l. 78, existential_update l. 98 and set_comprehension l. 261 closed by Admitted), an axiom MorseKelley.class_comprehension_spec (l. 131) that its own Lemma class_comprehension_inconsistent (ll. 139-145) proves yields False, and one trivial Qed (Theorem donkey_sentence_has_semantics : exists sem : Type, True, l. 357). FCS2.v's one asset is its ComputableAlternative module (ll. 427-473): a computable finite-domain exists_ccp of type InfoState3 -> list InfoState3 over seq 0 10. The two are companion essays from the same author, not redundant copies; if one is retained it should be FCS.v, and only as a record of the 'attempt' narrative, not as evidence about Heim.",
+  "source_gap": "None. Both primary sources are on disk in full and extract cleanly with pdftotext (Heim 1983: 26 pages, 70 KB of text; Heim 1982: 642 KB). Edition caveats: Heim 1983 is a scan of the Portner & Partee 2002 reprint (README flags it as a third-party course-site copy, 'borderline source'); page numbers in this record are the reprint's pp. 223-248, not the original's pp. 164-189. Heim 1982 is the Schoubye & Glick retypeset edition whose pagination differs from the original dissertation. The Groenendijk & Stokhof 1991 paper cited as the true origin of 'random reset' is also on disk.",
+  "notes": "Absolute path: /Users/graogro/Dropbox/revisiting-formal-semantics/extras/FCS.v. Compile: cd /Users/graogro/Dropbox/revisiting-formal-semantics && coqc -R shallow \"\" -R deep \"\" -R extras \"\" -R ttr_mtt \"\" -R atlas \"\" extras/FCS.v -> exit 0, no output. The file is byte-identical to /Users/graogro/Dropbox/formalizing_formal_semantics/CoqFiles/FCS.v (diff -q). The only 'Example' token in the file (l. 286) is inside a comment, not a Coq Example. Require Import Coq.Logic.Classical (l. 13) loads the classic axiom into the environment but nothing in the file uses it; the file declares no Axiom/Parameter and contains no proofs. Section Variables (Entity, Index, farmer, donkey, owns, beats, smart) are section parameters, not axioms. The commented-out test at ll. 384-387 references excluded_middle_informative, which lives in Coq.Logic.ClassicalDescription (also ClassicalEpsilon), not in the imported Classical module, so it would not compile even if uncommented; it would also need filter over bool, which the surrounding filter_files already provides. Typo 'yIt's' at l. 478. map.pdf item 7 ('FCS_barriers.v') records a prior verdict 'Faithful to informal FCS, but proves FCS is non-mechanizable' and ticks 'Random reset for existential quantification' and 'Information states as sets of files' as matching Heim; this record contradicts both ticks with the citations above and notes that the file proves nothing. map.pdf's narrative sentence ('we prove that Heim's File Change Semantics (1983) cannot be fully mechanized in constructive type theory') should not cite this file as a proof of anything. Correction to the previous atlas record for this file: the F = {<w, a_N> : ...} construal is in Heim 1982 III.1.4 'Files as common ground' (p. 186), not III.1.3; and the sec. 8 rules are numbered (34) (universal, p. 245) and (35) (negation, p. 246) in the reprint."
+}

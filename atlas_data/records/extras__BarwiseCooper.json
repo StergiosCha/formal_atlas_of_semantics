@@ -1,0 +1,168 @@
+{
+  "file": "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/BarwiseCooper.v",
+  "region": "model-theoretic (generalized quantifiers)",
+  "summary": "A 143-line shallow embedding of the elementary set-theoretic core of Barwise & Cooper (1981): sets as Prop-valued predicates over a parameter domain type e, determiners as binary relations on sets (the curried form of 'B is in ||D||(A)'), the four logical determiners every/some/no/at-least-two from clause S5, the 'lives on' property of Sec. 4.4 (named 'Conservative' in the file), right monotonicity (mon-up / mon-down, Sec. 4.7) and left monotonicity (persistent / anti-persistent, Sec. 4.9). Six one-to-five-line constructive theorems check that every and some live on their restriction, every is mon-up and anti-persistent, no is mon-down, and at-least-two is mon-up; Print Assumptions reports only the domain parameter for each. None of the paper's own results (Appendix C, C1-C13), universals U1-U10, the logic L(GQ), Fragment 1, sieves, weak/strong/definite determiners, the intersection condition, negation/duals, or witness sets is formalized. It is a correct but very thin transcription of definitions plus classifications the source states without proof.",
+  "sources": [
+    {
+      "citation": "Barwise, J. & Cooper, R. (1981). Generalized Quantifiers and Natural Language. Linguistics and Philosophy 4(2): 159-219.",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Barwise_Cooper_1981_GeneralizedQuantifiers.pdf",
+      "available": "full"
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "Parameter e : Type; Definition E := e -> Prop (lines 24-25)",
+      "source": "Model M = (E, ||.||) with non-empty domain E; quantifiers are sets of subsets of E (Sec. 2.5, S1-S6, pp. 169-170; Sec. 4.4, p. 178; Appendix C, p. 209)",
+      "match": "simplified",
+      "note": "Sets are Prop-valued predicates with no extensionality, so every set identity of the source becomes a biconditional or a pair of subset facts. Non-emptiness of E is not assumed. The Coq name E denotes the paper's Pow(E), not its domain E. Coq.Sets.Ensembles is imported (line 7) but nothing from it is used."
+    },
+    {
+      "coq": "Definition Determiner := E -> E -> Prop (line 28)",
+      "source": "||D|| assigns to each A subseteq E a family ||D||(A) subseteq Pow(E) (S5-S6, pp. 169-170); ||D(eta)|| = ||D||(||eta||) (S9, p. 170)",
+      "match": "simplified",
+      "note": "Curried: D A B stands for B in ||D||(A). Dropped: (a) partiality -- the n, both, neither are 'undefined otherwise' (pp. 169-170) and the sieve/definedness discussion of Sec. 4.5 and U4 depends on it, but the Coq type is total; (b) the S6 requirement that every determiner denotation lives on its argument is not part of the type, only an optional predicate Conservative; (c) quantifiers ||D||(A) are never first-class objects, so sieves, -Q, Q-, duals and witness sets cannot even be stated without uncurrying."
+    },
+    {
+      "coq": "Definition subset (A B : E) (lines 31-32)",
+      "source": "A subseteq B (throughout)",
+      "match": "exact"
+    },
+    {
+      "coq": "Definition every (lines 38-39)",
+      "source": "S5(b): ||every||(A) = {X subseteq E | A subseteq X} (p. 169)",
+      "match": "exact"
+    },
+    {
+      "coq": "Definition some (lines 41-42)",
+      "source": "S5(a): ||some||(A) = {X subseteq E | X cap A != emptyset} (p. 169)",
+      "match": "exact",
+      "note": "Written as a constructive existential; classically equivalent to non-emptiness of the intersection."
+    },
+    {
+      "coq": "Definition no (lines 44-45)",
+      "source": "S5(c): ||no||(A) = {X subseteq E | A cap X = emptyset} (p. 169)",
+      "match": "exact"
+    },
+    {
+      "coq": "Definition at_least_two (lines 48-49)",
+      "source": "S5(d): ||n||(A) = {X subseteq E | |X cap A| >= n} for each natural number n (p. 169)",
+      "match": "simplified",
+      "note": "Only the instance n = 2, encoded by two distinct witnesses rather than cardinality (the line-47 comment acknowledges this). The general families ||n||, ||!n|| (exactly n), ||the n||, both, neither are absent."
+    },
+    {
+      "coq": "Definition Conservative (lines 57-58)",
+      "source": "'Q lives on A' iff for all X subseteq E, X in Q iff (X cap A) in Q (Sec. 4.4, p. 178; remark after S5, p. 170; Appendix C, p. 209); U3 Determiner universal (p. 179)",
+      "match": "exact",
+      "note": "Exact modulo currying: forall A B, D A B <-> D A (A cap B) says ||D||(A) lives on A for every A. The name 'Conservative' and the comment 'the most famous universal' (line 55) are anachronistic: the word 'conservativity' does not occur in the source, which speaks of 'lives on'; the term is Keenan & Stavi's."
+    },
+    {
+      "coq": "Definition MonotoneUp (lines 62-63)",
+      "source": "Sec. 4.7 Definition: Q is mon-up if X in Q and X subseteq Y subseteq E implies Y in Q; D is mon-up if every ||D||(A) is (pp. 184-185)",
+      "match": "exact"
+    },
+    {
+      "coq": "Definition MonotoneDown (lines 66-67)",
+      "source": "Sec. 4.7 Definition: Q is mon-down if X in Q and Y subseteq X subseteq E implies Y in Q (pp. 184-185)",
+      "match": "exact"
+    },
+    {
+      "coq": "Definition Persistent (lines 70-71)",
+      "source": "Sec. 4.9 Definition: D is persistent if for all M and all A subseteq B subseteq E, X in ||D||(A) implies X in ||D||(B) (p. 193)",
+      "match": "exact",
+      "note": "The source quantifies over all models; the Coq version is stated for one fixed parameter domain e, which is the same thing up to the Parameter being arbitrary."
+    },
+    {
+      "coq": "Definition AntiPersistent (lines 74-75)",
+      "source": "Sec. 4.9: D is anti-persistent if A subseteq B subseteq E and X in ||D||(B) implies X in ||D||(A) (p. 193)",
+      "match": "exact"
+    },
+    {
+      "coq": "(absent)",
+      "source": "Logic L(GQ), Sec. 2 (syntax R1-R6, semantics S7-S11) and the Fragment 1 translation of Sec. 3; sieves and Table I (Sec. 4.5); weak / positive strong / negative strong / definite determiners, intersection condition, symmetry (Sec. 4.6, pp. 182-190); -Q and Q- (Sec. 4.7); witness sets (Sec. 4.9); NP-conjunction (Sec. 4.10); duals (Sec. 4.11); universals U1-U10; Appendix B postulates for few/most/many; Appendix C results C1-C13 including the non-first-order-definability of 'most' (C12-C13, pp. 213-216); Appendix D classification table (p. 219)",
+      "match": "missing"
+    }
+  ],
+  "theorems": [
+    {
+      "name": "every_conservative",
+      "status": "proved",
+      "source_claim": "Remark after S5 (p. 170): for each logical determiner D, ||D||(A) 'lives on A'; instance D = every. Asserted without proof in the source.",
+      "note": "Lines 82-89; constructive; Print Assumptions: only e : Type."
+    },
+    {
+      "name": "some_conservative",
+      "status": "proved",
+      "source_claim": "Same remark after S5 (p. 170), instance D = some.",
+      "note": "Lines 92-99."
+    },
+    {
+      "name": "every_antipersistent",
+      "status": "proved",
+      "source_claim": "Sec. 4.9 (p. 193): anti-persistent determiners 'include every, no, few (?), at most n, finitely many'; Appendix D row 2. Asserted without proof.",
+      "note": "Lines 102-109."
+    },
+    {
+      "name": "every_monotone_up",
+      "status": "proved",
+      "source_claim": "Sec. 4.7 (p. 185): 'every linguist' in example (30) and in the mon-up list; Appendix D row 2. Asserted without proof.",
+      "note": "Lines 112-119."
+    },
+    {
+      "name": "no_monotone_down",
+      "status": "proved",
+      "source_claim": "Sec. 4.7 (p. 185): 'no plumber' in example (31); 'no man/men' in the mon-down list; Appendix D row 3.",
+      "note": "Lines 122-129."
+    },
+    {
+      "name": "at_least_two_monotone_up",
+      "status": "proved",
+      "source_claim": "Sec. 4.7 (p. 185): 'at least two men' in the mon-up list; Appendix D row 4 ('(at least) 1, 2, 3, ...').",
+      "note": "Lines 132-140."
+    }
+  ],
+  "counts": {
+    "theorems": 6,
+    "proved": 6,
+    "admitted": 0,
+    "propositional_axioms": 0
+  },
+  "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+      "every/some/no (Coq lines 38-45) transcribe S5(a)-(c) (p. 169) exactly under sets-as-predicates; at_least_two (lines 48-49) is the n = 2 instance of S5(d).",
+      "Conservative (lines 57-58) is the Sec. 4.4 'lives on' condition (p. 178) curried over the restriction; MonotoneUp/MonotoneDown (lines 62-67) and Persistent/AntiPersistent (lines 70-75) match the Sec. 4.7 (pp. 184-185) and Sec. 4.9 (p. 193) definitions verbatim.",
+      "All six theorems (lines 82-140) verify classifications that the source states in prose or in the Appendix D table but never proves; a scratch file with Print Assumptions on each reports only e : Type, and there is no Admitted or Axiom in the file.",
+      "Not one of the source's own propositions is formalized: C1 (lives-on implies A in Q iff E in Q), C2-C3 (principal filters, definite implies positive strong), C4-C6 (intersection condition / symmetry / strong determiners are not symmetric), C7 (persistent + symmetric implies mon-up), C8, C9 (negation reverses monotonicity), C10, C11, C12-C13 (most is not first-order definable). Even the free companions of the proved facts (no and at_least_two live on A; some and at_least_two are persistent; no is anti-persistent; some is mon-up) are absent.",
+      "The header (lines 2-4) self-labels the file 'Category A: Fully Formalizable' and 'Key Concept: Monotonicity and Conservativity'; the file's content supports only 'the definitions can be written down', and the word 'conservativity' is not the source's.",
+      "Both imports (Ensembles, Classical_Prop, lines 7-8) are unused; the proved fragment needs no classical reasoning."
+    ],
+    "omissions": [
+      "L(GQ) (Sec. 2) and the English fragment with its translation (Sec. 3).",
+      "Partial determiners the n / both / neither and the sieve / definedness apparatus (Sec. 4.5, U4).",
+      "Cardinality-based and proportional determiners: general n, exactly n, at most n, most / more than half, many, few (S5(d), Appendix B).",
+      "Quantifiers as first-class families: sieves, -Q and Q-, duals, witness sets.",
+      "Weak / strong / definite classification, intersection condition, symmetry (Sec. 4.6).",
+      "All universals U1-U10 and all Appendix C results C1-C13."
+    ],
+    "simplifications": [
+      "Sets as e -> Prop without extensionality; set identities replaced by biconditionals.",
+      "Determiners curried to E -> E -> Prop instead of set -> family-of-sets; totality forced.",
+      "at_least_two by two distinct witnesses instead of |X cap A| >= 2."
+    ],
+    "additions": [
+      "The label 'Conservative' (and 'the most famous universal') for the source's 'lives on' / U3."
+    ]
+  },
+  "determination": "as_is",
+  "determination_rationale": "What the file touches -- S5 logical determiners, Sec. 4.4 lives-on, Sec. 4.7 monotonicity, Sec. 4.9 persistence -- is elementary set theory over an arbitrary domain and goes into Coq verbatim under sets-as-predicates: every definition is a one-line transcription and every proof is a few intro/apply steps with no axioms. The file is therefore evidence that this core of the theory formalizes as-is. It is not evidence about the parts it skips: partial determiners need option-valued or dependently-restricted denotations; cardinality and proportional determiners (n, exactly n, most, many, few) need a finiteness/cardinality structure on the domain or on the predicates (Appendix B's postulates presuppose |A| is meaningful); C12-C13 need a deep embedding of first-order syntax plus Ehrenfeucht-Fraisse-style model-theoretic arguments. Those would be slight-to-major additions, but they are additions of infrastructure, not restructurings of the theory. Rated as_is on the strength of what is actually attempted.",
+  "artifact_classes": [
+    {
+      "class": "iv",
+      "description": "No native cardinality or extensional-set structure on Prop-valued predicates: at_least_two (lines 48-49) is hand-coded with two distinct witnesses and a comment flagging the workaround, and the source's general cardinality determiners are simply left out; set equalities of the source are everywhere replaced by <->. No strict-positivity (i), universe (ii), opacity (iii) or decidability (v) artifacts arise in the fragment proved; Classical_Prop is imported but never used."
+    }
+  ],
+  "compiles": true,
+  "duplicate_note": "No other repository file has Barwise & Cooper 1981 as its declared source, so no duplicate_of is assigned. Overlaps: (1) extras/PoC_Foundations.v, module MontagueGrammar (lines 14-63), proves every_monotonic and every_conservative with statements identical to every_monotone_up and every_conservative here, but as a two-theorem proof of concept for a 'Synergy Proposal', with Entity := Type rather than a parameter domain. (2) extras/Quantifiers.v and extras/quanrifiers2.v, Section 6 (lines ~163-232 / ~162-217), define conservative / upward_monotone / downward_monotone over MTT-style CN types and prove some/all mon-up, no mon-down, some/all conservative; but their restriction is a type, so their 'conservative' is the degenerate Q A P <-> Q A (fun x => True /\\ P x), which trivializes the source's lives-on condition, and they have no left-monotonicity (persistence) notions; Quantifiers.v also leaves only_not_conservative Admitted and quanrifiers2.v posits it as an Axiom. BarwiseCooper.v is the better home for the B&C definitions because it keeps the paper's one-domain, sets-of-sets format and states persistence; it is nonetheless the thinnest of the three in coverage of determiners.",
+  "source_gap": "Primary source fully on disk (62-page JSTOR scan of L&P 4(2), pp. 159-219, text-extractable; PDF page p = printed page 157+p). pdftotext garbles set-theoretic symbols and renders the Appendix D table (p. 219) as unaligned columns, but every classification cited above is also stated in prose in Sec. 4.7 (p. 185) and Sec. 4.9 (p. 193), so no claim in this record depends on the table.",
+  "notes": "Compiled with coqc 8.20.1 from the repository root (exit 0). A scratch file Requiring BarwiseCooper and running Print Assumptions on all six theorems reported only 'e : Type' each time. Cosmetic: the '1. Basic Definitions' banner comment is repeated three times (lines 10-22). The file's 'Category A: Fully Formalizable' self-assessment describes the definitions, not the paper's theorems, none of which is attempted."
+}

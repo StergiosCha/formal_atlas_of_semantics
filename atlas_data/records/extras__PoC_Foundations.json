@@ -1,0 +1,169 @@
+{
+  "file": "extras/PoC_Foundations.v",
+  "region": "foundations (proof-of-concept scaffold spanning model-theoretic quantification and dynamic update at toy depth)",
+  "summary": "A 111-line proof-of-concept that transcribes the two Coq modules printed under 'Phase 1: Classical Foundations (Years 1-2)' in section 2.1 of the 2025 EU Synergy Grant Proposal 'Formalizing Formal Semantics' (heading p. 4, code p. 5; the file's comments at l.11 and l.70 cite 'Synergy Proposal Lines 111-131' and '132-147', which are exactly the pdftotext line numbers of the two modules). It compiles under Coq 8.20.1 (exit 0, no warnings). The proposal's snippet does not compile as printed -- re-verified in scratch: `Possible_World` is used at proposal l.115 but never declared; `Entity` is out of scope in the second module; `dynamic_compositionality` has the empty script `Proof. (* machine-verified *) Qed.` ('Attempt to save an incomplete proof'). The file makes exactly those three repairs (two `Parameter` declarations, one five-tactic proof), adds an unused `some` and a conservativity theorem for `every`, and otherwise reproduces the snippet verbatim -- including the defect `Definition Entity := Type` (l.16), under which 'entities' are a universe and `every` quantifies over types (`every (fun T : Type => T = nat) (fun T : Type => T = nat) : Prop` typechecks). Three Qed theorems, all trivial: two first-order facts about universal implication (right upward monotonicity and conservativity of `every`, i.e. Barwise & Cooper 1981's mon-up and 'lives on'), and a definitional unfolding of a state-passing conjunction (`destruct; simpl; tauto` closes it). No propositional axioms; two type-level Parameters. Montague Grammar and dynamic semantics are present only as module names: no syntax, no IL, no intensional operators, no assignments or discourse referents, and no primitive dynamic proposition is ever defined, so the information state is never read or written. No other repo file covers this source; its quantifier content is subsumed by extras/BarwiseCooper.v and its `InfoState -> InfoState * Prop` shape recurs in extras/PolydefiniteSemantics.v.",
+  "sources": [
+    {
+      "citation": "EU Synergy Grant Proposal 2025, 'Formalizing Formal Semantics: Machine-Verified Foundations for Natural Language Understanding' (anonymous; PDF title 'Synergy Grant Proposal: Formalizing Natural Language Semantics', printed from Chrome 137/Skia on 2025-08-01, 21 pp. A4, full text layer). Section 2 'Scientific Excellence', 2.1 'Groundbreaking Research Program', Phase 1: Classical Foundations (Years 1-2): heading p. 4, Coq modules MontagueGrammar and DynamicSemantics on p. 5 (pdftotext lines 111-131 and 132-147 of the whole document, exactly as cited by the file at l.11 and l.70). Also WP1 deliverables D1.2 'Formalized Montague Grammar with verified composition principles' and D1.3 'Dynamic semantics with information state monads' (pdftotext l.490-491).",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/Synergy Grant Proposal_ Formalizing Natural Language Semantics.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Barwise, J. & Cooper, R. (1981). Generalized Quantifiers and Natural Language. Linguistics and Philosophy 4(2): 159-219 (JSTOR PDF, 62 pp. incl. cover sheet; journal page = PDF page + 157). The two quantifier properties the file proves for `every`: 'lives on' (first stated at S6 p. 170; section 4.4 'The Property Lives on', definition p. 178; Appendix C, C1, p. 209) and 'monotone increasing (mon-up)' (section 4.7 definition p. 184; `every N`-type NPs listed as mon-up p. 185). Secondary: the file cites only the proposal.",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Barwise_Cooper_1981_GeneralizedQuantifiers.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Montague, R. (1973). The Proper Treatment of Quantification in Ordinary English (PTQ). The theory the MontagueGrammar module names: types e/t/<s,a>, intensions as functions from indices, translation rule T2 for 'every zeta' as lambda P forall x [zeta'(x) -> P{x}]. Secondary; the module encodes only an extensional `every` over a universe and an unused `Intension`.",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/montague73.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Groenendijk, J. & Stokhof, M. (1991). Dynamic Predicate Logic. Linguistics and Philosophy 14: 39-100. Section 2, Definition 2: semantics as a relation on assignments, conjunction as relational composition. Secondary; the DynamicSemantics module's deterministic state-passing conjunction with a detached Prop payload is the functional special case of the composition clause and nothing else of DPL is present. Heim 1982/1983 file change semantics (papers/dynamic/) is the other candidate reading of 'information states with update procedures'; neither is cited by the proposal or the file.",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/dynamic/Groenendijk_Stokhof_1991_DPL.pdf",
+      "available": "full"
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "MontagueGrammar.Entity := Type (l.16)",
+      "source": "Proposal l.113 `Definition Entity := Type.`; PTQ domain A of individuals (type e)",
+      "match": "exact",
+      "note": "Verbatim transcription of a source defect. With Set Printing Universes: `Entity = Type@{Entity.u0} : Type@{Entity.u0+1}` and `Proposition : Type@{max(Set+1, Entity.u0+1)}`; `every (fun T : Type => T = nat) (fun T : Type => T = nat) : Prop` typechecks. The 'domain of entities' is a universe, so predicates are predicates on types and `every` ranges over all types. The intended encoding (`Parameter Entity : Type`) is what the file itself uses in the other module (l.75), so the two modules disagree on what an entity is."
+    },
+    {
+      "coq": "Proposition := Entity -> Prop (l.19)",
+      "source": "Proposal l.114; PTQ type <e,t> (a property), not t (a proposition)",
+      "match": "exact",
+      "note": "Unused. Misnamed relative to PTQ: `Entity -> Prop` is a predicate type. The comment 'propositions with proof relevance' (l.15, from the proposal's comment and its 'Proof relevance: Evidence matters, not just truth values' pitch at proposal l.91) is not delivered by `Prop`, whose inhabitants are erased at extraction and cannot be eliminated into Type."
+    },
+    {
+      "coq": "Parameter Possible_World : Type (l.22)",
+      "source": "Proposal: absent (used at l.115, never declared); PTQ index set I x J (worlds x times)",
+      "match": "added",
+      "note": "Repair #1: without it the proposal snippet fails at `Definition Intension` with 'The reference Possible_World was not found in the current environment' (scratch prop_v0.v). Only worlds, no times."
+    },
+    {
+      "coq": "Intension A := Possible_World -> A (l.23)",
+      "source": "Proposal l.115; PTQ type <s,a> = functions from indices to D_a",
+      "match": "exact",
+      "note": "Unused. No cap/cup operators and `every` is extensional, so nothing is ever intensionalized. Print Assumptions Intension lists only Possible_World : Type. shallow/PTQ.v l.64 defines the same `Intension (A : Type) := Index -> A` inside a real PTQ fragment."
+    },
+    {
+      "coq": "function_application f x := f x (l.26)",
+      "source": "Proposal l.117-118 ('Verified semantic composition')",
+      "match": "exact",
+      "note": "Unused identity wrapper around Coq application; no property of it is stated, so nothing is 'verified'."
+    },
+    {
+      "coq": "every P Q := forall x, P x -> Q x (l.29-30)",
+      "source": "Proposal l.120-121; PTQ T2 translation of 'every zeta': lambda P forall x [zeta'(x) -> P{x}]; Barwise & Cooper 1981 S5 `every A` = {X : A subset of X}",
+      "match": "exact",
+      "note": "Exact w.r.t. the proposal; simplified w.r.t. PTQ (extensional, no cup on P{x}, no syntax) and, because of `Entity := Type`, quantifies over types rather than individuals."
+    },
+    {
+      "coq": "some P Q := exists x, P x /\\ Q x (l.32-33)",
+      "source": "Proposal: absent; PTQ T2 translation of 'a zeta': lambda P exists x [zeta'(x) /\\ P{x}]",
+      "match": "added",
+      "note": "Unused: no theorem mentions it."
+    },
+    {
+      "coq": "DynamicSemantics.Entity : Type (Parameter, l.75)",
+      "source": "Proposal: absent (`Entity` used at l.134 but MontagueGrammar is closed, so it is out of scope)",
+      "match": "added",
+      "note": "Repair #2: without it the snippet fails at `Definition InfoState` with 'The reference Entity was not found' (scratch prop_v1.v). An abstract type, unlike MontagueGrammar.Entity which is a universe."
+    },
+    {
+      "coq": "InfoState := list Entity (l.79)",
+      "source": "Proposal l.134 ('Information states with update procedures'); DPL states are assignments (G&S 1991 Def. 2); Heim 1982/1983 files/contexts are sets of assignment sequences",
+      "match": "exact",
+      "note": "Exact w.r.t. the proposal; 'a list of known entities' (l.78) corresponds to no published notion of information state, and since no primitive DynamicProp is ever defined the state is never read or written. Also does not match the proposal's own deliverable D1.3 ('information state monads'): no monad structure (return/bind/laws) is defined."
+    },
+    {
+      "coq": "DynamicProp := InfoState -> InfoState * Prop (l.82)",
+      "source": "Proposal l.135; DPL: a relation on assignments (nondeterministic); FCS/update semantics: a context-change potential whose truth is derived from the update",
+      "match": "exact",
+      "note": "A deterministic state transformer carrying a separate Prop payload. The truth component is independent of the state and of the successor state, which is not any published dynamic semantics (in DPL truth is existence of an output; in FCS it is derived from the update). The Prop payload is computationally opaque, contradicting the proposal's 'Computational content: Meanings are algorithms' pitch (proposal l.92). The same shape is reused by extras/PolydefiniteSemantics.v l.234-249 (`dynamic_polydefinite`, `dynamic_monadic : ... -> InfoState -> InfoState * Prop`)."
+    },
+    {
+      "coq": "dynamic_and p q := fun s => let (s', pr) := p s in let (s'', qr) := q s' in (s'', pr /\\ qr) (l.90-94)",
+      "source": "Proposal l.137-140; DPL Def. 2 clause for phi /\\ psi (relational composition)",
+      "match": "exact",
+      "note": "Exact w.r.t. the proposal (the comment at l.85-89 'The PDF logic was:' quotes text identical to the definition beneath it). Sequential composition of the state transformers plus conjunction of the payloads; the functional special case of DPL's relational composition."
+    },
+    {
+      "coq": "(absent)",
+      "source": "Everything that constitutes either theory: PTQ syntax, IL types and terms, cap/cup, meaning postulates, translation rules T1-T17; DPL/FCS variables or discourse referents, random assignment, dynamic negation/implication/quantifiers, tests, donkey binding, the static/dynamic distinction, truth as output-existence; Alternative Semantics (listed under 'Classical frameworks' in the proposal's executive summary l.16 and deliverable D1.4, but absent from its Phase 1 code)",
+      "match": "missing",
+      "note": "None of this is in the proposal's snippet either; the file omits nothing the snippet contains."
+    }
+  ],
+  "theorems": [
+    {
+      "name": "MontagueGrammar.every_monotonic (l.37-47)",
+      "status": "proved",
+      "source_claim": "Proposal l.123-130 `Theorem every_monotonic` (identical statement; the proposal's proof `intros P Q R H1 H2 x Px. apply H1, H2, Px.` is the same three-step chain with hypotheses renamed). Theory: `every N` is monotone increasing (mon-up), Barwise & Cooper 1981 section 4.7, pp. 184-185.",
+      "note": "Trivial (transitivity of implication under forall). Print Assumptions: closed under the global context. Holds over the universe Type as well as over any domain. Same fact as extras/BarwiseCooper.v `every_monotone_up` (l.112), there stated via a general MonotoneUp predicate over a proper domain parameter."
+    },
+    {
+      "name": "MontagueGrammar.every_conservative (l.50-63)",
+      "status": "proved",
+      "source_claim": "New relative to the proposal ('Additional verification', l.49). Theory: `every A` lives on A, i.e. B in every(A) iff A intersect B in every(A) -- Barwise & Cooper 1981 S6 p. 170, section 4.4 p. 178, Appendix C C1 p. 209.",
+      "note": "Trivial. Print Assumptions: closed under the global context. Same fact as extras/BarwiseCooper.v `every_conservative` (l.82), there stated via a general Conservative predicate."
+    },
+    {
+      "name": "DynamicSemantics.dynamic_compositionality (l.97-109)",
+      "status": "proved",
+      "source_claim": "Proposal l.142-146 `Theorem dynamic_compositionality`, whose proof in the source is the empty script `Proof. (* machine-verified *) Qed.` (fails with 'Attempt to save an incomplete proof', scratch prop_v2.v). This file is the first place the statement is actually checked.",
+      "note": "A definitional identity: after two case splits both sides are literally `pr /\\ qr` (re-proved in scratch as dc_by_computation by `destruct; simpl; tauto`). `snd` discards the state components, so the theorem says nothing about states or updates and is not a compositionality property in any technical sense. Print Assumptions: only DynamicSemantics.Entity : Type. The final `reflexivity` on an `iff` goal works only because `Require Import Coq.Lists.List` (l.6) transitively loads the Setoid/RelationClasses instances; without the import the same script fails with 'The relation iff is not a declared reflexive relation' (scratch prop_v3.v), whereas `split; auto` needs no import (prop_v3b.v compiles)."
+    }
+  ],
+  "counts": {
+    "theorems": 3,
+    "proved": 3,
+    "admitted": 0,
+    "propositional_axioms": 0
+  },
+  "faithfulness": {
+    "verdict": "faithful",
+    "evidence": [
+      "Line-for-line correspondence with the proposal: file l.14-65 <-> proposal pdftotext l.111-131 (Module MontagueGrammar), file l.73-111 <-> proposal l.132-147 (Module DynamicSemantics); the file's own citations at l.11 and l.70 give exactly these line ranges and they check out against `pdftotext` of the 21-page PDF (code is on p. 5).",
+      "A comment-insensitive comparison of the proposal snippet against the file shows only: `Require Import Coq.Lists.List. Import ListNotations.` (l.6-7); `Parameter Possible_World : Type` (l.22); `some` (l.32-33); hypothesis renaming inside the proof of every_monotonic (l.43-46); `every_conservative` (l.50-63); `Parameter Entity : Type` (l.75); and the supplied proof of dynamic_compositionality (l.101-109).",
+      "The proposal's snippet does not compile as printed. Scratch sequence (all under the scratchpad, Coq 8.20.1): prop_v0.v (verbatim, form feed stripped) fails at `Definition Intension` ('The reference Possible_World was not found'); prop_v1.v (+Possible_World) fails at `Definition InfoState` ('The reference Entity was not found'); prop_v2.v (+Entity) fails at dynamic_compositionality ('Attempt to save an incomplete proof (there are remaining open goals)'); prop_v3.v (+the file's proof script, no List import) fails ('The relation iff is not a declared reflexive relation'); prop_v3b.v (`split; auto`) and prop_v4.v (+`Require Import Coq.Lists.List`) compile with exit 0. So the proposal's '(* machine-verified *)' annotation was not true of the source; the file makes it true.",
+      "`Definition Entity := Type` (l.16) is reproduced verbatim from proposal l.113. `Print` with Set Printing Universes confirms `Entity = Type@{Entity.u0} : Type@{Entity.u0+1}` and `Proposition : Type@{max(Set+1, Entity.u0+1)}`; `Check (every (fun T : Type => T = nat) (fun T : Type => T = nat))` succeeds with type Prop. Faithfulness here means faithfully inheriting a universe-level collapse.",
+      "Print Assumptions: every_monotonic and every_conservative are closed under the global context; dynamic_compositionality depends only on DynamicSemantics.Entity : Type; Intension depends only on Possible_World : Type. No propositional axioms anywhere.",
+      "dynamic_compositionality is a definitional unfolding (scratch lemma dc_by_computation: `destruct; simpl; tauto`), so its content as a 'verified update property' (l.96, proposal l.141) is nil.",
+      "Unused declarations: Proposition, Intension, function_application, some, Possible_World (only mentioned by the unused Intension), and `Import ListNotations`. No primitive DynamicProp exists, so InfoState is never inspected or updated by anything in the file.",
+      "The comment at l.36 'The proposal claims this theorem: every_monotonic' is accurate (proposal l.123-130). The proposal's deliverable D1.3 'information state monads' (l.491) is not delivered: no monad is defined."
+    ],
+    "omissions": [
+      "Nothing from the proposal's Phase 1 snippet is omitted.",
+      "Relative to the theories the snippet names: PTQ syntax, IL, intensional operators, meaning postulates and the fragment; DPL/FCS variables, random assignment, dynamic connectives and quantifiers, donkey binding, truth-as-output-existence; Alternative Semantics, which the proposal's executive summary (l.16) and deliverable D1.4 (l.492) list among the classical frameworks but whose Phase 1 code omits."
+    ],
+    "additions": [
+      "`Parameter Possible_World : Type` (l.22) and `Parameter Entity : Type` (l.75): the two declarations the proposal forgot.",
+      "The actual proof of dynamic_compositionality (l.101-109), where the proposal has an empty script.",
+      "`some` (l.32-33), unused.",
+      "`every_conservative` (l.50-63), Barwise & Cooper's 'lives on' for every, not in the proposal.",
+      "`Require Import Coq.Lists.List` / `Import ListNotations` (l.6-7), needed only so that `reflexivity` closes an `iff` goal.",
+      "Explanatory comments, including one (l.85-89) that quotes 'the PDF logic' for dynamic_and, identical to the definition beneath it."
+    ],
+    "simplifications": [
+      "None relative to the proposal.",
+      "Relative to the named theories (inherited from the proposal): extensional `every` with no syntax; entities as a universe; dynamic propositions as deterministic state transformers with a detached Prop truth value rather than relations on assignments or context-change potentials."
+    ]
+  },
+  "determination": "slight_modification",
+  "determination_rationale": "The identified source is the proposal's own 37-line Coq sketch, and what this file evidences is that the sketch is formalizable essentially as written: three local repairs -- two missing `Parameter` declarations and a five-tactic proof of a definitional identity -- turn a non-compiling snippet into a compiling one with no restructuring (scratch sequence prop_v0 through prop_v4). That is slight_modification. The rating must not be read as a verdict on Montague Grammar or dynamic semantics: the sketch has no syntax, no IL, no intensional operators, no assignments or discourse referents and no primitive dynamic proposition, and its `Entity := Type` means even `every` is not over a domain of individuals. The three theorems are two first-order tautologies and an unfolding. Formalizability of PTQ proper is evidenced elsewhere in the repo (shallow/PTQ.v, shallow/MontagueFragment.v, deep/theorems_deep_PTQ.v); file change semantics is treated in extras/FCS.v and FCS2.v only as a negative case study with zero theorems; DPL proper is not attempted anywhere in the repo. 'not_applicable' was considered because the file is a proof-of-concept scaffold, but it does transcribe and verify source-stated theorems, so it is rated on those.",
+  "artifact_classes": [
+    {
+      "class": "ii",
+      "description": "Universe-level / type-value collapse, inherited verbatim from the source: `Definition Entity := Type` (l.16, proposal l.113) makes the domain of entities a universe rather than a type of individuals. Verified in scratch (Set Printing Universes): `Entity = Type@{Entity.u0} : Type@{Entity.u0+1}`; `Proposition = Entity -> Prop : Type@{max(Set+1, Entity.u0+1)}`; `every` accepts type-level predicates (`every (fun T : Type => T = nat) (fun T : Type => T = nat) : Prop`), i.e. 'every P is Q' quantifies over all types in universe Entity.u0. The file's second module avoids the collapse with `Parameter Entity : Type` (l.75), so the two modules use incompatible notions of entity. The theorems survive because they hold for any domain, universes included. Not incurred: i (no inductives are declared); iii (nothing is computed and no proof term is unfolded -- the Prop payload of DynamicProp is computationally opaque, but that is the proposal's own design choice at l.135, not a cost imposed by Coq, though it does contradict the proposal's 'Meanings are algorithms' pitch at l.92); iv (no source structure is attempted that Coq lacks -- the missing structures are absent from the source too); v (no decidability is demanded)."
+    }
+  ],
+  "compiles": true,
+  "duplicate_of": "",
+  "duplicate_note": "No duplicate. A grep over every .v file in the repo for `every_monotonic`, `dynamic_compositionality` and `Synergy` hits only this file, and no other file cites the proposal. A byte-identical copy exists outside the repo at /Users/graogro/Dropbox/formalizing_formal_semantics/CoqFiles/PoC_Foundations.v (diff empty); that is a staging copy, not a second formalization. Overlap, not duplication: (1) extras/BarwiseCooper.v proves the same two facts about `every` (`every_conservative` l.82, `every_monotone_up` l.112) over a proper domain parameter `e` and via the general definitions Conservative/MonotoneUp, so PoC_Foundations's quantifier content is strictly subsumed there and BarwiseCooper.v is the better file for it (real source, general definitions, no universe collapse); (2) extras/PolydefiniteSemantics.v Section DynamicPolydefinites (l.224-249) reuses the identical `InfoState -> InfoState * Prop` state-passing shape with a record InfoState and actually defines primitive updates, which this file never does; (3) shallow/PTQ.v l.64 has the same `Intension` definition inside a full PTQ fragment. None of the listed candidate duplicate groups involves this file.",
+  "source_gap": "The primary source is on disk in full (21 pp., text layer) but lives at the project root ('Synergy Grant Proposal_ Formalizing Natural Language Semantics.pdf'), not under papers/, and is not listed in papers/README.md, whose only proposal entry is the separate Chatzikyriakidis-Cooper-Blanck March 2026 paper proposal (paper_proposal.pdf, a different 241-line document that contains none of these modules -- grep for every_monotonic/dynamic_and/InfoState is empty). The file cites the source by pdftotext line numbers, reproducible only with that tool (they correspond to p. 5, section 2.1, Phase 1). The source is an unreviewed, anonymous grant application whose Coq snippet did not compile as printed; it is not a published theory. The theories it gestures at are all on disk: Montague 1973 (../montague73.pdf), Barwise & Cooper 1981, Groenendijk & Stokhof 1991, Heim 1982/1983 (papers/foundations/, papers/dynamic/).",
+  "notes": "Region hint was 'identify': resolved to foundations (proof-of-concept), since the file spans two atlas regions (model-theoretic quantifiers; dynamic update) at toy depth and its source is the project's own grant proposal rather than a region's primary literature. Compile command (from the repo root, this file only) exits 0 with no output. Scratch verification under /private/tmp/claude-501/-Users-graogro-Dropbox-formalizing-formal-semantics/c34891d7-ce39-4399-ad0f-31b3588ae898/scratchpad/: verify_poc.v (Print with Set Printing Universes; the type-level Check on every; Print Assumptions for all three theorems and Intension; lemma dc_by_computation), prop_v0.v-prop_v4.v (the proposal snippet as printed and with successive repairs; note pdftotext emits a form feed at the start of proposal l.111 which must be stripped or coqc reports 'Lexer: Undefined token'). Barwise & Cooper page numbers were derived from the text layer's form-feed page breaks with the JSTOR cover sheet as PDF page 1 (journal page = PDF page + 157). The header comment 'Phase 1: Classical Foundations & Dynamic Semantics' matches the proposal's Phase 1 heading; Phase 2 of the proposal (an Agda MTTSemantics module, proposal l.148ff.) is not covered by this file and would belong to the ttr_mtt track. The Coq file was not modified."
+}

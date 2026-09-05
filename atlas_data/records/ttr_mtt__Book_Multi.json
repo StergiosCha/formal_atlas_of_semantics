@@ -1,0 +1,128 @@
+{
+ "file": "ttr_mtt/Book_Multi.v",
+ "region": "ttr pilots",
+ "summary": "Multidimensional adjectives in MTT-semantics per Chatzikyriakidis & Luo 2020 §4.4 / Appendix A7.5, transcribed essentially verbatim from the book's own Coq appendix: dimensions as an enumerated inductive type (Health := Heart|Blood|Cholesterol, living in Degree := Set), a primitive dimension predicate Healthy : Health->Human->Prop, the positive adjective healthy as universal quantification over dimensions ((4.41)) and its negative antonym sick as the negation of that universal ((4.42)); three Qed entailments (healthy John projects to every dimension; healthy John entails not sick John; one failed dimension suffices for sick John — the constructively valid direction of the prose's 'existential' gloss) plus two deliberately Abort'd negative controls (one healthy dimension, or one failed dimension, does not yield healthy) exactly as printed in the book. A final 4-line fragment renders the §4.4.1 multidimensional-noun sketch ('artist', eq. 4.46) as a Sigma-type record, but deviates: it inserts a nat-valued degree function and a threshold standard (the book's explicitly deferred future work) and its dimension measure ignores the Human argument, making Artist membership person-independent. Loads Coq_book_ontology (the book's base ontology with Axiom+Coercion subtyping).",
+ "sources": [
+  {
+   "citation": "Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. ISTE/Wiley. §4.4 (Multidimensional adjectives) and Appendix A7.5.",
+   "path": "papers/foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf",
+   "available": "full"
+  },
+  {
+   "citation": "Sassoon, G. (2012/2013). A typology of multidimensional adjectives. Journal of Semantics 30(3):335-380 (the positive/negative universal-vs-existential typology the book follows).",
+   "path": null,
+   "available": "none (cited via C&L 2020; not on disk)"
+  },
+  {
+   "citation": "Chatzikyriakidis, S. & Luo, Z. (2013). Adjectives in a modern type-theoretical setting. LACL 2013 (background on the MTT adjective programme).",
+   "path": "papers/foundations/Chatzikyriakidis_Luo_2013_AdjectivesMTT.pdf",
+   "available": "full"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "Definition Degree := Set; Inductive Health : Degree := Heart|Blood|Cholesterol",
+   "source": "C&L (4.39) Health : Degree with three dimension objects; fn. 12: formally the finite type Fin(3) in a universe",
+   "match": "exact",
+   "note": "Degree aliased to Coq's Set because Coq lacks Tarski universes (artifact iv); the book's own appendix makes the identical move"
+  },
+  {
+   "coq": "Parameter Healthy : Health -> Human -> Prop",
+   "source": "(4.40) healthy : Health -> Human -> Prop, the per-dimension primitive",
+   "match": "exact",
+   "note": "signature parameter, no propositional content; naming case-swapped vs. the book's prose (primitive capitalized here)"
+  },
+  {
+   "coq": "healthy := fun y : Human => forall x : Health, Healthy x y",
+   "source": "(4.41) Healthy = \\x:Human. forall h:Health. healthy(h,x) — positive multidimensional adjectives quantify universally over dimensions",
+   "match": "exact"
+  },
+  {
+   "coq": "sick := fun y : Human => ~ (forall x : Health, Healthy x y)",
+   "source": "(4.42) Sick = \\x:Human. not(forall h. healthy(h,x))",
+   "match": "exact",
+   "note": "the book's prose says negative adjectives involve EXISTENTIAL quantification; (4.42)'s not-forall coincides with exists-not only classically — see source_gap"
+  },
+  {
+   "coq": "Inductive art : Degree := a1|a2|a3|a4; Parameter F : art -> nat; DIM_CN h a := F a; Parameter STND_art : nat; Record Artist := mkartist {h :> Human; EI : forall a : art, gt (DIM_CN h a) STND_art}",
+   "source": "(4.45) Art : D = a1|a2|a3 and (4.46) artist = Sigma h:Human. forall a:Art. DIM_CN(h,a), with DIM_CN : Pi D:Degree. Human -> D -> Prop",
+   "match": "changed",
+   "note": "the Prop-valued dimension predicate is replaced by a nat degree function plus threshold standard (the gradability unification §4.4.1 explicitly defers as future work); DIM_CN ignores its Human argument, so all humans get identical degrees and Artist is trivially inhabited-by-all or empty; the book's printed A7.5 code for this fragment is itself garbled (see source_gap); 4 dimensions vs. the source's 3"
+  },
+  {
+   "coq": "Load Coq_book_ontology (CN := Set, Human/Man/John..., some/all/no quantifiers, Axiom+Coercion subtyping chain)",
+   "source": "the book's base MTT ontology with common nouns as types and coercive subtyping (Appendix A2/A7.1)",
+   "match": "exact",
+   "note": "coercive subtyping simulated by Coq Coercions over Axiom-declared maps — function-typed, signature-level, no propositional content (artifact iv)"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "HEALTHY",
+   "status": "proved",
+   "source_claim": "Appendix A7.5 theorem, verbatim: healthy John entails Healthy on each enumerated dimension — the universal-quantification analysis (4.41) and the exceptive-compatibility intuition (4.37)"
+  },
+  {
+   "name": "HEALTHY2",
+   "status": "proved",
+   "source_claim": "Appendix A7.5 theorem, verbatim: healthy John -> ~(sick John) — healthy/sick antonymy under (4.41)-(4.42)",
+   "note": "constructively just double-negation introduction given sick := ~healthy; near-trivial but it is the source's own theorem"
+  },
+  {
+   "name": "HEALTHY3",
+   "status": "aborted (deliberate negative control, Abort'd in the book's appendix too)",
+   "source_claim": "non-theorem: one healthy dimension does not entail healthy — documents that the positive adjective needs the universal"
+  },
+  {
+   "name": "HEALTHY4",
+   "status": "aborted (deliberate negative control, Abort'd in the book's appendix too)",
+   "source_claim": "non-theorem: a failed dimension does not entail healthy"
+  },
+  {
+   "name": "HEALTHY5",
+   "status": "proved",
+   "source_claim": "Appendix A7.5 theorem, verbatim: (exists x, ~Healthy x John) -> sick John — one bad dimension suffices for the negative adjective; the constructively valid direction (exists-not -> not-forall) of Sassoon's existential analysis"
+  }
+ ],
+ "counts": {
+  "theorems": 5,
+  "proved": 3,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "faithful",
+  "evidence": [
+   "The adjectival core — (4.39) Health, (4.40) the dimension predicate, (4.41) healthy, (4.42) sick — is character-for-character the book's own Appendix A7.5 Coq code; diffing file against the extracted appendix text shows the only core-fragment difference is layout.",
+   "All three of the source's own theorems (HEALTHY, HEALTHY2, HEALTHY5) end in Qed constructively, with zero propositional axioms (the three Parameters and the loaded ontology's Axiom+Coercion maps are all signature-level per rubric §3a).",
+   "The two Abort'd statements are the book's own negative controls, reproduced with their Abort — the file even preserves the source's demonstration of which entailments FAIL.",
+   "The sole deviation is the non-core Artist fragment (4 lines, no theorems), mapped as changed above; §4.4.1 presents (4.46) speculatively and closes with 'we will not pursue this here', so it is not a headline claim of the theory the file's header claims to cover (multidimensional adjectives)."
+  ],
+  "simplifications": [
+   "Human used as a simple base type rather than a type-valued function — the source's own explicitly stated simplification at (4.40)",
+   "Degree := Set in place of a Tarski universe (the source's own appendix move; fn. 12 records the formal object as Fin(3))"
+  ],
+  "omissions": [
+   "the SOME/MOST/ALL quantificational-force variants of (4.43) (Sassoon & Fadlon 2017 counting adjectives)",
+   "context-relativized dimension sets (the overloading-by-context proposal of §4.4.1)",
+   "multidimensional nouns proper (bird-type weighted sums/products); no exceptive ('except') construction is formalized despite motivating the analysis"
+  ],
+  "additions": [
+   "gradability in the Artist record (degree function F, standard STND_art, gt threshold) — the unification §4.4.1 names as future work; rendered degenerately since DIM_CN discards its Human argument"
+  ]
+ },
+ "determination": "as_is",
+ "determination_rationale": "The multidimensional-adjective account is native type theory and the source's own Coq code IS the formalization: enumerated inductive dimension type, universal quantification for the positive adjective, negated universal for the antonym. All core definitions exact, the source's three entailment theorems close constructively with zero propositional axioms, and artifacts are at most class (iv) (Set for a Tarski universe, Coercion for coercive subtyping). The one changed definition (Artist) is not evidence of resistance: (4.46) as printed would formalize directly as a Record with a Prop-valued field; the file instead substituted a gradable-threshold variant (the source's deferred future work) and did so degenerately — a file defect recorded in the mapping, not a property of the theory. One constructive wrinkle is recorded in source_gap: the prose's existential gloss for negative adjectives matches formal definition (4.42) only classically.",
+ "artifact_classes": [
+  {
+   "class": "iv",
+   "description": "Coq lacks Tarski universes: the book's Degree universe is aliased to Set (fn. 12 says Health is formally Fin(3) in a universe); MTT coercive subtyping is simulated in the loaded ontology by Coq Coercions over Axiom-declared coercion maps (signature-level)"
+  }
+ ],
+ "source_gap": {
+  "kind": "misprint + prose/definition mismatch",
+  "detail": "(1) The book's printed Appendix A7.5 multidimensional-noun code is inconsistent as printed: it re-declares 'Inductive Health: Degree := a1|a2|a3' (a second Health, apparently for Art) and then references an undeclared type 'art' in Record Artist with a bare 'DIM_CN h a' field — it would not compile; the file's divergent Artist fragment is in part a repair of this misprint, though the repair changes the semantics ((4.46)'s Prop-valued dimensions become a person-independent nat threshold). (2) §4.4 prose states that negative multidimensional adjectives involve existential quantification over dimensions, but formal definition (4.42) defines Sick as not-forall; in the book's own constructive MTT these coincide only classically — the file proves the valid direction exists-not -> not-forall (HEALTHY5), and the converse would need excluded middle even over the finite dimension type since Healthy is an abstract predicate."
+ },
+ "notes": "Record produced by the batch audit sweep of 2026-09-05; pre-atlas pilot file predating the zero-axiom discipline (uses Parameter signatures and inherits the Axiom+Coercion subtyping ontology from Coq_book_ontology — all signature-level, so 0 propositional axioms; 2 of the 5 theorem declarations are the book's own Abort'd negative controls, and the 3 Qed theorems are logically near-trivial, as in the source).",
+ "compiles": true
+}

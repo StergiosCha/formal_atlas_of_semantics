@@ -1,0 +1,177 @@
+{
+ "file": "extras/Quantifiers.v",
+ "region": "generalized quantifiers",
+ "summary": "A pilot quantifier module in the Chatzikyriakidis-Luo MTT style (CNs as types, via AdjectivesExtension.v with CN := Set): unary quantifiers no/exactly_n/at_least_n/at_most_n over CN-as-type restrictors with NoDup lists as the cardinality surrogate; proportional quantifiers (most, few, many, more_than_half) defined against an unconstrained Parameter domain_size; ad hoc non-standard quantifiers (only := all, except with a hard-coded 3-exception bound, almost_all, infinitely/finitely_many, between, roughly with a Parameter tolerance); Barwise & Cooper properties (conservativity, up/downward monotonicity) with monotonicity of some/all/no proved; scope ambiguity of 'every student read some book' as two readings with the wide-scope entailment proved, a concrete bool countermodel proved, and a coincidence lemma proved. Two Admitted findings: only_not_conservative is FALSE as written (only := all is definitionally conservative — the file proves the negation as only_conservative), and scope_ambiguity is unprovable over the bare Student/Book/read parameters (NEEDS_ASSUMPTION; the concrete-domain version is proved).",
+ "sources": [
+  {
+   "citation": "Barwise, J. & Cooper, R. (1981). Generalized quantifiers and natural language. Linguistics and Philosophy 4:159-219.",
+   "path": "papers/foundations/Barwise_Cooper_1981_GeneralizedQuantifiers.pdf",
+   "available": "full"
+  },
+  {
+   "citation": "Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. Wiley/ISTE.",
+   "path": "papers/foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf",
+   "available": "full"
+  },
+  {
+   "citation": "Chatzikyriakidis, S. & Luo, Z. (2013). Adjectives in a modern type-theoretical setting. Formal Grammar 2013 (source of the imported AdjectivesExtension.v base).",
+   "path": "papers/foundations/Chatzikyriakidis_Luo_2013_AdjectivesMTT.pdf",
+   "available": "full"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "no / not_all / neither / both / either; some, all imported from base",
+   "source": "standard GQ determiners in the MTT unary rendering (C&L: quantifier applied to a CN-as-type restrictor and a predicate)",
+   "match": "exact",
+   "note": "unary Q : forall A:CN, (A->Prop)->Prop is C&L's own signature, but it erases the B&C binary determiner structure"
+  },
+  {
+   "coq": "exactly_n (recursive distinct witnesses) / at_least_n / at_most_n (NoDup lists) / between / more_than / fewer_than / as_many_as",
+   "source": "B&C cardinality determiners (exactly n, at least n, at most n; comparative determiners)",
+   "match": "simplified",
+   "note": "NoDup lists as the finite-set/cardinality surrogate; classically equivalent for these claims"
+  },
+  {
+   "coq": "most / few / many / more_than_half via Parameter domain_size : forall A:CN, nat",
+   "source": "B&C proportional determiners (|A cap B| > 1/2 |A|, etc.)",
+   "match": "changed",
+   "note": "domain_size is an uninterpreted parameter with no axiom tying it to the actual cardinality of A, so 'most A P' bears no necessary relation to the domain; few (<= 1/4) and many (>= 1/2) get hard-coded thresholds the source treats as context-dependent; more_than_half duplicates most"
+  },
+  {
+   "coq": "only := all",
+   "source": "B&C's non-conservative 'only' (quantifies over the predicate, not the noun)",
+   "match": "changed",
+   "note": "the file's own NOTE admits the definition cannot capture non-conservativity; the intended theorem is refuted by only_conservative"
+  },
+  {
+   "coq": "conservative Q := forall A P, Q A P <-> Q A (fun x => True /\\ P x)",
+   "source": "B&C conservativity / live-on property Q(A)(B) <-> Q(A)(A cap B)",
+   "match": "changed",
+   "note": "with the restrictor a type, intersecting with A trivializes to True /\\ P — the property holds for any extensional Q, so the substantive B&C universal cannot even be stated"
+  },
+  {
+   "coq": "upward_monotone / downward_monotone",
+   "source": "B&C right-argument monotonicity (mon-up / mon-down)",
+   "match": "exact"
+  },
+  {
+   "coq": "every_some_reading1/2, reading2_implies_reading1, scope_readings_differ_bool, scope_readings_coincide",
+   "source": "textbook forall-exists scope ambiguity (Montague lineage worked example)",
+   "match": "exact",
+   "note": "the general non-equivalence is correctly split into a proved concrete countermodel and a proved coincidence condition"
+  },
+  {
+   "coq": "except (at most 3 exceptions) / almost_all / infinitely_many / finitely_many / roughly (Parameter tolerance)",
+   "source": "no specific source definition",
+   "match": "added",
+   "note": "ad hoc: 'except' hard-codes n <= 3"
+  },
+  {
+   "coq": "example sentences (some_black_men_walk, most_skillful_surgeons_human, no_fake_guns_real, few_tall_humans_not_strong, comparatives, etc.) over 12 signature Parameters",
+   "source": "illustrative NL sentences in the C&L style",
+   "match": "added",
+   "note": "almost_all_alleged_innocent_or_guilty ignores its bound variable and predicates of the constant john; most_skillful_surgeons_human uses the trivial predicate (fun _ => True)"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "some_upward_monotone",
+   "status": "proved",
+   "source_claim": "B&C 1981: 'some' is upward monotone in its scope"
+  },
+  {
+   "name": "all_upward_monotone",
+   "status": "proved",
+   "source_claim": "B&C 1981: 'every' is upward monotone in its scope"
+  },
+  {
+   "name": "no_downward_monotone",
+   "status": "proved",
+   "source_claim": "B&C 1981: 'no' is downward monotone"
+  },
+  {
+   "name": "some_conservative / all_conservative",
+   "status": "proved",
+   "source_claim": "B&C conservativity universal",
+   "note": "true but trivialized: the unary encoding makes conservativity vacuous for any extensional quantifier"
+  },
+  {
+   "name": "only_conservative",
+   "status": "proved",
+   "source_claim": "new — documents the encoding failure: only := all IS conservative, refuting the file's intended non-conservativity example"
+  },
+  {
+   "name": "only_not_conservative (Example)",
+   "status": "admitted (FALSE)",
+   "source_claim": "B&C: 'only' is not conservative (not a determiner over the noun)",
+   "note": "FALSE as written — its negation is proved two lines above as only_conservative; countermodel is definitional (only = all)"
+  },
+  {
+   "name": "reading2_implies_reading1",
+   "status": "proved",
+   "source_claim": "wide-scope existential entails narrow-scope (standard exists-forall => forall-exists)"
+  },
+  {
+   "name": "scope_readings_differ_bool",
+   "status": "proved",
+   "source_claim": "the two scope readings are non-equivalent — concrete countermodel on bool"
+  },
+  {
+   "name": "scope_readings_coincide",
+   "status": "proved",
+   "source_claim": "new — the readings coincide whenever some object is a common witness, showing the abstract non-equivalence claim is unprovable"
+  },
+  {
+   "name": "scope_ambiguity",
+   "status": "admitted (NEEDS_ASSUMPTION)",
+   "source_claim": "'every student read some book' has two logically distinct readings",
+   "note": "unprovable over the bare Parameters Student/Book/read (scope_readings_coincide exhibits instantiations where the readings coincide); the honest concrete version is scope_readings_differ_bool"
+  }
+ ],
+ "counts": {
+  "theorems": 10,
+  "proved": 9,
+  "admitted": 2,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "unfaithful",
+  "evidence": [
+   "Headline claim stated but not established: only_not_conservative (line 226) is Admitted and FALSE as written — only := all (line 79) is definitionally conservative and the file itself proves the negation (only_conservative, line 222), so B&C's signature non-conservativity fact is unprovable under the file's definitions.",
+   "Core definition changed: conservative (line 167) reduces B&C's Q(A)(B) <-> Q(A)(A cap B) to Q A P <-> Q A (True /\\ P), which holds trivially for any extensional quantifier — the proved some_conservative/all_conservative verify a vacuous property.",
+   "Core definition changed: most/few/many (lines 52-67) compare exactly_n counts against Parameter domain_size, an uninterpreted nat with no axiom connecting it to the type's actual cardinality, so the proportional quantifiers do not denote the source's proportional determiners.",
+   "Second headline claim Admitted: scope_ambiguity (line 286) is unprovable over the bare parameters, as the file's own comment and scope_readings_coincide (line 275) demonstrate.",
+   "The proved content that is faithful: monotonicity of some/all/no (exact B&C properties) and the scope entailment plus a concrete bool countermodel for reading non-equivalence."
+  ],
+  "simplifications": [
+   "NoDup lists as the cardinality surrogate for at_least_n/at_most_n/exactly_n",
+   "hard-coded thresholds: few = at most a quarter, many = at least half, except = at most 3 exceptions (sources treat these as context-dependent)"
+  ],
+  "omissions": [
+   "binary determiners Q(A)(B) with a set restrictor — the structure on which B&C conservativity, witness sets, and definability results live",
+   "permutation/isomorphism invariance, witness-set theorems, and every other named B&C result",
+   "any axiom making domain_size the cardinality of the domain"
+  ],
+  "additions": [
+   "exactly_n/at_least_n/at_most_n cardinality machinery and comparative quantifiers via lists",
+   "scope_readings_coincide and scope_readings_differ_bool (honest replacements for the unprovable abstract claims, apparently from a later repair pass)",
+   "12 signature Parameters for example sentences; one example (almost_all_alleged_innocent_or_guilty) ignores its bound variable and predicates of the constant john"
+  ]
+ },
+ "determination": "major_restructuring",
+ "determination_rationale": "Evidenced by this pilot only: the unary CN-as-type quantifier signature (C&L's own) proves right-argument monotonicity but cannot state B&C conservativity non-trivially — with the restrictor a type, 'intersect with the restrictor' collapses to True — and CN := Set gives 'most' no access to a cardinality, forcing the unconstrained domain_size parameter. Recovering the headline GQ claims (the conservativity universal, non-conservativity of 'only', proportional determiners) requires re-founding the determiner type as binary over predicates/subsets of a domain with genuine finite cardinality. This is a determination floor from a weak formalization, not the theory's ceiling: B&C GQ theory itself is expected to fare better (likely slight_modification or as_is) under a proper binary encoding.",
+ "artifact_classes": [
+  {
+   "class": "ii",
+   "description": "CN := Set (imported base): common nouns identified with a universe, quantifiers quantify over all Sets; the type-as-restrictor move is what trivializes conservativity and erases the binary determiner structure"
+  },
+  {
+   "class": "iv",
+   "description": "no finite sets or cardinality on types: NoDup lists surrogate for counting, and domain_size must be postulated as an uninterpreted Parameter because a Set has no cardinality operation"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Record produced by the batch audit sweep of 2026-09-05; the file predates the atlas zero-axiom discipline (12 signature Parameters here, and it imports AdjectivesExtension.v whose Tcn-interpretation Axioms are propositional but belong to that file's record). Header self-identifies as 'WorkingQuantifiers.v'. Count nuance: the theorem-regex count of 10 excludes the Admitted Example only_not_conservative, so proved(9) + admitted(2) spans 11 statements; both Admitted are classified findings (FALSE, NEEDS_ASSUMPTION), and the file's summary comment block overclaims ('only' listed as a delivered non-standard quantifier despite being defined as 'all').",
+ "compiles": true
+}

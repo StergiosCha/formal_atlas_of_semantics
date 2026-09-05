@@ -1,0 +1,105 @@
+{
+ "file": "ttr_mtt/Book_Event_Adv.v",
+ "region": "ttr pilots",
+ "summary": "Manner and agent-oriented adverbs in MTT-semantics via dependent event types: a 21-line near-verbatim transcription of Appendix A7.8 of Chatzikyriakidis & Luo (2020), realizing EvtM(m) and EvtAM(a,m) as singleton inductives Evt_m/Evt_ma, defining the manner adverb illegibly_m as P x E /\\ illegible_m m and the agent-oriented illegibly_a analogously, and proving the book's own theorem MANNER (example 6.2: John wrote illegibly => John wrote in an illegible manner). Loads Coq_book_ontology (CN:=Set, coercion hierarchy, John:Man). The file silently repairs the book's ill-typed printed appendix code by typing illegible of manners rather than events.",
+ "sources": [
+  {
+   "citation": "Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. Wiley/ISTE. §4.5.2 (manner, agent-oriented and speech-act adverbs, eqs. 4.56-4.65), §6.3.1 (example 6.2), Appendix A7.8 (Manner adverbs).",
+   "path": "papers/foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf",
+   "available": "full"
+  },
+  {
+   "citation": "Luo, Z. & Soloviev, S. (2017). Dependent event types (cited by the book as the origin of EvtA/EvtM/EvtAM; discussed in book §7.2).",
+   "path": null,
+   "available": "none"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "Inductive Evt_m : Manner -> Type / Evt_ma : Manner -> Agent -> Type (single constructor)",
+   "source": "EvtM(m), EvtAM(a,m) dependent event types (book §4.5.2, (4.57)-(4.62); Luo & Soloviev 2017)",
+   "match": "simplified",
+   "note": "singleton inductives — every Evt_m m has exactly one inhabitant, so all events of a given manner are identified; this is the book's own Appendix A7.8 code, but the theory's event types are not singletons; no theorem exploits the degeneracy"
+  },
+  {
+   "coq": "illegible_m : Manner -> Prop; illegible_ma : Manner -> Agent -> Prop",
+   "source": "illegible : EvtM(m) -> Prop in display (4.58)/(4.61) and §6.3.1 code; appendix A7.8 prints the ill-typed 'forall m: Manner, EVT_m m -> Prop'",
+   "match": "changed",
+   "note": "the file predicates illegibility of the manner (and manner+agent pair), not the event — this repairs the appendix misprint and matches the prose (p. 92: the manner, not the event, is illegible) but diverges from the book's official displayed definition"
+  },
+  {
+   "coq": "illegibly_m := fun m A P x E => P x E /\\ illegible_m m",
+   "source": "ADV_manner (4.58)/(4.61): illegibly(P,x,E) = P(x,E) /\\ illegible(E); Appendix A7.8 illegibly_m",
+   "match": "exact",
+   "note": "exact to Appendix A7.8 (modulo its repaired Parameter type); the conjunct predicates the manner where (4.58) predicates the event — the source is internally inconsistent between its display, its §6.3.1 inline code, and its appendix"
+  },
+  {
+   "coq": "illegibly_a := fun m a A P x E => P x E /\\ illegible_ma m a",
+   "source": "ADV_agent (4.62); Appendix A7.8 illegibly_a",
+   "match": "exact",
+   "note": "defined but no theorem uses it — also true in the book's appendix"
+  },
+  {
+   "coq": "write : forall m, Human -> Evt_m m -> Prop; Agent : CN; witnesses m : Manner, u : Evt_m m; John via Load Coq_book_ontology",
+   "source": "A7.8 verbatim; ontology from the book's Coq appendices",
+   "match": "exact",
+   "note": "the Human <= Agent subtyping and the coercions among dependent event types (EvtAM <= EvtA <= Event, book §7.2) are absent; Agent serves only as an index"
+  },
+  {
+   "coq": "(no counterpart)",
+   "source": "speech-act adverbs frankly/EvtUM(u,m), (4.63)-(4.65); the veridical projection 'he wrote illegibly => he wrote' asserted after (4.58); dependent-event-type subtyping of §7.2",
+   "match": "missing",
+   "note": "the veridical projection is one conjunct-elimination away from illegibly_m but is never stated"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "MANNER",
+   "status": "proved",
+   "source_claim": "Book Appendix A7.8 theorem MANNER = example (6.2): John wrote illegibly => John wrote in an illegible manner",
+   "note": "the book's own statement, reproduced exactly — but it is an existentially quantified implication witnessed by declared constants m, u, true by conjunct projection (cbv; firstorder); essentially trivial per rubric §3 and would be excluded from verified counts; the stronger rendering of (6.2) would be universally quantified over m and e"
+  }
+ ],
+ "counts": {
+  "theorems": 1,
+  "proved": 1,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "The file is a near-verbatim transcription of the book's own Appendix A7.8 Coq code, including its theorem MANNER, which is proved with Qed (grep: 1 theorem, 0 Admitted).",
+   "The appendix as printed does not typecheck (constructor EVT_m used as a type; body illegible_m m ill-typed under the printed Parameter); the file's repair — illegible_m : Manner -> Prop — is a changed core definition relative to the book's displayed (4.58)/(4.61) and §6.3.1 code, where illegible : EvtM(m) -> Prop is predicated of the event.",
+   "All 7 Parameters are signature-level (types, predicate symbols, witness constants) with no propositional content; the loaded Coq_book_ontology contributes only coercion-function Axioms, likewise non-propositional.",
+   "The proved theorem is the book's headline inference (6.2), but in the book's own logically weak existential form, and the companion veridical projection claim after (4.58) is never stated."
+  ],
+  "simplifications": [
+   "EvtM(m)/EvtAM(a,m) realized as singleton inductives (one constructor, one inhabitant per index) — the book's own appendix move, but the theory's event types are not singletons",
+   "one worked example (illegibly + write) stands in for the whole adverb typology of §4.5.2"
+  ],
+  "omissions": [
+   "the veridical projection 'he wrote illegibly => he wrote' asserted 'needless to say' after (4.58)",
+   "any theorem for the agent-oriented adverb illegibly_a (defined, never used — as in the book)",
+   "speech-act adverbs frankly/EvtUM (4.63)-(4.65)",
+   "subtyping among dependent event types and Human <= Agent (book §7.2, Luo & Soloviev 2017)"
+  ],
+  "additions": [
+   "the type repair of the appendix's ill-typed Parameters (a correction forced by the misprint, not new machinery)"
+  ]
+ },
+ "determination": "slight_modification",
+ "determination_rationale": "The only mechanization pressure visible is (a) repairing the source's ill-typed printed appendix code — the book's three renderings of 'illegible' (display 4.58/4.61: of the event; §6.3.1 inline code: of the event; Appendix A7.8: of the manner, ill-typed as printed) are mutually inconsistent, and the file documents a choice among them that preserves the predicted inference (6.2), which is proved — and (b) the singleton-inductive realization of EvtM(m), a simplification the source's own appendix makes. Neither changes the theory's predictions, and the event-predicating variant per (4.58) typechecks without obstruction, so nothing suggests the theory resists as-is mechanization; but the evidence base is one essentially trivial theorem, so this determination is provisional pending a real atlas formalization of dependent event types (Luo & Soloviev 2017) with subtyping.",
+ "artifact_classes": [
+  {
+   "class": "iv",
+   "description": "the MTT's native coercive subtyping among dependent event types (EvtAM(a,m) <= EvtM(m) <= Event; Human <= Agent, book §7.2) is absent; EvtM(m) is realized as a singleton inductive rather than an abstract indexed family, identifying all events of a given manner"
+  }
+ ],
+ "source_gap": {
+  "kind": "misprint / internal inconsistency",
+  "detail": "Book Appendix A7.8 as printed does not typecheck: illegible_m is declared 'forall m: Manner, EVT_m m -> Prop' with the constructor EVT_m used as a type, and even repaired to 'Evt_m m -> Prop' the definition body 'illegible_m m' is ill-typed. Moreover the book's displayed definition (4.58)/(4.61) and its §6.3.1 inline Coq predicate illegible of the event E, while the appendix (and this file) predicate it of the manner m — and the book's own motivating prose (p. 92: 'it is the manner of the event rather than the event itself that is illegible') supports the manner version, so the official display contradicts the prose that introduces it."
+ },
+ "notes": "Record produced by the 2026-09-05 batch audit sweep; the file predates the atlas zero-axiom discipline (7 signature Parameters here plus legacy 'Load Coq_book_ontology' with its coercion Axioms, none propositional) and its single theorem is trivial under the rubric §3 filter.",
+ "compiles": true
+}

@@ -1,0 +1,41 @@
+{
+ "file": "atlas/dynamic/DPL.v",
+ "region": "dynamic semantics",
+ "summary": "Groenendijk & Stokhof 1991 Dynamic Predicate Logic: the semantics as a relation between total assignments, factored through eight relation operators so that Def. 2's set-builder clauses hold literally; truth, validity, tests and conditions; Facts 1-6 of sec. 3.2 with the converse of Fact 6 refuted; variable-level binding (AQV/FV), Fact 9 and the transfer lemma underlying the source's inductions; the displayed laws of sec. 3.4 including Egli's Theorem and Corollary, with the printed idempotency-of-disjunction law refuted (d34_refuted); the sec. 3.5 entailment notions (Facts 10-16) with the source's separating examples; the three donkey sentences with their relational meanings and first-order truth conditions, and equiv dk2 dk3 via Egli's Corollary.",
+ "sources": [
+  {"citation": "Groenendijk, J. & Stokhof, M. (1991). Dynamic Predicate Logic. Linguistics and Philosophy 14(1):39-100.", "path": "papers/dynamic/Groenendijk_Stokhof_1991_DPL_preprint.pdf", "available": "full"},
+  {"citation": "Dekker, P. (2012). Dynamic Semantics. Springer. Sec. 2.1.", "path": "papers/dynamic/Dekker_2012_DynamicSemantics.pdf", "available": "full"}
+ ],
+ "definitions_mapped": [
+  {"coq": "Var := nat; assignments as total functions; update g[x:=d]; k[x]g; agreement on a variable set", "source": "G&S sec. 3.1 preliminaries", "match": "exact"},
+  {"coq": "term / form with all eight connectives primitive; closure as formula-level double negation", "source": "G&S Def. 1; Def. 17", "match": "exact", "note": "interdefinability laws D1-D3 become theorems; closure surrogate licensed by D19"},
+  {"coq": "model <D,F> with D inhabited; sem as a relation g ~ h factored through rtest/rcomp/rneg/rdisj/rimpl/rex/rall/rclos", "source": "G&S Def. 2", "match": "exact", "note": "orientation 'h = g' kept everywhere"},
+  {"coq": "truth / validity / satisfaction and production sets / s-equivalence / equivalence / p-equivalence / tests / conditions", "source": "G&S Defs 3-12", "match": "exact", "note": "universal formulas restored to Def. 12 (source misprint, see SOURCE NOTES)"},
+  {"coq": "AQV / FV (variable-level)", "source": "G&S Defs 15-16", "match": "simplified", "note": "occurrence-level Defs 13-14 omitted; the source itself calls Def. 13 'a bit sloppy'"},
+  {"coq": "entailment notions: s-entailment, meaning inclusion, dynamic entailment, xbar-entailment, sequence entailment", "source": "G&S Defs 18-22", "match": "exact"},
+  {"coq": "dk1 / dk2 / dk3 donkey sentences", "source": "G&S sec. 2.3-2.5 (1b), (2b), (3b)", "match": "exact"}
+ ],
+ "theorems": [
+  {"name": "fact9, transfer, fact8, d16, d27_conj_assoc, d46_egli, d48_egli_corollary, negneg_witness, d34_refuted, d28, d29, d49, fact11, fact16, dk1_truth, dk2_truth, dk2_dk3_equiv, dk3_truth", "status": "proved", "source_claim": "G&S Facts 8-9, 11, 16; sec. 3.4 laws; Dekker Observations 1-2 (Egli); donkey truth conditions", "note": "audit group 1: Closed under the global context (axiom-free)"},
+  {"name": "d1, d2, d3, d18, d20, d14, d42, fact3, fact12", "status": "proved", "source_claim": "G&S interdefinability laws, iff-test laws, conditional laws, Facts 3, 12", "note": "audit group 2: Classical.classic only"},
+  {"name": "transfer_given, d32, d33, d47, fact6_refuted, dk1_meaning", "status": "proved", "source_claim": "G&S conditional laws D32/D33/D47; Fact 6 converse (refuted); dk1 relational meaning", "note": "audit group 3: functional_extensionality_dep (given-output transfer and clients)"}
+ ],
+ "counts": {"theorems": 168, "proved": 168, "admitted": 0, "propositional_axioms": 0},
+ "faithfulness": {
+  "verdict": "faithful-with-corrections",
+  "evidence": ["sem unfolds to Def. 2's set-builder clauses literally via the eight relation operators.", "The audit block's three groups printed exactly as documented: 18 theorems axiom-free, 9 with classic only, 6 with functional_extensionality_dep.", "Fact 6's printed converse and the printed idempotency-of-disjunction law (phi ~ phi \\/ phi) are refuted by countermodel (fact6_refuted, d34_refuted), with what does hold proved alongside.", "The donkey sentences' first-order truth conditions are proved as biconditionals over an arbitrary domain."],
+  "simplifications": ["variable-level binding only (occurrence-level Defs 13-14 and Fact 7 omitted, following the source's own caveat)", "closure as formula-level double negation (licensed by D19)"],
+  "omissions": ["D50 (alphabetic variants) — needs a DPL-aware substitution operator and the printed side condition is insufficient", "occurrence-level binding and Fact 7"],
+  "additions": ["the transfer lemma and its given-output variant as the reusable induction behind Facts 8, 13-16 and the conditional laws", "explicit refutations d34_refuted, fact6_refuted with countermodels over a two-element domain"]
+ },
+ "determination": "as_is",
+ "determination_rationale": "The relational semantics, laws and entailment notions go through as in the source; classical logic is needed exactly where the source reasons classically (9 theorems), and functional extensionality only for results that pin down a prescribed output assignment (6 theorems). Two printed claims of the source are false as stated and are refuted with countermodels, with corrected forms proved.",
+ "artifact_classes": [
+  {"class": "ii", "description": "meanings are relations between total assignments (predicates on pairs); satisfaction/production sets are predicates, not sets"},
+  {"class": "iv", "description": "no finite-set library: variable sets as predicates/lists with hand-rolled agreement lemmas"},
+  {"class": "v", "description": "classic for the source's classical reasoning (9 theorems); functional_extensionality_dep for given-output transfer results (6 theorems); both isolated and documented per theorem"}
+ ],
+ "source_gap": {"kind": "misprints", "detail": "G&S 1991 print phi ~ phi \\/ phi among the sec. 3.4 laws — refuted (d34_refuted); the converse direction of Fact 6 is also false as printed — refuted (fact6_refuted). Def. 12 (conditions) omits the universal clause restored here. Recorded in the file's SOURCE NOTES."},
+ "notes": "Written by a concurrent Desktop session (run_dpl pipeline); pipeline tail (build integration, commit, this record) completed by the InqB session after confirming the file stable for ~2h. 2662 lines.",
+ "compiles": true
+}

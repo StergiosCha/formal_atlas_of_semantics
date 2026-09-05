@@ -1,0 +1,203 @@
+{
+  "file": "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/FocusEven.v",
+  "region": "model-theoretic (focus/alternatives)",
+  "summary": "A 338-line shallow embedding of Rooth-style alternative semantics: focused expressions as (ordinary value, Prop-valued alternative set) pairs, pointwise alternative application, entity-level 'only' and 'even' operators, a Horn-scale scalar-implicature toy, and three trivial theorems (all Qed). The representational skeleton (two-dimensional values, pointwise composition) matches Rooth 1985 (41)/1992 sec. 1, but every substantive Rooth construct is missing, trivialized, or wrong: 'even' drops the scalar implicature (and the one place it appears, line 88-89, has the likelihood direction inverted), presuppositions/implicatures are flattened into assertion conjuncts, 'focus_match' does not encode the Focus Interpretation Principle, the 'narrow_only'/'wide_only' scope 'readings' are syntactically identical (proved by reflexivity), and the headline Bill_F/Sue_F association-with-focus contrast is never encoded. One axiom (even_requires_focus, line 220) is redundant with a theorem proved verbatim at line 294.",
+  "sources": [
+    {
+      "citation": "Rooth, M. (1992). A Theory of Focus Interpretation. Natural Language Semantics 1:75-116 (author preprint, 41 pp.; page numbers below are preprint pages).",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Rooth_1992_TheoryOfFocusInterpretation.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Rooth, M. (1985). Association with Focus. PhD dissertation, UMass Amherst (image-only scan, 237 PDF pages; dissertation page N = PDF page N+10).",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Rooth_1985_AssociationWithFocus.pdf",
+      "available": "full"
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "Alternatives (A : Type) := A -> Prop  [line 20]",
+      "source": "Focus semantic value / p-set: Rooth 1985 (41)(ii) p.52 (||a|| is a set of functions G x W -> D_a); Rooth 1992 sec. 1 (2) p.1 ({like(x,s) | x in E}).",
+      "match": "simplified",
+      "note": "Extensional, Prop-valued characteristic predicate; no world/assignment indexing (Rooth 1985 pp. 46-49 argues at length that p-sets must be intensional)."
+    },
+    {
+      "coq": "FocusedExpr / AltSem (A * Alternatives A)  [lines 23-26, 142]",
+      "source": "Two-dimensional value <[[a]]^o, [[a]]^f>: Rooth 1992 sec. 1 p.1; Rooth 1985 (41)(i)-(ii) p.52.",
+      "match": "simplified",
+      "note": "Faithful shape, but Rooth's invariant '[[a]]^o is always an element of [[a]]^f' (1992 p.1) is not enforced; two redundant encodings (record and pair) coexist and are never related."
+    },
+    {
+      "coq": "john_alternatives / came_alternatives / sue_alternatives  [lines 33-34, 44-45, 249-250]",
+      "source": "p-set of a focused constant ||a_F|| = C_{a,E,W}, i.e. ALL constant meanings of the type (Rooth 1985 (41)(l) p.56); 1992 (2): substitution over the whole domain E, with contextual narrowing done later by C subset-of [[a]]^f (1992 (9c) p.4).",
+      "match": "changed",
+      "note": "Hard-codes a 3-element list as the focus value itself, conflating [[a]]^f with the contextually restricted domain C. No distinctness axioms for john/mary/bill, so 'x <> val' clauses are underdetermined."
+    },
+    {
+      "coq": "even_basic  [lines 65-72]",
+      "source": "Rooth 1985 (8) Revised F-even p.144: F_EVEN^E(a) = a; F_EVEN^I(a) = exists p[C(p) & p & p != ^a] & forall p[C(p) & p != ^a -> exceed(likelihood(p), likelihood(^a))]; Rooth 1992 sec. 2.1 p.3 ('non-truth-conditional ... conventional implicature').",
+      "match": "simplified",
+      "note": "Encodes assertion + existential implicature only; the scalar implicature is omitted although the comment at line 81 claims it is present. Implicature is conjoined with the assertion, contradicting Rooth 1985 sec. IV.2 p.143 which separates extension from implicature."
+    },
+    {
+      "coq": "even_john_came_predicate  [lines 84-89]",
+      "source": "Same as above with the scalar clause; KKP likelihood: Rooth 1985 (3b),(4) p.141.",
+      "match": "changed",
+      "note": "Scalar clause 'likelihood john P -> likelihood john came' makes 'came' the MOST likely alternative (any likely alternative implies came is likely); the source requires every alternative to be MORE likely than the prejacent. Direction inverted."
+    },
+    {
+      "coq": "only_basic / only_john_came  [lines 105-116]",
+      "source": "Rooth 1985 (43) p.59: R(C, VP', lambda x forall P[[P{x} & C(P)] -> P = ^VP']); Rooth 1992 (4) p.3, (9) p.4 with C subset-of [[VP]]^f; fn. 2 p.3 ('P(m) should perhaps be added as a presupposition or assertion').",
+      "match": "simplified",
+      "note": "Quantifies over entity alternatives and applies P, instead of quantifying over properties in a domain C constrained by the focus value; prejacent added as a plain conjunct (labelled 'presupposition' in comments but asserted)."
+    },
+    {
+      "coq": "john_only_came  [lines 123-125]",
+      "source": "Property-level only over came_alternatives; Rooth 1992 fn. 3 p.3 ('=' must be identity in intension).",
+      "match": "simplified",
+      "note": "Uses Leibniz inequality 'P <> came' on Entity -> Prop; without extensionality axioms this is neither Rooth's intensional identity nor provable for distinct Parameters."
+    },
+    {
+      "coq": "lift  [lines 145-146]",
+      "source": "none (pairing).",
+      "match": "added",
+      "note": "Infrastructure; unused."
+    },
+    {
+      "coq": "alt_apply  [lines 149-152]",
+      "source": "Rooth 1985 (41)(d) p.53: ||a(b)|| = {h | some h' in ||a||, h'' in ||b||, h(g,w) = h'(g,w)(h''(g,w))}.",
+      "match": "exact",
+      "note": "Extensional version of the application clause. The other p-set clauses (lambda, =, negation, connectives, quantifiers, ^, v) of (41) are not encoded, and alt_apply is never used."
+    },
+    {
+      "coq": "focus_match  [lines 156-160]",
+      "source": "Focus Interpretation Principle (27) p.11: C subset-of [[a]]^f (set case) or gamma in [[a]]^f (individual case); ~ operator presuppositions (40) p.18 (also requires C to contain [[a]]^o and an element distinct from it; individual case gamma != [[a]]^o); closure (42) p.19 [[a ~ v]]^f = {[[a]]^o}.",
+      "match": "changed",
+      "note": "Only states 'if op's result has any alternative then the argument's alternative set is nonempty'. Does not relate a domain variable to the focus value, has no distinctness or closure clause, and is never applied."
+    },
+    {
+      "coq": "HornScale / quantifier_scale / scalar_implicature / some_not_all  [lines 171-191]",
+      "source": "Horn 1972 / Gazdar 1979 as cited in Rooth 1992 sec. 2.3 p.7; Rooth's own claim is (22)/(26c) 'the scale is a subset of the focus semantic value'.",
+      "match": "added",
+      "note": "A fixed <all, most, many, some> scale with no link to focus; Rooth's constraint on scales is absent. Parameters all/most/many/some_quant have no semantics (MontagueFragment's g_most etc. are not used)."
+    },
+    {
+      "coq": "embedded_even / associates_with_focus  [lines 206-217]",
+      "source": "none in these sources ('focus projection' is Selkirk 1984, mentioned only in Rooth 1985 sec. I.5 p.18 as phonology).",
+      "match": "added",
+      "note": "embedded_even just applies 'said' to an even_basic proposition; associates_with_focus is the record constructor. No projection rule is encoded."
+    },
+    {
+      "coq": "Axiom even_requires_focus  [lines 220-222]",
+      "source": "Loosely Rooth 1992 (46) p.20 ('only must be the sister of a phrase bearing F'), a syntactic filter Rooth REJECTS via (44a).",
+      "match": "added",
+      "note": "Statement is verbatim the theorem even_requires_alternatives (lines 294-296), which is proved; the axiom is therefore redundant (consistent but pointless)."
+    },
+    {
+      "coq": "only_even_john  [lines 237-242]",
+      "source": "none.",
+      "match": "added",
+      "note": "'Only even JOHN came' is not a source example; stacks only over even-alternatives idiosyncratically."
+    },
+    {
+      "coq": "narrow_only / wide_only  [lines 253-260]",
+      "source": "Rooth 1985 abstract p.vi and 1992 (3a)/(3b) p.3: 'Mary only introduced [Bill]_F to Sue' (false) vs 'Mary only introduced Bill to [Sue]_F' (true).",
+      "match": "changed",
+      "note": "The two definitions are syntactically identical (Goal narrow_only = wide_only closes by reflexivity), so the comment 'These give different truth conditions!' is false. The actual Bill_F vs Sue_F contrast is never encoded; no Bill-focused alternative set exists."
+    },
+    {
+      "coq": "Parameter likelihood / surprise  [lines 61-62]",
+      "source": "likelihood_e in KKP even_I, Rooth 1985 (4) p.141.",
+      "match": "simplified",
+      "note": "likelihood is a monadic Entity -> (Entity -> Prop) -> Prop threshold predicate, not a comparable degree; 'surprise' is never used. Imports Classical and Lia are unused."
+    },
+    {
+      "coq": "(missing) ~ operator, FIP, C subset-of [[a]]^f constraint, intensional identity, extension/implicature separation, question-answer (26d) and contrast (26b) constraints",
+      "source": "Rooth 1992 (9c), (26)-(27), (40)-(42); Rooth 1985 sec. IV.2.",
+      "match": "missing",
+      "note": "The parts of the source theory that carry its explanatory content are absent."
+    }
+  ],
+  "theorems": [
+    {
+      "name": "even_only_relationship  [lines 273-291]",
+      "status": "proved",
+      "source_claim": "new (no source claim); even(P) is incompatible with only(not P) - immediate from the existential conjunct.",
+      "note": "Trivial; depends only on Entity (Print Assumptions)."
+    },
+    {
+      "name": "even_requires_alternatives  [lines 294-307]",
+      "status": "proved",
+      "source_claim": "new; loosely reflects that KKP's existential implicature (Rooth 1985 (3a) p.141) needs a nonempty set of alternatives.",
+      "note": "Identical statement to Axiom even_requires_focus (line 220); makes the axiom redundant."
+    },
+    {
+      "name": "only_preserves_focus  [lines 309-319]",
+      "status": "proved",
+      "source_claim": "new; reflects the prejacent conjunct Rooth 1992 fn. 2 p.3 suggests adding to 'only'.",
+      "note": "Projection of a conjunct; trivial."
+    }
+  ],
+  "counts": {
+    "theorems": 3,
+    "proved": 3,
+    "admitted": 0,
+    "propositional_axioms": 1
+  },
+  "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+      "FocusedExpr/AltSem (lines 23-26, 142) faithfully mirror the two-dimensional <ordinary, focus> values of Rooth 1992 sec. 1 p.1 and Rooth 1985 (41)(i)-(ii) p.52.",
+      "alt_apply (lines 149-152) is an extensional transcription of the p-set application clause Rooth 1985 (41)(d) p.53.",
+      "even_basic (lines 65-72) matches F_EVEN^E and the existential half of F_EVEN^I in Rooth 1985 (8) p.144 but omits the scalar half; comment at line 81 claims otherwise.",
+      "even_john_came_predicate (lines 88-89) inverts the scalar implicature: 'likelihood john P -> likelihood john came' makes the prejacent the most likely alternative, the opposite of Rooth 1985 (3b)/(4) p.141 and (8) p.144.",
+      "only_basic (lines 105-112) quantifies over entities rather than over properties P in C with C subset-of [[VP]]^f (Rooth 1985 (43) p.59; Rooth 1992 (4) p.3, (9c) p.4).",
+      "focus_match (lines 156-160) is not the FIP (Rooth 1992 (27) p.11, (40)-(42) pp. 18-19): it lacks the subset/membership constraint, the distinctness clause, and the closure clause, and is never used.",
+      "narrow_only and wide_only (lines 253-260) are definitionally equal (verified: 'Goal narrow_only = wide_only. reflexivity.' succeeds), so the claimed scope contrast is spurious; the source's Bill_F vs Sue_F contrast (Rooth 1992 (3) p.3; Rooth 1985 abstract p.vi) is not encoded at all.",
+      "Axiom even_requires_focus (lines 220-222) is verbatim the proved theorem even_requires_alternatives (lines 294-296).",
+      "Print Assumptions on all three theorems yields only Entity; the axiom and the 18 Parameters are not load-bearing for any proof."
+    ],
+    "omissions": [
+      "The ~ operator and its presuppositions (Rooth 1992 (40) p.18) and closure clause (42) p.19.",
+      "The Focus Interpretation Principle (27) p.11 and the focusing-adverb constraint C subset-of [[a]]^f (26a) p.11 / (9c) p.4.",
+      "Scalar (likelihood) implicature of 'even' in even_basic (Rooth 1985 (8) p.144).",
+      "Separation of assertion from presupposition/conventional implicature (Rooth 1985 sec. IV.2 p.143; Rooth 1992 sec. 2.1 p.3).",
+      "Intensional identity of properties (Rooth 1992 fn. 3 p.3); intensional p-sets (Rooth 1985 pp. 46-57).",
+      "The full recursive p-set definition (Rooth 1985 (41) pp. 53-56): only the application clause is present.",
+      "The invariant [[a]]^o in [[a]]^f (Rooth 1992 p.1).",
+      "The actual association-with-focus contrast 'introduced [Bill]_F to Sue' vs 'introduced Bill to [Sue]_F'.",
+      "Constraint on scales (22)/(26c), contrast (26b), question-answer (26d) constraints of Rooth 1992 sec. 2-3."
+    ],
+    "additions": [
+      "Horn-scale scalar implicature section (lines 168-195) with no focus link.",
+      "'Focus projection' section (lines 201-226), including the redundant axiom.",
+      "only_even_john (lines 237-242).",
+      "Three trivial theorems not corresponding to any source claim.",
+      "Unused parameters (surprise) and unused imports (Classical, Lia)."
+    ],
+    "simplifications": [
+      "Alternative sets as extensional Prop-valued predicates, hard-coded to three members.",
+      "Entity-level rather than property-level quantification in 'only'.",
+      "Presuppositions/implicatures encoded as plain conjuncts of the assertion.",
+      "Leibniz equality on Entity -> Prop in place of identity in intension.",
+      "likelihood as a threshold predicate rather than a comparable degree."
+    ]
+  },
+  "determination": "slight_modification",
+  "determination_rationale": "Nothing in the file shows Coq resisting Rooth's theory: the two-dimensional values and pointwise alternative composition embed directly (lines 23-26, 142, 149-152), and every deviation is authorial rather than forced. What the file does not attempt but the source needs is modest: (a) a separate presupposition/implicature dimension (a pair of Props or a partial semantics) instead of conjunction; (b) an explicit contextual domain variable C with the constraint C subset-of [[a]]^f, expressible as a parameter plus a Prop; (c) identity of properties 'in intension' (Rooth 1992 fn. 3), which for Entity -> Prop alternatives needs functional/propositional extensionality or a world-indexed type. These are routine adjustments, not restructuring. The file's own defects (inverted scalar clause, identical 'readings', redundant axiom) say nothing about formalizability.",
+  "artifact_classes": [
+    {
+      "class": "iii",
+      "description": "Alternative sets are Prop-valued characteristic predicates (A -> Prop, line 20), so membership, 'even', and 'only' are non-computable propositions; nothing in the file can be evaluated on a concrete model, and the equal 'readings' at lines 253-260 were only detectable by reflexivity, not by running anything."
+    },
+    {
+      "class": "iv",
+      "description": "Coq has no native notion of Rooth's 'identity in intension' for properties; the file uses Leibniz (in)equality on function types (P <> came at lines 87, 124; P = came at line 45). Without funext/propext these inequalities are unprovable for the declared Parameters, and the entity-level 'x <> val' clauses (lines 71, 109) are similarly underdetermined because john/mary/bill carry no distinctness axioms."
+    }
+  ],
+  "compiles": true,
+  "duplicate_of": "extras/FocusEven2.v",
+  "duplicate_note": "FocusEven2.v is a near-verbatim copy (diff: replaces 'Require Import MontagueFragment' + Import with a local 'Parameter Entity : Type'; drops three proof comments; 'auto' instead of 'firstorder' at line 290; states only_preserves_focus with the projection 'ordinary_value _ focused' instead of a match). Content and defects are identical. FocusEven2.v is marginally better: it is self-contained, avoids the masking-absolute-name deprecation warning, avoids silently shadowing MontagueExtensional.john/mary with fresh Parameters (FocusEven.v line 29 redeclares john and mary that the import already provides, so the import buys only 'Entity'), and states the last theorem more cleanly. Keep one; neither adds content over the other. FocusEven2.v was not compiled in this session (its .vo is present).",
+  "source_gap": "None. Both primary sources are on disk. Rooth 1985 is an image-only scan (pdftotext yields nothing) and was read via page images; dissertation page N is PDF page N+10. Rooth 1992 is an author preprint whose pagination differs from the journal version; citations above use preprint pages.",
+  "notes": "Compiled with coqc 8.20.1 via the prescribed command; exit 0 with two deprecation warnings (masking absolute name 'MontagueFragment' at line 9). Statement counts: 3 Theorem (all Qed), 0 Lemma/Corollary/Proposition/Fact/Example, 0 Admitted, 1 Axiom (even_requires_focus), 18 Parameters (john, mary, bill, came, left, arrived, likelihood, surprise, all, most, many, some_quant, student, said, introduced, sue, ann, kim) plus the imported Entity. Parameters declared inside Sections are global (john_focused is used unapplied after End FocusSemantics). The file's summary comment (lines 327-338) overstates what was formalized on every point except the two-dimensional representation."
+}

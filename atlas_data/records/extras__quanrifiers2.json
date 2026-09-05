@@ -1,0 +1,253 @@
+{
+  "file": "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/quanrifiers2.v",
+  "region": "type-theoretic (MTT quantifiers)",
+  "summary": "A 321-line MTT-style quantifier library on top of extras/AdjectivesExtension.v (CN := Set; some/all inherited). At the Chatzikyriakidis & Luo typing forall A : CN, (A -> Prop) -> Prop it defines: no; cardinal quantifiers exactly_n (recursive existential), at_least_n / at_most_n (NoDup witness lists), aliases one/two/three; proportional most / few / many / more_than_half relative to an unconstrained Parameter domain_size : CN -> nat; 'non-standard' only (:= all), except (at most 3 exceptions), almost_all, infinitely_many, finitely_many, between, roughly (Parameter tolerance); not_all / not_every, two-predicate neither / either, and both; a degenerate 'conservative' predicate and B&C right-monotonicity; two hand-written scope readings of 'every student read some book'; comparative more_than / fewer_than / as_many_as; and about a dozen example sentence encodings with no theorems. Five short theorems are proved axiom-free (some/all mon-up, no mon-down, some/all 'conservative'). Two headline claims are Axioms: only_not_conservative and scope_ambiguity. Since only unfolds to all, the first axiom contradicts the proved all_conservative and False is derivable (verified in a scratch file), so the file's global context is inconsistent from line 217 on. The file is a strict subset of extras/Quantifiers.v with that file's four extra proved lemmas and warning comment removed and its two Admitted statements promoted to Axioms.",
+  "sources": [
+    {
+      "citation": "Barwise, J. & Cooper, R. (1981). Generalized Quantifiers and Natural Language. Linguistics and Philosophy 4(2): 159-219. (Sec. 1.2-1.5, 2.5 S5-S6, 4.4 lives on, 4.5 Table I, 4.7 monotonicity, Appendix B SP1-SP6, Appendix C.)",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Barwise_Cooper_1981_GeneralizedQuantifiers.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. ISTE/Wiley. (Sec. 3.1 (3.12)-(3.13) and Table 3.1; Sec. 5.3.2 Defs. 5.3-5.6; Sec. 6.3 with footnote 12 on CN := Set; Appendix A7.1 some/all/no, A7.7 three_0.)",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Keenan, E. & Stavi, J. (1986). A semantic characterization of natural language determiners. Linguistics and Philosophy 9: 253-326. (Not a listed primary source; it is the standard home of the two claims the file treats as headline facts - non-conservativity of 'only' and the comparative determiners - which appear in neither primary source.)",
+      "available": "missing"
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "Quantifier typing forall A : CN, (A -> Prop) -> Prop used throughout (lines 18, 22, 29, 35, 53, 166-179); some/all inherited from AdjectivesExtension.v lines 33-37",
+      "source": "C&L 2020 (3.12) some = lambda A:CN lambda P:A->Prop. exists(A,P), (3.13) some : Pi A:CN.(A->Prop)->Prop (pp. 50-51), Table 3.1; Appendix A7.1 (p. 193) 'Definition some/all'",
+      "match": "exact",
+      "note": "CN := Set (AdjectivesExtension.v line 15) copies C&L's own Coq practice (Sec. 6.3, p. 142, 'Definition CN:= Set') together with their caveat in footnote 12 that 'CN should have been a separate universe'. Consequence: every forall A : CN in this file ranges over all of Set, so bool and nat are common nouns, which the source's (3.16) (p. 51) explicitly rules out."
+    },
+    {
+      "coq": "Definition no (lines 18-19)",
+      "source": "C&L 2020 Appendix A7.1 (p. 193): Definition no:= fun A: CN=> fun P: A->Prop=> forall x: A, not(P(x)); B&C S5(c) ||no||(A) = {X | A cap X = empty} (p. 169)",
+      "match": "exact"
+    },
+    {
+      "coq": "Fixpoint exactly_n (lines 22-27)",
+      "source": "B&C S5(d) ||!n||(A) = {X | |X cap A| = n} (p. 169); C&L 2020 Def. 5.3 Three_0 / Def. 5.4 Three / Def. 5.6 THREE (pp. 112-116) and Appendix A7.7 three_0 (p. 201)",
+      "match": "simplified",
+      "note": "Recursion 'exists x, P x /\\ exactly_n n' A (fun y => P y /\\ y <> x)' correctly characterises |P| = n over an arbitrary type (scratch: exactly_n 1 bool (fun b => b = true) proved by simpl). It counts Leibniz-distinct witnesses (y <> x), whereas C&L's numerals count witnesses distinct under the CN's identity criterion (three_0 uses not (A.(E) x y)); that IC-relativity is the entire point of C&L Sec. 5.3 and is absent here."
+    },
+    {
+      "coq": "Definition at_least_n / at_most_n (lines 29-39)",
+      "source": "B&C S5(d) ||n||(A) = {X | |X cap A| >= n} (p. 169); 'at most two men' in the mon-down list (Sec. 4.7, p. 185)",
+      "match": "simplified",
+      "note": "Cardinality via NoDup lists of witnesses: at_least_n = some NoDup list of P-elements of length >= n exists; at_most_n = every NoDup list of P-elements has length <= n. Extensionally correct on arbitrary types (scratch: at_most_n 1 bool (fun b => b = true) proved). Coq has no |X cap A| on Prop-valued subsets, hence the list encoding."
+    },
+    {
+      "coq": "Definition one / two / three (lines 42-44)",
+      "source": "B&C S5(d): bare numeral ||n|| is 'at least n', ||!n|| is 'exactly n' (p. 169); 'at least two men' mon-up, 'exactly two men' not monotone (p. 185)",
+      "match": "changed",
+      "note": "The aliases are exactly_n, i.e. B&C's ||!n||, not their ||n||. B&C list 'two men'/'at least two men' as mon-up; the file's two is the non-monotone ||!2||."
+    },
+    {
+      "coq": "Parameter domain_size : forall A : CN, nat (line 51)",
+      "source": "|A|, the cardinality of the restriction set used in ||the n||, ||both||, ||neither|| (pp. 169-170) and in 'more than half of the Ns' (Sec. 1.2-1.3, pp. 160-162)",
+      "match": "changed",
+      "note": "An uninterpreted natural-number function on Set with no axiom relating domain_size A to the inhabitants of A. Nothing prevents domain_size Man = 0 while Man has many elements. All four proportional quantifiers inherit this."
+    },
+    {
+      "coq": "Definition most (53-56) and more_than_half (68-71)",
+      "source": "B&C (2')/(3') 'more than half the x such that phi(x)' / 'most x such that phi(x)' (pp. 160-161); ||Most N|| = {X | X contains most Ns} (Sec. 1.5, p. 164); Appendix B SP1-SP3 (pp. 208-209)",
+      "match": "simplified",
+      "note": "most and more_than_half are the same definition (exists n, exactly_n n A P /\\ 2n > domain_size A). B&C treat most as a non-logical determiner whose meaning is fixed only by the fixed-context assumption (Sec. 1.4, p. 163) but use 'more than half' for the formal results; equating them is a defensible simplification. However, because exactly_n requires a finite extension and domain_size is unanchored, the encoding is wrong on infinite CNs: '~ most nat (fun _ => True)' is provable (scratch), contradicting SP1 (A in ||most||(A) for every A) and Table I row 3 (most-N is never empty when N is nonempty). Upward monotonicity of most (B&C p. 185, SP2) is therefore not provable in general and is not attempted."
+    },
+    {
+      "coq": "Definition few (58-61) and many (63-66)",
+      "source": "B&C: non-logical determiners under the fixed-context assumption (Sec. 1.4, p. 163); Appendix B SP2 (many mon-up, few mon-down), SP4 (optional: few = -many), SP6 (many implies nonempty) (pp. 208-209)",
+      "match": "changed",
+      "note": "Hard-wired thresholds: few = at most a quarter of domain_size (the comment says 'less than quarter' but the code is 4n <= size), many = at least half. B&C explicitly decline to fix such thresholds. The thresholds violate SP6 (many A P holds with n = 0 whenever domain_size A = 0) and are not complementary as SP4 would require. SP2's monotonicity of few/many is not proved."
+    },
+    {
+      "coq": "Definition only (78-79)",
+      "source": "Neither primary source treats 'only' as a determiner. The claim that it is non-conservative is Keenan & Stavi 1986 (||only||(A) = {X | X subseteq A}), where the predicate ranges over a superset of A",
+      "match": "changed",
+      "note": "Defined as fun P => all A P, i.e. definitionally identical to all. At the typing forall A : CN, (A -> Prop) -> Prop the predicate P cannot hold of non-A's, so the non-conservative reading ('only men run' = run subseteq men) is inexpressible. The comment 'non-conservative quantifier' (line 77) is false of the definition given, and the Axiom at line 217 asserting it is refuted by all_conservative."
+    },
+    {
+      "coq": "Definition except (82-85), almost_all (88-90)",
+      "source": "none (B&C's fragment does not include exception phrases; 'almost all' as all-but-finitely-many is a model-theoretic notion, not a source construct)",
+      "match": "added",
+      "note": "except A P := at most n <= 3 exceptions, an arbitrary numeric cutoff; almost_all A P := finitely many exceptions."
+    },
+    {
+      "coq": "Definition infinitely_many (93-94), finitely_many (97-98)",
+      "source": "B&C Sec. 1.2 (1') 'Finite x[phi(x)]' (p. 161) and Sec. 1.5 'Finite x phi(x) asserts that the set is finite' (p. 164)",
+      "match": "simplified",
+      "note": "finitely_many := exists n, at_most_n n A P; infinitely_many := forall n, at_least_n n A P. Correct characterisations. B&C's point that these are not first-order definable (C12) is of course moot in Coq, where they are definable by quantifying over nat and lists."
+    },
+    {
+      "coq": "Definition between (101-102), roughly (105-107), Parameter tolerance (105)",
+      "source": "none",
+      "match": "added",
+      "note": "roughly n uses truncated subtraction n - tolerance."
+    },
+    {
+      "coq": "Definition not_all / not_every (114-119)",
+      "source": "B&C Sec. 4.7 outer negation -Q = {X | X not in Q} (p. 186)",
+      "match": "simplified",
+      "note": "One instance (for all); the -Q and Q- operators and the negation-reverses-monotonicity proposition (C9) are not defined or proved."
+    },
+    {
+      "coq": "Definition neither (122-123), either (130-131)",
+      "source": "B&C S5: ||neither||(A) = ||no||(A) if |A| = 2, undefined otherwise (p. 170); 'either man' in the mon-up list (p. 185)",
+      "match": "changed",
+      "note": "The file's neither/either take TWO predicates and encode the coordinators 'neither P nor Q' (no A (P \\/ Q)) and 'either P or Q' (some A (P \\/ Q)), not the source's determiners; the |A| = 2 presupposition disappears."
+    },
+    {
+      "coq": "Definition both (126-127)",
+      "source": "B&C S5: ||both||(A) = ||the 2||(A) = ||every||(A) if |A| = 2, undefined otherwise (pp. 169-170)",
+      "match": "simplified",
+      "note": "Partiality replaced by conjunction: exactly_n 2 A (fun _ => True) /\\ all A P. The presupposition becomes an assertion, so 'not both' is true whenever |A| <> 2, which B&C's undefinedness (Kleene three-valued convention, p. 171) avoids."
+    },
+    {
+      "coq": "Definition conservative (166-168)",
+      "source": "B&C Sec. 4.4: 'Q lives on A if for any X, X in Q iff (X cap A) in Q' (p. 178); U3 (p. 179); S6 (p. 170)",
+      "match": "changed",
+      "note": "Q A P <-> Q A (fun x => True /\\ P x). Because the restriction A is the type P already ranges over, X cap A has no analogue and the condition degenerates to invariance under the pointwise-trivial rewrite P ~ True /\\ P. Scratch check: under FunctionalExtensionality + PropExtensionality, 'forall Q, conservative Q' is provable, so the predicate cannot separate any two quantifiers. It is not the source's lives-on property; the name 'conservative' is Keenan & Stavi's, not B&C's."
+    },
+    {
+      "coq": "Definition upward_monotone / downward_monotone (171-179)",
+      "source": "B&C Sec. 4.7 Definition: Q is mon-up if X in Q and X subseteq Y subseteq E implies Y in Q; mon-down dually; a determiner is mon-up/down if every ||D||(A) is (pp. 184-185)",
+      "match": "exact",
+      "note": "Right (VP-argument) monotonicity of a polymorphic determiner, for all CN restrictions A, with subset as pointwise implication. Exact modulo CN-as-type."
+    },
+    {
+      "coq": "every_some_reading1 / every_some_reading2 (230-235) over Parameters Student, Book, read (224-225)",
+      "source": "B&C Sec. 2.4 quantification rule and examples (19)/(20) (pp. 168-169) and Sec. 4.2 'scope involves whole NPs' (p. 177); C&L 2020 does not treat scope",
+      "match": "simplified",
+      "note": "The two readings are written by hand as nested some/all; no quantifier-raising or storage mechanism is formalized, so nothing about scope is derived."
+    },
+    {
+      "coq": "more_than / fewer_than / as_many_as (245-257)",
+      "source": "none (comparative determiners are Keenan & Stavi / Keenan & Moss material)",
+      "match": "added",
+      "note": "Cardinality comparison via exactly_n over two CNs; presupposes finite extensions."
+    },
+    {
+      "coq": "Example encodings (146-159, 260-268, 281-301)",
+      "source": "Illustrative; the pattern of applying polymorphic quantifiers to Sigma-typed CNs follows C&L 2020 Sec. 3.3 and 6.3.1 (pp. 143-144)",
+      "match": "simplified",
+      "note": "Several are vacuous or malformed: most_skillful_surgeons_human (150-151) applies most to fun _ => True (humanity is never asserted); almost_all_alleged_innocent_or_guilty (295-297) ignores its bound variable and predicates the constant john; no_fake_guns_real (154-155) follows from AdjectivesExtension.privative_property but is not proved; White (277) duplicates the existing Parameter white (AdjectivesExtension.v line 81). No example carries a theorem."
+    },
+    {
+      "coq": "(absent)",
+      "source": "B&C: the logic L(GQ) (Sec. 2); lives-on as a real, falsifiable constraint (S6, U3, C1); partial determiners the n / both / neither; sieves and Table I (4.5); weak/strong/definite and Table II (4.6); -Q / Q- and C9 (4.7); persistence (4.9); witness sets and C10-C11; duals (4.11); universals U1-U10; Appendix B SP1-SP6 (not even for the file's own most/many/few); C12-C13 non-definability. C&L 2020: identity criteria for counting (Sec. 5.3), a genuine CN universe (Sec. 2.3.2), judgmental interpretations (Sec. 7.1)",
+      "match": "missing"
+    }
+  ],
+  "theorems": [
+    {
+      "name": "some_upward_monotone",
+      "status": "proved",
+      "source_claim": "B&C Sec. 4.7 (p. 185): 'some man / some men' in the monotone-increasing list; example (30) 'some Republican'. Asserted by judgement, not proved, in the source.",
+      "note": "Lines 182-187. Print Assumptions: closed under the global context."
+    },
+    {
+      "name": "all_upward_monotone",
+      "status": "proved",
+      "source_claim": "B&C Sec. 4.7 (p. 185): 'every linguist' in example (30).",
+      "note": "Lines 189-194. Axiom-free."
+    },
+    {
+      "name": "no_downward_monotone",
+      "status": "proved",
+      "source_claim": "B&C Sec. 4.7 (p. 185): 'no plumber' in example (31); 'no man/men' in the monotone-decreasing list.",
+      "note": "Lines 196-200. Axiom-free."
+    },
+    {
+      "name": "some_conservative",
+      "status": "proved",
+      "source_claim": "Nominally B&C's remark after S5 that ||some||(A) lives on A (p. 170). The Coq statement is the degenerate P ~ True /\\ P invariance, not lives-on, so it verifies nothing about the source property.",
+      "note": "Lines 202-208. Axiom-free; trivial."
+    },
+    {
+      "name": "all_conservative",
+      "status": "proved",
+      "source_claim": "Nominally ||every||(A) lives on A (p. 170); same caveat as some_conservative.",
+      "note": "Lines 210-214. Axiom-free; trivial. Because only unfolds to all, this theorem also inhabits 'conservative only'."
+    },
+    {
+      "name": "only_not_conservative",
+      "status": "axiom",
+      "source_claim": "Keenan & Stavi 1986 (not on disk): 'only' is a non-conservative determiner. Not a claim of either primary source.",
+      "note": "Line 217, Axiom : ~ conservative only. INCONSISTENT with the file's own all_conservative (line 210): 'Lemma q2_inconsistent : False. Proof. exact (only_not_conservative all_conservative). Qed.' compiles against quanrifiers2.vo and Print Assumptions lists only this axiom. Every proposition is provable in the file's context from this line on."
+    },
+    {
+      "name": "scope_ambiguity",
+      "status": "axiom",
+      "source_claim": "B&C Sec. 4.2 (p. 177): quantified NPs take scope; the two readings of 'every student read some book' are logically independent.",
+      "note": "Line 238. Consistent on its own (scratch: the bool instance with read = eq refutes the biconditional) but not provable about the bare Parameters Student, Book, read, since the readings coincide whenever some book is read by every student (Quantifiers.v scope_readings_coincide). The provable direction reading2 -> reading1 is not stated."
+    }
+  ],
+  "counts": {
+    "theorems": 5,
+    "proved": 5,
+    "admitted": 0,
+    "propositional_axioms": 2
+  },
+  "faithfulness": {
+    "verdict": "unfaithful",
+    "evidence": [
+      "Typing and some/all/no (AdjectivesExtension.v lines 33-37; lines 18-19 here) are verbatim C&L 2020 (3.12)-(3.13) (pp. 50-51) and Appendix A7.1 (p. 193). This is the one exactly transcribed component.",
+      "upward_monotone / downward_monotone (lines 171-179) render B&C's Sec. 4.7 definition (pp. 184-185) exactly, and the three monotonicity theorems (lines 182-200) verify B&C's stated classifications of some / every / no (p. 185) with no axioms.",
+      "conservative (lines 166-168) is not B&C's lives-on (p. 178): with the restriction as a type, X cap A is inexpressible and the definition collapses to invariance under P ~ True /\\ P. Scratch: 'forall Q, conservative Q' is provable from functional + propositional extensionality. some_conservative / all_conservative (202-214) therefore verify nothing, and the header's claim 'LOGICAL PROPERTIES: Conservativity' (line 315) is unsupported.",
+      "only (78-79) is definitionally all, so Axiom only_not_conservative (217) is refuted by all_conservative (210): False is derivable (scratch, Print Assumptions = only_not_conservative). The file's context is inconsistent; the five theorems survive only because they precede line 217 and are axiom-free.",
+      "exactly_n / at_least_n / at_most_n (22-39) are correct extensional encodings of B&C's ||!n|| and ||n|| (p. 169) on arbitrary types (bool instances proved in scratch), but count by Leibniz inequality rather than C&L's identity criteria (Def. 5.3-5.6, A7.7), so they are not C&L's numerals.",
+      "Proportional most / few / many (51-71) depend on Parameter domain_size with no link to A; on infinite CNs the encoding is refutable where B&C require truth: '~ most nat (fun _ => True)' is provable (scratch), against SP1 (A in ||most||(A)) and Table I row 3. few / many are given fixed thresholds B&C explicitly refuse to fix (Sec. 1.4, p. 163) and that violate SP6.",
+      "both / neither / either (122-131) misrender the source: B&C's both / neither are partial determiners with an |A| = 2 presupposition (p. 170); the file's neither / either are two-predicate coordinators and both turns the presupposition into a conjunct.",
+      "Examples (146-159, 281-301) include vacuous encodings (most_skillful_surgeons_human predicates True; almost_all_alleged_innocent_or_guilty ignores its bound variable) and none is accompanied by a theorem.",
+      "Beyond definitions and five trivial classifications, nothing from either source is formalized: no B&C proposition (C1-C13), universal (U1-U10) or postulate (SP1-SP6), and no C&L result about quantifiers."
+    ],
+    "omissions": [
+      "B&C lives-on as a genuine constraint (S6, U3, C1) and any non-conservative determiner.",
+      "B&C partiality of the n / both / neither (S5, pp. 169-170) and the Kleene convention (p. 171).",
+      "B&C weak/strong/definite (4.6), sieves (4.5), -Q / Q- and C9 (4.7), persistence (4.9), witness sets (C10-C11), duals (4.11), the logic L(GQ) (Sec. 2), universals U1-U10, Appendix B postulates, C12-C13 non-definability results.",
+      "Monotonicity of the file's own most / few / many / exactly_n / at_least_n / at_most_n (B&C p. 185, SP2): none proved.",
+      "C&L 2020 identity criteria for counting (Sec. 5.3) and a proper CN universe (Sec. 2.3.2; footnote 12, p. 142)."
+    ],
+    "simplifications": [
+      "Cardinality via recursive existentials and NoDup witness lists instead of |X cap A|.",
+      "|A| replaced by the unconstrained Parameter domain_size.",
+      "most identified with more-than-half; presupposition of both turned into an asserted conjunct.",
+      "Scope readings hand-written as nested quantifiers with no scoping mechanism.",
+      "not_all as one instance instead of the -Q operator."
+    ],
+    "additions": [
+      "Axiom only_not_conservative (217): in neither source, false of the file's definition, and inconsistent with all_conservative.",
+      "Axiom scope_ambiguity (238) about abstract parameters.",
+      "only := all, except (<= 3 exceptions), almost_all, between, roughly with Parameter tolerance, comparative more_than / fewer_than / as_many_as, two-predicate neither / either.",
+      "Fixed numeric thresholds for few (quarter) and many (half).",
+      "The label 'conservative' for a property that is not B&C's lives-on."
+    ]
+  },
+  "determination": "slight_modification",
+  "determination_rationale": "The evidence splits by component. (1) C&L 2020's typing of quantifiers as Pi A:CN.(A -> Prop) -> Prop with some / all / no defined by the logical quantifiers (Table 3.1, A7.1) transfers to Coq as-is; the file's no is literally C&L's code. (2) B&C right-monotonicity (Sec. 4.7) transfers as-is into that typing: the definitions are exact and the three classifications are one-line axiom-free proofs. (3) B&C's cardinal determiners ||n||, ||!n||, at-most-n, Finite transfer with slight modification: Coq has no cardinality on Prop-valued subsets, so the file uses a recursive existential and NoDup witness lists, which are extensionally correct (checked on bool). (4) Proportional determiners need a finiteness / enumeration structure on each CN that the file does not supply; its domain_size parameter is a placeholder, not a working modification, and the encoding is provably wrong on infinite CNs. (5) B&C's lives-on / conservativity does NOT survive the CN-as-types move in the form attempted: with the restriction as the domain type, X cap A has no analogue, the file's 'conservative' is provably vacuous, and a non-conservative 'only' is inexpressible at this typing; the attempt to postulate it yields an inconsistent axiom. A faithful MTT rendering of conservativity requires restructuring (restrictions as predicates or Sigma-subtypes of a common supertype, quantifiers typed over the supertype), which the file does not attempt. Rated slight_modification for the components that are actually formalized (typing, monotonicity, cardinals), with the explicit caveat that the conservativity component would need major restructuring and that no working encoding of proportional determiners is offered. The inconsistency is a defect of the file, not evidence against the sources: extras/BarwiseCooper.v shows the set-theoretic core of B&C, lives-on included, formalizes as-is when restrictions are predicates over a single domain.",
+  "artifact_classes": [
+    {
+      "class": "iv",
+      "description": "Missing native structure. (a) No cardinality on types or on A -> Prop subsets: exactly_n (22-27) is a recursion on existentials, at_least_n / at_most_n (29-39) quantify over NoDup lists, and |A| is faked by Parameter domain_size (51) with no link to A, so most / few / many are wrong on infinite CNs (scratch: ~ most nat (fun _ => True)). (b) No partial determiners: both (126-127) and neither (122-123) lose the |A| = 2 undefinedness of B&C S5. (c) No supertype-relative predicate domain: only (78-79) collapses to all because P : A -> Prop cannot mention non-A's, exactly what a non-conservative determiner needs, and lives-on itself becomes inexpressible. (d) No identity criteria: counting uses Leibniz <> rather than C&L's setoid IC (Sec. 5.3)."
+    },
+    {
+      "class": "ii",
+      "description": "Universe collapse: CN := Set (AdjectivesExtension.v line 15, following C&L 2020 Sec. 6.3 and footnote 12, p. 142: 'CN should have been a separate universe'). Every forall A : CN in conservative / upward_monotone / downward_monotone (166-179) and every Parameter : CN ranges over all of Set, so bool and nat count as common nouns (the source's (3.16) forbids this). This collapse is what lets bool witness scope_ambiguity and what makes 'conservative' quantify over non-CN types."
+    },
+    {
+      "class": "iii",
+      "description": "Inherited computational opacity, minor: the example at 290-292 applies skillful_surgeon_to_surgeon, which AdjectivesExtension.v (162-167) defines by 'rewrite <- surgeon_interp' along an equality Axiom, so the term is stuck on eq_rect and never reduces to proj1_sig. This file's own definitions are transparent (exactly_n reduces by simpl, verified)."
+    }
+  ],
+  "compiles": true,
+  "duplicate_of": "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/Quantifiers.v",
+  "duplicate_note": "diff Quantifiers.v quanrifiers2.v: quanrifiers2.v is Quantifiers.v minus (a) a redundant 'Import AdjectivesExtension', (b) the NOTE comment explaining that only := all is conservative and that the Barwise & Cooper non-conservativity of 'only' is not captured, (c) four proved lemmas absent here - only_conservative, reading2_implies_reading1, scope_readings_differ_bool (a concrete bool countermodel), scope_readings_coincide - and with (d) Quantifiers.v's two Admitted statements (Example only_not_conservative, Theorem scope_ambiguity) rewritten as Axioms; otherwise whitespace only. The 175-line definitional core and the five proved theorems are identical. Both files have an inconsistent global context (Coq registers Admitted statements as axioms, so the same False-term type-checks against Quantifiers.vo). Quantifiers.v is nevertheless the better file: it proves strictly more (9 vs 5 statements, including the genuine reading2 -> reading1 entailment and a bool countermodel), it documents in-source that only_not_conservative is refutable and scope_ambiguity unprovable about bare parameters, and Admitted marks those two as known gaps, whereas quanrifiers2.v presents the same false statement as an intended postulate. quanrifiers2.v has no dependents (no file Requires it) and is listed in _CoqProject line 51 alongside Quantifiers.v line 41; it is the variant to retire. Neither file should be used downstream until line 217 (resp. Quantifiers.v 226-232) is removed or 'only' is redefined over a supertype domain.",
+  "source_gap": "Both primary sources are fully on disk and text-extractable (B&C: L&P typesetting pp. 159-219, with pdftotext garbling the set-theoretic symbols and Appendix D but leaving all cited clauses legible; C&L 2020: 240 pp.). Gap: the two claims the file treats as headline properties - 'only' is non-conservative, and the comparative determiners more / fewer / as many ... than - come from neither primary source; their standard source, Keenan & Stavi 1986 (and Keenan & Moss 1985), is not in the papers directory, so those attributions are from general knowledge, not checked against a text on disk.",
+  "notes": "Compiled with coqc 8.20.1 from the repo root via the prescribed command (exit 0); the target was not modified (mtime Sep 5 04:13:02, md5 1411b93363d6f2a29aaa7c6dbbfeea76). Scratch file q2check.v (Require Import AdjectivesExtension quanrifiers2) verified: (1) 'Lemma q2_inconsistent : False := only_not_conservative all_conservative' compiles, Print Assumptions lists only only_not_conservative; (2) 'forall Q, conservative Q' is provable from functional_extensionality_dep + propositional_extensionality; (3) '~ most nat (fun _ => True)' is provable without axioms (exactly_n n nat P fails for any unbounded P); (4) the five theorems are 'Closed under the global context'; (5) exactly_n 1 bool (fun b => b = true) and at_most_n 1 bool (fun b => b = true) are provable; (6) the bool instance of the scope biconditional is refutable. Non-propositional declarations added by the file: Parameters domain_size, tolerance, walk, strong, innocent, guilty, fell, Student, Book, read, White, taller_than, Patient, operates_on_daily (14). The import brings Classical, the six coercion Axioms mh/wh/ha/ao/sh/dh and the seven Tcn interpretation Axioms into scope; none is used by this file's proofs. The header names the file 'WorkingQuantifiers.v' (line 2); the on-disk name misspells Quantifiers; the closing summary (307-320) claims 'scope laws' and a 'complete' quantifier system that the content does not deliver - no scope law is proved and the only non-trivial claims are two axioms, one of them false."
+}

@@ -1,0 +1,149 @@
+{
+  "file": "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/Aspect.v",
+  "region": "model-theoretic (aspect)",
+  "summary": "A 90-line leaf module (no other file Requires it) that re-declares as fresh Parameters/Axioms the event + strict-linear-time + (world,time)-index skeleton of extras/DowtyTense.v (lines 11-29), adds a minimally axiomatized event mereology (subevent preorder, a binary 'culminates' relation, a unary 'result_state' predicate; lines 34-42), and defines two VP-level operators PROG (lines 47-53) and PERF (lines 55-59) over neo-Davidsonian VP relations of type Entity -> Event -> Prop. PROG: some stage e_prog of a full VP-event e_full exists, e_prog does not culminate into e_full, and e_prog's single time-stamp equals speech time. PERF: some VP-event with a result state occurred strictly before speech time. One Lemma (prog_sentence_true, lines 79-88, Qed) discharges 'John is opening the door' at (w0,S) from section hypotheses that restate PROG's definiens verbatim; Print Assumptions shows it uses only type/predicate Parameters and none of the six propositional axioms. Relative to the assigned source (Dowty 1979 ch. 3 progressive, ch. 7 perfect; PTQ/DWP tense operators) the file encodes a different theory: no interval type, no subinterval/final-subinterval structure, no inertia-world quantification, and the world coordinate of the index is defined (world_of, line 25) but never consulted. What is encoded resembles a Parsons (1990)-style Hold/Cul account. Compiles under Coq 8.20.1. Its entire definitional content (lines 11-59, minus open_ev and world_of) is copied verbatim into extras/ImperfectiveParadox.v (lines 12-65) and extras/Imperfective2.v (lines 13-66), which extend it and supersede it.",
+  "sources": [
+    {
+      "citation": "Dowty, D. R. (1979). Word Meaning and Montague Grammar. Reidel. Relevant sections per the on-disk TOC: ch. 3 'Interval Semantics and the Progressive Tense' (§3.1 The Imperfective Paradox p. 133; §3.2 Truth Conditions Relative to Intervals, not Moments p. 138; §3.4 Truth Conditions for the Progressive p. 145; §3.6 On the Notion of 'Likeness' Among Possible Worlds); ch. 7 'The Syntax and Semantics of Tenses and Time Adverbials in English' (§7.4 The Syntactic Structure of the Auxiliary p. 336; §7.5 The Present Perfect p. 339; §7.7 An English Fragment p. 350); ch. 2 §2.3.6 Accomplishments and CAUSE p. 91. Foreword p. vii states ch. 3's innovation is truth relative to an interval rather than a moment. ONLY the 23-page front matter is on disk.",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Dowty_1979_WordMeaningMontagueGrammar_FrontMatterOnly.pdf",
+      "available": "partial"
+    },
+    {
+      "citation": "Montague, R. (1973). The Proper Treatment of Quantification in Ordinary English. §2 Intensional Logic: syntax clause 5 (Wφ, Hφ ∈ ME_t), interpretation ⟨A, I, J, ≤, F⟩ with J the moments of time and ≤ a simple (linear) ordering; semantic clause 8: [Wφ]^{A,i,j,g}=1 iff φ^{A,i,j',g}=1 for some j' with j ≤ j', j' ≠ j; [Hφ]^{A,i,j,g}=1 iff φ^{A,i,j',g}=1 for some j' with j' ≤ j, j' ≠ j. §3 S17 (F11-F15: negation, future, negative future, present perfect, negative present perfect). §4 T17: F14(α,δ) translates into Hα'(^δ') (present perfect = past operator H over the term-plus-IV formula).",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/montague73.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Dowty, D., Wall, R. & Peters, S. (1981). Introduction to Montague Semantics. Reidel. Ch. 5 §1 'Tense Operators and their Interpretation': Syn B.10-B.11, Sem B.10-B.11 (F, P as existential shifts along the moment order <, p. 115); p. 116: PPφ ~ past perfect, FPφ ~ future perfect, and the explicit remark that the system 'does not ... offer a natural way of treating the present perfect tense in English, nor the various progressive tenses'; validities (5-1) FFφ→Fφ, (5-2) PPφ→Pφ. Ch. 7 (7-114) S17 and (7-115) T17 pp. 244-245 (DWP renumber PTQ's F11-F15 as F12-F16); fn. 19 pp. 250-251: PTQ's present perfect is interpreted by the tense-logical past operator and the simple-past/present-perfect distinction is deferred to Dowty 1979 ch. 7; p. 197: PTQ's simple present is best read as a present progressive, 'for further discussion see Dowty (1979)'.",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Dowty_Wall_Peters_1981_IntroductionToMontagueSemantics.txt",
+      "available": "full"
+    },
+    {
+      "citation": "Dowty, D. R. (1977). Toward a semantic analysis of verb aspect and the English 'imperfective' progressive. Linguistics and Philosophy 1: 45-78. Article version of ch. 3 (Foreword p. xi of the 1979 book; DWP bibliography item 36).",
+      "available": "missing"
+    },
+    {
+      "citation": "Parsons, T. (1990). Events in the Semantics of English. MIT Press. Not assigned; listed because the file's Hold/Cul-style progressive and result-state perfect are closest to this theory, not to Dowty's.",
+      "available": "missing"
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "Parameter Event; AGENT, PATIENT : Entity -> Event -> Prop; open_ev : Event -> Prop (lines 11-13)",
+      "source": "No counterpart in Dowty 1979 or PTQ, both of which are event-free intensional logics over indices; neo-Davidsonian roles are Parsons 1990 / Dowty 1991. Copied from extras/DowtyTense.v lines 13-15 rather than imported: the line-10 comment 'Import definitions from previous modules' is inaccurate, these are new Parameters, so Aspect.Event and DowtyTense.Event are unrelated types.",
+      "match": "added",
+      "note": "open_ev is a flat event predicate; Dowty's 'open' is the decomposed accomplishment [x CAUSE [BECOME open'(y)]] (§2.3.6, §4.3 per TOC), which the file does not represent."
+    },
+    {
+      "coq": "Parameter Time, lt; Axioms lt_trans, lt_irrefl, lt_total (lines 15-19)",
+      "source": "PTQ §2: J with ≤ a simple (linear) ordering; DWP ch. 5 Sem B.10-B.11 presuppose the same moment order. Encoded as a strict linear order (transitive, irreflexive, trichotomous).",
+      "match": "exact",
+      "note": "Faithful to PTQ's moment structure, but Dowty 1979 §3.2 evaluates at intervals over such moments and no interval type is defined anywhere in the file."
+    },
+    {
+      "coq": "Parameter time_of : Event -> Time (line 21)",
+      "source": "No source counterpart: assigns each event one moment. Dowty §3.2 needs an interval (run time); PTQ has no events.",
+      "match": "added",
+      "note": "Consequence: PROG's 'time_of e_prog = speech_time ι' (line 53) is point-coincidence, not Dowty's interval containment I ⊂ I'."
+    },
+    {
+      "coq": "Parameter World; Index := World*Time; world_of; speech_time; I A := Index -> A; t := I Prop (lines 23-29)",
+      "source": "PTQ §2: points of reference ⟨i,j⟩ ∈ I×J; D_{⟨s,a⟩} = D_a^{I×J}. I A matches the intension type; t := I Prop is the type of propositions (PTQ's D_{⟨s,t⟩}), not PTQ's category t.",
+      "match": "exact",
+      "note": "world_of (line 25) is defined and never used; neither PROG nor PERF reads the world coordinate (scratch lemmas prog_world_invariant / perf_world_invariant compile), so the intensional index is vacuous in this file."
+    },
+    {
+      "coq": "Parameter subevent; Axioms subevent_refl, subevent_trans (lines 34-37)",
+      "source": "Dowty 1979 §3.2/§3.4: subinterval relation on intervals (I ⊆ I', 'final subinterval of'). Replaced by a preorder on events with no antisymmetry, no sums, no 'final stage' notion.",
+      "match": "changed"
+    },
+    {
+      "coq": "Parameter culminates : Event -> Event -> Prop; result_state : Event -> Prop; Axiom culminates_sub (lines 40-42)",
+      "source": "No counterpart in Dowty 1979 (which uses 'I is not a final subinterval of I'' plus the inertia-world function Inr) or in PTQ/DWP. Vocabulary is Parsons 1990 (Cul, resultant state) / Moens & Steedman 1988.",
+      "match": "added",
+      "note": "The only axiom is culminates e1 e2 -> subevent e1 e2. Nothing relates culminates to result_state or to time_of, and culminates e e is not excluded, so a full event may be its own non-culminating stage."
+    },
+    {
+      "coq": "Definition PROG (lines 47-53)",
+      "source": "Dowty 1979 §3.4 (p. 145 ff.; text not on disk): [PROG φ] is true at ⟨I,w⟩ iff for some interval I' with I ⊂ I' and I not a final subinterval of I', φ is true at ⟨I',w'⟩ for every inertia world w' ∈ Inr(⟨I,w⟩). PTQ has no progressive operator (DWP p. 197: PTQ's simple present is to be read progressively).",
+      "match": "changed",
+      "note": "Drops the inertia-world quantifier entirely (VP x e_full is asserted outright in no particular world, so the 'full event' of an uncompleted crossing must exist); replaces intervals by events and a single moment; replaces 'not a final subinterval' by '~ culminates'; fixes evaluation at speech time (present progressive only); and, returning t rather than a VP relation, cannot be nested under DowtyTense's PST/PRS/FUT. Scratch check compiled against Aspect.vo: if culminates is empty, any VP-event at speech time yields PROG via e_prog := e_full and subevent_refl, so PROG is not forced to differ from the simple present."
+    },
+    {
+      "coq": "Definition PERF (lines 55-59)",
+      "source": "PTQ §2 clause 8 (H) with T17 F14(α,δ) ↦ Hα'(^δ'); DWP Sem B.11 (P). Dowty 1979 §7.5 'The Present Perfect' p. 339 (text not on disk).",
+      "match": "changed",
+      "note": "Keeps the existential strictly-earlier-than-speech-time core of H/P (line 59) but (a) adds a result_state conjunct (line 58) absent from PTQ/DWP, (b) quantifies over events rather than shifting the evaluation index, (c) ignores the world coordinate, (d) takes an Entity subject where F14 takes a category-T term α (a generalized quantifier). Whether (a) matches Dowty's §7.5 analysis cannot be checked: the chapter is not on disk. Within the repository, PERF differs from DowtyTense.v's PST only by the result_state conjunct (scratch lemma perf_implies_past_shift)."
+    },
+    {
+      "coq": "Section ProgressiveExample: VP_open, sent, Hypotheses Event_full / Prog_part (lines 64-77)",
+      "source": "Worked example 'John is opening the door'. Dowty's ch. 3 running examples are 'John was drawing a circle' / 'crossing the street'; 'open' is his paradigm causative accomplishment (§2.3.6).",
+      "match": "added",
+      "note": "Prog_part (line 71) restates PROG's three non-VP conjuncts verbatim, so the lemma below is a unification check, not a semantic claim."
+    }
+  ],
+  "theorems": [
+    {
+      "name": "prog_sentence_true",
+      "status": "proved",
+      "source_claim": "new (sanity check: 'John is opening the door' is true at (w0,S) given hypotheses that are exactly the definiens of PROG)",
+      "note": "Lines 79-88, Qed. Print Assumptions (scratch, compiled): depends only on the Parameters Event, Time, World, Entity, AGENT, PATIENT, open_ev, subevent, culminates, time_of and on no propositional axiom; lt and result_state do not occur. No theorem relates PROG to PERF or to DowtyTense's tenses; no imperfective-paradox or entailment-asymmetry result is stated here (those live in ImperfectiveParadox.v / Imperfective2.v)."
+    }
+  ],
+  "counts": {
+    "theorems": 1,
+    "proved": 1,
+    "admitted": 0,
+    "propositional_axioms": 6
+  },
+  "faithfulness": {
+    "verdict": "unfaithful",
+    "evidence": [
+      "PROG (lines 47-53) contains no quantification over worlds; world_of (line 25) is never read, and scratch lemma prog_world_invariant (PROG VP x (w,s) <-> PROG VP x (w',s)) compiles. Dowty 1979 §3.4 makes the progressive a modal statement over inertia worlds Inr(⟨I,w⟩) — the mechanism that blocks 'is crossing' ⊢ 'crosses'. (Dowty's definition recalled from the published text; §3.4 pp. 145 ff. not on disk.)",
+      "No interval type exists; truth is relative to a moment (speech_time ι, line 26) and each event has one moment (time_of, line 21). Dowty's chapter-3 innovation is 'taking truth relative to an interval of time (rather than a moment of time) as the basic semantic definition' (Foreword p. vii of the on-disk front matter; §3.2 p. 138 per TOC).",
+      "PERF (lines 55-59) adds result_state e to PTQ's H (Montague 1973 §2 clause 8: φ true at some j' with j' ≤ j, j' ≠ j) / DWP Sem B.11 (p. 115). PTQ/DWP have no result-state notion, and DWP p. 116 says outright that their operators give no natural treatment of the English present perfect or progressive — so the file goes beyond them without a checkable source for the addition.",
+      "PROG/PERF have type (Entity -> Event -> Prop) -> Entity -> t; PTQ's H/W are propositional operators and S17/T17 combine a term of category T with an IV. The Coq operators cannot be stacked under DowtyTense.v's PST/PRS/FUT (distinct Parameter instances of Event/Time; PROG returns t, not a VP relation), so 'was opening' / 'had opened' are not expressible compositionally — ImperfectiveParadox.v lines 108-113 hand-write a past progressive for exactly this reason.",
+      "Scratch check compiled against Aspect.vo (present_entails_prog): from (forall e1 e2, ~ culminates e1 e2) and (exists e, VP x e /\\ time_of e = speech_time i) one derives PROG VP x i with e_prog := e_full (subevent_refl, line 35). None of the six axioms excludes the empty interpretation of culminates, so nothing forces PROG to differ from the simple present.",
+      "What is faithful: the strict linear moment order (lines 15-19) matches PTQ's ⟨J, ≤⟩; Index = World*Time and I A := Index -> A (lines 24-28) match PTQ's I×J points of reference and intension types; PERF's temporal core lt (time_of e) (speech_time ι) (line 59) matches the strict-past shift of H / P."
+    ],
+    "omissions": [
+      "Interval semantics (Dowty §3.2): no interval type, no subinterval / final-subinterval relations.",
+      "Inertia worlds Inr and the modal quantifier in Dowty's PROG (§3.4, §3.6).",
+      "Any composition of aspect with tense (Dowty ch. 7 §7.4 auxiliary structure; PTQ S17/T17 at sentence level): PROG is present-only, PERF is past-only.",
+      "Dowty's decomposition of accomplishments (CAUSE/BECOME, §2.3) — 'open' is a primitive event predicate.",
+      "Any theorem about the operators: no PROG/PERF interaction, no imperfective-paradox statement, no entailment asymmetry."
+    ],
+    "additions": [
+      "Event ontology with AGENT/PATIENT roles and a single time stamp per event (lines 11-21).",
+      "subevent preorder, culminates relation, result_state predicate and axiom culminates_sub (lines 34-42).",
+      "result_state conjunct in PERF (line 58).",
+      "Worked example section (lines 64-89)."
+    ],
+    "simplifications": [
+      "World coordinate carried in the index but unused (extensional event semantics, as DowtyTense.v lines 49-50 announce).",
+      "Subject argument restricted to an Entity instead of PTQ's category-T term.",
+      "Event time is a moment rather than an interval."
+    ]
+  },
+  "determination": "major_restructuring",
+  "determination_rationale": "As evidenced by this file, the source theory was not encoded as written: intervals became events, the subinterval structure became a bare preorder, the inertia-world quantifier was removed, propositional tense/aspect operators became VP-level operators fixed at speech time, and the perfect acquired a result-state conjunct with no PTQ/DWP basis. That is a structural rewrite, not a transliteration. The record must also state what the file does NOT show: it exhibits no obstacle to a direct encoding. Dowty's PROG is first-order quantification over intervals (convex subsets of a linear order) and over an inertia-world relation, both trivially declarable in Coq, and the PTQ H/W-style operators are already encoded essentially as-is in DowtyTense.v (PST/FUT). So 'major_restructuring' describes the author's choice here rather than a demonstrated necessity; a faithful as-is encoding remains untested in the repository, and the chapters needed to write one are not on disk.",
+  "artifact_classes": [
+    {
+      "class": "ii",
+      "description": "Truth values are Coq Prop (t := I Prop, line 29): a sentence denotes an impredicative proposition rather than an element of {0,1}, so the model-theoretic 'is 1' of PTQ clause 8 / DWP Sem B.11 becomes provability and '~ culminates' (line 52) is Prop-negation. Standard shallow-embedding collapse; mild here because nothing is computed."
+    },
+    {
+      "class": "iii",
+      "description": "Every semantic primitive (subevent, culminates, result_state, time_of, AGENT, PATIENT, open_ev) is an uninterpreted Parameter with at most a preorder axiom, so PROG/PERF cannot be evaluated in any model and the only lemma is closed by hypotheses restating the definiens (Print Assumptions: zero propositional axioms used). No property of the operators beyond their literal shape is derivable — e.g. PROG collapsing to the simple present under empty 'culminates' is not blocked."
+    },
+    {
+      "class": "iv",
+      "description": "Dowty's native structures — intervals over moments, the final-subinterval relation, the inertia-world function Inr — have no Coq counterpart; a bare event preorder is substituted and the world coordinate is present but inert (world_of unused). The announced 'Dowty-Tense layer' also cannot be stacked: Event/Time/Index are re-declared here instead of imported from DowtyTense.v, so tense and aspect live in incompatible Parameter namespaces."
+    }
+  ],
+  "compiles": true,
+  "duplicate_of": "extras/Imperfective2.v",
+  "duplicate_note": "Aspect.v lines 11-59 (parameters, time axioms, index, mereology, PROG, PERF) are reproduced essentially verbatim in extras/ImperfectiveParadox.v lines 12-65 and extras/Imperfective2.v lines 13-66 (both omit open_ev and world_of and add a PST operator). Neither Requires Aspect.v; each re-declares the Parameters, and ImperfectiveParadox.v line 51 even says 'Aspect operators (from previous file)'. Both later files strictly extend Aspect.v with the imperfective-paradox theorems and the simple-past-entails-progressive result. Imperfective2.v is the better file: it is a superset of Aspect.v, has 0 Admitted (ImperfectiveParadox.v has 1, simple_past_false, line 350, with a documented countermodel), and repairs PST to require result_state (line 71) so that the paradox scenario is actually provable. Aspect.v's only unique content is the trivial present-progressive example (lines 64-89). Recommended: mark Aspect.v superseded, or refactor the two later files to Require it so the definitions exist once.",
+  "source_gap": "The primary source is essentially absent. Only the 23-page front matter (title, foreword, TOC) of Dowty 1979 is on disk; chapter 3 (§3.1 p. 133, §3.2 p. 138, §3.4 p. 145 — where PROG is defined), chapter 7 (§7.4 p. 336, §7.5 p. 339 — the present perfect, §7.7 p. 350 — the fragment) and chapter 2 (§2.3.6 CAUSE, p. 91) are missing, as is Dowty 1977 (L&P 1: 45-78), the article version of ch. 3. Section and page numbers come from the on-disk TOC; the content of Dowty's PROG definition and §7.5 perfect analysis is recalled from the published text and could not be re-verified against disk. PERF was therefore compared against PTQ's H (Montague 1973 §2 clause 8, §4 T17, on disk) and DWP 1981 Sem B.11 (on disk) — the operators Dowty builds on, not his final analysis. Parsons 1990, the theory the encoding most resembles, is neither assigned nor on disk. Manifest line 104 of papers/README.md already records Dowty 1979 as 'Not obtained'.",
+  "notes": "Compiled with coqc 8.20.1 via the prescribed command from the repo root: exit 0; two 'Trying to mask the absolute name MontagueFragment' deprecation warnings (Require Import MontagueFragment loads a file whose top-level Module is also named MontagueFragment; harmless). 'From Coq Require Import Classical Lia' (line 4) is dead: no classical or arithmetic reasoning occurs. Import MontagueExtensional supplies Entity (and john, mary, the inductive S, ...); the section's 'Variables john door : Entity' and 'Variable S : Time' shadow the imported john and S locally. Inventory: 11 Parameters (Event, AGENT, PATIENT, open_ev, Time, lt, time_of, World, subevent, culminates, result_state), 6 Axioms (lt_trans, lt_irrefl, lt_total, subevent_refl, subevent_trans, culminates_sub), 9 Definitions (Index, world_of, speech_time, I, t, PROG, PERF, VP_open, sent), 1 Lemma (Qed), 0 Admitted. Neither Aspect.v nor DowtyTense.v is Required by any other file (grep 'Require.*Aspect' over *.v: no hits), so the 'Dowty-Tense layer' architecture announced in the header is never exercised. Scratch verification file (compiles against Aspect.vo): /private/tmp/claude-501/-Users-graogro-Dropbox-formalizing-formal-semantics/c34891d7-ce39-4399-ad0f-31b3588ae898/scratchpad/AspectCheck.v — Print Assumptions prog_sentence_true, present_entails_prog (empty-culminates collapse), perf_implies_past_shift, prog_world_invariant, perf_world_invariant. Aspect.v was not modified (md5 ae0a9d701e9a292df4473b868c6ad051 before and after)."
+}

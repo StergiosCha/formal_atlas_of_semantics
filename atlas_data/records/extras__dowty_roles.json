@@ -1,0 +1,142 @@
+{
+  "file": "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/dowty_roles.v",
+  "region": "model-theoretic (thematic proto-roles); neo-Davidsonian event layer over shallow/MontagueFragment.v MontagueExtensional",
+  "summary": "A 62-line sketch that declares neo-Davidsonian Event/AGENT/PATIENT relations, four Proto-Agent feature predicates and one Proto-Patient feature taken from Dowty 1991 lists (27)/(28), a Prop-to-nat characteristic-function `score` fixed by three axioms, and an `ASP` axiom meant to be Dowty's Argument Selection Principle (31). The only theorem is a trivial instantiation of a Neo-Davidsonian `verb_open` under assumed roles; it uses none of the proto-role machinery. The ASP encoding compares a 0/1 score of a disjunction rather than a count of entailments, selects both AGENT and PATIENT from the Proto-Agent comparison alone, quantifies over all entities rather than a predicate's arguments, and concludes a semantic thematic relation where Dowty's principle constrains lexicalization as grammatical subject/object. Compiles (Coq 8.20.1) with a harmless masking warning.",
+  "sources": [
+    {
+      "citation": "Dowty, David (1991). Thematic Proto-Roles and Argument Selection. Language 67(3): 547-619. Relevant: §7 lists (27) p.572 and (28) p.572 with fn.16; §8.1 (31) ASP, (32) Corollary 1, (33) Corollary 2, (34) Nondiscreteness, p.576; p.574 remarks on movement and weighting; §8.2 hierarchies (36)-(37) p.578.",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Dowty_1991_ThematicProtoRoles.pdf",
+      "available": "full"
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "Event : Type (L13)",
+      "source": "none — Dowty 1991 has no event-argument ontology; predicates and argument positions only (fn.18 p.576 explicitly declines a 'linking' reformulation)",
+      "match": "added",
+      "note": "Neo-Davidsonian (Parsons-style) apparatus imported from outside the source."
+    },
+    {
+      "coq": "AGENT, PATIENT : Entity -> Event -> Prop (L14-15)",
+      "source": "'Agent'/'Patient' as traditional roles that Dowty argues are non-primitive cluster concepts (p.577: 'AGENT is volition + causation + sentience + movement ...'; (34) p.576)",
+      "match": "changed",
+      "note": "Source's whole point is that these are not primitives; the file makes them primitive Parameters and then constrains them by ASP. Source's ASP outputs grammatical subject/object, not a thematic relation."
+    },
+    {
+      "coq": "open_ev, verb_open (L18-20)",
+      "source": "none — Dowty's canonical examples are build/write/murder/eat/wash (35) p.577; 'open' is not treated in §7-§8",
+      "match": "added",
+      "note": "Standard Neo-Davidsonian decomposition; not from the source."
+    },
+    {
+      "coq": "volitional, sentient, cause_change, movement : Entity -> Event -> Prop (L23-24)",
+      "source": "(27a) volitional involvement, (27b) sentience/perception, (27c) causing an event or change of state in another participant, (27d) movement relative to another participant — p.572",
+      "match": "simplified",
+      "note": "Names match (27a-d); (27e) independent existence omitted, which is defensible since Dowty parenthesizes it. But the source items are ENTAILMENTS OF THE PREDICATE (fn.16 p.572 distinguishes these from what follows from a particular sentence); the file encodes token-level facts about an entity in an event, exactly the kind of fact fn.16 says not to count."
+    },
+    {
+      "coq": "changed_state (L23-24)",
+      "source": "(28a) undergoes change of state — p.572",
+      "match": "simplified",
+      "note": "Same token-level caveat as above."
+    },
+    {
+      "coq": "ProtoAgent_feats x e := volitional \\/ sentient \\/ cause_change \\/ movement (L26-27)",
+      "source": "list (27), to be COUNTED per (31)",
+      "match": "changed",
+      "note": "A disjunction has no cardinality; the file then scores the disjunction 0/1, so 'greatest number of Proto-Agent properties' becomes 'has at least one vs. has none'."
+    },
+    {
+      "coq": "ProtoPatient_feats x e := changed_state \\/ movement \\/ (cause_change x e -> False) (L29-30)",
+      "source": "list (28): (a) change of state, (b) incremental theme, (c) causally affected by another participant, (d) stationary relative to movement of another participant, (e) does not exist independently — p.572",
+      "match": "changed",
+      "note": "Only (28a) is present. `movement` is the AGENT property (27d), not (28d) 'stationary' (its converse); p.574 does say movement might count as both, but the file drops 'stationary' rather than adding to it. `~cause_change` is the NEGATION of agent property (27c), not (28c) 'causally affected by another participant' (the converse relation, p.574: '30c-e are the converses of 29c-e'). (28b), (28d), (28e) missing."
+    },
+    {
+      "coq": "score : (Entity -> Event -> Prop) -> Entity -> Event -> nat with score_true, score_false, score_range (L33-38)",
+      "source": "'the greatest number of Proto-Agent properties' / 'greatest number of Proto-Patient entailments' (31) p.576",
+      "match": "changed",
+      "note": "score is a characteristic function of an arbitrary Prop, axiomatized rather than computed; it is never applied to an individual feature, only to the two disjunctions. score_range is redundant: derivable from score_true/score_false by case analysis on classic (F x e) (verified in scratch check)."
+    },
+    {
+      "coq": "Axiom ASP (L40-43): score ProtoAgent_feats x e > score ProtoAgent_feats y e -> AGENT x e /\\ PATIENT y e",
+      "source": "(31) Argument Selection Principle p.576: the argument with the greatest number of Proto-Agent entailments is lexicalized as subject; the argument with the greatest number of Proto-Patient entailments is lexicalized as direct object",
+      "match": "changed",
+      "note": "Four independent deviations: (i) only the Proto-Agent comparison is used, yet PATIENT is concluded — the source selects the object by a separate Proto-Patient count; (ii) by score_true/score_false the hypothesis is equivalent to ProtoAgent_feats x e /\\ ~ProtoAgent_feats y e (scratch lemma score_gt_collapse), so no counting occurs; (iii) it ranges over all x y : Entity rather than the arguments of a predicate, so any entity with no Proto-Agent feature in e becomes PATIENT of e whenever some other entity has one (scratch lemma asp_overgeneration); (iv) the conclusion is a semantic thematic relation, whereas the source's principle is a constraint on which lexical predicates exist ('be lexicalized as', p.576 explanatory paragraph)."
+    },
+    {
+      "coq": "(no Coq counterpart)",
+      "source": "(32) Corollary 1 ties/approximately equal, (33) Corollary 2 three-place predicates, (34) Nondiscreteness, §6 Incremental Theme, §8.2 role hierarchies (36)-(37), p.574 weighting remarks",
+      "match": "missing",
+      "note": "None of the corollaries, the tie rule, or the derived hierarchies are stated or derived."
+    },
+    {
+      "coq": "Section Example: john, door, e0, Hroot, Hroles, john_opened_door (L46-61)",
+      "source": "none",
+      "match": "added",
+      "note": "The hypotheses stipulate AGENT john e0 /\\ PATIENT door e0 directly; ASP and the proto-features play no part."
+    }
+  ],
+  "theorems": [
+    {
+      "name": "sentence_true (L55-60)",
+      "status": "proved",
+      "source_claim": "new — not a claim of Dowty 1991",
+      "note": "Proves verb_open john door from open_ev e0 and AGENT john e0 /\\ PATIENT door e0 by supplying the witness e0. Print Assumptions shows it depends only on Event, Entity, AGENT, PATIENT, open_ev — not on ASP, score, or any proto-feature. The Classical/Decidable imports (L6) are unused by this proof."
+    }
+  ],
+  "counts": {
+    "theorems": 1,
+    "proved": 1,
+    "admitted": 0,
+    "propositional_axioms": 4
+  },
+  "faithfulness": {
+    "verdict": "unfaithful",
+    "evidence": [
+      "L26-27 vs (27) p.572: Proto-Agent list (a)-(d) is named correctly, but as a disjunction; the source uses it as a set whose cardinality per argument is what ASP compares.",
+      "L29-30 vs (28) p.572 and p.574: Proto-Patient list contains `movement` (= agent property 27d, not 28d 'stationary') and `~cause_change` (negation of 27c, not 28c 'causally affected', which Dowty says is the CONVERSE of 29c); (28b), (28d), (28e) absent.",
+      "L36-37 + L40-43 vs (31) p.576: with score_true/score_false, `score ProtoAgent_feats x e > score ProtoAgent_feats y e` is provably equivalent to `ProtoAgent_feats x e /\\ ~ProtoAgent_feats y e` (scratch check score_gt_collapse), so 'greatest number' is never computed.",
+      "L40-43 vs (31) p.576: ASP concludes PATIENT y e from the Proto-Agent comparison alone; the source selects the direct object by the Proto-Patient count separately, and (32)-(33) handle ties, which the file cannot express.",
+      "L40-43 vs (31) p.576 and fn.16 p.572: ASP quantifies over all entities, not a predicate's arguments; scratch check asp_overgeneration derives PATIENT y e for any y lacking all four features in e once some x is volitional in e.",
+      "L14-15 vs (34) p.576 and p.577: AGENT/PATIENT are primitive Parameters whose truth is a semantic fact about an event, whereas the source's ASP is about lexicalization as grammatical subject/object ('be lexicalized as', p.576) and treats Agent/Patient as non-primitive cluster concepts.",
+      "L55-60: the sole theorem does not exercise any of the Dowty-derived content (Print Assumptions lists only Event, Entity, AGENT, PATIENT, open_ev)."
+    ],
+    "omissions": [
+      "(27e) independent existence (defensible: parenthesized in source)",
+      "(28b) incremental theme, (28d) stationary relative to movement, (28e) existence not independent of the event",
+      "Separate Proto-Patient count in ASP (31)",
+      "(32) Corollary 1 (ties / approximately equal), (33) Corollary 2 (three-place predicates)",
+      "(34) Nondiscreteness; §8.2 derived role hierarchies (36)-(37); §6 Incremental Theme",
+      "Lexical/type-level status of entailments (fn.16 p.572)"
+    ],
+    "additions": [
+      "Neo-Davidsonian Event type and AGENT/PATIENT thematic relations (L13-15)",
+      "open_ev / verb_open decomposition (L18-20) and the john/door example section (L46-61)",
+      "Prop-to-nat `score` characteristic function with axioms score_true/score_false/score_range (L33-38); score_range is derivable from the other two",
+      "ASP as a universally quantified semantic axiom over all entity pairs (L40-43)"
+    ],
+    "simplifications": [
+      "Proto-role properties as token-level Props of (entity, event) instead of lexical entailments of predicate argument positions",
+      "Counting replaced by a 0/1 score of a disjunction",
+      "Crisp Props for what the source treats as non-discrete, possibly weighted features (p.574-575)"
+    ]
+  },
+  "determination": "slight_modification",
+  "determination_rationale": "The source's operative content — finite entailment lists (27)/(28), a count per argument position, ASP (31), and corollaries (32)-(33) — is directly expressible in Coq: lexical entailments as universally quantified implications indexed by a predicate's argument position, counts as sums over a finite Boolean feature vector (giving computable nat values without any score axioms), and ASP/corollaries as a well-formedness constraint on a lexicon's subject/object assignment. What needs modification rather than transcription: 'approximately equal' in (32)-(33) requires an explicit threshold; the nondiscreteness/weighting remarks (p.574-575, (34)) require either a chosen weighting or are rendered only negatively (no exhaustiveness/uniqueness axioms); and 'entailment of the predicate' (fn.16) must be reified as a lexical-entry property rather than derived from object-level provability. This file does not itself demonstrate the formalization — its token-level features and 0/1 score are the wrong shape — but every defect is repairable within the same Coq setting (e.g., summing scores over the four individual features and indexing ASP by predicate arguments), which is why the verdict is slight_modification and not major_restructuring.",
+  "artifact_classes": [
+    {
+      "class": "iii",
+      "description": "`score` (L33) is an axiomatized Parameter, not a function; counts cannot be evaluated or simplified, and the file never computes a single count. A bool-valued feature vector with a sum would have been computable."
+    },
+    {
+      "class": "v",
+      "description": "Mapping Prop-valued features to nat scores presupposes deciding arbitrary Props: the file imports Classical (L6) and fixes score by score_true/score_false (L36-37); the 0/1 behaviour (and the redundancy of score_range) is only derivable by case analysis on `classic (F x e)`, as the scratch check required."
+    }
+  ],
+  "compiles": true,
+  "duplicate_of": "",
+  "duplicate_note": "No other repo file encodes Dowty 1991. Other 'Dowty' hits (extras/DowtyTense.v, Aspect.v, ImperfectiveParadox.v, Imperfective2.v) are the 1979 tense/aspect material; extras/LakoffPrototypes.v is Lakoff/Rosch prototype theory, which Dowty cites (p.571, p.577) but is a different source and does not touch proto-roles or ASP.",
+  "source_gap": "Primary source is fully on disk (74-page JSTOR scan, pp.547-619) but is image-only: pdftotext yields only the JSTOR cover sheet, so section location by grep is impossible and pages must be read as images (article page p maps to PDF page p-545). No content gap for this file; §7-§8 (pp.571-578) were read directly.",
+  "notes": "Compile emits 'Trying to mask the absolute name MontagueFragment' at L7 twice (harmless: -R shallow \"\" plus a module of the same name). `Decidable` (L6) is never used; `Classical` is not used by the file's own proof. Comment 'Option 2: Axiomatic approach' (L32) implies a removed Option 1 — the file reads as a fragment of a larger draft. Parameters (not counted as propositional axioms): Event, AGENT, PATIENT, open_ev, volitional, sentient, cause_change, movement, changed_state, score. The axiom set is consistent (model: interpret score classically as the characteristic function and AGENT/PATIENT as everywhere true), but ASP is inert: nothing in the file uses it. Scratch verification file: /private/tmp/claude-501/-Users-graogro-Dropbox-formalizing-formal-semantics/c34891d7-ce39-4399-ad0f-31b3588ae898/scratchpad/dowty_check.v (compiled cleanly against the built extras/dowty_roles.vo)."
+}

@@ -1,0 +1,145 @@
+{
+ "file": "ttr_mtt/TTR_types.v",
+ "region": "ttr pilots",
+ "summary": "A deep embedding of the TTR type system of Cooper (2023) Appendix A2-A8: an abstract model record (basic-type assignment A, ptype assignment F, predicate signature) over the TTR_base Val/TTRType mutual inductive; the witness judgment a :_TTR T as an inductive Prop with clauses for basic types, ptypes, function and partial-function types, singleton, join, meet, set, and (non-dependent) record types; extensional subtyping defined as witness-set inclusion with ten one-step structural theorems (meet intro/elim, join/meet subtyping, refl, trans, singleton subtyping); and Cooper's official labelled-set encodings of ptypes, function, join and meet types (defined but not verified). The strict-positivity design note is the file's most valuable content: function/set witnessing occurs negatively, and the dodge chosen (an opaque Prop parameter on the constructor) trivializes those clauses.",
+ "sources": [
+  {
+   "citation": "Cooper, R. (2023). From Perception to Communication: A Theory of Types for Action and Meaning. Oxford University Press. Appendix A2-A8.",
+   "path": null,
+   "available": "none"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "TTRModel = <m_basic_assign, m_ptype_assign, m_pred_sig>; BasicAssignment; PTypeAssignment",
+   "source": "Cooper A2 TYPE_B = <Type, A> and A3.2 TYPE_C = <Type, BType, <PType, Pred, ArgIndices, Arity>, <A, F>>",
+   "match": "simplified",
+   "note": "witness sets modelled as Val -> Prop predicates; m_pred_sig (Pred/ArgIndices/Arity) is carried but never consulted by the witness relation, so A3 arity constraints go unchecked"
+  },
+  {
+   "coq": "wit_basic / wit_ptype",
+   "source": "A2 'a : T iff a in A(T)'; A3 'a : P(a1..an) iff a in F(...)'",
+   "match": "exact",
+   "note": "only the if-direction is a constructor; the iff holds by inversion since no other clause targets TBasic/TPType"
+  },
+  {
+   "coq": "wit_fun (H : Prop premise) / wit_partfun / wit_set",
+   "source": "A4 function and partial function types; A5 set types",
+   "match": "changed",
+   "note": "TRIVIALIZED: wit_fun M T1 T2 f True I proves witnesses M f (TFun T1 T2) for ANY f; wit_partfun is unconditional; wit_set likewise via opaque Prop. Documented in-file as a strict-positivity dodge. wit_fun_proper's guard (T1 inhabited -> T2 inhabited) never applies f, so even the intended semantics is misstated"
+  },
+  {
+   "coq": "wit_singleton",
+   "source": "A6 'a : T_b iff a : T and a = b'",
+   "match": "exact",
+   "note": "the equality is baked in by using the same variable for witness and index"
+  },
+  {
+   "coq": "wit_join_l / wit_join_r / wit_meet",
+   "source": "A7 join types, A8 meet types",
+   "match": "exact"
+  },
+  {
+   "coq": "wit_rectype_nil / wit_rectype_cons",
+   "source": "Cooper's record types (beyond the header's A2-A8 scope)",
+   "match": "simplified",
+   "note": "non-dependent only: field types must be literal VType values, no dependency of later fields on earlier ones — dependency being the point of TTR record types"
+  },
+  {
+   "coq": "(no clause) for TPlurality",
+   "source": "A5 plurality types, claimed in the file header",
+   "match": "missing"
+  },
+  {
+   "coq": "subtype M T1 T2 := forall a, witnesses M a T1 -> witnesses M a T2",
+   "source": "Cooper's extensional subtyping {a | a : T1} subseteq {a | a : T2}",
+   "match": "exact"
+  },
+  {
+   "coq": "encode_ptype / encode_fun_type / encode_join / encode_meet / encode_args",
+   "source": "Cooper's representation of complex types as labelled sets",
+   "match": "added",
+   "note": "defined but no theorem connects them to the witness relation; nat_to_string maps every n > 5 to \"n\" so arg labels collide for arity > 5"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "meet_intro / meet_elim_l / meet_elim_r",
+   "status": "proved",
+   "source_claim": "A8: a : T1 /\\ T2 iff a : T1 and a : T2",
+   "note": "one-step constructor/inversion proofs"
+  },
+  {
+   "name": "join_supertype_l / join_supertype_r",
+   "status": "proved",
+   "source_claim": "A7 witnessing conditions for join, as subtyping facts"
+  },
+  {
+   "name": "meet_subtype_l / meet_subtype_r",
+   "status": "proved",
+   "source_claim": "meet is a lower bound (standard TTR consequence)"
+  },
+  {
+   "name": "subtype_refl / subtype_trans",
+   "status": "proved",
+   "source_claim": "new (infrastructure: subtyping is a preorder)"
+  },
+  {
+   "name": "singleton_subtype",
+   "status": "proved",
+   "source_claim": "A6: T_a is a subtype of T",
+   "note": "all ten theorems are trivial by rubric §3 standards (true by unfolding plus one inversion); a strict verifier would exclude them from counts"
+  }
+ ],
+ "counts": {
+  "theorems": 10,
+  "proved": 10,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "grep counts: 10 Theorem headers, 0 Admitted, 0 Axiom/Parameter lines; the model is threaded as an explicit TTRModel argument rather than global Parameters, so all 10 proofs close without propositional axioms",
+   "wit_basic/wit_ptype/wit_singleton/wit_join/wit_meet match Cooper's A2/A3/A6/A7/A8 witnessing conditions up to the deep embedding, and the meet/join theorems recover the intro/elim behaviour Cooper states",
+   "lines 95-98: wit_fun quantifies over an arbitrary H : Prop, so witnesses M f (TFun T1 T2) is derivable for every f via H := True — function-type witnessing is vacuous; lines 100-101: wit_partfun has no premise at all; lines 125-127: wit_set uses the same opaque-Prop trick",
+   "wit_fun_proper (lines 144-147) is offered as the intended semantics but its hypothesis (forall a, witnesses M a T1 -> exists b, witnesses M b T2) never applies f to anything — it asserts inhabitation of T2, not that f is a function from T1 to T2",
+   "header claims A5 (set AND plurality types) but the witness relation has no TPlurality clause; TAbsurd likewise has none (defensible — nothing should witness it, though then no theorem records its emptiness)",
+   "no theorem touches the trivialized clauses, so the proved theorems all concern the faithful meet/join/singleton/subtyping fragment"
+  ],
+  "simplifications": [
+   "witness sets as Val -> Prop predicates instead of Cooper's set-theoretic A, F",
+   "record types restricted to non-dependent fields with literal VType field types",
+   "predicate arity/ArgIndices carried in the model but not enforced in ptype witnessing"
+  ],
+  "omissions": [
+   "plurality types (A5) witnessing despite header claim",
+   "any correctness theorem for the labelled-set encodings of complex types",
+   "Cooper's stratification into orders of type systems (the intensionality hierarchy), which is his own answer to the circularity the file hits"
+  ],
+  "additions": [
+   "subtype preorder lemmas (refl, trans)",
+   "labelled-set encodings as standalone definitions",
+   "wit_fun_proper / wit_set_proper smart constructors (the set one states the right condition; the function one does not)"
+  ]
+ },
+ "determination": "major_restructuring",
+ "determination_rationale": "The file hits and documents a genuine class (i) wall: Cooper's witnessing condition for function and set types quantifies over witnesses of the domain type, a negative occurrence that Coq's inductive definitions reject. The dodge chosen — an opaque Prop premise — changes the core definition into a vacuous one (every value witnesses every function type), so only a partial formalization exists and the changed definition is load-bearing: rubric row 3. The companion collapse VType : TTRType -> Val (types as first-class values, class ii) flattens Cooper's own stratification of type systems into orders, which is precisely the machinery he introduces to break this circularity — evidence that a faithful mechanization must re-found witnessing (e.g. recursion on type structure, or the order hierarchy made explicit) rather than take it as one inductive. Verdict is provisional on this pilot being the best existing formalization.",
+ "artifact_classes": [
+  {
+   "class": "i",
+   "description": "witnessing of TFun/TPartFun/TSet occurs negatively (witnesses of T1 -> witnesses of T2); the inductive is only accepted after replacing the condition by an opaque Prop parameter, which vacates the clauses — the file's own design note names the problem"
+  },
+  {
+   "class": "ii",
+   "description": "VType : TTRType -> Val makes types first-class values in one mutual inductive, collapsing Cooper's stratified orders of type systems; record-type fields store types as Vals, forcing the non-dependent restriction"
+  },
+  {
+   "class": "iv",
+   "description": "no native labelled-set/record machinery: labelled sets are hand-rolled cons-lists, encodings of complex types are unverified, and nat_to_string caps at 5 so encoded argument labels collide beyond arity 5"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Record produced by the batch audit sweep of 2026-09-05; pre-atlas pilot file (it happens to use zero Axioms/Parameters by threading an explicit TTRModel, but predates the atlas discipline of documented assumptions and non-trivial headline theorems).",
+ "compiles": true
+}

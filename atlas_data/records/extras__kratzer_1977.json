@@ -1,0 +1,197 @@
+{
+  "file": "extras/kratzer_1977.v",
+  "region": "model-theoretic (modality)",
+  "summary": "Shallow Coq transcription of Step 1 of Kratzer (1977), 'What must and can must and can mean': propositions as Index->Prop (Index = World*Time, inherited from MontagueFragment.MontagueWorldTime), modal bases as finite lists of propositions, conversational backgrounds as World -> list t, and Definitions 2/4/5/6 (logical consequence, compatibility, 'must in view of', 'can in view of') stated verbatim. Six theorems, all Qed: a definitional 'equivalence' with a freshly defined accessibility relation (proved by reflexivity), must/can duality (classical), axiom K, monotonicity, an empty-base fact, and a list-inequality standing in for the striding-and-flying ambiguity. Step 2 of the paper (Definitions 7-8, the inconsistent-premise-set machinery that the paper's abstract calls its second part) is not formalized at all; a long commentary block (lines 170-222) asserts that Definitions 7-8 'require decidable consistency checking' and 'subset enumeration algorithms', which is false for a Prop-level formalization (a 100-line scratch file expressing Def. 7/8 with List.incl and proving both Section 2.3 verdicts compiles). The file is a byte-identical prefix of shallow/kratzer2.v and adds nothing to it.",
+  "sources": [
+    {
+      "citation": "Kratzer, A. (1977). What 'must' and 'can' must and can mean. Linguistics and Philosophy 1: 337-355.",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Kratzer_1977_MustCan.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Kratzer, A. (2012). Modals and Conditionals. OUP. Chapter 1 (revised reprint of Kratzer 1977), incl. 'Introducing Chapter 1'.",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Kratzer_2012_ModalsAndConditionals.pdf",
+      "available": "full"
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "t (imported: MontagueWorldTime.t = Index -> Prop, Index = World*Time)",
+      "source": "Definition 1, p. 344 (2012: p. 10): a proposition is a set of possible worlds, P(W)",
+      "match": "changed",
+      "note": "Points of evaluation are world-time pairs, not worlds. The modal base is keyed by world_of i only (line 34), but follows_from/compatible_with quantify over all indices j including all times (lines 26, 30). Kratzer has no time coordinate anywhere in the 1977 paper. Note also that MontagueWorldTime.box (MontagueFragment.v line 137) holds time fixed, so kratzer_must is not even shaped like the Montague box it is nominally connected to."
+    },
+    {
+      "coq": "ModalBase := list t (line 19)",
+      "source": "Definition 5(i), p. 346 (2012: p. 11): f(w) is an arbitrary member of P(P(W))",
+      "match": "simplified",
+      "note": "Finite lists. Kratzer's paradigm backgrounds ('what is known', 'what the NZ judgements provide') are not finite, and 2012 fn. 6 (p. 13) stresses that her definitions 'do not assume compactness for premise sets'; finiteness trivializes that. Self-inflicted: t -> Prop or Ensemble t was available."
+    },
+    {
+      "coq": "ConversationalBackground := World -> ModalBase (line 22)",
+      "source": "Definition 5(i): 'a function which assigns a set of propositions to every w in W' (p. 346); the name 'conversational background' appears only in the 2012 revision's conclusion (p. 20) and in Kratzer 1981",
+      "match": "simplified",
+      "note": "Same finiteness restriction as ModalBase. Otherwise the right type."
+    },
+    {
+      "coq": "follows_from (line 25)",
+      "source": "Definition 2, p. 344 (2012: p. 10): p follows from A iff no world makes all of A true and p false",
+      "match": "exact",
+      "note": "Modulo finite base and index-vs-world."
+    },
+    {
+      "coq": "compatible_with (line 29)",
+      "source": "Definition 4 via Definition 3, p. 344 (2012: p. 10): p compatible with A iff A ∪ {p} is consistent iff some world satisfies all of A and p",
+      "match": "exact",
+      "note": "Definition 3 (consistency) is inlined rather than defined; the standalone notion is what Definitions 7-8 need and it never appears in this file."
+    },
+    {
+      "coq": "kratzer_must (line 33)",
+      "source": "Definition 5, pp. 346 (2012: p. 11): must-in-view-of(f,p) true at w iff p follows from f(w)",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "coq": "kratzer_can (line 36)",
+      "source": "Definition 6, p. 347 (2012: p. 12): can-in-view-of(f,p) true at w iff p compatible with f(w)",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "coq": "kratzer_accessibility (line 44)",
+      "source": "none in Kratzer 1977 (the 'modal base determines the accessible worlds' gloss belongs to Kratzer 1981/1991 = 2012 chs. 2-3)",
+      "match": "added",
+      "note": "Defined over Index, unrelated to MontagueWorldTime.R (a Parameter with Axiom R_refl). It is just follows_from with the quantifier pulled out; see kratzer_equals_montague."
+    },
+    {
+      "coq": "legal_background := fun _ => [murder_is_crime; theft_is_crime] (line 128)",
+      "source": "Section 2.1-2.2, pp. 347-350 (2012: pp. 12-14): 'what the New Zealand judgements provide' = {murder is a crime, deer are responsible, deer are not responsible}",
+      "match": "changed",
+      "note": "Kratzer's set is deliberately INCONSISTENT (the two deer judgements) - that inconsistency is the entire motivation for Section 2. The Coq version drops it, invents theft_is_crime, and is never used in any theorem."
+    },
+    {
+      "coq": "tribal_background := fun _ => [learn_ancestors; children_obey] (line 131)",
+      "source": "Sentences (2)/(2*), pp. 338, 340: 'in view of what their tribal duties are, the Maori children must learn the names of their ancestors'",
+      "match": "simplified",
+      "note": "children_obey is invented; unused in any theorem."
+    },
+    {
+      "coq": "murder_must_be_crime, children_must_learn (lines 135-139)",
+      "source": "Sentences (6) p. 348 and (2*) p. 340",
+      "match": "simplified",
+      "note": "Under Definition 5 with the consistent Coq bases these are trivially true; no theorem is stated about them."
+    },
+    {
+      "coq": "conjunctive_recommendation := [fun i => striding i /\\ flying i]; separate_recommendations := [striding; flying] (lines 150-155)",
+      "source": "Section 2.3, pp. 352-354 (2012: pp. 17-19): premise sets {p∧q, ¬p} vs {p, q, ¬p}",
+      "match": "simplified",
+      "note": "Te Kini's ¬p is omitted from both bases. Without ¬p and without Definition 7, the two bases are semantically indistinguishable under the file's own kratzer_must: follows_from [p∧q] r <-> follows_from [p;q] r for every r (checked in scratch)."
+    },
+    {
+      "coq": "(none)",
+      "source": "Definition 7, pp. 350-351 (2012: p. 15): must-in-view-of(f,p) true at w iff every consistent subset of f(w) has a consistent superset within f(w) from which p follows",
+      "match": "missing",
+      "note": "This and Definition 8 are the paper's stated contribution (Abstract: 'The second part ... I make an attempt to avoid most of the consequences of this paradox'). Lines 173-180 claim they 'require decidable consistency checking ... subset enumeration algorithms'. They do not: Definition must7 A p := forall X, incl X A -> consistent X -> exists Y, incl X Y /\\ incl Y A /\\ consistent Y /\\ follows_from Y p compiles, and both Section 2.3 verdicts (~ must7 [p∧q; ¬p] q; must7 [p; q; ¬p] q) are provable in ~40 lines each with Classical_Prop (scratch: kratzer_def78_check.v, coqc exit 0)."
+    },
+    {
+      "coq": "(none)",
+      "source": "Definition 8, p. 352 (2012: p. 16): can-in-view-of(f,p) true at w iff some consistent subset of f(w) is such that p is compatible with all its consistent supersets within f(w)",
+      "match": "missing",
+      "note": "Same as Definition 7; directly expressible as can8 A p := exists X, incl X A /\\ consistent X /\\ forall Y, incl X Y -> incl Y A -> consistent Y -> compatible_with Y p."
+    }
+  ],
+  "theorems": [
+    {
+      "name": "kratzer_equals_montague",
+      "status": "proved",
+      "source_claim": "new (no counterpart in Kratzer 1977)",
+      "note": "Lines 52-60. Proof is `unfold ...; reflexivity`: both sides are literally the same term once follows_from and kratzer_accessibility are unfolded. Despite the name and the commentary at line 215 ('Connection to existing modal logic (we proved kratzer_equals_montague)'), the statement never mentions MontagueWorldTime.box or R; it does not connect Kratzer's system to anything independently given."
+    },
+    {
+      "name": "kratzer_duality",
+      "status": "proved",
+      "source_claim": "must p <-> not can not-p; asserted in 2012 fn. 6 (p. 13: 'must and can are duals'), implicit in 1977 Definitions 2, 4, 5, 6",
+      "note": "Lines 63-78. Faithful for the Step-1 operators. The direction ~can ¬p -> must p uses Classical_Prop.classic (line 75); in Kratzer's set-of-worlds semantics this is set complementation and needs no axiom."
+    },
+    {
+      "name": "kratzer_axiom_K",
+      "status": "proved",
+      "source_claim": "new (standard normal modal logic; not stated by Kratzer)",
+      "note": "Lines 81-91. Holds for any universally quantified operator; not specific to Kratzer."
+    },
+    {
+      "name": "kratzer_monotonic",
+      "status": "proved",
+      "source_claim": "new",
+      "note": "Lines 94-104. Upward monotonicity of must; trivial."
+    },
+    {
+      "name": "empty_base_characterization",
+      "status": "proved",
+      "source_claim": "new",
+      "note": "Lines 107-117. must with empty base implies p at every index; only one direction of an obvious biconditional."
+    },
+    {
+      "name": "readings_are_different",
+      "status": "proved",
+      "source_claim": "Section 2.3, pp. 353-354 (2012: pp. 18-19): representing Te Miti's recommendation as {p∧q} vs {p, q} yields different verdicts for 'must q' under Definition 7 once Te Kini's ¬p is added",
+      "note": "Lines 158-164. The Coq statement is [p∧q] <> [p; q] proved by `inversion` - i.e. a one-element list is not a two-element list. It says nothing semantic. The file's commentary (line 211: 'FORMALIZATION CONFIRMS: The distinction exists') overstates this. Under the file's own Definition-5 operator the two bases are provably equivalent (follows_from [p∧q] r <-> follows_from [p;q] r for all r) and, once ¬p is added, both collapse by ex falso (follows_from [p∧q; ¬p] r for all r) - exactly the problem of p. 348 that Definition 7 exists to fix."
+    }
+  ],
+  "counts": {
+    "theorems": 6,
+    "proved": 6,
+    "admitted": 0,
+    "propositional_axioms": 0
+  },
+  "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+      "Definitions 2, 4, 5, 6 (pp. 344-347; 2012 pp. 10-12) are transcribed essentially verbatim at lines 25-37 (follows_from, compatible_with, kratzer_must, kratzer_can); the only deviations are finite-list bases and World*Time indices.",
+      "Definitions 7 and 8 (pp. 350-352; 2012 pp. 15-16) - the paper's Section 2, which its abstract identifies as 'the second part' and its point - have no counterpart anywhere in the file. Definition 3 (consistency) is never defined standalone.",
+      "The Section 2 motivating example (inconsistent NZ judgements on deer, pp. 347-350) is replaced by a consistent two-element list [murder_is_crime; theft_is_crime] (line 128), erasing the phenomenon the paper is about.",
+      "readings_are_different (line 158) encodes the striding-and-flying ambiguity (pp. 352-354) as list inequality proved by inversion; Kratzer's claim concerns Definition-7 verdicts with ¬p in the base, which the file cannot state.",
+      "kratzer_equals_montague (line 52) is proved by reflexivity and does not mention MontagueWorldTime.box/R; the 'connection to existing modal logic' claimed at line 215 is a definitional unfolding.",
+      "The commentary block (lines 170-222) makes claims about the source that the file does not test: that Definitions 7-8 need 'decidable consistency checking' and 'subset enumeration algorithms' (lines 175-178, 204). A scratch Coq file (kratzer_def78_check.v, coqc 8.20.1 exit 0) defines must7/can8 as Props over List.incl and proves ~ must7 [p∧q; ¬p] q and must7 [p; q; ¬p] q, the two verdicts of pp. 353-354, with no decidability or enumeration.",
+      "kratzer_duality (line 63) does match 2012 fn. 6's explicit claim that must and can are duals; kratzer_axiom_K, kratzer_monotonic, empty_base_characterization are correct but not source claims.",
+      "The page references in the commentary (page 1, 2, 5, 16) are offsets into L&P 337-355: 'page 16' = p. 352 (striding/flying) checks out; 'page 5' = p. 341 but the quoted sentence is on p. 340."
+    ],
+    "omissions": [
+      "Definition 7 (improved must, pp. 350-351)",
+      "Definition 8 (improved can, p. 352)",
+      "Definition 3 as a named notion of consistency",
+      "The inconsistent NZ-judgements premise set and sentences (6)-(9), (10)-(12), pp. 347-350",
+      "Te Kini's recommendation ¬p in the Whare Wananga bases, without which the Section 2.3 distinction is inert",
+      "Kratzer's closing lesson (p. 355) that premise sets are not closed under logical consequence"
+    ],
+    "additions": [
+      "kratzer_accessibility (line 44) - an accessibility relation over indices, not in the 1977 paper",
+      "kratzer_equals_montague, kratzer_axiom_K, kratzer_monotonic, empty_base_characterization - standard facts about universal quantification, not claims of the paper",
+      "World*Time indices (via MontagueWorldTime) - no time parameter in Kratzer 1977",
+      "theft_is_crime, children_obey - invented propositions",
+      "Section 6 commentary (lines 170-222) - evaluative claims about the paper unsupported by any Coq content in the file"
+    ],
+    "simplifications": [
+      "Modal bases as finite lists (Kratzer: arbitrary subsets of P(W); 2012 fn. 6 explicitly disclaims compactness)",
+      "Example backgrounds are constant functions of the world and are never used in a theorem",
+      "The striding/flying ambiguity is reduced to list length"
+    ]
+  },
+  "determination": "as_is",
+  "determination_rationale": "Everything the file actually formalizes - Definitions 1, 2, 4, 5, 6 - drops into Coq as a direct transcription (lines 19-37) with no restructuring; the deviations (finite lists, world-time indices) are unforced choices, not accommodations demanded by the theory. The part the file leaves out, Definitions 7-8, is likewise directly expressible: the scratch check kratzer_def78_check.v states both as Props over List.incl/exists and proves the paper's own Section 2.3 verdicts with Classical_Prop in ~100 lines, refuting the file's claim (lines 175-180) that they require decidable consistency checks or subset enumeration. So the evidence - what this file does plus what it wrongly says cannot be done - supports as_is for the whole 1977 theory; the file simply covers only the trivial half of it.",
+  "artifact_classes": [
+    {
+      "class": "iv",
+      "description": "Missing native structure: Kratzer's premise sets f(w) ∈ P(P(W)) are rendered as `list t` (line 19), imposing finiteness the source explicitly does not assume (2012 fn. 6, p. 13). Also propositions are Index -> Prop with Index = World*Time inherited from MontagueFragment, so the modal base is keyed by world while quantification ranges over world-time pairs. Both are choices, not forced by Coq (t -> Prop was available), but they are what the file incurred."
+    },
+    {
+      "class": "v",
+      "description": "Decidability gap: the ~can ¬p -> must p direction of kratzer_duality needs excluded middle (`classic`, line 75) because Coq Prop is not classical; in Kratzer's set-of-worlds semantics duality is set complementation. Mild, one use."
+    }
+  ],
+  "compiles": true,
+  "duplicate_of": "shallow/kratzer2.v",
+  "duplicate_note": "extras/kratzer_1977.v is a byte-identical prefix of shallow/kratzer2.v: `diff` shows lines 1-166 identical, then kratzer2.v inserts sections 6-8 (a standalone `consistent`, `maximal_consistent_subset`, `kratzer_must_fixed`, four further theorems: necessitation, distribution, conjunction-intro, can-over-disjunction, and an `OrderingSource`/`kratzer_better` sketch), repeats this file's 'promises vs delivers' block verbatim as its section 9, and adds a section 10. kratzer2.v therefore strictly dominates: it contains every definition and theorem here plus at least an attempt at the inconsistency problem (note that attempt uses maximal consistent subsets, which is Rescher's device rather than Kratzer's Definition 7, so it is not faithful either, but it is more content). kratzer_1977.v should be retired in favour of kratzer2.v. extras/kratzer_deep.v and deep/kratzer_deep2.v cover the same Step-1 operators in a deep IL embedding (different artifacts, not duplicates of this file).",
+  "source_gap": "None. Both the original L&P 1977 paper and the 2012 revised reprint (ch. 1) are on disk in full. The 1977 PDF is a scan with an OCR text layer (symbols garbled, e.g. 'p fl q' for p∧q, 'l'/'x' for the must/can functions); the 2012 chapter is clean and its Definitions 1-8 are substantively identical, with the additional explicit duality/no-compactness remark in fn. 6 (p. 13) and the term 'conversational background' introduced in the revised conclusion (p. 20).",
+  "notes": "Compiles under Coq 8.20.1 with two deprecation warnings (masking-absolute-name from `Require Import MontagueFragment`, line 7). No Admitted, no Axiom declared in-file; six `Parameter`s of type t (lines 124-125, 145) serve as example propositions. FunctionalExtensionality is imported (line 6) but unused. The imported MontagueFragment brings in Axiom R_refl and two size axioms that this file never uses. The file's own header ('NO ADMITS - only provable theorems') is accurate but the theorems are all either definitional unfoldings or one-line consequences of universal quantification; nothing in the file exercises anything specific to Kratzer's proposal beyond the Definition 5/6 shape. Scratch verification file: /private/tmp/claude-501/-Users-graogro-Dropbox-formalizing-formal-semantics/c34891d7-ce39-4399-ad0f-31b3588ae898/scratchpad/kratzer_def78_check.v (not part of the repo)."
+}

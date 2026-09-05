@@ -1,0 +1,135 @@
+{
+  "file": "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/DowtyTense.v",
+  "region": "model-theoretic (tense)",
+  "summary": "A 114-line shallow embedding of three Priorean tense operators (PST/PRS/FUT) over a (World * Time) evaluation index with an axiomatized strict linear order on Time, sitting on a stubbed neo-Davidsonian event layer (Event, AGENT, PATIENT, open_ev) re-declared locally rather than imported from any 'DowtyLexical' module (which does not exist in the repo). Tense is encoded as existential quantification over time-stamped events (event time <, =, > speech time) rather than as PTQ's index-shifting H/W operators; a scratch check shows PST = H o PRS and FUT = W o PRS, so the past/future clauses are PTQ/DWP-faithful modulo that restructuring. Nothing distinctively Dowty-1979 (interval semantics, syncategorematic tense-adverbial rules, present perfect) is present. One trivial worked example ('John opened the door' is true at any index whose speech time follows the event) is proved, using none of the three time axioms.",
+  "sources": [
+    {
+      "citation": "Dowty, D. R. (1979). Word Meaning and Montague Grammar. Reidel. Relevant: ch. 3 'Interval Semantics and the Progressive Tense' (esp. 3.2 'Truth Conditions Relative to Intervals, not Moments', p. 138) and ch. 7 'The Syntax and Semantics of Tenses and Time Adverbials in English: An English Fragment' (pp. 322-350+, esp. 7.1 syncategorematic tense/adverbial interaction, 7.5 present perfect, 7.7.1 'Basic Model-Theoretic Definitions' p. 339).",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Dowty_1979_WordMeaningMontagueGrammar_FrontMatterOnly.pdf",
+      "available": "partial"
+    },
+    {
+      "citation": "Montague, R. (1973). The Proper Treatment of Quantification in Ordinary English (PTQ). Relevant: sec. 8 interpretation <A,I,J,<=,F> with <= a simple (linear) ordering of moments J, D_<s,a> = D_a^(I x J) (p. 24 of the Thomason reprint); semantic clause 9 for W ('for some j' with j <= j', j != j'') and H ('for some j' with j' <= j, j' != j') (p. 25); syntactic rule S17 / F12-F15 and translation rule T17 (future W, present perfect H).",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/montague73.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Dowty, D. R., Wall, R. E., Peters, S. (1981). Introduction to Montague Semantics. Reidel. Relevant: ch. 5 sec. I 'Tense Operators and Their Interpretation' (pp. 112-116): Syn/Sem B.10-B.11 for F (future, i < i') and P (past, i' < i); world-time indices <w,t> with tense operators shifting t and fixing w (p. ~130); ch. 7 n. 19 (p. 250-251) noting PTQ has no simple past and deferring to Dowty 1979 ch. 7.",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Dowty_Wall_Peters_1981_IntroductionToMontagueSemantics.txt",
+      "available": "full"
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "Event, AGENT, PATIENT, open_ev, volitional/sentient/cause_change/movement/changed_state, verb_open (lines 13-20)",
+      "source": "Neo-Davidsonian event layer with thematic roles and Dowty-1991 proto-role features; verbatim re-declaration of extras/dowty_roles.v lines 13-24. Not in Dowty 1979 (which uses PTQ intensional logic with CAUSE/BECOME/DO decomposition, no event arguments) nor in PTQ.",
+      "match": "added",
+      "note": "Header (l.4, l.12) says these come from 'DowtyLexical', but no such module exists; dowty_roles.v is not imported, so these are fresh, unrelated constants. The five proto-role feature predicates are declared and never used."
+    },
+    {
+      "coq": "Time, lt, Axiom lt_trans / lt_irrefl / lt_total (lines 25-29)",
+      "source": "PTQ sec. 8: J = set of moments of time, <= 'a simple (that is, linear) ordering having J as its field'; DWP ch. 5 temporally interpreted models with a linear set of times.",
+      "match": "simplified",
+      "note": "Strict linear order axiomatized by transitivity, irreflexivity and trichotomy; PTQ states it as a non-strict simple ordering. No model instance given (nat would do; Lia is imported but unused). No interval structure at all, whereas Dowty 1979 ch. 3 evaluates relative to intervals (sets of moments) - that part of the source is missing."
+    },
+    {
+      "coq": "time_of : Event -> Time (line 34)",
+      "source": "No counterpart in PTQ or Dowty 1979 (sentences, not events, are evaluated at times/intervals). Parsons-style event run-time function.",
+      "match": "added"
+    },
+    {
+      "coq": "World, Index := World * Time, world_of, speech_time (lines 40-43)",
+      "source": "PTQ points of reference <i,j> in I x J (worlds x moments); DWP ch. 5 indices <w,t>. Reading the time coordinate as 'speech time' follows DWP p. 114 (present-tense truth relative to the moment of utterance).",
+      "match": "exact",
+      "note": "world_of is defined but never consulted; no definition in the file depends on the world coordinate."
+    },
+    {
+      "coq": "I A := Index -> A ; t := I Prop (lines 46-47)",
+      "source": "PTQ D_<s,a> = D_a^(I x J) (senses as functions from points of reference); D_t = {0,1}.",
+      "match": "simplified",
+      "note": "Truth values {0,1} replaced by Prop; only Prop is lifted, no general type hierarchy. Duplicates MontagueFragment.MontagueWorldTime's I/t (shallow/MontagueFragment.v l.117-120) instead of importing them."
+    },
+    {
+      "coq": "PST VP x := fun i => exists e, VP x e /\\ lt (time_of e) (speech_time i) (lines 60-63)",
+      "source": "PTQ clause 9 for H: [H phi] at <i,j> = 1 iff phi at <i,j'> for some j' with j' <= j, j' != j; DWP Sem B.11 for P (i' < i).",
+      "match": "changed",
+      "note": "Existential over event timestamps instead of index shift. Scratch-verified (no axioms used): PST VP x i <-> H (PRS VP x) i with H the PTQ index-shifting operator, so it is the PTQ past specialized to event-denoting present VPs. Dowty 1979 ch. 7's own interval-based, adverbial-sensitive PAST cannot be checked (chapter not on disk); the file's 'a la Dowty' label (l.53) is not substantiated - this is the Prior/PTQ operator."
+    },
+    {
+      "coq": "PRS VP x := fun i => exists e, VP x e /\\ time_of e = speech_time i (lines 65-68)",
+      "source": "PTQ has no present-tense operator: the tenseless formula is the present (S17/F12-F15 supply only future, present perfect and their negations); DWP ch. 5 p. 114 'a present tense formula is just a tenseless formula'.",
+      "match": "added",
+      "note": "Reasonable event-based rendering of 'tenseless present' (event at speech time), but it is an addition relative to both PTQ and DWP; it also forces punctual coincidence, which is wrong for states/activities on Dowty's own interval account."
+    },
+    {
+      "coq": "FUT VP x := fun i => exists e, VP x e /\\ lt (speech_time i) (time_of e) (lines 70-73)",
+      "source": "PTQ clause 9 for W ('it will be the case that'), T17 F12 (will) translates into W; DWP Sem B.10 for F (i < i').",
+      "match": "changed",
+      "note": "Same event-based restructuring as PST; scratch-verified FUT VP x i <-> W (PRS VP x) i. Strictness (lt) matches PTQ's j != j'."
+    },
+    {
+      "coq": "Section Example: VP_open_door, sent (lines 78-95)",
+      "source": "Worked instance 'John opened the door' (Dowty 1979's running lexical example 'open', ch. 2/4) in the simple past.",
+      "match": "added",
+      "note": "VP_open_door x e := verb_open x door /\\ e = e0 is odd: verb_open x door is itself an existential over events, so the conjunct does not say e is an opening event; e is merely pinned to e0. Harmless for the lemma, but not a faithful VP denotation."
+    }
+  ],
+  "theorems": [
+    {
+      "name": "sentence_true_past (lines 98-113)",
+      "status": "proved",
+      "source_claim": "new - an instance of the past-tense truth condition (PTQ clause 9 for H / DWP Sem B.11): given an open-event e0 at t0 with John as AGENT and door as PATIENT, 'John opened the door' is true at any index <w0,S> with t0 < S.",
+      "note": "One-directional and trivial (existential witness e0). Print Assumptions lists only the Parameters (Event, Time, World, lt, time_of, open_ev, AGENT, PATIENT, Entity): none of lt_trans/lt_irrefl/lt_total, and no Classical axiom, is used. No source theorem corresponds; Dowty 1979 states no numbered theorems."
+    }
+  ],
+  "counts": {
+    "theorems": 1,
+    "proved": 1,
+    "admitted": 0,
+    "propositional_axioms": 3
+  },
+  "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+      "Index := World * Time (l.41) matches PTQ sec. 8 points of reference <i,j> in I x J and DWP ch. 5 <w,t> indices; speech_time = snd reads the time coordinate as utterance time per DWP p. 114.",
+      "PST/FUT use strict lt (l.63, l.73), matching PTQ clause 9's 'j' <= j and j' != j' / 'j <= j' and j != j'' and DWP Sem B.10/B.11's i < i' / i' < i.",
+      "Scratch verification against the compiled .vo (no axioms beyond the file's Parameters): PST VP x i <-> H (PRS VP x) i and FUT VP x i <-> W (PRS VP x) i, where H/W are PTQ's index-shifting operators (H phi i := exists j', lt j' (speech_time i) /\\ phi (world_of i, j')). So the event-based operators are exactly the PTQ operators applied to the event-based present.",
+      "The world coordinate is inert: VP : Entity -> Event -> Prop carries no index (l.49-50 comment admits the event semantics is 'still extensional'), world_of (l.42) is never used, so the 'intensional lift' (l.45-47) has no content; PTQ's requirement that tense operators fix the world is satisfied vacuously.",
+      "Nothing distinctively Dowty-1979 is encoded: TOC shows ch. 3.2 'Truth Conditions Relative to Intervals, not Moments' (p. 138) and ch. 7.1 'The Syncategorematic Nature of Tense-Time Adverbial Interaction' (p. 322), 7.3 aspectual adverbials, 7.5 present perfect - the file uses moments, has no adverbials, no perfect, no intervals. The 'a la Dowty' label at l.53 is therefore unsupported; the operators are Prior/PTQ operators.",
+      "The file even departs from PTQ's tense syntax: PTQ S17/T17 provide future (W) and present perfect (H) but no simple past (DWP ch. 7 n. 19, p. 250-251); the file supplies PST and FUT but no perfect.",
+      "Header claims to extend 'DowtyLexical' (l.4, l.12); no such file exists (find/grep over the repo); the matching content is extras/dowty_roles.v, which is not imported - Event/AGENT/PATIENT are re-declared as fresh Parameters (l.13-15), so the two files' constants are unrelated.",
+      "Dead declarations: volitional..changed_state (l.16-17), lt_trans/lt_irrefl/lt_total (l.27-29), world_of (l.42), and the imports Lia and Classical are all unused (confirmed by Print Assumptions on the only lemma).",
+      "Aspect.v, ImperfectiveParadox.v and Imperfective2.v copy this file's preamble (Event, Time axioms, time_of, Index, I, t) verbatim and ImperfectiveParadox.v l.68-70 re-defines the identical PST, instead of requiring DowtyTense; the layering the header describes is not realized by the module graph."
+    ],
+    "additions": [
+      "PRS operator (PTQ/DWP have no present operator; the tenseless formula is the present).",
+      "Event timestamps time_of : Event -> Time and neo-Davidsonian Event/AGENT/PATIENT/proto-role-feature layer (Dowty 1991 / Parsons, not Dowty 1979 or PTQ).",
+      "Worked example section (VP_open_door, sent, sentence_true_past)."
+    ],
+    "omissions": [
+      "Dowty 1979 interval semantics (ch. 3): truth relative to intervals, subinterval structure - replaced by moments.",
+      "Dowty 1979 ch. 7: syncategorematic tense-adverbial rules (7.1-7.2), aspectual adverbials 'for/in an hour' (7.3), auxiliary structure (7.4), present perfect (7.5), negation (7.6), the English fragment and its model-theoretic definitions (7.7).",
+      "PTQ's syntactic/translation rules S17/T17 (F11-F15) and the present perfect H-reading; negation.",
+      "Any model instance discharging the three time axioms (consistency is obvious but not shown).",
+      "Progressive/imperfective (handled in the sibling files Aspect.v, ImperfectiveParadox.v, Imperfective2.v)."
+    ],
+    "simplifications": [
+      "Truth values {0,1} rendered as Prop (t := Index -> Prop).",
+      "Linear time order given by three axioms on an opaque Parameter Time rather than a concrete ordered type.",
+      "Tense as existential quantification over event times rather than index shift (provably equivalent to H o PRS / W o PRS for event-denoting present VPs).",
+      "World coordinate carried in the index but never used."
+    ]
+  },
+  "determination": "as_is",
+  "determination_rationale": "Scoped strictly to what the file encodes - the Prior/PTQ moment-based tense operators (PTQ sec. 8 clause 9; DWP 1981 Sem B.10-B.11) over a linearly ordered Time and a World x Time index - the formalization goes into Coq as-is: a shallow embedding with t := Index -> Prop, a strict linear order as three axioms, and past/future as existentials; the scratch equivalence PST = H o PRS, FUT = W o PRS confirms the event-based rewrite loses nothing for present event VPs, and no classical or extensionality axiom is needed. The file provides no evidence whatsoever about the formalizability of Dowty 1979's actual tense theory (interval-based truth conditions, syncategorematic tense-adverbial rules, present perfect), which it does not attempt and in fact contradicts by using moments; that determination must await the missing chapters and a file that encodes them.",
+  "artifact_classes": [
+    {
+      "class": "iv",
+      "description": "Time, Event and World are opaque Parameters and the linear order on Time is postulated by three Axioms (l.27-29) rather than instantiated by a native ordered type (Lia is imported for nat/Z arithmetic but never used); there is no interval structure (subinterval, initial/final bound) at all, so the native structure Dowty 1979's interval semantics requires is absent, not merely approximated. The postulated order is consistent (nat models it) but the file never shows this."
+    }
+  ],
+  "compiles": true,
+  "notes": "Compiled with `coqc -R shallow \"\" -R deep \"\" -R extras \"\" -R ttr_mtt \"\" -R atlas \"\" extras/DowtyTense.v` from the repo root: exit 0, only the deprecated `masking-absolute-name` warning from `Require Import MontagueFragment` under `-R shallow \"\"`. Propositional axioms counted: Axiom lt_trans, lt_irrefl, lt_total (l.27-29); the remaining declarations are Parameters (types, predicates, functions), not propositional axioms. Latent decidability gap (class v, not incurred): t := Index -> Prop is not bivalent like PTQ's {0,1}; `Classical` is imported presumably to compensate but no proof uses it. The record's PST/FUT-vs-H/W equivalence was checked in a scratch file (/private/tmp/claude-501/.../scratchpad/CheckDowtyTense.v) against the built DowtyTense.vo; DowtyTense.v itself was not modified. The Entity type comes from MontagueFragment.MontagueExtensional via Import (l.10); I/t are re-defined locally rather than taken from MontagueFragment.MontagueWorldTime, which already has an identical Index/I/t (shallow/MontagueFragment.v l.115-120).",
+  "duplicate_note": "Not a duplicate of any file in the candidate groups. However, extras/Aspect.v (l.10-29), extras/ImperfectiveParadox.v (l.15-25) and extras/Imperfective2.v (l.16-26) reproduce this file's preamble (Event/AGENT/PATIENT/open_ev, Time + the three lt axioms, time_of, World, Index, speech_time, I, t) verbatim, and ImperfectiveParadox.v l.68-70 defines the same PST; those files then add progressive/perfect operators and are strictly richer for the imperfective-paradox material. DowtyTense.v is the only file with PRS and FUT and the only one restricted to plain tense, so it stands as the (copy-pasted, never imported) base layer rather than as a duplicate. If consolidation is wanted, the preamble should live in one module that the others Require.",
+  "source_gap": "Primary source Dowty 1979 is only partially on disk: the PDF contains just the 23-page front matter (title page, 1991-reprint foreword, table of contents). Chapter 7 (tense and time adverbials, pp. 322-350+, including 7.7.1 'Basic Model-Theoretic Definitions' p. 339) and chapter 3 (interval semantics, pp. 133-) - the parts needed to test the file's 'a la Dowty' claim - are missing; the manifest (papers/README.md l.104) lists Dowty 1979 as 'Not obtained'. The gap was compensated with Montague 1973 PTQ (sec. 8 clause 9 for W/H, S17/T17) and DWP 1981 ch. 5 (Sem B.10-B.11 for F/P, world-time indices), which are the operators the file in fact encodes; the Foreword and TOC of Dowty 1979 suffice to establish that Dowty's own account is interval-based and adverbial-sensitive and hence not what this file formalizes."
+}

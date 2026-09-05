@@ -1,0 +1,50 @@
+{
+ "file": "atlas/mtt_ranta/MTT.v",
+ "region": "modern type theories (MTT + Ranta pair)",
+ "summary": "MTT-semantics after Chatzikyriakidis & Luo 2020: CNs as types with polymorphic quantifiers; coercive subtyping rendered by explicit liftings with the every/some/no monotonicity package; judgmental interpretations and propositional forms; the full §3.3 adjective case study (intersective iff via Sigma, subsective non-transferability proved by countermodel, privative sum types with the gun partition, non-committal opacity witness); veridical adverbs as Sigma-packaged modifiers; copredication through a two-projection dot-type record; individuation with phy- vs info-counting on a concrete two-copy lexicon; an NLI mini-suite. Zero axioms and zero Parameters, unlike the ttr_mtt/ pilots and CL20's own Appendix 7 code.",
+ "sources": [
+  {"citation": "Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. ISTE/Wiley.", "path": "papers/foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf", "available": "full"},
+  {"citation": "Luo, Z. (2012). Common nouns as types. LACL.", "path": "papers/foundations/Luo_2012_CommonNounsAsTypes.pdf", "available": "full"},
+  {"citation": "Chatzikyriakidis, S. & Luo, Z. (2014). Natural language inference in Coq. JoLLI.", "path": "papers/foundations/Chatzikyriakidis_Luo_2014_NLI_in_Coq.pdf", "available": "full"}
+ ],
+ "definitions_mapped": [
+  {"coq": "CN := Type; every/some/no/a_indef", "source": "CL20 §3.1, §3.2.1", "match": "changed", "note": "CL20's CN is a Tarski-style internal universe; here it is the ambient Russell-style Type (artifact i)"},
+  {"coq": "liftings c : A -> B; pred_lift; sub_comp", "source": "CL20 §2.4, §3.2.2 coercive subtyping <=c", "match": "changed", "note": "explicit functions + Local Coercion sugar; Coq checks no coherence (artifact iii)"},
+  {"coq": "in_prop", "source": "CL20 §3.2.3, §7.1 propositional forms of judgmental interpretations", "match": "simplified", "note": "judgments not reifiable in Coq (artifact ii)"},
+  {"coq": "inter_cn (sig) / subs_cn / Gun := Real + Fake / noncommittal op", "source": "CL20 §3.3.1-3.3.4", "match": "exact"},
+  {"coq": "VAdv := {op | veridical}", "source": "CL20 §4.5.1-4.5.2", "match": "exact"},
+  {"coq": "PhyInfo record, both projections", "source": "CL20 §5.2, App. 6 dot-types", "match": "changed", "note": "record encoding also has pairing, which dot-types forbid; elimination behaviour faithful"},
+  {"coq": "count_ge_2 over an identity criterion", "source": "CL20 §5.3 individuation/setoids", "match": "simplified"}
+ ],
+ "theorems": [
+  {"name": "every_anti / some_mono / no_anti / pred_lift_comp", "status": "proved", "source_claim": "CL20 §3.2.2 subtyping inferences"},
+  {"name": "judgment_to_prop / in_prop_compose", "status": "proved", "source_claim": "CL20 §3.2.3, §7.1"},
+  {"name": "inter_noun_drop / inter_adj_drop / intersective_iff / intersective_every_iff", "status": "proved", "source_claim": "CL20 §3.3.1"},
+  {"name": "subs_noun_drop; subsective_not_transferable (countermodel)", "status": "proved", "source_claim": "CL20 §3.3.2 (skilful surgeon need not be a skilful man)"},
+  {"name": "fake_is_gun / fake_not_real / gun_partition", "status": "proved", "source_claim": "CL20 §3.3.3"},
+  {"name": "noncommittal_witness", "status": "proved", "source_claim": "CL20 §3.3.4 (opacity: no veridicality theorem exists)"},
+  {"name": "adv_veridical / quickly_veridical / adv_some", "status": "proved", "source_claim": "CL20 §4.5.1-4.5.2"},
+  {"name": "copred_left / copred_right / copred_some / copred_coercion_demo", "status": "proved", "source_claim": "CL20 §5.2, §5.3.3"},
+  {"name": "two_books_phy / not_two_books_info", "status": "proved", "source_claim": "CL20 §5.3.1 individuation-relative counting"},
+  {"name": "nli_* (8 theorems)", "status": "proved", "source_claim": "CL14 / CL20 ch. 6 NLI inferences"}
+ ],
+ "counts": {"theorems": 33, "proved": 33, "admitted": 0, "propositional_axioms": 0},
+ "faithfulness": {
+  "verdict": "faithful",
+  "evidence": ["The adjective case study follows §3.3 class by class, with the negative data (subsective non-transfer, non-committal opacity) PROVED as countermodel existence theorems rather than asserted.", "Dot-type elimination behaviour matches App. 6 for the copredication sentences used.", "All 14 audited theorems closed under the global context (grep count of Axiom/Parameter: zero)."],
+  "simplifications": ["CN is the ambient Type, not an internal universe", "individuation is the count-2 fragment of §5.3", "subtyping coherence unchecked (Coq has no coherence checker)"],
+  "omissions": ["gradable/multidimensional adjectives (§4.2-4.4)", "generic numerical quantifiers (§5.3.2)", "dependent event types (§7.2)", "dependent categorial grammars (§7.3, overlaps Lambek.v)", "intensional adverbs"],
+  "additions": ["zero-axiom discipline replacing the Parameter/Axiom style of the ttr_mtt/ pilots and CL20 App. 7", "explicit countermodels for the negative adjective data"]
+ },
+ "determination": "as_is",
+ "determination_rationale": "The CL20 analyses go through with no axioms once the lexicon is section-quantified; the encoding gaps (internal universe, dot-type pairing, coercion coherence) are representational and documented per artifact class.",
+ "artifact_classes": [
+  {"class": "i", "description": "CN := ambient Type (Russell) for CL20's internal Tarski-style universe; no induction over CN"},
+  {"class": "ii", "description": "judgments not reifiable; propositional forms only"},
+  {"class": "iii", "description": "coercive subtyping as explicit liftings + Local Coercion; dot-types as two-projection records (pairing surplus)"},
+  {"class": "iv", "description": "zero axioms/Parameters; schemata forall-closed over Section variables"}
+ ],
+ "source_gap": null,
+ "notes": "First file of the MTT+Ranta pair (designs/mtt_ranta.md); 524 lines. Companion: atlas__ranta.json, atlas__mtt_vs_ranta.json.",
+ "compiles": true
+}

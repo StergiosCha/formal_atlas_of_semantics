@@ -1,0 +1,195 @@
+{
+  "file": "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/mass.v",
+  "region": "type-theoretic (mass/count)",
+  "summary": "A 355-line leaf module (nothing Requires it) that extends the CNs-as-setoids framework of extras/indi.v (= Chatzikyriakidis & Luo 2020 ch. 5 s.5.3 / Appendix A7.9) with a mass/count layer of the author's own design: an opaque classification function noun_classification : DomCN -> noun_type (l.10-15) fixed by 16 per-noun axioms; five mass nouns and five measure units each given a setoid identity criterion (l.22-82); a dependent MeasurePhrase record (l.85-115); three 'mass quantifiers' some_mass/much_mass/little_mass that are the same definition (l.122-129); a list-based measured_mass in which the unit never enters (l.132-135); a partitive portion_of that ignores its 'whole' argument (l.142-143); container relations (l.146-157); Sigma-type 'universal grinder' and 'universal packager' witnesses (l.164-197); a list-based collective_count (l.204-207); and seven example sentences whose English glosses do not match their encodings ('drank' = picked_up, 'most' = forall/exists). Three theorems (l.252-309, all Qed) are unification checks: Print Assumptions shows they use only the Parameter noun_classification and, for the first, the existence axiom measure_presupposition; each discards at least one hypothesis. Neither assigned source is encoded: the book has no mass/count chapter or section at all (its full text contains 'mass' only in 'UMass' and in its bibliography entry for Link 1983), and nothing of Link 1983's lattice-theoretic apparatus (join / i-sums, atoms, the portions-of-matter semilattice D, the materialization homomorphism h, cumulative reference) appears. Compiles under Coq 8.20.1.",
+  "sources": [
+    {
+      "citation": "Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. ISTE/Wiley, 240 pp. The assigned 'mass/count chapter' does not exist: the TOC (chs. 1-7) has no mass/count chapter or section, and the full extracted text contains 'mass' only in 'UMass, Amherst' (Carlson 1977 bibliography entry) and in the bibliography entry for Link 1983; 'count noun', 'measure phrase', 'grinder', 'partitive' never occur. Relevant only as the origin of the framework mass.v inherits through indi.v: ch. 5 s.5.3 'Identity criteria: individuation and CNs as setoids' pp. 108-119 ((5.13)/(5.15) CN = setoid (A, =A) p.109; s.5.3.1 p.110: ICs are needed precisely for numerical quantifiers 'bigger than one', fn 7 IC-respecting predicates; Def 5.3 Three_0 p.112 = indi.v's three_f; Def 5.4 Three p.113; Def 5.6 THREE p.116), s.6.3.2 pp. 146-149 and Appendix A7.9 'Individuation' pp. 200-207 (the Coq code that indi.v transcribes).",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Link, G. (1983). The logical analysis of plurals and mass terms: A lattice-theoretical approach. In Baeuerle, Schwarze & von Stechow (eds.), Meaning, Use, and Interpretation of Language, de Gruyter, 302-323; on disk as the reprint in Portner & Partee (eds.) 2002, Formal Semantics: The Essential Readings, ch. 4, pp. 127-146 (complete, 20 pages, image-only scan, read as page images). Mass-term apparatus: cumulative reference (10) p.128; constitution relation |> and materialization function h p.128; star operator, E a complete atomic Boolean algebra, atoms A, i-sum a (+) b vs material fusion a + b, i-part (15) p.130; sigma (17), mu material fusion (18), m-part T (19), D a complete join-semilattice with (20) p.131; h : E\\{0} -> D a semilattice homomorphism (21), <=m (22), mass predicates denote join-closed subsets of D, mass term correspondent mP (23), (24)-(26) p.132; Distr (27) p.133; minimal-parts caveat and (43)-(44) p.134; (45)-(46), LPM syntax with the disjoint predicate classes MT / DP p.135; (D.8)-(D.21) incl. Mpa (D.11), mP (D.13), M(P) (D.20) p.136; boosk (D.22), <=m (D.23), ~m (D.24), model (D.25) pp.137-138; (D.26)-(D.32), (49)-(59) p.138; (60)-(64) and theorems (T.1)-(T.32) incl. (T.12) cumulativity for P in MT, (T.13)-(T.14) p.139; s.3 CN subcategorized into MCN / SCN / PCN p.140; translations 1-11 incl. 'some water' (5), 'all water' (11) and the numerals remark p.141; summary (1)-(4) p.144.",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Link_1983_LogicalAnalysisPluralsMassTerms.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Pelletier, F. J. (1975). Non-singular reference: some preliminaries. Philosophia 5: 451-465. Origin of the 'universal grinder' that the file's grind (l.163-168) names. Not assigned, not on disk; attribution recalled, not verified against disk.",
+      "available": "missing"
+    },
+    {
+      "citation": "Bach, E. (1986). The algebra of events. Linguistics and Philosophy 9: 5-16. Origin of the 'universal packager' that the file's package (l.170-175) names. Not assigned, not on disk; attribution recalled, not verified against disk.",
+      "available": "missing"
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "Inductive noun_type := Count | Mass; Parameter noun_classification : DomCN -> noun_type (l.10-15)",
+      "source": "Link 1983 s.3 p.140: CN subcategorized into MCN (mass), SCN, PCN (a syntactic subcategorization); s.2 p.135: MT (predicative mass terms) and DP (distributive predicates) as disjoint classes of predicate constants; semantically p.144 (1): plurals and mass terms share one lattice, differing only in atomicity. Book: no counterpart (no mass/count material).",
+      "match": "changed",
+      "note": "Link's distinction is a property of denotations (‖P‖ a join-closed subset of D vs. a subset of the atoms A, (D.25) 2(iii)-(iv) p.138); here it is an opaque tag on the universe Set with no semantic consequence: nothing about the elements of Water follows from noun_classification Water = Mass."
+    },
+    {
+      "coq": "Parameter Water Gold Air Milk Coffee : DomCN; IC_Water .. IC_Coffee : Equiv _; WATER .. COFFEE := mkCN _ _ (l.22-36); Information / IC_Information / INFORMATION (l.224-226)",
+      "source": "Book (5.13)/(5.15) p.109: CN = setoid (A, =A); s.5.3.1 p.110: ICs are what numerical quantifiers need. Link p.129: atomicity 'is not present in the linguistic behaviour of mass terms'; p.130-132: mass predicates denote join-closed subsets of the non-atomic semilattice D.",
+      "match": "added",
+      "note": "Applies the count-noun individuation apparatus (an equivalence relation for counting) to mass nouns, the structure Link says they lack, while giving them none of the lattice structure Link says they have. The ICs are used only reflexively (portion_of) and in trivial mkCN repackaging in the theorems."
+    },
+    {
+      "coq": "16 Axioms of the form noun_classification X = Mass / = Count (l.39-48, 78-82, 181, 192, 227)",
+      "source": "Link p.135: membership of a predicate constant in MT or DP is a lexical stipulation.",
+      "match": "simplified",
+      "note": "Link's stipulation has semantic content through the model conditions (D.25) 2(iii)-(iv) p.138; these equations have none, so they can only be consumed as proof fields (MeasurePhrase) or conjuncts (some_mass)."
+    },
+    {
+      "coq": "Parameter Liter Kilogram Cup Glass Bottle : DomCN with ICs and setoids LITER .. BOTTLE; Coercions cup_to_phy, glass_to_phy (l.55-82)",
+      "source": "No counterpart in either source; Link has no measure units and the book has none.",
+      "match": "added"
+    },
+    {
+      "coq": "Record MeasurePhrase {quantity : nat; unit_type; unit_ic; substance_type; substance_ic; unit_is_count; substance_is_mass}; make_measure_phrase; three_liters_water, five_kilograms_gold, two_cups_coffee (l.85-115)",
+      "source": "No counterpart. Link's mu-operator (18) p.131 / (D.17) p.136 is material fusion, not measurement; the book has no measure phrases.",
+      "match": "added",
+      "note": "A dependent record whose proof fields force unit = Count and substance = Mass. quantity is a bare nat with no measure function, so 'three liters' and 'three kilograms' of the same substance differ only in the unit_type label."
+    },
+    {
+      "coq": "some_mass, much_mass, little_mass := fun A P => noun_classification A.(D) = Mass /\\ exists x : A.(D), P x (l.122-129); distributed_mass (l.210-212)",
+      "source": "Link p.141 translation 5: 'some water' |-> P^ V x[water'(x) & P(x)], the same form as 'some child', so some_mass minus its tag is Link's 'some' (scratch some_mass_is_some: some_mass A P <-> tag /\\ indi.some A P). 'much' / 'little' have no source translation. Link's distributivity is Distr(P) <-> /\\x(Px -> At x), (27) p.133 / (D.19) p.136.",
+      "match": "changed",
+      "note": "All four are definitionally identical: scratch lemmas much_is_some, little_is_some, distributed_is_some, much_little_same close by reflexivity, so 'much information' (l.233) and 'little information' (l.327) are the same proposition. distributed_mass has nothing to do with Distr."
+    },
+    {
+      "coq": "measured_mass mp P := exists portions : list mp.(substance_type), length portions = mp.(quantity) /\\ forall x, In x portions -> P x (l.132-135)",
+      "source": "No counterpart.",
+      "match": "added",
+      "note": "The unit never enters and portions need not be distinct: scratch measured_mass_repeat shows one portion satisfying P, repeated quantity times via List.repeat, suffices, so 'three liters of water' is true of a single liter. Never used elsewhere in the file."
+    },
+    {
+      "coq": "portion_of A whole part := noun_classification A.(D) = Mass /\\ A.(E) part part (l.142-143)",
+      "source": "Link: 'a is a portion of matter' Mpa <-> a |> a (D.11) p.136; material part a T b (19) p.131, (D.30) p.138; <=m (22) p.132 / (D.23) p.137.",
+      "match": "changed",
+      "note": "The 'whole' argument is unused (scratch portion_of_ignores_whole) and the second conjunct is IC reflexivity, so portion_of A w p holds for every p of a mass noun (scratch portion_of_any_mass). No part relation is defined anywhere in the file."
+    },
+    {
+      "coq": "Parameter contains : forall (c s : DomCN), c -> s -> Prop; substance_in_container; glass1; water_in_glass1 (l.146-157)",
+      "source": "No counterpart. Link p.135 (45)-(46) handle 'this ice cube is water' and 'the gold in Smith's ring' through the constitution relation |>, not containment.",
+      "match": "added"
+    },
+    {
+      "coq": "grind A := {substance : DomCN & {ic : Equiv substance & {coercion : A.(D) -> substance & noun_classification substance = Mass}}}; BOOK_AS_MASS : grind BOOK1 (l.164-186)",
+      "source": "Terminology: Pelletier's 'universal grinder' (not on disk, not assigned). Nearest Link construct: the materialization homomorphism h : E\\{0} -> D (p.131-132; (D.22)(4) p.137) with h(x (+) y) = h(x) join h(y) (47) and order preservation (48), and the constitution relation a |> b (D.31) p.138.",
+      "match": "changed",
+      "note": "A Sigma-type witnessing that some Mass-tagged type and some function out of A.(D) exist; with no lattice on either side none of h's homomorphism / identity-on-D conditions can even be stated."
+    },
+    {
+      "coq": "package A := {unit : DomCN & {ic : Equiv unit & {contains_rel : unit -> A.(D) -> Prop & noun_classification unit = Count}}}; WATER_AS_COUNT : package WATER (l.171-197)",
+      "source": "Terminology: Bach's 'universal packager' (not on disk, not assigned). No Link counterpart: Link p.144 (1) locates the mass/plural difference exactly in the absence of an atomic structure and does not treat count readings of mass terms.",
+      "match": "added"
+    },
+    {
+      "coq": "collective_count A P xs := noun_classification A.(D) = Count /\\ length xs > 1 /\\ P xs /\\ (forall x y, In x xs -> In y xs -> x <> y -> ~ A.(E) x y) (l.204-207)",
+      "source": "Link pp.127-130: collective predication (2)-(8) via i-sums a (+) b and the star operator *P; (39)-(42) p.134 symmetry / expansion / contraction; extras/Link1983.v encodes this half of Link directly.",
+      "match": "changed",
+      "note": "Sums replaced by Coq lists of Leibniz-distinct, IC-non-equivalent members; no (+), no *P, no Pi, so none of (T.1)-(T.32) is expressible. Never used in any theorem or example."
+    },
+    {
+      "coq": "three_glasses_water := three_f GLASS (fun g => some_mass WATER (fun w => substance_in_container GLASS WATER g w)) (l.219-221)",
+      "source": "Book Def 5.3 Three_0 p.112 (indi.v's three_f) applied to the count setoid GLASS; Link p.141: numerals like 'three' are straightforward (i-sums with exactly three atoms).",
+      "match": "simplified",
+      "note": "The one place where the inherited setoid machinery does real work: three IC-distinct glasses each containing some water. It is a pseudo-partitive built from three_f, unrelated to the file's own MeasurePhrase record."
+    },
+    {
+      "coq": "books_contain_much_info, john_drank_coffee_three_cups, three_heavy_books_worth_gold, john_read_books_little_info, most_water_drinkable (l.231-240, 316-337)",
+      "source": "No source sentences. Link's mass examples are (10), (43)-(46); the book's chapter-5 examples are the copredication sentences (5.38)-(5.56).",
+      "match": "added",
+      "note": "Glosses do not match encodings: 'drank' is encoded as picked_up John c (l.240); 'three heavy books' asserts picked_up John hb (l.320) and takes 'heavy' from HBOOK1's Sigma field; 'most water in these glasses is drinkable' is forall g, In g these_glasses -> exists drinkable water in g (l.334-337), universal over glasses and existential over water, with no proportional quantifier; 'much' and 'little' coincide (see some_mass)."
+    },
+    {
+      "coq": "Axiom measure_presupposition : forall mp : MeasurePhrase, exists s : mp.(substance_type), True (l.247-249)",
+      "source": "No counterpart; Link's existence facts for sigma / mu terms are theorems (T.16)-(T.17) p.139, not postulates.",
+      "match": "added",
+      "note": "Postulates inhabitation of every Mass-tagged type that occurs in some MeasurePhrase (hence of Water, Gold, Coffee via l.108-115). Used only to discharge measure_phrase_decomposition, whose own hypothesis it makes redundant. Consistent (interpret noun_classification as an arbitrary set-level function), but unmotivated."
+    }
+  ],
+  "theorems": [
+    {
+      "name": "measure_phrase_decomposition",
+      "status": "proved",
+      "source_claim": "new",
+      "note": "l.252-265, Qed. Hypothesis H_units (three IC-distinct units satisfying True) is unused: scratch decomposition_without_units proves the conclusion from mp alone. Print Assumptions: noun_classification, measure_presupposition. Content: the substance of a measure phrase is tagged Mass (a record field) and is inhabited (the axiom)."
+    },
+    {
+      "name": "mass_measurable",
+      "status": "proved",
+      "source_claim": "new",
+      "note": "l.268-288, Qed. Builds a MeasurePhrase with quantity 1 from the two classification hypotheses and returns the two field equations by reflexivity; hypothesis H_some is unused. Print Assumptions: noun_classification only."
+    },
+    {
+      "name": "count_to_mass_preservation",
+      "status": "proved",
+      "source_claim": "new",
+      "note": "l.291-309, Qed. Given a grind witness and indi.some A (fun _ => True), exhibits coercion x; hypothesis H_count is unused. Print Assumptions: noun_classification only. Loosely mirrors Link's h sending an individual to its portion of matter, but no structure is preserved because none is defined."
+    }
+  ],
+  "counts": {
+    "theorems": 3,
+    "proved": 3,
+    "admitted": 0,
+    "propositional_axioms": 17
+  },
+  "faithfulness": {
+    "verdict": "unfaithful",
+    "evidence": [
+      "The book contains no mass/count theory. pdftotext of all 240 pages: the word 'mass' occurs only in 'UMass, Amherst' (Carlson 1977 reference) and in the bibliography line for Link 1983; 'count noun', 'measure phrase', 'grinder', 'partitive', 'liter', 'kilogram' never occur; the TOC (chs. 1-7) has no such chapter or section. The file's only contact with the book is through indi.v: three_f (= Def 5.3 Three_0, p.112) and some are reused at l.220, 232, 237, 254, 294, 319, 325, and the setoid pattern (5.13)/(5.15) p.109 is copied for mass nouns at l.25-36.",
+      "Link's mass-term semantics is a lattice: E a complete atomic Boolean algebra with join, atoms A, D a complete join-semilattice of portions of matter, h : E\\{0} -> D a semilattice homomorphism ((D.22) p.137; pp.130-132), mass predicates denoting join-closed subsets of D ((D.25) 2(iv) p.138), cumulative reference (10) p.128 validated as (T.12) p.139. mass.v declares no join, no sum, no part relation, no h and no closure property; the mass/count distinction is the opaque Parameter noun_classification (l.15) plus 16 stipulated equations (l.39-48, 78-82, 181, 192, 227). grep of the file for join, sum, part_of, cumulative: no hits.",
+      "The structure the file does give mass nouns, an equivalence-relation identity criterion (IC_Water .. IC_Coffee l.25-29, mkCN l.32-36), is the one the book reserves for counting (s.5.3.1 p.110: ICs are needed once a numerical quantifier 'bigger than one' is present) and the one Link denies mass terms have (p.129: atomicity 'is not present in the linguistic behaviour of mass terms'; p.144 (1): the two logics differ only in atomicity). The encoding thus inverts Link: count-style individuation added, lattice structure removed.",
+      "The three 'mass quantifiers' and distributed_mass are one definition. Scratch lemmas much_is_some, little_is_some, distributed_is_some and much_little_same (compiled against mass.vo) close by reflexivity, so 'some books contain much information' (l.231-233) and 'three books containing little information' (l.324-327) use the same proposition for 'much' and 'little'. Only some_mass has a Link counterpart (translation 5 p.141: 'some water' |-> existential, identical in form to 'some child').",
+      "portion_of (l.142-143) ignores its 'whole' argument and reduces to IC reflexivity: scratch portion_of_ignores_whole and portion_of_any_mass compile. Link's partitive apparatus is relational: Mpa <-> a |> a (D.11) p.136, m-part T (19) p.131 / (D.30) p.138, <=m (D.23) p.137. Nothing of it survives.",
+      "measured_mass (l.132-135) never mentions the unit and is satisfied by a single portion repeated quantity times (scratch measured_mass_repeat, via List.repeat / repeat_spec): 'three liters of water' holds of one liter. There is no measure function; Link has none either (mu (18) p.131 is material fusion), so this is an unsourced and defective addition.",
+      "All three theorems are unification checks. Print Assumptions (scratch): measure_phrase_decomposition depends on noun_classification and measure_presupposition (the axiom does the work; H_units is unused, scratch decomposition_without_units); mass_measurable and count_to_mass_preservation depend only on the Parameter noun_classification and discard H_some / H_count. No theorem states any property of mass terms: cumulativity, homogeneity, distributivity, or any grinder / packager interaction.",
+      "Example encodings contradict their glosses: 'John drank the coffee in three cups' asserts picked_up John c (l.240); 'most water in these glasses is drinkable' is forall glass in the list, exists drinkable water in it (l.334-337), i.e. no proportional quantifier and no quantification over water quantity; 'three heavy books worth much gold' asserts picked_up (l.320).",
+      "What is faithful: three_glasses_water (l.219-221) uses three_f = Three_0 (Def 5.3 p.112) correctly on the count setoid GLASS, in line with Link's p.141 remark that numerals are straightforward; tagging measure units Count and substances Mass (l.78-82, 39-43) matches Link's syntactic MCN / SCN / PCN subcategorization (s.3 p.140) at the level of labels."
+    ],
+    "omissions": [
+      "Link's lattice: join / i-sums, i-part (15), atoms, the star operator, sigma-terms (17), the portions-of-matter semilattice D (20), the materialization homomorphism h (21)-(22), constitution |> and material fusion mu (18).",
+      "Cumulative reference (10) / (T.12) and the mass-term correspondent mP (23) / (D.13) with the 'apple in the salad' inference (24)-(26).",
+      "Distributivity Distr (27) / (D.19), material predicates M(P) (D.20), invariance Inv (D.21) and the partakes operator (MP.1)-(MP.2).",
+      "'all water' as a universal (translation 11 p.141) and the minimal-parts / downward-closure caveat (p.134).",
+      "Any theorem of Link's (T.1)-(T.32); any integration with a PTQ-style fragment (s.3)."
+    ],
+    "additions": [
+      "noun_classification tag on the universe Set and its 16 classification axioms (l.10-15, 39-48, 78-82, 181, 192, 227).",
+      "Identity criteria (setoid structure) for mass nouns and for measure units (l.25-36, 64-75).",
+      "Measure units, the MeasurePhrase record, make_measure_phrase, three example phrases, measured_mass and the axiom measure_presupposition (l.55-115, 132-135, 247-249).",
+      "much_mass / little_mass / distributed_mass (all equal to some_mass).",
+      "Container relation contains and substance_in_container (l.146-157).",
+      "Sigma-type grind / package witnesses with the BookSubstance and WaterContainer examples (l.164-197).",
+      "collective_count on lists (l.204-207) and the seven example sentences (l.219-240, 316-337)."
+    ],
+    "simplifications": [
+      "some_mass = Link's existential 'some' plus a classification tag, with no lattice behind it.",
+      "Collective predication as Coq lists with pairwise IC-distinctness instead of i-sums.",
+      "Count-to-mass shift as a bare function A.(D) -> substance instead of a semilattice homomorphism."
+    ]
+  },
+  "determination": "not_applicable",
+  "determination_rationale": "The file gives no evidence either way about the assigned source theories because it encodes neither. The book contains no mass/count theory to formalize (its CNs-as-setoids account, which the file inherits through indi.v, is already assessed as 'slight_modification' in extras__indi.json). Link 1983's LPM mass fragment is a first-order theory over a Boolean algebra with a join-semilattice of portions of matter and a homomorphism h, the same kind of structure that extras/Link1983.v already encodes as-is for the plural half (three sum axioms plus a part-of biconditional), and nothing in mass.v attempts it: no join, no sums, no h, no cumulativity axiom, no (T.12) / (T.13). What the file contains instead (an opaque classification tag, setoid ICs for mass nouns, list-length measure phrases, Sigma-type grinder / packager witnesses, three unification-check theorems) is the author's own construction with no printed counterpart. 'not_applicable' is therefore used in its evidential sense rather than the 'pure infrastructure' sense: this record must not be counted as evidence that Link's or the book's theory is formalizable as-is, needs restructuring, or cannot be done. If a label from the four-point scale were forced, the nearest analogue is the 'major_restructuring' used for extras/Aspect.v (author replaced the theory), but here the replacement does not even address Link's phenomena (cumulativity, sums, constitution), so that label would overstate what was attempted. The only obstacle the file does exhibit is generic to the CNs-as-types encoding, not to Link: a classification function on the universe Set cannot be defined, only axiomatized per type (class ii below).",
+  "artifact_classes": [
+    {
+      "class": "ii",
+      "description": "DomCN := Set (indi.v l.3) is the universe of CNs, and noun_classification : DomCN -> noun_type (l.15) is a function from that universe into a data type, i.e. types treated as values. Coq cannot define such a function by cases on closed types, so it must be an opaque Parameter fixed by 16 per-type Axioms; grind and package (l.164-175) are Sigma-types over Set and land in Type (scratch Check: grind BOOK1 : Type), as does MeasurePhrase, whose fields pack a Set together with an Equiv living in Type. The mass/count tag therefore has no computational or semantic content: it is a universe-level annotation that can only be consumed as a proof obligation."
+    },
+    {
+      "class": "iii",
+      "description": "Every semantic primitive (contains, worth, drinkable, book_contains_info, water_container_contains, book_to_substance, the coercions cup_to_phy / glass_to_phy) is an uninterpreted Parameter, and every classification fact is an Axiom; nothing evaluates. The three theorems close by unfold / exact / reflexivity and, per Print Assumptions, use only noun_classification (plus measure_presupposition for the first); each discards a hypothesis. Definitional collapses go unnoticed for the same reason: much_mass = little_mass = some_mass = distributed_mass, portion_of ignores 'whole', measured_mass ignores the unit and admits repeated portions (all shown by scratch lemmas that close by reflexivity or List.repeat)."
+    },
+    {
+      "class": "iv",
+      "description": "Link's native structures have no Coq counterpart: no join-semilattice or Boolean algebra (Link1983.v shows the axioms are trivial to declare, but mass.v does not import or restate them), no atoms, no materialization homomorphism h, no part relation, no cumulative-closure condition on mass denotations. Lists (List.length, In) substitute for sums in measured_mass and collective_count; a bare nat substitutes for a measure function in MeasurePhrase; 'most' has no proportional quantifier and is rendered as forall / exists. The dependent-record and Sigma-type encodings (MeasurePhrase, grind, package) are natively available in Coq but encode only well-formedness tags, not semantics."
+    }
+  ],
+  "compiles": true,
+  "duplicate_note": "None. grep over every *.v under shallow/, deep/, extras/, ttr_mtt/ and atlas/ for mass | noun_classification | MeasurePhrase | grind | packag hits only extras/mass.v. extras/Link1983.v encodes Link's plural lattice (sum axioms, part_of, Atom, john (+) mary) with no mass-term material, and the two files share no definitions; ttr_mtt/Book_Individuation.v duplicates indi.v, not mass.v. No file Requires mass.v (grep 'Require.*mass': no hits), so it is a leaf.",
+  "source_gap": "The primary source as assigned is absent in a specific way: the Chatzikyriakidis & Luo 2020 book is on disk in full (240 pp.), but it has no mass/count chapter or section (see sources[0]); there is no MTT mass/count theory in it for the file to be checked against, and the file's own comments cite nothing (its closing summary block l.343-355 only claims to be 'built directly on the working setoid foundation from indi.v'). Link 1983 is on disk complete as the Portner & Partee 2002 reprint (pp. 127-146, image-only; read as page images, so the equation and page numbers cited here were transcribed by eye from the scan). The literature the file's vocabulary actually comes from, Pelletier 1975 (universal grinder), Bach 1986 (universal packager) and the measure-phrase / pseudo-partitive literature, is neither assigned nor on disk; the papers/README.md manifest lists no mass/count source beyond Link 1983.",
+  "notes": "Compiled with coqc 8.20.1 via the prescribed command from the repo root: exit 0, no warnings; mass.vo / .glob / .vok / .vos regenerated. mass.v not modified (MD5 e37f94901324ac3bb50876504ba017de before and after). Dependencies from indi.v: DomCN (= Set), Equiv (record: eq1 + reflexive/symmetric/transitive), CN (record D, E), mkCN, Human, Man, John, Phy, Book, BOOK1, BOOK2, HBOOK1, picked_up, mastered, three_f (= Three_0), some. Inventory of mass.v: 1 Inductive (noun_type), 1 Record (MeasurePhrase), 37 Parameter names on 29 Parameter lines (noun_classification; 5 mass nouns; 5 mass ICs; 5 units; 5 unit ICs; 2 coercions; contains; glass1; BookSubstance, IC_BookSubstance, book_to_substance; WaterContainer, IC_WaterContainer, water_container_contains; Information, IC_Information; book_contains_info; worth; drinkable; these_glasses), 17 Axioms (16 classification equations + measure_presupposition; all Prop-typed), 34 Definitions, 3 Theorems (Qed), 0 Admitted. Stylistic marker: the closing summary (l.343-355) is a checklist with check-mark glyphs and no citation. Scratch verification file, compiles against mass.vo with the same -R flags: /private/tmp/claude-501/-Users-graogro-Dropbox-formalizing-formal-semantics/c34891d7-ce39-4399-ad0f-31b3588ae898/scratchpad/MassCheck.v (Print Assumptions for the three theorems; much_is_some, little_is_some, distributed_is_some, much_little_same, portion_of_ignores_whole, portion_of_any_mass, measured_mass_repeat, decomposition_without_units, some_mass_is_some; Check grind BOOK1 : Type). Book text extracted to the same scratchpad as cl2020.txt."
+}

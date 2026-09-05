@@ -1,0 +1,183 @@
+{
+  "file": "/Users/graogro/Dropbox/revisiting-formal-semantics/shallow/MontagueFragment.v",
+  "region": "model-theoretic (shallow substrate: extensional / world-indexed / world-time-indexed fragments with generalized-quantifier NPs and an axiomatized counting interface)",
+  "summary": "140-line, theorem-free substrate library used by 11 other repo files. Section 0 (lines 15-31) axiomatizes an abstract cardinality `size : (Entity->Prop)->nat` with two Section-level Axioms (extensionality, subset-monotonicity) and defines Barwise&Cooper-style counting determiners G_some / G_exactly_n / G_at_least_n / G_most. Module MontagueExtensional (36-83) re-declares Entity/size and the two axioms as module-level Parameters/Axioms, gives a two-constructor NP type (proper name as fun P => P e; quantified NP as determiner+CN), a one-constructor sentence type over Prop, every/some/no, and two bare example sentences `most dogs love Mary`, `at least two women love Mary`. Module MontagueIntensional (88-110) indexes by World only, declares a property-taking `seek : (Entity -> World -> Prop) -> Entity -> World -> Prop`, and defines `john_seeks_a_unicorn := seek Unicorn john`. Module MontagueWorldTime (115-138) sets Index := World*Time, I A := Index -> A, adds an accessibility relation R with Axiom R_refl and a Kripke-style `box` that varies the world along R and holds the time fixed. There are 0 Theorem/Lemma/Example statements; nothing is proved or even checked. Compiles cleanly with Coq 8.20.1. Byte-identical (md5 7aeee3df8893df71cb049746b561c4c9) to extras/Montague.v. Two independently verified defects in the counting interface: (a) `Axiom` inside a Section is discharged as a global constant generalized over the Section Variables, so the compiled module exports `size_subset : forall (Entity:Type) (size:(Entity->Prop)->nat) A B, (forall x, A x -> B x) -> size A <= size B` - an assertion about EVERY function into nat - and a scratch lemma derives False from it plus ClassicalEpsilon (Qed); (b) even read as hypotheses, the two axioms are satisfied by the constant function size := fun _ => 5, under which G_most is never true, G_at_least_n 2 is always true, and G_some holds of an empty intersection (scratch, closed under the global context), so the axiomatization does not pin down counting at all.",
+  "sources": [
+    {
+      "citation": "Montague, R. (1973). The Proper Treatment of Quantification in Ordinary English (reprint, pp. 17-34; pdftotext line numbers of montague73.pdf). §1 lexicon: B_T = {John, Mary, Bill, ninety, he_n} (line 92), B_TV = {find, lose, eat, love, date, be, seek, conceive} (93), B_CN = {man, woman, park, fish, pen, unicorn, price, temperature} (95); S2/F0-F2: every / the / a-an are the only determiners (113-116). §2: Type := smallest set with e, t, <a,b>, <s,a> (350-352); A, I, J = entities, possible worlds, moments of time (398-399); D_<s,a> = D_a^{I x J} (409); interpretation <A,I,J,<=,F> with A,I,J nonempty and <= a linear ordering of J (413-416); extension at point of reference <i,j> (421-423); clause 8: [box phi] = 1 iff phi = 1 for all i' in I and all j' in J, plus W/H tense clauses (452-472); Thomason note 9: box is 'necessarily always' (896). §3: f(A/B) = <<s,f(B)>,f(A)> (506); T1(d) John -> j* = lambda P. P{^j} (535); T2 every/the/a (537-538); T4, T5 delta'(^beta') (551-554); meaning postulates (1)-(9) (630-642), in particular (5) subject-extensionality of seek (637) and (9) seek' = try-to'(^find') (641-642, 665-666); d* reduction (687-696). §4 examples: every man walks = forall u[man'*(u) -> walk'*(u)] (719); John finds a unicorn (723); John seeks a unicorn de dicto seek'(^j, ^lambda P exists u[unicorn'*(u) and P{^u}]) vs de re exists u[unicorn'*(u) and seek'*(j,u)] (733-738).",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/montague73.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Dowty, Wall & Peters (1981). Introduction to Montague Semantics (DjVu-OCR text layer; line numbers of the .txt). Ch. 5 pp. 126-127 (txt 5234-5262): Kripke models as indexed families; box phi true iff phi true 'with respect to all possible worlds, not just those standing in a certain relation to the actual one' - i.e. no accessibility relation; Sem B.10. Ch. 5 pp. 131-132 (txt 5465-5478): index <w,t>; two candidate readings of box, 'necessarily always' (all <w',t'>) vs 'necessarily now' (all <w',t>, t fixed); the book chooses the former 'because Montague also used this interpretation of the necessity operator in PTQ'. Ch. 7 pp. 185-186 (txt 7615-7670): seek is TV = IV/T and, like every A/B functor, 'denotes functions applying to the intensions of expressions of category B' - the intension of a term phrase. Ch. 7 pp. 215-217 (txt 8936-8947, 9093-9122): derivations (7-60)/(7-61) of the de dicto and de re readings of John seeks a unicorn. Determiner 'most' appears only as illustrative sentence (1-1) 'Most dentists won't make house calls' (txt 646) and receives no semantics; 'at least two unicorns' appears once, as an exercise (txt 10232).",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Dowty_Wall_Peters_1981_IntroductionToMontagueSemantics.txt",
+      "available": "full"
+    },
+    {
+      "citation": "Barwise & Cooper (1981). Generalized Quantifiers and Natural Language. L&P 4 (pdftotext line numbers). §1.5: ||More than half of N|| = {X subset E : X contains more than half of the Ns}, ||Most N|| = {X : X contains most Ns} (324-328); §1.4: 'most' is a non-logical determiner (277-281); §2.1: numerical determiners, '3 men run' = at least three, '!3 men run' = exactly three (491-503); §2.2 non-logical determiners most, many, few (513-514); 'No predicate calculus equivalent for most' (591). Not named anywhere in the Coq file, but it is the only source for G_most / G_at_least_n / G_exactly_n and for the two example sentences; listed so the counting section is not misattributed to PTQ or DWP.",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Barwise_Cooper_1981_GeneralizedQuantifiers.pdf",
+      "available": "full"
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "Section AbstractCounting: Variable Entity : Type; Variable size : (Entity->Prop)->nat; Axiom size_ext; Axiom size_subset (lines 15-23)",
+      "source": "none in PTQ or DWP; the implicit set cardinality |X| behind Barwise & Cooper 1981 §1.5 / §2.1",
+      "match": "added",
+      "note": "Only extensionality and subset-monotonicity are assumed: no size(empty)=0, no size(singleton)=1, no additivity, no finiteness. Scratch mf_constant_model.v (Qed, closed under the global context) shows size := fun _ => 5 satisfies both axioms while making G_most N P refutable for every N,P, G_at_least_n 2 N P provable for every N,P, and G_some of an empty intersection provable - so the interface fixes nothing about counting. Worse, `About size_subset` on the compiled module gives `forall [Entity:Type] (size:(Entity->Prop)->nat) A B, ...`: an Axiom inside a Section is discharged as a GLOBAL constant generalized over the Section Variables. Scratch mf_inconsistent.v proves `False` (Qed; Print Assumptions lists exactly size_subset, constructive_indefinite_description, classic) by taking size A := if excluded_middle_informative (A tt) then 0 else 1 on unit. Consistent relative to bare CIC and plain `Classical` (a closed term cannot inspect a Prop), and no dependent imports ClassicalEpsilon/ClassicalDescription, so the hazard is latent but real."
+    },
+    {
+      "coq": "G_some, G_exactly_n, G_at_least_n, G_most (lines 25-30)",
+      "source": "Barwise & Cooper 1981: ||some|| (nonempty intersection), numerical determiners n / !n = at least n / exactly n (bc.txt 498-503), ||Most N|| / ||More than half of N|| (bc.txt 324-328)",
+      "match": "added",
+      "note": "G_most N P := size(N and P) > size(N and not P) is the |N cap P| > |N minus P| rendering of 'more than half'. PTQ's only determiners are every / the / a (S2, lines 113-116), so none of this is Montague. G_some (1 <= size(N and P)) is a different object from `some` at line 70 (an existential) and the two are not interderivable under the axioms (constant-size countermodel)."
+    },
+    {
+      "coq": "MontagueExtensional: Parameter Entity, size; Axiom size_ext, size_subset (lines 37-40); g_some / g_exactly / g_at_least / g_most := @G_* Entity size (lines 42-45)",
+      "source": "PTQ §2 D_e = A, a nonempty set of entities (lines 406, 413-414); instantiation of the counting interface",
+      "match": "added",
+      "note": "The module-level axioms are literally instances of the discharged Section axioms and are therefore redundant. Entity is opaque with no nonemptiness assumption, whereas PTQ's definition of interpretation requires A nonempty."
+    },
+    {
+      "coq": "Parameter john mary : Entity; Man Woman Dog : Entity -> Prop; loves : Entity -> Entity -> Prop (lines 47-49)",
+      "source": "PTQ §1 lexicon B_T ∋ John, Mary (line 92); B_CN ∋ man, woman (95); B_TV ∋ love (93); §3 postulates (2),(4) and the d* reduction (687-696)",
+      "match": "simplified",
+      "note": "Names as bare entities (PTQ: constants j, m of type e lifted by T1(d) to j* = lambda P. P{^j}); CNs and TV as extensional relations = PTQ's starred constants man'*, love'* that postulates (2)/(4) justify for 'ordinary' words. Individual concepts are dropped entirely. `Dog` is not in PTQ's B_CN."
+    },
+    {
+      "coq": "Inductive NP := np_prop : Entity -> NP | np_quant : ((Entity->Prop)->(Entity->Prop)->Prop) -> (Entity->Prop) -> NP; interp_NP (lines 51-61)",
+      "source": "PTQ category T = t/IV with f(T) = <<s,<<s,e>,t>>,t> (line 506); T1(d) j* = lambda P. P{^j} (535); T2 every/the/a zeta -> lambda P. Qx[zeta'(x) ... P{x}] (537-538)",
+      "match": "simplified",
+      "note": "NP denotes an extensional generalized quantifier (Entity->Prop)->Prop. np_prop e |-> fun P => P e is T1(d) minus the ^; np_quant q N |-> fun P => q N P is the T2 shape with the determiner passed in as an arbitrary Coq relation (no closed determiner inventory, no `the`, no analysis trees)."
+    },
+    {
+      "coq": "Inductive S := s_atom : Prop -> S; sentence subj vp := s_atom (interp_NP subj vp) (lines 55, 63-64)",
+      "source": "PTQ S4/T4: F4(delta, beta) translates to delta'(^beta') (lines 551-552); D_t = {0,1} (407)",
+      "match": "simplified",
+      "note": "Subject-predicate application without ^; S is a one-constructor wrapper over Prop standing in for D_t = {0,1}."
+    },
+    {
+      "coq": "every, some, no : (Entity->Prop) -> (Entity->Prop) -> Prop (lines 67-74)",
+      "source": "PTQ T2 (537-538): every zeta -> lambda P forall x[zeta'(x) -> P{x}]; F2 zeta (a/an) -> lambda P exists x[zeta'(x) and P{x}]; §4 'every man walks' = forall u[man'*(u) -> walk'*(u)] (719)",
+      "match": "simplified",
+      "note": "Determiners over extensional predicates on entities (PTQ quantifies over individual-concept variables x : <s,e> and applies P{x}). `no` (:= ~ some N P) is not a PTQ determiner; `the` (F1, second clause of T2) is missing. These three plus john/mary/sentence are the only MontagueExtensional items any dependent uses."
+    },
+    {
+      "coq": "loves_mary x := loves x mary; most_dogs_love_mary; at_least_two_women_love_mary (lines 76-82)",
+      "source": "PTQ T5 (553-554) for the VP under postulate (4)'s first-order reduction love'*(x, m); the two sentences themselves have no PTQ/DWP counterpart (Barwise & Cooper-style examples)",
+      "match": "added",
+      "note": "VP by direct saturation with `mary`. Both sentences are bare Definitions of type S; nothing is stated or proved about them, and under the axioms nothing non-trivial could be (constant-size countermodel)."
+    },
+    {
+      "coq": "MontagueIntensional: Parameter World; I A := World -> A; t := I Prop (lines 89-91)",
+      "source": "PTQ §2 D_<s,a> = D_a^{I x J} (line 409); DWP ch. 5 world-only modal language L_1m (txt 5254-5262)",
+      "match": "simplified",
+      "note": "Intension functor over worlds only; the time coordinate J is dropped in this module."
+    },
+    {
+      "coq": "Man Woman Unicorn : Entity -> I Prop; loves : Entity -> Entity -> I Prop; seek : (Entity -> I Prop) -> Entity -> I Prop (lines 94-96)",
+      "source": "PTQ §1 B_CN ∋ unicorn (95), B_TV ∋ seek (93); §3 f(TV) = <<s,f(T)>,f(IV)> (506), so seek' takes the INTENSION OF A TERM (a property of properties of individual concepts); postulates (5) (637) and (9) seek = try to find (641-642); DWP ch. 7 pp. 185-186 (txt 7660-7665): seek and find 'are both interpreted as functions applying to the intensions of term phrases'",
+      "match": "changed",
+      "note": "`seek` takes a property (Entity -> World -> Prop) and an entity - a property-taking intensional verb in the style of Zimmermann 1993, not PTQ's quantifier-taking seek'. No individual concepts, no postulate (5), no postulate (9)."
+    },
+    {
+      "coq": "MontagueIntensional.every / some / no : (Entity -> I Prop) -> (Entity -> I Prop) -> t (lines 100-107)",
+      "source": "PTQ T2 evaluated pointwise at an index (§2 clause 7, lines 448-450)",
+      "match": "simplified",
+      "note": "Pointwise-per-world lift of the extensional determiners; not used by john_seeks_a_unicorn nor by any dependent."
+    },
+    {
+      "coq": "john_seeks_a_unicorn : t := seek Unicorn john (line 109)",
+      "source": "PTQ §4 (733-738): de dicto seek'(^j, ^lambda P exists u[unicorn'*(u) and P{^u}]) vs de re exists u[unicorn'*(u) and seek'*(j,u)]; DWP (7-60)/(7-61) (txt 8936-8947), (7-6x) de re (txt 9093-9122)",
+      "match": "changed",
+      "note": "The object NP 'a unicorn' is never constructed: `seek` is applied to the CN meaning `Unicorn` directly, so neither PTQ reading is expressed and the scope ambiguity that is the point of PTQ §4 cannot arise. Bare Definition; nothing proved (e.g. no non-entailment of existence)."
+    },
+    {
+      "coq": "MontagueWorldTime: Parameter Entity World Time; Index := (World*Time)%type; world_of; time_of; I A := Index -> A; t := I Prop (lines 116-120)",
+      "source": "PTQ §2 points of reference <i,j> in I x J and D_<s,a> = D_a^{I x J} (398-412, 421-423); DWP ch. 5 pp. 131-132 index <w,t> (txt 5465-5470)",
+      "match": "exact",
+      "note": "Correct shallow rendering of the PTQ index space and intension type; this is the part the two Kratzer dependents import. Missing: the linear ordering <= on J required by the definition of interpretation (line 414) and the tense operators W, H of clause 8 / T17."
+    },
+    {
+      "coq": "Parameter R : World -> World -> Prop; Axiom R_refl (line 125); box phi := fun i => forall w', R (world_of i) w' -> phi (w', time_of i) (line 137)",
+      "source": "PTQ §2 clause 8 (452-453): [box phi] = 1 iff phi = 1 for ALL i' in I and ALL j' in J - no accessibility relation, both coordinates vary (Thomason note 9, line 896: 'necessarily always'). DWP ch. 5 p. 127 (txt 5250-5252): box quantifies over all worlds, 'not just those standing in a certain relation to the actual one'; DWP p. 132 (txt 5471-5478) names the time-fixed 'necessarily now' reading and rejects it to stay with PTQ.",
+      "match": "changed",
+      "note": "A Kripke-relative box (reflexive R gives at most the T axiom) over the time-fixed reading that both sources explicitly declined. This is modal-logic box, not Montague's S5-over-I x J box. R, R_refl and box are unused by every dependent."
+    },
+    {
+      "coq": "MontagueWorldTime.every / some / no (lines 128-135)",
+      "source": "PTQ T2 pointwise at <i,j>",
+      "match": "simplified",
+      "note": "As in module 2 but over Index."
+    },
+    {
+      "coq": "(absent) analysis trees, S1-S17, T1-T17, individual concepts <s,e>, ^ and v, lambda abstraction / assignments, he_n, `the`, `be`, relative clauses (S3), quantifying-in (S14-S16), tense and sign (S17, W, H), the ordering <= on J, meaning postulates (1)-(9), the d* reduction, the remaining §4 examples, the temperature puzzle",
+      "source": "PTQ §1-§4 (essentially the whole paper)",
+      "match": "missing",
+      "note": "The file is a model-theoretic substrate, not a formalization of PTQ's syntax-semantics interface; shallow/PTQ.v (972 lines, 9 theorems) covers most of this list."
+    }
+  ],
+  "theorems": [],
+  "counts": {
+    "theorems": 0,
+    "proved": 0,
+    "admitted": 0,
+    "propositional_axioms": 5
+  },
+  "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+      "Index := World*Time (line 117) and I A := Index -> A (line 120) match PTQ §2 exactly: points of reference <i,j> in I x J (pdftotext 421-423) and D_<s,a> = D_a^{I x J} (409); DWP ch. 5 index <w,t> (txt 5465-5470).",
+      "np_prop e |-> fun P => P e (line 59) is PTQ T1(d) j* = lambda P. P{^j} (535) minus the intension; np_quant / every / some (lines 53, 60, 67-71) follow the T2 shape lambda P. Qx[zeta'(x) ... P{x}] (537-538) over entities instead of individual concepts; `every man walks` would come out as PTQ §4 line 719 with u ranging over Entity.",
+      "sentence (lines 63-64) is T4 delta'(^beta') without ^ (551-552); loves_mary (line 76) is the postulate-(4) reduction love'*(x, m) (695-696).",
+      "box (line 137) contradicts PTQ §2 clause 8 (452-453), where box quantifies over ALL i' in I and ALL j' in J with no accessibility relation; DWP p. 127 (txt 5250-5252) and p. 132 (txt 5471-5478) both reject exactly the relational and time-fixed variants the file adopts. R / R_refl (line 125) have no source counterpart.",
+      "seek : (Entity -> I Prop) -> Entity -> I Prop (line 96) has the wrong type relative to PTQ f(TV) = <<s,f(T)>,f(IV)> (506) and DWP ch. 7 p. 186 (txt 7660-7665); john_seeks_a_unicorn := seek Unicorn john (line 109) applies seek to the CN, so neither PTQ §4's de dicto formula (735-736) nor its de re formula (738), nor DWP (7-61), is expressed.",
+      "size / G_most / G_at_least_n / G_exactly_n (lines 17-30) and the two example sentences (78-82) come from Barwise & Cooper 1981 (bc.txt 324-328, 498-503), not from PTQ or DWP; DWP's text layer gives 'most' no semantics (only sentence (1-1), txt 646). `no` (line 73) and `Dog` (line 48) are also outside PTQ's lexicon (92-95) and determiner inventory (113-116).",
+      "Zero Theorem/Lemma/Example statements (grep confirmed): no PTQ claim (§4 equivalences, extensional reductions, non-entailments) is verified; every sentence is a bare Definition.",
+      "The counting interface is unsound as an axiomatization of cardinality on two independent counts, both re-verified in fresh scratch files against the compiled .vo: mf_inconsistent.v derives False from the Section-discharged size_subset plus ClassicalEpsilon (Qed; assumptions: size_subset, constructive_indefinite_description, classic); mf_constant_model.v shows the constant function satisfies both axioms while trivializing G_most / G_at_least_n / G_some (Qed, closed under the global context)."
+    ],
+    "omissions": [
+      "Linear ordering <= on J and the tense operators W, H (PTQ §2 clause 8, T17) despite a Time coordinate being present",
+      "Individual concepts <s,e> and the ^ / v operators; CN/IV/TV over individual concepts",
+      "Analysis trees, S1-S17, T1-T17 (no syntax at all)",
+      "Determiner `the` and copula `be`",
+      "Meaning postulates (1)-(9), in particular (9) seek = try to find and (5) subject-extensionality of seek",
+      "The de dicto / de re pair for 'John seeks a unicorn' and every other §4 example",
+      "Any theorem, lemma or example check"
+    ],
+    "additions": [
+      "Abstract cardinality `size` with axioms size_ext, size_subset (Section-discharged over all Entity and all size; module-level copies at lines 39-40)",
+      "Counting determiners G_some, G_exactly_n, G_at_least_n, G_most and the sentences `most dogs love Mary`, `at least two women love Mary` (Barwise & Cooper territory, unattributed)",
+      "Determiner `no`, noun `Dog`",
+      "Accessibility relation R with R_refl and a Kripke-style, time-fixed `box`",
+      "A property-taking `seek`"
+    ],
+    "simplifications": [
+      "Extensional fragment over Entity / Prop instead of individual concepts and intensions (the postulate (2)/(3)/(4) starred reductions taken as primitive)",
+      "Intensional fragment indexed by World only (J dropped)",
+      "D_t = {0,1} rendered as Prop; NP is a 2-constructor inductive with the determiner passed as an arbitrary relation; S is a wrapper over Prop",
+      "Determiners lifted pointwise per index rather than via T2 over <s,e>-variables"
+    ]
+  },
+  "determination": "as_is",
+  "determination_rationale": "The evidentiary base is thin (no theorems), but every PTQ construct the file does encode - the I x J index space, intensions as functions from indices, generalized-quantifier NPs with the lambda P. P j lifting, T2-shaped determiners, T4 subject-predicate application - goes into Coq as plain shallow types and definitions with no encoding trick, and nothing in the file points to a Coq-imposed obstacle. The departures (property-taking seek, Kripke/time-fixed box, dropped time coordinate, dropped individual concepts) are elective simplifications or importations from other theories, not workarounds forced by the proof assistant; shallow/PTQ.v in the same repository shows that the omitted machinery (individual concepts, T1-T17, postulates, W/H, the §4 examples as theorems) also embeds directly. The one structure that had to be axiomatized rather than defined is cardinality of Prop-valued predicates over an abstract type, and that belongs to the unattributed Barwise & Cooper addition, not to PTQ; even there the difficulty is the choice of Prop-valued predicates over an opaque Entity, not a limit of Coq (a decidable finite domain would make `size` definable).",
+  "artifact_classes": [
+    {
+      "class": "iv",
+      "description": "Coq has no native cardinality on `Entity -> Prop`, so the counting determiners rest on an axiomatized abstract `size` (lines 17-23, 38-40). The axiomatization is too weak to recover Barwise & Cooper's arithmetic of |N cap P| (constant `size` satisfies it and makes `most` unsatisfiable, mf_constant_model.v), and because the Section discharges it over every `size` function it is refutable under ClassicalEpsilon (mf_inconsistent.v, Qed) - a Coq-specific hazard with no counterpart in the set-theoretic source."
+    },
+    {
+      "class": "iii",
+      "description": "`size` and every lexical item are opaque Parameters (Print Assumptions on most_dogs_love_mary lists size, mary, loves, Entity, Dog; on john_seeks_a_unicorn lists seek, john, Unicorn); `most_dogs_love_mary`, `at_least_two_women_love_mary`, `john_seeks_a_unicorn` and `box` cannot be evaluated even in a finite model, and Prop-valued predicates make `size` non-definable in the first place (which is exactly why the over-general axiom stays consistent without choice)."
+    },
+    {
+      "class": "v",
+      "description": "Montague's two-valued D_t = {0,1} (PTQ line 407) is rendered as Prop with no excluded middle in the file: `no N P := ~ some N P` (lines 73, 106, 134) is intuitionistic negation, and `G_some` (1 <= size) vs `some` (exists) are not provably interderivable; none of this bites here only because nothing is proved."
+    }
+  ],
+  "compiles": true,
+  "duplicate_of": "extras/Montague.v",
+  "duplicate_note": "extras/Montague.v is byte-for-byte identical (diff empty; md5 7aeee3df8893df71cb049746b561c4c9 for both). shallow/MontagueFragment.v is the canonical copy: it is `Require Import`ed by 11 files (shallow/kratzer2.v and extras/kratzer_1977.v import MontagueWorldTime; extras/Aspect.v, DonkeyScope.v, DowtyTense.v, FocusEven.v, Imperfective2.v, ImperfectiveParadox.v, PolydefiniteSemantics.v, PresuppositionProjection.v, dowty_roles.v import MontagueExtensional), whereas grep finds no importer of extras/Montague.v. Both are listed in _CoqProject (lines 11 and 37); extras/Montague.v is dead weight and could be dropped from the build with no effect. shallow/PTQ.v (the other listed candidate, _CoqProject line 12) is NOT a duplicate: it is a 972-line hybrid deep/shallow formalization of PTQ proper (analysis trees, T1-T17, individual concepts, W/H, meaning postulates, §4 examples, 9 Theorem statements with 8 Qed and 1 Admitted - temperature_puzzle) that neither imports this file nor contains any of its counting / R / box material; PTQ.v is the far better PTQ formalization and this file is a substrate library. Verdict on the pair [Montague.v, MontagueFragment.v]: keep shallow/MontagueFragment.v (the imported one), delete extras/Montague.v.",
+  "source_gap": "None. montague73.pdf is on disk (outside papers/, at the project root as noted in papers/README.md line 7) with a clean text layer (reprint pagination pp. 17-34; all cited passages read via pdftotext). DWP 1981 is on disk as an image-only PDF with a full DjVu-OCR .txt sidecar (OCR-noisy but complete; ch. 5 pp. 126-127 and 131-132 and ch. 7 pp. 185-186 and 215-217 were read from it). Barwise & Cooper 1981, the unnamed source of the counting section, is also on disk in papers/foundations/.",
+  "notes": "Header comments 'kept unchanged' (lines 86, 113) and 'no list / NoDup definitions' (line 4) show this is a refactor of an earlier list-based counting encoding. Propositional axiom inventory (5): Section-discharged size_ext, size_subset (global, generalized over Entity and size; verified with About after compilation); MontagueExtensional.size_ext, size_subset (instances of the former, about the fixed Parameter size); MontagueWorldTime.R_refl. Non-propositional Parameters: Entity x3, World x2, Time, size, john/mary x3, Man/Woman/Dog, Man/Woman/Unicorn, Dog, loves x3, seek, R. Repo-wide usage (grep of the 11 dependents): only john, mary, every, some, no, sentence from MontagueExtensional and Index, world_of, I, t from MontagueWorldTime are used; the whole counting interface, seek, Unicorn, MontagueIntensional, R, R_refl and box are dead code (the only textual hit for `seek` in a dependent is a comment in FocusEven.v line 212). If the file is ever revised: make the two Section Axioms Hypotheses (abstracted, not globalized) or state them only at module level, add size(empty)=0 / additivity or drop the counting interface, and either give seek PTQ's type or rename the module so it does not claim to be Montague's intensional fragment. Scratch proofs used for this record (compiled against shallow/MontagueFragment.vo from the repo root with the atlas -R flags): /private/tmp/claude-501/-Users-graogro-Dropbox-formalizing-formal-semantics/c34891d7-ce39-4399-ad0f-31b3588ae898/scratchpad/probe_mf.v (About / Print / Print Assumptions), mf_inconsistent.v (False from size_subset + ClassicalEpsilon), mf_constant_model.v (constant size satisfies both axioms and trivializes G_*)."
+}

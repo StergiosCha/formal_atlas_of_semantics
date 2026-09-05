@@ -1,0 +1,20 @@
+{
+ "a": "atlas__ranta",
+ "b": "atlas__dts",
+ "a_file": "atlas/mtt_ranta/Ranta.v",
+ "b_file": "atlas/mtt_ranta/DTS.v",
+ "level": "intra-family",
+ "bridge_file": "atlas/mtt_ranta/DTS.v",
+ "grading": "5 definitional / 4 equivalence / 3 one-way or mediated / 2 divergent / 1 after re-encoding / null one-sided",
+ "phenomena": [
+  {"name": "anaphora-donkey", "attempted_by": ["a", "b"], "grade": 5, "evidence": "dts_donkey_canonical (reflexivity): the projection resolution IS Ranta's pronominalization"},
+  {"name": "anaphora-donkey-strong-reading", "attempted_by": ["a", "b"], "grade": 4, "evidence": "dts_donkey_strong via Ranta.donkey_curry"},
+  {"name": "context-as-sigma", "attempted_by": ["a", "b"], "grade": 5, "evidence": "DTS.ante is literally Ranta.v's donkey context type"},
+  {"name": "anaphora-resolution-mechanism", "attempted_by": ["a", "b"], "grade": 3, "evidence": "DTS generalizes: resolution spaces (Ctx -> A) with felicity = inhabitedness (dts_donkey_felicitous); Ranta's rule picks one resolvent — one-way generalization", "note": "the Bekki delta over Ranta"},
+  {"name": "anaphoric-ambiguity", "attempted_by": ["b"], "grade": null, "evidence": "resolution_ambiguity: two-antecedent discourse has extensionally distinct resolvents"},
+  {"name": "presupposition-projection", "attempted_by": ["b"], "grade": null, "evidence": "the_bare_presupposes / the_conditional_projects_nothing (BM17 context passing)"},
+  {"name": "generation-sugaring", "attempted_by": ["a"], "grade": null, "evidence": "Ranta.v Part 5"},
+  {"name": "text-discourse-progression", "attempted_by": ["a", "b"], "grade": 4, "evidence": "Ranta.v text2/sigma_assoc; DTS contexts are the same telescopes (the_conditional_is_donkey reflexivity on the shared shape)"}
+ ],
+ "notes": "DTS is the dynamic branch from Ranta: identical context ontology, resolution generalizing pronominalization (grade 3 one-way by design — that IS the contribution), plus phenomena Ranta lacks (ambiguity-as-multiplicity, presupposition via @-terms). Source caveat: Bekki 2014 / Bekki-Mineshima 2017 PDFs not yet in papers/; DTS.v's section refs are to be spot-checked."
+}

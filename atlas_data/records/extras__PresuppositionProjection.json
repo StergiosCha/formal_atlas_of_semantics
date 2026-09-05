@@ -1,0 +1,243 @@
+{
+  "file": "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/PresuppositionProjection.v",
+  "region": "model-theoretic/dynamic (presupposition)",
+  "summary": "355-line file (compiles under Coq 8.20.1 with one masking-absolute-name warning) that encodes presupposition projection as two-dimensional Karttunen-Peters bookkeeping, not as Heim's context-change theory. The core datatype is a record PresupProp = (assertion : Prop, presupposition : Prop) (lines 18-21); projection is stipulated construction by construction: negation copies the presupposition (presup_negation, lines 92-96), a conditional with a bare-Prop antecedent P yields presupposition P -> presupposition Q (presup_conditional, lines 130-134), belief plugs to True (plug_context, lines 271-275), and complex_conditional_full (lines 334-337) writes out Karttunen-Peters' heritage rule p' /\\ (p -> q') by hand. A 'context' is a set of Props (Context := Prop -> Prop, line 218) with context_entails ctx p := (forall q, ctx q -> q) -> p (lines 224-225) and global accommodation as set insertion (lines 232-233). 8 Theorem/Lemma statements, all Qed, every one closed by reflexivity or a single intro/apply; no propositional axioms (Classical and Lia are imported at line 8 and never used); 18 non-propositional Parameters. Independently re-verified against the compiled .vo: context_entails collapses to actual-world implication (forall ctx p, p -> context_entails ctx p, so the empty context 'entails' every true Prop and a context containing False entails everything), the universal projection theorem (lines 197-207) is a record-projection identity whose hypothesis is unused, truth_value_gap is definitionally presup_failure (lines 32-33) while presup_true (lines 24-25) makes failure plain falsity (no third value), and presup_conditional drops the antecedent's own presupposition. Relative to Heim 1983 the file formalizes precisely the three-property theory Heim's section 1.1 argues against and none of Heim's own apparatus: no context change potentials (14)/(15)/(21)/(27), no admittance-as-definedness, no truth definition (13), no sequence-world contexts (17)-(18), no novelty condition (22), no local accommodation, no derivation of the universal presupposition of 'every'-sentences (section 3.2). Heim 1982 (files, Novelty-Familiarity Condition, felicity via elementary file-change steps, bridging accommodation) is not touched at all.",
+  "sources": [
+    {
+      "citation": "Heim, I. (1983). On the Projection Problem for Presuppositions. WCCFL 2, 114-125; on disk as the Portner & Partee (eds.) 2002 reprint, Formal Semantics: The Essential Readings, ch. 10, pp. 249-260 (page numbers in this record refer to the reprint). Section 1.1 (K&P content/presupposition/heritage properties; rule (4): presupposition of 'If A, B' is p' & (p -> q'), p. 250); 1.2 (examples (5)-(6), disjunction and 'stopped smoking' counterexamples, p. 251); 1.3 (quantified sentences (7)-(9), free-variable presuppositions, pp. 251-252); 2.1 ((10) local contexts, (11) admittance, (12) 'S presupposes p iff all contexts that admit S entail p', p. 252); 2.2 ((13) truth via CCP, (14) c + If A,B = c \\ (c+A \\ c+A+B), (15) c + Not S = c \\ c+S, negation as a Karttunen-1973 'hole', pp. 253-254); 2.3 (global vs local accommodation, example (16) 'The king of France didn't come', pp. 254-255); 3.1 ((17)-(20) contexts as sets of sequence-world pairs, pp. 255-256); 3.2 ((21) CCP of 'every', (22) novelty condition, 'Every x, A, B' presupposes 'Every x, A, X', (23)-(24), pp. 256-258); 3.3 ((25)-(27) indefinites, p. 258); 4 (explicitly defers 'or', modals and propositional attitude verbs, p. 259).",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/foundations/Heim_1983_ProjectionProblem.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Ph.D. dissertation, UMass Amherst; on disk as the Schoubye & Glick retypeset edition (pagination differs from the original). Relevant parts: Ch. II 6.2 'The felicity conditions of definites with descriptive content' (definites presuppose their descriptive content (4b) cat(x1), not existence-and-uniqueness (4c); uniqueness argued to follow from felicity conditions, pp. 153-157); Ch. II 6.3 'Non-referring definites and a projection problem for felicity conditions' (K&P quantifiers as filters; universal rule (8); existential rule (12); 'and' rule (13): [phi /\\ psi] presupposes [chi /\\ [phi -> xi]]; the existential-projection problem, pp. 157-163); Ch. III 2.5 'The Novelty-Familiarity-Condition and the Projection Problem' (a complex formula is felicitous w.r.t. F iff every elementary step in computing F + phi respects the felicity conditions, pp. 208-211); Ch. III 5.2 'Novel definites and accommodation' (accommodation as file adjustment with bridging cross-references, pp. 238-241).",
+      "path": "/Users/graogro/Dropbox/formalizing_formal_semantics/papers/dynamic/Heim_1982_DefiniteIndefiniteNPs.pdf",
+      "available": "full"
+    },
+    {
+      "citation": "Karttunen, L. (1973). Presuppositions of compound sentences. Linguistic Inquiry 4: 169-193 (holes/plugs/filters taxonomy used at lines 260-286); Karttunen, L. & Peters, S. (1979). Conventional implicature. Syntax and Semantics 11 (two-dimensional content/presupposition pairs with per-item heritage functions: the actual design of PresupProp, presup_conditional and complex_conditional_full). Not assigned and not on disk; listed because they are what the file in fact encodes, as characterized in Heim 1983 section 1.1 (rule (4)) and Heim 1982 Ch. II 6.3 (rules (8), (12), (13)).",
+      "available": "missing"
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "PresupProp := { assertion : Prop; presupposition : Prop } (lines 18-21)",
+      "source": "Heim 1983 section 1.1, p. 250: K&P's 'content property' and 'presupposition property' of an expression (two-dimensional meaning)",
+      "match": "simplified",
+      "note": "This is the K&P representation that Heim summarizes in order to replace. Heim's own lexical entry is (CCP, presupposition property) with the heritage property derived (section 2.2, p. 253). The record carries no context argument, so a CCP c+S is not even statable over it; the third K&P dimension (heritage) is smeared over the per-construction definitions below."
+    },
+    {
+      "coq": "presup_true p := presupposition p /\\ assertion p (lines 24-25)",
+      "source": "Heim 1983 (13), p. 253: 'Suppose c is true and c admits S. Then S is true w.r.t. c iff c+S is true' (partial, context-relative)",
+      "match": "changed",
+      "note": "Conjunction analysis: a sentence with a failed presupposition is simply false, and (re-verified) so is its negation, i.e. bivalent Russellian truth conditions. Heim's definition is partial (undefined unless c admits S) and relativized to c; neither partiality nor the context is present."
+    },
+    {
+      "coq": "presup_failure p := ~ presupposition p; truth_value_gap p := presup_failure p (lines 28-33)",
+      "source": "none in either source; Strawsonian 'gap' terminology",
+      "match": "added",
+      "note": "truth_value_gap is definitionally presup_failure (re-verified: truth_value_gap p <-> presup_failure p by reflexivity). There is no third truth value. Heim's undefinedness is undefinedness of the update c+S (section 2.2, p. 253), not a gap in a truth predicate."
+    },
+    {
+      "coq": "exists_unique P; king_of_france_is_bald := mkPresup (exists x, king_of x france /\\ bald x) (exists_unique (fun x => king_of x france)) (lines 47-55)",
+      "source": "Heim 1983 p. 250: 'the' contributes the presupposition that its noun has a non-empty extension; (16) 'The king of France didn't come', p. 254. Heim 1982 Ch. II 6.2 pp. 153-157: definites presuppose their descriptive content (4b), and a uniqueness presupposition (4c)/(4d) is explicitly argued to be unnecessary",
+      "match": "changed",
+      "note": "Existence + uniqueness is imposed as the presupposition, which Heim 1983 does not attribute to 'the' and Heim 1982 argues against. The assertion is a second, independently hand-written Prop (an existential, not 'the unique king is bald') rather than being derived from a definite-description operator; assertion and presupposition are not linked by any definition or theorem."
+    },
+    {
+      "coq": "john_knows_mary_left (factive, lines 64-68); john_stopped_smoking (change of state, lines 75-79); Parameters knows : Entity -> Prop -> Prop, smokes, stopped_smoking",
+      "source": "none: Heim 1983 section 4, p. 259 explicitly defers propositional attitude verbs; 'stopped smoking' appears only inside the disjunction counterexample to K&P at p. 251",
+      "match": "added",
+      "note": "Textbook triggers, not from the assigned sources. knows takes a Prop complement, so in this extensional setting the attitude is a function of a truth value; stopped_smoking is an unrelated Parameter, so nothing connects the assertion to smokes."
+    },
+    {
+      "coq": "presup_negation p := mkPresup (~ assertion p) (presupposition p) (lines 92-96); king_not_bald (line 107)",
+      "source": "Heim 1983 (15) c + Not S = c \\ c+S, p. 254, from which 'c admits Not S only if c admits S' (negation is a hole) is derived",
+      "match": "changed",
+      "note": "The hole property is written into the definition of negation's heritage. That is exactly the per-item stipulation Heim's section 1.1 (p. 250) calls non-explanatory; no CCP for 'not' exists from which it could be derived."
+    },
+    {
+      "coq": "presup_conditional (P : Prop) (Q : PresupProp) := mkPresup (P -> assertion Q) (P -> presupposition Q) (lines 130-134)",
+      "source": "Heim 1983 (4) p. 250: presupposition of 'If A, B' is p' & (p -> q'); (10)+(11) p. 252 and (14) p. 253: c admits 'If A, B' iff c admits A and c+A admits B",
+      "match": "simplified",
+      "note": "The antecedent is a bare Prop, so its own presupposition p' is dropped (re-verified: presupposition (presup_conditional (assertion A) B) = (assertion A -> presupposition B)). The file's own comments at lines 316-327 concede this. The rule is stipulated, not derived from (14)."
+    },
+    {
+      "coq": "johns_wife_pregnant; conditional_wife_pregnant; Parameters married, wife_of : Entity -> Entity, pregnant, rich (lines 137-149)",
+      "source": "none in the sources (Heim 1983's running example (3) is 'If the king has a son, the king's son is bald', p. 249)",
+      "match": "added",
+      "note": "wife_of is a total function, so 'John's wife' always denotes and the presupposition 'married john' is attached by hand (comment on line 144 admits the shortcut). The antecedent used is 'rich john', so the example does not even instantiate the filtering case (antecedent entails presupposition) that the source is about."
+    },
+    {
+      "coq": "all_johns_children_asleep (lines 173-177)",
+      "source": "none in Heim 1983/1982",
+      "match": "added",
+      "note": "Existence presupposition of a definite plural; no projection operator is applied to it and no theorem mentions it."
+    },
+    {
+      "coq": "knows_logic_hard x; every_prof_knows_logic (lines 185-194); Parameters professor, logic_hard : Prop",
+      "source": "Heim 1983 section 3.2 pp. 256-257: if B presupposes X then 'Every x, A, B' presupposes 'Every x, A, X', with X containing the bound variable (e.g. (7)/(9) 'x has a king'); Heim 1982 Ch. II 6.3 rule (8)",
+      "match": "simplified",
+      "note": "The presupposition logic_hard is a closed Prop, independent of the bound individual, so the entire point of Heim's section 3 (open-sentence presuppositions, sequence-world contexts, novelty condition (22), derivation of the universal presupposition) is bypassed; the example degenerates to a constant."
+    },
+    {
+      "coq": "Context := Prop -> Prop; in_context; context_entails ctx p := (forall q, in_context ctx q -> q) -> p (lines 218-225)",
+      "source": "Heim 1983 section 2.1 p. 252: context as a set of propositions or their conjunction (Stalnaker); entailment in (12); superseded in 3.1 (17)-(18) pp. 255-256 by sets of sequence-world pairs",
+      "match": "changed",
+      "note": "No worlds: 'entailment' is Coq implication evaluated in the one actual world. Re-verified consequences: forall ctx p, p -> context_entails ctx p (the empty context fun _ => False entails every true Prop) and context_entails (fun q => q = False) p for every p. Heim's entailment quantifies over the worlds (or sequence-world pairs) in c. Membership is Leibniz equality on Prop (accommodate, line 233), so logically equivalent presuppositions are distinct members."
+    },
+    {
+      "coq": "presup_satisfied_in_context ctx p := context_entails ctx (presupposition p); felicitous := presup_satisfied_in_context (lines 228-237)",
+      "source": "Heim 1983 (11)-(12) p. 252: admittance; 'S presupposes p iff all contexts that admit S entail p'. Heim 1982 Ch. II 6.2 p. 154: 'If an utterance is to be felicitous in a situation, its presupposition has to be presupposed to be true by the discourse-participants'",
+      "match": "simplified",
+      "note": "Direction reversed relative to Heim 1983: the presupposition is primitive and admittance is defined as entailment of it, whereas Heim takes admittance (definedness of c+S) as primitive and defines 'presupposes' by (12). Inherits the collapsed entailment: re-verified that presupposition P -> felicitous ctx P for every ctx, so felicity is context-independent whenever the presupposition is actually true."
+    },
+    {
+      "coq": "accommodate ctx presup := fun p => in_context ctx p \\/ p = presup (lines 232-233)",
+      "source": "Heim 1983 section 2.3 pp. 254-255: global option 'amend c to c&p' vs local option 'c \\ (c&p + S)'; Heim 1982 Ch. III 5.2 pp. 238-241: accommodation as adding a file card linked by cross-references to existing cards",
+      "match": "simplified",
+      "note": "Only the global option is representable; the local option substitutes into a CCP, which the file lacks. Heim 1983 itself stops 'far short of a general and precise formulation of the laws governing accommodation' (p. 255). Nothing of the 1982 bridging account is present."
+    },
+    {
+      "coq": "hole_context, plug_context x P := mkPresup (believes x (assertion P)) True, filter_context, is_hole, is_plug (lines 265-286)",
+      "source": "Karttunen 1973 hole/plug/filter taxonomy (not on disk); Heim 1983 p. 254 uses 'hole' once, citing Karttunen; Heim 1983 section 4 p. 259 explicitly leaves attitude verbs open",
+      "match": "added",
+      "note": "'believe' is made a total plug (presupposition True), a claim neither source makes (Heim defers attitude verbs; Karttunen's plugs are verbs of saying and attitude verbs are standardly analyzed as shifting the presupposition to the attitude holder). is_filter is never defined although the comment at line 262 announces filters; filter_context is just presup_conditional renamed."
+    },
+    {
+      "coq": "complex_conditional; collect_presuppositions p1 p2 := presupposition p1 /\\ presupposition p2; complex_conditional_full := mkPresup (a1 -> a2) (p1 /\\ (a1 -> p2)) (lines 309-337)",
+      "source": "Heim 1983 (4) p. 250 (K&P heritage rule for 'if': p' & (p -> q')); cf. Heim 1982 Ch. II 6.3 rule (13) for 'and'",
+      "match": "exact",
+      "note": "complex_conditional_full writes K&P's rule (4) out by hand for one example, so it is exact for the rule Heim quotes, but that is the stipulated rule Heim's paper replaces by derivation from (14). No theorem is stated about complex_conditional_full or collect_presuppositions, and collect_presuppositions (plain conjunction) is not the rule used two lines later."
+    },
+    {
+      "coq": "(absent) context change potentials c+S, definedness of c+S, (13), (14), (15), (21), (27)",
+      "source": "Heim 1983 sections 2.2, 3.2, 3.3",
+      "match": "missing",
+      "note": "The paper's central construct and central claim ('the heritage property of \"if\" falls out from its CCP', p. 254) have no counterpart and cannot be expressed over PresupProp."
+    },
+    {
+      "coq": "(absent) sequence-world-pair contexts (17)-(18), CCPs of open sentences (19)-(20), novelty condition (22), 'no' (24), indefinites (25)-(27), local accommodation",
+      "source": "Heim 1983 sections 2.3, 3.1-3.3",
+      "match": "missing",
+      "note": "Section 3 of the paper is entirely absent: the file has no assignments, no worlds, and no variables inside presuppositions."
+    },
+    {
+      "coq": "(absent) files, Novelty-Familiarity Condition, felicity of complex formulas via elementary file-change steps, bridging accommodation, K&P existential rule (12) and 'and' rule (13)",
+      "source": "Heim 1982 Ch. II 6.3; Ch. III 2.5, 5.2",
+      "match": "missing",
+      "note": "Nothing from the dissertation is encoded; the file does not Require extras/FCS.v either. It Requires shallow/MontagueFragment.v only for the type Entity and then shadows MontagueExtensional.john/mary with fresh Parameters (lines 58-59; Locate john resolves to PresuppositionProjection.john)."
+    }
+  ],
+  "theorems": [
+    {
+      "name": "negation_preserves_presupposition (Theorem, lines 99-104)",
+      "status": "proved",
+      "source_claim": "Heim 1983 p. 254: (15) determines that negation is a 'hole' (c admits Not S only if it admits S)",
+      "note": "Closed by reflexivity; unfolds the stipulation in presup_negation rather than deriving hole-ness from a CCP. Print Assumptions: closed under the global context."
+    },
+    {
+      "name": "same_presupposition_under_negation (Lemma, lines 110-117)",
+      "status": "proved",
+      "source_claim": "Instance for 'The King of France is not bald' (cf. Heim 1983 (16) 'The king of France didn't come', p. 254)",
+      "note": "Reflexivity. Assumptions: king_of, france, bald, Entity (all non-propositional Parameters)."
+    },
+    {
+      "name": "conditional_presupposition (Lemma, lines 152-157)",
+      "status": "proved",
+      "source_claim": "Second conjunct of K&P's rule (4) as quoted in Heim 1983 p. 250 (p -> q'), for one example",
+      "note": "Reflexivity over presup_conditional. Assumptions: wife_of, rich, pregnant, married, john."
+    },
+    {
+      "name": "universal_presupposition_projection (Theorem, lines 197-207)",
+      "status": "proved",
+      "source_claim": "Advertised (comment lines 196, 349) as projection through universal quantification (Heim 1983 section 3.2 / K&P rule (8) in Heim 1982 Ch. II 6.3); actually states presupposition (mkPresup _ X) = X",
+      "note": "Vacuous: the conclusion is a record-projection identity and the hypothesis H is never used (re-verified: the identical conclusion is provable by reflexivity with the hypothesis deleted). It says nothing about how the presupposition of a universal is computed from its parts, and the example presupposition (logic_hard) contains no bound variable."
+    },
+    {
+      "name": "global_accommodation (Theorem, lines 240-250)",
+      "status": "proved",
+      "source_claim": "Heim 1983 section 2.3 p. 254, global option: after amending c to c&p, S is admitted",
+      "note": "Trivial (apply H; right; reflexivity). Weaker than it looks under the file's actual-world entailment: felicitous ctx p already holds for any ctx when presupposition p is true (re-verified)."
+    },
+    {
+      "name": "negation_is_hole (Theorem, lines 288-291)",
+      "status": "proved",
+      "source_claim": "Karttunen 1973 hole; Heim 1983 p. 254",
+      "note": "Repackages negation_preserves_presupposition under is_hole. Closed under the global context."
+    },
+    {
+      "name": "belief_is_plug (Theorem, lines 293-296)",
+      "status": "proved",
+      "source_claim": "new (Heim 1983 section 4 p. 259 explicitly declines to treat attitude verbs)",
+      "note": "Reflexivity on the stipulated True presupposition. Assumptions: believes, Entity."
+    },
+    {
+      "name": "complex_presupposition (Lemma, lines 319-324)",
+      "status": "proved",
+      "source_claim": "new; instance of presup_conditional for 'If the King of France is bald, John knows Mary left'",
+      "note": "Reflexivity. The file's own comments (lines 316, 326) say the computed presupposition is incomplete; the corrected complex_conditional_full has no theorem."
+    }
+  ],
+  "counts": {
+    "theorems": 8,
+    "proved": 8,
+    "admitted": 0,
+    "propositional_axioms": 0
+  },
+  "faithfulness": {
+    "verdict": "unfaithful",
+    "evidence": [
+      "Architecture is Karttunen-Peters, not Heim: a (content, presupposition) pair per expression (PresupProp, lines 18-21) plus a stipulated heritage rule per construction (presup_negation lines 92-96, presup_conditional lines 130-134, plug_context lines 271-275, complex_conditional_full lines 334-337 = K&P rule (4) at Heim 1983 p. 250). Heim 1983 section 1.1 (p. 250) presents this three-property setup as the theory to be replaced, and sections 2.1-2.2 (pp. 252-254) replace it by deriving admittance conditions from CCPs (14)-(15).",
+      "No context change potential appears anywhere; PresupProp has no context argument, so c+S, definedness of c+S, (13), (14), (15), (21), (27) cannot be expressed. The paper's central claim ('the heritage property of \"if\" falls out from its CCP', p. 254) is therefore neither formalized nor formalizable in the file's types.",
+      "Context := Prop -> Prop with context_entails ctx p := (forall q, ctx q -> q) -> p (lines 218-225) replaces entailment across worlds (Heim 1983 (12) p. 252, (17)-(18) pp. 255-256) by actual-world implication. Re-verified in a scratch file against the compiled .vo: forall ctx p, p -> context_entails ctx p; forall p, context_entails (fun q => q = False) p; hence forall ctx P, presupposition P -> felicitous ctx P. Felicity is independent of the context whenever the presupposition happens to be true.",
+      "universal_presupposition_projection (lines 197-207) is a reflexivity on a record projection with an unused hypothesis (re-verified by re-proving the identical conclusion with no hypothesis). It does not encode Heim 1983's section 3.2 prediction that 'Every x, A, B' presupposes 'Every x, A, X' (p. 257), nor Heim 1982's rule (8) (Ch. II 6.3, p. 159); the example presupposition logic_hard (line 187) is closed.",
+      "presup_true (lines 24-25) makes a sentence with a failed presupposition false, and its negation false too (re-verified), while truth_value_gap (lines 32-33) is definitionally presup_failure; there is no third value and no partial truth definition, contradicting both the file's own gap comment (line 31) and Heim's partial (13) (p. 253).",
+      "The definite-description presupposition is existence + uniqueness (exists_unique, lines 47-55). Heim 1983 p. 250 attributes only non-emptiness to 'the', and Heim 1982 Ch. II 6.2 (pp. 155-157) argues at length that no uniqueness presupposition (4c)/(4d) should be stipulated because uniqueness follows from felicity conditions. Uniqueness is the position both sources reject.",
+      "Only global accommodation is representable (accommodate, lines 232-233); Heim 1983 section 2.3 (pp. 254-255) contrasts it with local accommodation c \\ (c&p + S), which requires a CCP to substitute into. Heim 1982's bridging accommodation (Ch. III 5.2, pp. 239-241) is absent.",
+      "Belief as a total plug (presupposition True, lines 271-275, 293-296) is an addition Heim 1983 section 4 (p. 259) explicitly declines to make.",
+      "Heim 1982 is not engaged with at all: no files, no Novelty-Familiarity Condition, no felicity via elementary file-change steps (Ch. III 2.5, pp. 208-210), no rules (12)/(13) of Ch. II 6.3. The Montague fragment Required at line 9 contributes only the type Entity; john/mary are re-declared (lines 58-59) and shadow the imported constants."
+    ],
+    "omissions": [
+      "Context change potentials (14), (15), (21), (27) and admittance as definedness of c+S (Heim 1983 sections 2.2, 3.2, 3.3)",
+      "Truth definition via CCP, (13) (p. 253)",
+      "Contexts as sets of sequence-world pairs, (17)-(18); CCPs of open sentences (19)-(20) (section 3.1)",
+      "Novelty condition (22) and the derivation (with its necessity proof 'by exploiting (22)', p. 257) of the universal presupposition of 'every'-sentences, incl. (23) and 'no' (24) (section 3.2)",
+      "Indefinites (25)-(27) and their accommodation pattern (section 3.3)",
+      "Local accommodation and the global/local contrast on (16) (section 2.3)",
+      "The paper's theorem-like claims: (10)+(11) reproduce (4) (p. 252); (14) yields 'c admits A and c+A admits B' (p. 254); (15) yields hole-ness (p. 254)",
+      "All of Heim 1982: files, Novelty-Familiarity Condition, felicity of complex formulas (Ch. III 2.5), bridging accommodation (Ch. III 5.2), K&P rules (8), (12), (13) and the existential-projection problem (Ch. II 6.3), the argument against uniqueness presuppositions (Ch. II 6.2)"
+    ],
+    "additions": [
+      "Factive 'know' and change-of-state 'stop' triggers (lines 57-79)",
+      "Uniqueness in the definite-description presupposition (lines 47-55)",
+      "Belief as a total plug (lines 268-275, 293-296)",
+      "Hole/plug classification predicates is_hole/is_plug (lines 282-286; Karttunen 1973 vocabulary, not Heim)",
+      "'John's wife is pregnant' conditional and 'all of John's children are asleep' examples (lines 136-157, 167-177)",
+      "Strawsonian truth_value_gap terminology (lines 31-33) with no third value behind it"
+    ],
+    "simplifications": [
+      "Two-dimensional (assertion, presupposition) pairs instead of context-indexed CCPs",
+      "Antecedent of a conditional is a bare Prop, dropping p' (lines 130-134); K&P's full rule is recovered only by hand in complex_conditional_full (lines 334-337)",
+      "Context as a set of Props with actual-world material 'entailment' instead of a set of worlds / sequence-world pairs",
+      "Universal projection example with a closed, variable-free presupposition (line 187)",
+      "Global accommodation as set insertion; no local accommodation"
+    ]
+  },
+  "determination": "slight_modification",
+  "determination_rationale": "This file is weak evidence about Heim's theory because it does not attempt Heim's theory: what it encodes is the Karttunen-Peters bookkeeping that Heim 1983 section 1.1 rejects, and that fragment goes through trivially (eight reflexivity-level proofs, no axioms). Two things it does show bear on Heim proper. (a) Where it reaches for Heim's notions, context and entailment (lines 218-225), it demonstrates the trap of dropping worlds: with contexts as sets of Props and entailment as Coq implication, entailment collapses to actual-world truth (re-verified), so Heim's (12) and (17)-(18) need an explicit world or assignment-world index. Repairing this is a routine shallow-embedding move (contexts as predicates over (assignment * World), CCPs as functions between them, (21)/(22) as first-order definitions), not a restructuring. (b) Heim's admittance is definedness of c+S (p. 253), i.e. partiality, which Coq Prop does not express natively; the file evades it (truth_value_gap := presup_failure, lines 32-33) rather than encoding it. A faithful encoding needs option-valued CCPs or a definedness predicate paired with a total update, plus classical set difference for (14)-(15); the file already imports Classical (line 8) but never uses it. Both are slight modifications of presentation. The one part of Heim 1983 that is genuinely not formalizable as stated is accommodation, because the source itself declines to state its laws (p. 255); that is a gap in the source, not a type-theoretic obstacle. Hence slight_modification, with the caveat that this file confirms only the trivial K&P fragment.",
+  "artifact_classes": [
+    {
+      "class": "ii",
+      "description": "Propositions are Coq Props with no world index (Context := Prop -> Prop, line 218; knows/believes : Entity -> Prop -> Prop, lines 60, 269). Heim's propositions are sets of worlds and her contexts sets of (sequence, world) pairs ((17)-(18), pp. 255-256); collapsing them to Prop turns contextual entailment into actual-world implication (context_entails, lines 224-225; re-verified: any true p is entailed by the empty context and a context containing False entails everything) and makes attitude complements functions of truth values. Membership in a context is Leibniz equality on Prop (line 233), so logically equivalent presuppositions are distinct members."
+    },
+    {
+      "class": "iv",
+      "description": "Partiality is absent as a native structure. Heim's admittance is definedness of the update c+S and truth (13) is partial (p. 253); the file has no option/definedness encoding and instead defines truth_value_gap p := presup_failure p (lines 32-33) next to presup_true p := presupposition p /\\ assertion p (lines 24-25), i.e. bivalent falsity labelled as a gap. Because partial CCPs are unavailable, the heritage rules Heim derives from them must be stipulated (lines 92-96, 130-134, 271-275)."
+    }
+  ],
+  "compiles": true,
+  "duplicate_of": "",
+  "duplicate_note": "No duplicate. extras/FCS.v (Heim 1983 'File Change Semantics and the Familiarity Theory of Definiteness', a different paper) argues about mechanization barriers; its Section PresuppositionProblem (lines 194-240) defines accommodate over an Ensemble of files Index -> option Entity, a different construct with different content from this file's accommodate (lines 232-233), and it states no projection rules. extras/FCS2.v likewise. extras/FocusEven.v and FocusEven2.v treat presuppositions of 'even' (Karttunen-Peters/Rooth), a different source. extras/mass.v has one unrelated measure-phrase presupposition axiom. This file is not in any listed candidate duplicate group, and nothing in the repository Requires PresuppositionProjection.",
+  "source_gap": "No gap for the assigned sources: both are on disk in full. Heim 1983 is the Portner & Partee 2002 reprint (pp. 249-260; original WCCFL 2 pagination 114-125 not on disk) and Heim 1982 is the Schoubye & Glick retypeset edition (pagination differs from the UMass original); page citations in this record refer to the on-disk editions. The theory the file actually encodes (Karttunen 1973; Karttunen & Peters 1979) is not on disk, but it is characterized precisely enough in Heim 1983 section 1.1 (rule (4)) and Heim 1982 Ch. II 6.3 (rules (8), (12), (13)) to verify the mapping.",
+  "notes": "Compiled with `coqc -R shallow \"\" -R deep \"\" -R extras \"\" -R ttr_mtt \"\" -R atlas \"\" extras/PresuppositionProjection.v` from the repo root (Coq 8.20.1); the only diagnostic is the masking-absolute-name warning at line 9. Print Assumptions on the theorems lists only non-propositional Parameters (Entity, france, king_of, bald, john, mary, knows, left, married, wife_of, pregnant, rich, believes); Classical and Lia (line 8) are never used (no classic/NNPP/lia in the file). All 18 Parameters are declared inside Sections, but Parameter is not discharged by End Section, so they are global axioms; logic_hard : Prop (line 182) is an uninterpreted proposition constant, not an asserted proposition. john and mary (lines 58-59) shadow MontagueExtensional.john/mary imported at line 11; Locate john resolves to PresuppositionProjection.john, so the Montague fragment contributes only the type Entity. The skeptical checks cited above were re-run independently in a scratch file (PPverify.v in the session scratchpad) that Requires the compiled module and proves, all Qed and closed under the global context: entails_trivial (forall ctx p, p -> context_entails ctx p), empty_ctx_entails_true, inconsistent_ctx_entails_all (context_entails (fun q => q = False) p), felicitous_trivial, universal_no_hyp (the conclusion of universal_presupposition_projection with the hypothesis removed, by reflexivity), no_gap (presup_failure p -> ~ presup_true p), neg_also_false (presup_failure p -> ~ presup_true (presup_negation p)), gap_is_failure, and conditional_ignores_antecedent_presup. The closing comment (lines 345-355) claims the file has formalized 'projection through quantification' and 'the compositional projection problem'; neither survives inspection (vacuous universal theorem; final conditional rule written by hand with no theorem). The file is best read as a K&P-style worked-example sheet carrying Heim's title; nothing in it would need to change if Heim 1983 were removed from the source list and Karttunen & Peters 1979 substituted."
+}

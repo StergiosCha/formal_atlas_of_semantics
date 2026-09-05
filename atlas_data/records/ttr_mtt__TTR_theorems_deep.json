@@ -1,0 +1,168 @@
+{
+ "file": "ttr_mtt/TTR_theorems_deep.v",
+ "region": "ttr pilots",
+ "summary": "Demonstration/comparison file for the deep embedding of Cooper's TTR (paired with TTR_theorems_shallow.v). Part A re-proves, against the model-relative inductive witness judgment of TTR_types.v, results both embeddings can state: the 'every man runs / John is a man / John runs' inference (universal premise as a meta-level hypothesis), one concrete instance of record-type width subtyping, and the Cooper A6-A8 subtyping laws (meet below both conjuncts, join above the left disjunct, singleton subtyping, transitivity). Part B states what only the deep embedding can: types stored as record values and recovered (VType reification), computed merges of record types via rt_merge_simple (right-override on label clash), provable uninhabitedness of a type in a model, a self-acknowledged stub of relabelling equivalence (length equality only), decidable equality for basic types only, and cross-model possibility/necessity of inhabitation. 18 theorems, all Qed, zero axioms; most Part B theorems close by reflexivity on concrete data.",
+ "sources": [
+  {
+   "citation": "Cooper, R. (2023). From Perception to Communication: A Theory of Types for Action and Meaning. Oxford University Press. Appendices A1-A11 (cited in the headers of the imported TTR_base.v, TTR_types.v, TTR_records.v).",
+   "path": null,
+   "available": "none"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "witnesses / witnesses_rt (inductive judgments over TTRModel, imported)",
+   "source": "Cooper 2023 A2-A8, A11: the witness assignment a :_TTR T of TYPE_B = <Type, A>",
+   "match": "exact",
+   "note": "deep-embedding design point: witnessing is a separate judgment, not Coq typing; model is a record, not axioms"
+  },
+  {
+   "coq": "subtype M T1 T2 := forall a, witnesses M a T1 -> witnesses M a T2 (imported)",
+   "source": "Cooper's subtyping as witness inclusion",
+   "match": "exact"
+  },
+  {
+   "coq": "rt_man / rt_ind_only / RecType with RF_plain and RF_dep + paths",
+   "source": "Cooper 2023 A11 (dependent) record types, e.g. [x:Ind, c:man(x)]",
+   "match": "simplified",
+   "note": "labelled sets rendered as ordered association lists (TTR_base header admits the ordering artifact; rubric's canonical 'changed' substrate, undischarged by permutation invariance)"
+  },
+  {
+   "coq": "rt_merge_simple (right-priority label override)",
+   "source": "Cooper's merge / asymmetric merge of record types",
+   "match": "changed",
+   "note": "on clashing labels the second type's field wins outright; Cooper's symmetric merge takes the meet of the field types — merging [x:Ind] with [x:Human] here yields x:Human, not x:Ind^Human"
+  },
+  {
+   "coq": "type_bearing_record with VType reification; val_to_type",
+   "source": "Cooper's types as first-class objects (information states tracking believed-inhabited types)",
+   "match": "simplified",
+   "note": "the file's central comparative point: this is inexpressible in the shallow embedding"
+  },
+  {
+   "coq": "same_field_types := length r1 = length r2",
+   "source": "Cooper's relabelling / structural equivalence of record types",
+   "match": "changed",
+   "note": "self-acknowledged stub: 'A real version would check type-by-type structural equality. Simplified here for illustration.'"
+  },
+  {
+   "coq": "ttrtype_eq_basic (bool equality on TBasic only)",
+   "source": "none",
+   "match": "added",
+   "note": "demo of in-principle decidability; full decidable equality on TTRType is impossible since RF_dep fields embed Coq functions Val -> TTRType"
+  },
+  {
+   "coq": "general record subtyping, relabelling proper, symmetric merge with meet, function/set/plurality/singleton record theorems",
+   "source": "Cooper 2023 A4-A5, A11-A12 general claims",
+   "match": "missing",
+   "note": "only concrete instances or stubs appear in this file"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "deep_john_runs / deep_john_witnesses_run",
+   "status": "proved",
+   "source_claim": "the standard TTR inference demo 'every man runs, John is a man |- John runs', lifted to the witness judgment",
+   "note": "the universal premise is a meta-level Coq hypothesis, not a TTR function type or quantifier record"
+  },
+  {
+   "name": "deep_width_subtyping",
+   "status": "proved",
+   "source_claim": "record-type width subtyping: [x:Ind, c:man(x)] <: [x:Ind]",
+   "note": "one concrete 2-field instance, not the general width-subtyping theorem"
+  },
+  {
+   "name": "deep_meet_sub_l / deep_meet_sub_r / deep_join_sup_l / deep_singleton_sub / deep_sub_trans",
+   "status": "proved",
+   "source_claim": "Cooper 2023 A6-A8 subtyping laws for meet, join, singleton, plus transitivity",
+   "note": "re-proved in-file; TTR_types.v already contains the same lemmas including the join right injection omitted here"
+  },
+  {
+   "name": "deep_type_recovery / deep_unicorn_is_structured",
+   "status": "proved",
+   "source_claim": "Cooper's types-as-objects: a type stored as a record value is recoverable and structured",
+   "note": "trivial by reflexivity; would be excluded from counts by a rubric-s3 verifier"
+  },
+  {
+   "name": "deep_merge_result / deep_merge_overlap",
+   "status": "proved",
+   "source_claim": "merge of record types computes",
+   "note": "trivial by reflexivity; rt_merge_simple's right-override on clashes diverges from Cooper's meet-on-common-labels merge"
+  },
+  {
+   "name": "deep_relabel_equivalent",
+   "status": "proved",
+   "source_claim": "relabelling equivalence of [agent:Ind] and [actor:Ind]",
+   "note": "trivial: the definition is a stub (length equality) and does not establish Cooper's relabelling"
+  },
+  {
+   "name": "deep_type_eq_refl / deep_type_eq_diff",
+   "status": "proved",
+   "source_claim": "new: decidability demo for basic-type equality only",
+   "note": "trivial by reflexivity"
+  },
+  {
+   "name": "deep_no_unicorn_witnesses",
+   "status": "proved",
+   "source_claim": "model-relative uninhabitedness is provable: a type with empty assignment has no witnesses",
+   "note": "genuine deep-embedding capability claim"
+  },
+  {
+   "name": "deep_dragon_possible / deep_dragon_not_necessary",
+   "status": "proved",
+   "source_claim": "new: cross-model inhabitation (possible in M1, not necessary given M2), exploiting the model parameter"
+  }
+ ],
+ "counts": {
+  "theorems": 18,
+  "proved": 18,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "18 theorems, all Qed, 0 Admitted; zero Axiom/Parameter declarations in the file and in all three imports (TTR_base.v, TTR_types.v, TTR_records.v) — the model is a TTRModel record threaded through Sections, and the 6 Hypothesis declarations are section-local premises discharged into theorem statements, not axioms",
+   "Part A's subtyping laws are honest consequences of the imported witness-inclusion definition matching Cooper A6-A8",
+   "the file itself flags its stubs: same_field_types carries the comment 'A real version would check type-by-type structural equality. Simplified here for illustration.'",
+   "9 of 18 theorems close by reflexivity on concrete data (merge computations, type recovery, basic-type equality, the relabelling stub) — demonstrations rather than verifications of named source claims",
+   "the anchored grep of the audit protocol reports 6 theorems because 12 are Section-indented; the honest count verified by listing and Qed-count is 18"
+  ],
+  "simplifications": [
+   "'every man runs' rendered as a meta-level hypothesis rather than a TTR function type or quantifier record",
+   "width subtyping proved for one concrete instance only",
+   "join supertype stated only for the left disjunct in this file",
+   "labelled sets as ordered association lists (ordering artifact acknowledged in the TTR_base header, not discharged by permutation invariance)"
+  ],
+  "omissions": [
+   "Cooper's relabelling proper (stubbed to length equality)",
+   "symmetric merge with meet on common labels (rt_merge_simple right-overrides)",
+   "general record subtyping, function/set/plurality types, dependent-field theorems beyond the one witnesses_rt instance",
+   "no Print Assumptions audit recorded in the file"
+  ],
+  "additions": [
+   "ttrtype_eq_basic decidability demo",
+   "cross-model possibility/necessity theorems (B6)",
+   "the type-bearing-record example (B1)"
+  ]
+ },
+ "determination": "major_restructuring",
+ "determination_rationale": "Mechanical application of rubric section 4 to this file's evidence: only a partial formalization exists here — the set-theoretic substrate is rendered as ordered association lists (the rubric's canonical 'changed', acknowledged in the TTR_base header and not discharged by permutation lemmas), merge right-overrides instead of taking Cooper's meet on common labels, and relabelling is a self-acknowledged stub. The determination is per this pilot's evidence, not TTR's ceiling: the axiom-free deep embedding of the witness judgment shows the A2-A8 core transfers cleanly, and the file's real finding is architectural — TTR's types-as-first-class-values (Part B) is exactly what forces reification and defeats a shallow embedding. A fuller formalization proving relabelling, the proper merge, and permutation invariance could plausibly upgrade TTR to slight_modification.",
+ "artifact_classes": [
+  {
+   "class": "ii",
+   "description": "TTR stores types as values (VType inside records, val_to_type) and quantifies over models of type assignments; Coq admits this only via deep reification — the shallow/deep split this file exists to demonstrate is itself the class-(ii) evidence"
+  },
+  {
+   "class": "iv",
+   "description": "labelled sets and records as association lists: no native unordered finite maps, no coercive record subtyping or relabelling; the ordering artifact is admitted in TTR_base's header and never discharged"
+  },
+  {
+   "class": "v",
+   "description": "decidable type equality exists only for basic types (ttrtype_eq_basic); full RecType equality is undecidable because RF_dep fields embed Coq functions Val -> TTRType"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Record produced by the batch audit sweep of 2026-09-05. The file predates the atlas zero-axiom discipline but happens to satisfy it (0 Axiom/Parameter in the file and its imports; model threaded as a record). It is a pilot comparison demo, not a systematic verification: 9 of 18 theorems are reflexivity-trivial and would be excluded by a rubric-s3 verifier. Cooper 2023 PDF absent from papers/; faithfulness judged against the appendix structure cited in the import headers.",
+ "compiles": true
+}

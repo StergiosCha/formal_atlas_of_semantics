@@ -9,8 +9,8 @@ Three surfaces, and only one of them genuinely needs a running process.
 
 `atlas.json`, the 64 records and the 7 edges are files. The graph view, the
 theory pages, the comparison tables, the search — all of it is a static site
-reading JSON. Cloudflare Pages or GitHub Pages, free, no backend, no cold
-start, CDN-fast, and it survives us not paying a bill.
+reading JSON. Azure Static Web Apps Free tier — no backend, no cold start,
+CDN-fast, free SSL on a custom domain, and it survives us not paying a bill.
 
 ## 2. The proof reader → ALSO static (this is the trick)
 
@@ -57,16 +57,74 @@ Checked 2026-09-05 against the providers' own docs.
 
 | Option | Free allowance | Verdict |
 |---|---|---|
-| **Vercel** (Hobby) | 2 GB / 1 vCPU, 300 s max duration, 5 GB bundle, free within limits, non-commercial | **Recommended.** Now a first-class container target: drop a `Dockerfile.vercel` in the repo root, it builds into Vercel Container Registry and gets snapshotted for fast boot. Scales to zero (prod idles down after 5 min). Billed on *Active CPU* — waiting on the LLM API costs nothing, which is exactly our proxy's profile. Same project as the static site, preview deploy per commit. |
-| **Azure Container Apps** | 180,000 vCPU-s + 360,000 GiB-s + 2M requests/month | **Best fallback.** That grant is ~50 vCPU-hours/month = roughly 9,000 twenty-second Coq compiles, free, every month. Plain Docker, scale-to-zero, no duration cap. More ops surface than Vercel, and worth a look because university Azure credit may already be available. |
-| **Hetzner CX22** | — €3.79/mo | 2 vCPU / 4 GB always warm, no cold start, and the only option here that permits **one throwaway container per request** (Docker-in-Docker). Pick this if per-request container isolation becomes a requirement. |
-| **Render** | 512 MB, spins down after 15 min, **~60 s cold start**, 750 h/month | **Rejected for the free tier.** A minute of loading screen on a link someone shared is fatal for an academic demo. Render paid ($7/mo, always-on, no scale-to-zero) is fine but strictly worse value than Hetzner. Render's real strengths — workers, cron, persistent disks, unlimited WebSockets — are things we don't need. |
+| **Azure Container Apps** | 180,000 vCPU-s + 360,000 GiB-s + 2M requests/month, per subscription | **Chosen.** Plain Docker, scale-to-zero, no duration cap, up to 4 vCPU / 8 GiB per replica on Consumption. The grant is ~50 vCPU-hours/month ≈ 9,000 twenty-second Coq compiles. We hold Azure credits, which makes this free twice over. |
+| **Vercel** (Hobby) | 2 GB / 1 vCPU, 300 s max, 5 GB bundle, non-commercial | Strong runner-up. `Dockerfile.vercel` is a first-class container target, snapshotted for fast boot, Active-CPU billed so LLM wait time is free. Would have been the pick without Azure credits. |
+| **Hetzner CX22** | — €3.79/mo | 2 vCPU / 4 GB always warm, and the only option here permitting **one throwaway container per request**. Pick only if per-request container isolation becomes a hard requirement. |
+| **Render** | 512 MB, spins down after 15 min, **~60 s cold start**, 750 h/month | **Rejected.** A minute of loading screen on a shared link is fatal for an academic demo. Paid Render is fine but worse value than Hetzner, and its strengths (workers, cron, disks, WebSockets) are things we don't need. |
 
-**Recommendation: Vercel for all three surfaces.** Static site, precomputed
-proof states, and the container function in one repo, one deploy, free on
-Hobby. If the Coq image proves awkward on Fluid compute or usage outgrows
-Hobby, lift the same `Dockerfile` to Azure Container Apps — that migration is
-a day, and nothing in the frontend changes.
+**Decision: Azure end to end.** Azure Static Web Apps (Free tier) for the site
+and the precomputed proof states, Azure Container Apps for `/check`.
+
+### Design for the grant, not the credits
+
+The important discipline: **architect so the thing survives the credits running
+out.** Student/academic credits expire and take the subscription with them; the
+180,000 vCPU-second monthly grant does not. So:
+
+- `--min-replicas 0` — scale to zero is what keeps us inside the grant
+- small replicas (0.5 vCPU / 1 GiB is enough for `coqc` on our files)
+- cache identical `/check` requests so a shared link doesn't recompile
+
+Credits are then headroom for the one thing scale-to-zero costs us: cold start.
+While credits last, run `--min-replicas 1` to keep a replica warm (billed at
+Azure's reduced *idle* rate, well under the active rate). Drop it back to 0
+when they run out and the service keeps working, just with a few seconds of
+first-request latency. Check the Azure pricing calculator for your region's
+actual idle and active rates — the pricing page renders them dynamically and
+they vary by region.
+
+### Deployment recipe
+
+```bash
+az extension add --name containerapp --upgrade
+az provider register -n Microsoft.App
+az provider register -n Microsoft.OperationalInsights
+
+az group create -n formal-atlas -l westeurope        # closest region to Greece
+az containerapp env create -n atlas-env -g formal-atlas -l westeurope
+
+# builds the Dockerfile in the cloud (ACR Tasks) — no local Docker needed
+az containerapp up -n atlas-checker -g formal-atlas \
+  --environment atlas-env --source ./tool \
+  --ingress external --target-port 8080
+
+# the LLM key never touches the image or the repo
+az containerapp secret set -n atlas-checker -g formal-atlas \
+  --secrets llm-key=<KEY>
+az containerapp update -n atlas-checker -g formal-atlas \
+  --set-env-vars LLM_API_KEY=secretref:llm-key
+
+# scale-to-zero, capped fan-out, one of the allowed cpu/memory pairs
+az containerapp update -n atlas-checker -g formal-atlas \
+  --min-replicas 0 --max-replicas 5 --cpu 0.5 --memory 1.0Gi
+```
+
+Consumption CPU/memory must be one of the allowed pairs — 0.25/0.5Gi,
+0.5/1Gi, 0.75/1.5Gi, 1/2Gi … up to 2/4Gi (4 vCPU / 8 GiB on the larger
+workload profiles). Arbitrary combinations are rejected at deploy time.
+
+Frontend:
+
+```bash
+az staticwebapp create -n formal-atlas-site -g formal-atlas \
+  -s https://github.com/StergiosCha/formal_atlas_of_semantics \
+  -b main --login-with-github --app-location "site"
+```
+
+Static Web Apps Free tier includes custom domains with free SSL. Its app-size
+cap is comfortable for the site plus proof-state JSON, but if the dumps grow
+past it, move `proofstates/` to Azure Blob Storage with static-website hosting
+and fetch them from there — they're immutable per commit, so they cache well.
 
 The real budget line is the LLM, not the hosting. Cap it: rate-limit per IP,
 cache identical statements, and use a small model for the draft with a larger
@@ -101,11 +159,12 @@ recommendation.
 ## Deployment shape
 
 ```
-Vercel (static) ────── site + atlas.json + records + proofstates
-        │
-        └── fetch() ──→ /api/check  (Vercel container function)
-                              ├── LLM proxy (key lives here)
-                              └── coqc runner (ephemeral sandboxed container)
+Azure Static Web Apps ──── site + atlas.json + records + proofstates
+   (Free tier, CDN)            │
+                               └── fetch() ──→ Azure Container Apps
+                                                 atlas-checker (min-replicas 0)
+                                                 ├── LLM proxy (key = ACA secret)
+                                                 └── coqc runner (rlimit + timeout)
 ```
 
 CI (GitHub Actions) on every push: `make -k -j8` → verifier pass →

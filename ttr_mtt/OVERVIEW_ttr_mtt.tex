@@ -1,0 +1,61 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,stmaryrd}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=1.5em}
+
+\title{Mechanizing Formal Semantics in Coq:\\A Three-Way Comparison of Montague, TTR, and MTT}
+\author{Stergios Chatzikyriakidis \and Robin Cooper}
+\date{}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\section{What This Is}
+
+We formalize three frameworks for natural language semantics in Coq (Rocq) and compare them systematically. The three are: Montague's intensional logic as presented in PTQ (1973), Cooper's Type Theory with Records (2023), and Luo's Modern Type Theories as applied to NL semantics (Chatzikyriakidis \& Luo, 2020). For Montague and TTR we provide both a \emph{deep} embedding (the object language is encoded as inductive data, with an explicit interpretation function) and a \emph{shallow} embedding (the object language is mapped directly onto Coq's native type system). For MTT we provide only a shallow embedding, because Coq's type theory already \emph{is} an MTT---the gap between object language and metalanguage is essentially zero, so a deep embedding would add overhead without new insight.
+
+The project has two goals: (i) identify what each framework can and cannot formalize, and what the deep/shallow trade-off buys in each case; (ii) prove, where possible, that the frameworks agree on a shared fragment.
+
+\section{What Exists}
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{@{}llp{8.5cm}@{}}
+\toprule
+\textbf{Framework} & \textbf{Embedding} & \textbf{Coverage} \\
+\midrule
+Montague & Shallow & Analysis trees (syntax rules S1--S17), mutually recursive interpretation, determiners (every/a/the), quantifying-in, relative clauses, tense (Will/Has), necessity ($\Box$), meaning postulates, de dicto/de re, temperature puzzle (Admitted) \\
+Montague & Deep & IL types as inductive \texttt{ILType}, IL expressions as GADT with de Bruijn indices, full \texttt{eval} function, temperature puzzle \emph{proved} via countermodel, $\beta$-soundness, $\hat{\phantom{x}}/\check{\phantom{x}}$ inverse, meaning postulates as IL formulas \\
+TTR & Shallow & Records as Coq Records, subtyping as coercions, quantification, detailed analysis of 6 impossibilities (types as values, merge, relabelling, empty types, cross-model reasoning, dynamic type creation) \\
+TTR & Deep & Labels/fields/labelled sets (A1), type system with witness relation (A2--A8), record types with dependency and merge (A11), types as first-class values via \texttt{VType}, cross-model reasoning \\
+MTT & Shallow & Rich CN ontology with coercive subtyping, copredication via dot types, individuation criteria (CNs as setoids), homonymy, intersective/subsective adjectives, gradable adjectives with degrees, multidimensional adjectives, manner adverbs, veridical predicates \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Each framework has a parallel theorem file (10 theorems for Montague shallow/deep, 6+6 for TTR shallow/deep). All files are collected in a single folder: \texttt{Montague/\{shallow,deep\}}, \texttt{TTR/\{shallow,deep\}}, \texttt{MTT/shallow}.
+
+\section{What We Learn}
+
+\paragraph{The three frameworks are complementary, not competing.} Montague dominates intensional phenomena (tense, modality, scope, the temperature puzzle). TTR excels at type-theoretic infrastructure (merge, types as values, relabelling). MTT leads in lexical semantics (copredication, gradable adjectives, individuation). Basic quantification is the only phenomenon all three currently share.
+
+\paragraph{Deep vs.\ shallow cuts orthogonally.} In both Montague and TTR, the deep embedding enables meta-reasoning (about IL formulas, about type structure) at the cost of proof overhead, while the shallow embedding is more ergonomic for direct linguistic reasoning. The key result in each case: the deep embedding reveals something the shallow one hides. For PTQ, it is the $\langle s,t\rangle/t$ lowering issue---application of IV-type expressions to individual concepts yields propositions, not truth values, requiring explicit $\check{\phantom{x}}$ (\texttt{down}). For TTR, it is the \texttt{VType} constructor, which injects types into the value domain and enables merge and relabelling---the features Cooper's theory needs for dialogue and information update, and the features the shallow embedding provably cannot provide.
+
+\paragraph{MTT stays shallow because Coq $\approx$ MTT.} A deep MTT would encode Coq's own dependent types, $\Sigma$-types, and coercions as inductive data, then interpret them back into the same Coq constructs. The \texttt{eval} function would be essentially the identity. Unlike PTQ (where IL $\neq$ Coq) and TTR (where labelled-set theory $\neq$ Coq), there is no mismatch to exploit. This asymmetry is itself a finding: how far each framework is from dependent type theory determines whether a deep embedding pays off.
+
+\paragraph{Extensional Montague $\cong$ MTT (informally).} When Montague's meaning postulates constrain words to be extensional, individual concepts collapse to entities and the system reduces to $\forall x{:}e.\; \text{man}(x) \to \text{walk}(x)$---exactly MTT's treatment. Both theorem files prove this collapse explicitly. The formal bridge proof remains open.
+
+\section{Next Steps}
+
+\begin{enumerate}
+\item \textbf{Shared benchmark.} Formalize 8--10 sentences identically in all three frameworks (currently only basic quantification overlaps).
+\item \textbf{Bridge proofs.} Prove the extensional Montague $\cong$ MTT equivalence formally; prove TTR's witness-set subtyping coincides with MTT's coercive subtyping on the shared fragment (using a small reflected subtyping lattice, not a full deep MTT).
+\item \textbf{Extend TTR.} Add modality (Cooper's A9), stratification (A10), and full recursive merge.
+\item \textbf{Complete PTQ deep.} Finish the recursive $\text{Eng} \to \text{IL}$ translation function.
+\item \textbf{Cross-pollinate.} Can MTT's copredication/individuation be added to TTR? Can TTR's merge be useful in an MTT setting?
+\end{enumerate}
+
+\end{document}

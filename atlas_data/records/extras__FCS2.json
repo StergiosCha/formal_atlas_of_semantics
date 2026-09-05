@@ -1,0 +1,138 @@
+{
+ "file": "extras/FCS2.v",
+ "region": "dynamic semantics",
+ "summary": "An exploratory negative-result essay, not a formalization: it asks whether embedding ZFC in Coq rescues a File Change Semantics mechanization, and answers 'partially, not enough'. Six modules: a Werner-style ZFC axiomatization (8 propositional axioms incl. choice) where files and info states are bare Ens and the CCP is a placeholder with body True; a Morse-Kelley variant whose unrestricted class-comprehension axiom the file itself proves Russell-inconsistent (class_comprehension_inconsistent, Qed — everything in that module is vacuous, as its own comment notes); a classical-ZFC module with an Admitted filter_exists; a stock-taking module with Admitted set_comprehension and an Admitted random_reset_not_unique that is false as written (its own comment concedes it needs Entity to have 2+ elements); a computation-vs-existence module whose only Qed is the trivial 'exists unit'; and a computable finite alternative (nat entities, list info states, CCP3 := InfoState3 -> list InfoState3, domain approximated by seq 0 10) that the file explicitly flags as 'a NEW theory, not a formalization of FCS'. The file's stated conclusion is that FCS cannot be fully mechanized without changing its fundamental character; its mechanized support for that claim is five Admitted proofs and one inconsistency finding.",
+ "sources": [
+  {
+   "citation": "Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. PhD dissertation, UMass Amherst.",
+   "path": "papers/dynamic/Heim_1982_DefiniteIndefiniteNPs.pdf",
+   "available": "full"
+  },
+  {
+   "citation": "Heim, I. (1983). File Change Semantics and the Familiarity Theory of Definiteness. In Meaning, Use, and Interpretation of Language, de Gruyter.",
+   "path": "papers/dynamic/Heim_1983_FileChangeSemantics.pdf",
+   "available": "full"
+  },
+  {
+   "citation": "Werner, B. Sets in Types, Types in Sets — coq-contribs/zfc (cited in file header as the ZFC-encoding substrate).",
+   "path": null,
+   "available": "code substrate, cited by URL only"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "File1 := Ens / InfoState1 := Ens (WernerZFC)",
+   "source": "Heim's file (assignment of entities to file cards / indices) and satisfaction set",
+   "match": "changed",
+   "note": "bare synonyms for an axiomatized Ens; no pairing/functionality structure imposed, nothing provable about them"
+  },
+  {
+   "coq": "CCP_exists (phi : Ens) : Prop := exists f, forall I, True",
+   "source": "Heim's context change potential",
+   "match": "missing",
+   "note": "placeholder with body True; the file's own comment: 'we can't say what this function DOES'"
+  },
+  {
+   "coq": "existential_update / filter_info_state / set_comprehension (Definitions ended by Admitted)",
+   "source": "Heim's existential CCP with random reset (novelty condition)",
+   "match": "missing",
+   "note": "definition obligations abandoned; the file records this as the finding that ZFC gives existence without computation"
+  },
+  {
+   "coq": "ZFC axiom block (extensionality, pairing, union, power_set, replacement, choice); MK Class/MKSet with class_comprehension(_spec)",
+   "source": "no counterpart in Heim — substrate machinery",
+   "match": "added",
+   "note": "the MK comprehension pair is proven inconsistent in-file (unrestricted comprehension, Russell)"
+  },
+  {
+   "coq": "File3 := nat -> option nat; InfoState3 := list File3; CCP3 := InfoState3 -> list InfoState3; exists_ccp over seq 0 10",
+   "source": "Heim's files, info states, existential CCP",
+   "match": "changed",
+   "note": "finite-domain, list-nondeterminism re-founding; the file itself states this 'is NOT File Change Semantics'"
+  },
+  {
+   "coq": "(none)",
+   "source": "novelty/familiarity conditions, definedness/felicity, file cards, CCPs for negation and conditionals, truth definition, projection",
+   "match": "missing",
+   "note": "none of Heim's headline apparatus is stated"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "class_comprehension_inconsistent",
+   "status": "proved (Qed)",
+   "source_claim": "new — a finding about the file's own MK axiomatization: unrestricted class comprehension is Russell-inconsistent, so the MorseKelley module's axioms derive False and its content is vacuous",
+   "note": "the one substantive Qed in the file; a later repair-pass addition judging by its 'WARNING (finding)' comment style"
+  },
+  {
+   "name": "donkey_sentence_has_semantics",
+   "status": "proved (Qed) but trivial",
+   "source_claim": "new — placeholder 'exists (sem : Type), True' discharged by 'exists unit'; excluded from meaningful results per rubric §3 (true by unfolding)"
+  },
+  {
+   "name": "filter_exists",
+   "status": "Admitted — HARD",
+   "source_claim": "new — separation-style filtering of an info state; believed provable from the module's replacement + LEM but the module redeclares Ens/IN without importing the ZFC axioms, so as placed it has no premises to prove it from"
+  },
+  {
+   "name": "random_reset_not_unique",
+   "status": "Admitted — FALSE as written",
+   "source_claim": "new — asserts non-uniqueness of random reset for arbitrary Entity; its own comment concedes it needs Entity to have 2+ elements (countermodel: empty or singleton Entity), so NEEDS_ASSUMPTION at best"
+  },
+  {
+   "name": "filter_info_state / existential_update / set_comprehension (Definitions via Admitted)",
+   "status": "Admitted — HARD",
+   "source_claim": "Heim's CCP operations; deliberately abandoned to exhibit the existence-vs-computation gap the essay is about"
+  }
+ ],
+ "counts": {
+  "theorems": 4,
+  "proved": 2,
+  "admitted": 5,
+  "propositional_axioms": 8
+ },
+ "faithfulness": {
+  "verdict": "unfaithful",
+  "evidence": [
+   "No FCS construct receives a contentful definition: CCP_exists has body True, and all three CCP-operation Definitions end in Admitted, so no theorem in the file concerns Heim's objects (rubric §2 'unfaithful': theorems concern objects that are not the source's).",
+   "None of Heim's headline claims (novelty/familiarity, CCPs for connectives, truth via file change, projection, donkey conditionals) is even stated; the donkey 'theorem' is 'exists (sem : Type), True'.",
+   "Of the two Qed proofs, one is trivial and the other establishes that the file's own MK axiom pair is inconsistent — a finding about the encoding attempt, not about FCS.",
+   "8 propositional axioms (ZFC block + MK comprehension spec + omega_infinite) with the MK pair proven inconsistent in-file; 5 Admitted occurrences; random_reset_not_unique is false as written (missing 2+-element hypothesis its own comment names)."
+  ],
+  "simplifications": [
+   "ComputableAlternative: finite entity domain (seq 0 10), list info states, explicit list nondeterminism for random reset — but the file itself disclaims this as a new theory rather than a simplification of FCS"
+  ],
+  "omissions": [
+   "all of Heim's actual apparatus: file cards, novelty/familiarity conditions, felicity/definedness, CCPs for negation/conditionals/quantifiers, truth definition, the projection facts"
+  ],
+  "additions": [
+   "Werner-style ZFC axiomatization and MK class theory as substrates",
+   "the class_comprehension_inconsistent Russell finding",
+   "the computable CCP3 alternative",
+   "the extended prose analysis of computation-vs-existence, type confusion, and attitude impredicativity (File_with_attitudes mutual inductive)"
+  ]
+ },
+ "determination": "major_restructuring",
+ "determination_rationale": "The file's own verdict is 'cannot' ('FCS cannot be fully mechanized without changing its fundamental character'), but under rubric §4 that bar is not met by this file: the diagnosis rests on five Admitted proofs (one false as written), one of its two axiomatizations is proven inconsistent, and its central complaint — axiomatized sets don't compute — targets extraction/computability rather than mechanizability (Heim's CCPs on satisfaction sets are directly definable over Prop-level sets/Ensembles, which this file never attempts; 'we did not manage' is not 'cannot'). What the file does evidence is determination 3: the one working artifact recovers FCS-style existential update only after re-founding the theory (finite domains, explicit list nondeterminism for random reset, CCPs as InfoState -> list InfoState), a re-founding the file itself flags as changing the theory's commitments. It also correctly names two genuine pressure points a real formalization must face — random reset's nondeterminism (no canonical choice function) and the impredicativity of attitude-embedded info states — which are recorded here as the file's lasting contribution. A proper FCS record must come from a contentful formalization, not this probe.",
+ "artifact_classes": [
+  {
+   "class": "i",
+   "description": "attitude impredicativity: files containing info states containing files — the file exhibits the File_with_attitudes / InfoState_with_attitudes mutual inductive and notes stratification is forced, losing quantification over all info states"
+  },
+  {
+   "class": "ii",
+   "description": "type–value confusion diagnosed in prose: FCS conflates semantic_value (Prop) with context_update (Ens -> Ens), which Coq keeps as distinct types; also the MK set/class split"
+  },
+  {
+   "class": "iii",
+   "description": "the file's central theme: axiomatized ZFC membership (IN) is opaque — comprehension/filtering/existential update are provable-existent but not computable; no extraction, no example-checking"
+  },
+  {
+   "class": "v",
+   "description": "IN x y undecidable even with LEM (the commented-out is_in : Ens -> bool); filter needs decidable predicates, which forces the bool-based finite alternative"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Record produced by the 2026-09-05 batch audit sweep; the file is a pre-atlas pilot predating the zero-axiom discipline (30 Parameter/Axiom declarations, 8 propositional, one axiom pair proven inconsistent in-file) and is best read as a design memo on why the atlas approach was needed, not as an atlas formalization of FCS.",
+ "compiles": true
+}

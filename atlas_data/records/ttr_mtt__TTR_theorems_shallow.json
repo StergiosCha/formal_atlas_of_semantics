@@ -1,0 +1,166 @@
+{
+ "file": "ttr_mtt/TTR_theorems_shallow.v",
+ "region": "ttr pilots",
+ "summary": "The shallow half of a deliberate shallow-vs-deep comparison of embedding Cooper's TTR in Coq (companion: TTR_theorems_deep.v). Renders a toy TTR fragment natively: ptypes as Ind -> Prop predicates, record types as Coq Records (ManRuns, ManWalks, IndOnly), width subtyping as hand-written coercions, meet/join as /\\ and \\/, singleton subtyping as equality rewriting. Part A proves six parallel toy theorems (every-man-runs inference, width subtyping, meet/join subtype laws, singleton, transitivity); Part B shows where shallow is cleaner (dependent record inference, native existentials, compile-time safety); Part C documents in prose six things the shallow embedding CANNOT do: types as values (universe collapse), computing a merge of record types, generic relabelling (only a hand-written isomorphism, proved as a roundtrip), proving a type empty, cross-model reasoning (no model parameter), and dynamic type construction from runtime data. The file's real content is Part C: it is a diagnosis of where TTR's type-as-value core resists a shallow Coq rendering.",
+ "sources": [
+  {
+   "citation": "Cooper, R. (2005). Records and record types in semantic theory. Journal of Logic and Computation 15(2):99-112.",
+   "path": null,
+   "available": "none"
+  },
+  {
+   "citation": "Cooper, R. (2012). Type theory and semantics in flux. In Handbook of the Philosophy of Science 14: Philosophy of Linguistics, 271-323.",
+   "path": null,
+   "available": "none"
+  },
+  {
+   "citation": "Cooper, R., Dobnik, S., Lappin, S. & Larsson, S. (2015). Probabilistic type theory and natural language semantics. LiLT 10 — adjacent (probabilistic TTR), not the fragment formalized here.",
+   "path": "papers/probabilistic/Cooper_Dobnik_Lappin_Larsson_2015_ProbabilisticTypeTheory.pdf",
+   "available": "full"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "Parameter Ind, john, man, run, walk, dog, cat, love",
+   "source": "TTR basic types and ptypes (man(x), run(x), ...)",
+   "match": "simplified",
+   "note": "ptypes flattened to Coq predicates Ind -> Prop; no witness/judgement layer, no type universe — pure signature parameters"
+  },
+  {
+   "coq": "Record ManRuns/ManWalks/IndOnly",
+   "source": "TTR record types [x:Ind, c_man:man(x), c_run:run(x)]",
+   "match": "changed",
+   "note": "labels become fixed projections, not first-class strings; consequently merge and relabelling are not expressible (file documents this in C2-C3)"
+  },
+  {
+   "coq": "ManRuns_to_IndOnly / ManRuns_to_Ind coercions",
+   "source": "TTR record-type (width) subtyping",
+   "match": "changed",
+   "note": "subtyping is a hand-written per-pair coercion function, not a general relation on types; transitivity proved only as implication composition on Prop"
+  },
+  {
+   "coq": "A /\\ B, A \\/ B on Prop",
+   "source": "TTR meet and join types",
+   "match": "changed",
+   "note": "type-level meet/join collapsed to propositional connectives; the subtype laws become and/or elimination/introduction"
+  },
+  {
+   "coq": "x = john hypothesis (shallow_singleton_sub)",
+   "source": "TTR singleton types Ind_a",
+   "match": "changed",
+   "note": "singleton type replaced by an equality premise; no singleton type former exists"
+  },
+  {
+   "coq": "ManRuns_to_AgentRuns / AgentRuns_to_ManRuns + roundtrip",
+   "source": "TTR relabelling of record types",
+   "match": "changed",
+   "note": "only a hand-written isomorphism for one pair; the generic relabelling operation is unrepresentable (C3)"
+  },
+  {
+   "coq": "(none)",
+   "source": "types as values, merge of record types, models/assignments, dynamic type construction",
+   "match": "missing",
+   "note": "deliberately: Part C documents each as impossible in the shallow embedding and points to the deep companion"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "shallow_john_runs",
+   "status": "proved",
+   "source_claim": "TTR worked example: every man runs, John is a man |- John runs",
+   "note": "section hypotheses discharge into premises; trivial by application"
+  },
+  {
+   "name": "shallow_width_subtyping / shallow_width_subtyping_2",
+   "status": "proved",
+   "source_claim": "width subtyping of record types (ManRuns <: IndOnly)",
+   "note": "second form is coercion transport, proof is 'exact H'"
+  },
+  {
+   "name": "shallow_meet_sub_l / shallow_meet_sub_r",
+   "status": "proved",
+   "source_claim": "meet type is a subtype of both conjuncts",
+   "note": "trivial: and-elimination on Prop, not on TTR types"
+  },
+  {
+   "name": "shallow_join_sup_l / shallow_join_sup_r",
+   "status": "proved",
+   "source_claim": "join type is a supertype of both disjuncts",
+   "note": "trivial: or-introduction"
+  },
+  {
+   "name": "shallow_singleton_sub",
+   "status": "proved",
+   "source_claim": "singleton subtyping",
+   "note": "equality rewriting stands in for the singleton type"
+  },
+  {
+   "name": "shallow_sub_trans",
+   "status": "proved",
+   "source_claim": "transitivity of subtyping",
+   "note": "function composition on Prop implications"
+  },
+  {
+   "name": "shallow_complex_inference",
+   "status": "proved",
+   "source_claim": "dependent record inference: witness of ManRuns yields walk(x) under man&run->walk",
+   "note": "Part B: the shallow side's showcase"
+  },
+  {
+   "name": "shallow_some_man_runs_witness",
+   "status": "proved",
+   "source_claim": "existential witness packaged as a record ('some man runs')"
+  },
+  {
+   "name": "shallow_relabel_roundtrip",
+   "status": "proved",
+   "source_claim": "relabelled record types are isomorphic (Cooper's relabelling)",
+   "note": "proved only for one hand-written pair; the generic operation is documented as unrepresentable"
+  }
+ ],
+ "counts": {
+  "theorems": 12,
+  "proved": 12,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "All 12 theorems end in Qed; the only global assumptions are 9 signature Parameters (one Set, one constant, six predicates) with no propositional content, so Print Assumptions stays within rubric section 3(a); the 4 Hypotheses are section-local and discharge into theorem premises.",
+   "Core TTR definitions are changed by the shallow rendering: record types become native Coq Records with fixed projections, meet/join become /\\ and \\/ on Prop, subtyping becomes per-pair coercion functions — each alters which claims are provable, and the file says so explicitly.",
+   "Part C (lines 172-278) is the file's own admission that TTR headline machinery — types as values (C1), record-type merge (C2), generic relabelling (C3), empty-type reasoning (C4), cross-model reasoning (C5), dynamic type construction (C6) — cannot be stated in this embedding at all.",
+   "What is proved is honest but toy-scale: application, and/or intro-elim, rewriting, one record construction and one hand-written isomorphism roundtrip; several would be excluded as trivial by a rubric section 3 verifier."
+  ],
+  "simplifications": [
+   "ptypes flattened to Ind -> Prop predicates with no judgement/witness layer",
+   "singleton types replaced by equality premises",
+   "subtyping instantiated per pair via coercions rather than defined as a relation"
+  ],
+  "omissions": [
+   "record-type merge and generic relabelling (documented impossible, C2-C3)",
+   "types as first-class values and dynamic type construction (C1, C6)",
+   "models/assignments and cross-model modality (C5, deferred to TTR_theorems_deep.v B6)",
+   "no citation of a specific TTR text; the fragment is reconstructed from Cooper's framework generally"
+  ],
+  "additions": [
+   "the shallow-vs-deep comparison commentary itself, including proof-structure comparisons after each Part A theorem",
+   "AgentRuns and the hand-written relabelling isomorphism as a demonstration of what generic relabelling would require"
+  ]
+ },
+ "determination": "major_restructuring",
+ "determination_rationale": "Judged from this file alone, TTR under a shallow Coq embedding cannot keep its core definitions: record types, meet/join, and subtyping all had to be changed, and the operations that make TTR distinctive (merge, relabelling, types-as-values, dynamic type construction) are documented in Part C as unrepresentable — the file's own conclusion is that recovering them requires re-founding the formalization as a deep embedding (the TTR_theorems_deep.v companion). That is the rubric's section 4 criterion 3 pattern exactly: only a partial formalization exists, and headline machinery is recoverable only after restructuring. The Part C diagnosis is genuine evidence about the theory — TTR's identification of types with values is a class (ii) collision with Coq's universe discipline, not a mere engineering gap.",
+ "artifact_classes": [
+  {
+   "class": "ii",
+   "description": "TTR treats types as first-class values; a record field of type Set forces the record into Type (C1), and types cannot be computed from runtime values (C6) — the shallow embedding hits the type-value collapse directly and documents it"
+  },
+  {
+   "class": "iv",
+   "description": "missing native structure: Coq has no operation producing a new Record type by merging two others (C2) and no generic relabelling — labels are not first-class, so isomorphisms must be written by hand per pair (C3); no model parameter for cross-model reasoning (C5); width subtyping needs hand-declared coercions"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Record produced by the batch audit sweep of 2026-09-05; pre-atlas pilot file predating the zero-axiom discipline (9 global Parameters, all signature-only, so propositional_axioms = 0; section Hypotheses discharge into theorem premises). Its value is comparative-methodological (Part C diagnosis) rather than source-coverage; no specific TTR text is cited and no core TTR paper is on disk under papers/.",
+ "compiles": true
+}

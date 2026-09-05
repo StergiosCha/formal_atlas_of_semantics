@@ -1,0 +1,57 @@
+{
+ "file": "atlas/categorical/DisCoCat.v",
+ "region": "categorical / distributional",
+ "summary": "Coecke-Sadrzadeh-Clark 2010 DisCoCat: the free pregroup as a proof-relevant calculus (Red : Ty -> Ty -> Type with integer adjoint iterators; Le its inhabited Prop shadow) with preorder/tensor/substitutivity, adjoint cancellation, the compound anti-homomorphism laws, compound contraction/expansion (T4), contravariance (T7), uniqueness of adjoints (T8), and the fidelity theorem that Le is NOT antisymmetric on strings (the poset quotient is deliberately never formed); the heterogeneous equational theory deq of the free strict compact closed category (congruence, category laws, strict monoidal laws, interchange, cast-invisibility, the four yanking equations); all readings/bracketings of the 'John likes Mary' reduction proved deq-equal; the concrete model FVect_Q as phantom-dimension matrices with row-major Kronecker (category laws, interchange, STRICT monoidal laws on the nose, both snake shapes at every dimension, eps = inner product, trace = dimension); the meaning functor F by structural recursion, strictly monoidal on objects, with the soundness theorem F_deq — derivations equal in the free compact closed category have equal matrices, for ALL reductions — and sentence-level meaning invariance; worked examples computed exactly by vm_compute (Example 1/1b true and false instances, intransitive, the graded 3/4-1/4 sentence, exact inner products 3/4, 1/4, 0, and 512-column computational reflection of reading-equality).",
+ "sources": [
+  {"citation": "Coecke, B., Sadrzadeh, M. & Clark, S. (2010). Mathematical foundations for a compositional distributional model of meaning. Linguistic Analysis 36.", "path": "papers/categorical/Coecke_2010_MathFoundationsCompositionalDistributional.pdf", "available": "full"},
+  {"citation": "Lambek, J. (2008). From Word to Sentence.", "path": "papers/categorical/Lambek_2008_FromWordToSentence.pdf", "available": "full"},
+  {"citation": "Preller, A. & Lambek, J. (2007). Free compact 2-categories. MSCS 17.", "path": "papers/categorical/Preller_2007_FreeCompact2Categories.pdf", "available": "full"},
+  {"citation": "Sadrzadeh, M., Clark, S. & Coecke, B. (2013). The Frobenius anatomy of word meanings I. JLC.", "path": "papers/categorical/Sadrzadeh_2013_FrobeniusAnatomyI.pdf", "available": "full"},
+  {"citation": "Coecke, B., Grefenstette, E. & Sadrzadeh, M. (2013). Lambek vs Lambek. APAL 164.", "path": "papers/categorical/Coecke_2013_LambekVsLambek.pdf", "available": "full"}
+ ],
+ "definitions_mapped": [
+  {"coq": "Simple := B * Z; ladj/radj as pred/succ; Ty := list Simple; ladj_ty := rev(map ladj)", "source": "PL07 p. 316 iterated adjoints; L08 ch. 4", "match": "exact", "note": "(a^l)^r = a is an honest equality by lia"},
+  {"coq": "Red : Ty -> Ty -> Type (7 constructors, structural steps indexed by ladj/radj); Le := inhabited Red", "source": "L08 ch. 30 rules; CSC10 §2.2, §3.3", "match": "exact", "note": "Type so F can eliminate; the indexing makes all four snakes cast-free (artifact ii)"},
+  {"coq": "deq : heterogeneous equational theory (18 constructors)", "source": "CSC10 §3.1 eqs (1)-(3), §3.3 yanking; PL07 (3.1)", "match": "exact", "note": "heterogeneity avoids transports; completeness for planar diagrams (Preller) NOT proved"},
+  {"coq": "mat m n := nat -> nat -> Q (phantom dims); mmul k; kron m2 n2 (row-major); eps/eta as delta row/column", "source": "CSC10 §3.1 pp. 8-9, eqs (4)-(5), §6", "match": "changed", "note": "phantom dims make the monoidal structure strict on the nose; dimension errors are not type errors — correctness carried by mat_eq (artifact ii)"},
+  {"coq": "dimS ignores the iterator; dimT by fold; F : Red p q -> mat (dimT q) (dimT p) by structural recursion", "source": "SCC13 §4; CGS13 Defs 4.1-4.2; CSC10 Def 3.2", "match": "exact", "note": "F(x^l) = F(x) is definitional, so the self-duality is not a theorem (artifact ii)"},
+  {"coq": "tensor_words as right fold with FULL-tail kron dims; meaning := mmul (F d) (tensor_words ws)", "source": "CSC10 Def 3.2; CGS13 Def 4.2", "match": "exact"},
+  {"coq": "Examples: basic := Bn|Bs|Bj|Bsig; tv/iv/adj/does/not/like types; dim1/dim2; likes/loves/hates/likes_g truth-table vectors", "source": "CSC10 §2.2 pp. 5-6, §4.1 Ex 1/1b, §4.2, §5 Ex 3/5", "match": "exact", "note": "V(men)/W(women) collapse to N — the functor forces it (SCC13 §4), documented"}
+ ],
+ "theorems": [
+  {"name": "Le_refl/trans/tensor/subst (T1-T2); simple adjoint laws + iterated (T3)", "status": "proved", "source_claim": "L08 (3),(4),(6),(7); CSC10 §2.2"},
+  {"name": "radj_ladj etc., radj_ty_ladj_ty (T5); ladj_ty_app anti-homomorphism (T6)", "status": "proved", "source_claim": "L08 (11)-(13); PL07 p. 316"},
+  {"name": "le_not_antisymmetric (T9)", "status": "proved", "source_claim": "L08 ch. 30 (5): the free pregroup is a quotient — Le is honestly a preorder"},
+  {"name": "Le_tv / Le_iv / Le_adj / Le_neg (T10); deq_endpoints (T11)", "status": "proved", "source_claim": "CSC10 p. 6 reductions incl. the negative transitive"},
+  {"name": "deq_tv_subj / deq_tv_obj / deq_tv_alt (T12)", "status": "proved", "source_claim": "all orders/bracketings of the transitive reduction are equal in the free compact closed category"},
+  {"name": "qsum + index kits (T15-T16, ~20 lemmas); mat_eq equivalence + mmul/kron congruence (T17)", "status": "proved", "source_claim": "infrastructure"},
+  {"name": "mmul_assoc / mmul_idm_l/r (T18); interchange + kron_idm (T19); kron_assoc / kron_unit_l/r (T20)", "status": "proved", "source_claim": "CSC10 §3.1: category laws, bifunctoriality, STRICT monoidal laws on the nose"},
+  {"name": "snake_A / snake_B (T21, all dimensions)", "status": "proved", "source_claim": "CSC10 §3.3 p. 11 yanking; the four calculus snakes map onto the two computational shapes"},
+  {"name": "eps_general / eps_inner (T22); trace_eps_eta (T23); mat_eqb_sound (T24)", "status": "proved", "source_claim": "CSC10 eq (5), p. 12"},
+  {"name": "dimT_app/ladj/radj (T25); F_refl/trans/tensor/cup/cap (T26); F_cast (T27)", "status": "proved", "source_claim": "F strictly monoidal on objects; functoriality definitional, stated"},
+  {"name": "F_deq (T28)", "status": "proved", "source_claim": "CSC10 §3.1 p. 9 sound direction of coherence; PL07 Prop 1 — F respects the WHOLE equational theory", "note": "the headline: well-definedness of meanings relative to the calculus"},
+  {"name": "F_tv_orders (T29); meaning_deq (T30)", "status": "proved", "source_claim": "all readings of the sentence have equal meaning, every dimension assignment"},
+  {"name": "ex1_true/false, ex1b_true/false, ex_iv, ex3_graded, ex5_* , readings_agree_computationally (T32-T37)", "status": "proved", "source_claim": "CSC10 §4.1 Ex 1 (= likes_34), 1b (|1>/|0>), §5 Ex 3 (3/4 loves + 1/4 hates), Ex 5 (inner products 3/4, 1/4, 0)", "note": "exact rationals; the paper 'implicitly normalises' (p. 26)"},
+  {"name": "cup/cap gens, Le_cup_l_ty etc. (T4); Le_contra_l/r (T7); adjoint_unique_l (T8)", "status": "proved", "source_claim": "L08 ch. 4 p. 9 telescoping, ch. 27 (1),(3); CSC10 p. 5 'adjoints are unique'"}
+ ],
+ "counts": {"theorems": 98, "proved": 98, "admitted": 0, "propositional_axioms": 0},
+ "faithfulness": {
+  "verdict": "faithful",
+  "evidence": ["The four snake constructors typecheck cast-free with a symbolic simple type, exactly as the design's probe predicted, and F_deq covers every deq axiom including all four yanking cases.", "Every numeric example of CSC10 §4-5 is reproduced exactly by vm_compute.", "All 25 audited theorems closed under the global context."],
+  "simplifications": ["closed sentence forms (CSC10 §4.1 p. 18 general formula) exercised at fixed dimensions per the design's fallback clause S6 — the general symbolic closed form is deferred", "exact rational inner products instead of normalised cosines (Q has no sqrt; the paper normalises implicitly)"],
+  "omissions": ["Preller's completeness of deq for planar diagrams; Buszkowski decidability; the poset quotient (deliberate, T9)", "STRETCH: negative-sentence computation, Frobenius relative pronouns, Lambek single-step equivalence, ordered basic types, parser, semiring/FRel (full plans in designs/discocat.md S1-S7)"],
+  "additions": ["deq_cast + F_cast making casts semantically invisible", "the fidelity theorem T9", "computational reflection layer (mat_eqb) tying deq consequences to vm_compute"]
+ },
+ "determination": "as_is",
+ "determination_rationale": "The calculus, the equational theory, the strict model and the sound meaning map go through with zero axioms; the two encoding moves with content (phantom dimensions; heterogeneous deq) are exactly what makes the STRICT structure of the source honest in Coq, and both are documented artifact classes.",
+ "artifact_classes": [
+  {"class": "i", "description": "checked absence: no positivity workaround needed anywhere"},
+  {"class": "ii", "description": "Red in Type with Le = inhabited shadow; phantom-dimension matrices (dimension errors not type errors; mat_eq carries correctness); F(x^l)=F(x) definitional"},
+  {"class": "iii", "description": "Qeq setoid; junk outside bounds; everything on the vm path transparent; unary div/mod bounds example sizes"},
+  {"class": "iv", "description": "no category/functor classes, no dependent matrices, no bigops, no quotients — every law a named theorem"},
+  {"class": "v", "description": "derivations hand-written (sound parser is STRETCH); mat_eqb decides semantic equality at fixed dims where syntactic deq is not decided"}
+ ],
+ "source_gap": {"kind": "notation", "detail": "CSC10 p. 14 has eps^r_n (x) 1_s (x) eps^l_n where SCC13 §4 prints eps^r twice (a typo there); constructors follow CSC10 and in the model both are eps — commented, not fixed."},
+ "notes": "Built in-session following designs/discocat.md's 9-step build order (the design's probe-verified constructor shapes and stdlib lemma names all held). 1637 lines.",
+ "compiles": true
+}

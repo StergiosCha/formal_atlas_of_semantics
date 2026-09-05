@@ -1,0 +1,175 @@
+{
+ "file": "extras/DonkeyScope.v",
+ "region": "dynamic semantics",
+ "summary": "A pilot survey file that stages the two classic puzzles — quantifier scope ambiguity ('every professor admires a student') and donkey anaphora ('every farmer who owns a donkey beats it') — and sketches five competing analyses side by side: wide/narrow scope logical forms with a concrete two-professor countermodel proving the readings inequivalent; a Russell-style paraphrase; a Hilbert-epsilon choice-function analysis (axiomatized); Lewis-style unselective binding; a hand-rolled dynamic semantics over nat->Entity assignments with hard-coded registers; a DPL fragment (atomic tests, dynamic exists/and exactly per Groenendijk & Stokhof 1991, a fused forall-implication connective) in which the donkey sentence is defined but nothing is proved about it; and Barker-style continuation quantifiers whose two orderings are shown definitionally equal to the wide/narrow readings by reflexivity. Only the generic scope facts are actually proved; every donkey analysis remains an unverified definition.",
+ "sources": [
+  {
+   "citation": "Groenendijk, J. & Stokhof, M. (1991). Dynamic Predicate Logic. Linguistics and Philosophy 14:39-100. (section 4's DPL fragment)",
+   "path": "papers/dynamic/Groenendijk_Stokhof_1991_DPL.pdf",
+   "available": "full"
+  },
+  {
+   "citation": "Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. PhD dissertation, UMass. (assignment-based dynamic binding, section 2 attempt 5)",
+   "path": "papers/dynamic/Heim_1982_DefiniteIndefiniteNPs.pdf",
+   "available": "full"
+  },
+  {
+   "citation": "Lewis, D. (1975). Adverbs of Quantification. (unselective binding, named in file at line 173)",
+   "path": null,
+   "available": "none"
+  },
+  {
+   "citation": "Reinhart, T. (1997) / Winter, Y. (1997). Choice functions for indefinites. (sections 2-3 choice-function analyses)",
+   "path": null,
+   "available": "none"
+  },
+  {
+   "citation": "Barker, C. (2002). Continuations and the Nature of Quantification. NLS 10:211-242. (section 5 continuation semantics)",
+   "path": null,
+   "available": "none"
+  },
+  {
+   "citation": "Geach, P. (1962). Reference and Generality. (the donkey sentence itself)",
+   "path": null,
+   "available": "none"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "wide_scope_existential / narrow_scope_existential",
+   "source": "the two textbook logical forms for 'every professor admires a student' (exists>forall vs forall>exists)",
+   "match": "exact",
+   "note": "over global uninterpreted Parameters professor/student/admires"
+  },
+  {
+   "coq": "atomic / dpl_exists / dpl_and (DPLFormula := Assignment -> Assignment -> Prop)",
+   "source": "G&S 1991 DPL clauses for atoms (tests), dynamic existential, sequential conjunction",
+   "match": "exact",
+   "note": "assignments as nat -> Entity; up to notation these are the paper's relational clauses"
+  },
+  {
+   "coq": "dpl_forall (n : nat) (phi psi : DPLFormula)",
+   "source": "G&S 1991 primitive universal + implication",
+   "match": "simplified",
+   "note": "a fused 'forall x (phi -> psi)' test rather than the paper's primitive forall/negation/implication; extensionally the derived donkey-conditional semantics, but the paper's connectives are not separately defined so its equivalence facts cannot even be stated"
+  },
+  {
+   "coq": "donkey_dpl",
+   "source": "G&S 1991's donkey sentence rendering",
+   "match": "exact",
+   "note": "defined only; the headline theorem (universal truth conditions / egalitarian binding across the implication) is never proved"
+  },
+  {
+   "coq": "choice_function : (Entity -> Prop) -> Entity with Axiom choice_spec; prof_choice with Axiom prof_choice_spec",
+   "source": "choice-function analyses of indefinites (Reinhart 1997 / Winter 1997)",
+   "match": "changed",
+   "note": "a single globally axiomatized Hilbert-epsilon operator instead of the sources' existential closure over choice functions; prof_choice_spec does not make the chosen student admired, which is exactly why choice_equiv_narrow's backward direction is unprovable"
+  },
+  {
+   "coq": "unselective_binding; russell_analysis",
+   "source": "Lewis 1975 unselective binding; Russellian definite-description paraphrase",
+   "match": "simplified",
+   "note": "both reduce to the strong reading; the file neither notes nor proves that the two definitions are logically equivalent"
+  },
+  {
+   "coq": "dynamic_exists / dynamic_forall / donkey_dynamic over Assignment := nat -> Entity",
+   "source": "Heim/G&S assignment-update semantics",
+   "match": "changed",
+   "note": "ad hoc: both binders clobber register 0, indices hard-coded; not the sources' system and nothing is proved about it"
+  },
+  {
+   "coq": "Cont / return_cont / bind_cont / every_cont / some_cont",
+   "source": "Barker 2002 continuized generalized quantifiers",
+   "match": "simplified",
+   "note": "just the GQ type (e->t)->t as a continuation monad; no compositional grammar, so 'scope ambiguity via evaluation order' is exhibited only by writing the two orders down"
+  },
+  {
+   "coq": "In : Entity -> (Entity -> Prop) -> Prop (Parameter) with plural_analysis / plural_donkey",
+   "source": "plural/maximal-set approaches to donkey sentences",
+   "match": "changed",
+   "note": "membership left uninterpreted instead of application, and no maximality condition, so the definitions do not pin down the intended reading; no theorems"
+  },
+  {
+   "coq": "weak vs strong donkey readings; G&S donkey equivalence facts (e.g. 'exists x phi and psi' == 'exists x (phi and psi)')",
+   "source": "the donkey literature's actual headline claims",
+   "match": "missing"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "narrow_true / wide_false (Lemmas, under section hypotheses)",
+   "status": "proved",
+   "source_claim": "the textbook two-professor/two-student countermodel: narrow scope true, wide scope false"
+  },
+  {
+   "name": "scope_ambiguity_distinct_concrete",
+   "status": "proved",
+   "source_claim": "wide and narrow scope readings are logically inequivalent (standard scope-ambiguity fact)"
+  },
+  {
+   "name": "wide_implies_narrow",
+   "status": "proved",
+   "source_claim": "exists>forall entails forall>exists (textbook)"
+  },
+  {
+   "name": "narrow_not_imply_wide_counterexample",
+   "status": "admitted",
+   "source_claim": "narrow does not entail wide",
+   "note": "unprovable as stated: over the uninterpreted global Parameters, ~(narrow -> wide) fails in some interpretations (e.g. empty professor domain), so this needs the countermodel hypotheses already present in the concrete section — FALSE as written, unclassified by the file"
+  },
+  {
+   "name": "choice_equiv_narrow",
+   "status": "admitted",
+   "source_claim": "the choice-function reading is equivalent to narrow scope",
+   "note": "backward direction unprovable: prof_choice_spec only guarantees prof_choice p is a student, not that p admires it; file's own comment says it 'needs functional choice axiom' — NEEDS_ASSUMPTION by its own admission, unclassified per rubric"
+  },
+  {
+   "name": "continuation_scope_correspondence",
+   "status": "proved",
+   "source_claim": "Barker 2002: the two continuation evaluation orders yield exactly the wide/narrow scope readings",
+   "note": "proved by reflexivity — true by construction, definitional coincidence rather than a substantive correspondence"
+  }
+ ],
+ "counts": {
+  "theorems": 7,
+  "proved": 5,
+  "admitted": 2,
+  "propositional_axioms": 2
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "The DPL fragment's atomic/dpl_exists/dpl_and (lines 266-275) are G&S 1991's relational clauses up to notation, and donkey_dpl renders the donkey sentence in them, but no theorem about DPL is proved — the sources' headline claims (donkey equivalences, universal truth conditions of the donkey sentence) are entirely absent.",
+   "The proved theorems (narrow_true, wide_false, scope_ambiguity_distinct_concrete, wide_implies_narrow) verify the standard scope-ambiguity facts, and the section-hypothesis countermodel is genuine.",
+   "continuation_scope_correspondence holds by reflexivity because the readings were defined to unfold identically — a definitional coincidence, not a compositional result.",
+   "Both Admitted theorems are unprovable as stated (narrow_not_imply_wide_counterexample fails in some interpretations of the global Parameters; choice_equiv_narrow's backward direction is not derivable from prof_choice_spec), and neither carries the rubric's FALSE/NEEDS_ASSUMPTION/HARD classification.",
+   "The choice-function analysis replaces the sources' existential closure over choice functions with one globally axiomatized epsilon operator (choice_spec, line 164) — a changed core definition."
+  ],
+  "simplifications": [
+   "dpl_forall fused into a single 'forall x (phi -> psi)' test instead of DPL's primitive connectives",
+   "continuation semantics reduced to bare GQ types with no compositional grammar",
+   "unselective binding and the Russell paraphrase both collapse to the strong reading without comment"
+  ],
+  "omissions": [
+   "G&S 1991's donkey equivalence facts and every property of donkey_dpl",
+   "weak vs strong donkey readings",
+   "DRT/file-change alternatives named in comments only",
+   "maximality in the plural analysis (In left an uninterpreted Parameter)"
+  ],
+  "additions": [
+   "the concrete two-professor countermodel section (a genuine, hypothesis-discharged verification the sources leave informal)",
+   "the definitional continuation-to-scope correspondence theorem"
+  ]
+ },
+ "determination": "not_applicable",
+ "determination_rationale": "The file is a five-analyses demonstration, not a formalization of any single source theory: it proves only generic scope facts and a by-construction correspondence, defines the DPL, dynamic, choice-functional, unselective and plural analyses without establishing any source's headline claim, and its two Admitted theorems are unprovable as stated. It therefore evidences no determination for any of the theories it touches; the determination for DPL is carried by the dedicated DPL.v and its record, not by this file. This is 'insufficient evidence from this file', not a claim that the theories resist mechanization.",
+ "artifact_classes": [
+  {
+   "class": "iv",
+   "description": "no native Hilbert epsilon: choice functions axiomatized as Parameter + propositional Axiom (choice_spec, prof_choice_spec); no native variable-binding apparatus: assignments as nat -> Entity with registers 0/1 hard-coded into dynamic_exists/dynamic_forall and the *_atom definitions; set membership for the plural analysis left as an uninterpreted Parameter In instead of predicate application"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Record produced by the batch audit sweep of 2026-09-05; the file predates the atlas zero-axiom discipline (2 propositional choice axioms, global lexical Parameters, and two unclassified Admitted theorems that the rubric would now require to be marked FALSE / NEEDS_ASSUMPTION).",
+ "compiles": true
+}

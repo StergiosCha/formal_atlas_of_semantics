@@ -1,0 +1,23 @@
+{
+ "file": "atlas/montague/PTQ_vs_MTT.v",
+ "region": "montague lineage",
+ "summary": "Lineage edge: CNs-as-predicates (PTQ) vs CNs-as-types (CL20). After the one re-encoding move (man : Entity -> Prop becomes the subset type inter_cn Entity man), quantified sentences are provably equivalent both ways (every/some/no), and conservativity transfers through the encoding. The selection-restriction divergence is documented as meta-level (grade 0): 'walk(the number two)' is a false-or-true sentence in PTQ and a non-term in MTT.",
+ "sources": [
+  {"citation": "Montague 1973 (via atlas/montague/PTQ.v); Chatzikyriakidis & Luo 2020 §3.2-3.3 (via atlas/mtt_ranta/MTT.v); Luo 2012.", "path": "papers/foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf", "available": "full"}
+ ],
+ "definitions_mapped": [
+  {"coq": "ManT := MTT.inter_cn Entity man; walkT := walk o proj1_sig", "source": "the canonical predicates-to-types encoding", "match": "changed", "note": "the encoding IS the edge's grade-1 finding on cn-ontology"}
+ ],
+ "theorems": [
+  {"name": "mtt_ptq_every / mtt_ptq_some / mtt_ptq_no", "status": "proved", "source_claim": "subset-type quantification = guarded quantification (both directions)"},
+  {"name": "conservativity_transfers", "status": "proved", "source_claim": "B&C universals commute with the encoding"}
+ ],
+ "counts": {"theorems": 4, "proved": 4, "admitted": 0, "propositional_axioms": 0},
+ "faithfulness": {"verdict": "faithful", "evidence": ["All four theorems close under the global context."], "simplifications": [], "omissions": ["the selection-restriction split is prose (E5), deliberately: not statable with comparable instruments"], "additions": []},
+ "determination": "as_is",
+ "determination_rationale": "Pure bridge over the two audited files.",
+ "artifact_classes": [{"class": "iv", "description": "zero axioms"}],
+ "source_gap": null,
+ "notes": "Edge record: edges/ptq__mtt.json.",
+ "compiles": true
+}

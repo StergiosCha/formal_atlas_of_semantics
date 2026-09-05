@@ -1,0 +1,23 @@
+{
+ "a": "atlas__ptq",
+ "b": "atlas__mtt",
+ "a_file": "atlas/montague/PTQ.v",
+ "b_file": "atlas/mtt_ranta/MTT.v",
+ "level": "cross-family",
+ "bridge_file": "atlas/montague/PTQ_vs_MTT.v",
+ "grading": "5 definitional / 4 equivalence / 3 one-way or mediated / 2 divergent / 1 after re-encoding / null one-sided",
+ "phenomena": [
+  {"name": "cn-ontology", "attempted_by": ["a", "b"], "grade": 1, "evidence": "the bridge must re-encode: PTQ's man : Entity -> Prop becomes the subset TYPE inter_cn Entity man before any comparison is statable", "note": "predicates-over-one-domain vs types — the architectural split"},
+  {"name": "quantification-universal", "attempted_by": ["a", "b"], "grade": 4, "evidence": "mtt_ptq_every (both directions; domains differ, so not definitional)"},
+  {"name": "quantification-existential", "attempted_by": ["a", "b"], "grade": 4, "evidence": "mtt_ptq_some"},
+  {"name": "quantification-negative", "attempted_by": ["a", "b"], "grade": 4, "evidence": "mtt_ptq_no"},
+  {"name": "gq-conservativity", "attempted_by": ["a", "b"], "grade": 4, "evidence": "conservativity_transfers (through the encoding)"},
+  {"name": "selection-restrictions", "attempted_by": ["a", "b"], "grade": 0, "evidence": "PTQ_vs_MTT.v E5 prose: 'walk(the number two)' is a (false) sentence in PTQ and a non-term in MTT — meta-level, not statable with comparable instruments"},
+  {"name": "intensionality-seek-find", "attempted_by": ["a"], "grade": null, "evidence": "PTQ.v Part 4"},
+  {"name": "scope-ambiguity", "attempted_by": ["a"], "grade": null, "evidence": "PTQ.v Part 3"},
+  {"name": "copredication-dot-types", "attempted_by": ["b"], "grade": null, "evidence": "MTT.v Part 6"},
+  {"name": "adjective-classes", "attempted_by": ["b"], "grade": null, "evidence": "MTT.v Part 4 (subsective/privative/non-committal need the typed setting)"},
+  {"name": "subtyping-mechanism", "attempted_by": ["b"], "grade": null, "evidence": "MTT.v Part 2"}
+ ],
+ "notes": "Truth conditions agree wherever both can speak (grade 4 across the quantifiers), but the CN ontology needs re-encoding (grade 1) and the selection-restriction phenomenon splits the frameworks at the meta-level (grade 0) — a textbook case of high similarity-on-shared-core with moderate overlap."
+}

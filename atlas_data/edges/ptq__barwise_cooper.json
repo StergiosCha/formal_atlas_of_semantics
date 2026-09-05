@@ -1,0 +1,19 @@
+{
+ "a": "atlas__ptq",
+ "b": "extras__BarwiseCooper",
+ "a_file": "atlas/montague/PTQ.v",
+ "b_file": "extras/BarwiseCooper.v",
+ "level": "intra-family",
+ "bridge_file": "atlas/montague/PTQ.v",
+ "grading": "5 definitional / 4 equivalence / 3 one-way or mediated / 2 divergent / 1 after re-encoding / null one-sided",
+ "phenomena": [
+  {"name": "np-as-generalized-quantifier", "attempted_by": ["a", "b"], "grade": 5, "evidence": "PTQ.star and the determiners ARE GQs of B&C's type (E -> Prop) -> Prop; same definitions in extras/BarwiseCooper.v (every/some/no)", "note": "B&C 1981 is the systematization of PTQ's T2"},
+  {"name": "gq-conservativity", "attempted_by": ["a", "b"], "grade": 4, "evidence": "PTQ.v every/a/no_conservative; extras/BarwiseCooper.v Conservative + its instances"},
+  {"name": "gq-monotonicity", "attempted_by": ["a", "b"], "grade": 4, "evidence": "PTQ.v every_mon_up/a_mon_up/no_mon_down/every_restr_down/a_restr_up; BarwiseCooper.v monotonicity section"},
+  {"name": "cardinal-quantifiers", "attempted_by": ["b"], "grade": null, "evidence": "BarwiseCooper.v at_least_two; shallow/MontagueFragment.v abstract counting (G_most etc.)", "note": "beyond PTQ's inventory; 'most' is B&C's non-first-orderizability territory"},
+  {"name": "witness-sets-definability", "attempted_by": ["b"], "grade": null, "evidence": "B&C's witness-set and definability theorems — not yet formalized on either side"},
+  {"name": "intensionality-seek-find", "attempted_by": ["a"], "grade": null, "evidence": "PTQ.v Part 4"},
+  {"name": "scope-ambiguity", "attempted_by": ["a"], "grade": null, "evidence": "PTQ.v Part 3"}
+ ],
+ "notes": "B&C descend from PTQ by systematizing NP denotations and adding the universals; the shared inventory coincides definitionally, the universals hold of PTQ's determiners by the PTQ.v Part 5 theorems. Caveat: extras/BarwiseCooper.v predates the atlas discipline (Parameters + Classical import); re-audit when promoted."
+}

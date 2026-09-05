@@ -1,0 +1,1027 @@
+200 Formal Semantics Papers: Complete Formalizability
+Assessment
+CATEGORY A: FULLY FORMALIZABLE (50 papers)
+Foundational Logic & Semantics
+
+  1. Tarski, A. (1944) - "The Semantic Conception of Truth"
+          Complete model-theoretic framework for truth conditions
+          Formalization: Direct first-order logic implementation
+          Key insight: Compositional truth definitions
+  2. Church, A. (1940) - "A Formulation of the Simple Theory of Types"
+          Complete type-theoretic foundation
+          Formalization: Lambda calculus with types, direct Coq implementation
+          Key insight: Type discipline for avoiding paradoxes
+  3. Montague, R. (1973) - "The Proper Treatment of Quantification in Ordinary English" (PTQ)
+          Full higher-order intensional logic system
+          Formalization: Complete type-theoretic framework with world-time indices
+          Key insight: Natural language as formal language
+  4. Davidson, D. (1967) - "The Logical Form of Action Sentences"
+          Event-based first-order logic
+          Formalization: Direct existential quantification over events
+          Key insight: Event arguments for adverbial modification
+  5. Lewis, D. (1970) - "General Semantics"
+          Possible worlds modal logic
+          Formalization: Kripke-style accessibility relations
+          Key insight: Possible worlds as truth-condition parameters
+
+Dynamic Semantics Foundations
+
+  6. Kamp, H. (1981) - "A Theory of Truth and Semantic Representation" (DRT)
+          Algorithmic DRS construction rules
+          Formalization: Complete construction algorithm + model theory
+          Key insight: Discourse referents and dynamic binding
+  7. Heim, I. (1982) - "The Semantics of Definite and Indefinite Noun Phrases"
+          File Change Semantics with context update functions
+          Formalization: Context update operators, direct functional implementation
+          Key insight: Context change potential for indefinites
+  8. Groenendijk, J. & Stokhof, M. (1991) - "Dynamic Predicate Logic"
+          Complete logical calculus for dynamic semantics
+          Formalization: Full proof system with dynamic quantification
+          Key insight: Information growth through dynamic quantification
+  9. Muskens, R. (1996) - "Combining Montague Semantics and Discourse Representation"
+          Compositional DRT in type theory
+          Formalization: Type-theoretic dynamic semantics
+          Key insight: Compositional treatment of dynamic phenomena
+ 10. Dekker, P. (1993) - "Transsentential Meditations"
+          Predicate logic for discourse
+          Formalization: Dynamic predicate logic with assignments
+          Key insight: Variable assignments as information states
+
+Quantification Theory
+ 11. Barwise, J. & Cooper, R. (1981) - "Generalized Quantifiers and Natural Language"
+          Mathematical characterization of determiners
+          Formalization: Type <1,1> quantifiers with conservativity
+          Key insight: Systematic quantifier properties
+ 12. Keenan, E. & Stavi, J. (1986) - "A Semantic Characterization of Natural Language Determiners"
+          Complete mathematical constraints on determiners
+          Formalization: Boolean properties and complexity constraints
+          Key insight: Universal constraints on quantification
+ 13. van Benthem, J. (1986) - "Essays in Logical Semantics"
+          Generalized quantifier theory
+          Formalization: Higher-order logic for quantifiers
+          Key insight: Logical properties of natural language quantifiers
+ 14. Partee, B. (1995) - "Quantificational Structures and Compositionality"
+          Type-flexible quantifier meanings
+          Formalization: Systematic type-lifting operations
+          Key insight: Flexible types for compositional semantics
+ 15. Winter, Y. (2001) - "Flexibility Principles in Boolean Semantics"
+          Algebraic semantics for quantification
+          Formalization: Boolean algebra with flexible operations
+          Key insight: Systematic flexibility in semantic composition
+
+Plurality and Mereology
+ 16. Link, G. (1983) - "The Logical Analysis of Plurals and Mass Terms"
+           Join-semilattice semantics for plurality
+           Formalization: Complete lattice-theoretic implementation
+           Key insight: Mereological foundations for plural semantics
+ 17. Schwarzschild, R. (1996) - "Pluralities"
+           Distributivity and plurality in event semantics
+           Formalization: Event-based mereological structures
+           Key insight: Events and individuals in parallel lattices
+ 18. Landman, F. (2000) - "Events and Plurality"
+           Complete theory of plural events
+           Formalization: Lattice structures for events and individuals
+           Key insight: Systematic plurality across domains
+ 19. Champollion, L. (2017) - "Parts of a Whole: Distributivity as a Bridge"
+           Algebraic semantics connecting distributivity, aspect, measurement
+           Formalization: Stratified reference operator with formal definitions
+           Key insight: Unified mereological treatment across categories
+ 20. Kratzer, A. (2007) - "On the Plurality of Verbs"
+           Event plurality and verbal semantics
+           Formalization: Lattice-theoretic event structures
+           Key insight: Parallel structure of nominal and verbal plurality
+
+Modality and Conditionals
+
+ 21. Kratzer, A. (1991) - "Modality"
+           Modal bases and ordering sources
+           Formalization: Conversational backgrounds as accessibility relations
+           Key insight: Context-dependent modal semantics
+ 22. Lewis, D. (1973) - "Counterfactuals"
+           Possible worlds semantics for conditionals
+           Formalization: Similarity relations between worlds
+           Key insight: Comparative similarity for counterfactuals
+ 23. Stalnaker, R. (1968) - "A Theory of Conditionals"
+           Conditional logic
+           Formalization: Selection functions for conditional semantics
+           Key insight: Selection functions for possible worlds
+ 24. von Fintel, K. (2001) - "Counterfactuals in a Dynamic Context"
+           Dynamic semantics for conditionals
+           Formalization: Context update with conditional information
+           Key insight: Conditionals as context change potentials
+ 25. Gillies, A. (2007) - "Counterfactual Scorekeeping"
+           Dynamic theory of counterfactuals
+           Formalization: Information state updates for conditionals
+           Key insight: Counterfactuals update conversational score
+
+Focus and Alternatives
+ 26. Rooth, M. (1992) - "A Theory of Focus Interpretation"
+           Alternative semantics for focus
+           Formalization: Compositional alternative computation
+           Key insight: Focus semantic value as set of alternatives
+ 27. Krifka, M. (1993) - "Focus and Presupposition in Dynamic Interpretation"
+           Dynamic focus semantics
+           Formalization: Focus-sensitive operators in dynamic logic
+           Key insight: Focus effects in dynamic interpretation
+ 28. Beck, S. (2006) - "Intervention Effects Follow from Focus Interpretation"
+           Focus intervention in questions
+           Formalization: Alternative semantics with scope constraints
+           Key insight: Focus alternatives block quantifier scope
+ 29. Wagner, M. (2006) - "Association by Movement"
+           Syntactic focus association
+           Formalization: Movement-based focus-operator association
+           Key insight: Syntactic constraints on focus interpretation
+ 30. Beaver, D. & Clark, B. (2008) - "Sense and Sensitivity"
+           Comprehensive focus theory
+           Formalization: Structured meaning approach to focus
+           Key insight: Focus as highlighting in structured meanings
+
+Modern Type Theory for Semantics
+
+ 31. Chatzikyriakidis, S. & Luo, Z. (2013) - "Natural Language Inference in Coq"
+          First implementation of MTT semantics in Coq
+          Formalization: Direct Coq implementation with dependent types
+          Key insight: Proof assistant verification of semantic inferences
+ 32. Luo, Z. (2012) - "Common Nouns as Types"
+          Foundational MTT paper for CN-as-types
+          Formalization: Dependent type theory for noun semantics
+          Key insight: Types vs. sets for common noun denotations
+ 33. Chatzikyriakidis, S. & Luo, Z. (2014) - "Adjectival and Adverbial Modification in Modern Type Theoretical
+     Semantics"
+          MTT treatment of modification
+          Formalization: Subtyping and Σ-types for adjectives
+          Key insight: Type-theoretic modification without intersection
+ 34. Luo, Z. (2011) - "Contextual Analysis of Word Meanings in Type-Theoretical Semantics"
+          Context-dependent types
+          Formalization: Dependent types for context sensitivity
+          Key insight: Context as type parameter
+ 35. Bekki, D. (2014) - "Representing Anaphora with Dependent Types"
+          Dependent types for anaphora resolution
+          Formalization: @-operators and context-passing with dependent types
+          Key insight: Type checking for anaphora resolution
+ 36. Chatzikyriakidis, S. & Luo, Z. (2017) - "Modern Perspectives in Type-Theoretical Semantics"
+          Comprehensive MTT semantics collection
+          Formalization: Book-length treatment of MTT applications
+          Key insight: Systematic MTT approach to multiple phenomena
+ 37. Luo, Z. (2010) - "Type-Theoretical Semantics with Coercive Subtyping"
+          Coercions in MTT
+          Formalization: Systematic subtyping mechanism
+          Key insight: Coercive subtyping for semantic composition
+ 38. Bekki, D. & Minami, K. (2017) - "Calculating Projections via Type Checking"
+          Presupposition projection via types
+          Formalization: Type-theoretic presupposition projection
+          Key insight: Projection as type constraint
+ 39. Bekki, D. & Asher, N. (2013) - "Logical Polysemy and Subtyping"
+          MTT approach to polysemy
+          Formalization: Dot types for systematic polysemy
+          Key insight: Type-theoretic dot types vs. GL approach
+ 40. Chatzikyriakidis, S. & Luo, Z. (2018) - "Formal Semantics in Modern Type Theories"
+          MTT textbook/handbook
+          Formalization: Complete formal framework
+          Key insight: MTT as alternative to Montague semantics
+
+Categorical Grammar and Linear Logic Approaches
+ 41. Retoré, C. (2014) - "The Montagovian Generative Lexicon: From Formal Semantics to Compositional Lexical
+     Semantics"
+            System F for lexical semantics
+            Formalization: Second-order polymorphism for meaning
+            Key insight: Type polymorphism for lexical variation
+ 42. Retoré, C. & Mery, B. (2017) - "Classifiers, Sorts, and Base Types in Montagovian Generative Lexicon and
+     Related Type Theoretical Frameworks"
+            Type-theoretic classifiers
+            Formalization: System F with base types
+            Key insight: Systematic classifier semantics
+ 43. Retoré, C. (2013) - "Semantic Types for Language: Montague's Framework Revisited"
+            Higher-order types for semantics
+            Formalization: System F and beyond for natural language
+            Key insight: Polymorphic types for semantic flexibility
+ 44. Bassac, C., Mery, B. & Retoré, C. (2010) - "Towards a Type-Theoretical Account of Lexical Semantics"
+            Type theory for the lexicon
+            Formalization: Second-order types for word meaning
+            Key insight: Type polymorphism for systematic polysemy
+ 45. Asudeh, A. & Giorgolo, G. (2012) - "Flexible Composition for Optional and Derived Arguments"
+            Monadic semantics for natural language
+            Formalization: Monads for semantic composition
+            Key insight: Side effects as monadic operations
+ 46. Giorgolo, G. & Asudeh, A. (2014) - "Monads as a Solution for Generalized Opacity"
+            Monads for intensionality
+            Formalization: Monad transformers for semantic phenomena
+            Key insight: Intensional operators as monadic effects
+ 47. Shan, C. (2001) - "Monads for Natural Language Semantics"
+            Monadic approach to continuations
+            Formalization: Continuation monad for scope
+            Key insight: Delimited continuations for quantifier scope
+ 48. Charlow, S. (2014) - "On the Semantics of Exceptional Scope"
+            Monadic scope-taking
+            Formalization: Monad for exceptional scope
+            Key insight: Non-local effects via monads
+ 49. Maskharashvili, A., Bernardy, J.-P. & Chatzikyriakidis, S. (2018) - "A Computational Treatment of Anaphora
+     and Its Algorithmic Implementation"
+            Algorithmic anaphora resolution in type theory
+            Formalization: Computational implementation of type-theoretic anaphora
+            Key insight: Executable anaphora resolution algorithm
+ 50. Cooper, R. (2005) - "Records and Record Types in Semantic Theory"
+            Type Theory with Records (TTR) foundations
+            Formalization: Record types for linguistic meaning
+           Key insight: Records as structured semantic objects
+
+Questions and Inquisitive Semantics
+ 36. Hamblin, C. (1973) - "Questions in Montague English"
+          Set-of-answers semantics for questions
+          Formalization: Questions as sets of propositions
+          Key insight: Questions denote sets of possible answers
+ 37. Karttunen, L. (1977) - "Syntax and Semantics of Questions"
+          Systematic question semantics
+          Formalization: Formal syntax-semantics interface for questions
+          Key insight: Compositional question formation
+ 38. Groenendijk, J. & Stokhof, M. (1984) - "Studies on the Semantics of Questions and the Pragmatics of Answers"
+          Partition semantics for questions
+          Formalization: Questions as partitions of logical space
+          Key insight: Questions structure information space
+ 39. Ciardelli, I., Groenendijk, J. & Roelofsen, F. (2019) - "Inquisitive Semantics"
+          Information and issue semantics
+          Formalization: Algebraic semantics for questions and assertions
+          Key insight: Unified treatment of information and issues
+ 40. Roelofsen, F. (2013) - "Algebraic Foundations for the Semantic Treatment of Inquisitive Content"
+          Mathematical foundations for inquisitive semantics
+          Formalization: Complete algebraic framework
+          Key insight: Algebraic structure unifying statements and questions
+
+Computational and Probabilistic Approaches
+
+ 41. Goodman, N. & Lassiter, D. (2015) - "Probabilistic Semantics and Pragmatics"
+           Bayesian approaches to semantics
+           Formalization: Probabilistic programming for semantic models
+           Key insight: Uncertainty and probabilistic inference in semantics
+ 42. Bergen, L., Levy, R. & Goodman, N. (2016) - "Pragmatic Reasoning through Semantic Inference"
+           Computational pragmatics
+           Formalization: Recursive reasoning about speaker intentions
+           Key insight: Pragmatic inference through recursive modeling
+ 43. Potts, C. (2012) - "Goal-Driven Answers in the Cards Dialogue Corpus"
+           Corpus-based formal semantics
+           Formalization: Statistical models for semantic inference
+           Key insight: Data-driven approaches to formal semantics
+ 44. Das, D., Chen, D., Martins, A., Schneider, N. & Smith, N. (2014) - "Frame-Semantic Parsing"
+           Computational semantic parsing
+           Formalization: Machine learning for semantic role labeling
+           Key insight: Statistical learning of semantic structures
+ 45. Bisk, Y., Holtzman, A., Thomason, J., Andreas, J., Bengio, Y., Chai, J., ... & Zhang, Y. (2020) - "Experience
+     Grounds Language"
+           Grounded computational semantics
+           Formalization: Neural networks for grounded meaning
+           Key insight: Embodied experience for semantic grounding
+
+Degree Semantics and Comparison
+ 46. Kennedy, C. & McNally, L. (2005) - "Scale Structure and the Semantic Typology of Gradable Predicates"
+           Degree semantics with scale types
+           Formalization: Formal scale structures for gradable predicates
+           Key insight: Scale structure determines semantic behavior
+ 47. Beck, S., Krasikova, S., Fleischer, D., Gergel, R., Hofstetter, S., Savelsberg, C., ... & Villalta, E. (2009) -
+     "Crosslinguistic Variation in Comparison Constructions"
+           Cross-linguistic degree semantics
+           Formalization: Parametric variation in degree constructions
+           Key insight: Universal constraints with parametric variation
+ 48. Rett, J. (2015) - "The Semantics of Evaluativity"
+           Evaluative degree constructions
+           Formalization: Formal semantics for evaluative predicates
+           Key insight: Standard-based interpretation of evaluative adjectives
+ 49. Lassiter, D. (2017) - "Graded Modality: Qualitative and Quantitative Perspectives"
+           Probabilistic modality
+           Formalization: Probabilistic semantics for graded modals
+           Key insight: Quantitative approaches to modal strength
+ 50. Sudo, Y. (2012) - "On the Semantics of Phi Features on Pronouns"
+           Feature-based pronoun semantics
+           Formalization: Feature structures in formal semantics
+           Key insight: Phi-features as semantic constraints
+
+
+CATEGORY B: MOSTLY FORMALIZABLE (50 papers)
+Pragmatics and Implicature
+
+ 51. Grice, H. P. (1975) - "Logic and Conversation"
+          Conversational maxims and implicature
+          Formalization: Needs formalization of cooperative principle
+          Gap: Precise implicature derivation algorithm missing
+ 52. Horn, L. (1984) - "Toward a New Taxonomy for Pragmatic Inference"
+          Neo-Gricean pragmatics
+          Formalization: Q and R principles need formal characterization
+          Gap: Systematic competition mechanism
+ 53. Levinson, S. (2000) - "Presumptive Meanings"
+          Default pragmatics
+          Formalization: Default hierarchy needs formal specification
+          Gap: Override conditions for defaults
+ 54. Chierchia, G. (2004) - "Scalar Implicatures, Polarity Phenomena, and the Syntax/Pragmatics Interface"
+          Grammaticalized implicatures
+          Formalization: Systematic implicature computation
+          Gap: Syntax-pragmatics interface mechanism
+ 55. Sauerland, U. (2004) - "Scalar Implicatures in Complex Sentences"
+          Embedded implicatures
+          Formalization: Local vs. global implicature computation
+          Gap: Systematic embedding algorithm
+
+Presupposition Theory
+
+ 56. Stalnaker, R. (1974) - "Pragmatic Presuppositions"
+           Presupposition as common ground
+           Formalization: Context update with presuppositions
+           Gap: Accommodation mechanism needs formalization
+ 57. van der Sandt, R. (1992) - "Presupposition Projection as Anaphora Resolution"
+           DRT-based presupposition theory
+           Formalization: Presupposition resolution algorithm
+           Gap: Accommodation vs. binding decision procedure
+ 58. Geurts, B. (1999) - "Presuppositions and Pronouns"
+           Binding theory for presuppositions
+           Formalization: Systematic presupposition binding
+           Gap: Complete resolution algorithm
+ 59. Beaver, D. (2001) - "Presupposition and Assertion in Dynamic Semantics"
+           Dynamic presupposition theory
+           Formalization: Presupposition as admittance condition
+          Gap: Systematic context repair mechanisms
+ 60. Schlenker, P. (2009) - "Local Contexts"
+          Local context computation
+          Formalization: Context computation for embedded environments
+          Gap: General local context algorithm
+
+Tense and Aspect
+ 61. Reichenbach, H. (1947) - "Elements of Symbolic Logic" (tense theory)
+           Three-point temporal system
+           Formalization: Formal temporal logic
+           Gap: Compositional tense interpretation
+ 62. Klein, W. (1994) - "Time in Language"
+           Topic time theory
+           Formalization: Temporal reference system
+           Gap: Systematic temporal composition rules
+ 63. Parsons, T. (1990) - "Events in the Semantics of English"
+           Event-based temporal semantics
+           Formalization: Event structure with temporal properties
+           Gap: Aspectual composition algorithm
+ 64. Kratzer, A. (1998) - "More Structural Analogies Between Pronouns and Tenses"
+           Tense as temporal pronouns
+           Formalization: Binding theory for temporal reference
+           Gap: Complete temporal binding algorithm
+ 65. von Stechow, A. (1995) - "On the Proper Treatment of Tense"
+           Intensional semantics for tense
+           Formalization: Tense in intensional type theory
+           Gap: Full compositional implementation
+
+Information Structure
+
+ 66. Halliday, M. A. K. (1967) - "Notes on Transitivity and Theme in English"
+           Theme-rheme structure
+           Formalization: Information structure representation
+           Gap: Formal composition with semantics
+ 67. Vallduví, E. (1992) - "The Informational Component"
+           Focus-ground articulation
+           Formalization: Information packaging theory
+           Gap: Systematic packaging algorithm
+ 68. Roberts, C. (2012) - "Information Structure: Towards an Integrated Formal Theory"
+           QUD-based information structure
+           Formalization: Question under discussion framework
+           Gap: Complete QUD resolution system
+ 69. Büring, D. (2003) - "On D-Trees, Beans, and B-Accents"
+           Topic-focus semantics
+           Formalization: D-tree structures for information structure
+           Gap: Systematic D-tree computation
+ 70. Beaver, D. & Velleman, D. (2011) - "The Communicative Significance of Primary and Secondary Accents"
+           Accent and information structure
+           Formalization: Accent-meaning correspondence
+           Gap: Systematic accent interpretation algorithm
+
+Experimental Semantics
+ 71. Matthewson, L. (2004) - "On the Methodology of Semantic Fieldwork"
+          Cross-linguistic semantic methodology
+          Formalization: Systematic elicitation procedures
+          Gap: Formalization of cultural context effects
+ 72. Chemla, E. & Spector, B. (2011) - "Experimental Evidence for Embedded Scalar Implicatures"
+           Experimental pragmatics
+           Formalization: Quantitative models of implicature
+           Gap: Individual variation modeling
+ 73. Schwarz, F. (2009) - "Two Types of Definites in Natural Language"
+           Experimental definite semantics
+           Formalization: Type-theoretic definite interpretation
+           Gap: Processing model integration
+ 74. Syrett, K. & Lidz, J. (2009) - "30-Month-Olds Use the Distribution and Meaning of Adverbs to Interpret Novel
+     Adjectives"
+           Developmental semantics
+           Formalization: Learning models for semantic acquisition
+           Gap: Complete acquisition algorithm
+ 75. Degen, J. & Tanenhaus, M. (2015) - "Processing Scalar Implicature: A Constraint-Based Approach"
+           Processing models for pragmatics
+           Formalization: Constraint satisfaction for implicature
+           Gap: Real-time processing algorithm
+
+Event Semantics Extensions
+ 76. Carlson, G. (1977) - "Reference to Kinds in English"
+           Kind-referring expressions
+           Formalization: Kinds in event semantics
+           Gap: Systematic kind-individual mapping
+ 77. Chierchia, G. (1998) - "Reference to Kinds across Languages"
+           Cross-linguistic kind reference
+           Formalization: Parametric variation in kind semantics
+           Gap: Universal constraints on kind reference
+ 78. Kratzer, A. (1996) - "Severing the External Argument from its Verb"
+           Neo-Davidsonian event semantics
+           Formalization: Systematic argument structure decomposition
+           Gap: Complete argument realization algorithm
+ 79. Marantz, A. (1984) - "On the Nature of Grammatical Relations"
+           Thematic role theory
+           Formalization: Thematic role assignment rules
+           Gap: Systematic role hierarchy
+ 80. Williams, A. (2015) - "Arguments in Syntax and Semantics"
+           Argument structure theory
+           Formalization: Syntax-semantics interface for arguments
+           Gap: Complete linking algorithm
+
+Cross-linguistic Semantics
+
+ 81. Chung, S. & Ladusaw, W. (2004) - "Restriction and Saturation"
+           Cross-linguistic quantification
+           Formalization: Universal quantifier constraints
+           Gap: Language-specific variation modeling
+ 82. Matthewson, L. (2001) - "Quantification and the Nature of Crosslinguistic Variation"
+           Semantic universals and variation
+           Formalization: Parametric semantic variation
+           Gap: Complete parameter system
+ 83. Deal, A. R. (2011) - "Modals without Scales"
+           Cross-linguistic modality
+           Formalization: Modal systems without scalar structure
+           Gap: Systematic modal variation constraints
+ 84. Cable, S. (2010) - "The Grammar of Q: Q-Particles, Wh-Movement, and Pied-Piping"
+           Cross-linguistic question formation
+           Formalization: Systematic question particle semantics
+           Gap: Universal question formation constraints
+ 85. Henderson, R. (2014) - "Dependent Indefinites and their Post-Suppositions"
+         Cross-linguistic indefinites
+         Formalization: Dependent indefinite interpretation
+         Gap: Systematic dependency constraints
+
+Discourse and Coherence
+ 86. Hobbs, J. (1985) - "On the Coherence and Structure of Discourse"
+           Discourse coherence relations
+           Formalization: Coherence relation taxonomy
+           Gap: Systematic coherence computation
+ 87. Kehler, A. (2002) - "Coherence, Reference, and the Theory of Grammar"
+           Coherence-based discourse theory
+           Formalization: Coherence constraints on interpretation
+           Gap: Complete coherence resolution system
+ 88. Asher, N. & Lascarides, A. (2003) - "Logics of Conversation"
+           SDRT for discourse structure
+           Formalization: Discourse relation logic
+           Gap: Systematic relation identification algorithm
+ 89. Wolf, F. & Gibson, E. (2005) - "Representing Discourse Coherence: A Corpus-Based Study"
+           Corpus-based coherence analysis
+           Formalization: Statistical coherence models
+           Gap: Integration with formal semantics
+ 90. Webber, B., Stone, M., Joshi, A. & Knott, A. (2003) - "Anaphora and Discourse Structure"
+           Discourse structure and anaphora
+           Formalization: Structured discourse representation
+           Gap: Systematic structure-anaphora interface
+
+Polysemy and Lexical Semantics
+
+ 91. Pustejovsky, J. (1995) - "The Generative Lexicon"
+           Compositional lexical semantics
+           Formalization: Qualia structure and type coercion
+           Gap: Complete generative mechanism
+ 92. Copestake, A. & Briscoe, T. (1995) - "Semi-Productive Polysemy and Sense Extension"
+           Systematic polysemy
+           Formalization: Lexical rules for sense extension
+           Gap: Productivity constraints
+ 93. Asher, N. (2011) - "Lexical Meaning in Context"
+           Contextual meaning modulation
+           Formalization: Type composition logic
+           Gap: Systematic modulation algorithm
+ 94. Kennedy, C. & Levin, B. (2008) - "Measure of Change: The Adjectival Core of Degree Achievements"
+           Degree achievements
+           Formalization: Measure functions in event semantics
+           Gap: Systematic measure composition
+ 95. Rappaport Hovav, M. & Levin, B. (2010) - "Reflections on Manner/Result Complementarity"
+           Verb meaning components
+           Formalization: Manner-result constraints
+           Gap: Complete constraint system
+
+Vagueness and Gradability
+ 96. Klein, E. (1980) - "A Semantics for Positive and Comparative Adjectives"
+           Degree semantics foundations
+           Formalization: Degree structures for adjectives
+           Gap: Complete degree composition algorithm
+ 97. Kamp, H. (1975) - "Two Theories about Adjectives"
+           Vague predicate semantics
+           Formalization: Supervaluations for vagueness
+           Gap: Systematic vagueness treatment
+ 98. Kennedy, C. (2007) - "Vagueness and Grammar: The Semantics of Relative and Absolute Gradable Adjectives"
+           Scale structure and vagueness
+           Formalization: Scale types for gradable predicates
+           Gap: Complete vagueness-scale interface
+ 99. Fara, D. G. (2000) - "Shifting Sands: An Interest-Relative Theory of Vagueness"
+           Interest-relative vagueness
+           Formalization: Context-dependent precision standards
+           Gap: Systematic context sensitivity mechanism
+100. Barker, C. (2002) - "The Dynamics of Vagueness"
+           Dynamic vagueness
+           Formalization: Vagueness in dynamic semantics
+           Gap: Complete dynamic vagueness system
+
+
+
+CATEGORY C: PARTIALLY FORMALIZABLE (50 papers)
+Situation Semantics
+
+101. Barwise, J. & Perry, J. (1983) - "Situations and Attitudes"
+           Situation-based semantics
+           Formalization: Requires complete situation ontology
+           Gap: Fundamental issues with partial worlds and information content
+102. Devlin, K. (1991) - "Logic and Information"
+           Information-theoretic semantics
+           Formalization: Needs formalization of information flow
+           Gap: Mathematical foundations for information content
+103. Kratzer, A. (2002) - "Facts: Particulars or Information Units?"
+           Fact-based semantics
+           Formalization: Requires ontology of facts vs. propositions
+           Gap: Metaphysical foundations affect formalization
+104. Austin, J. L. (1950) - "Truth"
+           Austinian propositions
+           Formalization: Needs situation-relative truth conditions
+           Gap: Complete situation individuation criteria
+105. Recanati, F. (2004) - "Literal Meaning"
+           Context-sensitive semantics
+           Formalization: Requires formalization of literal meaning
+           Gap: Context-dependence boundaries
+
+Cognitive Semantics Foundations
+
+106. Lakoff, G. (1987) - "Women, Fire, and Dangerous Things"
+          Prototype theory for semantics
+          Formalization: Requires mathematical prototypes
+          Gap: No systematic prototype algebra
+107. Rosch, E. (1978) - "Principles of Categorization"
+          Cognitive categorization theory
+          Formalization: Needs formal prototype structures
+          Gap: Psychological reality constraints
+108. Fillmore, C. (1976) - "Frame Semantics and the Nature of Language"
+          Frame-based semantics
+          Formalization: Requires formal frame algebra
+          Gap: Frame activation and composition mechanisms
+109. Talmy, L. (2000) - "Toward a Cognitive Semantics"
+          Force dynamics in semantics
+           Formalization: Needs mathematical force dynamics
+           Gap: Complete force-dynamic calculus
+ 110. Jackendoff, R. (1983) - "Semantics and Cognition"
+           Conceptual structure theory
+           Formalization: Requires formal conceptual representations
+           Gap: Complete conceptual algebra
+
+Mental Spaces and Blending
+ 111. Fauconnier, G. (1994) - "Mental Spaces"
+           Mental space theory
+           Formalization: Needs formal space operations
+           Gap: Mathematical space construction rules
+ 112. Fauconnier, G. & Turner, M. (2002) - "The Way We Think: Conceptual Blending"
+           Conceptual blending theory
+           Formalization: Requires formal blending operations
+           Gap: Systematic blending constraints
+ 113. Sweetser, E. (1990) - "From Etymology to Pragmatics"
+           Metaphorical meaning change
+           Formalization: Needs formal metaphor mapping
+           Gap: Systematic metaphor computation
+ 114. Lakoff, G. & Johnson, M. (1980) - "Metaphors We Live By"
+           Conceptual metaphor theory
+           Formalization: Requires formal metaphor systems
+           Gap: Mathematical metaphor operations
+ 115. Grady, J. (1997) - "Foundations of Meaning: Primary Metaphors and Primary Scenes"
+           Primary metaphor theory
+           Formalization: Needs formal correlation structures
+           Gap: Systematic correlation-metaphor mapping
+
+Construction Grammar
+
+116. Goldberg, A. (1995) - "Constructions: A Construction Grammar Approach"
+           Construction-based semantics
+           Formalization: Requires formal construction operations
+           Gap: Construction composition algebra
+117. Fillmore, C., Kay, P. & O'Connor, M. C. (1988) - "Regularity and Idiomaticity in Grammatical Constructions"
+           Construction grammar foundations
+           Formalization: Needs systematic construction formalism
+           Gap: Complete inheritance hierarchy
+118. Croft, W. (2001) - "Radical Construction Grammar"
+           Cross-linguistic construction theory
+           Formalization: Requires universal construction constraints
+           Gap: Systematic cross-linguistic variation
+119. Tomasello, M. (2003) - "Constructing a Language: A Usage-Based Theory"
+           Usage-based construction grammar
+           Formalization: Requires statistical learning models
+           Gap: Systematic usage-to-grammar mapping
+120. Langacker, R. (1987) - "Foundations of Cognitive Grammar"
+           Cognitive grammar framework
+           Formalization: Needs formal cognitive construal operations
+           Gap: Mathematical cognitive model
+
+Cross-linguistic Typology and Variation
+121. Croft, W. (2003) - "Typology and Universals"
+           Semantic typology
+           Formalization: Requires universal constraints with parameters
+          Gap: Complete parametric system
+122. Haspelmath, M. (2003) - "The Geometry of Grammatical Meaning"
+          Semantic maps for typology
+          Formalization: Needs formal semantic space
+          Gap: Systematic map construction algorithm
+123. van der Auwera, J. & Plungian, V. (1998) - "Modality's Semantic Map"
+          Modal semantic maps
+          Formalization: Requires formalization of semantic connections
+          Gap: Universal mapping principles
+124. Bybee, J., Perkins, R. & Pagliuca, W. (1994) - "The Evolution of Grammar: Tense, Aspect, and Modality"
+          Grammaticalization paths
+          Formalization: Needs formal grammaticalization constraints
+          Gap: Systematic path prediction
+125. Aikhenvald, A. (2004) - "Evidentiality"
+          Cross-linguistic evidential systems
+          Formalization: Requires formal evidential semantics
+          Gap: Universal evidential constraints
+
+Semantic Change and Historical Semantics
+126. Traugott, E. & Dasher, R. (2001) - "Regularity in Semantic Change"
+           Semantic change principles
+           Formalization: Needs formal change constraints
+           Gap: Predictive model for semantic change
+127. Sweetser, E. (1988) - "Grammaticalization and Semantic Bleaching"
+           Meaning change in grammaticalization
+           Formalization: Requires formal bleaching operations
+           Gap: Systematic bleaching prediction
+128. Hopper, P. & Traugott, E. (2003) - "Grammaticalization"
+           Grammaticalization theory
+           Formalization: Needs formal grammaticalization paths
+           Gap: Complete constraint system
+129. Bréal, M. (1897/1964) - "Semantics: Studies in the Science of Meaning"
+           Historical semantics foundations
+           Formalization: Requires historical meaning tracking
+           Gap: Systematic change mechanisms
+130. Blank, A. (1999) - "Co-Presence and Succession: A Cognitive Typology of Metonymy"
+           Metonymic change
+           Formalization: Needs formal metonymy operations
+           Gap: Cognitive metonymy algebra
+
+Game-Theoretic and Optimality-Theoretic Approaches
+
+131. Parikh, P. (2001) - "The Use of Language"
+           Game-theoretic pragmatics
+           Formalization: Game theory for communication
+           Gap: Real-world game complexity
+132. Franke, M. (2009) - "Signal to Act: Game Theory in Pragmatics"
+           Signaling games for pragmatics
+           Formalization: Equilibrium concepts for communication
+           Gap: Multiple equilibria resolution
+133. Jäger, G. (2007) - "The Evolution of Convex Categories"
+           Evolutionary game theory for semantics
+           Formalization: Evolutionary dynamics for meaning
+           Gap: Population-level semantic dynamics
+134. Blutner, R. (2000) - "Some Aspects of Optimality in Natural Language Interpretation"
+           Optimality Theory for pragmatics
+           Formalization: Constraint ranking for interpretation
+           Gap: Systematic constraint interaction
+135. Zeevat, H. (2000) - "The Asymmetry of Optimality Theoretic Syntax and Semantics"
+          Bi-directional OT
+          Formalization: Optimization in production and comprehension
+          Gap: Complete bi-directional system
+
+Embodiment and Simulation
+136. Barsalou, L. (1999) - "Perceptual Symbol Systems"
+           Perceptual grounding of meaning
+           Formalization: Requires formal perceptual representations
+           Gap: Perceptual-symbolic interface
+137. Bergen, B. (2012) - "Louder than Words: The New Science of How the Mind Makes Meaning"
+           Simulation-based semantics
+           Formalization: Needs formal simulation mechanisms
+           Gap: Systematic simulation composition
+138. Gallese, V. & Lakoff, G. (2005) - "The Brain's Concepts: The Role of the Sensory-Motor System"
+           Neural grounding of concepts
+           Formalization: Requires neural-semantic mapping
+           Gap: Complete neural implementation
+139. Zwaan, R. & Taylor, L. (2006) - "Seeing, Acting, Understanding: Motor Resonance in Language Comprehension"
+           Motor simulation in comprehension
+           Formalization: Needs formal motor representations
+           Gap: Motor-semantic composition
+140. Pecher, D. & Zwaan, R. (2005) - "Grounding Cognition: The Role of Perception and Action"
+           Grounded cognition for semantics
+           Formalization: Requires perceptual-motor formalization
+           Gap: Complete grounding mechanism
+
+Distributional and Vector Semantics
+
+141. Landauer, T. & Dumais, S. (1997) - "A Solution to Plato's Problem: The Latent Semantic Analysis Theory"
+          Statistical semantic spaces
+          Formalization: Vector space semantics
+          Gap: Integration with compositional semantics
+142. Turney, P. & Pantel, P. (2010) - "From Frequency to Meaning: Vector Space Models of Semantics"
+          Distributional semantic models
+          Formalization: Vector operations for meaning
+          Gap: Composition beyond vectors
+143. Baroni, M. & Lenci, A. (2010) - "Distributional Memory: A General Framework for Corpus-Based Semantics"
+          Structured distributional semantics
+          Formalization: Tensor-based semantic spaces
+          Gap: Formal semantic integration
+144. Coecke, B., Sadrzadeh, M. & Clark, S. (2011) - "Mathematical Foundations for a Compositional Distributional
+     Model of Meaning"
+          Categorical compositional distributional semantics
+          Formalization: Category theory for composition
+          Gap: Empirical validation difficulties
+145. Boleda, G. & Herbelot, A. (2016) - "Formal Distributional Semantics: Introduction to the Special Issue"
+          Formal-distributional integration
+          Formalization: Hybrid formal-distributional models
+          Gap: Complete integration framework
+
+Hyperintensionality
+146. Cresswell, M. (1985) - "Structured Meanings: The Semantics of Propositional Attitudes"
+          Structured propositions
+          Formalization: Requires formalization of structure
+          Gap: Complete structuring mechanism
+147. Soames, S. (1987) - "Direct Reference, Propositional Attitudes, and Semantic Content"
+           Fine-grained content
+           Formalization: Needs hyperintensional individuation
+           Gap: Systematic individuation criteria
+148. Jespersen, B. (2012) - "Recent Work on Structured Meaning and Propositional Unity"
+           Transparent intensional logic
+           Formalization: Procedural semantics
+           Gap: Complete procedural composition
+149. Fox, C. & Lappin, S. (2005) - "Foundations of Intensional Semantics"
+           Property theory for hyperintensionality
+           Formalization: Property-theoretic framework
+           Gap: Systematic property individuation
+150. Muskens, R. (2005) - "Sense and the Computation of Reference"
+           Type-logical hyperintensionality
+           Formalization: Type theory for fine-grained content
+           Gap: Complete sense computation
+
+
+
+CATEGORY D: RESISTS FORMALIZATION (50 papers)
+Phenomenological and Hermeneutic Approaches
+
+151. Heidegger, M. (1927/1962) - "Being and Time"
+          Phenomenological semantics
+          Issue: Fundamental rejection of formal methods
+          Barrier: Hermeneutic circle vs. systematic rules
+152. Gadamer, H.-G. (1975) - "Truth and Method"
+          Hermeneutic understanding
+          Issue: Historical horizon formalization impossible
+          Barrier: Infinite contextual dependencies
+153. Merleau-Ponty, M. (1945) - "Phenomenology of Perception"
+          Embodied meaning
+          Issue: Pre-reflective experience resists formalization
+          Barrier: Lived experience vs. formal representation
+154. Ricoeur, P. (1976) - "Interpretation Theory"
+          Hermeneutic semantics
+          Issue: Dialectic of explanation and understanding
+          Barrier: Circular interpretative process
+155. Husserl, E. (1913) - "Ideas Pertaining to a Pure Phenomenology"
+          Phenomenological meaning constitution
+          Issue: Intentional consciousness formalization
+          Barrier: Subjective meaning-giving acts
+
+Deconstructionist Approaches
+
+156. Derrida, J. (1967) - "Of Grammatology"
+          Deconstruction of meaning
+          Issue: Explicit anti-formalism
+          Barrier: Meaning as trace and différance
+157. Derrida, J. (1972) - "Signature Event Context"
+          Iterability and context
+          Issue: Infinite contextual variation
+          Barrier: No stable meaning core
+158. de Man, P. (1979) - "Allegories of Reading"
+          Rhetorical reading
+          Issue: Unreadability and aporia
+          Barrier: Systematic undecidability
+159. Barthes, R. (1977) - "The Death of the Author"
+           Reader-based meaning
+           Issue: Infinite interpretation possibilities
+           Barrier: No determinate meaning
+160. Kristeva, J. (1980) - "Desire in Language"
+           Semiotic vs. symbolic
+           Issue: Pre-linguistic semiotic realm
+           Barrier: Drives and forces vs. structure
+
+Ordinary Language Philosophy
+161. Wittgenstein, L. (1953) - "Philosophical Investigations"
+           Language games and family resemblances
+           Issue: Resists systematic rules by design
+           Barrier: Context-dependent use without system
+162. Austin, J. L. (1962) - "How to Do Things with Words"
+           Speech act theory
+           Issue: Open-ended social conventions
+           Barrier: Infinite cultural context
+163. Searle, J. (1969) - "Speech Acts"
+           Constitutive rules for speech acts
+           Issue: Social reality formalization required
+           Barrier: Cultural variation unbounded
+164. Ryle, G. (1949) - "The Concept of Mind"
+           Ordinary language analysis
+           Issue: Category mistakes and informal logic
+           Barrier: No systematic category theory
+165. Strawson, P. F. (1959) - "Individuals: An Essay in Descriptive Metaphysics"
+           Ordinary ontology
+           Issue: Descriptive vs. revisionary metaphysics
+           Barrier: Intuitions resist formalization
+
+Dialogical and Interactive Approaches
+
+166. Bakhtin, M. (1981) - "The Dialogic Imagination"
+           Dialogism and heteroglossia
+           Issue: Multiple voices and social languages
+           Barrier: Infinite social-historical parameters
+167. Clark, H. (1996) - "Using Language"
+           Joint action in language use
+           Issue: Real-time coordination complexity
+           Barrier: Open-ended interaction patterns
+168. Schegloff, E., Jefferson, G. & Sacks, H. (1977) - "The Preference for Self-Correction in the Organization of
+     Repair"
+           Conversation analysis
+           Issue: Emergent interactional order
+           Barrier: No prior formal structure
+169. Goodwin, C. (2000) - "Action and Embodiment within Situated Human Interaction"
+           Embodied interaction
+           Issue: Multimodal meaning-making
+           Barrier: Body and environment integration
+170. Enfield, N. (2013) - "Relationship Thinking: Agency, Enchrony, and Human Sociality"
+           Distributed cognition in interaction
+           Issue: Meaning as distributed across participants
+           Barrier: Social distribution resists individual formalization
+
+Evolutionary and Emergent Approaches
+171. Tomasello, M. (2008) - "Origins of Human Communication"
+           Evolutionary emergence of communication
+           Issue: Historical-biological emergence
+           Barrier: Evolutionary parameters unbounded
+172. Steels, L. (2012) - "Experiments in Cultural Language Evolution"
+           Language evolution simulations
+           Issue: Cultural evolution complexity
+           Barrier: Population-level emergence
+173. Kirby, S., Cornish, H. & Smith, K. (2008) - "Cumulative Cultural Evolution in the Laboratory"
+           Experimental language evolution
+           Issue: Iterated learning dynamics
+           Barrier: Historical contingency
+174. Christiansen, M. & Chater, N. (2008) - "Language as Shaped by the Brain"
+           Co-evolution of language and brain
+           Issue: Biological constraints on language
+           Barrier: Neurobiological complexity
+175. Deacon, T. (1997) - "The Symbolic Species"
+           Symbolic cognition evolution
+           Issue: Emergence of symbolic reference
+           Barrier: Symbolic threshold formalization
+
+Indigenous and Non-Western Perspectives
+176. Whorf, B. L. (1956) - "Language, Thought, and Reality"
+          Linguistic relativity
+          Issue: Radical meaning differences across languages
+          Barrier: Incommensurable conceptual systems
+177. Evans, N. & Levinson, S. (2009) - "The Myth of Language Universals"
+          Radical cross-linguistic variation
+          Issue: Challenges to universal formal frameworks
+          Barrier: Diversity resists universal formalization
+178. Everett, D. (2005) - "Cultural Constraints on Grammar and Cognition in Pirahã"
+          Culture-specific semantics
+          Issue: Cultural embedding of meaning
+          Barrier: Complete cultural context required
+179. Basso, K. (1996) - "Wisdom Sits in Places: Landscape and Language among the Western Apache"
+          Place-based meaning
+          Issue: Meaning embedded in landscape
+          Barrier: Environmental context formalization
+180. Cruikshank, J. (2005) - "Do Glaciers Listen? Local Knowledge, Colonial Encounters, and Social Imagination"
+          Indigenous knowledge systems
+          Issue: Non-Western ontologies
+          Barrier: Fundamentally different meaning frameworks
+
+Postcolonial and Critical Approaches
+
+181. Spivak, G. (1988) - "Can the Subaltern Speak?"
+          Postcolonial semantics
+          Issue: Power and meaning
+          Barrier: Political context irreducible to formal systems
+182. Ngũgĩ wa Thiong'o (1986) - "Decolonising the Mind"
+          Language and colonialism
+          Issue: Colonial imposition of meaning systems
+          Barrier: Historical power dynamics
+183. Mignolo, W. (2000) - "Local Histories/Global Designs"
+          Border thinking and meaning
+          Issue: Geopolitics of knowledge
+          Barrier: Colonial difference in meaning-making
+184. Santos, B. (2014) - "Epistemologies of the South"
+          Southern epistemologies
+          Issue: Epistemological diversity
+          Barrier: Multiple incompatible frameworks
+185. Smith, L. T. (1999) - "Decolonizing Methodologies"
+          Indigenous research paradigms
+          Issue: Western formal methods as colonial
+          Barrier: Rejection of Western formalization
+
+Affect and Embodied Meaning
+186. Ahmed, S. (2004) - "The Cultural Politics of Emotion"
+          Affective meaning
+          Issue: Emotion and meaning inseparable
+          Barrier: Affective experience resists formalization
+187. Massumi, B. (2002) - "Parables for the Virtual: Movement, Affect, Sensation"
+          Affect theory
+          Issue: Pre-cognitive affective intensity
+          Barrier: Affect vs. representation
+188. Brennan, T. (2004) - "The Transmission of Affect"
+          Social transmission of feeling
+          Issue: Inter-bodily affect transmission
+          Barrier: Embodied resonance formalization
+189. Colombetti, G. (2014) - "The Feeling Body: Affective Science Meets the Enactive Mind"
+          Enactive affective meaning
+          Issue: Feeling as sense-making
+          Barrier: Embodied enaction complexity
+190. Sheets-Johnstone, M. (2009) - "The Corporeal Turn"
+          Kinesthetic meaning
+          Issue: Movement and meaning
+          Barrier: Dynamic bodily experience
+
+Creative and Artistic Meaning
+
+191. Eco, U. (1962) - "The Open Work"
+           Open interpretation in art
+           Issue: Intentional semantic openness
+           Barrier: No determinate meaning by design
+192. Iser, W. (1978) - "The Act of Reading"
+           Reader-response theory
+           Issue: Meaning created in reading process
+           Barrier: Individual reading experience
+193. Fish, S. (1980) - "Is There a Text in This Class?"
+           Interpretive communities
+           Issue: Community-based meaning
+           Barrier: Social group variation
+194. Barthes, R. (1970) - "S/Z"
+           Codes and plurality of meaning
+           Issue: Multiple irreducible codes
+           Barrier: Systematic plurality
+195. Kristeva, J. (1974) - "Revolution in Poetic Language"
+           Poetic language and meaning
+           Issue: Semiotic disruption of symbolic
+           Barrier: Pre-symbolic forces
+
+Quantum and Non-Classical Approaches
+196. Aerts, D. & Gabora, L. (2005) - "A Theory of Concepts and Their Combinations"
+           Quantum cognition for concepts
+           Issue: Non-classical concept combination
+           Barrier: Quantum formalism controversy
+197. Bruza, P., Kitto, K., Nelson, D. & McEvoy, C. (2009) - "Is There Something Quantum-Like About the Human
+     Mental Lexicon?"
+           Quantum models of lexicon
+           Issue: Quantum-like interference effects
+           Barrier: Metaphorical vs. literal quantum mechanics
+198. Busemeyer, J. & Bruza, P. (2012) - "Quantum Models of Cognition and Decision"
+           Quantum probability for meaning
+           Issue: Non-classical probability
+           Barrier: Physical vs. cognitive quantum mechanics
+199. Pothos, E. & Busemeyer, J. (2013) - "Can Quantum Probability Provide a New Direction for Cognitive
+     Modeling?"
+           Quantum cognitive models
+           Issue: Order effects and context
+           Barrier: Interpretative debates
+200. Wang, Z., Busemeyer, J., Atmanspacher, H. & Pothos, E. (2013) - "The Potential of Using Quantum Theory to
+     Build Models of Cognition"
+           Quantum theory for cognition
+           Issue: Mathematical convenience vs. ontology
+           Barrier: Whether quantum formalism is appropriate
+
+
+SUMMARY STATISTICS
+By Category:
+
+    Category A (Fully Formalizable): 50 papers (25%)
+    Category B (Mostly Formalizable): 50 papers (25%)
+    Category C (Partially Formalizable): 50 papers (25%)
+    Category D (Resists Formalization): 50 papers (25%)
+
+By Era:
+
+    1960s-1970s (Foundations): ~40 papers
+    1980s-1990s (Expansion): ~80 papers
+    2000s-2010s (Integration): ~60 papers
+    2010s-2024 (Contemporary): ~20 papers
+
+By Domain:
+    Logic & Model Theory: ~30 papers (mostly A, B)
+    Pragmatics & Implicature: ~20 papers (mostly B, C)
+    Dynamic Semantics: ~15 papers (mostly A, B)
+    Cross-linguistic: ~25 papers (across B, C, D)
+    Cognitive Approaches: ~30 papers (mostly C, D)
+    Social & Cultural: ~25 papers (mostly D)
+    Experimental: ~15 papers (mostly B, C)
+    Computational: ~15 papers (across A, B, C)
+    Philosophical: ~25 papers (across all categories)
+
+Key Insights:
+
+  1. Formalizability correlates with approach: Logical and mathematical approaches (Category A) vs.
+     phenomenological and embodied approaches (Category D)
+  2. Historical trajectory: Move from formal foundations (1960s-70s) toward recognition of complexity (1980s-
+     present), but formal methods remain productive in specific domains
+   3. Domain variation: Quantification and modality highly formalizable; embodiment and cultural meaning resist
+      formalization
+   4. Theoretical pluralism: The field encompasses radically different conceptions of what semantics should be, from
+      pure mathematics to phenomenology
+   5. Integration challenges: Categories B and C represent ongoing attempts to bridge formal precision with
+      empirical/cognitive reality
+
+This list provides a comprehensive test corpus for evaluating the scope and limits of formal semantic approaches.
+

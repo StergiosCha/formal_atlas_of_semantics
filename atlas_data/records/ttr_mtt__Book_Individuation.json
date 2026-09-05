@@ -1,0 +1,155 @@
+{
+ "file": "ttr_mtt/Book_Individuation.v",
+ "region": "ttr pilots",
+ "summary": "MTT-style individuation and copredication counting in Coq: common nouns as setoids (a Set plus an identity criterion packaged as an Equiv record); IC inheritance down the postulated subtyping chain Man<Human and Book<Phy.Info (coercions declared as axioms); the dot-type Phy.Info as a two-coercion record whose IC is the disjunction of the component ICs, proved reflexive and symmetric only (Equiv_K), reflecting the source's observation that the dot IC is not transitive; IC-relativized counting quantifiers (three_f, three_c with double distinctness, some, one); Sigma-record subsective adjectives (Heavybook, Heavyinfobook) with inherited ICs; the headline results MANWALK (three men walk -> three humans walk), copred_dd1/dd2 (John picked up and mastered three books -> he picked up three physical objects and mastered three informational objects), eight adjective+IC monotonicity theorems, and three->one. The War and Peace example appears only as Check smoke tests.",
+ "sources": [
+  {
+   "citation": "Chatzikyriakidis, S. & Luo, Z. (2018). Identity criteria of common nouns and dot-types for copredication. Oslo Studies in Language 10(2):121-141.",
+   "path": null,
+   "available": "none"
+  },
+  {
+   "citation": "Luo, Z. (2012). Common nouns as types. LACL 2012, LNCS 7351:173-185.",
+   "path": "papers/foundations/Luo_2012_CommonNounsAsTypes.pdf",
+   "available": "full"
+  },
+  {
+   "citation": "Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. Wiley/ISTE (chs. on CNs with ICs, coercive subtyping, dot-types).",
+   "path": "papers/foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf",
+   "available": "full"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "DomCN := Set; Record CN := {D : DomCN; E : Equiv D} (and CN_K)",
+   "source": "Luo 2012 / C&L 2018: CNs interpreted as setoids (A, =_A) in the universe cn",
+   "match": "simplified",
+   "note": "MTT's cn universe rendered as Coq's Set (artifact ii); setoid pairing itself exact"
+  },
+  {
+   "coq": "Record Equiv (refl+sym+trans) / Equiv_K (refl+sym only)",
+   "source": "identity criteria as equivalence relations; the weakened dot-type IC that fails transitivity",
+   "match": "exact",
+   "note": "Equiv_K encodes the source's point that the disjunctive dot IC is not an equivalence"
+  },
+  {
+   "coq": "Axiom mh : Man->Human; Axiom bf : Book->PhyInfo; Coercion declarations",
+   "source": "coercive subtyping Man<=Human, Book<=Phy.Info",
+   "match": "simplified",
+   "note": "postulated Set-valued injections stand in for coercive subtyping Coq lacks (artifact iv); not propositional"
+  },
+  {
+   "coq": "Record PhyInfo := {p :> Phy; i :> Info}",
+   "source": "the dot-type Phy.Info with its two projections",
+   "match": "simplified",
+   "note": "record/Sigma encoding gives a pairing constructor genuine dot-types forbid; this is the sources' own published Coq encoding (C&L 2014/2020)"
+  },
+  {
+   "coq": "three_f, some, one, and",
+   "source": "C&L 2018's IC-relativized counting determiner: three(A) P iff exists x y z, P each and pairwise not IC-equivalent",
+   "match": "exact"
+  },
+  {
+   "coq": "three_c",
+   "source": "counting under the dot IC (double distinctness: neither phy- nor info-identical)",
+   "match": "simplified",
+   "note": "parameter A is unused and Book is hard-coded, so it is instance-level rather than the source's generic determiner"
+  },
+  {
+   "coq": "Record Heavybook := {b1 :> Book; b2 : Heavy b1}; Heavyinfobook; AIC_* inherited ICs",
+   "source": "subsective adjectival modification as Sigma-types with ICs inherited along coercions (C&L 2013/2020; C&L 2018 sec. on modified CNs)",
+   "match": "exact"
+  },
+  {
+   "coq": "(no theorem) non-transitivity of AIC_PhyInfo",
+   "source": "the source's argument that the disjunctive dot IC fails transitivity (only reflected implicitly by the Equiv_K record)",
+   "match": "missing",
+   "note": "no countermodel is constructed; transitivity is merely not asserted"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "EQ, EQ2, EQ3, EQ4, EQ5, EQ6, EQ7",
+   "status": "proved",
+   "source_claim": "ICs are inherited as equivalence relations along the subtyping chains Man<Human and Heavyinfobook<Heavybook<Book<Phy/Info (C&L 2018; Luo 2012)"
+  },
+  {
+   "name": "EQ1",
+   "status": "proved",
+   "source_claim": "the dot-type IC (disjunction of component ICs) is reflexive and symmetric — deliberately not transitivity, matching the source's non-equivalence observation"
+  },
+  {
+   "name": "MANWALK",
+   "status": "proved",
+   "source_claim": "counting monotonicity under subtyping: three men walk entails three humans walk (Luo 2012 / C&L 2018 worked example)"
+  },
+  {
+   "name": "copred_dd1, copred_dd2",
+   "status": "proved",
+   "source_claim": "HEADLINE: copredication counting — John picked up and mastered three books entails he picked up three (pairwise phy-distinct) physical objects and mastered three (pairwise info-distinct) informational objects; the double-distinctness prediction of C&L 2018"
+  },
+  {
+   "name": "HEAVYBOOK, HEAVYBOOK1, HEAVYBOOK2, HEAVYBOOK3, HEAVYIBOOK3, HEAVYIBOOK4, HEAVYIBOOK5",
+   "status": "proved",
+   "source_claim": "Sigma-type (subsective) adjective inferences interact correctly with individuation: some/three heavy (informative) books picked up/mastered entail the corresponding PHY/INFO/HBOOK counting statements"
+  },
+  {
+   "name": "HEAVYIBOOK2",
+   "status": "proved",
+   "source_claim": "duplicate: verbatim restatement of HEAVYBOOK2 (three_f HBOOK1 -> three_f PHY)",
+   "note": "exact duplicate theorem; counted but carries no new content"
+  },
+  {
+   "name": "threedf",
+   "status": "proved",
+   "source_claim": "three P entails one P (counting monotonicity)"
+  }
+ ],
+ "counts": {
+  "theorems": 20,
+  "proved": 20,
+  "admitted": 0,
+  "propositional_axioms": 3
+ },
+ "faithfulness": {
+  "verdict": "faithful",
+  "evidence": [
+   "copred_dd1/copred_dd2 prove the headline copredication-counting inference of C&L 2018 exactly as the disjunctive-IC/double-distinctness account predicts (ttr_mtt/Book_Individuation.v:133-145).",
+   "EQ-EQ7 verify IC inheritance along the full subtyping chain, and EQ1 proves exactly reflexivity+symmetry for the dot IC via the weakened Equiv_K record, mirroring the source's claim that the dot IC is not an equivalence relation.",
+   "MANWALK and threedf reproduce the source's counting-monotonicity worked examples.",
+   "All 20 theorems end in Qed with 0 Admitted; the only postulates beyond the signature are the three IC parameters (the theory's own primitives, rubric 3b) and two Set-valued coercion injections."
+  ],
+  "simplifications": [
+   "dot-type Phy.Info encoded as a two-coercion record (the sources' own Coq move; genuine dot-types have no pairing constructor and require non-shared components — unenforced)",
+   "coercive subtyping replaced by axiomatized injections mh/bf + Coq Coercion",
+   "MTT universe cn rendered as Set",
+   "three_c hard-codes Book and ignores its CN argument (instance-level, not the source's generic determiner)"
+  ],
+  "omissions": [
+   "no theorem or countermodel establishing non-transitivity of the disjunctive dot IC (the motivation for Equiv_K is left implicit)",
+   "no generic determiner family beyond three/some/one; no negative predictions contrasting counting by BOOK1 (physical) vs BOOK2 (informational)",
+   "the War and Peace / on-the-shelf / worth-listening example is only Check-ed, never stated as a theorem",
+   "the source's linguistic account of how context selects the operative IC"
+  ],
+  "additions": [
+   "Heavyinfobook double-Sigma stacking beyond the paper's single-adjective examples",
+   "HEAVYIBOOK2, a verbatim duplicate of HEAVYBOOK2",
+   "Check smoke tests left in the compiled file"
+  ]
+ },
+ "determination": "slight_modification",
+ "determination_rationale": "A faithful formalization exists and the headline copredication-counting claims are fully proved with zero Admitted, but the core encodings are simplified rather than exact: Coq lacks coercive subtyping and dot-types, so both are simulated (axiomatized injections; a record with two coercion projections that wrongly admits pairing), and the cn universe collapses to Set. These are the sources' own published Coq workarounds and do not change the theory's predictions as exercised here; the three Equiv parameters are the theory's own IC axioms (rubric 3b). Artifacts are classes (ii) and (iv), consistent with determination 2.",
+ "artifact_classes": [
+  {
+   "class": "ii",
+   "description": "DomCN := Set identifies the MTT universe cn of common-noun interpretations with Coq's Set (type-value/universe collapse); records declared at sort DomCN"
+  },
+  {
+   "class": "iv",
+   "description": "missing native structure: coercive subtyping simulated by Axiom injections mh/bf + Coercion, and the dot-type Phy.Info simulated by a record with two coercion projections, which supplies a pairing constructor and permits shared components that genuine dot-types exclude"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Record produced by the 2026-09-05 batch audit sweep; pre-atlas pilot file predating the zero-axiom discipline — 18 Parameter/Axiom lines (13 signature-constant lines, 2 Set-valued coercion injections, 3 IC postulates whose Equiv records bundle propositional equivalence proofs, counted as the 3 propositional axioms); no file header, primary 2018 OSLa source PDF not in papers/.",
+ "compiles": true
+}

@@ -1,0 +1,129 @@
+{
+ "file": "ttr_mtt/TTR_base.v",
+ "region": "ttr pilots",
+ "summary": "Foundations layer of a deep embedding of TTR's set-theoretic substrate (Cooper 2023, Appendix A1): labels as strings, a three-element Flavour type, a mutually inductive value universe Val / Field / LabelledSet / TTRType (types are first-class values via VType), boolean well-formedness (unique labels), lookup X.l, paths(X) and tpaths(X) with a resolver, single-label path subtraction, initial subpaths, and two worked labelled-set examples checked by four reflexivity Examples. Labelled sets are association lists, with the header explicitly conceding the loss of set extensionality in exchange for decidability and computation; dependent function types are excluded from the mutual inductive (strict positivity) and deferred to TTR_records.v. No substantive theorems live here.",
+ "sources": [
+  {
+   "citation": "Cooper, R. (2023). From Perception to Communication: A Theory of Types for Action and Meaning. Oxford University Press. Appendix A1 (underlying set theory), A11 (record types).",
+   "path": "cooper_perception.pdf",
+   "available": "full (at formalizing_formal_semantics repo root, not under papers/)"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "Label := string",
+   "source": "A1: countably infinite designated set of label urelements",
+   "match": "exact",
+   "note": "strings are countably infinite; disjointness from flavours enforced by typing"
+  },
+  {
+   "coq": "Flavour := Plain | RT | Manifest",
+   "source": "A1: finite or countably infinite set of flavours, disjoint from labels",
+   "match": "simplified",
+   "note": "fixed to the three flavours the pilot needs (RT from A11, Manifest for singleton fields); source permits countably many"
+  },
+  {
+   "coq": "Val (inductive: VNat/VBool/VStr/VLabel/VPair/VLSet/VFun/VPred/VType)",
+   "source": "Cooper's ZF-with-urelements universe of objects",
+   "match": "changed",
+   "note": "the set-theoretic universe becomes a closed inductive datatype; header states the design note; VFun is a lambda 'placeholder'; VType makes types first-class values, as TTR intends"
+  },
+  {
+   "coq": "Field := FPair l v | FTriple l v (i:nat)",
+   "source": "A1: field = pair <l,a> with a not a label or flavour, or triple <l,a,i> with i an index",
+   "match": "simplified",
+   "note": "file's own comment says 'We simplify'; the constraint that a is not a label is dropped (Val includes VLabel); index is a bare nat"
+  },
+  {
+   "coq": "LabelledSet as cons-list of Fields + boolean wf_labelled_set",
+   "source": "A1: labelled set = SET of fields with no label occurring twice",
+   "match": "changed",
+   "note": "lists for sets — the rubric's own paradigm case of `changed`; extensionality lost (header admits it) and the set-hood invariant is externalized as a separate predicate rather than holding by construction"
+  },
+  {
+   "coq": "Path (PLabel/PDot), in_paths, resolve_path, in_tpaths",
+   "source": "A1: inductive definition of paths(X), total paths tpaths(X), value X.pi",
+   "match": "exact",
+   "note": "decidable boolean rendering of the source's inductive definition"
+  },
+  {
+   "coq": "ls_remove",
+   "source": "A1 p. 399: path subtraction X (-) pi",
+   "match": "simplified",
+   "note": "only the single-label case; general-path subtraction not implemented (comment says 'the simple case')"
+  },
+  {
+   "coq": "is_initial_subpath",
+   "source": "A1: pi1 initial subpath of pi2 iff pi1 = pi2 or pi2 = pi1.pi",
+   "match": "exact"
+  },
+  {
+   "coq": "TTRType (11 constructor tags: TBasic/TPType/TFun/TPartFun/TRecType/TJoin/TMeet/TSet/TSingleton/TPlurality/TAbsurd)",
+   "source": "Cooper's type constructors (record types A11, meets/joins, singletons, pluralities, function types)",
+   "match": "simplified",
+   "note": "forward declaration for mutual recursion only; full treatment in TTR_types.v"
+  },
+  {
+   "coq": "(dependent function types (a:T) -> F(a))",
+   "source": "Cooper's dependent function types, central to TTR record types",
+   "match": "missing",
+   "note": "excluded from the mutual inductive because Val -> TTRType violates strict positivity (file's own note, lines 95-97); deferred to TTR_records.v via RecField"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "ex_lookup_name / ex_lookup_age / ex_nested_path / ex_wf (4 Examples)",
+   "status": "proved (trivial by reflexivity; excluded from counts per rubric section 3)",
+   "source_claim": "worked micro-examples of A1 lookup, nested path resolution, and label uniqueness — not named claims of the source",
+   "note": "no Theorem/Lemma-headed statements exist in this file; substantive TTR theorems live in TTR_theorems_deep.v"
+  }
+ ],
+ "counts": {
+  "theorems": 0,
+  "proved": 0,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "Header design note (lines 8-13) concedes the core substitution itself: labelled sets as association lists 'lose the extensionality of sets' — a `changed` core definition per rubric section 2, which caps the verdict at partial.",
+   "The A1 constructs actually covered (paths, tpaths, resolution, initial subpaths, lookup) track the source's inductive definitions closely, with Cooper's clauses quoted verbatim in comments.",
+   "No headline claim of A1 is proved: the only Qed statements are 4 reflexivity Examples on toy labelled sets; path subtraction is implemented only for the single-label case.",
+   "The file's own comment at Field says 'We simplify', and the note at lines 95-97 documents the omission of dependent function types (strict positivity)."
+  ],
+  "simplifications": [
+   "Flavour fixed to three constructors (source allows countably many)",
+   "field triples carry a bare nat index and drop the 'a is not a label or flavour' side condition",
+   "path subtraction restricted to single labels"
+  ],
+  "omissions": [
+   "dependent function types (deferred to TTR_records.v)",
+   "general path subtraction X (-) pi for compound paths",
+   "relabelling and the rest of A1's operations; all A11 record-type theory (elsewhere in the pilot suite)"
+  ],
+  "additions": [
+   "boolean well-formedness predicate wf_labelled_set (the source gets uniqueness for free from set-hood)",
+   "convenience constructors ls_singleton/ls_pair/ls_triple and two worked examples"
+  ]
+ },
+ "determination": "major_restructuring",
+ "determination_rationale": "Judged from this pilot's own content: the core A1 definition (labelled set = set of fields) had to be changed to association lists with an external well-formedness predicate, losing extensionality (header's own admission), and TTR's dependent function types could not enter the mutual inductive at all — Val -> TTRType violates strict positivity (class i) and had to be re-founded in TTR_records.v. That is exactly rubric section 4 row 3. Provisional evidence: this is a foundations file with no substantive theorems, so the determination rests on documented encoding moves rather than on proved claims; a quotient/finite-set treatment could conceivably lift the list artifact, but no such formalization exists in the repo.",
+ "artifact_classes": [
+  {
+   "class": "i",
+   "description": "dependent function types (a:T) -> F(a) excluded from the mutual inductive because (Val -> TTRType) violates strict positivity; documented in-file (lines 95-97) and deferred to TTR_records.v"
+  },
+  {
+   "class": "ii",
+   "description": "TTR makes types first-class objects (VType : TTRType -> Val); a shallow rendering would collapse type/value levels in Coq's universe hierarchy, so the file dodges class ii by deep-embedding the whole type system as data"
+  },
+  {
+   "class": "iv",
+   "description": "no native extensional finite sets: ZF-with-urelements labelled sets become ordered association lists, set-hood (unique labels) maintained as a separate boolean predicate, extensionality lost (ordering artifact acknowledged in header)"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Record produced by the batch audit sweep of 2026-09-05; the file predates the atlas zero-axiom discipline but happens to satisfy it (zero Axiom/Parameter declarations; all four Examples close by reflexivity). Foundations-only file: theorem-level evidence for the TTR pilots lives in TTR_theorems_deep.v / TTR_theorems_shallow.v.",
+ "compiles": true
+}

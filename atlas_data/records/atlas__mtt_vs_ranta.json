@@ -1,0 +1,38 @@
+{
+ "file": "atlas/mtt_ranta/MTT_vs_Ranta.v",
+ "region": "modern type theories (MTT + Ranta pair)",
+ "summary": "The cross-framework bridge: CNs, every, no, subtyped sentences (under explicit lifting) and the donkey sentence agree DEFINITIONALLY between CL20's MTT-semantics and Ranta 1995 (cumulativity does the sort bookkeeping); intersective adjectives are separated subsets (sig/sigT equivalence both ways); the strong donkey reading transfers through the shared currying theorem. The one genuine divergence is proof relevance: Ranta's Sigma projects witnesses as a function, MTT's Prop-existential returns them only up to inhabited — Coq's elimination restriction is exactly the formal residue of R95-Type vs CL20-Prop. Subtyping exists as a package only on the MTT side; sugaring only on the Ranta side.",
+ "sources": [
+  {"citation": "Chatzikyriakidis & Luo 2020, §1.4.2, §2.3.1, §3.2-3.3.", "path": "papers/foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf", "available": "full"},
+  {"citation": "Ranta 1995, §2.12, §2.16, §3.1, §3.7, §4.2, ch. 9.", "path": "[Indices, 1] Aarne Ranta - Type-Theoretical Grammar (1995, OUP).djvu", "available": "full (djvutxt)"}
+ ],
+ "definitions_mapped": [
+  {"coq": "mtt_donkey (Pi in Prop over the Sigma-context)", "source": "CL20 inherit Ranta's donkey analysis (§1.4.2 historical notes)", "match": "exact"},
+  {"coq": "inhabited as the Prop/Type mediator", "source": "the R95-Type vs CL20-Prop gap", "match": "changed", "note": "the gap is the finding, not an encoding accident (artifact i)"}
+ ],
+ "theorems": [
+  {"name": "cn_agree / every_agree / sub_sentence_agree / donkey_agree", "status": "proved", "source_claim": "the shared core of the two frameworks, definitional through cumulativity", "note": "all by reflexivity"},
+  {"name": "no_agree_fwd / no_agree_bwd", "status": "proved", "source_claim": "negation differs only in False vs Empty_set"},
+  {"name": "some_agree_fwd; some_agree_bwd_inhabited; ranta_witness / ranta_witness_sound", "status": "proved", "source_claim": "proof-relevance divergence: Sigma implies exists; converse only up to inhabited; witness extraction is Ranta-side only"},
+  {"name": "inter_subset_fwd / inter_subset_bwd / inter_subset_some", "status": "proved", "source_claim": "CL20 §3.3.1 IS R95 §2.12"},
+  {"name": "mtt_donkey_strong_fwd / mtt_donkey_strong_bwd", "status": "proved", "source_claim": "the strong reading transfers via Ranta.donkey_curry"},
+  {"name": "ranta_some_mono", "status": "proved", "source_claim": "MTT's monotonicity package is provable ABOUT the Ranta forms once the lifting is explicit"}
+ ],
+ "counts": {"theorems": 15, "proved": 15, "admitted": 0, "propositional_axioms": 0},
+ "faithfulness": {
+  "verdict": "faithful",
+  "evidence": ["Agreement theorems are by reflexivity wherever the sources share the analysis, which is the strongest possible form of the claim 'CL20 builds on R95'.", "The divergences are stated as theorems (inhabited mediation, witness extraction) or documented Fail-style (subtyping absence on the Ranta side).", "All 15 audited theorems closed under the global context."],
+  "simplifications": [],
+  "omissions": ["B7 (STRETCH): comparison with atlas/dynamic/DPL.v's dk2_truth via instantiated relational models — statement plan in the design doc", "roundtrip identities for the sig/sigT equivalence"],
+  "additions": ["the bridge file itself — neither source states cross-framework theorems"]
+ },
+ "determination": "as_is",
+ "determination_rationale": "The bridge quantifies the folklore 'MTT-semantics descends from Ranta': the shared core is definitional, and the genuine delta is exactly proof relevance plus the subtyping/sugaring asymmetry.",
+ "artifact_classes": [
+  {"class": "i", "description": "cross-sort equalities via cumulativity; inhabited mediates the Prop/Type gap"},
+  {"class": "iv", "description": "zero axioms"}
+ ],
+ "source_gap": null,
+ "notes": "Third file of the MTT+Ranta pair (designs/mtt_ranta.md); the atlas's second cross-framework edge (first: DRT~DPL planned; Lambek Curry-Howard fragment gives a third via the shared Montague fragment).",
+ "compiles": true
+}

@@ -1,0 +1,179 @@
+{
+ "file": "shallow/PTQ.v",
+ "region": "montague lineage (raw material)",
+ "summary": "A hybrid embedding of Montague's PTQ (1973): deep syntax as category-annotated analysis trees (constructors for S2-S17 including quantifying-in F_10,n, relative clauses, tense/negation) with a shallow HOAS semantics realizing IL types directly as Coq types (e~Entity, t~Prop, s-types as Index->A over World*Time points of reference). The full intensional type assignment is kept where it matters — IV/CN denotations take individual concepts, T denotations are generalized quantifiers over concept-properties — with the lexicon as 38 abstract Parameters and Montague's p. 28 meaning postulates as 11 Axioms (rigid names, extensionality of ordinary IVs/CNs, seek = try-to-find, temporal ordering). A mutual Fixpoint interprets trees under assignment functions for he_n; interpreter-correctness theorems reproduce PTQ's translations for 'Bill walks', 'a man walks', 'every man walks'; de re/de dicto pairs for 'John finds/seeks a unicorn' are built as distinct trees (S14 vs S4+S5). The temperature-puzzle non-entailment is stated but Admitted, and as stated (negated universal over abstract Parameters) it is refutable in trivial instantiations, so it needs restating over a concrete model; the seek-ambiguity theorem is vacuous (right disjunct True). S6/S9/S13, the 'be' postulate and postulate (4) for extensional TVs are declared or commented but not interpreted (uninterpreted constructors silently denote True).",
+ "sources": [
+  {
+   "citation": "Montague, R. (1973). The Proper Treatment of Quantification in Ordinary English. In Hintikka, Moravcsik & Suppes (eds.), Approaches to Natural Language, 221-242. Reidel. (File cites pp. 19, 25, 28, 29-32.)",
+   "path": null,
+   "available": "none — no PTQ/Montague-1973 PDF found under papers/ (checked with find)"
+  },
+  {
+   "citation": "Dowty, D., Wall, R. & Peters, S. (1981). Introduction to Montague Semantics. Reidel. (Secondary exposition of PTQ.)",
+   "path": "papers/foundations/Dowty_Wall_Peters_1981_IntroductionToMontagueSemantics.pdf",
+   "available": "full"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "Parameter Entity/World/Time; Index := World*Time; Intension A := Index->A; extension (↓); rigid",
+   "source": "PTQ model <A,I,J,<=,F>; points of reference; ^ and v operators",
+   "match": "exact",
+   "note": "model abstract via Parameters; <= axiomatized only as reflexive+transitive where Montague requires a simple (linear) ordering; time_lt a bare Parameter unconnected to time_le"
+  },
+  {
+   "coq": "IL types shallow: e~Entity, t~Prop, <a,b>~A->B, <s,a>~Index->A",
+   "source": "PTQ p. 25 type hierarchy and IL",
+   "match": "simplified",
+   "note": "shallow embedding: t becomes Prop, ^ and v become meta-operations, no object-level IL syntax or substitution"
+  },
+  {
+   "coq": "IV_den = CN_den := IndivConcept->Prop_s; T_den := (IndivConcept->Prop_s)->Prop_s; TV_den := Intension T_den->IV_den; IAV_den",
+   "source": "category-to-type map f (p. 25): f(IV)=<<s,e>,t>, f(T)=<<s,f(IV)>,t>, etc.",
+   "match": "simplified",
+   "note": "the s-layer on functor arguments is partially absorbed into Prop_s results (kept explicitly for TV objects); crucially preserves individual concepts as the argument type of CNs/IVs, which carries the temperature puzzle"
+  },
+  {
+   "coq": "Nec / Will / Has",
+   "source": "PTQ p. 25 clause 8: box, W, H",
+   "match": "exact",
+   "note": "box as universal quantification over all indices (S5, as in PTQ); W/H existential over strictly later/earlier times"
+  },
+  {
+   "coq": "Inductive Cat, Inductive Expr (analysis trees), mutual Fixpoint interp_S/T/IV/CN/TV/IAV under Assignment := nat->IndivConcept with assign_mod",
+   "source": "syntactic rules S1-S17, translation rules T1-T17, assignments for he_n",
+   "match": "simplified",
+   "note": "trees not category-indexed, so the total interpreter gives vacuous True fallbacks; E_S6 (prepositions) and E_S9 (necessarily) are constructors with NO interpretation clause — they silently denote True"
+  },
+  {
+   "coq": "every_den / a_den / the_den quantifying over IndivConcept",
+   "source": "T2: every/a/the as generalized quantifiers over individual-concept variables",
+   "match": "exact",
+   "note": "the_den uses Leibniz equality on concepts (functional extensionality not imported), stricter than pointwise identity"
+  },
+  {
+   "coq": "E_S14/E_S15/E_S16 via assign_mod; He_n",
+   "source": "F_10,n quantifying-in, T14-T16",
+   "match": "exact"
+  },
+  {
+   "coq": "Axioms: walk/run/talk_extensional, *_reduces (also man', woman'), seek_def; rigid_is_rigid by construction",
+   "source": "PTQ p. 28 meaning postulates (1)-(9)",
+   "match": "simplified",
+   "note": "only a subset formalized; rise'/change'/price'/temperature' correctly exempted"
+  },
+  {
+   "coq": "walk_ext/man_ext/love_ext etc. extensional convenience layer; nat-indexed lexicon lookup tables",
+   "source": "no counterpart",
+   "match": "added"
+  },
+  {
+   "coq": "(none)",
+   "source": "S8, S13 (term disjunction), 'be'/identity postulate, semantics of in'/about', postulate (4) for extensional TVs, T-and-T conjunction",
+   "match": "missing",
+   "note": "some stated in comments only; the S17 present-perfect morphology is compositional in PTQ but hard-coded here as five tree constructors"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "rigid_is_rigid",
+   "status": "proved (trivial by construction)",
+   "source_claim": "PTQ p. 28 postulate (1): proper names are rigid designators"
+  },
+  {
+   "name": "bill_walks_correct",
+   "status": "proved",
+   "source_claim": "PTQ Section 4 translation of 'Bill walks' (T1+T4): walk'*(b)"
+  },
+  {
+   "name": "a_man_walks_correct",
+   "status": "proved",
+   "source_claim": "T2: 'a man walks' = exists x [man'(x) /\\ walk'(x)] over individual concepts"
+  },
+  {
+   "name": "john_walks_implies_some_man_walks",
+   "status": "proved",
+   "source_claim": "worked entailment in the PTQ fragment (given man'(^j))"
+  },
+  {
+   "name": "every_man_walks_correct",
+   "status": "proved",
+   "source_claim": "T2: 'every man walks' = forall x [man'(x) -> walk'(x)]"
+  },
+  {
+   "name": "temperature_puzzle",
+   "status": "admitted — NEEDS_ASSUMPTION (misformulated): stated as a negated universal over abstract Parameters, it is refutable under trivial instantiations (e.g. rise' everywhere false makes the inner implication vacuously true), so no proof is possible without a concrete model the Parameters preclude",
+   "source_claim": "PTQ pp. 30-31: 'the temperature is ninety' + 'the temperature rises' does not entail 'ninety rises' (the Partee puzzle — PTQ's headline result)",
+   "note": "the file itself flags the need for a countermodel; the type-level capacity for the non-entailment (concepts as CN/IV arguments) IS faithfully encoded"
+  },
+  {
+   "name": "seek_ambiguity",
+   "status": "proved but vacuous — statement is (_ <> _) \\/ True, closed by right; exact I; verifies nothing (excluded as trivial per rubric section 3)",
+   "source_claim": "PTQ: de dicto/de re ambiguity of 'John seeks a unicorn'"
+  },
+  {
+   "name": "extensional_collapse_walk",
+   "status": "proved (trivial by unfolding)",
+   "source_claim": "extensional reduction of ordinary IVs (postulate-driven in PTQ, definitional here)"
+  },
+  {
+   "name": "every_man_walks_extensional",
+   "status": "proved (near-trivial: instantiation at rigid concepts, does not use the extensionality postulates)",
+   "source_claim": "concept-level universal implies entity-level universal for ordinary words"
+  }
+ ],
+ "counts": {
+  "theorems": 9,
+  "proved": 8,
+  "admitted": 1,
+  "propositional_axioms": 11
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "Interpreter-correctness theorems reproduce PTQ's own translations for 'Bill walks', 'a man walks', 'every man walks' with quantification over individual concepts exactly as in T2 (bill_walks_correct, a_man_walks_correct, every_man_walks_correct).",
+   "The full intensional type assignment is preserved where it is load-bearing: CN/IV denotations take individual concepts, so temperature'/price'/rise'/change' can hold of non-rigid concepts — the structural precondition of the temperature puzzle.",
+   "De re/de dicto pairs for 'John finds/seeks a unicorn' and Montague's p. 21 tree 'every man loves a woman such that she loves him' are constructed as distinct analysis trees per S14 vs S4+S5.",
+   "The headline claims are NOT established: temperature_puzzle is Admitted (and misformulated over abstract Parameters — refutable in trivial instantiations), and seek_ambiguity is a vacuous disjunction with True.",
+   "E_S6 and E_S9 constructors have no interpretation clause and silently denote True; postulate (4) and the 'be' postulate exist only as comments — so parts of T1-T17 the summary block claims are covered are in fact fallback stubs.",
+   "The 11 Axioms are (subsets of) Montague's own p. 28 meaning postulates plus the ordering of J, i.e. rubric 3(b)-admissible source axioms, each with a comment reference."
+  ],
+  "simplifications": [
+   "shallow HOAS embedding of IL: no object-level IL syntax, ^ and v are meta-operations, t is Prop",
+   "s-layer on functor arguments partially absorbed into Prop_s results in the category-to-type map (kept for TV objects)",
+   "temporal ordering axiomatized as preorder only (Montague requires a simple ordering); time_lt not linked to time_le",
+   "meaning postulates restricted to a lexical subset; S17 tenses hard-coded as five constructors"
+  ],
+  "omissions": [
+   "temperature-puzzle countermodel (Admitted)",
+   "S8/S13, term disjunction, 'be'/identity postulate, semantics for in'/about'/necessarily'/assert_that'",
+   "postulate (4) for extensional TVs, hence no proved de dicto = de re collapse for 'find'",
+   "'John wishes to find a unicorn and eat it' cross-VP binding (listed as future work)",
+   "concrete model <A,I,J,<=,F>"
+  ],
+  "additions": [
+   "nat-indexed lexicon lookup tables",
+   "extensional convenience layer (walk_ext, love_ext, ...)",
+   "every_man_walks_extensional bridging concepts to entities"
+  ]
+ },
+ "determination": "slight_modification",
+ "determination_rationale": "Provisional. Everything mechanized went through with only documented, prediction-preserving simplifications: the shallow s-layer absorption, HOAS for IL's lambda, and quantification over Coq's full function space Index->Entity; the 11 propositional axioms are Montague's own meaning postulates and the ordering of J (rubric 3b). Nothing in the file diagnoses a foundational resistance — the intensional type discipline that PTQ is famous for embeds directly. But this pilot does not certify determination 1-2 on its own terms: faithfulness is only partial because the two headline intensionality results are unestablished (temperature puzzle Admitted and misformulated over abstract Parameters — the negated-universal form is refutable when rise' is instantiated empty, so it must be restated as a concrete-model construction; seek ambiguity vacuous). These are effort/formulation gaps ('evidence about us'), not theory resistance, so slight_modification is the supported prediction pending an atlas-grade rebuild with a concrete model and zero-axiom discipline.",
+ "artifact_classes": [
+  {
+   "class": "iv",
+   "description": "IL absorbed by shallow HOAS embedding (no object syntax, no substitution theory — quantifying-in via assignment functions); analysis trees are not category-indexed, so the total mutual Fixpoint requires vacuous True fallbacks for ill-typed or unimplemented constructors (E_S6/E_S9 silently denote True) — Coq lacks the partial, category-sorted term algebra PTQ's syntax presupposes"
+  },
+  {
+   "class": "ii",
+   "description": "IL type t identified with Prop; quantifiers range over the FULL Coq function space Index->Entity (a standard-model commitment PTQ's general models do not force); the_den uses Leibniz equality on concepts without functional extensionality"
+  },
+  {
+   "class": "iii",
+   "description": "abstract Parameters for Entity/World/Time and the whole lexicon make the semantics non-computational by design ('we reason in Prop, we don't compute') and preclude the countermodel the temperature puzzle needs inside the file"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Record produced by the batch audit sweep of 2026-09-05; pre-atlas pilot file predating the zero-axiom discipline (38 signature Parameters + 11 propositional Axioms, the latter mostly Montague's own p. 28 meaning postulates cited in comments).",
+ "compiles": true
+}

@@ -1,0 +1,18 @@
+{
+ "a": "atlas__lambek",
+ "b": "atlas__discocat",
+ "a_file": "atlas/type_logical/Lambek.v",
+ "b_file": "atlas/categorical/DisCoCat.v",
+ "level": "intra-family",
+ "bridge_file": null,
+ "grading": "5 definitional / 4 equivalence / 3 one-way or mediated / 2 divergent / 1 after re-encoding / null one-sided",
+ "phenomena": [
+  {"name": "sentence-derivability", "attempted_by": ["a", "b"], "grade": 3, "evidence": "Lambek.v derives np, np\\s |- s and the quantified sentences in L; DisCoCat.v derives n n^r s n^l n -> s in the pregroup. The Lambek-to-pregroup translation (CGS13 'Lambek vs Lambek') is NOT formalized — the agreement is at the level of matching sentence sets on the shared fragment, no Coq bridge yet", "note": "a bridge file would formalize CGS13's functor"},
+  {"name": "montague-meanings-computed", "attempted_by": ["a", "b"], "grade": 3, "evidence": "Lambek.v's Curry-Howard fragment computes Montague meanings by conversion (see edges/ptq__lambek 5.0); DisCoCat.v's ExModel computes truth values/graded meanings by vm_compute. Same sentences, different semantic spaces (Prop vs Q-vectors) — comparable only through the truth-value fragment (S = Q^1 reproduces the Boolean values)"},
+  {"name": "cut-elimination-proof-theory", "attempted_by": ["a"], "grade": null, "evidence": "Lambek.v Parts 3-4 (cut_adm, subformula property); pregroups have no sequent proof theory here"},
+  {"name": "equational-theory-of-derivations", "attempted_by": ["b"], "grade": null, "evidence": "DisCoCat.v deq + F_deq; Lambek.v identifies derivations only up to the shallow semantics"},
+  {"name": "graded-distributional-meanings", "attempted_by": ["b"], "grade": null, "evidence": "DisCoCat.v ExModel (3/4 loves + 1/4 hates, inner products)"},
+  {"name": "type-raising", "attempted_by": ["a"], "grade": null, "evidence": "Lambek.v d_type_raise; pregroup adjoints make raising implicit"}
+ ],
+ "notes": "The two categorial cousins. The natural upgrade is a Coq bridge formalizing CGS13's Lambek-to-pregroup translation, which would raise the joint grades to 4-5; recorded as future work in NEXT.md."
+}

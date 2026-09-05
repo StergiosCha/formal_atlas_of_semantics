@@ -1,0 +1,117 @@
+{
+ "file": "extras/Champollion.v",
+ "region": "plurality and coordination",
+ "summary": "A 38-line pilot sketch of Champollion's (2016) intersective theory of noun coordination in Winter-style flexible Boolean semantics: conjunction as generalized intersection fixed at type ((e->Prop)->Prop) (INT/and), existential raising of predicates to quantifiers (ER), the minimality/witness-set operator (MIN), an existential determiner over sets of predicates (a), and a distributive predication operator over set-pluralities (PDIST). The paper's running examples 'a man and a woman dated' (collective, via the Parameter date) and 'a man and a woman had a beer' (distributive, via PDIST) are assembled, type-checked with Check, and unfolded with Eval cbv — but nothing is proved: the file contains no Theorem, no Qed, and its closing comment concedes that choice closure (the operator the theory needs for its headline hybrid readings) is left undone ('needs probably an inductive type').",
+ "sources": [
+  {
+   "citation": "Champollion, L. (2016). Ten men and women got married today: Noun coordination and the intersective theory of conjunction. Journal of Semantics 33(3):561-622.",
+   "path": null,
+   "available": "none"
+  },
+  {
+   "citation": "Winter, Y. (2001). Flexibility Principles in Boolean Semantics. MIT Press. (origin of the ER/MIN/choice-closure operator inventory that Champollion 2016 adopts)",
+   "path": null,
+   "available": "none"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "INT / and := fun P Q X => P X /\\ Q X (line 5-7)",
+   "source": "conjunction as cross-categorial generalized intersection (Partee & Rooth), the core of Champollion 2016's intersective theory",
+   "match": "simplified",
+   "note": "fixed at the single type ((e->Prop)->Prop) rather than the source's cross-categorial schema over all conjoinable types"
+  },
+  {
+   "coq": "ER := fun P Q => exists x, In_s (intersection P Q) x (line 3)",
+   "source": "existential raising of a predicate to a quantifier (Winter's E, adopted in Champollion 2016)",
+   "match": "exact",
+   "note": "up to Prop for t"
+  },
+  {
+   "coq": "MIN := fun Q P => Q P /\\ forall P', strict_included P' P -> ~ Q P' (line 18)",
+   "source": "the minimality/witness operator restricting a quantifier to its minimal witness sets (Champollion 2016, after Winter)",
+   "match": "exact"
+  },
+  {
+   "coq": "a := fun P Q => exists X, P X /\\ Q X (line 19)",
+   "source": "existential closure over (minimal) witness sets",
+   "match": "simplified",
+   "note": "rendered as a determiner over sets of predicates; set-pluralities stand in for the source's plural individuals (the source's own set-based setting makes this mild)"
+  },
+  {
+   "coq": "PDIST := fun P' P => ~ Empty_set P /\\ included P P' (line 29)",
+   "source": "distributive predication over a plurality (the D/distributivity operator)",
+   "match": "simplified",
+   "note": "nonemptiness + inclusion rendering over set-pluralities"
+  },
+  {
+   "coq": "date : (e->Prop)->Prop (Parameter, line 20); have_a_beer (line 33)",
+   "source": "collective predicate 'dated' and the distributive VP 'have a beer'",
+   "match": "simplified",
+   "note": "collective predicate left as an unanalyzed constant; have_a_beer lexicalized non-compositionally (the file's own comment flags this)"
+  },
+  {
+   "coq": "(choice closure)",
+   "source": "choice closure (Winter's C), required for Champollion 2016's headline hybrid readings such as 'ten men and women got married'",
+   "match": "missing",
+   "note": "closing comment line 38: 'Choice closure seems doable but not as straightforward ... needs probably an inductive type'"
+  },
+  {
+   "coq": "(numerals / headline example)",
+   "source": "the numeral 'ten' and the paper's title example 'Ten men and women got married today'",
+   "match": "missing"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "(none)",
+   "status": "absent — the file contains no Theorem/Lemma/Qed; only Check and Eval cbv",
+   "source_claim": "the worked examples 'a man and a woman dated' (Eval cbv line 25) and 'a man and a woman had a beer' (Eval cbv line 37) are type-checked and unfolded but no truth-conditional adequacy claim is stated or proved",
+   "note": "Eval cbv displays the composed proposition; it establishes well-typedness only"
+  }
+ ],
+ "counts": {
+  "theorems": 0,
+  "proved": 0,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "grep for '^(Theorem|Lemma|Corollary|Fact|Proposition)' returns 0 and there is no Qed: no source claim is established, so 'faithful' is excluded by rubric section 2",
+   "the operator inventory that is present (ER line 3, INT line 5, MIN line 18) renders the source's Winter-style operators near-verbatim, so 'unfaithful' is also excluded — no theorem concerns non-source objects because there are no theorems",
+   "all 4 Parameters (man, woman line 8; date line 20; beer line 30; have line 32) are pure signature declarations with no propositional content (rubric section 3a), so propositional_axioms = 0",
+   "the file's own comments concede the gaps: non-compositional have_a_beer (line 33) and unimplemented choice closure (line 38)"
+  ],
+  "simplifications": [
+   "conjunction fixed at one type instead of the cross-categorial schema",
+   "set-pluralities (e->Prop) for plural individuals",
+   "collective predicate 'date' as an unanalyzed Parameter",
+   "have_a_beer lexicalized non-compositionally (self-flagged)"
+  ],
+  "omissions": [
+   "choice closure (self-flagged as undone) — needed for the paper's headline hybrid readings",
+   "numerals and the title example 'ten men and women got married today'",
+   "any proved theorem: the two worked examples are only Check/Eval cbv"
+  ],
+  "additions": [
+   "none beyond the imported Set_theoretic_Defs infrastructure"
+  ]
+ },
+ "determination": "major_restructuring",
+ "determination_rationale": "Mechanically, rubric row 3 applies because only a partial formalization exists — but the rationale must be read as provisional: the partiality is set by the pilot's incompleteness (zero theorems, choice closure unattempted), not by a diagnosed resistance of the theory. What is present (ER, INT, MIN) embeds essentially verbatim into Coq's set-of-predicates setting, suggesting a fuller attempt could raise the theory to determination 1-2; the one concrete obstacle the file itself names — choice closure 'needs probably an inductive type' — is a class (iv) missing-native-structure artifact (a choice operator has no direct impredicative encoding). A larger sibling file champollion_full.v exists in extras/ and should be audited before the theory-level determination is fixed.",
+ "artifact_classes": [
+  {
+   "class": "iv",
+   "description": "choice closure lacks a direct encoding — the file's closing comment says it 'needs probably an inductive type'; a Hilbert-style choice operator over witness sets is not natively available"
+  },
+  {
+   "class": "ii",
+   "description": "inherited from the imported Set_theoretic_Defs.v, which sets Definition e := Type — the entity domain is collapsed into a universe, so every Check/Eval in this file runs over a universe-as-domain"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Record produced by the batch audit sweep of 2026-09-05; the file predates the atlas zero-axiom discipline (4 signature-only Parameters, no propositional axioms) and has no header citation — the source (Champollion 2016 JoS, not on disk under papers/; only the unrelated Parts of a Whole PDFs are) was identified from the operator inventory and running examples.",
+ "compiles": true
+}

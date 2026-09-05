@@ -1,0 +1,109 @@
+{
+ "file": "ttr_mtt/Book_Homonymy.v",
+ "region": "ttr pilots",
+ "summary": "Luo's sense-selection model for simple homonymy by overloading in coercive subtyping (Chatzikyriakidis & Luo 2020 §3.3.2, code = the book's own Appendix A7.2, transcribed verbatim): the homonym 'run' as the unit type Onerun with one constructor, two meanings run1 : Human->Prop and run2 : Human->Institution->Prop, and two Coq Coercions r1/r2 playing c1/c2 of the book's Figure 3.1; the worked examples 'John runs quickly' (3.34) and 'John runs a bank' (3.35) are Definitions whose successful elaboration IS the automated disambiguation — the type ascriptions (run:T1)/(run:T2) trigger the correct coercion. 19 lines, zero theorems: the book's headline equations (3.39)-(3.40) are never stated, though the audit confirmed both close by reflexivity over signature-only assumptions.",
+ "sources": [
+  {
+   "citation": "Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. Wiley/ISTE. §3.3.2 (homonymy and overloading, eqs. 3.34-3.40, Figure 3.1) and Appendix A7.2 (the Coq code this file transcribes).",
+   "path": "papers/foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf",
+   "available": "full"
+  },
+  {
+   "citation": "Luo, Z. (2011b). Contextual analysis of word meanings in type-theoretical semantics. LACL 2011, LNAI 6736. (Original proposal of the overloading treatment; content reproduced in the 2020 book.)",
+   "path": null,
+   "available": "none (cited via the book, which reproduces the proposal and the code)"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "Inductive Onerun : Set := run",
+   "source": "the unit type 1_run with sole object run (book §3.3.2, Appendix A2.4)",
+   "match": "exact"
+  },
+  {
+   "coq": "T1 := Human->Prop; T2 := Human->Institution->Prop; Parameter run1: T1; Parameter run2: T2",
+   "source": "the homonym's meanings run1/run2 with typings (3.36)-(3.37)",
+   "match": "exact",
+   "note": "signature Parameters, no propositional content"
+  },
+  {
+   "coq": "r1/r2 with Coercion Onerun >-> T1 / >-> T2",
+   "source": "coercions c1(run)=run1, c2(run)=run2 (Figure 3.1)",
+   "match": "exact",
+   "note": "Coq elaborator coercions simulate coercive subtyping (artifact iv): no coherence checking, and selection is triggered by the explicit ascriptions (run:T1)/(run:T2) rather than by the context's typing requirement alone"
+  },
+  {
+   "coq": "Parameter quickly: forall (A: CN), (A->Prop)->(A->Prop)",
+   "source": "quickly(Human) : (Human->Prop)->(Human->Prop), eq. (3.38)",
+   "match": "exact"
+  },
+  {
+   "coq": "john_runs_quickly := quickly (run:T1) John; john_runs_a_bank := exists b: Bank, (run:T2) John b",
+   "source": "interpretations (3.39)-(3.40) of sentences (3.34)-(3.35)",
+   "match": "exact",
+   "note": "the equations (3.39)-(3.40) themselves are not stated as theorems; John : Man reaches Human via the ontology's mh coercion, a benign extra step"
+  },
+  {
+   "coq": "Load Coq_book_ontology (CN := Set; Human, Institution, Bank : CN; John : Man; coercion signatures declared with the Axiom keyword)",
+   "source": "the book's shared Coq ontology (its own implementation)",
+   "match": "exact",
+   "note": "CN := Set collapses the MTT universe of common nouns onto a Coq universe (artifact ii) — the source's own move"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "john_runs_quickly (Definition only)",
+   "status": "no theorem stated; audit-verified: quickly (run:T1) John = quickly run1 John closes by reflexivity, Print Assumptions signature-only",
+   "source_claim": "book eq. (3.39): [[John runs quickly]] = quickly(run1, j) 'by the coercive definition rule'",
+   "note": "successful elaboration of (run:T1) demonstrates the automated sense selection that is the source's claim"
+  },
+  {
+   "name": "john_runs_a_bank (Definition only)",
+   "status": "no theorem stated; audit-verified: unfolds to exists b:Bank, run2 John b by reflexivity, Print Assumptions signature-only",
+   "source_claim": "book eq. (3.40): [[John runs a bank]] = exists b:Bank. run2(j,b)",
+   "note": "run2 selected because the context requires Human->Institution->Prop"
+  }
+ ],
+ "counts": {
+  "theorems": 0,
+  "proved": 0,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "The file is a line-for-line transcription of the source's own Coq code (Appendix A7.2 of the 2020 book), verified against the PDF text: Onerun, T1/T2, run1/run2, r1/r2 coercions, quickly, and both sentence Definitions are identical up to comment casing.",
+   "Every construct maps exact to a numbered source item: (3.36)-(3.38), Figure 3.1's c1/c2, and (3.39)-(3.40).",
+   "grep counts: 0 Theorem/Lemma/Fact, 0 Admitted, 3 Parameters (run1, run2, quickly) — all signature declarations with no propositional content (rubric §3a).",
+   "Audit scratch check (coqc, this sweep): Fact eq_339 and eq_340 stating the book's headline equations both close by reflexivity; Print Assumptions lists only signature constants (run1, run2, quickly, John, Human, Bank, mh, bi) — zero propositional axioms.",
+   "Verdict is partial, not faithful, because the rubric requires headline claims proved as theorems: the file states (3.39)-(3.40) only as Definitions and proves nothing, though typechecking itself witnesses the disambiguation claim."
+  ],
+  "simplifications": [
+   "Sense selection is triggered by explicit type ascriptions (run:T1)/(run:T2) — the book's appendix does the same, but in the coercive-subtyping theory the selection follows from the context's typing requirement without annotation",
+   "n=2 meanings only (the book's general schema is c_i : 1_w -> A_i for i=1..n; the appendix also instantiates only n=2)"
+  ],
+  "omissions": [
+   "Equations (3.39)-(3.40) as proved theorems (both are one-line reflexivity Qeds — verified in audit)",
+   "The book's Remark on same-type homonyms ('bank' financial vs. river) requiring local coercions (Luo 2011b) — no counterpart in this or any other file"
+  ],
+  "additions": [
+   "None: the file adds nothing beyond the source's appendix; it inherits John : Man (coerced to Human via mh) from the shared ontology where the book's prose uses j : Human directly"
+  ]
+ },
+ "determination": "as_is",
+ "determination_rationale": "The formalization IS the source's own Coq code, and it compiles: the successful elaboration of (run:T1)/(run:T2) is precisely the 'automated selection of the correct meaning' the theory claims, and the audit confirmed the two headline equations (3.39)-(3.40) hold by definitional equality (reflexivity, signature-only assumptions) — no simplification, no extra assumption, no restructuring. Caveats recorded rather than counted against the theory: the file itself states zero theorems (a two-line Qed upgrade would make this a self-contained determination-1 record), Coq's elaborator coercions simulate rather than implement coercive subtyping (no coherence checking; ascriptions trigger selection) — class (iv), the rubric's named example of missing native structure — and the source's own CN := Set is a class (ii) collapse.",
+ "artifact_classes": [
+  {
+   "class": "iv",
+   "description": "Coercive subtyping is not native to Coq: the elaborator's Coercion mechanism simulates it without the theory's coherence condition, and sense selection must be triggered by explicit ascriptions (run:T1)/(run:T2) instead of the bare contextual typing requirement of Luo's calculus"
+  },
+  {
+   "class": "ii",
+   "description": "CN := Set (inherited from Coq_book_ontology): the MTT universe of common nouns is collapsed onto a Coq universe, so every Set counts as a CN — the source's own implementation choice"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Record produced by the batch audit sweep of 2026-09-05; the file predates the atlas zero-axiom discipline (3 signature Parameters of its own plus the shared Coq_book_ontology's Axiom-keyword coercion signatures — all function-typed, none propositional).",
+ "compiles": true
+}

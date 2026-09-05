@@ -1,0 +1,99 @@
+{
+ "file": "ttr_mtt/Coq_book_ontology.v",
+ "region": "ttr pilots",
+ "summary": "Shared ontology/lexicon preamble for the MTT pilot files (Required by Book_Homonymy, Book_veridical, Book_Event_Adv, Book_Inter_Sub, Book_Multi): CN := Set with 30 common-noun type constants; a 17-arrow subtyping hierarchy (Man/Woman >-> Human >-> Animal >-> Object, Swede >-> Scandinavian, Bank >-> Institution, etc.) rendered as Axiom-declared functions registered as Coq Coercions; polymorphic generalized quantifiers some/all/no over CN (with A/each synonyms); individual constants John, George, Mary, Helen. The file's namesake construct — Book as a Sigma/record type over the dot-type PhyInfo (phy :> Phy, info :> Info) with Pustejovsky qualia (Formal/Telic/Agent) — is present only inside a comment block (lines 6-16) and is not active code. Zero theorems; pure signature.",
+ "sources": [
+  {
+   "citation": "Chatzikyriakidis, S. & Luo, Z. (2014). Natural Language Inference in Coq. Journal of Logic, Language and Information 23(4):441-480.",
+   "path": "papers/foundations/Chatzikyriakidis_Luo_2014_NLI_in_Coq.pdf",
+   "available": "full"
+  },
+  {
+   "citation": "Luo, Z. (2012). Common Nouns as Types. LACL 2012, LNCS 7351.",
+   "path": "papers/foundations/Luo_2012_CommonNounsAsTypes.pdf",
+   "available": "full"
+  },
+  {
+   "citation": "Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. Wiley/ISTE.",
+   "path": "papers/foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf",
+   "available": "full"
+  },
+  {
+   "citation": "Pustejovsky, J. (1995). The Generative Lexicon. MIT Press. (qualia structure, via Luo's dot-types)",
+   "path": null,
+   "available": "none"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "Definition CN := Set",
+   "source": "Luo 2012 / C&L 2014: common nouns interpreted as types in a universe cn",
+   "match": "simplified",
+   "note": "collapses the CN universe into Coq's Set — the source's own move in its Coq implementation, but the full MTT theory uses a universe of setoids (artifact ii)"
+  },
+  {
+   "coq": "17 Axiom functions do/sw/mh/wh/ha/ao/ss/bi/... each registered with Coercion",
+   "source": "coercive subtyping A < B (Luo 2012 sec. 3; C&L 2014 sec. 2.2)",
+   "match": "simplified",
+   "note": "Coq's Coercion mechanism simulates coercive subtyping along declared function constants; coherence of the coercion graph is not enforced by Coq (artifact iv); this is the source papers' own encoding technique"
+  },
+  {
+   "coq": "some / all / no := fun A:CN => fun P:A->Prop => ... (A, each as synonyms)",
+   "source": "C&L 2014 polymorphic generalized quantifiers over CN",
+   "match": "exact"
+  },
+  {
+   "coq": "Parameters John George : Man; Mary Helen : Woman; 30 CN constants",
+   "source": "example lexicon of the FraCaS-style inference examples",
+   "match": "exact",
+   "note": "pure signature constants, no propositional content"
+  },
+  {
+   "coq": "Book record over dot-type PhyInfo with BookQualia (Formal: Hold A A, Telic: R1 A, Agent: exists h:Human, W h A) — COMMENTED OUT, lines 6-16",
+   "source": "Pustejovsky 1995 qualia structure encoded via Luo's dot-type Phy*Info (C&L 2020 ch. 5)",
+   "match": "missing",
+   "note": "the file's namesake construct is inactive: present only as a comment, consistent with Luo's own argument that dot-types are not Sigma-types and need native support Coq lacks"
+  }
+ ],
+ "theorems": [],
+ "counts": {
+  "theorems": 0,
+  "proved": 0,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "grep finds 0 Theorem/Lemma/Corollary/Fact/Proposition and 0 Admitted in the 42-line file: it is signature-only, so no headline claim of the source (e.g. C&L 2014's FraCaS inferences via subtyping) is established here",
+   "the active declarations reproduce C&L 2014's Coq preamble essentially verbatim: CN := Set, Axiom+Coercion subtyping arrows, the polymorphic some/all/no quantifiers",
+   "the dot-type Book record with qualia structure — the construct the filename advertises — is commented out at lines 6-16 and never re-established",
+   "all 17 Axioms have Set-valued function types (coercion witnesses) and all Parameters are type/individual constants, so per rubric 3(a) none carries propositional content: propositional_axioms = 0"
+  ],
+  "simplifications": [
+   "CN := Set identifies Luo's cn universe with Coq's Set (the source's own Coq move; the full theory uses setoids)",
+   "coercive subtyping simulated by Coq's Coercion mechanism without coherence checking"
+  ],
+  "omissions": [
+   "the Book-as-Sigma-type qualia/dot-type encoding (commented out)",
+   "all inference theorems (the NLI examples live in the five Book_*.v files that Require this preamble)",
+   "MTT machinery beyond the lexicon: no Pi/Sigma CN operations, no adjectives, no dependent event types"
+  ],
+  "additions": []
+ },
+ "determination": "not_applicable",
+ "determination_rationale": "This is a shared signature/lexicon preamble (infrastructure Required by five Book_*.v pilots) with zero theorems, so under rubric section 4 it cannot evidence any determination of MTT semantics — verdicts about the theory must be carried by the theorem-bearing companion files. Its one substantive datum is negative: the qualia Book record over the dot-type PhyInfo was written and then commented out, matching Luo's published position that dot-types are not Sigma-types and require native support Coq lacks (class iv).",
+ "artifact_classes": [
+  {
+   "class": "ii",
+   "description": "CN := Set collapses the source's common-noun universe into a Coq universe of types (types-as-values for CNs is the theory's point, but the setoid structure of Luo's cn is dropped)"
+  },
+  {
+   "class": "iv",
+   "description": "no native coercive subtyping: simulated by Axiom function constants + Coq Coercion with no coherence guarantee; no native dot-types: the Phy*Info Book record with qualia is abandoned in a comment"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Record produced by the batch audit sweep of 2026-09-05; the file predates the atlas zero-axiom discipline (17 Axioms + 34 Parameter constants, all signature-only with no propositional content).",
+ "compiles": true
+}

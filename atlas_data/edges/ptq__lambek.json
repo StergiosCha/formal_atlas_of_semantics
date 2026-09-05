@@ -1,0 +1,20 @@
+{
+ "a": "atlas__ptq",
+ "b": "atlas__lambek",
+ "a_file": "atlas/montague/PTQ.v",
+ "b_file": "atlas/type_logical/Lambek.v",
+ "level": "cross-family",
+ "bridge_file": "atlas/montague/PTQ_vs_Lambek.v",
+ "grading": "5 definitional / 4 equivalence / 3 one-way or mediated / 2 divergent / 1 after re-encoding / null one-sided",
+ "phenomena": [
+  {"name": "proper-name-sentences", "attempted_by": ["a", "b"], "grade": 5, "evidence": "lambek_computes_ptq_john (rewrite+reflexivity)"},
+  {"name": "quantification-universal", "attempted_by": ["a", "b"], "grade": 5, "evidence": "lambek_computes_ptq_every"},
+  {"name": "quantification-existential", "attempted_by": ["a", "b"], "grade": 5, "evidence": "lambek_computes_ptq_some"},
+  {"name": "type-raising", "attempted_by": ["a", "b"], "grade": 5, "evidence": "lambek_typeraise_is_star — Lambek's np |- s/(np\\s) denotes Montague's star"},
+  {"name": "scope-ambiguity", "attempted_by": ["a"], "grade": null, "evidence": "PTQ.v Part 3 quantifying-in; the Lambek fragment derives one reading per derivation and the two-scope comparison is not set up in Lambek.v", "note": "categorial scope = multiple derivations; not yet bridged"},
+  {"name": "intensionality-seek-find", "attempted_by": ["a"], "grade": null, "evidence": "PTQ.v Part 4"},
+  {"name": "proof-theory-cut-elimination", "attempted_by": ["b"], "grade": null, "evidence": "Lambek.v Parts 3-4 (cut_adm, subformula property)", "note": "PTQ has no proof theory"},
+  {"name": "decidability-of-grammaticality", "attempted_by": ["b"], "grade": null, "evidence": "Lambek.v subformula property (basis of the decision procedure)"}
+ ],
+ "notes": "The categorial route COMPUTES the Montague meanings on the shared fragment (all joint grades definitional); the frameworks diverge in what else they carry (proof theory vs intensionality/scope machinery)."
+}

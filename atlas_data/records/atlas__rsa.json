@@ -1,0 +1,53 @@
+{
+ "file": "atlas/probabilistic/RSA.v",
+ "region": "probabilistic pragmatics",
+ "summary": "The Rational Speech Act model in exact rational arithmetic: the L0/S/L tower over abstract finite worlds and utterances with a Boolean lexicon; softmax rendered exactly by a nat exponent and positive cost weights (the multiplicative form of Goodman & Lassiter 2015 eq. 5); distribution theorems as iffs against decidable definedness conditions with exact failure modes (total division makes undefined distributions the zero function); L0 as conditioning; the size principle; Bayes/product/odds forms and uniqueness from proportionality; specificity orderings for any positive prior; semantic-equivalence invariance at every depth for every cost assignment (Bergen Lemmas 1-2 generalized — base RSA derives no M-implicatures); depth-n support/distribution under Bergen's restrictions; permutation well-definedness of the list encoding; the scalar implicature computed exactly (L1(w1|some)=3/4 vs 1/4; 17/18 at alpha=4; 7/8 at depth 3; L0 gives 1/2-1/2; and the preference proved symbolically for EVERY alpha>0); the GF16 faces example; Bergen's 1/4,1/6,1/8,1/10 depth table; the LG17 cookies example at alpha=4 with exact 1/6486; the symmetry problem (flat costs neutralize, size costs restore).",
+ "sources": [
+  {"citation": "Goodman, N. & Frank, M. (2016). Pragmatic language interpretation as probabilistic inference. TiCS 20:818-829.", "path": "papers/probabilistic/Goodman_Frank_2016_PragmaticLanguageInterpretation.pdf", "available": "full"},
+  {"citation": "Frank, M. & Goodman, N. (2012). Predicting pragmatic reasoning in language games. Science 336:998 (+ Supplement).", "path": "papers/probabilistic/Frank_Goodman_2012_PredictingPragmaticReasoning.pdf", "available": "full"},
+  {"citation": "Bergen, L., Levy, R. & Goodman, N. (2016). Pragmatic reasoning through semantic inference. Semantics & Pragmatics 9(20).", "path": "papers/probabilistic/Bergen_Levy_Goodman_2016_PragmaticReasoningSemanticInference.pdf", "available": "full"},
+  {"citation": "Lassiter, D. & Goodman, N. (2017). Adjectival vagueness in a Bayesian model of interpretation. Synthese 194.", "path": "papers/probabilistic/Lassiter_Goodman_2017_AdjectivalVagueness.pdf", "available": "full"},
+  {"citation": "Goodman, N. & Lassiter, D. (2015). Probabilistic semantics and pragmatics. Handbook of Contemporary Semantic Theory.", "path": "papers/probabilistic/Goodman_Lassiter_2015_ProbabilisticSemanticsPragmatics.pdf", "available": "full"}
+ ],
+ "definitions_mapped": [
+  {"coq": "qsum / qpow / normalize (with Qred) / IsDist", "source": "the sources' finite sums, powers and 'proportional to'", "match": "exact", "note": "Qred theory-invisible (normalize_spec), computation-essential (artifact iii)"},
+  {"coq": "meaning : U -> W -> bool; L0_raw with if", "source": "B16 L(u,w) in {0,1}; GF16 delta; FG12 Boolean functions", "match": "exact", "note": "indicator as bool (artifact ii); no utterance syntax — the lexicon is the sources' own interface"},
+  {"coq": "S_raw := Qred(qpow (L u w) alpha) * costw u", "source": "GF16 (2)-(3)+Box 1(II); B16 (9)-(10); LG17 (10)-(12); GL15 (5); FG12 (S1)-(S2)", "match": "changed", "note": "THE encoding move: exp(alpha(log L - c)) = L^alpha * e^(-alpha c) rendered with nat alpha and rational weight surrogates; equivalence with the real softmax is a documented encoding lemma, not a Coq theorem; GF16 Box 1's +cost sign recorded as the outlier"},
+  {"coq": "L_of / Ln / Sn; consistent / expressible (existsb)", "source": "GF16 (1); B16 (8)-(11) with restrictions (i)-(ii) at o = w (the paper's own collapse)", "match": "exact", "note": "definedness decidable; distribution theorems are iffs (artifact iii/v)"},
+  {"coq": "Pset / PS / card / inv_card / subset_meaning / uniform_prior / flat_cost / sem_equiv", "source": "LG17 (3); FG12 |w| and (1); B16 pp. 20:13, §4.1.1", "match": "exact", "note": "lists as finite sets; NoDup only for cardinality (artifact iv/v)"}
+ ],
+ "theorems": [
+  {"name": "qsum/qpow/normalize algebra (T1-T2, 20+ lemmas)", "status": "proved", "source_claim": "infrastructure"},
+  {"name": "L0_dist_iff / L0_undefined / L0_support / L0_false (T3-T4)", "status": "proved", "source_claim": "GF16 (4), B16 (8), LG17 (9) + B16 restriction (i) as the exact definedness condition"},
+  {"name": "L0_is_conditioning / L0_prior_only / L0_tautology / Pset_true / Pset_additive (T5); L0_uniform_card (T6)", "status": "proved", "source_claim": "LG17 (3)-(4), (9); Bergen p. 20:15; FG12 (S3)"},
+  {"name": "S1_dist_iff / S1_undefined / S1_support / speaker_truthful (T7-T8); S1_alpha0 (T9)", "status": "proved", "source_claim": "the speaker block; alpha=0 degeneracy documents why (0<alpha) is threaded"},
+  {"name": "L1_dist_iff (+_alt) / L1_undefined / L1_support / listener_false (T10-T12)", "status": "proved", "source_claim": "GF16 (1), B16 (11), LG17 (13)-(14)", "note": "listener_false needs (0<alpha) — a slip in the design statement, corrected here"},
+  {"name": "L1_bayes / L1_product / PS_pos_iff / L1_propto / L1_unique / L1_odds (T13-T16)", "status": "proved", "source_claim": "FG12 (1), LG17 (14); 'proportional-to determines the distribution' made explicit"},
+  {"name": "L0_more_specific (+strict) / S1_more_specific (+strict) / L1_order_from_S1 / size_principle (T17-T20)", "status": "proved", "source_claim": "B16 §3 specificity; FG12 (2)/(S4) size principle — for ANY positive prior"},
+  {"name": "L0_sem_equiv / Ln_sem_equiv / Sn_sem_equiv / no_M_implicature (T22-T24)", "status": "proved", "source_claim": "B16 §4.1.1 Lemmas 1-2 GENERALIZED to every depth and arbitrary costs; base RSA cannot distinguish synonyms"},
+  {"name": "Ln_perm_invariant (T25)", "status": "proved", "source_claim": "well-definedness: the sources' sets are faithfully lists"},
+  {"name": "Ln_support / Ln_dist / Sn_dist (T26-T27)", "status": "proved", "source_claim": "B16 (8)-(11) 'for integers n > 0' under restrictions (i)-(ii) globalized (flagged, artifact v)"},
+  {"name": "scalar_L1_values / scalar_implicature / scalar_L0_fails / scalar_alpha4 / scalar_depth3 / S1_prefers_informative (T21, T28-T30)", "status": "proved", "source_claim": "LG17 §3, GL15 §3.1, B16 §3.1 — exact rationals by vm_compute"},
+  {"name": "scalar_implicature_any_alpha (T31)", "status": "proved", "source_claim": "LG17 fn. 6: the preference is alpha-independent — proved symbolically (S1(some|w1)=1, S1(some|w2)=q/(q+1), q=(1/2)^alpha)"},
+  {"name": "Faces.* (T32); BergenTwoWorlds.bergen_table (T33); Cookies.* (T34); Symmetry.* (T35)", "status": "proved", "source_claim": "GF16 Fig. 1; B16 p. 20:16 table; LG17 (15)-(20); B16 §3.2"}
+ ],
+ "counts": {"theorems": 117, "proved": 117, "admitted": 0, "propositional_axioms": 0},
+ "faithfulness": {
+  "verdict": "faithful",
+  "evidence": ["Every numerically load-bearing value of the sources is reproduced exactly by vm_compute (3/4, 17/18, 7/8, 1/4-1/6-1/8-1/10, 1/6486, 2/3-1/3).", "The distribution theorems are honest iffs: total division makes undefined RSA distributions the zero function, and the companion _undefined theorems give the exact failure mode.", "Bergen's Lemmas 1-2 are proved in generalized form (all depths, arbitrary costs) with the no-M-implicature corollary.", "All 23 audited theorems closed under the global context (zero axioms, zero Parameters)."],
+  "simplifications": ["exp/log softmax replaced by the exact nat-exponent + weight identity (header encoding lemma; irrational weights get declared rational surrogates)", "B16's (o,w) collapsed to w (the paper's own move)", "restrictions (i)-(ii) globalized for the depth-n theorems (flagged)"],
+  "omissions": ["B16 lexical uncertainty (Figs. 5-6 Horn game) and the closed form 1/(2n+2): STRETCH, design has full plans T36-T41", "LG17 threshold semantics on a degree grid (T42-T45)", "speaker uncertainty/QUD (GF16 Box 1 III-IV), MCMC, empirical fits"],
+  "additions": ["exact definedness conditions and failure modes (the sources never say when the model is defined)", "L1_unique (proportionality determines the distribution)", "the alpha=0 degeneracy theorem", "permutation well-definedness"]
+ },
+ "determination": "as_is",
+ "determination_rationale": "With the exact multiplicative encoding the entire MUST list is constructive and axiom-free; the only substantive translation is the softmax identity, which is GL15's own eq. (5). Two source slips surface: GF16 Box 1's cost sign (against all other sources) and LG17 eq. (20)'s printed ~.015 where the paper's own formula gives ~.00015 (= 1/6486 exactly) — both recorded, not silently corrected.",
+ "artifact_classes": [
+  {"class": "ii", "description": "indicator as bool+if; no utterance syntax (cost tables carry word length); B16's o=w collapse"},
+  {"class": "iii", "description": "exp/log eliminated by the nat-exponent encoding; total division makes undefinedness the zero function (hence iff-form theorems); Qred computation-essential and theory-invisible; closed claims by vm_compute"},
+  {"class": "iv", "description": "no finite sets/big operators/probability monad: lists+In, qsum, length-of-filter; list order discharged by Ln_perm_invariant"},
+  {"class": "v", "description": "bool meanings, existsb definedness, decidable Q order; flagged stronger-than-source hypotheses: NoDup for cardinality, global coverage for depth-n"}
+ ],
+ "source_gap": {"kind": "misprints", "detail": "GF16 Box 1 eq. (II) prints U = log P + cost(u) where FG12/B16/LG17 subtract cost (file follows minus, discrepancy recorded); LG17 eq. (20) prints ~.015 for L1(6|SOME) but the displayed formula evaluates to 1/6486 ~ .00015 (proved exactly; fidelity note at Cookies)."},
+ "notes": "Built in-session following designs/rsa.md's 9-step build order; the design's probe values all reproduced. Design slips found while building: T12 (listener_false) needs (0<alpha); T10's backward direction needs In u us. 1898 lines.",
+ "compiles": true
+}

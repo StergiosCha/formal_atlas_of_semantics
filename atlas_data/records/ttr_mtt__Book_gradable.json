@@ -1,0 +1,159 @@
+{
+ "file": "ttr_mtt/Book_gradable.v",
+ "region": "ttr pilots",
+ "summary": "Pilot MTT formalization of Chatzikyriakidis & Luo 2020 ch. 4 (§4.2 gradable adjectives, §4.3 gradable nouns): Degree as a Tarski universe of names (HEIGHT/AGE/IDIOCY) with decoding D(d):=nat; polymorphic standard STND over degree-indexed CNs and syntactic adjective types ADJ; tall and taller_than as inequalities against STND (4.27); Idiot as the nested Sigma-type of (4.33); enormous per (4.35); enormousidiot as a coercion Record transcribing (4.36) with the book's STND(ENORMOUS) >= STND(IDIOTIC) side condition as a conjunct. Five small Qed theorems: two comparative sanity checks (TALLER, trans) and three consequences of the enormous-idiot construction (ENORMOUS1, EI2, EI3), of which EI3 is vacuous — its section hypothesis STND_order is refutable by self-instantiation (proved in audit).",
+ "sources": [
+  {
+   "citation": "Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. Wiley/ISTE. Ch. 4 'Advanced Modification', §4.2 (eqs. 4.17-4.27) and §4.3 (eqs. 4.31-4.36).",
+   "path": "papers/foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf",
+   "available": "full"
+  },
+  {
+   "citation": "Chatzikyriakidis, S. & Luo, Z. (2013). Adjectives in a modern type-theoretical setting. (antecedent account the book's §4.2 builds on, with C&L 2014/2017a)",
+   "path": "papers/foundations/Chatzikyriakidis_Luo_2013_AdjectivesMTT.pdf",
+   "available": "full"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "Inductive Degree := HEIGHT | AGE | IDIOCY; D (d:Degree) := nat",
+   "source": "universe Degree of totally ordered degree types (Height, Weight, Idiocy, ...) — §4.2 p.82",
+   "match": "simplified",
+   "note": "Tarski-universe encoding (names + decoding family, flagged in the file header); but D is constant — every degree type IS nat, so distinct dimensions are definitionally intercomparable (fn. 9 sanctions Height=Nat, not the全 collapse); AGE declared and never used (artifact ii)"
+  },
+  {
+   "coq": "CN_G (_:Degree) := Set",
+   "source": "universe CNG(D) of D-indexed CNs with introduction rules, subtype of CN — §4.2 p.82",
+   "match": "changed",
+   "note": "the indexed-CN universe is collapsed to Set with a vacuous index: membership is unenforced (any Set is a CN_G of any degree), which is what lets IDIOTIC : ADJ IDIOCY Human typecheck (artifact ii/iv)"
+  },
+  {
+   "coq": "Parameter Human : CN_G HEIGHT; Parameter height : Human -> Height",
+   "source": "Human : Height -> Type indexed by heights; height(i,h) = i — (4.18)-(4.19)",
+   "match": "changed",
+   "note": "the section's signature move (CNs indexed by degree) is dropped for the adjective half: unindexed Human plus an opaque measure function replaces the indexed family whose height is the index projection"
+  },
+  {
+   "coq": "tall h := height h >= STND HEIGHT Human TALL; taller_than h1 h2 := height h2 > height h1",
+   "source": "(4.20)-(4.23), (4.27)",
+   "match": "simplified",
+   "note": "content of (4.27) with the Height index dropped; taller_than's argument order is reversed relative to (4.23) (internally consistent throughout the file)"
+  },
+  {
+   "coq": "Parameter ADJ : forall d, CN_G d -> Set; TALL SHORT : ADJ HEIGHT Human; IDIOTIC : ADJ IDIOCY Human; ENORMOUS : forall d, ADJ d (PHY d); STND : forall d (A:CN_G d), ADJ d A -> D d; PHY : forall d, CN_G d",
+   "source": "ADJ(A) syntactic adjective types with TALL : ADJ(Human); STND : PiD:Degree. PiA:CNG(D). ADJ(A) -> D (4.26); PHY_D : CNG(D)",
+   "match": "exact",
+   "note": "up to an explicit degree index on ADJ; all are signature Parameters with no propositional content"
+  },
+  {
+   "coq": "Idiot := sigT (fun x:Idiocy => sigT (fun y:IHuman x => x > STND IDIOCY Human IDIOTIC)); Parameter IHuman : Idiocy -> CN_G IDIOCY",
+   "source": "Idiot = Sigma i:Idiocy. IHuman(i) x (i >= STND(Idiocy,Human,IDIOTIC)) with IHuman : Idiocy -> Type — (4.33)",
+   "match": "simplified",
+   "note": "nested Sigma for Sigma-times; strict > substituted for the source's >= (moves borderline cases); note the file keeps the book's own loose use of Human (a HEIGHT-CN) in the Idiocy-standard, typable only because CN_G's index is vacuous"
+  },
+  {
+   "coq": "enormous (d:Degree) (A:CN_G d) (d1:D d) := fun P:A => d1 > STND d (PHY d) (ENORMOUS d)",
+   "source": "enormous : PiD. PiA:D->CNG(D). Pid:D. A(D) -> Prop; Enormous(D)(A)(d)(a) = d >= STND(D,PHY_D,ENORMOUS) — (4.34)-(4.35)",
+   "match": "simplified",
+   "note": "the source's printed type does not typecheck (A : D -> CNG(D) applied as A(D)); the file substitutes the evident repair with the A-argument vacuous, as in (4.35); > for >="
+  },
+  {
+   "coq": "Record enormousidiot := { h :> Idiot; EI : enormous ... /\\ STND IDIOCY (PHY IDIOCY) (ENORMOUS IDIOCY) >= STND IDIOCY Human IDIOTIC }",
+   "source": "Enormous Idiot = Sigma h:Idiot. enormous(pi1 h, ...) where STND(D,PHY_D,ENORMOUS) >= STND(Idiocy,Human,IDIOTIC) — (4.36)",
+   "match": "exact",
+   "note": "Record-with-coercion for the Sigma-type; the book's side condition internalized as a conjunct with the book's own >=; verbatim unused duplicate enormousidiot1 is dead code (added)"
+  },
+  {
+   "coq": "Section Variable STND_order : forall d C A, STND d (PHY d) (ENORMOUS d) > STND d C A",
+   "source": "over-generalization of (4.36)'s single side condition to all degrees/CNs/adjectives",
+   "match": "changed",
+   "note": "REFUTABLE: instantiating C := PHY d, A := ENORMOUS d gives STND > itself; audit proved STND_order -> False from the bare signature. The source's own instance is consistent; the file's generalization is not. Only EI3 depends on it"
+  },
+  {
+   "coq": "(absent)",
+   "source": "CN_PHY subtype universe and polymorphic tall over it (4.24)-(4.25); §4.4 multidimensional adjectives (4.39)-(4.46); the section's stated provable claim (height(h1) >= height(h2) /\\ tall(h2) -> tall(h1))",
+   "match": "missing",
+   "note": "the subtype-universe machinery (Maclean & Luo 2020) has no Coq counterpart (artifact iv)"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "TALLER",
+   "status": "proved",
+   "source_claim": "new (worked numeric example in the spirit of §4.2's comparatives: taller_than Mary John /\\ height Mary = 170 -> height John > 170)",
+   "note": "Print Assumptions: only signature Parameters"
+  },
+  {
+   "name": "trans",
+   "status": "proved",
+   "source_claim": "new (transitivity of taller_than; the book's explicitly stated easy claim — tall monotonicity after (4.23) — is not the one proved)"
+  },
+  {
+   "name": "ENORMOUS1",
+   "status": "proved",
+   "source_claim": "consequence of (4.36): an enormous idiot yields an idiot whose degree exceeds the ENORMOUS standard"
+  },
+  {
+   "name": "EI2",
+   "status": "proved",
+   "source_claim": "consequence of (4.33)+(4.36): the degree also exceeds the IDIOTIC standard, via the record's >= side condition (the book's own condition)",
+   "note": "does not use STND_order; assumptions all signature-level"
+  },
+  {
+   "name": "EI3",
+   "status": "proved but vacuous — excluded per rubric §3",
+   "source_claim": "strengthens EI2 with strict STND(ENORMOUS) > STND(IDIOTIC)",
+   "note": "carries the discharged hypothesis STND_order, refuted in audit (self-instantiation C:=PHY d, A:=ENORMOUS d gives n>n); inconsistent-hypothesis theorem, a finding not a result"
+  }
+ ],
+ "counts": {
+  "theorems": 5,
+  "proved": 5,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "Print Assumptions on all five theorems (rerun in audit, Coq 8.20.1) lists only the ten signature Parameters (Human, John/Mary/Kim, height, PHY, ADJ, TALL/SHORT, IDIOTIC, ENORMOUS, STND, IHuman) — zero propositional axioms; STND_order is a discharged section Variable appearing only as EI3's hypothesis.",
+   "Idiot and enormousidiot transcribe (4.33) and (4.36) recognizably, including the book's STND(ENORMOUS) >= STND(IDIOTIC) side condition as a record conjunct.",
+   "Two core definitions are changed: CN_G(d) := Set collapses the indexed-CN universe (index vacuous, membership unenforced), and unindexed Human + opaque measure function replaces the Height-indexed family (4.18)-(4.19) that is §4.2's signature move.",
+   "The section's one explicitly stated provable claim (tall monotonicity from height comparison) is absent, and EI3 rests on the refutable STND_order (audit lemma STND_order_inconsistent, Qed, signature-only assumptions)."
+  ],
+  "simplifications": [
+   "all degree types decoded to nat (fn. 9 sanctions Height=Nat; the file extends this to every degree, conflating dimensions)",
+   "strict > substituted for the source's >= in Idiot, enormous, EI theorems",
+   "degree index on tall/taller_than dropped; taller_than argument order reversed (consistent)"
+  ],
+  "omissions": [
+   "CN_PHY subtype universe and the polymorphic tall of (4.24)-(4.25)",
+   "§4.4 multidimensional adjectives (Health inductive, Healthy/Sick quantification, 4.39-4.46)",
+   "the tall-monotonicity claim stated after (4.23)",
+   "comparative/superlative morphology beyond taller_than"
+  ],
+  "additions": [
+   "STND_order Variable over-generalizing (4.36)'s side condition (refutable)",
+   "unused duplicate Record enormousidiot1",
+   "unused AGE degree and Age type",
+   "TALLER/trans sanity theorems"
+  ]
+ },
+ "determination": "major_restructuring",
+ "determination_rationale": "On this file's evidence only a partial formalization exists with core definitions changed: the account's load-bearing machinery is a hierarchy of universes (Degree, CNG(D) with introduction rules, the CN_PHY subtype universe) that Coq lacks natively, and the file responds by collapsing CN_G to Set (class ii artifact) and every degree type to nat, and by replacing the Height-indexed Human family with a measure function. What survives the collapse — STND polymorphism, the Sigma-type Idiot, the enormous-idiot construction — does go through constructively with zero propositional axioms, and its consequences (ENORMOUS1, EI2) are proved from the signature alone, so the Sigma-type analysis of gradable nouns itself is not the obstacle; the universe infrastructure is. A deeper encoding (or a substrate with coercive subtyping and subtype universes, i.e. the authors' own Plastic/UTT setting) could plausibly lift this to slight modification; this pilot does not establish that. EI3's vacuity is a file defect, not a theory defect: the source's own side condition is a single consistent instance, and the file's generalization to all adjectives is what refutes itself.",
+ "artifact_classes": [
+  {
+   "class": "ii",
+   "description": "CN_G(d) := Set — the degree-indexed CN universe collapsed to Set with a vacuous index (membership unenforced; IDIOTIC : ADJ IDIOCY Human typable only for this reason); D(d) := nat identifies all degree types with nat, making cross-dimension comparisons typable that the source's typing forbids; Degree itself is a Tarski name-universe workaround for Coq's lack of user-declared universes"
+  },
+  {
+   "class": "iv",
+   "description": "no coercive subtyping or subtype universes: the CN_PHY analysis of polymorphic tall (4.24)-(4.25) is omitted; Record with :> coercion simulates the Sigma-type-plus-subtyping reading of (4.36); the book's CNG introduction rules and CNG(D) <= CN subtyping have no counterpart"
+  }
+ ],
+ "source_gap": {
+  "kind": "misprint",
+  "detail": "The book's (4.34) prints enormous : PiD:Degree. PiA : D -> CNG(D). Pid : D. A(D) -> Prop, applying A to the degree type D rather than to a degree — it does not typecheck as written; (4.36) likewise prints the unbalanced application enormous((pi1(h), pi2(pi1(h))). The file substitutes the evident repair (A : CN_G(d), argument of type A vacuous), matching the intent of (4.35)."
+ },
+ "notes": "Record produced by the batch audit sweep of 2026-09-05; the file predates the atlas zero-axiom discipline (10 signature Parameters plus one section Variable, though none is a propositional axiom and Print Assumptions is clean). Audit-specific finding: STND_order is inconsistent (proved during audit), so EI3 is vacuous and the effective proved count is 4 of 5; also note the >/>= substitutions and the dead duplicate enormousidiot1. File is 72 lines, header-free by atlas standards (no SOURCES block, no assumption-audit part).",
+ "compiles": true
+}

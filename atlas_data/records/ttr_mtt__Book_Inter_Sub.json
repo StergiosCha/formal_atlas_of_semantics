@@ -1,0 +1,106 @@
+{
+ "file": "ttr_mtt/Book_Inter_Sub.v",
+ "region": "ttr pilots",
+ "summary": "MTT-semantics for intersective vs subsective adjectives, transcribed from Chatzikyriakidis & Luo (2020) Appendix A7.3: intersective 'Irish' as a plain predicate with modified CNs as Sigma-types (Coq Records whose first projection is a coercion, giving Irishdelegate <= Delegate <= Human), subsective 'skillful' as a Pi-polymorphic predicate over the universe CN (Skillful : forall A:CN, A -> Prop). Three positive inferences proved by cbv+firstorder (some Irish delegate walks => some delegate walks; some man is Irish => some human is Irish; some skillful man is Irish => some man is Irish) and the signature subsective non-inference (some skillful surgeon => some skillful man) stated and aborted, exactly as in the source — the polymorphic typing makes Skillful Surgeon and Skillful Man distinct predicates. Depends on Coq_book_ontology.v (CN := Set, CNs as Parameters, subtyping via Axiom-declared coercion functions, quantifiers some/all/no as definitions), which mirrors the book's Appendix A7.1.",
+ "sources": [
+  {
+   "citation": "Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. ISTE/Wiley. Ch. 6 (Reasoning and Verifying NL Semantics in Coq), sec. 3.3, and Appendix A7.3 (pp. 194-195) — the file is a near-verbatim transcription of A7.3.",
+   "path": "papers/foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf",
+   "available": "full"
+  },
+  {
+   "citation": "Chatzikyriakidis, S. & Luo, Z. (2013). Adjectives in a Modern Type-Theoretical Setting. LACL 2013 — the underlying analysis of subsective adjectives as polymorphic predicates.",
+   "path": "papers/foundations/Chatzikyriakidis_Luo_2013_AdjectivesMTT.pdf",
+   "available": "full"
+  },
+  {
+   "citation": "Chatzikyriakidis, S. & Luo, Z. (2014). Natural Language Inference in Coq. J. Logic, Language and Information 23(4) — the Irish-delegate Sigma-type inference (their (25)-(27)).",
+   "path": "papers/foundations/Chatzikyriakidis_Luo_2014_NLI_in_Coq.pdf",
+   "available": "full"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "Load Coq_book_ontology (CN := Set; CNs as Parameters; Axiom+Coercion subtyping dh/mh/sw/...; some/all/no)",
+   "source": "book Appendix A7.1 general definitions and declarations (sec. 6.2)",
+   "match": "exact",
+   "note": "CN := Set is the book's own move, flagged in its fn. 12 ('CN should have been a separate universe'); coercion Axioms are function-typed, no propositional content"
+  },
+  {
+   "coq": "Irish : Human -> Prop; Irishhuman / Irishdelegate as Records with :> first projection",
+   "source": "A7.3 / sec. 3.3: intersective adjectives as predicates, modified CNs as Sigma-types with first-projection coercion",
+   "match": "exact"
+  },
+  {
+   "coq": "Skillful : forall A:CN, A -> Prop; Skillfulman / Skillfulhuman Records",
+   "source": "A7.3 / sec. 3.3 (from C&L 2013): subsective adjectives as Pi-polymorphic predicates over CN",
+   "match": "exact",
+   "note": "only the spelling changes (skilful -> Skillful); even the book's constructor typo mkskilfuluman is carried over as mkskillfuluman"
+  },
+  {
+   "coq": "walk : Human -> Prop",
+   "source": "A7.3",
+   "match": "exact"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "delegate1",
+   "status": "proved",
+   "source_claim": "A7.3 delegate1 verbatim: (some Irishdelegate) walk -> (some Delegate) walk — the intersective 'Adj N is N' inference via the Sigma first-projection coercion"
+  },
+  {
+   "name": "delegate2",
+   "status": "proved",
+   "source_claim": "A7.3 delegate2 verbatim: (some Man) Irish -> (some Human) Irish — inference through the Man <= Human coercion",
+   "note": "the in-text ch. 6 delegate2 is a different statement (some Irishdelegate walk -> some Human walk); the file follows the appendix version exactly"
+  },
+  {
+   "name": "skill1",
+   "status": "proved",
+   "source_claim": "A7.3 skill1 verbatim: (some Skillfulman) Irish -> (some Man) Irish — the licensed subsective inference (a skillful man is a man)"
+  },
+  {
+   "name": "skill2",
+   "status": "aborted (as in source)",
+   "source_claim": "A7.3 skill2 verbatim: (some Surgeon)(Skillful Surgeon) -> (some Man)(Skillful Man), ended with Abort All exactly as the book does — the subsective non-inference (a skillful surgeon need not be a skillful man) blocked by the polymorphic typing",
+   "note": "Abort documents a failed proof attempt, not proved non-derivability; the statement never enters the environment, so it is excluded from proved counts"
+  }
+ ],
+ "counts": {
+  "theorems": 4,
+  "proved": 3,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "faithful",
+  "evidence": [
+   "The file is a line-for-line transcription of Appendix A7.3 (pp. 194-195) of the 2020 book up to the spelling skilful -> Skillful, verified against the PDF text (including the book's own 'Abort all' ending for skill2).",
+   "All three positive inferences the appendix claims (delegate1, delegate2, skill1) end in Qed via cbv+firstorder, the book's own proof scripts.",
+   "The blocked inference skill2 is stated and aborted exactly as the source presents it, exhibiting the intended failure of Skillful Surgeon -> Skillful Man under polymorphic typing.",
+   "The loaded Coq_book_ontology.v reproduces the book's Appendix A7.1 layer (CN := Set, Parameters for CNs, Axiom-declared coercions, quantifier definitions); grep counts: 4 theorem declarations, 0 Admitted, 3 signature Parameters in this file."
+  ],
+  "simplifications": [],
+  "omissions": [
+   "Covers only Appendix A7.3; the book's neighboring adjective material (privative 'fake' A7.4, multidimensional A7.5, gradable A7.6) lives in sibling ttr_mtt files, not here.",
+   "The non-derivability of skill2 is only evidenced by an aborted attempt (the source's own evidence); no countermodel or independence argument is given."
+  ],
+  "additions": []
+ },
+ "determination": "slight_modification",
+ "determination_rationale": "The source's own Coq appendix is reproduced exactly and all its claimed inferences behave as stated (three Qed, one blocked). But the theory is stated in UTT with a genuine universe CN and native coercive subtyping, and its Coq rendering — the book's own — needs two documented substrate substitutions: CN := Set (the book's fn. 12: 'we use Set to define CN, although CN should have been a separate universe' — a class (ii) type-universe collapse) and subtyping as Axiom-declared coercion functions with no propagation through Sigma (the book: 'a limitation of the system in Coq'), so Sigma(A,P) <= Sigma(B,P) inferences are out of reach (class iv). These do not change the fragment's predictions, so slight modification rather than as-is; nothing required re-founding.",
+ "artifact_classes": [
+  {
+   "class": "ii",
+   "description": "CN := Set collapses the intended universe of common nouns into Coq's Set (the source's own documented workaround, book fn. 12); polymorphic Skillful quantifies over this stand-in universe"
+  },
+  {
+   "class": "iv",
+   "description": "no native coercive subtyping: coercions axiomatized as function constants (Axiom dh: Delegate->Human etc. in the loaded ontology) and no subtyping propagation through Sigma constructors, which the book flags as a Coq limitation"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Record produced by the batch audit sweep of 2026-09-05; the file predates the atlas zero-axiom discipline (3 signature Parameters here plus the loaded ontology's function-typed coercion Axioms — none propositional, per rubric sec. 3a).",
+ "compiles": true
+}

@@ -1,0 +1,165 @@
+{
+ "file": "extras/ImperfectiveParadox.v",
+ "region": "tense and aspect",
+ "summary": "The imperfective paradox ('John was crossing the street' true while 'John crossed the street' is false) over an axiomatized event mereology: events with subevent preorder, culminates, result_state, instant-valued time_of on a linearly ordered Time, indices as World*Time. PROG rendered extensionally (non-culminating subevent at speech time, Parsons-style), PERF as past event with result_state, PST as bare past event. A scenario section proves the paradox datum (progressive_is_true, perfective_is_false) from interruption hypotheses plus an event-uniqueness axiom; an entailment section proves simple past -> past progressive via an added subinterval-style axiom (progressive_subevent, with an in-file countermodel showing its necessity), and attempts the non-entailment against culmination-free PST, whose key lemma simple_past_false is Admitted with an explicit countermodel showing it is FALSE as stated (PST omits culmination). Dowty's own solutions appear only as unproven sketches: PROG_DOWTY (intended_completion primitive) and PROG_MODAL (accessible worlds, but the completion clause is not world-indexed, making the modal quantification vacuous). Imports MontagueFragment for Entity.",
+ "sources": [
+  {
+   "citation": "Dowty, D. (1979). Word Meaning and Montague Grammar, ch. 3 (the imperfective paradox and the inertia-worlds progressive). Reidel.",
+   "path": "papers/foundations/Dowty_1979_WordMeaningMontagueGrammar_FrontMatterOnly.pdf",
+   "available": "front matter only"
+  },
+  {
+   "citation": "Dowty, D. (1977). Toward a semantic analysis of verb aspect and the English 'imperfective' progressive. Linguistics and Philosophy 1:45-77.",
+   "path": null,
+   "available": "none"
+  },
+  {
+   "citation": "Parsons, T. (1990). Events in the Semantics of English (hold/culminate distinction — the analysis the file's PROG actually implements). MIT Press.",
+   "path": null,
+   "available": "none"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "PROG (exists e_prog e_full, VP x e_full /\\ subevent e_prog e_full /\\ ~culminates e_prog e_full /\\ time_of e_prog = speech_time)",
+   "source": "Dowty's progressive operator [PROG phi]",
+   "match": "changed",
+   "note": "extensional Parsons-style hold/culminate substitute for Dowty's inertia-worlds modal operator; removes the intensionality that is Dowty's whole point, altering which claims are provable"
+  },
+  {
+   "coq": "PERF (past event with result_state)",
+   "source": "perfective past of a telic VP",
+   "match": "simplified",
+   "note": "culmination encoded as a primitive result_state predicate; no target-state or interval structure"
+  },
+  {
+   "coq": "PST (bare past event, no culmination)",
+   "source": "simple past",
+   "match": "changed",
+   "note": "omits culmination for telic VPs; the file's own countermodel (comment at simple_past_false) shows the non-entailment is unprovable with it"
+  },
+  {
+   "coq": "Time : Type with lt (trans, irrefl, total); time_of : Event -> Time; Index := World * Time",
+   "source": "Dowty 1979's interval semantics with speech/event times",
+   "match": "simplified",
+   "note": "instants replace intervals; each event gets a single instant"
+  },
+  {
+   "coq": "subevent (refl+trans axioms), culminates (culminates_sub axiom)",
+   "source": "event-part and culmination structure (Parsons; Landman stages)",
+   "match": "simplified",
+   "note": "bare preorder, no mereological axioms beyond refl/trans"
+  },
+  {
+   "coq": "interrupted / completes",
+   "source": "none",
+   "match": "added",
+   "note": "completes is defined but never used by any theorem"
+  },
+  {
+   "coq": "PROG_DOWTY (intended_completion primitive, no actual result_state)",
+   "source": "Dowty's intended-culmination intuition",
+   "match": "simplified",
+   "note": "intention left as an unanalyzed primitive relation; no theorem uses this definition"
+  },
+  {
+   "coq": "PROG_MODAL (accessible : World -> World -> Prop)",
+   "source": "Dowty 1979's inertia-worlds analysis",
+   "match": "changed",
+   "note": "defective sketch: accessible carries no inertia condition, VP truth and result_state are not world-indexed so the forall-worlds clause is vacuous, e_prog is unconstrained by VP; no theorems"
+  },
+  {
+   "coq": "(inertia-worlds constraint Inr)",
+   "source": "the content of Dowty's solution: accessible worlds are those where events continue without interruption",
+   "match": "missing"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "progressive_is_true",
+   "status": "proved",
+   "source_claim": "the paradox datum, first half: 'John was crossing the street' true at (w0, t_speech) in the interruption scenario (Dowty 1977/1979 motivating example)"
+  },
+  {
+   "name": "perfective_is_false",
+   "status": "proved",
+   "source_claim": "the paradox datum, second half: PERF false at the same index",
+   "note": "rests on the global axiom crossing_event_unique plus section hypotheses no_completion/was_interrupted; PERF-falsity nearly follows from ~result_state by uniqueness, so this is a consistency demonstration, not a deep theorem"
+  },
+  {
+   "name": "perfective_entails_progressive",
+   "status": "proved",
+   "source_claim": "the standard aspectual entailment: simple past -> past progressive",
+   "note": "needs the added axiom progressive_subevent; the file documents a countermodel showing the entailment fails without it — a NEEDS_ASSUMPTION finding promoted to an axiom (a tacit subinterval-property premise of the informal literature)"
+  },
+  {
+   "name": "perfective_entails_progressive_v2",
+   "status": "proved",
+   "source_claim": "duplicate of perfective_entails_progressive (identical statement and proof strategy)"
+  },
+  {
+   "name": "progressive_true",
+   "status": "proved",
+   "source_claim": "counterexample scenario: 'John was reading a book' true"
+  },
+  {
+   "name": "simple_past_false",
+   "status": "admitted (FALSE as stated)",
+   "source_claim": "counterexample scenario: 'John read a book' false",
+   "note": "in-file comment gives an explicit countermodel (Event:=unit, time_of:=0, ...) proving the statement unprovable because PST lacks culmination; the file names the two repairs (culmination conjunct in telic PST, or a temporal hypothesis) — a genuine finding about a hidden premise"
+  },
+  {
+   "name": "progressive_does_not_entail_perfective",
+   "status": "proved (contaminated)",
+   "source_claim": "the imperfective paradox as a non-entailment",
+   "note": "Qed but Print Assumptions includes the Admitted simple_past_false, so it does not count as a result under rubric section 3; the non-entailment against PERF is however established by progressive_is_true + perfective_is_false in the first section"
+  }
+ ],
+ "counts": {
+  "theorems": 7,
+  "proved": 6,
+  "admitted": 1,
+  "propositional_axioms": 9
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "The paradox datum is established against the culmination-based PERF: progressive_is_true and perfective_is_false both Qed at the same index (lines 123-157), from interruption hypotheses plus the crossing_event_unique axiom.",
+   "The core progressive is 'changed': an extensional subevent/non-culmination analysis (lines 53-59) stands in for Dowty's inertia-worlds modal operator, which appears only as the theorem-free defective sketch PROG_MODAL (lines 189-194, completion clause not world-indexed).",
+   "The non-entailment against PST is stated but not established: simple_past_false is Admitted (line 350) with an in-file countermodel showing it FALSE as written, and progressive_does_not_entail_perfective inherits that admission.",
+   "perfective_entails_progressive is Qed only via the added axiom progressive_subevent (lines 236-238), whose necessity the file documents with a countermodel — a tacit premise of the informal presentations made explicit.",
+   "Coq check: Axiom inside a Section stays a global assumption generalized over section variables (verified with Print Assumptions on a test file), so all 9 propositional axioms are genuine global commitments."
+  ],
+  "simplifications": [
+   "instants for Dowty's intervals; one instant per event",
+   "culmination as a primitive result_state predicate",
+   "event mereology reduced to a refl/trans subevent preorder",
+   "PROG_DOWTY leaves intention as an unanalyzed primitive"
+  ],
+  "omissions": [
+   "the inertia-worlds constraint (the actual content of Dowty's solution) — PROG_MODAL has no theorems and its accessibility relation is unconstrained",
+   "intensional (world-indexed) VP meanings, without which the modal solution cannot even be stated non-vacuously",
+   "interval semantics and the subinterval property that grounds the activity/accomplishment distinction"
+  ],
+  "additions": [
+   "progressive_subevent axiom with documented necessity countermodel",
+   "scenario-specific event-uniqueness axioms (crossing_event_unique, reading_event_unique)",
+   "interrupted/completes definitions (completes unused)",
+   "the FALSE-as-stated diagnosis of simple_past_false naming the hidden culmination premise of telic simple past"
+  ]
+ },
+ "determination": "major_restructuring",
+ "determination_rationale": "The only formalization is partial with a changed core: Dowty's modal progressive is replaced by an extensional Parsons-style hold/culminate analysis, and the paradox is recovered only after re-founding — an added subinterval-style axiom (progressive_subevent) for the entailment direction, event-uniqueness axioms for the falsity direction, and the discovery that a culmination-free simple past makes the non-entailment outright false (simple_past_false Admitted with countermodel). Dowty's actual inertia-worlds theory remains unformalized here (PROG_MODAL is a vacuous sketch over a non-world-indexed VP type). This is a pilot-file lower bound on the theory, not a diagnosis of Dowty 1979 itself; a proper intensionalized formalization could plausibly reach determination 2.",
+ "artifact_classes": [
+  {
+   "class": "iv",
+   "description": "no native event mereology or interval-temporal structure: both are axiomatized (subevent preorder, linear instant order, culminates_sub); and the fragment's extensional VP type (Entity -> Event -> Prop, not world-indexed) makes Dowty's inertia-worlds operator unstatable non-vacuously — PROG_MODAL's completion clause is world-independent"
+  }
+ ],
+ "source_gap": {
+  "kind": "hidden premises",
+  "detail": "Two tacit premises of the informal literature surface: (a) 'simple past -> past progressive' requires that every complete event have a non-culminating subevent at the same time (progressive_subevent; a subinterval-property analogue Dowty states for activities but the entailment needs for accomplishments too — the file proves the entailment fails without it); (b) the non-entailment 'progressive does not entail simple past' requires simple past of a telic VP to entail culmination — with a culmination-free PST the claimed non-entailment is FALSE (explicit countermodel in the simple_past_false comment). Note: the primary source is barely available (Dowty 1979 front matter only; Dowty 1977 absent), so the source mapping is judged from the canonical presentation, not page-by-page."
+ },
+ "notes": "Record produced by the batch audit sweep of 2026-09-05; pre-atlas pilot file predating the zero-axiom discipline (12 signature Parameters, 9 propositional Axioms — including three declared inside Sections, which Coq keeps as global axioms generalized over section variables, verified by Print Assumptions test).",
+ "compiles": true
+}

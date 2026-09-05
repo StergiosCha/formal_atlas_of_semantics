@@ -1,0 +1,147 @@
+{
+ "file": "deep/PTQ_deep2.v",
+ "region": "montague lineage (raw material)",
+ "summary": "Deep (GADT) embedding of Montague's IL: ILType inductive (e, t, arrow, s), denotation domains Den with Den t = Prop, intrinsically-typed IL terms with de Bruijn variables and a baked-in PTQ lexicon, and an eval function mirroring the interpretation clauses of pp. 23-25 (lambda, app, =, connectives, quantifiers, W, H, up/down). Hand-written IL renderings of Section-4 sentences (every man walks, seek-a-unicorn de dicto/de re, the temperature puzzle triple) with eval-correspondence theorems; up-down identity, beta soundness, and one beta-equivalence proved; the temperature-puzzle non-entailment proved Qed but conditionally on 6 section hypotheses over abstract Parameters (no concrete countermodel). Meaning postulates 2 and 9 stated as IL formulas but asserted as Coq Axioms. The Eng analysis-tree type is defined yet never translated: T1(d)/T4/T5 exist as combinators, T2 is discussed in a 230-line comment but not defined, so the headline T1-T17 pipeline is unrealized. Two deviations from PTQ verified against DWP 1981: ty_iv result type is <s,t> instead of PTQ's f(IV)=<<s,e>,t> (the source of the file's self-diagnosed type tension, patched with explicit down), and nec_ is 'necessarily now' (worlds only) where PTQ's box is 'necessarily always' (all world-time pairs).",
+ "sources": [
+  {
+   "citation": "Montague, R. (1973). The Proper Treatment of Quantification in Ordinary English. In Hintikka, Moravcsik & Suppes (eds.), Approaches to Natural Language, 221-242.",
+   "path": null,
+   "available": "not on disk (no PTQ PDF under papers/)"
+  },
+  {
+   "citation": "Dowty, D., Wall, R. & Peters, S. (1981). Introduction to Montague Semantics. Reidel. [secondary source used to verify the f(IV) type map (7-2), Appendix III, and the PTQ necessity clause pp. 132-133]",
+   "path": "papers/foundations/Dowty_Wall_Peters_1981_IntroductionToMontagueSemantics.pdf",
+   "available": "full"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "ILType (ty_e, ty_t, ty_arrow, ty_s)",
+   "source": "PTQ's set of types: e, t in Y; <a,b>; <s,a>",
+   "match": "exact"
+  },
+  {
+   "coq": "Den : ILType -> Type (Den ty_t = Prop, arrow = Coq functions, s = Index -> _)",
+   "source": "denotation domains D_{a,A,I,J}, p. 24 (D_t = {0,1})",
+   "match": "simplified",
+   "note": "two-element truth-value set rendered as Prop; Classical imported but undocumented in header and apparently unused by the proofs"
+  },
+  {
+   "coq": "ty_iv = <<s,e>,<s,t>>; ty_cn = ty_iv; ty_t_den = <s<IV>,<s,t>>; ty_tv",
+   "source": "PTQ's f: f(IV) = f(CN) = <<s,e>,t>, f(T) = <<s,f(IV)>,t> (verified in DWP (7-2) and Appendix III)",
+   "match": "changed",
+   "note": "result types made <s,t> instead of t; forces the explicit down-lowering in every formula; the file's long comment (lines 569-803) discovers the mismatch and misattributes it to Montague's 'implicit notation'"
+  },
+  {
+   "coq": "IL : Ctx -> ILType -> Type (GADT, de Bruijn vars, named constant constructors)",
+   "source": "meaningful expressions ME_a, clauses 1-10, pp. 23-24",
+   "match": "simplified",
+   "note": "fixed finite lexicon baked into constructors instead of denumerable Con_a per type"
+  },
+  {
+   "coq": "eval : IL Gamma tau -> Env Gamma -> Index -> Den tau",
+   "source": "the interpretation alpha^{A,i,j,g}, pp. 24-25",
+   "match": "simplified",
+   "note": "clauses for lambda/app/=/connectives/quantifiers/W/H/up/down exact; but nec_ is 'necessarily now' (all worlds, fixed time) where PTQ's box is 'necessarily always' over all <w',t'> (DWP pp. 132-133) — one clause changed"
+  },
+  {
+   "coq": "Eng inductive; translate_iv/cn/tv/name/iav; translate_T_name; t4_combine; t5_combine'",
+   "source": "syntactic rules S1-S17 and translation rules T1-T17, pp. 25-27",
+   "match": "missing",
+   "note": "the headline pipeline is unrealized: Eng is never translated; only T1(d), T4, T5 exist as combinators; T2 discussed at length in comments but not defined; file's own SUMMARY lists the recursive translation as remaining"
+  },
+  {
+   "coq": "mp2_cn_extensional, mp9_seek_def as IL formulas + Axioms man_extensional, seek_is_try_to_find",
+   "source": "meaning postulates (1)-(9), p. 28",
+   "match": "simplified",
+   "note": "only MPs 2 and 9 rendered (MP1 proved but vacuous by construction — entity constants are rigid by definition of eval); asserted as global Coq Axioms about Parameter denotations; MPs 3-8 missing"
+  },
+  {
+   "coq": "Section TemperatureCountermodel (6 Hypotheses over Parameters)",
+   "source": "Partee's temperature puzzle and PTQ's solution (the prices/temperatures discussion)",
+   "match": "added",
+   "note": "non-entailment proved Qed but conditional on explicit countermodel hypotheses; no concrete instance exhibited since Entity/World/Time are Parameters"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "bill_walks_c_eval / a_man_walks_c_eval / every_man_walks_c_eval / every_man_that_walks_runs_c_eval / john_will_walk_c_eval",
+   "status": "proved (Qed) — trivial by unfolding; a verifier's triviality filter would exclude these 5",
+   "source_claim": "truth conditions of PTQ Section-4 example sentences (correspondence of deep eval with intended denotations)"
+  },
+  {
+   "name": "mp1_rigid_john",
+   "status": "proved (Qed) — vacuous: rigidity is built into eval's constant clause",
+   "source_claim": "meaning postulate (1), p. 28 (rigidity of proper-name constants)"
+  },
+  {
+   "name": "up_down_identity",
+   "status": "proved (Qed)",
+   "source_claim": "PTQ's down-up cancellation (extension of intension is the original); the converse non-identity correctly noted in a comment"
+  },
+  {
+   "name": "beta_sound",
+   "status": "proved (Qed) — near-trivial (reflexivity)",
+   "source_claim": "soundness of lambda-conversion for IL"
+  },
+  {
+   "name": "every_man_walks_beta_equiv",
+   "status": "proved (Qed)",
+   "source_claim": "PTQ's worked derivation: the T4 form (lambda P. ...)(^walk') is equivalent to its beta-reduced form"
+  },
+  {
+   "name": "temp_ninety_holds / temp_rises_holds / ninety_rises_fails / temperature_puzzle_non_entailment",
+   "status": "proved (Qed), conditional on 6 section hypotheses (countermodel spec over abstract Parameters)",
+   "source_claim": "PTQ's headline solution to the temperature puzzle: 'the temperature is ninety' + 'the temperature rises' do not entail 'ninety rises'",
+   "note": "hypotheses are explicit premises after section closing; satisfiability of the spec (>=2 entities, >=2 times) is not demonstrated"
+  }
+ ],
+ "counts": {
+  "theorems": 13,
+  "proved": 13,
+  "admitted": 0,
+  "propositional_axioms": 2
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "The IL syntax/semantics apparatus (ILType, GADT terms, eval clauses for lambda/app/=/connectives/quantifiers/W/H/up/down) tracks pp. 23-25 up to a fixed lexicon, and all 13 theorems end in Qed (grep '^Theorem' undercounts at 9; Qed count 13; the one 'Admitted' grep hit is a comment).",
+   "Core type assignment changed: ty_iv = <<s,e>,<s,t>> vs PTQ's f(IV) = <<s,e>,t> (verified against DWP (7-2) and Appendix III); every hand-written translation carries extra down operators PTQ's formulas do not have, and the file's own 230-line comment discovers the mismatch mid-file, blaming 'Montague's implicit notation' for a deviation of its own making.",
+   "nec_ evaluates at all worlds with time held fixed; PTQ's box quantifies over all world-time pairs (DWP pp. 132-133 explicitly says Montague used 'necessarily always' in PTQ), so the meaning postulates stated via nec_ differ in content from p. 28.",
+   "The headline claim of PTQ — a compositional translation from analysis trees to IL (T1-T17) — is stated as the file's purpose (header, Part 8) but not delivered: Eng is defined and never consumed; only T1(d)/T4/T5 combinators exist.",
+   "The temperature-puzzle non-entailment is genuinely established over the file's variant IL, but only conditionally on 6 explicit hypotheses about Parameter denotations; two meaning postulates are asserted as global Coq Axioms (Print Assumptions of anything using them would list man_extensional / seek_is_try_to_find)."
+  ],
+  "simplifications": [
+   "D_t = {0,1} rendered as Prop (Classical imported, undocumented in header, apparently unused)",
+   "fixed finite named lexicon instead of denumerable constants per type",
+   "only 2 of 9 meaning postulates rendered"
+  ],
+  "omissions": [
+   "recursive Eng -> IL translation function (file's SUMMARY admits it)",
+   "T2/T3/T14 as actual definitions (determiners, relative clauses, quantifying-in)",
+   "meaning postulates (3)-(8)",
+   "nothing proved about the de dicto / de re expressions beyond their definitions",
+   "no Print Assumptions anywhere"
+  ],
+  "additions": [
+   "intrinsically-typed GADT + de Bruijn environment machinery",
+   "logically_true / logically_equivalent definitions (defined, barely used)",
+   "the explicit countermodel-hypothesis packaging of the temperature puzzle"
+  ]
+ },
+ "determination": "major_restructuring",
+ "determination_rationale": "Per rubric section 4, only a partial formalization exists in this file: a core definition (the category-to-type map, hence every derived type and every translation) is changed relative to PTQ, one interpretation clause (box) is changed, and the headline T1-T17 pipeline is missing. Important caveat: the changes appear self-inflicted rather than forced — PTQ's own f(IV) = <<s,e>,t> dissolves the <s,t>/t tension the file struggled with, and 'necessarily always' is directly definable in the same eval. So this verdict is a ceiling imposed by this pilot file, not a diagnosis of the theory; PTQ plausibly admits as_is or slight_modification under a corrected type assignment (the deep-embedding cost is class (iv) machinery, not a foundational obstacle).",
+ "artifact_classes": [
+  {
+   "class": "iv",
+   "description": "typed object syntax needs an intrinsically-typed GADT with de Bruijn indices and computed Env types; heterogeneous constant lookup avoided by baking the lexicon into constructors; Montague's implicit index-relative assertion must become an explicit down constructor"
+  },
+  {
+   "class": "ii",
+   "description": "the two-element truth-value domain D_t is rendered as Prop, identifying truth values with propositions; Classical is imported (undocumented) to license the identification though no proof in the file uses it"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Record produced by the batch audit sweep of 2026-09-05; the file predates the atlas zero-axiom discipline (28 signature Parameters, 2 propositional Axioms, undocumented Classical import, no Print Assumptions). Header misnames the file PTQ_deep.v; 5-6 of the 13 Qed theorems are definitional unfoldings a verifier would exclude from counts; companion files shallow/PTQ.v and deep/theorems_deep_PTQ.v not audited here.",
+ "compiles": true
+}

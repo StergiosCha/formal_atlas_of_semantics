@@ -1,0 +1,30 @@
+{
+ "a": "atlas__mtt",
+ "b": "atlas__ranta",
+ "a_file": "atlas/mtt_ranta/MTT.v",
+ "b_file": "atlas/mtt_ranta/Ranta.v",
+ "level": "intra-family",
+ "bridge_file": "atlas/mtt_ranta/MTT_vs_Ranta.v",
+ "grading": "5 definitional (reflexivity) / 4 provable equivalence / 3 one-way or mediated / 2 statable but divergent (countermodel) / 1 statable only after re-encoding / null one-sided (only one framework attempts the phenomenon)",
+ "phenomena": [
+  {"name": "cn-ontology", "attempted_by": ["a", "b"], "grade": 5, "evidence": "cn_agree (reflexivity)", "note": "both interpret CNs as types; both files set CN := Type"},
+  {"name": "quantification-universal", "attempted_by": ["a", "b"], "grade": 5, "evidence": "every_agree (reflexivity via cumulativity)"},
+  {"name": "quantification-negative", "attempted_by": ["a", "b"], "grade": 4, "evidence": "no_agree_fwd / no_agree_bwd", "note": "False vs Empty_set is the only difference"},
+  {"name": "quantification-existential", "attempted_by": ["a", "b"], "grade": 3, "evidence": "some_agree_fwd; some_agree_bwd_inhabited", "note": "Sigma implies exists; converse only up to inhabited — the proof-relevance residue"},
+  {"name": "proof-relevance-witnesses", "attempted_by": ["a", "b"], "grade": 3, "evidence": "ranta_witness / ranta_witness_sound; Fail on the MTT side (elimination restriction)", "note": "witness extraction is a function only on the Ranta side"},
+  {"name": "adjectives-intersective", "attempted_by": ["a", "b"], "grade": 4, "evidence": "inter_subset_fwd / inter_subset_bwd / inter_subset_some", "note": "CL20 §3.3.1 IS R95 §2.12 (sig/sigT equivalence)"},
+  {"name": "anaphora-donkey", "attempted_by": ["a", "b"], "grade": 5, "evidence": "donkey_agree (reflexivity)", "note": "CL20 inherit Ranta's Sigma-context analysis"},
+  {"name": "anaphora-donkey-strong-reading", "attempted_by": ["a", "b"], "grade": 4, "evidence": "mtt_donkey_strong_fwd / mtt_donkey_strong_bwd via Ranta.donkey_curry"},
+  {"name": "subtyped-sentence-meanings", "attempted_by": ["a", "b"], "grade": 5, "evidence": "sub_sentence_agree (reflexivity, lifting explicit)"},
+  {"name": "quantifier-monotonicity", "attempted_by": ["a", "b"], "grade": 4, "evidence": "ranta_some_mono (the MTT package proved about the Ranta forms)"},
+  {"name": "subtyping-mechanism", "attempted_by": ["a"], "grade": null, "evidence": "MTT.v Part 2; Fail Check documented in the bridge", "note": "coercive subtyping is CL20-only; R95 has none"},
+  {"name": "copredication-dot-types", "attempted_by": ["a"], "grade": null, "evidence": "MTT.v Part 6"},
+  {"name": "adjectives-subsective-privative", "attempted_by": ["a"], "grade": null, "evidence": "MTT.v Part 4 (subsective_not_transferable, fake_not_real)"},
+  {"name": "adverbs-veridicality", "attempted_by": ["a"], "grade": null, "evidence": "MTT.v Part 5"},
+  {"name": "individuation-counting", "attempted_by": ["a"], "grade": null, "evidence": "MTT.v Part 7"},
+  {"name": "generation-sugaring", "attempted_by": ["b"], "grade": null, "evidence": "Ranta.v Part 5 (linear + adequacy theorems)", "note": "CL20 have no generation story"},
+  {"name": "text-discourse-progression", "attempted_by": ["b"], "grade": null, "evidence": "Ranta.v Part 4 (text2, sigma_assoc)"},
+  {"name": "choice-reference-to-proofs", "attempted_by": ["b"], "grade": null, "evidence": "Ranta.v ac_iso, donkey_choice"}
+ ],
+ "notes": "First backfilled edge; the grading scheme and aggregates (similarity = mean grade over jointly attempted phenomena; overlap = Jaccard of attempted sets) are computed by consolidate.py."
+}

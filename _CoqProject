@@ -71,3 +71,6 @@ ttr_mtt/TTR_types.v
 atlas/type_logical/Lambek.v
 atlas/dynamic/DPL.v
 atlas/inquisitive/InqB.v
+atlas/mtt_ranta/MTT.v
+atlas/mtt_ranta/Ranta.v
+atlas/mtt_ranta/MTT_vs_Ranta.v

@@ -68,3 +68,4 @@ ttr_mtt/TTR_theorems_shallow.v
 ttr_mtt/TTR_types.v
 
 # --- atlas: FORMAL-ATLAS flagship formalisations (one per framework region) ---
+atlas/type_logical/Lambek.v

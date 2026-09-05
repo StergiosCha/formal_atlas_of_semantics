@@ -1,450 +1,712 @@
-<title>Formalizability Atlas of Semantics</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Formal Atlas — Coq formalizations of linguistic semantics</title>
+<meta name="description" content="An atlas of semantic theories, machine-checked in Coq. Every theory is a module; every relation between theories is a graded, evidenced edge.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root {
-  color-scheme: light;
-  --ground: #f6f7f2; --surface: #fcfcfa; --surface-2: #f0f2ea;
-  --ink: #16201a; --ink-2: #55605a; --muted: #8a928c; --hair: #dfe3da; --hair-2: #cdd3c8;
-  --accent: #b04f27; --on-accent: #ffffff;
-  --d1: #8dbb69; --d2: #5f9a3e; --d3: #3d7328; --d4: #244d18;
-  --on-d1: #16201a; --on-d2: #ffffff; --on-d3: #ffffff; --on-d4: #ffffff;
-  --wash: 22%;
-  --good: #0ca30c; --warn: #fab219; --crit: #d03b3b;
-  --serif: "Spectral", "Iowan Old Style", Georgia, serif;
-  --sans: "Atkinson Hyperlegible", "Helvetica Neue", Arial, sans-serif;
-  --mono: "IBM Plex Mono", "SF Mono", Menlo, Consolas, monospace;
-  --radius: 3px; --maxw: 1360px;
+:root{
+  --bg:#F6F5EF; --ink:#1E2B1E; --accent:#4E8C3B; --accent-500:#6FAB55;
+  --accent-300:#BFD8AB; --accent-700:#2F5F27; --accent-900:#163216;
+  --n400:#B9C4B5; --n700:#5C6B5A; --rust:#A64B3A;
+  --rule:2px solid var(--ink); --hair:1px solid var(--n400);
+  --mono:"JuliaMono","Iosevka","DejaVu Sans Mono",Menlo,monospace;
+  --sans:"Archivo",system-ui,-apple-system,"Helvetica Neue",sans-serif;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --ground: #121513; --surface: #1b1f1c; --surface-2: #222724;
-    --ink: #eef1ea; --ink-2: #b6bdb4; --muted: #7f877f; --hair: #2c322d; --hair-2: #3a413b;
-    --accent: #e0804f; --on-accent: #16201a;
-    --d1: #b5dc98; --d2: #8cc06a; --d3: #649a45; --d4: #41712c;
-    --on-d1: #16201a; --on-d2: #16201a; --on-d3: #ffffff; --on-d4: #ffffff;
-    --wash: 26%;
-  }
-}
-:root[data-theme="dark"] {
-  color-scheme: dark;
-  --ground: #121513; --surface: #1b1f1c; --surface-2: #222724;
-  --ink: #eef1ea; --ink-2: #b6bdb4; --muted: #7f877f; --hair: #2c322d; --hair-2: #3a413b;
-  --accent: #e0804f; --on-accent: #16201a;
-  --d1: #b5dc98; --d2: #8cc06a; --d3: #649a45; --d4: #41712c;
-  --on-d1: #16201a; --on-d2: #16201a; --on-d3: #ffffff; --on-d4: #ffffff;
-  --wash: 26%;
-}
-* { box-sizing: border-box; }
-body { margin: 0; background: var(--ground); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.5; }
-a { color: var(--accent); }
-button { font: inherit; color: inherit; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
-h1, h2, h3 { text-wrap: balance; margin: 0; }
-h2 { font-family: var(--serif); font-weight: 500; font-size: 1.35rem; letter-spacing: .01em; }
-.eyebrow { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); margin: 0 0 .5rem; }
-code, .mono { font-family: var(--mono); font-size: .86em; }
+*{box-sizing:border-box;margin:0;padding:0;border-radius:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--sans);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.mono{font-family:var(--mono);font-size:.9em}
+.kicker{font:600 13px/1 var(--sans);text-transform:uppercase;letter-spacing:.08em;color:var(--accent-700)}
+h1,h2,h3{letter-spacing:-.02em;line-height:1.06;font-weight:800}
+h1{font-size:clamp(38px,5.4vw,68px)}
+h2{font-size:clamp(26px,3.2vw,38px)}
+h3{font-size:20px;font-weight:600;letter-spacing:-.01em;line-height:1.2}
+p{max-width:62ch}
+.dim{color:var(--n700)}
+.small{font-size:14px}
+.tiny{font-size:12.5px}
 
-/* masthead */
-.masthead { position: relative; overflow: hidden; border-bottom: 1px solid var(--hair); background: var(--surface); }
-.masthead canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .55; pointer-events: none; }
-.mast-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 40px; padding: 44px 0 36px; align-items: end; }
-.masthead h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.08; letter-spacing: -.005em; }
-.thesis { font-family: var(--serif); font-size: 1.12rem; color: var(--ink-2); max-width: 36em; margin: 14px 0 0; }
-.stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--hair); border: 1px solid var(--hair); }
-.stat { background: var(--surface); padding: 14px 16px; }
-.stat .label { font-size: .78rem; color: var(--ink-2); }
-.stat .value { font-size: 1.7rem; font-weight: 700; line-height: 1.15; margin-top: 2px; }
-.stat .sub { font-size: .76rem; color: var(--muted); }
+/* header */
+header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:var(--rule)}
+.hd{display:flex;align-items:center;gap:20px;height:60px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.02em;font-size:17px}
+.brand img{width:26px;height:26px;display:block}
+nav{margin-left:auto;display:flex;gap:26px;align-items:center}
+nav a{font-size:14px;font-weight:600;color:var(--n700);padding:4px 0;border-bottom:2px solid transparent}
+nav a:hover{color:var(--ink)}
+nav a.on{color:var(--ink);border-bottom-color:var(--accent)}
+.btn{display:inline-block;background:var(--accent);color:#fff;font:600 14px/1 var(--sans);
+  padding:11px 18px;border:2px solid var(--accent);cursor:pointer;text-align:left}
+.btn:hover{background:var(--accent-700);border-color:var(--accent-700)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--bg)}
 
-/* sections */
-section { padding: 28px 0; }
-.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; }
-.sec-head p { margin: 0; color: var(--ink-2); max-width: 60em; }
+/* hero */
+.hero{padding:76px 0 52px}
+.herogrid{display:grid;grid-template-columns:1fr 300px;gap:56px;align-items:center}
+.heromark{width:100%;height:auto;display:block}
+.hero h1{margin:18px 0 22px;max-width:15ch}
+.hero p{font-size:17px;color:var(--n700);max-width:60ch}
+.cta{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:var(--rule);margin-top:52px;padding-top:24px}
+.stat b{display:block;font-size:38px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.stat span{display:block;font:600 11.5px/1.35 var(--sans);text-transform:uppercase;letter-spacing:.07em;color:var(--n700);margin-top:8px}
 
-/* relief chart */
-.relief-legend { display: flex; gap: 18px; flex-wrap: wrap; font-size: .8rem; color: var(--ink-2); margin: 0 0 10px; }
-.relief-legend span { display: inline-flex; align-items: center; gap: 6px; }
-.sw { width: 12px; height: 12px; border-radius: 2px; display: inline-block; }
-.sw.wash { background: color-mix(in oklab, var(--d2) var(--wash), var(--surface)); border: 1px solid var(--d2); }
-.relief { background: var(--surface); border: 1px solid var(--hair); padding: 14px 16px 6px; }
-.relief svg { width: 100%; height: auto; display: block; font-family: var(--sans); }
-.relief .rl { font-size: 12px; fill: var(--ink); }
-.relief .rv { font-size: 11px; fill: var(--ink-2); font-variant-numeric: tabular-nums; }
-.relief .grid { stroke: var(--hair); stroke-width: 1; }
-.relief .seg:hover, .relief .seg:focus { outline: none; filter: brightness(1.08); }
-details.tableview { margin-top: 8px; font-size: .85rem; }
-details.tableview summary { cursor: pointer; color: var(--ink-2); }
-table { border-collapse: collapse; width: 100%; font-size: .86rem; }
-th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--hair); vertical-align: top; }
-th { font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); font-weight: 700; }
-td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
-.tip { position: fixed; z-index: 20; pointer-events: none; background: var(--ink); color: var(--ground); padding: 6px 9px; font-size: .8rem; border-radius: var(--radius); max-width: 280px; display: none; }
+/* generic section */
+section{padding:56px 0}
+.sechead{display:flex;align-items:baseline;gap:20px;border-bottom:var(--rule);padding-bottom:14px;margin-bottom:28px;flex-wrap:wrap}
+.sechead h2{flex:0 0 auto}
+.sechead .note{margin-left:auto;font-size:14px;color:var(--n700);max-width:46ch}
+
+/* plate */
+.plate{border:var(--rule);background:#FBFAF6;position:relative}
+.plate svg{display:block;width:100%;height:auto}
+.plate .cap{border-top:var(--hair);padding:10px 16px;display:flex;gap:14px;align-items:center;
+  font:600 11px/1 var(--sans);text-transform:uppercase;letter-spacing:.08em;color:var(--n700)}
+.node rect{fill:var(--bg);stroke:var(--ink);stroke-width:2;cursor:pointer}
+.node:hover rect{fill:var(--accent-300)}
+.node .nm{font:600 12.5px var(--sans);fill:var(--ink);pointer-events:none}
+.node .nt{font:11px var(--mono);fill:var(--n700);pointer-events:none}
+.node.pre rect{stroke-dasharray:5 4;stroke:var(--n700)}
+.edge{fill:none;stroke:var(--ink);cursor:pointer}
+.edge:hover{stroke:var(--accent)}
+.etag rect{fill:var(--accent);stroke:none}
+.etag text{font:600 10px var(--sans);fill:#fff}
+.grat{stroke:var(--n400);stroke-width:.6;opacity:.5;fill:none}
+
+/* grid of cards */
+.grid{display:grid;gap:0;border-top:var(--rule);border-left:var(--rule)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{border-right:var(--rule);border-bottom:var(--rule);padding:20px;display:flex;flex-direction:column;gap:9px;min-height:150px;background:var(--bg)}
+a.card:hover{background:#EFEEE6}
+.card .top{display:flex;align-items:center;gap:9px}
+.card h3{flex:1}
+.card p{font-size:13.5px;color:var(--n700);max-width:none}
+.card .foot{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding-top:8px}
+
+/* badges */
+.b{display:inline-block;font:600 10.5px/1 var(--sans);text-transform:uppercase;letter-spacing:.06em;
+  padding:5px 7px;border:1px solid var(--ink)}
+.b.ok{background:var(--accent);color:#fff;border-color:var(--accent)}
+.b.mid{background:var(--accent-300);border-color:var(--accent-700);color:var(--accent-900)}
+.b.bad{background:var(--rust);color:#fff;border-color:var(--rust)}
+.b.q{background:transparent;color:var(--n700);border-color:var(--n400)}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font:600 11px/1 var(--sans);text-transform:uppercase;letter-spacing:.07em;
+  color:var(--n700);padding:0 12px 10px 0;border-bottom:var(--rule)}
+td{padding:12px 12px 12px 0;border-bottom:var(--hair);vertical-align:top}
+tr:hover td{background:#EFEEE6}
+td a:hover{color:var(--accent-700);text-decoration:underline;text-underline-offset:3px}
+td.n{white-space:nowrap;width:1%}
+
+/* record page */
+.rec{display:grid;grid-template-columns:1fr 320px;gap:40px;align-items:start}
+.side{border:var(--rule);padding:20px;position:sticky;top:80px;display:flex;flex-direction:column;gap:16px}
+.side dl{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:13px}
+.side dt{font-weight:600;color:var(--n700)}
+.block{margin:34px 0}
+.block>h3{border-bottom:var(--rule);padding-bottom:10px;margin-bottom:16px}
+.gap{border:2px solid var(--rust);padding:18px;background:#FBF2F0}
+.gap .kicker{color:var(--rust)}
+ul.tick{list-style:none;display:flex;flex-direction:column;gap:7px;font-size:14px}
+ul.tick li{padding-left:18px;position:relative;max-width:70ch}
+ul.tick li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:2px;background:var(--accent)}
+ul.tick.neg li::before{background:var(--rust)}
+
+/* ladder */
+.ladder{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border-left:var(--rule);border-top:var(--rule)}
+.rung{border-right:var(--rule);border-bottom:var(--rule);padding:16px}
+.rung b{display:block;font-size:30px;font-weight:800;letter-spacing:-.02em}
+.rung span{display:block;font:600 10.5px/1.3 var(--sans);text-transform:uppercase;letter-spacing:.06em;color:var(--n700);margin-top:6px}
+.rung .bar{height:6px;margin-top:12px;background:var(--n400)}
 
 /* controls */
-.controls { position: sticky; top: 0; z-index: 5; background: var(--ground); border-bottom: 1px solid var(--hair); padding: 12px 0; }
-.controls .row { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
-.search { flex: 1 1 240px; min-width: 200px; padding: 8px 10px; border: 1px solid var(--hair-2); background: var(--surface); color: var(--ink); border-radius: var(--radius); }
-.seg-btns { display: inline-flex; border: 1px solid var(--hair-2); border-radius: var(--radius); overflow: hidden; }
-.seg-btns button { background: var(--surface); border: 0; padding: 7px 11px; cursor: pointer; font-size: .85rem; border-right: 1px solid var(--hair-2); display: inline-flex; gap: 7px; align-items: center; }
-.seg-btns button:last-child { border-right: 0; }
-.seg-btns button[aria-pressed="true"] { background: var(--ink); color: var(--ground); }
-.seg-btns button[aria-pressed="true"] .sw { outline: 1px solid var(--ground); }
-.count { color: var(--ink-2); font-size: .85rem; }
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+input[type=search],select{font:400 14px var(--sans);padding:10px 12px;border:2px solid var(--ink);
+  background:var(--bg);color:var(--ink);min-width:200px}
+input[type=search]:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}
+.chip{font:600 12px/1 var(--sans);padding:8px 10px;border:2px solid var(--n400);color:var(--n700);cursor:pointer;background:none}
+.chip.on{border-color:var(--accent);background:var(--accent);color:#fff}
 
-/* map + drawer */
-.atlas { display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: 24px; align-items: start; padding: 20px 0 32px; }
-.map { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.region { background: var(--surface); border: 1px solid var(--hair); padding: 14px 16px 16px; }
-.region.wide { grid-column: 1 / -1; }
-.region-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 10px; }
-.region-head h3 { font-family: var(--serif); font-weight: 600; font-size: .95rem; letter-spacing: .06em; text-transform: uppercase; }
-.region-head .meta { font-size: .78rem; color: var(--ink-2); white-space: nowrap; }
-.chips { display: flex; flex-wrap: wrap; gap: 6px; }
-.chip { border: 1px solid transparent; border-radius: var(--radius); padding: 3px 8px; font-size: .8rem; line-height: 1.3; cursor: pointer; text-align: left; background: var(--surface-2); }
-.chip.pred { background: color-mix(in oklab, var(--c) var(--wash), var(--surface)); border-color: color-mix(in oklab, var(--c) 55%, var(--surface)); color: var(--ink); }
-.chip.evid { background: var(--c); color: var(--on); border-color: var(--c); font-weight: 700; }
-.chip.evid::before { content: "■ "; font-size: .6em; vertical-align: .2em; opacity: .85; }
-.chip.active { outline: 2px solid var(--accent); outline-offset: 1px; }
-.chip.hidden { display: none; }
-.region .empty { color: var(--muted); font-size: .8rem; font-style: italic; }
-.drawer { position: sticky; top: 64px; background: var(--surface); border: 1px solid var(--hair); padding: 18px 20px 22px; max-height: calc(100vh - 80px); overflow: auto; }
-.drawer .placeholder { color: var(--ink-2); }
-.drawer .placeholder p { margin: 0 0 10px; }
-.drawer h2.cit { font-size: 1.25rem; line-height: 1.3; font-weight: 500; margin-bottom: 8px; }
-.drawer h2.cit em { font-style: italic; }
-.badges { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 14px; }
-.badge { font-size: .74rem; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--hair-2); color: var(--ink-2); }
-.badge.det { color: var(--on); background: var(--c); border-color: var(--c); font-weight: 700; }
-.badge.det.pred { color: var(--ink); background: color-mix(in oklab, var(--c) var(--wash), var(--surface)); border-color: color-mix(in oklab, var(--c) 55%, var(--surface)); font-weight: 400; }
-.drawer h4 { font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); margin: 18px 0 6px; }
-.drawer dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 4px 12px; font-size: .88rem; }
-.drawer dt { color: var(--ink-2); }
-.drawer dd { margin: 0; }
-.filecard { border-top: 1px solid var(--hair); padding: 10px 0; }
-.filecard .fname { font-family: var(--mono); font-size: .85rem; font-weight: 500; }
-.filecard .line { font-size: .85rem; color: var(--ink-2); margin-top: 2px; }
-.filecard ul { margin: 6px 0 0; padding-left: 18px; font-size: .84rem; }
-.dispute { border-left: 3px solid var(--warn); padding: 4px 10px; margin-top: 6px; font-size: .83rem; background: var(--surface-2); }
-.flag { display: inline-flex; align-items: center; gap: 4px; font-size: .78rem; }
-.flag.ok::before { content: "●"; color: var(--good); }
-.flag.bad::before { content: "●"; color: var(--crit); }
-.flag.warn::before { content: "▲"; color: var(--warn); font-size: .7em; }
-.drawer .none { color: var(--muted); font-style: italic; font-size: .88rem; }
+/* emblem strip */
+.embs{display:grid;grid-template-columns:repeat(7,1fr);border-top:var(--rule);border-left:var(--rule)}
+.emb{border-right:var(--rule);border-bottom:var(--rule);padding:16px;text-align:left}
+.emb img{width:34px;height:34px;display:block;margin-bottom:10px}
+a.emb:hover{background:#EFEEE6}
+.emb b{font-size:12.5px;font-weight:600;display:block;line-height:1.25}
+.emb span{font-size:11px;color:var(--n700)}
 
-/* files table */
-.files-table tr.row { cursor: pointer; }
-.files-table tr.row:hover td { background: var(--surface-2); }
-.files-table td .dot { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
-.files-wrap { background: var(--surface); border: 1px solid var(--hair); overflow-x: auto; }
-
-/* rubric */
-.rubric-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.rubric-grid > div { background: var(--surface); border: 1px solid var(--hair); padding: 14px 16px; font-size: .9rem; }
-.rubric-grid ol, .rubric-grid ul { margin: 6px 0 0; padding-left: 20px; }
-.rubric-grid li { margin: 3px 0; }
-.rubric-grid li .sw { vertical-align: -1px; margin-right: 6px; }
-footer { border-top: 1px solid var(--hair); padding: 18px 0 40px; font-size: .8rem; color: var(--muted); }
-
-@media (max-width: 1100px) {
-  .atlas { grid-template-columns: 1fr; }
-  .drawer { position: static; max-height: none; order: -1; }
+/* band + footer */
+.band{background:var(--accent);color:#fff;padding:64px 0;margin-top:56px}
+.band h2{max-width:18ch}
+.band .btn{background:#fff;color:var(--accent-900);border-color:#fff;margin-top:24px}
+footer{border-top:var(--rule);padding:22px 0;display:flex;gap:20px;font-size:13px;color:var(--n700);flex-wrap:wrap}
+footer .r{margin-left:auto}
+.crumb{font-size:13px;color:var(--n700);padding:22px 0 0}
+.crumb a:hover{color:var(--accent)}
+.empty{padding:44px 0;color:var(--n700)}
+@media(max-width:1000px){
+  .herogrid{grid-template-columns:1fr}.heromark{display:none}
+  .rec{grid-template-columns:1fr}.side{position:static}
+  .g3,.g4{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .ladder{grid-template-columns:repeat(3,1fr)}
+  .embs{grid-template-columns:repeat(4,1fr)}
 }
-@media (max-width: 760px) {
-  .mast-grid { grid-template-columns: 1fr; gap: 20px; }
-  .map, .rubric-grid { grid-template-columns: 1fr; }
-  .wrap { padding: 0 14px; }
-}
-@media (prefers-reduced-motion: no-preference) {
-  .chip, .badge, .seg-btns button { transition: background-color .15s, outline-color .15s; }
+@media(max-width:640px){
+  .wrap{padding:0 18px}.g3,.g4,.embs{grid-template-columns:1fr}
+  nav{gap:14px}nav a{font-size:13px}.hd{height:auto;padding:10px 0;flex-wrap:wrap}
 }
 </style>
+</head>
+<body>
+<header><div class="wrap hd">
+  <a class="brand" href="#/">
+    <img src="assets/svg/mark-a-meridian.svg" alt="" width="26" height="26">Formal Atlas</a>
+  <nav id="nav">
+    <a href="#/plate" data-r="plate">Plate</a>
+    <a href="#/theories" data-r="theories">Theories</a>
+    <a href="#/edges" data-r="edges">Edges</a>
+    <a href="#/papers" data-r="papers">Papers</a>
+    <a class="btn" href="#/plate">Open the atlas</a>
+  </nav>
+</div></header>
 
-<header class="masthead">
-  <canvas id="contours" aria-hidden="true"></canvas>
-  <div class="wrap mast-grid">
-    <div class="mast-text">
-      <p class="eyebrow">FORMAL-ATLAS · a verified map of theories of meaning</p>
-      <h1>Formalizability Atlas of Semantics</h1>
-      <p class="thesis">Two hundred theories of meaning placed by how they fare under machine verification in Coq — a survey prediction until a formalization exists, an evidenced determination once one does.</p>
-    </div>
-    <div class="stats" id="stats"></div>
-  </div>
-</header>
+<main id="app"></main>
+<noscript><div class="wrap" style="padding:64px 0">
+  <h2>The atlas needs JavaScript.</h2>
+  <p style="margin-top:14px">Every page here is rendered from the audit records in
+  <span class="mono">atlas.json</span>. The underlying Coq sources and JSON records are in the
+  repository and need no browser at all.</p></div></noscript>
 
-<section class="wrap">
-  <div class="sec-head">
-    <h2>Relief profile by region</h2>
-    <p>Each bar is one region of the field; segments count theories at each step of the four-point scale. Solid chips in the map are machine-checked; tinted chips carry only the survey's prediction.</p>
-  </div>
-  <div class="relief-legend" id="relief-legend"></div>
-  <div class="relief">
-    <svg id="relief-svg" role="img" aria-labelledby="relief-title"><title id="relief-title">Theories per region by formalizability step</title></svg>
-    <details class="tableview"><summary>Table view</summary><div id="relief-table"></div></details>
-  </div>
-</section>
-
-<div class="controls"><div class="wrap row">
-  <input class="search" id="q" type="search" placeholder="Search author, title, topic or Coq file" aria-label="Search theories">
-  <div class="seg-btns" id="det-btns" role="group" aria-label="Filter by determination"></div>
-  <div class="seg-btns" id="evid-btns" role="group" aria-label="Filter by evidence">
-    <button aria-pressed="true" data-ev="all">All theories</button>
-    <button aria-pressed="false" data-ev="evid">Machine-checked only</button>
-  </div>
-  <span class="count" id="count"></span>
-</div></div>
-
-<main class="wrap atlas">
-  <div class="map" id="map"></div>
-  <aside class="drawer" id="drawer" aria-live="polite"></aside>
-</main>
-
-<section class="wrap" id="files-section">
-  <div class="sec-head">
-    <h2>Formalizations on record</h2>
-    <p>Every Coq file audited against its primary source and checked by an independent adversarial pass. Click a row for the definition-by-definition mapping.</p>
-  </div>
-  <div class="files-wrap"><table class="files-table" id="files-table"></table></div>
-</section>
-
-<section class="wrap">
-  <div class="sec-head"><h2>How to read the atlas</h2></div>
-  <div class="rubric-grid">
-    <div>
-      <strong>Four-point determination</strong> — a property of the <em>theory</em>, evidenced by its best formalization.
-      <ol id="rubric-det"></ol>
-      <p style="margin:10px 0 0;font-size:.85rem;color:var(--ink-2)">Survey categories A–D map provisionally onto 1–4 and are shown tinted until code exists; a completed formalization replaces the prediction, and disagreements between the two are findings in their own right.</p>
-    </div>
-    <div>
-      <strong>Encoding artifact classes</strong> — what the encoding reveals about the theory.
-      <ul>
-        <li><b>(i)</b> strict-positivity violation — its central relation is circular in a way type theory rejects</li>
-        <li><b>(ii)</b> universe / type–value collapse — it identifies types with values</li>
-        <li><b>(iii)</b> computational opacity — an operation that should compute becomes opaque (reals, exp/log)</li>
-        <li><b>(iv)</b> missing native structure — needs machinery the substrate lacks (coercive subtyping, proof nets)</li>
-        <li><b>(v)</b> decidability gap — assumes decidable equality or membership</li>
-      </ul>
-      <p style="margin:10px 0 0;font-size:.85rem;color:var(--ink-2)">A theorem counts only if it ends in <code>Qed</code> and <code>Print Assumptions</code> lists nothing beyond signature parameters and axioms the source itself adopts. An <code>Admitted</code> is a finding (FALSE / NEEDS_ASSUMPTION / HARD), never a result.</p>
-    </div>
-  </div>
-</section>
-
-<footer class="wrap">Generated __GENERATED__ from the FORMAL-ATLAS records · survey: “200 Formal Semantics Papers: Complete Formalizability Assessment” · code: <span class="mono">revisiting-formal-semantics</span> (Coq 8.20.1)</footer>
-<div class="tip" id="tip" role="tooltip"></div>
+<footer><div class="wrap" style="display:flex;gap:20px;width:100%;flex-wrap:wrap">
+  <span>Formal Atlas — Coq formalizations of linguistic semantics</span>
+  <span class="r">Generated __GENERATED__ · zero <span class="mono">Admitted</span> in the atlas layer</span>
+</div></footer>
 
 <script id="atlas-data" type="application/json">__ATLAS_DATA__</script>
 <script>
-(function () {
-  const DATA = JSON.parse(document.getElementById('atlas-data').textContent);
-  const DET = ['as_is', 'slight_modification', 'major_restructuring', 'cannot'];
-  const DET_LABEL = ['as-is', 'slight modification', 'major restructuring', 'cannot be formalized'];
-  const DET_SHORT = ['1 as-is', '2 slight mod.', '3 restructuring', '4 cannot'];
-  const REGIONS = DATA.regions;
-  const byRegion = {}; REGIONS.forEach(r => byRegion[r.key] = []);
-  const filesByPath = {}; DATA.files.forEach(f => filesByPath[f.file] = f);
-  const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const D = JSON.parse(document.getElementById('atlas-data').textContent);
+const $ = (s,r=document)=>r.querySelector(s);
+const esc = s => String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
-  function surnames(auth) {
-    const m = [...(auth || '').matchAll(/((?:[a-z]+ )?[A-Z][A-Za-z'\-]+), [A-Z]/g)].map(x => x[1]);
-    return m.length ? m : [(auth || '?').split(',')[0]];
-  }
-  function shortCite(p) {
-    const s = surnames(p.authors), y = p.year || '';
-    if (s.length === 1) return s[0] + ' ' + y;
-    if (s.length === 2) return s[0] + ' & ' + s[1] + ' ' + y;
-    return s[0] + ' et al. ' + y;
-  }
-  function detIndex(d) { const i = DET.indexOf(d); return i < 0 ? null : i; }
-  // the theory's determination: best evidenced file, else the survey's prediction
-  function paperDet(p) {
-    const ev = p.coq_present.map(f => filesByPath[f]).map(f => detIndex(f.final && f.final.determination || f.determination)).filter(i => i !== null);
-    if (ev.length) return { i: Math.min(...ev), evid: true };
-    return { i: detIndex(p.survey_determination), evid: false };
-  }
-  DATA.papers.forEach(p => { p.det = paperDet(p); p.short = shortCite(p); byRegion[p.region].push(p); });
-  Object.values(byRegion).forEach(list => list.sort((a, b) => (b.det.evid - a.det.evid) || (a.det.i - b.det.i) || ((a.year || 0) - (b.year || 0))));
+/* ---------- theory metadata: display names + the notation on each plate ---------- */
+const META = {
+  atlas__ptq:      ['Montague PTQ','λP.P{j}','montague'],
+  atlas__lambek:   ['Lambek calculus','np, np\\s ⊢ s','typelogical'],
+  atlas__discocat: ['DisCoCat','n·nʳ·s·nˡ·n → s','categorical'],
+  atlas__mtt:      ['MTT (Chatzikyriakidis & Luo)','man : CN','mtt'],
+  atlas__ranta:    ['Ranta TTG','Σx:man. walk x','mtt'],
+  atlas__dts:      ['DTS (Bekki)','@ : (x:e) → …','mtt'],
+  atlas__inqb:     ['Inquisitive InqB','!P ∩ ?P','inquisitive'],
+  atlas__dpl:      ['DPL','⟦φ⟧ ⊆ G × G','dynamic'],
+  atlas__rsa:      ['RSA','L₁(w|u) ∝ S₁(u|w)P(w)','probabilistic'],
+  shallow__kratzer2:      ['Kratzer modality','⋂f(w) ≤g …','montague'],
+  extras__BarwiseCooper:  ['Barwise & Cooper','conservativity','montague'],
+};
+/* records outside the atlas layer carry an absolute path; show it repo-relative */
+const shortPath = p => String(p||'').replace(/^.*\/revisiting-formal-semantics\//,'');
+const REGION_NAME = {montague:'Montague',typelogical:'Type-logical',mtt:'Modern type theory',
+  dynamic:'Dynamic',inquisitive:'Inquisitive',probabilistic:'Probabilistic',categorical:'Categorical'};
+const REGION_ORDER = ['montague','typelogical','categorical','mtt','dynamic','inquisitive','probabilistic'];
+const REGION_BLURB = {
+  montague:'Truth conditions in a model, meanings as functions.',
+  typelogical:'Syntax is a proof; the derivation *is* the composition.',
+  categorical:'Grammar and vector meaning in one compact closed category.',
+  mtt:'Types carry the ontology, so proofs carry the entailments.',
+  dynamic:'Meaning is a change in the context, not a set of worlds.',
+  inquisitive:'One semantics for what is said and what is asked.',
+  probabilistic:'Interpretation as recursive reasoning under uncertainty.',
+};
 
-  // ---- stats
-  const nEvid = DATA.papers.filter(p => p.det.evid).length;
-  const proved = DATA.files.reduce((s, f) => s + ((f.counts || {}).proved || 0), 0);
-  const admitted = DATA.files.reduce((s, f) => s + ((f.counts || {}).admitted || 0), 0);
-  const disputed = DATA.files.filter(f => f.final && f.final.disputed).length;
-  document.getElementById('stats').innerHTML = [
-    ['Theories surveyed', DATA.papers.length, REGIONS.length + ' regions'],
-    ['Machine-checked', nEvid, DATA.files.length + ' Coq files on record'],
-    ['Theorems proved', proved, admitted ? admitted + ' admitted (findings)' : 'no admitted proofs'],
-    ['Records disputed', disputed, 'by the adversarial verifier'],
-  ].map(([l, v, s]) => `<div class="stat"><div class="label">${l}</div><div class="value">${v}</div><div class="sub">${s}</div></div>`).join('');
+const byKey = {}; D.files.forEach(f=>byKey[f.key]=f);
+const edges = D.edges||[];
+/* a node is an atlas theory file (not a *_vs_* bridge), plus any edge endpoint we hold a record for */
+const endpoints = new Set(); edges.forEach(e=>{endpoints.add(e.a);endpoints.add(e.b);});
+const nodes = D.files.filter(f=>{
+  if(!f.key || /_vs_/.test(f.key)) return false;
+  return (f.file||'').startsWith('atlas/') || endpoints.has(f.key);
+});
+const bridges = D.files.filter(f=>/_vs_/.test(f.key||''));
+const nodeKeys = new Set(nodes.map(n=>n.key));
+const liveEdges = edges.filter(e=>nodeKeys.has(e.a)&&nodeKeys.has(e.b));
+const name = k => (META[k]||[])[0] || (k||'').replace(/^atlas__/,'').toUpperCase();
+const nota = k => (META[k]||[])[1] || '';
+const rgn  = k => (META[k]||[])[2] || null;
+const shortName = k => name(k).replace(/\s*\(.*\)\s*$/,'');
+const inRegion = r => nodes.concat(bridges).filter(f=>{
+  if(rgn(f.key)===r) return true;
+  if(!/_vs_/.test(f.key||'')) return false;
+  return (f.sources||[]).length && [f.key.replace(/^atlas__/,'').split('_vs_')[0],
+    f.key.split('_vs_')[1]].some(s=>rgn('atlas__'+s)===r);
+});
+const totals = {
+  theories: nodes.length, edges: edges.length, bridges: bridges.length,
+  theorems: (D.stats&&D.stats.theorems)||0, admitted:(D.stats&&D.stats.admitted)||0,
+  records: D.files.length, papers: D.papers.length,
+  formalized: D.papers.filter(p=>['F4','F5'].includes(p.level)).length,
+  atlasAdmitted: D.files.filter(f=>(f.file||'').startsWith('atlas/'))
+                        .reduce((s,f)=>s+((f.counts||{}).admitted||0),0),
+};
 
-  // ---- relief chart
-  const legend = document.getElementById('relief-legend');
-  legend.innerHTML = DET_SHORT.map((l, i) => `<span><i class="sw" style="background:var(--d${i + 1})"></i>${l}</span>`).join('') + '<span><i class="sw" style="background:var(--d2)"></i>machine-checked</span><span><i class="sw wash"></i>survey prediction</span>';
-  const svg = document.getElementById('relief-svg');
-  const tip = document.getElementById('tip');
-  function drawRelief() {
-    const W = Math.max(560, svg.clientWidth || 900), rowH = 30, left = 236, right = 150, top = 8, bar = 18, gap = 2;
-    const rows = REGIONS.map(r => {
-      const list = byRegion[r.key], counts = [0, 0, 0, 0], evid = [0, 0, 0, 0];
-      list.forEach(p => { counts[p.det.i]++; if (p.det.evid) evid[p.det.i]++; });
-      return { r, counts, evid, total: list.length, nEvid: list.filter(p => p.det.evid).length };
-    });
-    const max = Math.max(...rows.map(x => x.total)), inner = W - left - right, sx = inner / max;
-    const H = top + rows.length * rowH + 26;
-    svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.setAttribute('height', H);
-    let out = '';
-    const ticks = [0, 10, 20, 30, 40, 50, 60].filter(t => t <= max);
-    ticks.forEach(t => { const x = left + t * sx; out += `<line class="grid" x1="${x}" y1="${top}" x2="${x}" y2="${top + rows.length * rowH}"/><text class="rv" x="${x}" y="${H - 8}" text-anchor="middle">${t}</text>`; });
-    rows.forEach((row, ri) => {
-      const y = top + ri * rowH + (rowH - bar) / 2;
-      out += `<text class="rl" x="${left - 10}" y="${y + bar / 2 + 4}" text-anchor="end">${esc(row.r.name)}</text>`;
-      let x = left;
-      row.counts.forEach((c, i) => {
-        if (!c) return;
-        const w = c * sx - gap;
-        out += `<rect class="seg" tabindex="0" x="${x}" y="${y}" width="${Math.max(w, 1)}" height="${bar}" fill="var(--d${i + 1})" data-tip="${esc(row.r.name)} — ${DET_LABEL[i]}: ${c} ${c === 1 ? 'theory' : 'theories'}${row.evid[i] ? ' (' + row.evid[i] + ' machine-checked)' : ''}"/>`;
-        x += c * sx;
-      });
-      out += `<text class="rv" x="${x + 6}" y="${y + bar / 2 + 4}">${row.total} · ${row.nEvid} checked</text>`;
-    });
-    svg.innerHTML = out;
-    document.getElementById('relief-table').innerHTML = '<table><thead><tr><th>Region</th>' + DET_SHORT.map(l => `<th class="num">${l}</th>`).join('') + '<th class="num">Total</th><th class="num">Checked</th></tr></thead><tbody>' +
-      rows.map(row => `<tr><td>${esc(row.r.name)}</td>${row.counts.map(c => `<td class="num">${c}</td>`).join('')}<td class="num">${row.total}</td><td class="num">${row.nEvid}</td></tr>`).join('') + '</tbody></table>';
-  }
-  drawRelief();
-  svg.addEventListener('mousemove', e => { const t = e.target.closest('.seg'); if (!t) { tip.style.display = 'none'; return; } tip.textContent = t.dataset.tip; tip.style.display = 'block'; tip.style.left = (e.clientX + 12) + 'px'; tip.style.top = (e.clientY + 12) + 'px'; });
-  svg.addEventListener('mouseleave', () => tip.style.display = 'none');
-  svg.addEventListener('focusin', e => { const t = e.target.closest('.seg'); if (!t) return; const b = t.getBoundingClientRect(); tip.textContent = t.dataset.tip; tip.style.display = 'block'; tip.style.left = (b.left + 8) + 'px'; tip.style.top = (b.bottom + 6) + 'px'; });
-  svg.addEventListener('focusout', () => tip.style.display = 'none');
-  let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(drawRelief, 120); });
+/* ---------- Plate I : deterministic layout, no dependencies ---------- */
+function boxOf(k){
+  const nm=name(k), nt=nota(k);
+  return {w:Math.max(nm.length*7.1, nt.length*6.6)+30, h:nt?46:32};
+}
+/* Composed placement, in fractions of the graph field. An atlas plate is drawn,
+   not simulated: these were laid out so no edge crosses another and the four
+   families read left-to-right. Keys absent here fall back to a ring. */
+const POS = {
+  atlas__discocat:       [0.16,0.15],
+  atlas__lambek:         [0.42,0.15],
+  shallow__kratzer2:     [0.10,0.52],
+  atlas__ptq:            [0.38,0.52],
+  atlas__mtt:            [0.66,0.52],
+  atlas__ranta:          [0.89,0.26],
+  atlas__dts:            [0.88,0.80],
+  extras__BarwiseCooper: [0.20,0.88],
+};
+function plateSVG(W=1180,H=700){
+  const linked=new Set(); liveEdges.forEach(e=>{linked.add(e.a);linked.add(e.b);});
+  const mapped = nodes.filter(n=>linked.has(n.key));
+  const loose  = nodes.filter(n=>!linked.has(n.key));
+  const REG = loose.length ? 104 : 0;           /* bottom register height */
+  const Hg = H - REG;
+  const P={}; let ring=0;
+  mapped.forEach(n=>{
+    const f=POS[n.key];
+    if(f){ P[n.key]={x:f[0]*W, y:f[1]*Hg}; }
+    else { const a=(ring++/Math.max(1,mapped.length))*Math.PI*2;
+           P[n.key]={x:W/2+Math.cos(a)*W*0.33, y:Hg/2+Math.sin(a)*Hg*0.33}; }
+  });
 
-  // ---- filters
-  const state = { q: '', det: new Set([0, 1, 2, 3]), ev: 'all' };
-  const detBtns = document.getElementById('det-btns');
-  detBtns.innerHTML = DET_SHORT.map((l, i) => `<button aria-pressed="true" data-i="${i}"><i class="sw" style="background:var(--d${i + 1})"></i>${l}</button>`).join('');
-  detBtns.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; const i = +b.dataset.i; if (state.det.has(i)) { if (state.det.size === 1) return; state.det.delete(i); } else state.det.add(i); b.setAttribute('aria-pressed', state.det.has(i)); applyFilters(); });
-  document.getElementById('evid-btns').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; state.ev = b.dataset.ev; [...e.currentTarget.children].forEach(c => c.setAttribute('aria-pressed', c === b)); applyFilters(); });
-  document.getElementById('q').addEventListener('input', e => { state.q = e.target.value.trim().toLowerCase(); applyFilters(); });
-  function matches(p) {
-    if (!state.det.has(p.det.i)) return false;
-    if (state.ev === 'evid' && !p.det.evid) return false;
-    if (state.q) { const hay = (p.citation + ' ' + p.topic + ' ' + p.coq_files.join(' ')).toLowerCase(); if (!hay.includes(state.q)) return false; }
-    return true;
-  }
-  function applyFilters() {
-    let n = 0;
-    document.querySelectorAll('.chip[data-id]').forEach(el => { const p = paperById[el.dataset.id]; const ok = matches(p); el.classList.toggle('hidden', !ok); if (ok) n++; });
-    document.querySelectorAll('.region').forEach(el => { const vis = el.querySelectorAll('.chip:not(.hidden)').length; el.querySelector('.empty').hidden = vis > 0; el.querySelector('.meta').textContent = vis + ' of ' + el.dataset.total + (vis === 1 ? ' theory' : ' theories') + ' · ' + el.dataset.evid + ' checked'; });
-    document.getElementById('count').textContent = n + ' of ' + DATA.papers.length + ' shown';
-  }
+  let g='';
+  for(let x=0;x<=W;x+=74) g+=`<path class="grat" d="M${x} 0 V${Hg}"/>`;
+  for(let y=0;y<=Hg;y+=74) g+=`<path class="grat" d="M0 ${y} H${W}"/>`;
+  for(let r=1;r<=3;r++)                                  /* latitude arcs */
+    g+=`<path class="grat" d="M0 ${Hg*0.5+r*66} Q ${W*0.5} ${Hg*0.5-r*30} ${W} ${Hg*0.5+r*66}"/>`;
 
-  // ---- map
-  const paperById = {}; DATA.papers.forEach(p => paperById[p.id] = p);
-  const map = document.getElementById('map');
-  map.innerHTML = REGIONS.map(r => {
-    const list = byRegion[r.key], ne = list.filter(p => p.det.evid).length;
-    return `<div class="region${list.length > 24 ? ' wide' : ''}" data-total="${list.length}" data-evid="${ne}"><div class="region-head"><h3>${esc(r.name)}</h3><span class="meta"></span></div><div class="chips">` +
-      list.map(p => `<button class="chip ${p.det.evid ? 'evid' : 'pred'}" data-id="${p.id}" style="--c:var(--d${p.det.i + 1});--on:var(--on-d${p.det.i + 1})" title="${esc(p.citation)}">${esc(p.short)}</button>`).join('') +
-      `</div><div class="empty" hidden>No theories match the current filters.</div></div>`;
-  }).join('');
-  map.addEventListener('click', e => { const c = e.target.closest('.chip'); if (!c) return; selectPaper(paperById[c.dataset.id], c); });
+  let e='';
+  liveEdges.forEach(ed=>{
+    const a=P[ed.a], b=P[ed.b], c=ed._computed||{};
+    const sim=c.similarity||0, ov=c.overlap||0;
+    const dx=b.x-a.x, dy=b.y-a.y, len=Math.hypot(dx,dy)||1;
+    const bow=Math.min(46,len*0.10);                      /* gentle meridian bow */
+    const mx=(a.x+b.x)/2 - (dy/len)*bow, my=(a.y+b.y)/2 + (dx/len)*bow;
+    const w=Math.max(1.2,(sim/5)*5.4), op=0.34+ov*0.58;
+    e+=`<g><path class="edge" d="M${a.x} ${a.y} Q ${mx} ${my} ${b.x} ${b.y}"
+        stroke-width="${w.toFixed(2)}" stroke-opacity="${op.toFixed(2)}"
+        ${sim<3?'stroke-dasharray="7 5"':''}
+        onclick="go('#/edge/${ed._key}')"><title>${esc(name(ed.a))} ↔ ${esc(name(ed.b))} — similarity ${sim}, overlap ${ov}</title></path>`;
+    const tx=(a.x+b.x)/2-(dy/len)*bow*0.5, ty=(a.y+b.y)/2+(dx/len)*bow*0.5;
+    e+=`<g class="etag" onclick="go('#/edge/${ed._key}')" style="cursor:pointer">
+        <rect x="${(tx-16).toFixed(1)}" y="${(ty-8).toFixed(1)}" width="32" height="16"/>
+        <text x="${tx.toFixed(1)}" y="${(ty+4).toFixed(1)}" text-anchor="middle">${sim.toFixed(1)}</text>
+        <title>similarity ${sim} — mean grade over ${c.joint_phenomena} joint phenomena</title></g></g>`;
+  });
 
-  // ---- drawer
-  const drawer = document.getElementById('drawer');
-  function detBadge(i, evid) { return `<span class="badge det${evid ? '' : ' pred'}" style="--c:var(--d${i + 1});--on:var(--on-d${i + 1})">${i + 1} · ${DET_LABEL[i]}${evid ? '' : ' (predicted)'}</span>`; }
-  function placeholder() {
-    drawer.innerHTML = `<div class="placeholder"><h4>Selected theory</h4><p>Choose a theory in the map, or a Coq file in the table below, to see the survey assessment, the formalization on record, and what the adversarial verifier disputed.</p><p><span class="chip evid" style="--c:var(--d1);--on:var(--on-d1)">Montague 1973</span> solid chips are machine-checked; <span class="chip pred" style="--c:var(--d3)">Lakoff 1987</span> tinted chips carry the survey's prediction only.</p></div>`;
-  }
-  function fileCard(f, full) {
-    const c = f.counts || {}, fi = detIndex(f.final && f.final.determination || f.determination), fv = f.final && f.final.faithfulness || (f.faithfulness || {}).verdict;
-    const src = (f.sources || []).map(s => `${esc(s.citation)}${s.available && s.available !== 'full' ? ' <span class="flag warn">' + s.available + '</span>' : ''}`).join('; ');
-    const disputes = f.verify && f.verify.disputes && f.verify.disputes.length ? f.verify.disputes.map(d => `<div class="dispute"><b>${esc(d.field)}</b>: record says <i>${esc(d.record_says)}</i>; verifier says <i>${esc(d.you_say)}</i> — ${esc(d.evidence)}</div>`).join('') : '';
-    let h = `<div class="filecard"><div class="fname">${esc(f.file)}</div>
-      <div class="badges">${fi !== null ? detBadge(fi, true) : ''}<span class="badge">faithfulness: ${esc(fv || 'n/a')}</span><span class="badge">${c.proved || 0} / ${c.theorems || 0} proved${c.admitted ? ' · ' + c.admitted + ' admitted' : ''}</span><span class="badge ${f.compiles ? 'flag ok' : 'flag bad'}">${f.compiles ? 'compiles' : 'does not compile'}</span>${f.verify ? `<span class="badge flag ${f.verify.agrees ? 'ok' : 'warn'}">verifier ${f.verify.agrees ? 'agrees' : 'disputes'}</span>` : ''}</div>
-      <div class="line">${esc(f.summary || '')}</div>
-      ${src ? `<div class="line"><b>Source:</b> ${src}</div>` : ''}
-      ${f.source_gap ? `<div class="line"><b>Source gap:</b> ${esc(f.source_gap)}</div>` : ''}
-      ${(f.artifact_classes || []).length ? `<div class="line"><b>Artifacts:</b> ${f.artifact_classes.map(a => '(' + esc(a.class) + ') ' + esc(a.description)).join('; ')}</div>` : ''}
-      ${f.determination_rationale ? `<div class="line"><b>Why:</b> ${esc(f.determination_rationale)}</div>` : ''}
-      ${disputes}`;
-    if (full) {
-      const fa = f.faithfulness || {};
-      if ((fa.evidence || []).length) h += `<h4>Evidence</h4><ul>${fa.evidence.map(x => `<li>${esc(x)}</li>`).join('')}</ul>`;
-      ['simplifications', 'omissions', 'additions'].forEach(k => { if ((fa[k] || []).length) h += `<h4>${k}</h4><ul>${fa[k].map(x => `<li>${esc(x)}</li>`).join('')}</ul>`; });
-      if ((f.definitions_mapped || []).length) h += `<h4>Definitions mapped</h4><table><thead><tr><th>Coq</th><th>Source</th><th>Match</th></tr></thead><tbody>${f.definitions_mapped.map(d => `<tr><td class="mono">${esc(d.coq)}</td><td>${esc(d.source)}${d.note ? ' <span style="color:var(--muted)">— ' + esc(d.note) + '</span>' : ''}</td><td>${esc(d.match)}</td></tr>`).join('')}</tbody></table>`;
-      if ((f.theorems || []).length) h += `<h4>Theorems</h4><table><thead><tr><th>Name</th><th>Status</th><th>Source claim</th></tr></thead><tbody>${f.theorems.map(t => `<tr><td class="mono">${esc(t.name)}</td><td>${esc(t.status)}</td><td>${esc(t.source_claim || '—')}${t.note ? ' <span style="color:var(--muted)">— ' + esc(t.note) + '</span>' : ''}</td></tr>`).join('')}</tbody></table>`;
-      if (f.notes) h += `<h4>Notes</h4><div class="line">${esc(f.notes)}</div>`;
-    }
-    return h + '</div>';
-  }
-  function selectPaper(p, chipEl) {
-    document.querySelectorAll('.chip.active').forEach(c => c.classList.remove('active'));
-    if (chipEl) chipEl.classList.add('active');
-    const fields = Object.entries(p.fields || {}).map(([k, v]) => `<dt>${esc(k.replace('_', ' '))}</dt><dd>${esc(v)}</dd>`).join('');
-    const files = p.coq_present.map(f => filesByPath[f]);
-    const planned = p.coq_files.filter(f => !filesByPath[f]);
-    drawer.innerHTML = `<h4>Selected theory</h4><h2 class="cit">${esc(p.authors || '')} (${p.year || '—'}) <em>${esc(p.title || p.citation)}</em></h2>
-      <div class="badges">${detBadge(p.det.i, p.det.evid)}<span class="badge">${esc(REGIONS.find(r => r.key === p.region).name)}</span><span class="badge">${esc(p.topic)}</span><span class="badge">survey category ${p.category}</span></div>
-      <h4>Survey assessment</h4><dl><dt>summary</dt><dd>${esc(p.description || '—')}</dd>${fields}</dl>
-      <h4>Machine verification</h4>` +
-      (files.length ? files.map(f => fileCard(f, false)).join('') : `<div class="none">No formalization on record yet — the determination shown is the survey's prediction${planned.length ? '; planned: ' + planned.map(f => '<code>' + esc(f) + '</code>').join(', ') : ''}.</div>`) +
-      (files.length && planned.length ? `<div class="line" style="margin-top:8px;font-size:.84rem;color:var(--ink-2)">Also planned: ${planned.map(f => '<code>' + esc(f) + '</code>').join(', ')}</div>` : '');
-    if (window.innerWidth <= 1100) drawer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-  function selectFile(f) {
-    document.querySelectorAll('.chip.active').forEach(c => c.classList.remove('active'));
-    const owners = DATA.papers.filter(p => p.coq_present.includes(f.file));
-    drawer.innerHTML = `<h4>Selected Coq file</h4><h2 class="cit mono" style="font-family:var(--mono);font-size:1rem">${esc(f.file)}</h2>
-      <div class="badges"><span class="badge">${esc(REGIONS.find(r => r.key === f.region).name)}</span>${owners.map(p => `<span class="badge">${esc(p.short)}</span>`).join('')}</div>` + fileCard(f, true);
-    drawer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-  placeholder();
+  const plateOf = (k,x,y,file) => {
+    const nm=name(k), nt=nota(k), {w,h}=boxOf(k);
+    const pre=!(file||'').startsWith('atlas/');
+    return `<g class="node ${pre?'pre':''}" onclick="go('#/theory/${k}')">
+      <rect x="${(x-w/2).toFixed(1)}" y="${(y-h/2).toFixed(1)}" width="${w.toFixed(1)}" height="${h}"/>
+      <text class="nm" x="${x.toFixed(1)}" y="${(y+(nt?-4:4)).toFixed(1)}" text-anchor="middle">${esc(nm)}</text>
+      ${nt?`<text class="nt" x="${x.toFixed(1)}" y="${(y+13).toFixed(1)}" text-anchor="middle">${esc(nt)}</text>`:''}
+      <title>${esc(nm)}${pre?' — pre-atlas record, still uses Parameters':''}</title></g>`;
+  };
+  let nd=''; mapped.forEach(n=>{const p=P[n.key]; nd+=plateOf(n.key,p.x,p.y,n.file);});
 
-  // ---- files table
-  const ft = document.getElementById('files-table');
-  const order = {}; REGIONS.forEach((r, i) => order[r.key] = i);
-  const files = [...DATA.files].sort((a, b) => (order[a.region] - order[b.region]) || a.file.localeCompare(b.file));
-  if (!files.length) {
-    document.getElementById('files-section').querySelector('.files-wrap').innerHTML = '<p style="padding:14px 16px;margin:0;color:var(--ink-2)">The audit of the existing Coq files is running; records appear here as they are verified.</p>';
-  } else {
-    ft.innerHTML = '<thead><tr><th>File</th><th>Source</th><th>Region</th><th class="num">Proved / total</th><th>Faithful</th><th>Determination</th><th>Verifier</th></tr></thead><tbody>' + files.map((f, i) => {
-      const c = f.counts || {}, fi = detIndex(f.final && f.final.determination || f.determination), fv = f.final && f.final.faithfulness || (f.faithfulness || {}).verdict;
-      return `<tr class="row" data-i="${i}"><td class="mono">${esc(f.file)}${f.duplicate_of ? ' <span class="flag warn" title="duplicate">dup of ' + esc(f.duplicate_of) + '</span>' : ''}</td><td>${esc((f.sources || []).slice(0, 2).map(s => s.citation).join('; '))}${f.source_gap ? ' <span class="flag warn">gap</span>' : ''}</td><td>${esc(REGIONS.find(r => r.key === f.region).name)}</td><td class="num">${c.proved || 0} / ${c.theorems || 0}${c.admitted ? ' <span style="color:var(--muted)">+' + c.admitted + ' adm</span>' : ''}</td><td>${esc(fv || '—')}</td><td>${fi !== null ? '<i class="dot" style="background:var(--d' + (fi + 1) + ')"></i>' + DET_SHORT[fi] : '—'}</td><td>${f.verify ? '<span class="flag ' + (f.verify.agrees ? 'ok">agrees' : 'warn">disputes') + '</span>' : '—'}</td></tr>`;
-    }).join('') + '</tbody>';
-    ft.addEventListener('click', e => { const r = e.target.closest('tr.row'); if (r) selectFile(files[+r.dataset.i]); });
+  /* the honest bottom register: formalized, but not yet related to anything */
+  let reg='';
+  if(loose.length){
+    const ws=loose.map(n=>boxOf(n.key).w), tot=ws.reduce((a,b)=>a+b,0);
+    const gap=(W-64-tot)/(loose.length+1);
+    let x=32+gap;
+    reg+=`<path d="M0 ${Hg} H${W}" stroke="#1E2B1E" stroke-width="2"/>
+      <text x="16" y="${Hg+26}" style="font:600 11px Archivo;letter-spacing:.08em;fill:#5C6B5A">FORMALIZED · NO GRADED EDGE YET</text>`;
+    loose.forEach((n,i)=>{ reg+=plateOf(n.key, x+ws[i]/2, Hg+66, n.file); x+=ws[i]+gap; });
   }
 
-  // ---- rubric list
-  document.getElementById('rubric-det').innerHTML = [
-    'faithful formalization, core definitions exact, headline claims proved, no propositional axioms beyond the source\'s own',
-    'faithful, but with simplified definitions or a documented extra assumption that leaves the theory\'s predictions unchanged',
-    'only a partial formalization exists: a core definition had to change, or a headline claim needed part of the theory re-founded',
-    'resistance is foundational and diagnosed: an object or operation that is inconsistent with type theory as stated, or too underspecified to admit any definition',
-  ].map((t, i) => `<li><i class="sw" style="background:var(--d${i + 1})"></i><b>${DET_LABEL[i]}</b> — ${t}</li>`).join('');
+  const lg=`<g transform="translate(${(W*0.42).toFixed(0)},${(Hg-108).toFixed(0)})">
+    <rect x="0" y="0" width="220" height="100" fill="#FBFAF6" stroke="#1E2B1E" stroke-width="2"/>
+    <text x="12" y="21" style="font:600 10px Archivo;letter-spacing:.08em;fill:#5C6B5A">LEGEND</text>
+    <path d="M12 37 H72" stroke="#1E2B1E" stroke-width="5.4" stroke-opacity="0.92"/>
+    <text x="80" y="41" style="font:11px Archivo;fill:#1E2B1E">5·0 definitional</text>
+    <path d="M12 57 H72" stroke="#1E2B1E" stroke-width="3.2" stroke-opacity="0.6"/>
+    <text x="80" y="61" style="font:11px Archivo;fill:#1E2B1E">3·0 one-way / mediated</text>
+    <rect x="12" y="71" width="28" height="14" fill="#4E8C3B"/>
+    <text x="48" y="82" style="font:11px Archivo;fill:#1E2B1E">measured similarity</text></g>`;
 
-  applyFilters();
+  return `<svg viewBox="0 0 ${W} ${H}" role="img"
+    aria-label="Plate I — ${mapped.length} theories joined by ${liveEdges.length} graded edges">${g}${e}${lg}${nd}${reg}</svg>`;
+}
 
-  // ---- contour backdrop (drawn, not authored)
-  const cv = document.getElementById('contours');
-  function contours() {
-    const head = cv.parentElement, dpr = window.devicePixelRatio || 1;
-    const w = head.clientWidth, h = head.clientHeight; if (!w || !h) return;
-    cv.width = w * dpr; cv.height = h * dpr; const ctx = cv.getContext('2d'); ctx.scale(dpr, dpr); ctx.clearRect(0, 0, w, h);
-    const ink = getComputedStyle(document.documentElement).getPropertyValue('--ink').trim();
-    ctx.strokeStyle = ink; ctx.globalAlpha = 0.07; ctx.lineWidth = 1;
-    const cx = w * 0.78, cy = h * 0.95;
-    for (let k = 1; k <= 14; k++) {
-      const r = 26 * k; ctx.beginPath();
-      for (let a = 0; a <= Math.PI * 2 + 0.01; a += 0.02) {
-        const n = 1 + 0.10 * Math.sin(3 * a + k * 0.7) + 0.06 * Math.sin(7 * a - k * 1.3) + 0.03 * Math.sin(11 * a + k);
-        const x = cx + Math.cos(a) * r * n * 1.35, y = cy + Math.sin(a) * r * n * 0.55;
-        a === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-      }
-      ctx.stroke();
-    }
-  }
-  contours(); window.addEventListener('resize', () => { clearTimeout(cv._t); cv._t = setTimeout(contours, 120); });
-  if (window.matchMedia) window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', contours);
-  new MutationObserver(contours).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-})();
+/* ---------- badges ---------- */
+function faithB(v){const m={'faithful':'ok','faithful-with-corrections':'ok','partial':'mid','unfaithful':'bad'};
+  return v?`<span class="b ${m[v]||'q'}">${esc(v)}</span>`:'';}
+function detB(v){const m={'as_is':'ok','slight_modification':'mid','major_restructuring':'bad'};
+  return v?`<span class="b ${m[v]||'q'}">${esc(String(v).replace(/_/g,' '))}</span>`:'';}
+function countsB(c){ if(!c) return '';
+  const t=c.theorems||0, ad=c.admitted||0;
+  return `<span class="b ${ad?'bad':'ok'}">${t} thm · ${ad} admitted</span>`;}
+
+/* ---------- views ---------- */
+function vHome(){
+  return `
+  <div class="wrap hero">
+    <div class="herogrid"><div>
+      <span class="kicker">An atlas of semantic theories</span>
+      <h1>Every theory, on one map. Every edge, machine-checked.</h1>
+      <p>Formal Atlas formalizes the theories of linguistic semantics — Montague,
+      type-logical, modern type theory, dynamic, inquisitive, probabilistic, categorical —
+      in the Coq proof assistant, then surveys the relations between them. Where two
+      theories agree, the proof says so. Where they don't, the countermodel does.</p>
+      <div class="cta"><a class="btn" href="#/plate">Open Plate I</a>
+        <a class="btn ghost" href="#/theories">Read the records</a></div>
+    </div>
+    <img class="heromark" src="assets/svg/mark-a-meridian.svg" alt="Formal Atlas mark: a lambda drawn as a meridian, with the proof-locked wedge">
+    </div>
+    <div class="stats">
+      <div class="stat"><b>${totals.theories}</b><span>theories on the plate</span></div>
+      <div class="stat"><b>${totals.edges}</b><span>graded edges, every one evidenced</span></div>
+      <div class="stat"><b>${totals.theorems.toLocaleString()}</b><span>theorems across ${totals.records} records</span></div>
+      <div class="stat"><b>${totals.atlasAdmitted}</b><span>admitted in the atlas layer
+        <br>(${totals.admitted} in pre-atlas material)</span></div>
+    </div>
+  </div>
+
+  <section class="wrap">
+    <div class="sechead"><span class="kicker">What the atlas does</span></div>
+    <div class="grid g3">
+      <div class="card"><span class="kicker">01</span><h3>Theories as plates</h3>
+        <p>Each theory is a Coq module with its own types, lexicon and composition rules — a plate in the atlas.
+        The notation you see on a plate is the notation the checker sees.</p></div>
+      <div class="card"><span class="kicker">02</span><h3>Edges with a weight</h3>
+        <p>A relation between two theories is graded per phenomenon, from 5 (definitional) down to 0 (not statable
+        with comparable instruments). Line weight is data, not decoration.</p></div>
+      <div class="card"><span class="kicker">03</span><h3>Four verdicts, not two</h3>
+        <p>A claim comes back <b>proved</b>, <b>refuted</b> with the countermodel, <b>needing an assumption</b> that
+        gets named, or <b>not statable</b> in the theory's vocabulary. The last one is usually the interesting one.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="sechead"><span class="kicker">Plate I</span><h2>${totals.theories} theories, surveyed.</h2>
+      <span class="note">Line weight is data: it encodes the measured strength of each relation.
+      The legend reads the way a map's legend explains elevation.</span></div>
+    <div class="plate">${plateSVG()}
+      <div class="cap"><span>Formal Atlas — Plate I</span><span>·</span>
+        <span>${liveEdges.length} drawn edges · click a plate or a line</span></div></div>
+  </section>
+
+  <section class="wrap">
+    <div class="sechead"><span class="kicker">Regions</span><h2>Seven traditions</h2>
+      <span class="note">Each region is a way of answering the same question —
+      what is a meaning, and what is composition?</span></div>
+    <div class="embs">${REGION_ORDER.map(r=>{
+      const n=inRegion(r).length;
+      return `<a class="emb" href="#/region/${r}">
+        <img src="assets/svg/emblem-${r}.svg" alt="" width="34" height="34">
+        <b>${esc(REGION_NAME[r])}</b>
+        <span>${n} record${n===1?'':'s'}</span></a>`;}).join('')}</div>
+  </section>
+
+  <section class="wrap">
+    <div class="sechead"><span class="kicker">The corpus</span><h2>Levels of formalizability</h2>
+      <span class="note">Every paper in the ${totals.papers}-entry survey sits on a rung: surveyed only,
+      sourced, designed, piloted, formalized, verified and connected.</span></div>
+    ${ladderHTML()}
+  </section>
+
+  <div class="band"><div class="wrap">
+    <span class="kicker" style="color:#BFD8AB">Formal Atlas</span>
+    <h2 style="margin-top:14px">Semantic theories,<br>machine-checked.</h2>
+    <a class="btn" href="#/theories">Browse ${totals.records} records</a>
+  </div></div>`;
+}
+
+function ladderHTML(){
+  const LAB={F0:'surveyed only',F1:'sourced',F2:'designed',F3:'piloted',F4:'formalized',F5:'verified & connected'};
+  const C={F0:'#B9C4B5',F1:'#BFD8AB',F2:'#8FC07A',F3:'#6FAB55',F4:'#2F5F27',F5:'#163216'};
+  const n={}; D.papers.forEach(p=>n[p.level]=(n[p.level]||0)+1);
+  return `<div class="ladder">${['F0','F1','F2','F3','F4','F5'].map(l=>
+    `<a class="rung" href="#/papers?level=${l}"><b>${n[l]||0}</b><span>${l} · ${LAB[l]}</span>
+     <div class="bar" style="background:${C[l]}"></div></a>`).join('')}</div>`;
+}
+
+function vPlate(){
+  return `<div class="wrap"><div class="crumb"><a href="#/">Atlas</a> / Plate I</div>
+  <section style="padding-top:24px">
+    <div class="sechead"><h2>Plate I — the survey</h2>
+      <span class="note">${totals.theories} theories, ${liveEdges.length} drawn edges of ${totals.edges} recorded.
+      Dashed plates are pre-atlas records that still use <span class="mono">Parameter</span>s.</span></div>
+    <div class="plate">${plateSVG(1180,720)}
+      <div class="cap"><span>Formal Atlas — Plate I</span><span>·</span><span>click a plate or a line</span></div></div>
+  </section>
+  <section>
+    <div class="sechead"><span class="kicker">Bridges</span><h2>Formalized translations</h2>
+      <span class="note">Files whose only job is to relate two theories inside Coq.</span></div>
+    ${cardsGrid(bridges)}
+  </section></div>`;
+}
+
+function vRegion(r){
+  if(!REGION_NAME[r]) return notFound();
+  const recs=inRegion(r);
+  const rel=edges.filter(e=>rgn(e.a)===r||rgn(e.b)===r);
+  const pap=D.papers.filter(p=>(p.coq_present||[]).some(f=>recs.some(x=>x.file===f)));
+  return `<div class="wrap"><div class="crumb"><a href="#/">Atlas</a> / Regions / ${esc(REGION_NAME[r])}</div>
+  <section style="padding-top:20px">
+    <div style="display:flex;gap:22px;align-items:flex-start">
+      <img src="assets/svg/emblem-${r}.svg" alt="" width="76" height="76" style="border:var(--rule);padding:8px;flex:0 0 auto">
+      <div><span class="kicker">Region</span>
+        <h2 style="margin:10px 0 10px">${esc(REGION_NAME[r])}</h2>
+        <p style="font-size:16.5px">${esc(REGION_BLURB[r]||'')}</p></div></div>
+    <div style="margin-top:32px">${recs.length?cardsGrid(recs):'<p class="dim">No records yet.</p>'}</div>
+  </section>
+  ${rel.length?`<section><div class="sechead"><span class="kicker">Edges touching this region</span>
+    <h2>${rel.length} relation${rel.length===1?'':'s'}</h2></div>
+    <table><thead><tr><th>Relation</th><th>Level</th><th class="n">Similarity</th></tr></thead><tbody>
+    ${rel.map(e=>{const c=e._computed||{};return `<tr onclick="go('#/edge/${e._key}')" style="cursor:pointer">
+      <td><a href="#/edge/${e._key}"><b>${esc(name(e.a))}</b> <span class="dim">↔</span> <b>${esc(name(e.b))}</b></a></td>
+      <td class="small dim">${esc(e.level||'')}</td>
+      <td class="n"><span class="b ${c.similarity>=4?'ok':c.similarity>=3?'mid':'bad'}">${c.similarity}</span></td></tr>`;}).join('')}
+    </tbody></table></section>`:''}
+  ${pap.length?`<section><div class="sechead"><span class="kicker">Sources</span>
+    <h2>${pap.length} paper${pap.length===1?'':'s'} formalized here</h2></div>
+    <ul class="tick">${pap.map(p=>`<li><b>${esc(p.citation)}</b> <span class="dim">— ${esc(p.title||p.topic)}</span></li>`).join('')}</ul>
+    </section>`:''}</div>`;
+}
+
+function vTheories(){
+  const inAtlas = D.files.filter(f=>(f.file||'').startsWith('atlas/'));
+  const other   = D.files.filter(f=>!(f.file||'').startsWith('atlas/'));
+  return `<div class="wrap"><div class="crumb"><a href="#/">Atlas</a> / Theories</div>
+  <section style="padding-top:24px">
+    <div class="sechead"><h2>The atlas layer</h2>
+      <span class="note">Zero <span class="mono">Admitted</span>, zero propositional axioms outside DPL's
+      documented classical and functional-extensionality groups.</span></div>
+    ${cardsGrid(inAtlas)}
+  </section>
+  <section>
+    <div class="sechead"><span class="kicker">Raw material</span><h2>${other.length} further records</h2>
+      <span class="note">Pre-atlas and exploratory files, including the two that Plate I draws with a
+      dashed border. Audited, but not held to the atlas discipline — several still use
+      <span class="mono">Parameter</span>s.</span></div>
+    <div class="controls"><input type="search" id="q" placeholder="Filter records…" oninput="filterCards(this.value)"></div>
+    <div class="grid g3" id="others">${other.map(cardHTML).join('')}</div>
+  </section></div>`;
+}
+function cardsGrid(list,cols=3){
+  const pad=(cols-(list.length%cols))%cols;   /* keep the grid a closed rectangle */
+  return `<div class="grid g${cols}">${list.map(cardHTML).join('')}`
+       + '<div class="card"></div>'.repeat(pad) + '</div>';
+}
+function cardHTML(f){
+  const nm = META[f.key] ? name(f.key) : (f.file||'').split('/').pop().replace('.v','');
+  return `<a class="card" href="#/theory/${f.key}" data-s="${esc((nm+' '+(f.file||'')+' '+(f.summary||'')).toLowerCase())}">
+    <div class="top"><h3>${esc(nm)}</h3></div>
+    <div class="mono tiny dim">${esc(shortPath(f.file))}</div>
+    <p>${esc((f.summary||'').slice(0,175))}…</p>
+    <div class="foot">${countsB(f.counts)}${faithB(f.faithfulness&&f.faithfulness.verdict)}
+      ${f.source_gap?'<span class="b bad">source gap</span>':''}</div></a>`;
+}
+function filterCards(v){
+  v=v.toLowerCase();
+  document.querySelectorAll('#others .card').forEach(c=>{
+    c.style.display = !v || c.dataset.s.includes(v) ? '' : 'none';});
+}
+
+function vTheory(key){
+  const f=byKey[key]; if(!f) return notFound();
+  const nm = META[key]?name(key):(f.file||'').split('/').pop().replace('.v','');
+  const fa=f.faithfulness||{}, c=f.counts||{};
+  const rel = edges.filter(e=>e.a===key||e.b===key);
+  const list=(t,arr,neg)=>arr&&arr.length?`<div class="block"><h3>${t}</h3>
+    <ul class="tick ${neg?'neg':''}">${arr.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`:'';
+  const r=rgn(key);
+  return `<div class="wrap"><div class="crumb"><a href="#/">Atlas</a> / <a href="#/theories">Theories</a> / ${esc(nm)}</div>
+  <section style="padding-top:20px"><div class="rec"><div>
+    ${r?`<a class="kicker" href="#/region/${r}">${esc(REGION_NAME[r])}</a>`
+       :`<span class="kicker">${esc(f.region||'')}</span>`}
+    <h2 style="margin:12px 0 8px;display:flex;align-items:center;gap:14px">
+      ${r?`<img src="assets/svg/emblem-${r}.svg" alt="" width="40" height="40">`:''}${esc(nm)}</h2>
+    <div class="mono small dim" style="margin-bottom:20px">${esc(shortPath(f.file))}</div>
+    <p style="font-size:16.5px">${esc(f.summary||'')}</p>
+
+    ${f.source_gap?`<div class="block gap"><span class="kicker">Gap found in the published source</span>
+      <h3 style="margin:8px 0 8px;border:0;padding:0">${esc(f.source_gap.kind||'')}</h3>
+      <p style="max-width:none">${esc(f.source_gap.detail||'')}</p></div>`:''}
+
+    ${(f.definitions_mapped||[]).length?`<div class="block"><h3>Definitions mapped</h3>
+      <table><thead><tr><th>Coq</th><th>Source</th><th class="n">Match</th></tr></thead><tbody>
+      ${f.definitions_mapped.map(d=>`<tr><td class="mono">${esc(d.coq)}</td>
+        <td>${esc(d.source)}${d.note?`<div class="tiny dim" style="margin-top:5px">${esc(d.note)}</div>`:''}</td>
+        <td class="n"><span class="b ${d.match==='exact'?'ok':d.match==='changed'?'bad':'mid'}">${esc(d.match||'')}</span></td></tr>`).join('')}
+      </tbody></table></div>`:''}
+
+    ${(f.theorems||[]).length?`<div class="block"><h3>Theorems</h3>
+      <table><thead><tr><th>Name</th><th>Claim in the source</th><th class="n">Status</th></tr></thead><tbody>
+      ${f.theorems.map(t=>`<tr><td class="mono">${esc(t.name)}</td>
+        <td>${esc(t.source_claim||'')}${t.note?`<div class="tiny dim" style="margin-top:5px">${esc(t.note)}</div>`:''}</td>
+        <td class="n"><span class="b ${t.status==='proved'?'ok':t.status==='refuted'?'bad':'q'}">${esc(t.status||'')}</span></td></tr>`).join('')}
+      </tbody></table></div>`:''}
+
+    ${list('Evidence for the verdict',fa.evidence)}
+    ${list('Simplifications',fa.simplifications,1)}
+    ${list('Omissions',fa.omissions,1)}
+    ${list('Additions beyond the source',fa.additions)}
+
+    ${rel.length?`<div class="block"><h3>Edges from here</h3>
+      <table><thead><tr><th>To</th><th>Level</th><th class="n">Similarity</th><th class="n">Overlap</th></tr></thead><tbody>
+      ${rel.map(e=>{const o=e.a===key?e.b:e.a,cc=e._computed||{};
+        return `<tr onclick="go('#/edge/${e._key}')" style="cursor:pointer">
+        <td><a href="#/edge/${e._key}"><b>${esc(name(o))}</b></a></td>
+        <td class="small dim">${esc(e.level||'')}</td>
+        <td class="n"><span class="b ${cc.similarity>=4?'ok':cc.similarity>=3?'mid':'bad'}">${cc.similarity}</span></td>
+        <td class="n small">${cc.overlap}</td></tr>`;}).join('')}</tbody></table></div>`:''}
+
+    ${f.notes?`<div class="block"><h3>Notes</h3><p style="max-width:none">${esc(f.notes)}</p></div>`:''}
+  </div>
+
+  <aside class="side">
+    <div><span class="kicker">Audit</span></div>
+    <dl>
+      <dt>Theorems</dt><dd>${c.theorems||0}</dd>
+      <dt>Proved</dt><dd>${c.proved||0}</dd>
+      <dt>Admitted</dt><dd>${c.admitted||0}</dd>
+      <dt>Prop. axioms</dt><dd>${c.propositional_axioms||0}</dd>
+      <dt>Compiles</dt><dd>${f.compiles?'yes':'—'}</dd>
+    </dl>
+    <div style="display:flex;gap:6px;flex-wrap:wrap">
+      ${faithB(fa.verdict)}${detB(f.determination)}</div>
+    ${f.determination_rationale?`<p class="tiny dim" style="max-width:none">${esc(f.determination_rationale)}</p>`:''}
+    ${(f.sources||[]).length?`<div><span class="kicker">Sources</span>
+      <ul class="tick" style="margin-top:10px">${f.sources.map(s=>
+        `<li class="tiny">${esc(s.citation)}</li>`).join('')}</ul></div>`:''}
+    ${(f.artifact_classes||[]).length?`<div><span class="kicker">Artifact classes</span>
+      <ul class="tick" style="margin-top:10px">${f.artifact_classes.map(a=>
+        `<li class="tiny"><b>${esc(a.class)}</b> — ${esc(a.description)}</li>`).join('')}</ul></div>`:''}
+  </aside></div></section></div>`;
+}
+
+function vEdges(){
+  return `<div class="wrap"><div class="crumb"><a href="#/">Atlas</a> / Edges</div>
+  <section style="padding-top:24px">
+    <div class="sechead"><h2>${edges.length} graded edges</h2>
+      <span class="note">Grades run 5 definitional · 4 equivalence · 3 one-way or mediated ·
+      2 divergent with countermodel · 1 after re-encoding · 0 not statable.</span></div>
+    <table><thead><tr><th>Relation</th><th>Level</th><th>Bridge in Coq</th>
+      <th class="n">Similarity</th><th class="n">Overlap</th><th class="n">Joint</th></tr></thead><tbody>
+    ${edges.map(e=>{const c=e._computed||{};
+      return `<tr onclick="go('#/edge/${e._key}')" style="cursor:pointer">
+      <td><a href="#/edge/${e._key}"><b>${esc(name(e.a))}</b> <span class="dim">↔</span> <b>${esc(name(e.b))}</b></a></td>
+      <td class="small dim">${esc(e.level||'')}</td>
+      <td class="mono tiny">${e.bridge_file?esc(e.bridge_file.split('/').pop()):'<span class="dim">—</span>'}</td>
+      <td class="n"><span class="b ${c.similarity>=4?'ok':c.similarity>=3?'mid':'bad'}">${c.similarity}</span></td>
+      <td class="n">${c.overlap}</td><td class="n">${c.joint_phenomena}</td></tr>`;}).join('')}
+    </tbody></table></section></div>`;
+}
+
+function vEdge(key){
+  const e=edges.find(x=>x._key===key); if(!e) return notFound();
+  const c=e._computed||{};
+  const GR={5:'definitional',4:'equivalence',3:'one-way or mediated',2:'divergent — countermodel',1:'after re-encoding',0:'not statable'};
+  return `<div class="wrap"><div class="crumb"><a href="#/">Atlas</a> / <a href="#/edges">Edges</a> / ${esc(name(e.a))} ↔ ${esc(name(e.b))}</div>
+  <section style="padding-top:20px">
+    <span class="kicker">${esc(e.level||'')}</span>
+    <h2 style="margin:12px 0 18px"><a href="#/theory/${e.a}">${esc(name(e.a))}</a>
+      <span class="dim">↔</span> <a href="#/theory/${e.b}">${esc(name(e.b))}</a></h2>
+    <div class="stats" style="border-top:var(--rule);margin-top:0">
+      <div class="stat"><b>${c.similarity}</b><span>similarity — mean joint grade</span></div>
+      <div class="stat"><b>${c.overlap}</b><span>overlap — Jaccard on phenomena</span></div>
+      <div class="stat"><b>${c.joint_phenomena}</b><span>phenomena both theories attempt</span></div>
+      <div class="stat"><b>${e.bridge_file?'yes':'no'}</b><span>formal bridge in Coq</span></div>
+    </div>
+    ${e.notes?`<p style="margin-top:26px;font-size:16.5px">${esc(e.notes)}</p>`:''}
+    <div class="block"><h3>Phenomenon by phenomenon</h3>
+      <table><thead><tr><th>Phenomenon</th><th>Evidence</th><th class="n">Grade</th></tr></thead><tbody>
+      ${(e.phenomena||[]).map(p=>`<tr>
+        <td><b>${esc(p.name)}</b><div class="tiny dim" style="margin-top:5px">attempted by ${
+          esc((p.attempted_by||[]).map(s=>s==='a'?shortName(e.a):shortName(e.b)).join(' + '))}</div></td>
+        <td class="small">${esc(p.evidence||'')}${p.note?`<div class="tiny dim" style="margin-top:5px">${esc(p.note)}</div>`:''}</td>
+        <td class="n"><span class="b ${p.grade>=4?'ok':p.grade>=3?'mid':p.grade==null?'q':'bad'}">${
+          p.grade==null?'one-sided':p.grade+' · '+GR[p.grade]}</span></td></tr>`).join('')}
+      </tbody></table></div>
+    ${(c.a_only||[]).length||(c.b_only||[]).length?`<div class="block"><h3>Attempted by only one side</h3>
+      <div class="grid g3" style="border-left:var(--rule);border-top:var(--rule)">
+      <div class="card"><h3>${esc(name(e.a))} only</h3><ul class="tick">${(c.a_only||[]).map(x=>`<li>${esc(x)}</li>`).join('')||'<li class="dim">—</li>'}</ul></div>
+      <div class="card"><h3>${esc(name(e.b))} only</h3><ul class="tick">${(c.b_only||[]).map(x=>`<li>${esc(x)}</li>`).join('')||'<li class="dim">—</li>'}</ul></div>
+      <div class="card"><h3>Grading scale</h3><p>${esc(e.grading||'')}</p></div></div></div>`:''}
+  </section></div>`;
+}
+
+function vPapers(q){
+  const lvl=(q&&q.level)||'';
+  const LAB={F0:'surveyed only',F1:'sourced',F2:'designed',F3:'piloted',F4:'formalized',F5:'verified & connected'};
+  return `<div class="wrap"><div class="crumb"><a href="#/">Atlas</a> / Papers</div>
+  <section style="padding-top:24px">
+    <div class="sechead"><h2>${D.papers.length} papers surveyed</h2>
+      <span class="note">${totals.formalized} have reached F4 or F5 — formalized, or formalized and
+      connected to another theory by a graded edge.</span></div>
+    ${ladderHTML()}
+    <div class="controls" style="margin-top:26px">
+      <input type="search" id="pq" placeholder="Search author, title, topic…" oninput="pFilter()">
+      <button class="chip ${lvl?'':'on'}" onclick="go('#/papers')">All</button>
+      ${['F5','F4','F3','F2','F1','F0'].map(l=>
+        `<button class="chip ${lvl===l?'on':''}" onclick="go('#/papers?level=${l}')">${l} · ${LAB[l]}</button>`).join('')}
+    </div>
+    <table><thead><tr><th class="n">Level</th><th>Paper</th><th>Topic</th><th class="n">Coq</th></tr></thead>
+    <tbody id="prows">${D.papers.filter(p=>!lvl||p.level===lvl).map(p=>{
+      const files=(p.coq_present||p.coq_files||[]);
+      return `<tr data-s="${esc((p.citation+' '+p.topic+' '+(p.title||'')).toLowerCase())}">
+      <td class="n"><span class="b ${p.level>='F4'?'ok':p.level>='F2'?'mid':'q'}">${esc(p.level||'')}</span></td>
+      <td>${esc(p.citation)}${p.prediction_disputed?'<span class="b bad" style="margin-left:8px">survey call disputed</span>':''}</td>
+      <td class="small dim">${esc(p.topic)}</td>
+      <td class="n mono tiny">${files.length?files.map(f=>esc(f.split('/').pop())).join('<br>'):'—'}</td></tr>`;}).join('')}
+    </tbody></table></section></div>`;
+}
+function pFilter(){const v=$('#pq').value.toLowerCase();
+  document.querySelectorAll('#prows tr').forEach(r=>r.style.display=!v||r.dataset.s.includes(v)?'':'none');}
+
+function notFound(){return `<div class="wrap empty"><h2>Not on the map.</h2>
+  <p style="margin-top:12px"><a class="btn" href="#/" style="margin-top:16px">Back to the atlas</a></p></div>`;}
+
+/* ---------- router ---------- */
+function go(h){location.hash=h;}
+function route(){
+  const raw=(location.hash||'#/').slice(1);
+  const [path,qs]=raw.split('?');
+  const q={}; (qs||'').split('&').filter(Boolean).forEach(kv=>{const [k,v]=kv.split('=');q[k]=decodeURIComponent(v||'');});
+  const seg=path.split('/').filter(Boolean);
+  let html, tab=seg[0]||'';
+  if(!seg.length) html=vHome();
+  else if(seg[0]==='plate') html=vPlate();
+  else if(seg[0]==='theories') html=vTheories();
+  else if(seg[0]==='theory') {html=vTheory(seg[1]); tab='theories';}
+  else if(seg[0]==='edges') html=vEdges();
+  else if(seg[0]==='edge') {html=vEdge(seg[1]); tab='edges';}
+  else if(seg[0]==='region') {html=vRegion(seg[1]); tab='';}
+  else if(seg[0]==='papers') html=vPapers(q);
+  else html=notFound();
+  $('#app').innerHTML=html;
+  document.querySelectorAll('#nav a[data-r]').forEach(a=>a.classList.toggle('on',a.dataset.r===tab));
+  window.scrollTo(0,0);
+}
+addEventListener('hashchange',route); route();
 </script>
+</body>
+</html>

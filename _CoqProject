@@ -1,9 +1,11 @@
-# Coq project file for the case-study formalisations.
-# Generate a Makefile with:   coq_makefile -f _CoqProject -o Makefile
-# Then build with:            make
+# Coq project file.  Generate a Makefile with:   coq_makefile -f _CoqProject -o Makefile
+# Then build with:                                make
 
 -R shallow ""
 -R deep ""
+-R extras ""
+-R ttr_mtt ""
+-R atlas ""
 
 # --- Experiment A: shallow embedding ---
 shallow/MontagueFragment.v
@@ -14,3 +16,55 @@ shallow/kratzer2.v
 deep/PTQ_deep2.v
 deep/kratzer_deep2.v
 deep/theorems_deep_PTQ.v
+
+# --- extras: broader programme (model-theoretic and MTT formalisations) ---
+extras/AdjectivesExtension.v
+extras/Aspect.v
+extras/BarwiseCooper.v
+extras/Champollion.v
+extras/DonkeyScope.v
+extras/DowtyTense.v
+extras/FCS.v
+extras/FCS2.v
+extras/FocusEven.v
+extras/FocusEven2.v
+extras/Imperfective2.v
+extras/ImperfectiveParadox.v
+extras/LakoffPrototypes.v
+extras/Link1983.v
+extras/MTT_base.v
+extras/MTTbase.v
+extras/Montague.v
+extras/PoC_Foundations.v
+extras/PolydefiniteSemantics.v
+extras/PresuppositionProjection.v
+extras/Quantifiers.v
+extras/Set_theoretic_Defs.v
+extras/additive.v
+extras/additive_new.v
+extras/champollion_full.v
+extras/dowty_roles.v
+extras/indi.v
+extras/kratzer_1977.v
+extras/kratzer_deep.v
+extras/mass.v
+extras/quanrifiers2.v
+extras/theorems_PTQ.v
+
+# --- ttr_mtt: TTR (Cooper 2023) and MTT (Chatzikyriakidis & Luo 2020) pilot files ---
+ttr_mtt/Book_Event_Adv.v
+ttr_mtt/Book_Homonymy.v
+ttr_mtt/Book_Individuation.v
+ttr_mtt/Book_Inter_Sub.v
+ttr_mtt/Book_Multi.v
+ttr_mtt/Book_gradable.v
+ttr_mtt/Book_veridical.v
+ttr_mtt/Coq_book_ontology.v
+ttr_mtt/TTR_base.v
+ttr_mtt/TTR_records.v
+ttr_mtt/TTR_shallow.v
+ttr_mtt/TTR_theorems_deep.v
+ttr_mtt/TTR_theorems_shallow.v
+ttr_mtt/TTR_types.v
+
+# --- atlas: FORMAL-ATLAS flagship formalisations (one per framework region) ---

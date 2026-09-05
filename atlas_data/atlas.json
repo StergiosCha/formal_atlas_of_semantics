@@ -378,12 +378,12 @@
     {
      "citation": "Bekki, D. (2014). Representing anaphora with dependent types. LACL, LNCS 8535.",
      "path": null,
-     "available": "NOT in papers/ — cited from the literature; section references to be spot-checked when the PDF is added"
+     "available": "STILL MISSING (Springer paywall; see misses.md) — the 2017 chapter substantiates the same mechanisms"
     },
     {
      "citation": "Bekki, D. & Mineshima, K. (2017). Context-passing and underspecification in Dependent Type Semantics. In Chatzikyriakidis & Luo (eds), Modern Perspectives in Type-Theoretical Semantics.",
-     "path": null,
-     "available": "NOT in papers/ — same caveat"
+     "path": "papers/foundations/Bekki_Mineshima_2017_CalculatingProjectionsViaTypeChecking.pdf",
+     "available": "full — SPOT-CHECKED 2026-09-05: title, §3.4 'Type Checking as the Felicity Condition', @-operators/underspecified terms, local contexts and context-passing, anaphora resolution as proof search, and the Ranta descent are all as DTS.v states"
     }
    ],
    "definitions_mapped": [
@@ -436,7 +436,8 @@
    "faithfulness": {
     "verdict": "partial",
     "evidence": [
-     "All 7 audited theorems closed under the global context; the Ranta bridge is definitional."
+     "All 7 audited theorems closed under the global context; the Ranta bridge is definitional.",
+     "BM17 on disk and spot-checked: the abstract itself asserts local contexts, context-passing, underspecified terms, projection-as-type-checking and resolution-as-proof-search — the exact content of Parts 1-3."
     ],
     "simplifications": [
      "@-operators as lambda-abstracted parameters (no typed term-former)",
@@ -469,7 +470,7 @@
     }
    ],
    "source_gap": null,
-   "notes": "Third node of the type-theoretic cluster (edges/ranta__dts.json). PRIORITY FOLLOW-UP: add Bekki 2014 + Bekki-Mineshima 2017 PDFs to papers/foundations/ and spot-check the section references and the @-rendering.",
+   "notes": "Third node of the type-theoretic cluster (edges/ranta__dts.json). BM17 spot-check PASSED 2026-09-05 (felicity-as-type-checking = ARTIFACT-ii confirmed; the chapter's own abstract states the Ranta/Sundholm descent). Bekki 2014 remains to be obtained for the @-calculus typing rules; until then the @-as-parameterization simplification keeps determination at slight_modification.",
    "compiles": true,
    "_key": "atlas__dts",
    "_verify": null,
@@ -1226,8 +1227,8 @@
    "sources": [
     {
      "citation": "Montague, R. (1973). The proper treatment of quantification in ordinary English.",
-     "path": "papers/foundations/Dowty_Wall_Peters_1981_IntroductionToMontagueSemantics.pdf",
-     "available": "via DWP81 exposition; PTQ itself not in papers/ — add for spot-checks"
+     "path": "papers/foundations/Montague_1973_TheProperTreatmentOfQuantification.pdf",
+     "available": "full — added 2026-09-05; spot-checked: 'John seeks a unicorn', T14, individual concepts present"
     },
     {
      "citation": "Dowty, Wall & Peters (1981). Introduction to Montague Semantics, ch. 7.",
@@ -1337,7 +1338,7 @@
     }
    ],
    "source_gap": null,
-   "notes": "Trunk of the Montague lineage (designs/montague_lineage.md). The older shallow/PTQ.v (972 lines, Parameter/Axiom-based, with tense and analysis trees) remains as raw material and should eventually be re-audited against this trunk.",
+   "notes": "Trunk of the Montague lineage (designs/montague_lineage.md). The older shallow/PTQ.v (972 lines, Parameter/Axiom-based, with tense and analysis trees) remains as raw material and should eventually be re-audited against this trunk. Montague 1973 PDF added 2026-09-05; direct citations now possible (previously cited via DWP81).",
    "compiles": true,
    "_key": "atlas__ptq",
    "_verify": null,
@@ -1477,8 +1478,8 @@
    "sources": [
     {
      "citation": "Ranta, A. (1995). Type-Theoretical Grammar. OUP.",
-     "path": "[Indices, 1] Aarne Ranta - Type-Theoretical Grammar (Indices, 1 (1995, Oxford University Press, USA) - libgen.li.djvu",
-     "available": "full (djvutxt; djvu page ~ printed + 12)"
+     "path": "papers/foundations/Ranta_1995_TypeTheoreticalGrammar.djvu",
+     "available": "full (djvu; OCR PDF companion Ranta_1995_TypetheoreticalGrammar.pdf; djvu page ~ printed + 12)"
     }
    ],
    "definitions_mapped": [
@@ -11465,7 +11466,7 @@
    "year": 1983,
    "authors": "Link, G.",
    "title": "The Logical Analysis of Plurals and Mass Terms",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -12070,7 +12071,7 @@
    "year": 2017,
    "authors": "Retoré, C. & Mery, B.",
    "title": "Classifiers, Sorts, and Base Types in Montagovian Generative Lexicon and Related Type Theoretical Frameworks",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -12196,7 +12197,7 @@
    "year": 2014,
    "authors": "Charlow, S.",
    "title": "On the Semantics of Exceptional Scope",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -12217,7 +12218,7 @@
    "year": 2018,
    "authors": "Maskharashvili, A., Bernardy, J.-P. & Chatzikyriakidis, S.",
    "title": "A Computational Treatment of Anaphora and Its Algorithmic Implementation",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -12287,7 +12288,7 @@
    "year": 1977,
    "authors": "Karttunen, L.",
    "title": "Syntax and Semantics of Questions",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -12443,7 +12444,7 @@
    "year": 2014,
    "authors": "Das, D., Chen, D., Martins, A., Schneider, N. & Smith, N.",
    "title": "Frame-Semantic Parsing",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -12464,7 +12465,7 @@
    "year": 2020,
    "authors": "Bisk, Y., Holtzman, A., Thomason, J., Andreas, J., Bengio, Y., Chai, J., ... & Zhang, Y.",
    "title": "Experience Grounds Language",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -12779,7 +12780,7 @@
    "year": 2009,
    "authors": "Schlenker, P.",
    "title": "Local Contexts",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -12947,7 +12948,7 @@
    "year": 2012,
    "authors": "Roberts, C.",
    "title": "Information Structure: Towards an Integrated Formal Theory",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -13301,7 +13302,7 @@
    "year": 2014,
    "authors": "Henderson, R.",
    "title": "Dependent Indefinites and their Post-Suppositions",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -13406,7 +13407,7 @@
    "year": 2003,
    "authors": "Webber, B., Stone, M., Joshi, A. & Knott, A.",
    "title": "Anaphora and Discourse Structure",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -13744,7 +13745,7 @@
    "year": 1987,
    "authors": "Lakoff, G.",
    "title": "Women, Fire, and Dangerous Things",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -14500,7 +14501,7 @@
    "year": 2010,
    "authors": "Turney, P. & Pantel, P.",
    "title": "From Frequency to Meaning: Vector Space Models of Semantics",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -14521,7 +14522,7 @@
    "year": 2010,
    "authors": "Baroni, M. & Lenci, A.",
    "title": "Distributional Memory: A General Framework for Corpus-Based Semantics",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -14566,7 +14567,7 @@
    "year": 2016,
    "authors": "Boleda, G. & Herbelot, A.",
    "title": "Formal Distributional Semantics: Introduction to the Special Issue",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -15904,7 +15905,7 @@
    "authors": "Veltman, F.",
    "title": "Defaults in Update Semantics",
    "note": "ADDED 2026-09-05 (PDF already on disk)",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },
@@ -15948,7 +15949,7 @@
    "authors": "Steedman, M.",
    "title": "The Syntactic Process",
    "note": "ADDED 2026-09-05 (CCG was absent from the 200; PDF on disk)",
-   "level": "F0",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false
   },

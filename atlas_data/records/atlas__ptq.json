@@ -3,39 +3,119 @@
  "region": "montague lineage",
  "summary": "The zero-axiom PTQ core, the trunk of the Montague lineage: IL types shallowly with intension/extension over an abstract Index; term phrases as generalized quantifiers with type raising (star); the determiners every/a/no and the fragment sentences; quantifying-in with both scopes of 'every man loves a woman' (inverse entails surface; the readings proved genuinely distinct by a bool countermodel); the seek/find contrast — intensional verbs take quantifier objects, de dicto seek carries no existential commitment (axiom-free existence countermodel), lifted verbs collapse de dicto/de re (the meaning-postulate shape), de re always commits; Barwise-Cooper hooks (conservativity and monotonicity of the PTQ determiners); the minimal modal layer (box with K, T, Nec) for the Kratzer edge.",
  "sources": [
-  {"citation": "Montague, R. (1973). The proper treatment of quantification in ordinary English.", "path": "papers/foundations/Dowty_Wall_Peters_1981_IntroductionToMontagueSemantics.pdf", "available": "via DWP81 exposition; PTQ itself not in papers/ — add for spot-checks"},
-  {"citation": "Dowty, Wall & Peters (1981). Introduction to Montague Semantics, ch. 7.", "path": "papers/foundations/Dowty_Wall_Peters_1981_IntroductionToMontagueSemantics.pdf", "available": "full"}
+  {
+   "citation": "Montague, R. (1973). The proper treatment of quantification in ordinary English.",
+   "path": "papers/foundations/Montague_1973_TheProperTreatmentOfQuantification.pdf",
+   "available": "full — added 2026-09-05; spot-checked: 'John seeks a unicorn', T14, individual concepts present"
+  },
+  {
+   "citation": "Dowty, Wall & Peters (1981). Introduction to Montague Semantics, ch. 7.",
+   "path": "papers/foundations/Dowty_Wall_Peters_1981_IntroductionToMontagueSemantics.pdf",
+   "available": "full"
+  }
  ],
  "definitions_mapped": [
-  {"coq": "Intension A := Index -> A; extension", "source": "M73 IL types <s,a>, the hat/vee operators", "match": "simplified", "note": "shallow: hat/vee are lambda/application, cancellation definitional (artifact i); Time folded into Index"},
-  {"coq": "GQ := (Entity -> Prop) -> Prop; star j := fun P => P j", "source": "M73 T2 term phrases", "match": "changed", "note": "extensionalized from <<s,<e,t>>,t> (artifact ii, Bennett-style); intensionality kept at seek's object"},
-  {"coq": "d_every / d_a / d_no", "source": "M73 determiner translations", "match": "exact"},
-  {"coq": "ITV := Entity -> GQ Entity -> Prop; dedicto/dere; lift", "source": "M73 seek/find, the meaning postulate for extensional verbs", "match": "simplified"},
-  {"coq": "box p := fun _ => forall j, p j", "source": "M73 necessity operator", "match": "simplified", "note": "S5-flavoured universal over indices"}
+  {
+   "coq": "Intension A := Index -> A; extension",
+   "source": "M73 IL types <s,a>, the hat/vee operators",
+   "match": "simplified",
+   "note": "shallow: hat/vee are lambda/application, cancellation definitional (artifact i); Time folded into Index"
+  },
+  {
+   "coq": "GQ := (Entity -> Prop) -> Prop; star j := fun P => P j",
+   "source": "M73 T2 term phrases",
+   "match": "changed",
+   "note": "extensionalized from <<s,<e,t>>,t> (artifact ii, Bennett-style); intensionality kept at seek's object"
+  },
+  {
+   "coq": "d_every / d_a / d_no",
+   "source": "M73 determiner translations",
+   "match": "exact"
+  },
+  {
+   "coq": "ITV := Entity -> GQ Entity -> Prop; dedicto/dere; lift",
+   "source": "M73 seek/find, the meaning postulate for extensional verbs",
+   "match": "simplified"
+  },
+  {
+   "coq": "box p := fun _ => forall j, p j",
+   "source": "M73 necessity operator",
+   "match": "simplified",
+   "note": "S5-flavoured universal over indices"
+  }
  ],
  "theorems": [
-  {"name": "john_walks_eq / every_man_walks_eq", "status": "proved", "source_claim": "T4 subject-predicate computes the first-order meanings", "note": "reflexivity"},
-  {"name": "inverse_entails_surface / readings_distinct", "status": "proved", "source_claim": "T14 quantifying-in yields two genuine readings"},
-  {"name": "find_dedicto_dere / dere_existence / seek_no_existence / seek_not_liftable", "status": "proved", "source_claim": "the seek/find contrast and the meaning postulate for extensional verbs"},
-  {"name": "every/a/no_conservative; every_mon_up / a_mon_up / no_mon_down / every_restr_down / a_restr_up", "status": "proved", "source_claim": "B&C 1981 universals hold of the PTQ determiners (edge evidence)"},
-  {"name": "box_K / box_Nec / box_T", "status": "proved", "source_claim": "the modal layer (edge evidence for Kratzer)"}
+  {
+   "name": "john_walks_eq / every_man_walks_eq",
+   "status": "proved",
+   "source_claim": "T4 subject-predicate computes the first-order meanings",
+   "note": "reflexivity"
+  },
+  {
+   "name": "inverse_entails_surface / readings_distinct",
+   "status": "proved",
+   "source_claim": "T14 quantifying-in yields two genuine readings"
+  },
+  {
+   "name": "find_dedicto_dere / dere_existence / seek_no_existence / seek_not_liftable",
+   "status": "proved",
+   "source_claim": "the seek/find contrast and the meaning postulate for extensional verbs"
+  },
+  {
+   "name": "every/a/no_conservative; every_mon_up / a_mon_up / no_mon_down / every_restr_down / a_restr_up",
+   "status": "proved",
+   "source_claim": "B&C 1981 universals hold of the PTQ determiners (edge evidence)"
+  },
+  {
+   "name": "box_K / box_Nec / box_T",
+   "status": "proved",
+   "source_claim": "the modal layer (edge evidence for Kratzer)"
+  }
  ],
- "counts": {"theorems": 16, "proved": 16, "admitted": 0, "propositional_axioms": 0},
+ "counts": {
+  "theorems": 16,
+  "proved": 16,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
  "faithfulness": {
   "verdict": "faithful",
-  "evidence": ["The seek/find data — PTQ's motivating phenomena — are theorems: no existential commitment de dicto (countermodel), collapse under lifting, commitment de re.", "All 16 audited theorems closed under the global context."],
-  "simplifications": ["extensional GQs (intensionality only at seek's object)", "Index abstract (no separate Time/tense operators)", "no analysis trees (deep syntax lives in shallow/PTQ.v and the categorial route in Lambek.v)"],
-  "omissions": ["individual-concept subjects", "be, T1-T17 in full, tense/W/H", "the intensional logic as an object language"],
-  "additions": ["the B&C hook theorems (Part 5)", "readings_distinct countermodel"]
+  "evidence": [
+   "The seek/find data — PTQ's motivating phenomena — are theorems: no existential commitment de dicto (countermodel), collapse under lifting, commitment de re.",
+   "All 16 audited theorems closed under the global context."
+  ],
+  "simplifications": [
+   "extensional GQs (intensionality only at seek's object)",
+   "Index abstract (no separate Time/tense operators)",
+   "no analysis trees (deep syntax lives in shallow/PTQ.v and the categorial route in Lambek.v)"
+  ],
+  "omissions": [
+   "individual-concept subjects",
+   "be, T1-T17 in full, tense/W/H",
+   "the intensional logic as an object language"
+  ],
+  "additions": [
+   "the B&C hook theorems (Part 5)",
+   "readings_distinct countermodel"
+  ]
  },
  "determination": "as_is",
  "determination_rationale": "The core PTQ claims hold with no axioms once domains are section-quantified; the extensionalization is the standard one and the intensional datum (seek) is preserved exactly where it matters.",
  "artifact_classes": [
-  {"class": "i", "description": "shallow IL: hat/vee cancellation is definitional, not stated"},
-  {"class": "ii", "description": "NPs extensionalized to (e->t)->t; intensionality localized at ITV objects"},
-  {"class": "iv", "description": "zero axioms; countermodels concrete"}
+  {
+   "class": "i",
+   "description": "shallow IL: hat/vee cancellation is definitional, not stated"
+  },
+  {
+   "class": "ii",
+   "description": "NPs extensionalized to (e->t)->t; intensionality localized at ITV objects"
+  },
+  {
+   "class": "iv",
+   "description": "zero axioms; countermodels concrete"
+  }
  ],
  "source_gap": null,
- "notes": "Trunk of the Montague lineage (designs/montague_lineage.md). The older shallow/PTQ.v (972 lines, Parameter/Axiom-based, with tense and analysis trees) remains as raw material and should eventually be re-audited against this trunk.",
+ "notes": "Trunk of the Montague lineage (designs/montague_lineage.md). The older shallow/PTQ.v (972 lines, Parameter/Axiom-based, with tense and analysis trees) remains as raw material and should eventually be re-audited against this trunk. Montague 1973 PDF added 2026-09-05; direct citations now possible (previously cited via DWP81).",
  "compiles": true
 }

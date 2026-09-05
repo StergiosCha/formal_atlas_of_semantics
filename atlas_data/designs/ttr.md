@@ -1,5 +1,8 @@
 # Design: `atlas/ttr/TTR.v` — Type Theory with Records (Cooper)
 
+> **SOURCE UPDATE 2026-09-05**: Cooper 2023 is now ON DISK at `papers/foundations/Cooper_2023_FromPerceptionToCommunication.pdf` (also: the full Modern Perspectives 2017 volume). Resolve every [NOT-ON-DISK] tag against the PDF during the build session.
+
+
 Target: `atlas/ttr/TTR.v` (create `atlas/ttr/`). Coq 8.20.1, stdlib only.
 Style models: designs/inqb.md (judged decisions), designs/mtt_ranta.md
 (comparison hooks). Compile with the standard repo command.

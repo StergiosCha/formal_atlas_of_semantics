@@ -247,6 +247,12 @@
     "toplevel_axioms": 0,
     "disputes": []
    },
+   "_probe": {
+    "probed": 98,
+    "trivial": 18,
+    "vacuous": 0,
+    "vacuous_names": []
+   },
    "_final": {
     "faithfulness": "faithful",
     "determination": "as_is",
@@ -412,6 +418,12 @@
      }
     ]
    },
+   "_probe": {
+    "probed": 171,
+    "trivial": 33,
+    "vacuous": 0,
+    "vacuous_names": []
+   },
    "_final": {
     "faithfulness": "faithful-with-corrections",
     "determination": "as_is",
@@ -538,6 +550,12 @@
     "unsafe_flags": [],
     "toplevel_axioms": 0,
     "disputes": []
+   },
+   "_probe": {
+    "probed": 7,
+    "trivial": 5,
+    "vacuous": 0,
+    "vacuous_names": []
    },
    "_final": {
     "faithfulness": "partial",
@@ -851,6 +869,12 @@
     "toplevel_axioms": 0,
     "disputes": []
    },
+   "_probe": {
+    "probed": 192,
+    "trivial": 56,
+    "vacuous": 0,
+    "vacuous_names": []
+   },
    "_final": {
     "faithfulness": "faithful",
     "determination": "as_is",
@@ -1030,6 +1054,12 @@
     "unsafe_flags": [],
     "toplevel_axioms": 0,
     "disputes": []
+   },
+   "_probe": {
+    "probed": 40,
+    "trivial": 9,
+    "vacuous": 0,
+    "vacuous_names": []
    },
    "_final": {
     "faithfulness": "faithful",
@@ -1223,6 +1253,14 @@
     "toplevel_axioms": 0,
     "disputes": []
    },
+   "_probe": {
+    "probed": 33,
+    "trivial": 3,
+    "vacuous": 1,
+    "vacuous_names": [
+     "mtt_ranta.MTT.nli_no_some_absurd"
+    ]
+   },
    "_final": {
     "faithfulness": "faithful",
     "determination": "as_is",
@@ -1346,6 +1384,12 @@
     "unsafe_flags": [],
     "toplevel_axioms": 0,
     "disputes": []
+   },
+   "_probe": {
+    "probed": 15,
+    "trivial": 9,
+    "vacuous": 0,
+    "vacuous_names": []
    },
    "_final": {
     "faithfulness": "faithful",
@@ -1503,6 +1547,12 @@
      }
     ]
    },
+   "_probe": {
+    "probed": 19,
+    "trivial": 6,
+    "vacuous": 0,
+    "vacuous_names": []
+   },
    "_final": {
     "faithfulness": "faithful",
     "determination": "as_is",
@@ -1575,6 +1625,12 @@
     "unsafe_flags": [],
     "toplevel_axioms": 0,
     "disputes": []
+   },
+   "_probe": {
+    "probed": 4,
+    "trivial": 4,
+    "vacuous": 0,
+    "vacuous_names": []
    },
    "_final": {
     "faithfulness": "faithful",
@@ -1659,6 +1715,12 @@
     "unsafe_flags": [],
     "toplevel_axioms": 0,
     "disputes": []
+   },
+   "_probe": {
+    "probed": 4,
+    "trivial": 0,
+    "vacuous": 0,
+    "vacuous_names": []
    },
    "_final": {
     "faithfulness": "faithful",
@@ -1828,6 +1890,12 @@
     "unsafe_flags": [],
     "toplevel_axioms": 0,
     "disputes": []
+   },
+   "_probe": {
+    "probed": 14,
+    "trivial": 6,
+    "vacuous": 0,
+    "vacuous_names": []
    },
    "_final": {
     "faithfulness": "faithful",
@@ -2041,6 +2109,12 @@
     "unsafe_flags": [],
     "toplevel_axioms": 0,
     "disputes": []
+   },
+   "_probe": {
+    "probed": 117,
+    "trivial": 18,
+    "vacuous": 0,
+    "vacuous_names": []
    },
    "_final": {
     "faithfulness": "faithful",

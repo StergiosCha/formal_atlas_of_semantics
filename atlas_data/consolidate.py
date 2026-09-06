@@ -74,6 +74,19 @@ def merge_records():
                 "toplevel_axioms": mc.get("toplevel_axioms", 0),
                 "disputes": mech.get("disputes_vs_record", []),
             }
+        # A3 L2 depth overlay: the Ltac2 probes' verdict on how much each Qed
+        # actually proves. Surfaced, not hidden — a theory page that says
+        # "167 of 714 are trivial-by-unfolding" is the honesty the atlas sells.
+        probe = load(path[:-5] + ".probe.json")
+        if probe and probe.get("probes"):
+            ps = probe["probes"].values()
+            rec["_probe"] = {
+                "probed": len(probe["probes"]),
+                "trivial": sum(1 for p in ps if p.get("triviality") == "TRIVIAL"),
+                "vacuous": sum(1 for p in ps if p.get("vacuity") not in ("ok", None)),
+                "vacuous_names": sorted(k for k, p in probe["probes"].items()
+                                        if p.get("vacuity") not in ("ok", None)),
+            }
         rec["_final"] = {"faithfulness": final_faith, "determination": final_det, "disputed": disputed}
         out.append(rec)
     return out

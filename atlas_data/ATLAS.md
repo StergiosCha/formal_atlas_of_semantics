@@ -1,12 +1,12 @@
 # Formalizability Atlas of Semantics — current state
 
-Coq files audited: **64** · theorem statements: **1056** (proved 1043, admitted 12) · papers assessed: **230** · records disputed by the verifier: **0**
+Coq files audited: **65** · theorem statements: **1086** (proved 1073, admitted 12) · papers assessed: **230** · records disputed by the verifier: **0**
 
 ## Determination (four-point scale) over formalized sources
 
 | Determination | Files |
 |---|---|
-| 1 as-is | 21 |
+| 1 as-is | 22 |
 | 2 slight modification | 22 |
 | 3 major restructuring | 16 |
 | 4 cannot | 0 |
@@ -16,7 +16,7 @@ Coq files audited: **64** · theorem statements: **1056** (proved 1043, admitted
 
 | Verdict | Files |
 |---|---|
-| faithful | 15 |
+| faithful | 16 |
 | partial | 37 |
 | unfaithful | 10 |
 | not_applicable | 1 |
@@ -180,6 +180,7 @@ Coq files audited: **64** · theorem statements: **1056** (proved 1043, admitted
 | atlas/mtt_ranta/MTT.v | Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. ISTE/Wiley.; Luo, Z. (2012). Common nouns as types. LACL. | 33/33 | faithful | 1 as-is | i, ii, iii, iv | — |
 | atlas/mtt_ranta/MTT_vs_Ranta.v | Chatzikyriakidis & Luo 2020, §1.4.2, §2.3.1, §3.2-3.3.; Ranta 1995, §2.12, §2.16, §3.1, §3.7, §4.2, ch. 9. | 15/15 | faithful | 1 as-is | i, iv | — |
 | atlas/mtt_ranta/Ranta.v | Ranta, A. (1995). Type-Theoretical Grammar. OUP. | 14/14 | faithful | 1 as-is | i, ii, iii, iv | — |
+| atlas/mtt_ranta/Ranta_GQ.v | Sundholm, G. (1989). Constructive Generalized Quantifiers. Synthese 79(1): 1-12.; Barwise, J. & Cooper, R. (1981). Generalized Quantifiers and Natural Language. L&P 4. | 30/30 | faithful | 1 as-is | i, ii, iii, iv | — |
 
 ## montague lineage
 

@@ -183,6 +183,7 @@ footer .r{margin-left:auto}
     <a href="#/edges" data-r="edges">Edges</a>
     <a href="#/papers" data-r="papers">Papers</a>
     <a href="#/check" data-r="check">Verifier</a>
+    <a href="#/exhibits" data-r="exhibits">Countermodels</a>
     <a class="btn" href="#/plate">Open the atlas</a>
   </nav>
 </div></header>
@@ -736,6 +737,13 @@ function vCheck(){
               <option value="typed">typed (default)</option>
               <option value="raw">raw stderr</option>
               <option value="none">none</option></select></label>
+          <label class="tiny dim">Your prediction<br>
+            <select id="ck-predict" style="margin-top:4px">
+              <option value="">— none —</option>
+              <option value="PROVED">proved</option>
+              <option value="REFUTED">refuted</option>
+              <option value="NEEDS_ASSUMPTION">needs assumption</option>
+              <option value="NOT_STATABLE">not statable</option></select></label>
           <button class="btn" id="ck-go" onclick="runCheck()">Draft &amp; check</button>
         </div>
         <p class="tiny dim" style="margin-top:10px">Backend
@@ -747,7 +755,8 @@ function vCheck(){
         <p class="tiny dim" style="margin-top:10px">Nothing checked yet. The four buckets:
         <b>proved</b> (with its assumptions audit), <b>refuted</b> (with the countermodel),
         <b>needs assumption</b> (named), <b>not statable</b> (with the reason the vocabulary
-        cannot express it).</p></div>
+        cannot express it). Set <i>Your prediction</i> before running — committing first is
+        the exercise. Warm up on the <a href="#/exhibits">countermodel exhibits</a>.</p></div>
     </div></section></div>`;
 }
 async function loadModels(attempt=1){
@@ -780,11 +789,30 @@ async function runCheck(){
     const j=await r.json();
     if(j.error&&!j.bucket){out.innerHTML=`<span class="kicker" style="color:var(--rust)">Verdict</span>
       <p class="tiny" style="margin-top:10px">${esc(j.error)}</p>`;return;}
+    window._ck={j,claim,theory:document.getElementById('ck-theory').value};
     const b=j.bucket||'?';
     const cls=/^PROVED$/.test(b)?'ok':/REFUTED/.test(b)?'bad':/UNVERIFIED|NOT_STATED/.test(b)?'q':'mid';
+    /* predict-the-verdict: the student commits before the compiler speaks.
+       Only coqc's four clean buckets score — an unverified model claim is
+       not a verdict, so it neither rewards nor punishes a prediction. */
+    let predHtml='';
+    const pred=(document.getElementById('ck-predict')||{}).value;
+    if(pred){
+      if(['PROVED','REFUTED','NEEDS_ASSUMPTION','NOT_STATABLE'].includes(b)){
+        const hit=b===pred;
+        const sc=JSON.parse(localStorage.getItem('atlas_predict')||'{"right":0,"total":0,"streak":0}');
+        sc.total++; if(hit){sc.right++;sc.streak++;}else sc.streak=0;
+        localStorage.setItem('atlas_predict',JSON.stringify(sc));
+        predHtml=`<p class="tiny" style="margin-top:8px">You predicted <b>${esc(pred.replaceAll('_',' ').toLowerCase())}</b> — ${
+          hit?'<span style="color:var(--accent)">the compiler agrees.</span>'
+             :'<span style="color:var(--rust)">the compiler disagrees. Before rerunning, ask what the countermodel or audit is telling you.</span>'}
+          <span class="dim">Record ${sc.right}/${sc.total}${sc.streak>1?' · streak '+sc.streak:''}</span></p>`;
+      }else predHtml=`<p class="tiny dim" style="margin-top:8px">You predicted ${esc(pred.replaceAll('_',' ').toLowerCase())}, but no compiler verdict was reached — the prediction is not scored.</p>`;
+    }
     out.innerHTML=`<span class="kicker">Verdict — coqc's, not the model's</span>
       <div style="margin-top:10px"><span class="b ${cls}">${esc(b.replaceAll('_',' ').toLowerCase())}</span>
         <span class="tiny dim"> · ${esc(j.model)} · ${j.rounds} round${j.rounds>1?'s':''}${j.cached?' · cached':''}</span></div>
+      ${predHtml}
       ${Object.keys(j.audit||{}).length?`<table style="margin-top:12px"><thead><tr><th>Audited theorem</th><th class="n">Assumptions</th></tr></thead>
         <tbody>${Object.entries(j.audit).map(([k,v])=>`<tr><td class="mono tiny">${esc(k)}</td>
         <td class="n"><span class="b ${v==='closed'?'ok':'q'}">${esc(v)}</span></td></tr>`).join('')}</tbody></table>`:''}
@@ -792,11 +820,170 @@ async function runCheck(){
         <pre class="mono tiny" style="margin-top:8px;border-left:2px solid var(--n400);padding:10px 14px;overflow:auto;max-height:340px">${esc(j.code)}</pre></div>`:''}
       ${j.notes?`<p class="tiny dim" style="margin-top:10px;max-width:none">${esc(j.notes)}</p>`:''}
       ${(j.turns||[]).some(t=>t.signals&&t.signals.length)?`<p class="tiny dim" style="margin-top:8px">Repair signals along the way:
-        ${j.turns.flatMap(t=>t.signals.map(s=>s.kind)).join(', ')}</p>`:''}`;
+        ${j.turns.flatMap(t=>t.signals.map(s=>s.kind)).join(', ')}</p>`:''}
+      <div style="margin-top:14px"><button class="btn" onclick="exportLatex()">Export LaTeX</button>
+        <span class="tiny dim"> — a self-contained .tex: claim, verdict, assumption audit, the compiled Coq</span></div>`;
   }catch(e){out.innerHTML=`<span class="kicker" style="color:var(--rust)">Verdict</span>
     <p class="tiny" style="margin-top:10px">Backend unreachable at <span class="mono">${esc(api())}</span>.
     Start it: <span class="mono">docker compose -f tool/docker-compose.yml up</span>, or point the field above at the deployed URL.</p>`;}
   finally{btn.disabled=false;}
+}
+
+/* ---- LaTeX export: the verdict as a citable, compilable .tex ---- */
+function texEsc(s){return String(s)
+  .replace(/\\/g,'\u0000')
+  .replace(/([&%$#_{}])/g,'\\$1')
+  .replace(/\u0000/g,'\\textbackslash{}')
+  .replace(/~/g,'\\textasciitilde{}')
+  .replace(/\^/g,'\\textasciicircum{}');}
+function exportLatex(){
+  const c=window._ck; if(!c) return;
+  const j=c.j, b=j.bucket||'UNKNOWN';
+  const day=new Date().toISOString().slice(0,10);
+  /* house rule carried into print: green only ever means established;
+     rust marks refutation; anything unverified stays ink-black */
+  const vcol=/^PROVED$/.test(b)?'atlasgreen':/REFUTED/.test(b)?'atlasrust':'black';
+  const audit=Object.entries(j.audit||{});
+  const signals=(j.turns||[]).flatMap(t=>(t.signals||[]).map(s=>s.kind));
+  const tex=`% Machine-checked verdict — Formalizing Formal Semantics:
+% A Coq-verified Atlas of Semantic Structures
+% Exported ${day}. The verdict is coqc's (Coq 8.20.1), never the model's.
+${signals.length?'% Repair signals during drafting: '+signals.join(', ')+'\n':''}\\documentclass[11pt]{article}
+\\usepackage[T1]{fontenc}
+\\usepackage{geometry,booktabs,xcolor,listings}
+\\geometry{margin=2.6cm}
+\\definecolor{atlasgreen}{HTML}{4E8C3B}
+\\definecolor{atlasrust}{HTML}{A64B3A}
+\\lstdefinelanguage{Coq}{%
+  morekeywords={Theorem,Lemma,Definition,Fixpoint,Inductive,Record,Proof,Qed,
+    Defined,Section,End,Variable,Variables,Hypothesis,Hypotheses,Context,
+    Require,Import,Example,Corollary,Remark,forall,exists,fun,fix,match,with,
+    end,if,then,else,let,in,Prop,Type,Set},
+  sensitive=true,morecomment=[n]{(*}{*)},morestring=[b]"}
+\\lstset{language=Coq,basicstyle=\\small\\ttfamily,breaklines=true,
+  columns=fullflexible,keywordstyle=\\bfseries\\color{atlasgreen},
+  commentstyle=\\itshape\\color{gray!70!black},stringstyle=\\color{gray!70!black},
+  frame=leftline,rulecolor=\\color{gray},framesep=10pt,aboveskip=1em}
+\\begin{document}
+\\section*{Machine-checked verdict}
+\\noindent\\textbf{Claim.} ${texEsc(c.claim)}
+
+\\medskip\\noindent\\textbf{Theory.} \\texttt{${texEsc(c.theory)}}
+
+\\medskip\\noindent\\textbf{Verdict.} {\\color{${vcol}}\\textbf{${texEsc(b.replaceAll('_',' '))}}}
+--- drafted by \\texttt{${texEsc(j.model||'?')}} in ${j.rounds||1} round${(j.rounds||1)>1?'s':''};
+compiled and audited by Coq~8.20.1. The verdict is the compiler's, not the model's.
+${audit.length?`
+\\subsection*{Assumption audit (\\texttt{Print Assumptions})}
+\\begin{tabular}{@{}ll@{}}\\toprule
+Theorem & Assumptions \\\\ \\midrule
+${audit.map(([k,v])=>`\\texttt{${texEsc(k)}} & ${v==='closed'?'{\\color{atlasgreen}closed}':texEsc(v)} \\\\`).join('\n')}
+\\bottomrule\\end{tabular}
+`:''}${j.code?`
+\\subsection*{The Coq the compiler accepted}
+\\begin{lstlisting}
+${j.code.replace(/\\end\{lstlisting\}/g,'')}
+\\end{lstlisting}
+`:''}${j.notes?`
+\\subsection*{Notes from the drafting model (unverified prose)}
+${texEsc(j.notes)}
+`:''}
+\\vfill\\noindent\\rule{\\linewidth}{0.4pt}\\\\
+{\\small Generated by \\emph{Formalizing Formal Semantics: A Coq-verified Atlas of
+Semantic Structures}. Every audited theorem ends in \\texttt{Qed}; \\emph{closed}
+means closed under the global context --- no axioms, no parameters.}
+\\end{document}
+`;
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([tex],{type:'application/x-tex'}));
+  a.download='atlas-verdict-'+b.toLowerCase().replace(/[^a-z0-9]+/g,'-')+'-'+day+'.tex';
+  a.click(); URL.revokeObjectURL(a.href);
+}
+
+/* ---- countermodel exhibits: commit before you look ---- */
+const CEX=[
+ {key:'inqb-lem',theory:'inquisitive.InqB',page:'atlas__inqb',title:'Excluded middle survives the move to questions',
+  claim:'Every instance of p ∨ ¬p is valid.',
+  bait:'It is a tautology of classical logic, and InqB’s worlds are classical — so validity should lift.',
+  verdict:'REFUTED',
+  thms:['LEM_fails_2','LEM_not_valid'],file:'atlas/inquisitive/InqB.v',line:2254,
+  coq:`Theorem LEM_fails_2 : ~ support V2 ignorant (FOr p (Neg p)).
+Proof.
+  intros [Hp | Hn].
+  - discriminate (Hp false I).
+  - discriminate (proj1 (neg_pointwise V2 p ignorant) Hn true I).
+Qed.
+
+Theorem LEM_not_valid : ~ valid (FOr p (Neg p)).
+Proof. intros H; exact (LEM_fails_2 (H M2 ignorant)). Qed.`,
+  lesson:'InqB validity is support at every information state, and a disjunction is supported only when one disjunct is. The countermodel is minimal: two worlds and total ignorance. The ignorant state settles neither p nor ¬p — which is exactly what makes ?p a question. Truth at each world survives; support-validity does not. (Ciardelli–Roelofsen; the truth-conditional LEM characterisation is T52 in the same file.)'},
+ {key:'dpl-d34',theory:'dynamic.DPL',page:'atlas__dpl',title:'Disjunction is idempotent (printed as D34 in the book)',
+  claim:'φ is dynamically equivalent to φ ∨ φ.',
+  bait:'It is the most harmless-looking algebraic law there is — and Groenendijk & Stokhof 1991 print it.',
+  verdict:'REFUTED',
+  thms:['d34_refuted','d34_clos'],file:'atlas/dynamic/DPL.v',line:1558,
+  coq:`Theorem d34_refuted : exists (M : model Σ_ex) (g h : G M),
+  sem M (∃' 0 , Px)%dpl g h /\\
+  ~ sem M ((∃' 0 , Px) ∨' (∃' 0 , Px))%dpl g h.
+Proof.
+  exists M_bool, g0, h1; split; [exact ex_px_g0_h1 |].
+  intros [E _]; exact (h1_neq_g0 E).
+Qed.`,
+  lesson:'DPL disjunction is externally static: it seals off the bindings made inside it. ∃xPx changes the assignment; ∃xPx ∨ ∃xPx cannot. What the book meant survives as ♦φ ≃ φ ∨ φ (d34_clos, proved just above in the file) — a compiled countermodel settles what an erratum would leave fuzzy.'},
+ {key:'rsa-scalar',theory:'probabilistic.RSA',page:'atlas__rsa',title:'“Some” already implicates “not all” for the literal listener',
+  claim:'The literal listener L0, hearing “some”, already prefers the some-but-not-all world.',
+  bait:'The implicature feels baked into the word — surely you don’t need recursion to get it.',
+  verdict:'REFUTED',
+  thms:['scalar_L0_fails','scalar_implicature'],file:'atlas/probabilistic/RSA.v',line:1630,
+  coq:`(* the literal listener is exactly flat: *)
+Theorem scalar_L0_fails : L0e usome w1 == L0e usome w2.
+Proof. vm_compute; reflexivity. Qed.
+
+(* one pragmatic layer up, the implicature appears: *)
+Theorem scalar_implicature : L1a 1 usome w2 < L1a 1 usome w1.
+Proof. vm_compute; reflexivity. Qed.`,
+  lesson:'The implicature is born at L1, from reasoning about a speaker who could have said “all”. These are not simulation outputs: the posteriors are exact rationals (L1 gives 3/4 vs 1/4) computed inside Coq by vm_compute, so the refutation and the positive result are both compiler-checked arithmetic.'},
+ {key:'ptq-seek',theory:'montague.PTQ',page:'atlas__ptq',title:'“Seek” can be treated extensionally',
+  claim:'A transitive verb denotes a relation between individuals, so “seek” is a lift of a first-order relation — and “John seeks a unicorn” commits us to a unicorn.',
+  bait:'It works perfectly for “find”, “kiss”, and every other extensional verb.',
+  verdict:'REFUTED',
+  thms:['seek_no_existence','seek_not_liftable'],file:'atlas/montague/PTQ.v',line:191,
+  coq:`Theorem seek_no_existence :
+  exists (Entity : Type) (unicorn : Entity -> Prop)
+         (seek : ITV Entity) (john : Entity),
+    dedicto Entity seek john (d_a Entity unicorn) /\\
+    ~ exists u, unicorn u.
+
+Theorem seek_not_liftable :
+  forall (Entity : Type) (unicorn : Entity -> Prop)
+         (seek0 : Entity -> Entity -> Prop) (john : Entity),
+    dedicto Entity (lift Entity seek0) john (d_a Entity unicorn) ->
+    exists u, unicorn u.`,
+  lesson:'Montague’s motivating datum as a pair of theorems: there is a model where de dicto seeking is true and no unicorn exists — and any LIFTED verb provably forces existence. So the intensional type for “seek” is not a stylistic choice; treating it as a lift is refuted, axiom-free.'}];
+function vExhibits(){
+  const sc=JSON.parse(localStorage.getItem('atlas_predict')||'{"right":0,"total":0}');
+  return `<div class="wrap"><div class="crumb"><a href="#/">Atlas</a> / Countermodels</div>
+  <section style="padding-top:24px">
+    <div class="sechead"><h2>Countermodel exhibits</h2>
+      <span class="note">Four claims the literature (or intuition) tempts you into. Commit to a verdict
+      before opening the answer — that is the whole exercise. Every refutation below is a compiled
+      Coq witness, not prose.${sc.total?` Your verifier prediction record so far: ${sc.right}/${sc.total}.`:''}</span></div>
+    ${CEX.map(e=>`<article style="border:2px solid var(--ink);margin-top:22px;padding:18px 20px">
+      <span class="kicker">${esc(e.theory)}</span>
+      <h3 style="margin:8px 0 4px">${esc(e.title)}</h3>
+      <p style="margin-top:6px"><b>The claim.</b> ${esc(e.claim)}</p>
+      <p class="tiny dim" style="margin-top:4px">Why you’d bet on it: ${esc(e.bait)}</p>
+      <details style="margin-top:12px">
+        <summary style="cursor:pointer;font-weight:600">Commit first — then open the compiler’s answer</summary>
+        <div style="margin-top:10px"><span class="b bad">${esc(e.verdict.toLowerCase())}</span>
+          <span class="tiny dim"> · ${e.thms.map(t=>`<span class="mono">${esc(t)}</span>`).join(', ')}
+          · <a href="#/theory/${esc(e.page)}">${esc(e.file)}</a></span></div>
+        <pre class="mono tiny" style="margin-top:10px;border-left:2px solid var(--n400);padding:10px 14px;overflow:auto">${esc(e.coq)}</pre>
+        <p class="tiny" style="margin-top:8px;max-width:none">${esc(e.lesson)}</p>
+      </details></article>`).join('')}
+    <p class="tiny dim" style="margin-top:26px">Now try one of your own: state a claim in the
+      <a href="#/check">Verifier</a>, set <i>Your prediction</i>, and let coqc referee.</p>
+  </section></div>`;
 }
 
 function route(){
@@ -814,6 +1001,7 @@ function route(){
   else if(seg[0]==='region') {html=vRegion(seg[1]); tab='';}
   else if(seg[0]==='papers') html=vPapers(q);
   else if(seg[0]==='check') html=vCheck();
+  else if(seg[0]==='exhibits') html=vExhibits();
   else html=notFound();
   $('#app').innerHTML=html;
   if(seg[0]==='check') loadModels();

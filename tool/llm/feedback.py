@@ -43,6 +43,15 @@ _PARSERS = [
     ("missing_import",
      re.compile(r"Cannot find a physical path bound to logical path\s+([\w.]+)"),
      lambda m: {"module": m.group(1)}),
+    # A .vo compiled by a different OCaml/Coq toolchain than the one running.
+    # This is the SERVER's fault (stale baked library), never the draft's.
+    ("stale_compiled_library",
+     re.compile(r"(?:makes inconsistent assumptions\s+over library\s+([\w.]+)"
+                r"|compiled with an? \S+ version of"
+                r"|[Bb]ad magic number"
+                r"|is not a Coq object file"
+                r"|[Cc]orrupted compiled (?:library|file))"),
+     lambda m: {"library": m.group(1) or ""}),
     ("timeout",
      re.compile(r"timeout after (\d+)s"),
      lambda m: {"seconds": int(m.group(1))}),
@@ -133,6 +142,15 @@ def render(signals: list[dict], vocabulary_hint: str = "") -> str:
                 "atlas names exactly as given (probabilistic.RSA, montague.PTQ, "
                 "dynamic.DPL, inquisitive.InqB, mtt_ranta.MTT, mtt_ranta.Ranta, "
                 "mtt_ranta.DTS, type_logical.Lambek, categorical.DisCoCat).")
+        elif k == "stale_compiled_library":
+            lib = s.get("library") or "an atlas module"
+            lines.append(
+                f"- INFRASTRUCTURE FAULT, not yours: the server's compiled copy "
+                f"of {lib} was built with a different toolchain and cannot be "
+                "loaded. Do not reclassify the claim because of this. If the "
+                "claim needs the atlas import, report that verification is "
+                "blocked by the environment; only fall back to a self-contained "
+                "formalization if one is faithful, and say so explicitly.")
         elif k == "timeout":
             lines.append(
                 f"- Compilation exceeded {s['seconds']}s. Avoid vm_compute on "

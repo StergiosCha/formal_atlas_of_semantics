@@ -3344,6 +3344,186 @@
    "since": "2026-09-05",
    "status": "active"
   },
+  "mtt_ranta.Ranta_GQ.NoDup_filter_local": {
+   "statement_sha": "ab66ff09a78c3f66",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.cnt_cond_split": {
+   "statement_sha": "295a3c9f92354295",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.cnt_mono_general": {
+   "statement_sha": "1321f42a165aab82",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.cnt_split_general": {
+   "statement_sha": "b20ee639aaf602d5",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.every_c_most": {
+   "statement_sha": "6199ecfdb10e3d3f",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.every_most_wit": {
+   "statement_sha": "9820e434d11a8710",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.filter_ext_in_local": {
+   "statement_sha": "ac516d026eb6b158",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.filter_filter_and": {
+   "statement_sha": "8ae71e305a29da8b",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.filter_restrict": {
+   "statement_sha": "38cb6fbb950bb9c5",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.gq_conservative": {
+   "statement_sha": "969d7c2b20c3d7f0",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.half_not_mono_right": {
+   "statement_sha": "580e8be618e0d36f",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.in_length_pos": {
+   "statement_sha": "c4595df52433df2b",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.length_pos": {
+   "statement_sha": "a45173769cbd8796",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.length_pos_ex": {
+   "statement_sha": "370b64c6e431ba38",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.memb_in": {
+   "statement_sha": "be5e9c3ab9f84de6",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.most_c_some": {
+   "statement_sha": "10d779a233c30ea2",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.most_c_threshold": {
+   "statement_sha": "acca2a295184aafe",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.most_contrary": {
+   "statement_sha": "65f0eb921bbd0a6a",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.most_counts_wit": {
+   "statement_sha": "4a3f121eb5b6211e",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.most_mono_right": {
+   "statement_sha": "5fff946d5e2338ab",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.most_not_left_upward": {
+   "statement_sha": "e40819805c06580b",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.most_separates": {
+   "statement_sha": "a486a8672c87af48",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.most_wit_counts": {
+   "statement_sha": "60e2d3f6cab4ee05",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.most_wit_some": {
+   "statement_sha": "f7577e633289f527",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.no_c_not_most": {
+   "statement_sha": "25eb878871ecef67",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.some_left_upward": {
+   "statement_sha": "a876b601ec2ec4e5",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.some_mono_right": {
+   "statement_sha": "a85befaf579c1700",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.some_not_most": {
+   "statement_sha": "9c984d8f392e0b2b",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.sub_most_implies_cond": {
+   "statement_sha": "b78201d791d33c0c",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Ranta_GQ.sundholm_donkey_contrast": {
+   "statement_sha": "34272886d793a87f",
+   "file": "atlas/mtt_ranta/Ranta_GQ.v",
+   "since": "2026-09-06",
+   "status": "active"
+  },
   "probabilistic.RSA.BergenTwoWorlds.bergen_all_truthful": {
    "statement_sha": "df200f7fa1a5d099",
    "file": "atlas/probabilistic/RSA.v",

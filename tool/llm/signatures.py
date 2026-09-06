@@ -19,7 +19,8 @@ import verify  # noqa: E402  (the A3 verifier: parse(), logical_name())
 
 FILES = [
     "atlas/montague/PTQ.v", "atlas/dynamic/DPL.v", "atlas/inquisitive/InqB.v",
-    "atlas/mtt_ranta/MTT.v", "atlas/mtt_ranta/Ranta.v", "atlas/mtt_ranta/DTS.v",
+    "atlas/mtt_ranta/MTT.v", "atlas/mtt_ranta/Ranta.v",
+    "atlas/mtt_ranta/Ranta_GQ.v", "atlas/mtt_ranta/DTS.v",
     "atlas/probabilistic/RSA.v", "atlas/categorical/DisCoCat.v",
     "atlas/type_logical/Lambek.v", "atlas/montague/PTQ_vs_Lambek.v",
     "atlas/montague/PTQ_vs_MTT.v", "atlas/mtt_ranta/MTT_vs_Ranta.v",

@@ -1,0 +1,198 @@
+{
+ "file": "atlas/mtt_ranta/Ranta_GQ.v",
+ "region": "modern type theories (MTT + Ranta pair)",
+ "summary": "Constructive generalized quantifiers after Sundholm 1989, grafted onto Ranta's Sigma/Pi idiom. A counting layer over an enumerated CN (most/some/every/no/exactly-half by filter-length); the entailment square (every=>most on nonempty domains, most=>some, no=>not-most, contrariety of most(B) and most(not-B)); conservativity in Barwise-Cooper format and right upward monotonicity; Sundholm's proof-object 'most' (formula (23): a majority-sized injective witness list, each element carried with its proof) proved equivalent to the counting truth-condition via pigeonhole, with bridges every(Pi) => most_wit => some(Sigma); countermodels: some without most, failure of left upward monotonicity for most (with some's left-monotonicity as contrast), the separation showing every/some/no verdicts do not determine most, non-monotonicity of exactly-half, and Sundholm's donkey contrast (26): the conditional reading of 'most men who own a donkey beat it' holds while no owner beats his donkey.",
+ "sources": [
+  {
+   "citation": "Sundholm, G. (1989). Constructive Generalized Quantifiers. Synthese 79(1): 1-12.",
+   "path": "papers/foundations/Sundholm_1989_ConstructiveGeneralizedQuantifiers.pdf",
+   "available": "full (ProQuest scan obtained 2026-09-06; image-only, read visually; cite by formula number)"
+  },
+  {
+   "citation": "Barwise, J. & Cooper, R. (1981). Generalized Quantifiers and Natural Language. L&P 4.",
+   "path": "papers/foundations/Barwise_Cooper_1981_GeneralizedQuantifiers.pdf",
+   "available": "full"
+  },
+  {
+   "citation": "Ranta, A. (1995). Type-Theoretical Grammar. OUP.",
+   "path": "papers/foundations/Ranta_1995_TypeTheoreticalGrammar.djvu",
+   "available": "full (host idiom only; R95 has no proportional quantifiers)"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "most_wit = { w : list A & NoDup w * incl w dom * (2*|w| > |dom|) * (forall x, In x w -> B x) }",
+   "source": "S89 (23) pp. 7-8: exists k >= [p(a)/2]+1, injection f : M(k) -> A, phi at every image point",
+   "match": "exact",
+   "note": "NoDup+incl list = image of the injection from M(k); 2k > n <-> k >= [n/2]+1 on nat"
+  },
+  {
+   "coq": "most_c/some_c/every_c/no_c/half_c over dom : list A",
+   "source": "S89 p. 7 (VIII): 'more than half', presupposition Finite(A)",
+   "match": "changed",
+   "note": "Finite(A) as bijection with M(k) is replaced by carrying the enumeration itself as a Section Variable (artifact iii); NoDup enters per-theorem where the cardinal matters"
+  },
+  {
+   "coq": "sundholm_donkey_contrast over dom_owners : list (man3 * donkey1)",
+   "source": "S89 (24)-(26) pp. 8-9: Most over the Sigma-type of owner-proof pairs, not the conditional reading",
+   "match": "exact",
+   "note": "pair counting per p. 9 ('ordered pairs', two donkeys = counted twice); the squashed subset-type alternative is recorded as not formalized"
+  },
+  {
+   "coq": "gq_conservative via memb (in_dec eq_dec)",
+   "source": "BC81 C1 conservativity, stated in the enumerated setting",
+   "match": "simplified",
+   "note": "near-definitional here because counting already happens inside the restrictor - which is itself the type-theoretic explanation of conservativity"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "every_c_most",
+   "status": "proved",
+   "source_claim": "square of opposition for proportional determiners; nonempty-domain premise displayed"
+  },
+  {
+   "name": "most_c_some",
+   "status": "proved",
+   "source_claim": "S89 mathematical reading of most implies existential import on nonempty witness"
+  },
+  {
+   "name": "no_c_not_most",
+   "status": "proved",
+   "source_claim": "square corner"
+  },
+  {
+   "name": "most_c_threshold",
+   "status": "proved",
+   "source_claim": "S89 (23): strict majority = k >= [p(a)/2]+1, the least possible majority; discharges the header arithmetic as a theorem"
+  },
+  {
+   "name": "sub_most_implies_cond",
+   "status": "proved",
+   "source_claim": "S89 pp. 8-9 positive half: restrictor-most (over the separated subset) entails conditional-most; converse is sundholm_donkey_contrast"
+  },
+  {
+   "name": "most_contrary",
+   "status": "proved",
+   "source_claim": "no two strict majorities: cnt B + cnt not-B = |A|"
+  },
+  {
+   "name": "most_mono_right",
+   "status": "proved",
+   "source_claim": "BC81 monotonicity profile: most is right upward monotone"
+  },
+  {
+   "name": "some_mono_right",
+   "status": "proved",
+   "source_claim": "BC81: some is right upward monotone"
+  },
+  {
+   "name": "gq_conservative",
+   "status": "proved",
+   "source_claim": "BC81 C1 for most/some/every/no at once"
+  },
+  {
+   "name": "most_wit_counts",
+   "status": "proved",
+   "source_claim": "soundness of S89 (23) proof objects for the counting truth-condition; pigeonhole = NoDup_incl_length"
+  },
+  {
+   "name": "most_counts_wit",
+   "status": "proved",
+   "source_claim": "completeness: the canonical witness is computed - literally filter p dom; NoDup dom needed exactly here"
+  },
+  {
+   "name": "most_wit_some",
+   "status": "proved",
+   "source_claim": "bridge to Ranta's Sigma: head of the witness list"
+  },
+  {
+   "name": "every_most_wit",
+   "status": "proved",
+   "source_claim": "bridge from Ranta's Pi: the whole domain as witness"
+  },
+  {
+   "name": "some_not_most",
+   "status": "proved",
+   "source_claim": "countermodel: 1 of 3"
+  },
+  {
+   "name": "most_not_left_upward",
+   "status": "proved",
+   "source_claim": "BC81: most is not persistent; majority in [th1] drowns in dom3"
+  },
+  {
+   "name": "some_left_upward",
+   "status": "proved",
+   "source_claim": "BC81: some is persistent (contrast term)"
+  },
+  {
+   "name": "most_separates",
+   "status": "proved",
+   "source_claim": "finite fragment of BC81 C13 undefinability: every/some/no verdicts agree, most differs; NOT the metatheorem, as header records"
+  },
+  {
+   "name": "half_not_mono_right",
+   "status": "proved",
+   "source_claim": "exactly-half outside every monotone class"
+  },
+  {
+   "name": "sundholm_donkey_contrast",
+   "status": "proved",
+   "source_claim": "S89 p. 8: conditional reading true 'even though no man who owns a donkey beats it'; (26) pair reading fails"
+  }
+ ],
+ "counts": {
+  "theorems": 30,
+  "proved": 30,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "faithful",
+  "evidence": [
+   "most_wit is formula (23) transposed: injective majority-sized witness family with per-element proofs; the equivalence with counting is proved, not assumed.",
+   "The donkey contrast is Sundholm's own scenario compiled: the wrong reading verified true, the right reading verified false, no owner beats.",
+   "All 19 audited theorems closed under the global context under Coq 8.20.1."
+  ],
+  "simplifications": [
+   "Finite(A) (S89 (14), bijection with canonical M(k)) becomes an enumeration list carried as a Section Variable; NoDup is a per-theorem hypothesis",
+   "counting layer uses decidable predicates A -> bool (artifact ii); the Type-level layer takes B : A -> Type undecided"
+  ],
+  "omissions": [
+   "infinite-domain quantifiers INF (17), COUNT (18), Uc (19), More (20), At-least (21), Almost-all (22): need injections from N or the second number class",
+   "FIN (16): trivializes on enumerated domains (every predicate finite)",
+   "the squashed subset-type counting alternative (p. 9, Nordstrom et al. subset type)",
+   "genuine BC81 C13 undefinability of most (research-grade metatheorem); most_separates is its honest finite fragment",
+   "sugaring of 'most' into Ranta.v's fragment grammar (would touch the pinned file)"
+  ],
+  "additions": [
+   "exactly-half as the non-monotone specimen (not in S89)",
+   "conservativity/monotonicity checklist from BC81 stated in the enumerated setting",
+   "the explicit equivalence most_wit <-> most_c (S89 gives the definition; the pigeonhole equivalence with filter-counting is ours)"
+  ]
+ },
+ "determination": "as_is",
+ "determination_rationale": "Sundholm's definition (23) is native type theory and transposes almost verbatim; the one substantive encoding decision is replacing Finite(A)-via-bijection with a carried enumeration, documented as artifact iii and motivated by keeping every countermodel vm-computable.",
+ "artifact_classes": [
+  {
+   "class": "i",
+   "description": "counting layer in Prop (nat comparisons), proof-object layer in Type; they meet in most_wit_counts/most_counts_wit"
+  },
+  {
+   "class": "ii",
+   "description": "decidable predicates at the counting layer make countermodels computable"
+  },
+  {
+   "class": "iii",
+   "description": "enumeration as a bare list Variable; NoDup only where the cardinal matters"
+  },
+  {
+   "class": "iv",
+   "description": "zero axioms/Parameters; eq_dec enters as a per-section Hypothesis for conservativity only"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Extension file of the MTT+Ranta pair: Sundholm-style proportional quantification in Ranta's idiom, motivated by the verifier episode where models correctly refused to state 'most' over an abstract CN without counting structure. The hidden premise is now a displayed Section Variable. The scan of S89 must be copied from ~/Downloads/view.pdf to papers/foundations/Sundholm_1989_ConstructiveGeneralizedQuantifiers.pdf. Counts include the 11 helper lemmas (list arithmetic); the audited theorem list is the 19 Theorems with Print Assumptions.",
+ "compiles": true
+}

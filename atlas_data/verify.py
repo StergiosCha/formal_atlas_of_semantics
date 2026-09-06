@@ -421,7 +421,7 @@ def main():
     # file -> record key, taken from the records themselves
     by_file = {}
     for p in sorted(glob.glob(os.path.join(REC, "*.json"))):
-        if p.endswith(".verify.json") or p.endswith(".mech.json"):
+        if p.endswith((".verify.json", ".mech.json", ".probe.json")):
             continue
         try:
             r = json.load(open(p))

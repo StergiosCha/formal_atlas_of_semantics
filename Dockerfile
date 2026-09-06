@@ -16,6 +16,12 @@ COPY tool/checker/server.py /srv/server.py
 # The draft-and-check loop (providers.py needs AZURE_AI_KEY at runtime —
 # an ACA secret, never baked into the image).
 COPY tool/llm /srv/llm
+
+# The coqorg base wraps every command in `opam exec --` (its ENTRYPOINT), and
+# only the coq user has an opam root — running as root crashes at boot with
+# "Opam has not been initialised". Run as coq: opam exec then also puts coqc
+# on PATH, which the checker shells out to.
+USER coq
 EXPOSE 8477
 CMD ["uvicorn", "server:app", "--app-dir", "/srv", \
      "--host", "0.0.0.0", "--port", "8477"]

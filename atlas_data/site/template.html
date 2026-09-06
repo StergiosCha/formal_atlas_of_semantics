@@ -750,13 +750,21 @@ function vCheck(){
         cannot express it).</p></div>
     </div></section></div>`;
 }
-async function loadModels(){
+async function loadModels(attempt=1){
   const sel=document.getElementById('ck-model'); if(!sel) return;
+  /* the backend scales to zero; the first fetch often lands mid-wake, so
+     retry with backoff instead of giving up on a cold start */
   try{
-    const r=await fetch(api()+'/models'); const j=await r.json();
+    const r=await fetch(api()+'/models'); if(!r.ok) throw new Error(r.status);
+    const j=await r.json();
     sel.innerHTML=j.models.map(m=>`<option value="${m.deployment}"${m.deployment===j.default?' selected':''}>
       ${m.deployment} (${m.family})</option>`).join('');
-  }catch(e){ sel.innerHTML='<option value="">backend offline</option>'; }
+  }catch(e){
+    if(attempt<8 && document.getElementById('ck-model')===sel){
+      sel.innerHTML=`<option value="">waking backend… (try ${attempt}/8)</option>`;
+      setTimeout(()=>loadModels(attempt+1), 6000*Math.min(attempt,3));
+    }else sel.innerHTML='<option value="">backend offline — check the Backend URL below</option>';
+  }
 }
 async function runCheck(){
   const out=document.getElementById('ck-out'), btn=document.getElementById('ck-go');

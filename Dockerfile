@@ -9,7 +9,13 @@ RUN apt-get update && apt-get install -y python3 python3-pip \
 COPY --chown=coq . /atlas
 WORKDIR /atlas
 USER coq
-RUN coq_makefile -f _CoqProject -o Makefile && make -j4 || make -k
+# In-tree .vo files copied from the dev machine are unusable here: same Coq
+# 8.20.1 but a different OCaml, and Require rejects cross-toolchain .vo
+# ("inconsistent assumptions" / incompatible version). Purge and recompile
+# with THIS image's coqc so Require Import mtt_ranta.MTT etc. work at runtime.
+RUN find . \( -name '*.vo' -o -name '*.vos' -o -name '*.vok' \
+    -o -name '*.glob' -o -name '*.aux' \) -delete \
+    && coq_makefile -f _CoqProject -o Makefile && make -j4
 
 USER root
 COPY tool/checker/server.py /srv/server.py

@@ -597,7 +597,15 @@ function vTheory(key){
       <p class="tiny dim" style="max-width:none;margin-top:6px">Counts below are Coq-measured
         (verify.py), not self-reported${f.counts_claimed&&JSON.stringify(f.counts_claimed)!==JSON.stringify(c)
         ?'; the audit record claimed '+(f.counts_claimed.theorems??'?')+' theorems / '
-         +(f.counts_claimed.admitted??'?')+' admitted':''}.</p></div>
+         +(f.counts_claimed.admitted??'?')+' admitted':''}.</p>
+      ${f.probe?`<dl style="margin-top:10px">
+        <dt>Depth-probed</dt><dd>${f.probe.probed}</dd>
+        <dt>Trivial by unfolding</dt><dd>${f.probe.trivial}</dd>
+        <dt>Vacuous</dt><dd>${f.probe.vacuous||0}${f.probe.vacuous?` <span class="tiny dim">(${f.probe.vacuous_names.map(n=>esc(n.split('.').pop())).join(', ')})</span>`:''}</dd>
+      </dl>
+      <p class="tiny dim" style="max-width:none;margin-top:6px">Ltac2 probes: <i>trivial</i> means
+        the statement closes by unfolding alone — true, audited, but shallow. <i>Vacuous</i> means
+        the conclusion is False by design (a countermodel lemma) — listed, never hidden.</p>`:''}</div>
     `:`<div><span class="kicker" style="color:var(--rust)">Self-reported only</span>
       <p class="tiny dim" style="max-width:none;margin-top:6px">No mechanical verification
         record — the numbers below are the auditor's own claim.</p></div>`}

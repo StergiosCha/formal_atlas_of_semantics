@@ -13846,7 +13846,10 @@
    "title": "The Semantic Conception of Truth",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Philosophical exposition: T-schema, object/metalanguage requirements in prose; satisfaction definition only sketched 'in outline'",
+   "formality_confidence": "high"
   },
   {
    "id": 2,
@@ -13867,7 +13870,10 @@
    "title": "A Formulation of the Simple Theory of Types",
    "level": "F2",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Rubric P4 anchor: defines simple type theory with primitive symbols, axioms, and formal deductions carried through",
+   "formality_confidence": "high"
   },
   {
    "id": 3,
@@ -13899,7 +13905,10 @@
    "note": "linked to the atlas trunk and edges",
    "level": "F5",
    "determination_actual": "as_is",
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Full fragment: numbered syntactic rules, translation rules into IL, model theory, worked derivations of scope ambiguities",
+   "formality_confidence": "high"
   },
   {
    "id": 4,
@@ -13920,7 +13929,10 @@
    "title": "The Logical Form of Action Sentences",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Philosophical prose argument; first-order event logical forms displayed as fragments, no calculus or model theory developed",
+   "formality_confidence": "high"
   },
   {
    "id": 5,
@@ -13941,7 +13953,10 @@
    "title": "General Semantics",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Whole paper defines the system: exact set-theoretic intensions, binders, derivation trees through fragment; matches P4 anchors, not sketch",
+   "formality_confidence": "high"
   },
   {
    "id": 6,
@@ -13965,7 +13980,10 @@
    "title": "A Theory of Truth and Semantic Representation",
    "level": "F3",
    "determination_actual": "not_applicable",
-   "prediction_disputed": true
+   "prediction_disputed": true,
+   "formality": 4,
+   "formality_rationale": "Formal DRS syntax, algorithmic construction rules, model-embedding truth definition; donkey-sentence derivations carried through",
+   "formality_confidence": "high"
   },
   {
    "id": 7,
@@ -13990,7 +14008,10 @@
    "title": "The Semantics of Definite and Indefinite Noun Phrases",
    "level": "F3",
    "determination_actual": "slight_modification",
-   "prediction_disputed": true
+   "prediction_disputed": true,
+   "formality": 4,
+   "formality_rationale": "Dissertation with formal core: recursive file-change/CCP definitions, felicity conditions, fragment rules carried through",
+   "formality_confidence": "high"
   },
   {
    "id": 8,
@@ -14014,7 +14035,10 @@
    "title": "Dynamic Predicate Logic",
    "level": "F4",
    "determination_actual": "as_is",
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Complete dynamic calculus: compositional semantics, equivalence facts and properties stated and proved",
+   "formality_confidence": "high"
   },
   {
    "id": 9,
@@ -14037,7 +14061,10 @@
    "title": "Combining Montague Semantics and Discourse Representation",
    "level": "F2",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Axiomatized type-theoretic reconstruction of DRT (TY2 plus axioms), lemmas, full compositional fragment",
+   "formality_confidence": "high"
   },
   {
    "id": 10,
@@ -14058,7 +14085,10 @@
    "title": "Transsentential Meditations",
    "level": "F2",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "ILLC dissertation defining dynamic systems (DPL variants, PLA) with formal semantics, facts, and proofs",
+   "formality_confidence": "medium"
   },
   {
    "id": 11,
@@ -14082,7 +14112,10 @@
    "title": "Generalized Quantifiers and Natural Language",
    "level": "F3",
    "determination_actual": "major_restructuring",
-   "prediction_disputed": true
+   "prediction_disputed": true,
+   "formality": 4,
+   "formality_rationale": "GQ theory with formal definitions (live-on, monotonicity, witness sets) and theorems proved in appendix",
+   "formality_confidence": "high"
   },
   {
    "id": 12,
@@ -14103,7 +14136,10 @@
    "title": "A Semantic Characterization of Natural Language Determiners",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Mathematical characterization of conservative determiner functions; theorems (effability) with proofs throughout",
+   "formality_confidence": "high"
   },
   {
    "id": 13,
@@ -14124,7 +14160,10 @@
    "title": "Essays in Logical Semantics",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Logic monograph: theorems and proofs across GQ theory (tree of numbers) and categorial calculi",
+   "formality_confidence": "high"
   },
   {
    "id": 14,
@@ -14145,7 +14184,10 @@
    "title": "Quantificational Structures and Compositionality",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Mostly-prose cross-linguistic survey; tripartite-structure notation and type-shifting fragments (image-only scan, from knowledge)",
+   "formality_confidence": "medium"
   },
   {
    "id": 15,
@@ -14166,7 +14208,10 @@
    "title": "Flexibility Principles in Boolean Semantics",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Boolean semantics monograph: flexibility principles, choice functions formally defined; derivations carried through",
+   "formality_confidence": "high"
   },
   {
    "id": 16,
@@ -14190,7 +14235,10 @@
    "title": "The Logical Analysis of Plurals and Mass Terms",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Defines lattice-theoretic logic LP: axioms, model theory, star/sigma operators, formal semantics carried through",
+   "formality_confidence": "high"
   },
   {
    "id": 17,
@@ -14211,7 +14259,10 @@
    "title": "Pluralities",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Book with set-theoretic definitions (covers, Part/D operators) at key points in mostly-prose argument; torn P3/P4, took lower",
+   "formality_confidence": "medium"
   },
   {
    "id": 18,
@@ -14232,7 +14283,10 @@
    "title": "Events and Plurality",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Type-logical event semantics: formal definitions and long compositional derivations sustained through the book",
+   "formality_confidence": "high"
   },
   {
    "id": 19,
@@ -14256,7 +14310,10 @@
    "title": "Parts of a Whole: Distributivity as a Bridge",
    "level": "F3",
    "determination_actual": "slight_modification",
-   "prediction_disputed": true
+   "prediction_disputed": true,
+   "formality": 4,
+   "formality_rationale": "Strata theory defined in typed lambda calculus; algebraic definitions and derivations/proofs carried through",
+   "formality_confidence": "high"
   },
   {
    "id": 20,
@@ -14277,7 +14334,10 @@
    "title": "On the Plurality of Verbs",
    "level": "F2",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Lambda definitions of * operator and cumulativity (verified on page) inside a mostly-prose argument; no calculus",
+   "formality_confidence": "high"
   },
   {
    "id": 21,
@@ -14303,7 +14363,10 @@
    "title": "Modality",
    "level": "F3",
    "determination_actual": "as_is",
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Precise set-theoretic definitions of modal base, ordering source, modal forces; no derivations or proofs carried through",
+   "formality_confidence": "high"
   },
   {
    "id": 22,
@@ -14324,7 +14387,10 @@
    "title": "Counterfactuals",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Sphere semantics formally defined; V-logics axiomatized with soundness/completeness results in ch. 6",
+   "formality_confidence": "high"
   },
   {
    "id": 23,
@@ -14345,7 +14411,10 @@
    "title": "A Theory of Conditionals",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Rubric P3 anchor: C2 axioms and model-theory sketch embedded in philosophical prose argument",
+   "formality_confidence": "high"
   },
   {
    "id": 24,
@@ -14366,7 +14435,10 @@
    "title": "Counterfactuals in a Dynamic Context",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Dynamic strict-conditional definitions in display within mostly-prose argument; Sobel derivations, no calculus development",
+   "formality_confidence": "medium"
   },
   {
    "id": 25,
@@ -14387,7 +14459,10 @@
    "title": "Counterfactual Scorekeeping",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Core is a defined update semantics: 10+ numbered definitions carried through derivations (verified); no theorems/proofs",
+   "formality_confidence": "medium"
   },
   {
    "id": 26,
@@ -14413,7 +14488,10 @@
    "title": "A Theory of Focus Interpretation",
    "level": "F3",
    "determination_actual": "slight_modification",
-   "prediction_disputed": true
+   "prediction_disputed": true,
+   "formality": 3,
+   "formality_rationale": "Recursive focus-value definitions and ~ operator with presupposition, applied in a mostly-prose NLS argument; no calculus",
+   "formality_confidence": "high"
   },
   {
    "id": 27,
@@ -14434,7 +14512,10 @@
    "title": "Focus and Presupposition in Dynamic Interpretation",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Dynamic structured-meaning framework with full compositional update derivations carried through (verified dense formalism)",
+   "formality_confidence": "medium"
   },
   {
    "id": 28,
@@ -14455,7 +14536,10 @@
    "title": "Intervention Effects Follow from Focus Interpretation",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Compositional focus/question semantics fragments and computed LF denotations inside a linguistic argument; no new calculus",
+   "formality_confidence": "high"
   },
   {
    "id": 29,
@@ -14476,7 +14560,10 @@
    "title": "Association by Movement",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Typed 'only' entry, Strawson-DE schemas, lambda-binder LFs recur pp.4-26: real formalism in parts of prose argument — Kratzer-anchor P3",
+   "formality_confidence": "medium"
   },
   {
    "id": 30,
@@ -14497,7 +14584,10 @@
    "title": "Sense and Sensitivity",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Book: QUD-based theory with formal definitions and lexical entries, but bulk is diagnostics-driven empirical prose; no calculus carried through",
+   "formality_confidence": "medium"
   },
   {
    "id": 31,
@@ -14521,7 +14611,10 @@
    "title": "Natural Language Inference in Coq",
    "level": "F3",
    "determination_actual": "slight_modification",
-   "prediction_disputed": true
+   "prediction_disputed": true,
+   "formality": 5,
+   "formality_rationale": "Rubric's own P5 anchor: MTT semantics implemented and machine-checked in Coq; ships the verified artifact",
+   "formality_confidence": "high"
   },
   {
    "id": 32,
@@ -14546,7 +14639,10 @@
    "title": "Common Nouns as Types",
    "level": "F3",
    "determination_actual": "slight_modification",
-   "prediction_disputed": true
+   "prediction_disputed": true,
+   "formality": 4,
+   "formality_rationale": "Core is UTT with coercive subtyping; CNs-as-types worked out with typing rules and formal judgements throughout",
+   "formality_confidence": "high"
   },
   {
    "id": 33,
@@ -14577,7 +14673,10 @@
    "title": "Adjectival and Adverbial Modification in Modern Type Theoretical Semantics",
    "level": "F3",
    "determination_actual": "not_applicable",
-   "prediction_disputed": true
+   "prediction_disputed": true,
+   "formality": 4,
+   "formality_rationale": "MTT analysis via Sigma-types, universes, disjoint unions, coercive subtyping; typing derivations carried through the paper",
+   "formality_confidence": "medium"
   },
   {
    "id": 34,
@@ -14598,7 +14697,10 @@
    "title": "Contextual Analysis of Word Meanings in Type-Theoretical Semantics",
    "level": "F2",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Listed P4 anchor (Luo 2011): type-theoretic contexts/signatures for word meaning with formal rules and judgements",
+   "formality_confidence": "high"
   },
   {
    "id": 35,
@@ -14622,7 +14724,10 @@
    "note": "linked to the atlas DTS file",
    "level": "F5",
    "determination_actual": "slight_modification",
-   "prediction_disputed": true
+   "prediction_disputed": true,
+   "formality": 4,
+   "formality_rationale": "Defines DTS: dependent type calculus with @-operator, inference rules and worked derivations for anaphora",
+   "formality_confidence": "high"
   },
   {
    "id": 36,
@@ -14653,7 +14758,10 @@
    "title": "Modern Perspectives in Type-Theoretical Semantics",
    "level": "F3",
    "determination_actual": "not_applicable",
-   "prediction_disputed": true
+   "prediction_disputed": true,
+   "formality": 4,
+   "formality_rationale": "Edited volume whose chapters are predominantly full type-theoretic systems with rules and derivations; some prose chapters",
+   "formality_confidence": "medium"
   },
   {
    "id": 37,
@@ -14676,7 +14784,10 @@
    "title": "Type-Theoretical Semantics with Coercive Subtyping",
    "level": "F3",
    "determination_actual": "not_applicable",
-   "prediction_disputed": true
+   "prediction_disputed": true,
+   "formality": 4,
+   "formality_rationale": "SALT paper: formal coercive subtyping rules within UTT applied to CN semantics; judgements and rules on the page",
+   "formality_confidence": "high"
   },
   {
    "id": 38,
@@ -14700,7 +14811,10 @@
    "note": "author name and title corrected (Mineshima; the Modern Perspectives chapter); linked",
    "level": "F5",
    "determination_actual": "slight_modification",
-   "prediction_disputed": true
+   "prediction_disputed": true,
+   "formality": 4,
+   "formality_rationale": "DTS presupposition projection computed by type checking; full derivation trees and typing rules carried through",
+   "formality_confidence": "high"
   },
   {
    "id": 39,
@@ -14721,7 +14835,10 @@
    "title": "Logical Polysemy and Subtyping",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Verified on page: Pi-types with (PiE) elimination rules and full typed derivation trees for polysemy/coercion",
+   "formality_confidence": "medium"
   },
   {
    "id": 40,
@@ -14753,7 +14870,10 @@
    "note": "year corrected (ISTE/Wiley 2020); linked to the atlas flagship",
    "level": "F5",
    "determination_actual": "as_is",
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Monograph-length MTT formal system with rules and derivations; includes Coq material but book itself is not a verified artifact",
+   "formality_confidence": "medium"
   },
   {
    "id": 41,
@@ -14774,7 +14894,10 @@
    "title": "The Montagovian Generative Lexicon: From Formal Semantics to Compositional Lexical Semantics",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Defines the Montagovian generative lexicon in System F with coercive subtyping extension; typed terms and derivations throughout",
+   "formality_confidence": "high"
   },
   {
    "id": 42,
@@ -14795,7 +14918,10 @@
    "title": "Classifiers, Sorts, and Base Types in Montagovian Generative Lexicon and Related Type Theoretical Frameworks",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Verified: recaps Lambda-TYn pipeline with typed terms/coercions, but chapter's contribution is a prose design argument for classifier sorts",
+   "formality_confidence": "medium"
   },
   {
    "id": 43,
@@ -14816,7 +14942,10 @@
    "title": "Semantic Types for Language: Montague's Framework Revisited",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Verified: framework paper defining Lambda-TYn in system F, introduces coercive-subtyping extension; calculus is the core",
+   "formality_confidence": "high"
   },
   {
    "id": 44,
@@ -14837,7 +14966,10 @@
    "title": "Towards a Type-Theoretical Account of Lexical Semantics",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "JoLLI paper: second-order lambda calculus lexicon with coercions and worked typed derivations for polysemy/copredication",
+   "formality_confidence": "high"
   },
   {
    "id": 45,
@@ -14858,7 +14990,10 @@
    "title": "Flexible Composition for Optional and Derived Arguments",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "PDF: no monads here (companion paper); full Glue proofs apply an existing calculus inside a prose arg/adjunct study; torn, take lower.",
+   "formality_confidence": "high"
   },
   {
    "id": 46,
@@ -14879,7 +15014,10 @@
    "title": "Monads as a Solution for Generalized Opacity",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Verified: defines Reader monad triple and a sequent calculus for linear logic with monadic modality; derivations for opacity cases",
+   "formality_confidence": "medium"
   },
   {
    "id": 47,
@@ -14900,7 +15038,10 @@
    "title": "Monads for Natural Language Semantics",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Listed P4 anchor: defines monads with unit/bind laws as a semantic calculus, systematic formal treatment of side effects",
+   "formality_confidence": "high"
   },
   {
    "id": 48,
@@ -14921,7 +15062,10 @@
    "title": "On the Semantics of Exceptional Scope",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Listed P4 anchor: dissertation builds a monadic scope calculus with types, laws, and derivations carried through",
+   "formality_confidence": "high"
   },
   {
    "id": 49,
@@ -14942,7 +15086,10 @@
    "title": "A Computational Treatment of Anaphora and Its Algorithmic Implementation",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Verified: monadic dynamic semantics with typing, algorithm and full Haskell implementation plus test suite; implementation, not proof-checked",
+   "formality_confidence": "high"
   },
   {
    "id": 50,
@@ -14970,7 +15117,10 @@
    "title": "Records and Record Types in Semantic Theory",
    "level": "F3",
    "determination_actual": "major_restructuring",
-   "prediction_disputed": true
+   "prediction_disputed": true,
+   "formality": 4,
+   "formality_rationale": "Defines TTR mathematically: records, record types, dependencies and subtyping with formal definitions carried through",
+   "formality_confidence": "high"
   },
   {
    "id": 51,
@@ -14991,7 +15141,10 @@
    "title": "Questions in Montague English",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Montague-style fragment: numbered syntactic/translation rules into IL giving alternative-set denotations for questions",
+   "formality_confidence": "medium"
   },
   {
    "id": 52,
@@ -15012,7 +15165,10 @@
    "title": "Syntax and Semantics of Questions",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Full Montague fragment for interrogatives: syntactic rules paired with IL translation rules, systematically carried through",
+   "formality_confidence": "high"
   },
   {
    "id": 53,
@@ -15033,7 +15189,10 @@
    "title": "Studies on the Semantics of Questions and the Pragmatics of Answers",
    "level": "F2",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Listed P4 anchor: partition semantics dissertation with full model theory, definitions and proofs",
+   "formality_confidence": "high"
   },
   {
    "id": 54,
@@ -15057,7 +15216,10 @@
    "note": "year corrected (OUP 2018)",
    "level": "F4",
    "determination_actual": "as_is",
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "OUP book defining InqB: state-based semantics, algebraic operations, facts and proofs, exercises; a complete formal system",
+   "formality_confidence": "high"
   },
   {
    "id": 55,
@@ -15080,7 +15242,10 @@
    "title": "Algebraic Foundations for the Semantic Treatment of Inquisitive Content",
    "level": "F4",
    "determination_actual": "as_is",
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Synthese paper: lattice/algebraic characterization of inquisitive content with theorems and proofs",
+   "formality_confidence": "high"
   },
   {
    "id": 56,
@@ -15103,7 +15268,10 @@
    "title": "Probabilistic Semantics and Pragmatics",
    "level": "F4",
    "determination_actual": "as_is",
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Verified: handbook chapter with Bayes equations and executable Church code models, but expository; no proofs or worked metatheory",
+   "formality_confidence": "medium"
   },
   {
    "id": 57,
@@ -15126,7 +15294,10 @@
    "title": "Pragmatic Reasoning through Semantic Inference",
    "level": "F4",
    "determination_actual": "as_is",
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Verified: full recursive RSA/lexical-uncertainty model definitions plus Lemmas 1-2 with induction proofs in appendices",
+   "formality_confidence": "medium"
   },
   {
    "id": 58,
@@ -15147,7 +15318,10 @@
    "title": "Goal-Driven Answers in the Cards Dialogue Corpus",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Verified: corpus study, but Definitions 1-7 give a formal probabilistic interpretation function used in the experiment; linking theory formal",
+   "formality_confidence": "medium"
   },
   {
    "id": 59,
@@ -15168,7 +15342,10 @@
    "title": "Frame-Semantic Parsing",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Formally specified log-linear models and ILP/AD3 inference derivations; algorithmic math serving empirical eval, no logic or model theory",
+   "formality_confidence": "medium"
   },
   {
    "id": 60,
@@ -15189,7 +15366,10 @@
    "title": "Experience Grounds Language",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Position paper: World Scopes taxonomy (WS1-WS5) argued in prose with examples; no definitions, notation, or formalism",
+   "formality_confidence": "high"
   },
   {
    "id": 61,
@@ -15210,7 +15390,10 @@
    "title": "Scale Structure and the Semantic Typology of Gradable Predicates",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Typed lambda denotations for degree modifiers and scale-structure definitions inside a data-driven Language article; no full calculus",
+   "formality_confidence": "high"
   },
   {
    "id": 62,
@@ -15231,7 +15414,10 @@
    "title": "Crosslinguistic Variation in Comparison Constructions",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Degree-semantic denotations and parameter statements (DSP/DAP) embedded in a cross-linguistic data survey; formal fragments, no system",
+   "formality_confidence": "medium"
   },
   {
    "id": 63,
@@ -15252,7 +15438,10 @@
    "title": "The Semantics of Evaluativity",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "EVAL operator and degree denotations given formally in parts; book argues mostly in prose over data, no model theory carried through",
+   "formality_confidence": "medium"
   },
   {
    "id": 64,
@@ -15273,7 +15462,10 @@
    "title": "Graded Modality: Qualitative and Quantitative Perspectives",
    "level": "F2",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Measurement-theoretic axioms and probabilistic semantics defined and used; representation theorems cited not proved; torn P3/P4, took lower",
+   "formality_confidence": "medium"
   },
   {
    "id": 65,
@@ -15294,7 +15486,10 @@
    "title": "On the Semantics of Phi Features on Pronouns",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Compositional lambda and presupposition derivations across chapters serving a data argument; standard apparatus, no theorems or proofs",
+   "formality_confidence": "medium"
   },
   {
    "id": 66,
@@ -15315,7 +15510,10 @@
    "title": "Logic and Conversation",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Rubric anchor for P1: maxims and implicature diagnostics in systematic prose with worked examples; no formal apparatus",
+   "formality_confidence": "high"
   },
   {
    "id": 67,
@@ -15336,7 +15534,10 @@
    "title": "Toward a New Taxonomy for Pragmatic Inference",
    "level": "F2",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Rubric anchor for P2: Q/R principles regimented with occasional notation and taxonomy; no calculus or model theory",
+   "formality_confidence": "high"
   },
   {
    "id": 68,
@@ -15357,7 +15558,10 @@
    "title": "Presumptive Meanings",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Q/I/M heuristics stated as regimented principles with taxonomies and occasional notation; no formal calculus of default inference",
+   "formality_confidence": "high"
   },
   {
    "id": 69,
@@ -15378,7 +15582,10 @@
    "title": "Scalar Implicatures, Polarity Phenomena, and the Syntax/Pragmatics Interface",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Recursive definitions of plain vs strong values (Strong Application, ALT) in text plus formal appendix, inside a long data-driven argument",
+   "formality_confidence": "high"
   },
   {
    "id": 70,
@@ -15399,7 +15606,10 @@
    "title": "Scalar Implicatures in Complex Sentences",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Scalar alternatives and epistemic-K derivations spelled out formally for complex sentences; formal core in a data argument, no model theory",
+   "formality_confidence": "medium"
   },
   {
    "id": 71,
@@ -15420,7 +15630,10 @@
    "title": "Pragmatic Presuppositions",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Careful prose with a regimented definition of speaker presupposition; no model theory on these pages, unlike Stalnaker 1968 (P3 anchor)",
+   "formality_confidence": "medium"
   },
   {
    "id": 72,
@@ -15441,7 +15654,10 @@
    "title": "Presupposition Projection as Anaphora Resolution",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Real DRT apparatus, but algorithm semi-formal, no own model theory or proofs; half is prose survey. Borderline P3/P4 -> take lower.",
+   "formality_confidence": "high"
   },
   {
    "id": 73,
@@ -15462,7 +15678,10 @@
    "title": "Presuppositions and Pronouns",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Binding theory of presupposition in DRT: DRS notation and resolution constraints in parts; book argues mostly in prose over data",
+   "formality_confidence": "medium"
   },
   {
    "id": 74,
@@ -15483,7 +15702,10 @@
    "title": "Presupposition and Assertion in Dynamic Semantics",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Numbered definitions D1-D22+, facts, trivalent and dynamic systems, full Update Logic with syntax and models carried through the book",
+   "formality_confidence": "high"
   },
   {
    "id": 75,
@@ -15504,7 +15726,10 @@
    "title": "Local Contexts",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Local contexts defined via quantification over good finals; equivalence results with dynamic semantics stated and proved; core is formal",
+   "formality_confidence": "high"
   },
   {
    "id": 76,
@@ -15525,7 +15750,10 @@
    "title": "Elements of Symbolic Logic",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Symbolic-logic textbook; S/R/E tense analysis formulated inside the full token-reflexive formal system with derivations",
+   "formality_confidence": "high"
   },
   {
    "id": 77,
@@ -15546,7 +15774,10 @@
    "title": "Time in Language",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Topic-time relations (TT, TSit, TU) stated in regimented relational notation; no model theory or compositional calculus on the page",
+   "formality_confidence": "medium"
   },
   {
    "id": 78,
@@ -15567,7 +15798,10 @@
    "title": "Events in the Semantics of English",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Event logical forms pervade the argument and an explicit underlying language with axioms is given; formalism is the core, not an appendix",
+   "formality_confidence": "medium"
   },
   {
    "id": 79,
@@ -15588,7 +15822,10 @@
    "title": "More Structural Analogies Between Pronouns and Tenses",
    "level": "F2",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Short SALT paper: presuppositional tense denotations in lambda notation applied to examples; formal fragments in a prose argument",
+   "formality_confidence": "high"
   },
   {
    "id": 80,
@@ -15609,7 +15846,10 @@
    "title": "On the Proper Treatment of Tense",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Intensional fragment with derivations, but interleaved with rival-theory review; composition left incomplete. Torn P3/P4 -> lower.",
+   "formality_confidence": "medium"
   },
   {
    "id": 81,
@@ -15630,7 +15870,10 @@
    "title": "Notes on Transitivity and Theme in English",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Systems with entry conditions, realization statements, function notation = regimented definitions + occasional notation, i.e. P2.",
+   "formality_confidence": "medium"
   },
   {
    "id": 82,
@@ -15651,7 +15894,10 @@
    "title": "The Informational Component",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Link/focus/tail trichotomy with file-card update instructions semi-formalized; regimented notions, no worked calculus or model theory",
+   "formality_confidence": "medium"
   },
   {
    "id": 83,
@@ -15672,7 +15918,10 @@
    "title": "Information Structure: Towards an Integrated Formal Theory",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "QUD scoreboard, relevance, and congruence defined set-theoretically with question semantics; definitions serve a prose framework, no proofs",
+   "formality_confidence": "high"
   },
   {
    "id": 84,
@@ -15693,7 +15942,10 @@
    "title": "On D-Trees, Beans, and B-Accents",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "CT-values and d-tree congruence conditions defined in alternative-semantics notation; formal fragments within a data-driven L&P argument",
+   "formality_confidence": "high"
   },
   {
    "id": 85,
@@ -15714,7 +15966,10 @@
    "title": "The Communicative Significance of Primary and Secondary Accents",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Numbered definitions (N-closure, type-shift, Givenness constraints) with existential-formula computations over accent data; no calculus",
+   "formality_confidence": "high"
   },
   {
    "id": 86,
@@ -15735,7 +15990,10 @@
    "title": "On the Methodology of Semantic Fieldwork",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Methodology paper: elicitation principles and worked fieldwork examples in systematic prose; no formal apparatus",
+   "formality_confidence": "high"
   },
   {
    "id": 87,
@@ -15756,7 +16014,10 @@
    "title": "Experimental Evidence for Embedded Scalar Implicatures",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Experimental, but literal/local/global readings stated as logical formulas and used to derive predictions; linking theory is formal",
+   "formality_confidence": "medium"
   },
   {
    "id": 88,
@@ -15777,7 +16038,10 @@
    "title": "Two Types of Definites in Natural Language",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Situation-semantic lambda denotations for weak vs strong articles amid experiments; formal fragments, no full calculus.",
+   "formality_confidence": "high"
   },
   {
    "id": 89,
@@ -15798,7 +16062,10 @@
    "title": "30-Month-Olds Use the Distribution and Meaning of Adverbs to Interpret Novel Adjectives",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Developmental experiments with statistics; scale typology invoked in prose linking theory, no formal semantics defined.",
+   "formality_confidence": "medium"
   },
   {
    "id": 90,
@@ -15819,7 +16086,10 @@
    "title": "Processing Scalar Implicature: A Constraint-Based Approach",
    "level": "F2",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Eye-tracking and rating studies with regression models; constraints stated in prose, no formal apparatus.",
+   "formality_confidence": "medium"
   },
   {
    "id": 91,
@@ -15840,7 +16110,10 @@
    "title": "Reference to Kinds in English",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Rubric P3 anchor: lambda formalism for kinds/stages/realization in parts of a mostly-prose dissertation.",
+   "formality_confidence": "high"
   },
   {
    "id": 92,
@@ -15861,7 +16134,10 @@
    "title": "Reference to Kinds across Languages",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Type-shifting operators (cap/cup), lambda derivations, Nominal Mapping Parameter inside a prose typology argument; fragments, no calculus.",
+   "formality_confidence": "high"
   },
   {
    "id": 93,
@@ -15882,7 +16158,10 @@
    "title": "Severing the External Argument from its Verb",
    "level": "F2",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Rubric P3 anchor: Event Identification and lambda denotations in parts of a prose argument.",
+   "formality_confidence": "high"
   },
   {
    "id": 94,
@@ -15903,7 +16182,10 @@
    "title": "On the Nature of Grammatical Relations",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "GB monograph: explicit principles and tree representations, no model theory or worked calculus.",
+   "formality_confidence": "medium"
   },
   {
    "id": 95,
@@ -15924,7 +16206,10 @@
    "title": "Arguments in Syntax and Semantics",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Uses neo-Davidsonian logical forms and explicit definitions in its semantics chapters; formal fragments in a mostly-prose book.",
+   "formality_confidence": "medium"
   },
   {
    "id": 96,
@@ -15945,7 +16230,10 @@
    "title": "Restriction and Saturation",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Defines Restrict/Saturate composition operations with lambda derivations over Chamorro/Maori data; fragments within fieldwork prose.",
+   "formality_confidence": "high"
   },
   {
    "id": 97,
@@ -15966,7 +16254,10 @@
    "title": "Quantification and the Nature of Crosslinguistic Variation",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "GQ denotations for St'at'imcets determiners with lambda terms; formal fragments in a fieldwork-driven argument.",
+   "formality_confidence": "medium"
   },
   {
    "id": 98,
@@ -15987,7 +16278,10 @@
    "title": "Modals without Scales",
    "level": "F2",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Kratzerian modal denotations for Nez Perce o'qa with formal fragments amid descriptive/typological argument.",
+   "formality_confidence": "medium"
   },
   {
    "id": 99,
@@ -16008,7 +16302,10 @@
    "title": "The Grammar of Q: Q-Particles, Wh-Movement, and Pied-Piping",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Choice-function/alternative semantics for Q-particles plus syntactic derivations; formalism in parts of a mostly syntactic monograph.",
+   "formality_confidence": "medium"
   },
   {
    "id": 100,
@@ -16026,7 +16323,10 @@
    "title": "Dependent Indefinites and their Post-Suppositions",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Core is a dynamic plural logic with post-suppositions defined as delayed tests; formal clauses and derivations carried through.",
+   "formality_confidence": "medium"
   },
   {
    "id": 101,
@@ -16047,7 +16347,10 @@
    "title": "On the Coherence and Structure of Discourse",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Coherence relations given regimented inference-style definitions with occasional notation; no worked logic or model theory in this report.",
+   "formality_confidence": "medium"
   },
   {
    "id": 102,
@@ -16068,7 +16371,10 @@
    "title": "Coherence, Reference, and the Theory of Grammar",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Humean relation taxonomy with regimented p(a1,a2) schemas applied to ellipsis/pronouns; notation but no calculus or model theory.",
+   "formality_confidence": "medium"
   },
   {
    "id": 103,
@@ -16089,7 +16395,10 @@
    "title": "Logics of Conversation",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "SDRT as full system: SDRS language, glue logic with defeasible axioms, dynamic semantics, formal appendices.",
+   "formality_confidence": "high"
   },
   {
    "id": 104,
@@ -16110,7 +16419,10 @@
    "title": "Representing Discourse Coherence: A Corpus-Based Study",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Corpus annotation study: coherence graphs defined precisely, then statistics; no formal semantics defined or used.",
+   "formality_confidence": "medium"
   },
   {
    "id": 105,
@@ -16131,7 +16443,10 @@
    "title": "Anaphora and Discourse Structure",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "DLTAG: discourse connectives as LTAG elementary trees with semantic sketches; real grammar formalism in parts of a prose argument.",
+   "formality_confidence": "medium"
   },
   {
    "id": 106,
@@ -16152,7 +16467,10 @@
    "title": "The Generative Lexicon",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Qualia and typed feature structures, coercion rules in type notation throughout; apparatus real but never carried through as a calculus.",
+   "formality_confidence": "medium"
   },
   {
    "id": 107,
@@ -16173,7 +16491,10 @@
    "title": "Semi-Productive Polysemy and Sense Extension",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Typed default feature structures and formalized lexical rules for sense extension; formalism in parts of a prose argument.",
+   "formality_confidence": "medium"
   },
   {
    "id": 108,
@@ -16194,7 +16515,10 @@
    "title": "Lexical Meaning in Context",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Book's core is Type Composition Logic: typing rules, type presuppositions, dot types, with derivations carried through.",
+   "formality_confidence": "medium"
   },
   {
    "id": 109,
@@ -16215,7 +16539,10 @@
    "title": "Measure of Change: The Adjectival Core of Degree Achievements",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Defines measure-of-change functions with typed degree denotations and worked derivations; formal fragments in a prose argument.",
+   "formality_confidence": "high"
   },
   {
    "id": 110,
@@ -16236,7 +16563,10 @@
    "title": "Reflections on Manner/Result Complementarity",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Event-structure templates ([x ACT<manner>]) plus diagnostics; semi-formal decompositions, no model theory or derivations.",
+   "formality_confidence": "high"
   },
   {
    "id": 111,
@@ -16257,7 +16587,10 @@
    "title": "A Semantics for Positive and Comparative Adjectives",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Verified on page: categorial fragment, partial valuations, quantified set-theoretic extension clauses for comparatives carried through.",
+   "formality_confidence": "medium"
   },
   {
    "id": 112,
@@ -16278,7 +16611,10 @@
    "title": "Two Theories about Adjectives",
    "level": "F2",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Two formally defined theories of adjectives (degree functions vs supervaluation contexts) with Montague-style model apparatus.",
+   "formality_confidence": "medium"
   },
   {
    "id": 113,
@@ -16299,7 +16635,10 @@
    "title": "Vagueness and Grammar: The Semantics of Relative and Absolute Gradable Adjectives",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Typed degree denotations, pos morpheme, scale typology; formal fragments interleaved with extensive prose argumentation.",
+   "formality_confidence": "high"
   },
   {
    "id": 114,
@@ -16320,7 +16659,10 @@
    "title": "Shifting Sands: An Interest-Relative Theory of Vagueness",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Verified: sorites premises in quantified logic, but the positive interest-relative theory is regimented prose; no model theory.",
+   "formality_confidence": "medium"
   },
   {
    "id": 115,
@@ -16341,7 +16683,10 @@
    "title": "The Dynamics of Vagueness",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Defines update semantics over world-delineation pairs with compositional dynamic denotations; the system is the paper's core.",
+   "formality_confidence": "medium"
   },
   {
    "id": 116,
@@ -16362,7 +16707,10 @@
    "title": "Situations and Attitudes",
    "level": "F2",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Set-theoretic situation apparatus (situation types, constraints) in parts; much philosophical prose, rigor deferred to later work.",
+   "formality_confidence": "medium"
   },
   {
    "id": 117,
@@ -16383,7 +16731,10 @@
    "title": "Logic and Information",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Book's core is situation theory built formally: infons, support relation, types, constraints in notation; theorem-poor but a defined system",
+   "formality_confidence": "medium"
   },
   {
    "id": 118,
@@ -16404,7 +16755,10 @@
    "title": "Facts: Particulars or Information Units?",
    "level": "F2",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Situation-semantic formalism (situations, parthood, exemplification defined) inside a mostly-prose ontology-of-facts argument",
+   "formality_confidence": "medium"
   },
   {
    "id": 119,
@@ -16425,7 +16779,10 @@
    "title": "Truth",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Ordinary-language prose on truth; demonstrative/descriptive conventions stated discursively, no notation or definitions",
+   "formality_confidence": "high"
   },
   {
    "id": 120,
@@ -16446,7 +16803,10 @@
    "title": "Literal Meaning",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Regimented taxonomy of literalism/contextualism positions, defined pragmatic processes, occasional schemas; no calculus or model theory",
+   "formality_confidence": "medium"
   },
   {
    "id": 121,
@@ -16469,7 +16829,10 @@
    "title": "Women, Fire, and Dangerous Things",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Prose ICM/radial-category theory, there-construction case study; Putnam model-theory chapter is critique of others' formalism, not own",
+   "formality_confidence": "medium"
   },
   {
    "id": 122,
@@ -16490,7 +16853,10 @@
    "title": "Principles of Categorization",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Rubric's P1 anchor: prototype principles in systematic prose with cited experiments, no formal apparatus",
+   "formality_confidence": "high"
   },
   {
    "id": 123,
@@ -16511,7 +16877,10 @@
    "title": "Frame Semantics and the Nature of Language",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Rubric's P2 anchor: frame notion with regimented definitions and worked examples, no formal machinery",
+   "formality_confidence": "high"
   },
   {
    "id": 124,
@@ -16532,7 +16901,10 @@
    "title": "Toward a Cognitive Semantics",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Systematic taxonomies of schematic systems, force-dynamics diagrams as notation; no calculus or model theory",
+   "formality_confidence": "medium"
   },
   {
    "id": 125,
@@ -16553,7 +16925,10 @@
    "title": "Semantics and Cognition",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Conceptual-structure formalism [EVENT GO(x,y)] with well-formedness and correspondence rules amid cognitive prose; no model theory",
+   "formality_confidence": "medium"
   },
   {
    "id": 126,
@@ -16574,7 +16949,10 @@
    "title": "Mental Spaces",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Semi-formal ID principle with F(a)/connector notation, space-builder definitions, diagrams; no worked calculus",
+   "formality_confidence": "medium"
   },
   {
    "id": 127,
@@ -16595,7 +16973,10 @@
    "title": "The Way We Think: Conceptual Blending",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Prose blending theory: network taxonomy, constitutive/governing principles stated informally with diagrams; no formal apparatus",
+   "formality_confidence": "medium"
   },
   {
    "id": 128,
@@ -16616,7 +16997,10 @@
    "title": "From Etymology to Pragmatics",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Prose account of modality and conditionals across content/epistemic/speech-act domains; worked examples, no formalism",
+   "formality_confidence": "high"
   },
   {
    "id": 129,
@@ -16637,7 +17021,10 @@
    "title": "Metaphors We Live By",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Prose plus small-caps metaphor mappings (ARGUMENT IS WAR); example lists, no definitions or formal apparatus",
+   "formality_confidence": "high"
   },
   {
    "id": 130,
@@ -16658,7 +17045,10 @@
    "title": "Foundations of Meaning: Primary Metaphors and Primary Scenes",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Dissertation in prose: taxonomy of primary metaphors and primary scenes with worked examples; no formal machinery",
+   "formality_confidence": "medium"
   },
   {
    "id": 131,
@@ -16679,7 +17069,10 @@
    "title": "Constructions: A Construction Grammar Approach",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Sem/Syn construction boxes, role-fusion diagrams, Correspondence and Coherence principles; regimented but no formal calculus",
+   "formality_confidence": "high"
   },
   {
    "id": 132,
@@ -16700,7 +17093,10 @@
    "title": "Regularity and Idiomaticity in Grammatical Constructions",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Detailed let-alone syntax/semantics; scalar-model notion semi-formally sketched (full formalization is Kay 1990), taxonomy of idioms",
+   "formality_confidence": "medium"
   },
   {
    "id": 133,
@@ -16721,7 +17117,10 @@
    "title": "Radical Construction Grammar",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Anti-formalist prose polemic; conceptual-space diagrams and a few regimented definitions, no notation system; torn P1/P2, lower taken",
+   "formality_confidence": "medium"
   },
   {
    "id": 134,
@@ -16742,7 +17141,10 @@
    "title": "Constructing a Language: A Usage-Based Theory",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Rubric tie-breaker names it P1: usage-based acquisition argument in prose with data and diagnostics, no formal apparatus",
+   "formality_confidence": "high"
   },
   {
    "id": 135,
@@ -16763,7 +17165,10 @@
    "title": "Foundations of Cognitive Grammar",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Explicitly anti-formalist yet regimented: trajector/landmark diagram notation, defined units and schemas; no calculus",
+   "formality_confidence": "medium"
   },
   {
    "id": 136,
@@ -16784,7 +17189,10 @@
    "title": "Typology and Universals",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Hierarchy/implicational notation, tetrachoric tables, maps are the book's spine — P2 'regimented principles, occasional notation' fits",
+   "formality_confidence": "medium"
   },
   {
    "id": 137,
@@ -16805,7 +17213,10 @@
    "title": "The Geometry of Grammatical Meaning",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Defines semantic-map method with connectivity constraint and graph diagrams; regimented procedure, no model theory",
+   "formality_confidence": "medium"
   },
   {
    "id": 138,
@@ -16826,7 +17237,10 @@
    "title": "Modality's Semantic Map",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Modal semantic map as directed graph with defined regions and grammaticalization paths; semi-formal diagrams, no semantics calculus",
+   "formality_confidence": "medium"
   },
   {
    "id": 139,
@@ -16847,7 +17261,10 @@
    "title": "The Evolution of Grammar: Tense, Aspect, and Modality",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "GRAMCATS cross-linguistic survey; grammaticalization paths as prose schemas; linking theory informal, statistics set aside per rubric",
+   "formality_confidence": "medium"
   },
   {
    "id": 140,
@@ -16868,7 +17285,10 @@
    "title": "Evidentiality",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Typological survey; A1-D system labels form a taxonomy in systematic prose, no formal apparatus",
+   "formality_confidence": "medium"
   },
   {
    "id": 141,
@@ -16889,7 +17309,10 @@
    "title": "Regularity in Semantic Change",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "IITSC change model as schematic diagram plus regimented terms (IIN/GIIN); corpus case studies in prose, no formalism",
+   "formality_confidence": "medium"
   },
   {
    "id": 142,
@@ -16910,7 +17333,10 @@
    "title": "Grammaticalization and Semantic Bleaching",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Conference-paper prose on bleaching via metaphor; worked etymological examples, no notation or definitions",
+   "formality_confidence": "medium"
   },
   {
    "id": 143,
@@ -16931,7 +17357,10 @@
    "title": "Grammaticalization",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Textbook prose: clines (item > clitic > affix), diagnostics, taxonomies of mechanisms; no formal apparatus",
+   "formality_confidence": "high"
   },
   {
    "id": 144,
@@ -16952,7 +17381,10 @@
    "title": "Semantics: Studies in the Science of Meaning",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "19th-c essayistic prose but with named 'laws' and a taxonomy of change types with examples; no definitions in the modern sense",
+   "formality_confidence": "medium"
   },
   {
    "id": 145,
@@ -16973,7 +17405,10 @@
    "title": "Co-Presence and Succession: A Cognitive Typology of Metonymy",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Frame-based typology of metonymy (co-presence vs succession) with classification criteria; systematic prose, no formalism",
+   "formality_confidence": "medium"
   },
   {
    "id": 146,
@@ -16994,7 +17429,10 @@
    "title": "The Use of Language",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Book's core is games of partial information: game trees, payoffs, Pareto-Nash equilibria computed for implicature and force cases.",
+   "formality_confidence": "medium"
   },
   {
    "id": 147,
@@ -17015,7 +17453,10 @@
    "title": "Signal to Act: Game Theory in Pragmatics",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "ILLC dissertation: signaling games and IBR solution concept defined; propositions and proofs carried through.",
+   "formality_confidence": "high"
   },
   {
    "id": 148,
@@ -17036,7 +17477,10 @@
    "title": "The Evolution of Convex Categories",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Evolutionary signaling-game model over conceptual spaces; formal result that stable strategies induce Voronoi tessellations.",
+   "formality_confidence": "high"
   },
   {
    "id": 149,
@@ -17057,7 +17501,10 @@
    "title": "Some Aspects of Optimality in Natural Language Interpretation",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Displayed recursive definitions of (super)optimality over Gen with ordering, OT tableaux; no theorems or model theory (checked PDF).",
+   "formality_confidence": "medium"
   },
   {
    "id": 150,
@@ -17078,7 +17525,10 @@
    "title": "The Asymmetry of Optimality Theoretic Syntax and Semantics",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Prose argument on OT asymmetry; inline superoptimality definitions and named constraints, no calculus or derivations (checked PDF).",
+   "formality_confidence": "medium"
   },
   {
    "id": 151,
@@ -17099,7 +17549,10 @@
    "title": "Perceptual Symbol Systems",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "BBS theory piece: systematic framework (simulators, frames) with diagrams; author concedes no formal implementation.",
+   "formality_confidence": "high"
   },
   {
    "id": 152,
@@ -17120,7 +17573,10 @@
    "title": "Louder than Words: The New Science of How the Mind Makes Meaning",
    "level": "F2",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Popular-science book: prose walk-through of simulation experiments; no definitions or notation.",
+   "formality_confidence": "high"
   },
   {
    "id": 153,
@@ -17141,7 +17597,10 @@
    "title": "The Brain's Concepts: The Role of the Sensory-Motor System",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Prose neural-grounding argument with schematic 'cog' diagrams; no formal apparatus.",
+   "formality_confidence": "high"
   },
   {
    "id": 154,
@@ -17162,7 +17621,10 @@
    "title": "Seeing, Acting, Understanding: Motor Resonance in Language Comprehension",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Experimental paper (motor resonance); linking theory is prose, apparatus is statistics only.",
+   "formality_confidence": "high"
   },
   {
    "id": 155,
@@ -17183,7 +17645,10 @@
    "title": "Grounding Cognition: The Role of Perception and Action",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Edited volume of experimental reviews on grounded cognition; systematic prose, no formalism.",
+   "formality_confidence": "medium"
   },
   {
    "id": 156,
@@ -17204,7 +17669,10 @@
    "title": "A Solution to Plato's Problem: The Latent Semantic Analysis Theory",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Defines LSA mathematically (matrix, SVD dimension reduction) and uses it as the model in a mostly prose+empirical Psych Review paper.",
+   "formality_confidence": "medium"
   },
   {
    "id": 157,
@@ -17225,7 +17693,10 @@
    "title": "From Frequency to Meaning: Vector Space Models of Semantics",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Survey with displayed formulas (PMI, tf-idf, SVD, cosine) organizing prior VSMs; no developed system; torn 2/3, took lower.",
+   "formality_confidence": "medium"
   },
   {
    "id": 158,
@@ -17246,7 +17717,10 @@
    "title": "Distributional Memory: A General Framework for Corpus-Based Semantics",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Formal definition of DM as weighted tuple tensor with matricization operations, then largely empirical evaluation.",
+   "formality_confidence": "medium"
   },
   {
    "id": 159,
@@ -17270,7 +17744,10 @@
    "note": "year corrected (Linguistic Analysis 36, 2010); linked to the atlas flagship",
    "level": "F5",
    "determination_actual": "as_is",
-   "prediction_disputed": true
+   "prediction_disputed": true,
+   "formality": 4,
+   "formality_rationale": "Compact closed categories and pregroups with functorial semantics; diagrammatic calculus and derivations are the paper.",
+   "formality_confidence": "high"
   },
   {
    "id": 160,
@@ -17291,7 +17768,10 @@
    "title": "Formal Distributional Semantics: Introduction to the Special Issue",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Special-issue intro comparing FS and DS; occasional logical formulas and vector examples, no new formal system (checked PDF).",
+   "formality_confidence": "medium"
   },
   {
    "id": 161,
@@ -17312,7 +17792,10 @@
    "title": "Structured Meanings: The Semantics of Propositional Attitudes",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Lambda-categorial semantics for attitude reports; structured meanings defined set-theoretically with compositional derivations.",
+   "formality_confidence": "medium"
   },
   {
    "id": 162,
@@ -17333,7 +17816,10 @@
    "title": "Direct Reference, Propositional Attitudes, and Semantic Content",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Philosophical prose plus numbered-premise argument and a recursive semantics for a structured-proposition fragment.",
+   "formality_confidence": "medium"
   },
   {
    "id": 163,
@@ -17354,7 +17840,10 @@
    "title": "Recent Work on Structured Meaning and Propositional Unity",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Philosophy Compass survey of structured meaning; occasional TIL notation, no worked calculus of its own.",
+   "formality_confidence": "medium"
   },
   {
    "id": 164,
@@ -17375,7 +17864,10 @@
    "title": "Foundations of Intensional Semantics",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "PTCT monograph: typed calculus with proof theory and model theory, soundness/completeness proofs carried through.",
+   "formality_confidence": "high"
   },
   {
    "id": 165,
@@ -17396,7 +17888,10 @@
    "title": "Sense and the Computation of Reference",
    "level": "F2",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Defines a typed logic where senses are algorithms computing reference; formal system with definitions and results in L&P.",
+   "formality_confidence": "high"
   },
   {
    "id": 166,
@@ -17417,7 +17912,10 @@
    "title": "Being and Time",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 0,
+   "formality_rationale": "Rubric's named P0 anchor; argument lives entirely in phenomenological prose.",
+   "formality_confidence": "high"
   },
   {
    "id": 167,
@@ -17438,7 +17936,10 @@
    "title": "Truth and Method",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 0,
+   "formality_rationale": "Hermeneutic treatise; discursive prose throughout, no definitions or formalism.",
+   "formality_confidence": "high"
   },
   {
    "id": 168,
@@ -17459,7 +17960,10 @@
    "title": "Phenomenology of Perception",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 0,
+   "formality_rationale": "Phenomenological prose; case studies (Schneider) but no diagnostics, taxonomy, or formal apparatus.",
+   "formality_confidence": "high"
   },
   {
    "id": 169,
@@ -17480,7 +17984,10 @@
    "title": "Interpretation Theory",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 0,
+   "formality_rationale": "Ricoeur defines terms and cites Austin/Frege distinctions, but imports rather than builds them; four lecture-essays with no diagnostics, worked examples, or own taxonomy — below the Grice/Austin P1 anchors. Torn 0/1, tie-breaker says lower.",
+   "formality_confidence": "medium"
   },
   {
    "id": 170,
@@ -17501,7 +18008,10 @@
    "title": "Ideas Pertaining to a Pure Phenomenology",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Numbered sections with explicit terminological definitions and taxonomies of act structure (noesis/noema); no formal apparatus.",
+   "formality_confidence": "medium"
   },
   {
    "id": 171,
@@ -17522,7 +18032,10 @@
    "title": "Of Grammatology",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 0,
+   "formality_rationale": "Rubric's named P0 anchor; deconstructive prose, no definitions or formalism.",
+   "formality_confidence": "high"
   },
   {
    "id": 172,
@@ -17543,7 +18056,10 @@
    "title": "Signature Event Context",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 0,
+   "formality_rationale": "Prose essay on iterability engaging Austin; no definitions, diagnostics, or notation.",
+   "formality_confidence": "high"
   },
   {
    "id": 173,
@@ -17564,7 +18080,10 @@
    "title": "Allegories of Reading",
    "level": "F2",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 0,
+   "formality_rationale": "Rhetorical readings of literary and philosophical texts; entirely discursive.",
+   "formality_confidence": "high"
   },
   {
    "id": 174,
@@ -17585,7 +18104,10 @@
    "title": "The Death of the Author",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 0,
+   "formality_rationale": "Short polemical essay; pure prose, no systematic apparatus.",
+   "formality_confidence": "high"
   },
   {
    "id": 175,
@@ -17606,7 +18128,10 @@
    "title": "Desire in Language",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 0,
+   "formality_rationale": "Poststructuralist essays; semiotic/symbolic in prose; stray pseudo-notation (0-1,0-2) does no inferential work. Derrida-genre.",
+   "formality_confidence": "medium"
   },
   {
    "id": 176,
@@ -17627,7 +18152,10 @@
    "title": "Philosophical Investigations",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Numbered remarks, pervasive worked examples (builders, language games); definitions refused, no formalism. Austin-genre P1.",
+   "formality_confidence": "medium"
   },
   {
    "id": 177,
@@ -17648,7 +18176,10 @@
    "title": "How to Do Things with Words",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Rubric anchor for P1: performative/constative diagnostics, felicity-condition taxonomy, no formal apparatus.",
+   "formality_confidence": "high"
   },
   {
    "id": 178,
@@ -17669,7 +18200,10 @@
    "title": "Speech Acts",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Numbered conditions and constitutive rules for promising, F(p) notation, regimented definitions; no calculus or model theory.",
+   "formality_confidence": "high"
   },
   {
    "id": 179,
@@ -17690,7 +18224,10 @@
    "title": "The Concept of Mind",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Systematic prose: category-mistake diagnostics, knowing-how/that distinctions, rich examples; zero formal apparatus.",
+   "formality_confidence": "high"
   },
   {
    "id": 180,
@@ -17711,7 +18248,10 @@
    "title": "Individuals: An Essay in Descriptive Metaphysics",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Careful descriptive metaphysics in prose; identification/reidentification criteria argued informally, barely any notation.",
+   "formality_confidence": "high"
   },
   {
    "id": 181,
@@ -17732,7 +18272,10 @@
    "title": "The Dialogic Imagination",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 0,
+   "formality_rationale": "Literary-theoretical essays; heteroglossia and chronotope developed in discursive prose, no diagnostics or apparatus.",
+   "formality_confidence": "high"
   },
   {
    "id": 182,
@@ -17753,7 +18296,10 @@
    "title": "Using Language",
    "level": "F2",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 2,
+   "formality_rationale": "Rubric anchor for P2: regimented definitions (common ground, levels of joint action), tracks and layers; no worked calculus.",
+   "formality_confidence": "high"
   },
   {
    "id": 183,
@@ -17774,7 +18320,10 @@
    "title": "The Preference for Self-Correction in the Organization of Repair",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "CA classic: repair-position taxonomy with transcript worked examples and transcription conventions; principles, no formalism.",
+   "formality_confidence": "medium"
   },
   {
    "id": 184,
@@ -17795,7 +18344,10 @@
    "title": "Action and Embodiment within Situated Human Interaction",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Transcripts plus frame-grabs analyzed systematically (hopscotch, archaeologists); worked examples, no formal apparatus.",
+   "formality_confidence": "high"
   },
   {
    "id": 185,
@@ -17816,7 +18368,10 @@
    "title": "Relationship Thinking: Agency, Enchrony, and Human Sociality",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Enchrony framework with glossed Lao transcripts, diagrams, taxonomies of signs; systematic prose, no formal system.",
+   "formality_confidence": "medium"
   },
   {
    "id": 186,
@@ -17837,7 +18392,10 @@
    "title": "Origins of Human Communication",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Rubric tie-breaker names Tomasello P1: prose argument on shared intentionality with examples, no formal core.",
+   "formality_confidence": "high"
   },
   {
    "id": 187,
@@ -17858,7 +18416,10 @@
    "title": "Experiments in Cultural Language Evolution",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Language-game strategies specified as algorithms with alignment/update dynamics and IRL semantics; real formalism, no proofs.",
+   "formality_confidence": "medium"
   },
   {
    "id": 188,
@@ -17879,7 +18440,10 @@
    "title": "Cumulative Cultural Evolution in the Laboratory",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Facts undisputed: entropy/Mantel ARE the statistics the exp. tie-breaker discounts; linking theory stays prose. Torn goes lower anyway.",
+   "formality_confidence": "high"
   },
   {
    "id": 189,
@@ -17900,7 +18464,10 @@
    "title": "Language as Shaped by the Brain",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "BBS position paper: prose argument that language adapts to the brain, reviews simulations; no formalism of its own.",
+   "formality_confidence": "high"
   },
   {
    "id": 190,
@@ -17921,7 +18488,10 @@
    "title": "The Symbolic Species",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Peircean icon/index/symbol taxonomy with diagrams and worked cases; scholarly prose, no formal apparatus.",
+   "formality_confidence": "high"
   },
   {
    "id": 191,
@@ -17942,7 +18512,10 @@
    "title": "Language, Thought, and Reality",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Essays with Hopi/SAE grammatical examples and covert-category taxonomy; linguistic analysis in prose, no formalism.",
+   "formality_confidence": "high"
   },
   {
    "id": 192,
@@ -17963,7 +18536,10 @@
    "title": "The Myth of Language Universals",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "BBS survey argument: cross-linguistic counterexample tables and design-feature diagnostics; no formal apparatus deployed.",
+   "formality_confidence": "high"
   },
   {
    "id": 193,
@@ -17984,7 +18560,10 @@
    "title": "Cultural Constraints on Grammar and Cognition in Pirahã",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Field-linguistic prose with interlinear Piraha glosses; states immediacy-of-experience principle, derives predictions informally.",
+   "formality_confidence": "medium"
   },
   {
    "id": 194,
@@ -18005,7 +18584,10 @@
    "title": "Wisdom Sits in Places: Landscape and Language among the Western Apache",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Ethnography with glossed Apache place-names and a typology of place-name speech genres; worked examples, no apparatus.",
+   "formality_confidence": "medium"
   },
   {
    "id": 195,
@@ -18026,7 +18608,10 @@
    "title": "Do Glaciers Listen? Local Knowledge, Colonial Encounters, and Social Imagination",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 0,
+   "formality_rationale": "Narrative ethnography/oral history of glacier knowledge; argument entirely in prose, no taxonomy or diagnostics.",
+   "formality_confidence": "high"
   },
   {
    "id": 196,
@@ -18047,7 +18632,10 @@
    "title": "Can the Subaltern Speak?",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 0,
+   "formality_rationale": "Dense critical-theory essay on representation and subalternity; no definitions or formalism, pure discursive argument.",
+   "formality_confidence": "high"
   },
   {
    "id": 197,
@@ -18068,7 +18656,10 @@
    "title": "Decolonising the Mind",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 0,
+   "formality_rationale": "Essayistic memoir-argument on language and colonialism; discursive throughout, no systematic apparatus.",
+   "formality_confidence": "high"
   },
   {
    "id": 198,
@@ -18089,7 +18680,10 @@
    "title": "Local Histories/Global Designs",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 0,
+   "formality_rationale": "Decolonial theory monograph; border thinking developed in discursive prose, no diagnostics or formal machinery.",
+   "formality_confidence": "high"
   },
   {
    "id": 199,
@@ -18110,7 +18704,10 @@
    "title": "Epistemologies of the South",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 0,
+   "formality_rationale": "Critical-theory prose; enumerated monocultures/ecologies are manifesto lists, not operationalized diagnostics. Tie-break lower.",
+   "formality_confidence": "medium"
   },
   {
    "id": 200,
@@ -18131,7 +18728,10 @@
    "title": "Decolonizing Methodologies",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "25 named project types w/ examples + research-agenda framework + ethics checklists: Austin/Rosch-like systematic prose, above P0 bar.",
+   "formality_confidence": "medium"
   },
   {
    "id": 201,
@@ -18152,7 +18752,10 @@
    "title": "The Cultural Politics of Emotion",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 0,
+   "formality_rationale": "Rubric anchor for P0: affect theory via close readings, argument lives entirely in prose.",
+   "formality_confidence": "high"
   },
   {
    "id": 202,
@@ -18173,7 +18776,10 @@
    "title": "Parables for the Virtual: Movement, Affect, Sensation",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 0,
+   "formality_rationale": "Deleuzean affect theory; invokes topology/physics metaphorically, no actual formalism or definitions on the page.",
+   "formality_confidence": "high"
   },
   {
    "id": 203,
@@ -18194,7 +18800,10 @@
    "title": "The Transmission of Affect",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 0,
+   "formality_rationale": "Theoretical prose on affective transmission citing endocrinology; no definitions, taxonomy, or formal apparatus.",
+   "formality_confidence": "high"
   },
   {
    "id": 204,
@@ -18215,7 +18824,10 @@
    "title": "The Feeling Body: Affective Science Meets the Enactive Mind",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Enactivist monograph: systematic conceptual argument engaging affective-science experiments; no definitions or notation on the page",
+   "formality_confidence": "medium"
   },
   {
    "id": 205,
@@ -18236,7 +18848,10 @@
    "title": "The Corporeal Turn",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 0,
+   "formality_rationale": "Phenomenological essays on movement/kinesthesia; discursive prose throughout, no diagnostics, taxonomy, or formal apparatus",
+   "formality_confidence": "medium"
   },
   {
    "id": 206,
@@ -18257,7 +18872,10 @@
    "title": "The Open Work",
    "level": "F2",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Aesthetic essays with a taxonomy of openness; one chapter recaps Shannon's probability/log formulas, borrowed notation doing no work",
+   "formality_confidence": "medium"
   },
   {
    "id": 207,
@@ -18278,7 +18896,10 @@
    "title": "The Act of Reading",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Systematic reader-response theory: defined concepts (implied reader, blanks) and worked textual examples; no formalism",
+   "formality_confidence": "medium"
   },
   {
    "id": 208,
@@ -18299,7 +18920,10 @@
    "title": "Is There a Text in This Class?",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Polemical essays with worked interpretive examples and explicit critiques of stylistics; argument entirely in prose",
+   "formality_confidence": "medium"
   },
   {
    "id": 209,
@@ -18320,7 +18944,10 @@
    "title": "S/Z",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 1,
+   "formality_rationale": "Five-code taxonomy applied exhaustively to 561 lexias of Sarrasine; systematic classification but no formal apparatus",
+   "formality_confidence": "medium"
   },
   {
    "id": 210,
@@ -18341,7 +18968,10 @@
    "title": "Revolution in Poetic Language",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 0,
+   "formality_rationale": "Dense theoretical prose (semiotic/symbolic, Hegel, Lacan); occasional pseudo-formal gestures, no working definitions or calculus",
+   "formality_confidence": "medium"
   },
   {
    "id": 211,
@@ -18362,7 +18992,10 @@
    "title": "A Theory of Concepts and Their Combinations",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Defines the SCOP formalism (states, contexts, properties) with lattice-theoretic definitions, theorems, and a Hilbert-space model",
+   "formality_confidence": "medium"
   },
   {
    "id": 212,
@@ -18383,7 +19016,10 @@
    "title": "Is There Something Quantum-Like About the Human Mental Lexicon?",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Derives quantum association models (superposition, tensor products) inside a mostly programmatic and empirical argument",
+   "formality_confidence": "medium"
   },
   {
    "id": 213,
@@ -18404,7 +19040,10 @@
    "title": "Quantum Models of Cognition and Decision",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Book's core is worked quantum probability: Hilbert spaces, projectors, Lueders rule, derivations carried through applications",
+   "formality_confidence": "high"
   },
   {
    "id": 214,
@@ -18425,7 +19064,10 @@
    "title": "Can Quantum Probability Provide a New Direction for Cognitive Modeling?",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "BBS target article: survey prose with real QP fragments, e.g. projector computations for conjunction/order effects; no full system",
+   "formality_confidence": "medium"
   },
   {
    "id": 215,
@@ -18446,7 +19088,10 @@
    "title": "The Potential of Using Quantum Theory to Build Models of Cognition",
    "level": "F0",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Tutorial/position paper: lays out QP axioms with notation and example calculations inside a mostly-prose case for quantum models",
+   "formality_confidence": "medium"
   },
   {
    "n": 216,
@@ -18468,9 +19113,13 @@
    "authors": "Lambek, J.",
    "title": "The Mathematics of Sentence Structure",
    "note": "ADDED 2026-09-05: formalized in the atlas but absent from the original 200",
+   "id": "x215",
    "level": "F5",
    "determination_actual": "as_is",
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "The paper IS a formal system: the syntactic calculus is defined by sequent-style rules, and theorems (including decidability via cut-elimination-style argument) are stated and proved in full, in a mathematics journal. Core is a defined calculus with proofs carried through — textbook P4. Not P5: no machine-checked artifact on its pages.",
+   "formality_confidence": "high"
   },
   {
    "n": 217,
@@ -18493,9 +19142,13 @@
    "authors": "Ranta, A.",
    "title": "Type-Theoretical Grammar",
    "note": "ADDED 2026-09-05: the root of the type-theoretic cluster, absent from the original 200",
+   "id": "x216",
    "level": "F5",
    "determination_actual": "as_is",
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Book tie-breaker: grade the formal core, which the book has — grammar developed inside Martin-Löf type theory with explicit formation/introduction/elimination rules, contexts, sugaring/parsing operations, and derivations carried through chapter by chapter, alongside philosophical prose. Comparable to the Steedman-P4 case. Not P5: the book ships no proof-assistant artifact (GF postdates it and is not on these pages).",
+   "formality_confidence": "high"
   },
   {
    "n": 218,
@@ -18516,9 +19169,13 @@
    "authors": "Frank, M. & Goodman, N.",
    "title": "Predicting Pragmatic Reasoning in Language Games",
    "note": "ADDED 2026-09-05",
+   "id": "x217",
    "level": "F4",
    "determination_actual": "as_is",
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Checked the PDF: the Science main text carries exactly two numbered equations (listener posterior, size-principle likelihood) plus prose and correlation statistics; the derivation S1-S4 with Boolean-function word meanings sits in the supplement. Experimental-paper tie-breaker: a formal linking model is defined and used to generate quantitative predictions, so P3 rather than P1-P2; but the apparatus is a fragment of a mostly experimental report — no calculus, no proofs — so nowhere near P4.",
+   "formality_confidence": "high"
   },
   {
    "n": 219,
@@ -18539,9 +19196,13 @@
    "authors": "Lassiter, D. & Goodman, N.",
    "title": "Adjectival Vagueness in a Bayesian Model of Interpretation",
    "note": "ADDED 2026-09-05",
+   "id": "x218",
    "level": "F4",
    "determination_actual": "as_is",
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Checked the PDF: real apparatus on the page — probability axioms, Bayes' rule, RSA L0/S1/L1 equations, a typed lambda-calculus degree semantics with compositional derivations ((21)-(23), POS computations), and joint (world, threshold) posterior inference. But grep finds zero theorems/lemmas/proofs; borderline-case and sorites properties are established by simulation and prose discussion, not derivation, unlike the P4 anchors (Church, G&S 1984, Charlow). Torn P3/P4 — per tie-breaker, take the lower: formal fragments within a substantial prose argument about vagueness.",
+   "formality_confidence": "medium"
   },
   {
    "n": 220,
@@ -18562,9 +19223,13 @@
    "authors": "Bergen, L., Levy, R. & Goodman, N.",
    "title": "Pragmatic Reasoning through Semantic Inference",
    "note": "ADDED 2026-09-05 (the survey listed only GF16/GL15)",
+   "id": "x219",
    "level": "F4",
    "determination_actual": "as_is",
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Checked PDF: lexical-uncertainty calculus defined in body, Lemmas 1-2 proved in main text p20, not appendix-only; argument runs on it.",
+   "formality_confidence": "medium"
   },
   {
    "n": 221,
@@ -18585,9 +19250,13 @@
    "authors": "Preller, A. & Lambek, J.",
    "title": "Free Compact 2-Categories",
    "note": "ADDED 2026-09-05",
+   "id": "x220",
    "level": "F5",
    "determination_actual": "as_is",
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "MSCS math paper: free compact 2-categories defined, freeness/coherence theorems proved; fully formal core, no machine-checked artifact.",
+   "formality_confidence": "high"
   },
   {
    "n": 222,
@@ -18606,9 +19275,13 @@
    "authors": "Sadrzadeh, M., Clark, S. & Coecke, B.",
    "title": "The Frobenius Anatomy of Word Meanings I",
    "note": "ADDED 2026-09-05 (DisCoCat.v STRETCH S2 target)",
+   "id": "x221",
    "level": "F2",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Defines Frobenius algebras over FVect, proves propositions diagrammatically; the formal system is the paper's core, so P4 not P3.",
+   "formality_confidence": "high"
   },
   {
    "n": 223,
@@ -18627,9 +19300,13 @@
    "authors": "Veltman, F.",
    "title": "Defaults in Update Semantics",
    "note": "ADDED 2026-09-05 (PDF already on disk)",
+   "id": "x222",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Update systems and default expectation patterns formally defined; facts/theorems proved. A formal system carried through, per P4.",
+   "formality_confidence": "high"
   },
   {
    "n": 224,
@@ -18650,9 +19327,13 @@
    "authors": "Ciardelli, I. & Roelofsen, F.",
    "title": "Inquisitive Logic",
    "note": "ADDED 2026-09-05 (a main InqB.v source, absent from the 200)",
+   "id": "x223",
    "level": "F4",
    "determination_actual": "as_is",
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "JoLLI logic paper: InqL semantics, algebraic characterization, KP axiomatization with completeness proof. Paradigm P4, no Coq artifact.",
+   "formality_confidence": "high"
   },
   {
    "n": 225,
@@ -18671,9 +19352,13 @@
    "authors": "Steedman, M.",
    "title": "The Syntactic Process",
    "note": "ADDED 2026-09-05 (CCG was absent from the 200; PDF on disk)",
+   "id": "x224",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Named P4 anchor in the rubric itself; CCG combinatory calculus and derivations carried through the book. Nothing to reconcile.",
+   "formality_confidence": "high"
   },
   {
    "n": 226,
@@ -18695,9 +19380,13 @@
    "authors": "Kratzer, A.",
    "title": "What 'Must' and 'Can' Must and Can Mean",
    "note": "ADDED 2026-09-05 (PDF on disk; formalized in pilots; ptq__kratzer edge evidence)",
+   "id": "x225",
    "level": "F3",
    "determination_actual": "as_is",
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 3,
+   "formality_rationale": "Model-theoretic defs of relative modality sit inside a prose argument; no calculus or proofs carried through — matches P3 anchors.",
+   "formality_confidence": "high"
   },
   {
    "citation": "Dowty, D. (1979) - \"Word Meaning and Montague Grammar\"",
@@ -18716,9 +19405,13 @@
    },
    "coq_files": [],
    "note": "survey omission — canonical textbook, on disk (front matter only)",
+   "id": "x226",
    "level": "F1",
    "determination_actual": null,
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "TOC confirms formal core: aspect calculus 2.3, interval truth conds Ch3, full fragment w/ model theory 7.7; book rule grades the core.",
+   "formality_confidence": "high"
   },
   {
    "citation": "Dowty, D., Wall, R. & Peters, S. (1981) - \"Introduction to Montague Semantics\"",
@@ -18739,9 +19432,13 @@
     "atlas/montague/PTQ.v"
    ],
    "note": "survey omission — on disk (djvu)",
+   "id": "x227",
    "level": "F5",
    "determination_actual": "as_is",
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Whole textbook is the formal system: IL syntax/semantics, model theory, PTQ fragment with derivations worked end to end.",
+   "formality_confidence": "high"
   },
   {
    "citation": "Morrill, G. (2011) - \"Categorial Grammar: Logical Syntax, Semantics, and Processing\"",
@@ -18762,9 +19459,13 @@
     "atlas/type_logical/Lambek.v"
    ],
    "note": "survey omission — on disk",
+   "id": "x228",
    "level": "F5",
    "determination_actual": "as_is",
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Core is a defined logic: displacement calculus, sequent rules, cut elim, Curry-Howard semantics; proofs carried through, not machine-checked.",
+   "formality_confidence": "high"
   },
   {
    "citation": "Moot, R. & Retoré, C. (2012) - \"The Logic of Categorial Grammars\"",
@@ -18786,9 +19487,13 @@
     "atlas/categorical/DisCoCat.v"
    ],
    "note": "survey omission — on disk",
+   "id": "x229",
    "level": "F5",
    "determination_actual": "as_is",
-   "prediction_disputed": false
+   "prediction_disputed": false,
+   "formality": 4,
+   "formality_rationale": "Proof-theory textbook: Lambek/multimodal sequent calculi, cut elim and proof-net correctness proved in text; no P5 artifact.",
+   "formality_confidence": "high"
   }
  ],
  "edges": [

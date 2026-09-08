@@ -216,7 +216,27 @@ def main():
                 {k: v for k, v in a.items() if k != "replaces_citation"})
         else:
             papers.append(a)
+    # Addendum entries carry no id (and their n duplicates the frozen list's).
+    # Mint stable ids from the list position — the order is deterministic
+    # (papers.json frozen, addendum appended in file order) — so that
+    # formality.json and any future frozen annotation can key on id.
+    for i, p in enumerate(papers):
+        if p.get("id") in (None, ""):
+            p["id"] = f"x{i}"
+
     papers = compute_levels(papers, files, edges)
+
+    # Intrinsic formality P0-P5 (FORMALITY_RUBRIC.md): a FROZEN grade of how
+    # formal the paper is on its own pages — orthogonal to the evidence
+    # ladder above, never recomputed here. formality.json is the
+    # pre-registration; the project's central table is formality x outcome.
+    fm = load(os.path.join(HERE, "formality.json")) or {}
+    for p in papers:
+        g = fm.get(str(p.get("id"))) or fm.get(str(p.get("n")))
+        if g:
+            p["formality"] = g["formality"]
+            p["formality_rationale"] = g.get("rationale")
+            p["formality_confidence"] = g.get("confidence")
 
     # --- summary statistics over Coq files
     det_count = Counter(r["_final"]["determination"] for r in files)

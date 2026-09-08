@@ -681,25 +681,36 @@ function vEdge(key){
 }
 
 function vPapers(q){
-  const lvl=(q&&q.level)||'';
+  const lvl=(q&&q.level)||'', fm=(q&&q.formality)||'';
   const LAB={F0:'surveyed only',F1:'sourced',F2:'designed',F3:'piloted',F4:'formalized',F5:'verified & connected'};
+  const PLAB={0:'discursive',1:'systematic prose',2:'semi-formal',3:'formal fragments',4:'full system',5:'machine-checked'};
+  const hasFm=D.papers.some(p=>p.formality!==undefined);
   return `<div class="wrap"><div class="crumb"><a href="#/">Atlas</a> / Papers</div>
   <section style="padding-top:24px">
     <div class="sechead"><h2>${D.papers.length} papers surveyed</h2>
-      <span class="note">${totals.formalized} have reached F4 or F5 — formalized, or formalized and
-      connected to another theory by a graded edge.</span></div>
+      <span class="note">Two orthogonal axes. <b>Evidence</b> (F0–F5) is how far the paper has traveled
+      through this pipeline — ${totals.formalized} have reached F4/F5. <b>Formality</b> (P0–P5) is how
+      formal the paper is on its own pages, graded once and frozen before any Coq work
+      (the rubric is FORMALITY_RUBRIC.md). The project's question lives in the cross-table:
+      what happens to each formality stratum under a proof assistant.</span></div>
     ${ladderHTML()}
     <div class="controls" style="margin-top:26px">
       <input type="search" id="pq" placeholder="Search author, title, topic…" oninput="pFilter()">
-      <button class="chip ${lvl?'':'on'}" onclick="go('#/papers')">All</button>
+      <button class="chip ${lvl||fm?'':'on'}" onclick="go('#/papers')">All</button>
       ${['F5','F4','F3','F2','F1','F0'].map(l=>
         `<button class="chip ${lvl===l?'on':''}" onclick="go('#/papers?level=${l}')">${l} · ${LAB[l]}</button>`).join('')}
     </div>
-    <table><thead><tr><th class="n">Level</th><th>Paper</th><th>Topic</th><th class="n">Coq</th></tr></thead>
-    <tbody id="prows">${D.papers.filter(p=>!lvl||p.level===lvl).map(p=>{
+    ${hasFm?`<div class="controls" style="margin-top:8px">
+      ${[5,4,3,2,1,0].map(l=>
+        `<button class="chip ${fm===String(l)?'on':''}" onclick="go('#/papers?formality=${l}')">P${l} · ${PLAB[l]}</button>`).join('')}
+    </div>`:''}
+    <table><thead><tr><th class="n">Evidence</th>${hasFm?'<th class="n">Formality</th>':''}<th>Paper</th><th>Topic</th><th class="n">Coq</th></tr></thead>
+    <tbody id="prows">${D.papers.filter(p=>(!lvl||p.level===lvl)&&(!fm||String(p.formality)===fm)).map(p=>{
       const files=(p.coq_present||p.coq_files||[]);
       return `<tr data-s="${esc((p.citation+' '+p.topic+' '+(p.title||'')).toLowerCase())}">
       <td class="n"><span class="b ${p.level>='F4'?'ok':p.level>='F2'?'mid':'q'}">${esc(p.level||'')}</span></td>
+      ${hasFm?`<td class="n">${p.formality!==undefined?`<span class="b ${p.formality>=4?'ok':p.formality>=2?'mid':'q'}"
+        title="${esc(p.formality_rationale||'')}">P${p.formality}</span>${p.formality_confidence==='low'?'<span class="tiny dim"> ?</span>':''}`:'—'}</td>`:''}
       <td>${esc(p.citation)}${p.prediction_disputed?'<span class="b bad" style="margin-left:8px">survey call disputed</span>':''}</td>
       <td class="small dim">${esc(p.topic)}</td>
       <td class="n mono tiny">${files.length?files.map(f=>esc(f.split('/').pop())).join('<br>'):'—'}</td></tr>`;}).join('')}

@@ -1,0 +1,1842 @@
+{
+ "1": {
+  "formality": 2,
+  "rationale": "Philosophical exposition: T-schema, object/metalanguage requirements in prose; satisfaction definition only sketched 'in outline'",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "2": {
+  "formality": 4,
+  "rationale": "Rubric P4 anchor: defines simple type theory with primitive symbols, axioms, and formal deductions carried through",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "3": {
+  "formality": 4,
+  "rationale": "Full fragment: numbered syntactic rules, translation rules into IL, model theory, worked derivations of scope ambiguities",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "4": {
+  "formality": 3,
+  "rationale": "Philosophical prose argument; first-order event logical forms displayed as fragments, no calculus or model theory developed",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "6": {
+  "formality": 4,
+  "rationale": "Formal DRS syntax, algorithmic construction rules, model-embedding truth definition; donkey-sentence derivations carried through",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "7": {
+  "formality": 4,
+  "rationale": "Dissertation with formal core: recursive file-change/CCP definitions, felicity conditions, fragment rules carried through",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "8": {
+  "formality": 4,
+  "rationale": "Complete dynamic calculus: compositional semantics, equivalence facts and properties stated and proved",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "9": {
+  "formality": 4,
+  "rationale": "Axiomatized type-theoretic reconstruction of DRT (TY2 plus axioms), lemmas, full compositional fragment",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "10": {
+  "formality": 4,
+  "rationale": "ILLC dissertation defining dynamic systems (DPL variants, PLA) with formal semantics, facts, and proofs",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "11": {
+  "formality": 4,
+  "rationale": "GQ theory with formal definitions (live-on, monotonicity, witness sets) and theorems proved in appendix",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "12": {
+  "formality": 4,
+  "rationale": "Mathematical characterization of conservative determiner functions; theorems (effability) with proofs throughout",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "13": {
+  "formality": 4,
+  "rationale": "Logic monograph: theorems and proofs across GQ theory (tree of numbers) and categorial calculi",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "14": {
+  "formality": 3,
+  "rationale": "Mostly-prose cross-linguistic survey; tripartite-structure notation and type-shifting fragments (image-only scan, from knowledge)",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "15": {
+  "formality": 4,
+  "rationale": "Boolean semantics monograph: flexibility principles, choice functions formally defined; derivations carried through",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "16": {
+  "formality": 4,
+  "rationale": "Defines lattice-theoretic logic LP: axioms, model theory, star/sigma operators, formal semantics carried through",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "17": {
+  "formality": 3,
+  "rationale": "Book with set-theoretic definitions (covers, Part/D operators) at key points in mostly-prose argument; torn P3/P4, took lower",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "18": {
+  "formality": 4,
+  "rationale": "Type-logical event semantics: formal definitions and long compositional derivations sustained through the book",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "19": {
+  "formality": 4,
+  "rationale": "Strata theory defined in typed lambda calculus; algebraic definitions and derivations/proofs carried through",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "20": {
+  "formality": 3,
+  "rationale": "Lambda definitions of * operator and cumulativity (verified on page) inside a mostly-prose argument; no calculus",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "21": {
+  "formality": 3,
+  "rationale": "Precise set-theoretic definitions of modal base, ordering source, modal forces; no derivations or proofs carried through",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "22": {
+  "formality": 4,
+  "rationale": "Sphere semantics formally defined; V-logics axiomatized with soundness/completeness results in ch. 6",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "23": {
+  "formality": 3,
+  "rationale": "Rubric P3 anchor: C2 axioms and model-theory sketch embedded in philosophical prose argument",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "24": {
+  "formality": 3,
+  "rationale": "Dynamic strict-conditional definitions in display within mostly-prose argument; Sobel derivations, no calculus development",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "25": {
+  "formality": 4,
+  "rationale": "Core is a defined update semantics: 10+ numbered definitions carried through derivations (verified); no theorems/proofs",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "26": {
+  "formality": 3,
+  "rationale": "Recursive focus-value definitions and ~ operator with presupposition, applied in a mostly-prose NLS argument; no calculus",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "27": {
+  "formality": 4,
+  "rationale": "Dynamic structured-meaning framework with full compositional update derivations carried through (verified dense formalism)",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "28": {
+  "formality": 3,
+  "rationale": "Compositional focus/question semantics fragments and computed LF denotations inside a linguistic argument; no new calculus",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "5": {
+  "formality": 4,
+  "rationale": "Whole paper defines the system: exact set-theoretic intensions, binders, derivation trees through fragment; matches P4 anchors, not sketch",
+  "confidence": "high",
+  "method": "judge",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "29": {
+  "formality": 3,
+  "rationale": "Typed 'only' entry, Strawson-DE schemas, lambda-binder LFs recur pp.4-26: real formalism in parts of prose argument — Kratzer-anchor P3",
+  "confidence": "medium",
+  "method": "judge",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "30": {
+  "formality": 3,
+  "rationale": "Book: QUD-based theory with formal definitions and lexical entries, but bulk is diagnostics-driven empirical prose; no calculus carried through",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "31": {
+  "formality": 5,
+  "rationale": "Rubric's own P5 anchor: MTT semantics implemented and machine-checked in Coq; ships the verified artifact",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "32": {
+  "formality": 4,
+  "rationale": "Core is UTT with coercive subtyping; CNs-as-types worked out with typing rules and formal judgements throughout",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "33": {
+  "formality": 4,
+  "rationale": "MTT analysis via Sigma-types, universes, disjoint unions, coercive subtyping; typing derivations carried through the paper",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "34": {
+  "formality": 4,
+  "rationale": "Listed P4 anchor (Luo 2011): type-theoretic contexts/signatures for word meaning with formal rules and judgements",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "35": {
+  "formality": 4,
+  "rationale": "Defines DTS: dependent type calculus with @-operator, inference rules and worked derivations for anaphora",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "36": {
+  "formality": 4,
+  "rationale": "Edited volume whose chapters are predominantly full type-theoretic systems with rules and derivations; some prose chapters",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "37": {
+  "formality": 4,
+  "rationale": "SALT paper: formal coercive subtyping rules within UTT applied to CN semantics; judgements and rules on the page",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "38": {
+  "formality": 4,
+  "rationale": "DTS presupposition projection computed by type checking; full derivation trees and typing rules carried through",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "39": {
+  "formality": 4,
+  "rationale": "Verified on page: Pi-types with (PiE) elimination rules and full typed derivation trees for polysemy/coercion",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "40": {
+  "formality": 4,
+  "rationale": "Monograph-length MTT formal system with rules and derivations; includes Coq material but book itself is not a verified artifact",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "41": {
+  "formality": 4,
+  "rationale": "Defines the Montagovian generative lexicon in System F with coercive subtyping extension; typed terms and derivations throughout",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "42": {
+  "formality": 3,
+  "rationale": "Verified: recaps Lambda-TYn pipeline with typed terms/coercions, but chapter's contribution is a prose design argument for classifier sorts",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "43": {
+  "formality": 4,
+  "rationale": "Verified: framework paper defining Lambda-TYn in system F, introduces coercive-subtyping extension; calculus is the core",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "44": {
+  "formality": 4,
+  "rationale": "JoLLI paper: second-order lambda calculus lexicon with coercions and worked typed derivations for polysemy/copredication",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "46": {
+  "formality": 4,
+  "rationale": "Verified: defines Reader monad triple and a sequent calculus for linear logic with monadic modality; derivations for opacity cases",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "47": {
+  "formality": 4,
+  "rationale": "Listed P4 anchor: defines monads with unit/bind laws as a semantic calculus, systematic formal treatment of side effects",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "48": {
+  "formality": 4,
+  "rationale": "Listed P4 anchor: dissertation builds a monadic scope calculus with types, laws, and derivations carried through",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "49": {
+  "formality": 4,
+  "rationale": "Verified: monadic dynamic semantics with typing, algorithm and full Haskell implementation plus test suite; implementation, not proof-checked",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "50": {
+  "formality": 4,
+  "rationale": "Defines TTR mathematically: records, record types, dependencies and subtyping with formal definitions carried through",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "51": {
+  "formality": 4,
+  "rationale": "Montague-style fragment: numbered syntactic/translation rules into IL giving alternative-set denotations for questions",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "52": {
+  "formality": 4,
+  "rationale": "Full Montague fragment for interrogatives: syntactic rules paired with IL translation rules, systematically carried through",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "53": {
+  "formality": 4,
+  "rationale": "Listed P4 anchor: partition semantics dissertation with full model theory, definitions and proofs",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "54": {
+  "formality": 4,
+  "rationale": "OUP book defining InqB: state-based semantics, algebraic operations, facts and proofs, exercises; a complete formal system",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "55": {
+  "formality": 4,
+  "rationale": "Synthese paper: lattice/algebraic characterization of inquisitive content with theorems and proofs",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "56": {
+  "formality": 3,
+  "rationale": "Verified: handbook chapter with Bayes equations and executable Church code models, but expository; no proofs or worked metatheory",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "57": {
+  "formality": 4,
+  "rationale": "Verified: full recursive RSA/lexical-uncertainty model definitions plus Lemmas 1-2 with induction proofs in appendices",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "58": {
+  "formality": 3,
+  "rationale": "Verified: corpus study, but Definitions 1-7 give a formal probabilistic interpretation function used in the experiment; linking theory formal",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "45": {
+  "formality": 3,
+  "rationale": "PDF: no monads here (companion paper); full Glue proofs apply an existing calculus inside a prose arg/adjunct study; torn, take lower.",
+  "confidence": "high",
+  "method": "judge",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "59": {
+  "formality": 3,
+  "rationale": "Formally specified log-linear models and ILP/AD3 inference derivations; algorithmic math serving empirical eval, no logic or model theory",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "60": {
+  "formality": 1,
+  "rationale": "Position paper: World Scopes taxonomy (WS1-WS5) argued in prose with examples; no definitions, notation, or formalism",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "61": {
+  "formality": 3,
+  "rationale": "Typed lambda denotations for degree modifiers and scale-structure definitions inside a data-driven Language article; no full calculus",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "62": {
+  "formality": 3,
+  "rationale": "Degree-semantic denotations and parameter statements (DSP/DAP) embedded in a cross-linguistic data survey; formal fragments, no system",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "63": {
+  "formality": 3,
+  "rationale": "EVAL operator and degree denotations given formally in parts; book argues mostly in prose over data, no model theory carried through",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "64": {
+  "formality": 3,
+  "rationale": "Measurement-theoretic axioms and probabilistic semantics defined and used; representation theorems cited not proved; torn P3/P4, took lower",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "65": {
+  "formality": 3,
+  "rationale": "Compositional lambda and presupposition derivations across chapters serving a data argument; standard apparatus, no theorems or proofs",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "66": {
+  "formality": 1,
+  "rationale": "Rubric anchor for P1: maxims and implicature diagnostics in systematic prose with worked examples; no formal apparatus",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "67": {
+  "formality": 2,
+  "rationale": "Rubric anchor for P2: Q/R principles regimented with occasional notation and taxonomy; no calculus or model theory",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "68": {
+  "formality": 2,
+  "rationale": "Q/I/M heuristics stated as regimented principles with taxonomies and occasional notation; no formal calculus of default inference",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "69": {
+  "formality": 3,
+  "rationale": "Recursive definitions of plain vs strong values (Strong Application, ALT) in text plus formal appendix, inside a long data-driven argument",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "70": {
+  "formality": 3,
+  "rationale": "Scalar alternatives and epistemic-K derivations spelled out formally for complex sentences; formal core in a data argument, no model theory",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "71": {
+  "formality": 2,
+  "rationale": "Careful prose with a regimented definition of speaker presupposition; no model theory on these pages, unlike Stalnaker 1968 (P3 anchor)",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "73": {
+  "formality": 3,
+  "rationale": "Binding theory of presupposition in DRT: DRS notation and resolution constraints in parts; book argues mostly in prose over data",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "74": {
+  "formality": 4,
+  "rationale": "Numbered definitions D1-D22+, facts, trivalent and dynamic systems, full Update Logic with syntax and models carried through the book",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "75": {
+  "formality": 4,
+  "rationale": "Local contexts defined via quantification over good finals; equivalence results with dynamic semantics stated and proved; core is formal",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "76": {
+  "formality": 4,
+  "rationale": "Symbolic-logic textbook; S/R/E tense analysis formulated inside the full token-reflexive formal system with derivations",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "77": {
+  "formality": 2,
+  "rationale": "Topic-time relations (TT, TSit, TU) stated in regimented relational notation; no model theory or compositional calculus on the page",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "78": {
+  "formality": 4,
+  "rationale": "Event logical forms pervade the argument and an explicit underlying language with axioms is given; formalism is the core, not an appendix",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "79": {
+  "formality": 3,
+  "rationale": "Short SALT paper: presuppositional tense denotations in lambda notation applied to examples; formal fragments in a prose argument",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "82": {
+  "formality": 2,
+  "rationale": "Link/focus/tail trichotomy with file-card update instructions semi-formalized; regimented notions, no worked calculus or model theory",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "83": {
+  "formality": 3,
+  "rationale": "QUD scoreboard, relevance, and congruence defined set-theoretically with question semantics; definitions serve a prose framework, no proofs",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "84": {
+  "formality": 3,
+  "rationale": "CT-values and d-tree congruence conditions defined in alternative-semantics notation; formal fragments within a data-driven L&P argument",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "85": {
+  "formality": 3,
+  "rationale": "Numbered definitions (N-closure, type-shift, Givenness constraints) with existential-formula computations over accent data; no calculus",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "86": {
+  "formality": 1,
+  "rationale": "Methodology paper: elicitation principles and worked fieldwork examples in systematic prose; no formal apparatus",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "87": {
+  "formality": 3,
+  "rationale": "Experimental, but literal/local/global readings stated as logical formulas and used to derive predictions; linking theory is formal",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "72": {
+  "formality": 3,
+  "rationale": "Real DRT apparatus, but algorithm semi-formal, no own model theory or proofs; half is prose survey. Borderline P3/P4 -> take lower.",
+  "confidence": "high",
+  "method": "judge",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "80": {
+  "formality": 3,
+  "rationale": "Intensional fragment with derivations, but interleaved with rival-theory review; composition left incomplete. Torn P3/P4 -> lower.",
+  "confidence": "medium",
+  "method": "judge",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "81": {
+  "formality": 2,
+  "rationale": "Systems with entry conditions, realization statements, function notation = regimented definitions + occasional notation, i.e. P2.",
+  "confidence": "medium",
+  "method": "judge",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "88": {
+  "formality": 3,
+  "rationale": "Situation-semantic lambda denotations for weak vs strong articles amid experiments; formal fragments, no full calculus.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "89": {
+  "formality": 1,
+  "rationale": "Developmental experiments with statistics; scale typology invoked in prose linking theory, no formal semantics defined.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "90": {
+  "formality": 1,
+  "rationale": "Eye-tracking and rating studies with regression models; constraints stated in prose, no formal apparatus.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "91": {
+  "formality": 3,
+  "rationale": "Rubric P3 anchor: lambda formalism for kinds/stages/realization in parts of a mostly-prose dissertation.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "92": {
+  "formality": 3,
+  "rationale": "Type-shifting operators (cap/cup), lambda derivations, Nominal Mapping Parameter inside a prose typology argument; fragments, no calculus.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "93": {
+  "formality": 3,
+  "rationale": "Rubric P3 anchor: Event Identification and lambda denotations in parts of a prose argument.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "94": {
+  "formality": 2,
+  "rationale": "GB monograph: explicit principles and tree representations, no model theory or worked calculus.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "95": {
+  "formality": 3,
+  "rationale": "Uses neo-Davidsonian logical forms and explicit definitions in its semantics chapters; formal fragments in a mostly-prose book.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "96": {
+  "formality": 3,
+  "rationale": "Defines Restrict/Saturate composition operations with lambda derivations over Chamorro/Maori data; fragments within fieldwork prose.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "97": {
+  "formality": 3,
+  "rationale": "GQ denotations for St'at'imcets determiners with lambda terms; formal fragments in a fieldwork-driven argument.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "98": {
+  "formality": 3,
+  "rationale": "Kratzerian modal denotations for Nez Perce o'qa with formal fragments amid descriptive/typological argument.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "99": {
+  "formality": 3,
+  "rationale": "Choice-function/alternative semantics for Q-particles plus syntactic derivations; formalism in parts of a mostly syntactic monograph.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "100": {
+  "formality": 4,
+  "rationale": "Core is a dynamic plural logic with post-suppositions defined as delayed tests; formal clauses and derivations carried through.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "101": {
+  "formality": 2,
+  "rationale": "Coherence relations given regimented inference-style definitions with occasional notation; no worked logic or model theory in this report.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "102": {
+  "formality": 2,
+  "rationale": "Humean relation taxonomy with regimented p(a1,a2) schemas applied to ellipsis/pronouns; notation but no calculus or model theory.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "103": {
+  "formality": 4,
+  "rationale": "SDRT as full system: SDRS language, glue logic with defeasible axioms, dynamic semantics, formal appendices.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "104": {
+  "formality": 2,
+  "rationale": "Corpus annotation study: coherence graphs defined precisely, then statistics; no formal semantics defined or used.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "105": {
+  "formality": 3,
+  "rationale": "DLTAG: discourse connectives as LTAG elementary trees with semantic sketches; real grammar formalism in parts of a prose argument.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "106": {
+  "formality": 3,
+  "rationale": "Qualia and typed feature structures, coercion rules in type notation throughout; apparatus real but never carried through as a calculus.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "107": {
+  "formality": 3,
+  "rationale": "Typed default feature structures and formalized lexical rules for sense extension; formalism in parts of a prose argument.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "108": {
+  "formality": 4,
+  "rationale": "Book's core is Type Composition Logic: typing rules, type presuppositions, dot types, with derivations carried through.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "109": {
+  "formality": 3,
+  "rationale": "Defines measure-of-change functions with typed degree denotations and worked derivations; formal fragments in a prose argument.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "110": {
+  "formality": 2,
+  "rationale": "Event-structure templates ([x ACT<manner>]) plus diagnostics; semi-formal decompositions, no model theory or derivations.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "111": {
+  "formality": 4,
+  "rationale": "Verified on page: categorial fragment, partial valuations, quantified set-theoretic extension clauses for comparatives carried through.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "112": {
+  "formality": 4,
+  "rationale": "Two formally defined theories of adjectives (degree functions vs supervaluation contexts) with Montague-style model apparatus.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "113": {
+  "formality": 3,
+  "rationale": "Typed degree denotations, pos morpheme, scale typology; formal fragments interleaved with extensive prose argumentation.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "114": {
+  "formality": 2,
+  "rationale": "Verified: sorites premises in quantified logic, but the positive interest-relative theory is regimented prose; no model theory.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "115": {
+  "formality": 4,
+  "rationale": "Defines update semantics over world-delineation pairs with compositional dynamic denotations; the system is the paper's core.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "116": {
+  "formality": 3,
+  "rationale": "Set-theoretic situation apparatus (situation types, constraints) in parts; much philosophical prose, rigor deferred to later work.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "117": {
+  "formality": 4,
+  "rationale": "Book's core is situation theory built formally: infons, support relation, types, constraints in notation; theorem-poor but a defined system",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "118": {
+  "formality": 3,
+  "rationale": "Situation-semantic formalism (situations, parthood, exemplification defined) inside a mostly-prose ontology-of-facts argument",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "119": {
+  "formality": 1,
+  "rationale": "Ordinary-language prose on truth; demonstrative/descriptive conventions stated discursively, no notation or definitions",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "120": {
+  "formality": 2,
+  "rationale": "Regimented taxonomy of literalism/contextualism positions, defined pragmatic processes, occasional schemas; no calculus or model theory",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "121": {
+  "formality": 2,
+  "rationale": "Prose ICM/radial-category theory, there-construction case study; Putnam model-theory chapter is critique of others' formalism, not own",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "122": {
+  "formality": 1,
+  "rationale": "Rubric's P1 anchor: prototype principles in systematic prose with cited experiments, no formal apparatus",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "123": {
+  "formality": 2,
+  "rationale": "Rubric's P2 anchor: frame notion with regimented definitions and worked examples, no formal machinery",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "124": {
+  "formality": 2,
+  "rationale": "Systematic taxonomies of schematic systems, force-dynamics diagrams as notation; no calculus or model theory",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "125": {
+  "formality": 3,
+  "rationale": "Conceptual-structure formalism [EVENT GO(x,y)] with well-formedness and correspondence rules amid cognitive prose; no model theory",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "126": {
+  "formality": 2,
+  "rationale": "Semi-formal ID principle with F(a)/connector notation, space-builder definitions, diagrams; no worked calculus",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "127": {
+  "formality": 1,
+  "rationale": "Prose blending theory: network taxonomy, constitutive/governing principles stated informally with diagrams; no formal apparatus",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "128": {
+  "formality": 1,
+  "rationale": "Prose account of modality and conditionals across content/epistemic/speech-act domains; worked examples, no formalism",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "129": {
+  "formality": 1,
+  "rationale": "Prose plus small-caps metaphor mappings (ARGUMENT IS WAR); example lists, no definitions or formal apparatus",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "130": {
+  "formality": 1,
+  "rationale": "Dissertation in prose: taxonomy of primary metaphors and primary scenes with worked examples; no formal machinery",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "131": {
+  "formality": 2,
+  "rationale": "Sem/Syn construction boxes, role-fusion diagrams, Correspondence and Coherence principles; regimented but no formal calculus",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "132": {
+  "formality": 2,
+  "rationale": "Detailed let-alone syntax/semantics; scalar-model notion semi-formally sketched (full formalization is Kay 1990), taxonomy of idioms",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "134": {
+  "formality": 1,
+  "rationale": "Rubric tie-breaker names it P1: usage-based acquisition argument in prose with data and diagnostics, no formal apparatus",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "135": {
+  "formality": 2,
+  "rationale": "Explicitly anti-formalist yet regimented: trajector/landmark diagram notation, defined units and schemas; no calculus",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "137": {
+  "formality": 2,
+  "rationale": "Defines semantic-map method with connectivity constraint and graph diagrams; regimented procedure, no model theory",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "138": {
+  "formality": 2,
+  "rationale": "Modal semantic map as directed graph with defined regions and grammaticalization paths; semi-formal diagrams, no semantics calculus",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "139": {
+  "formality": 1,
+  "rationale": "GRAMCATS cross-linguistic survey; grammaticalization paths as prose schemas; linking theory informal, statistics set aside per rubric",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "140": {
+  "formality": 1,
+  "rationale": "Typological survey; A1-D system labels form a taxonomy in systematic prose, no formal apparatus",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "141": {
+  "formality": 1,
+  "rationale": "IITSC change model as schematic diagram plus regimented terms (IIN/GIIN); corpus case studies in prose, no formalism",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "142": {
+  "formality": 1,
+  "rationale": "Conference-paper prose on bleaching via metaphor; worked etymological examples, no notation or definitions",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "143": {
+  "formality": 1,
+  "rationale": "Textbook prose: clines (item > clitic > affix), diagnostics, taxonomies of mechanisms; no formal apparatus",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "144": {
+  "formality": 1,
+  "rationale": "19th-c essayistic prose but with named 'laws' and a taxonomy of change types with examples; no definitions in the modern sense",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "145": {
+  "formality": 1,
+  "rationale": "Frame-based typology of metonymy (co-presence vs succession) with classification criteria; systematic prose, no formalism",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "133": {
+  "formality": 1,
+  "rationale": "Anti-formalist prose polemic; conceptual-space diagrams and a few regimented definitions, no notation system; torn P1/P2, lower taken",
+  "confidence": "medium",
+  "method": "judge",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "136": {
+  "formality": 2,
+  "rationale": "Hierarchy/implicational notation, tetrachoric tables, maps are the book's spine — P2 'regimented principles, occasional notation' fits",
+  "confidence": "medium",
+  "method": "judge",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "146": {
+  "formality": 4,
+  "rationale": "Book's core is games of partial information: game trees, payoffs, Pareto-Nash equilibria computed for implicature and force cases.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "147": {
+  "formality": 4,
+  "rationale": "ILLC dissertation: signaling games and IBR solution concept defined; propositions and proofs carried through.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "148": {
+  "formality": 4,
+  "rationale": "Evolutionary signaling-game model over conceptual spaces; formal result that stable strategies induce Voronoi tessellations.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "149": {
+  "formality": 3,
+  "rationale": "Displayed recursive definitions of (super)optimality over Gen with ordering, OT tableaux; no theorems or model theory (checked PDF).",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "150": {
+  "formality": 2,
+  "rationale": "Prose argument on OT asymmetry; inline superoptimality definitions and named constraints, no calculus or derivations (checked PDF).",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "151": {
+  "formality": 1,
+  "rationale": "BBS theory piece: systematic framework (simulators, frames) with diagrams; author concedes no formal implementation.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "152": {
+  "formality": 1,
+  "rationale": "Popular-science book: prose walk-through of simulation experiments; no definitions or notation.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "153": {
+  "formality": 1,
+  "rationale": "Prose neural-grounding argument with schematic 'cog' diagrams; no formal apparatus.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "154": {
+  "formality": 1,
+  "rationale": "Experimental paper (motor resonance); linking theory is prose, apparatus is statistics only.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "155": {
+  "formality": 1,
+  "rationale": "Edited volume of experimental reviews on grounded cognition; systematic prose, no formalism.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "156": {
+  "formality": 3,
+  "rationale": "Defines LSA mathematically (matrix, SVD dimension reduction) and uses it as the model in a mostly prose+empirical Psych Review paper.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "157": {
+  "formality": 2,
+  "rationale": "Survey with displayed formulas (PMI, tf-idf, SVD, cosine) organizing prior VSMs; no developed system; torn 2/3, took lower.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "158": {
+  "formality": 3,
+  "rationale": "Formal definition of DM as weighted tuple tensor with matricization operations, then largely empirical evaluation.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "159": {
+  "formality": 4,
+  "rationale": "Compact closed categories and pregroups with functorial semantics; diagrammatic calculus and derivations are the paper.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "160": {
+  "formality": 2,
+  "rationale": "Special-issue intro comparing FS and DS; occasional logical formulas and vector examples, no new formal system (checked PDF).",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "161": {
+  "formality": 4,
+  "rationale": "Lambda-categorial semantics for attitude reports; structured meanings defined set-theoretically with compositional derivations.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "162": {
+  "formality": 3,
+  "rationale": "Philosophical prose plus numbered-premise argument and a recursive semantics for a structured-proposition fragment.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "163": {
+  "formality": 2,
+  "rationale": "Philosophy Compass survey of structured meaning; occasional TIL notation, no worked calculus of its own.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "164": {
+  "formality": 4,
+  "rationale": "PTCT monograph: typed calculus with proof theory and model theory, soundness/completeness proofs carried through.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "165": {
+  "formality": 4,
+  "rationale": "Defines a typed logic where senses are algorithms computing reference; formal system with definitions and results in L&P.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "166": {
+  "formality": 0,
+  "rationale": "Rubric's named P0 anchor; argument lives entirely in phenomenological prose.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "167": {
+  "formality": 0,
+  "rationale": "Hermeneutic treatise; discursive prose throughout, no definitions or formalism.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "168": {
+  "formality": 0,
+  "rationale": "Phenomenological prose; case studies (Schneider) but no diagnostics, taxonomy, or formal apparatus.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "170": {
+  "formality": 1,
+  "rationale": "Numbered sections with explicit terminological definitions and taxonomies of act structure (noesis/noema); no formal apparatus.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "171": {
+  "formality": 0,
+  "rationale": "Rubric's named P0 anchor; deconstructive prose, no definitions or formalism.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "172": {
+  "formality": 0,
+  "rationale": "Prose essay on iterability engaging Austin; no definitions, diagnostics, or notation.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "173": {
+  "formality": 0,
+  "rationale": "Rhetorical readings of literary and philosophical texts; entirely discursive.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "174": {
+  "formality": 0,
+  "rationale": "Short polemical essay; pure prose, no systematic apparatus.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "169": {
+  "formality": 0,
+  "rationale": "Ricoeur defines terms and cites Austin/Frege distinctions, but imports rather than builds them; four lecture-essays with no diagnostics, worked examples, or own taxonomy — below the Grice/Austin P1 anchors. Torn 0/1, tie-breaker says lower.",
+  "confidence": "medium",
+  "method": "judge",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "175": {
+  "formality": 0,
+  "rationale": "Poststructuralist essays; semiotic/symbolic in prose; stray pseudo-notation (0-1,0-2) does no inferential work. Derrida-genre.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "176": {
+  "formality": 1,
+  "rationale": "Numbered remarks, pervasive worked examples (builders, language games); definitions refused, no formalism. Austin-genre P1.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "177": {
+  "formality": 1,
+  "rationale": "Rubric anchor for P1: performative/constative diagnostics, felicity-condition taxonomy, no formal apparatus.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "178": {
+  "formality": 2,
+  "rationale": "Numbered conditions and constitutive rules for promising, F(p) notation, regimented definitions; no calculus or model theory.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "179": {
+  "formality": 1,
+  "rationale": "Systematic prose: category-mistake diagnostics, knowing-how/that distinctions, rich examples; zero formal apparatus.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "180": {
+  "formality": 1,
+  "rationale": "Careful descriptive metaphysics in prose; identification/reidentification criteria argued informally, barely any notation.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "181": {
+  "formality": 0,
+  "rationale": "Literary-theoretical essays; heteroglossia and chronotope developed in discursive prose, no diagnostics or apparatus.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "182": {
+  "formality": 2,
+  "rationale": "Rubric anchor for P2: regimented definitions (common ground, levels of joint action), tracks and layers; no worked calculus.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "183": {
+  "formality": 1,
+  "rationale": "CA classic: repair-position taxonomy with transcript worked examples and transcription conventions; principles, no formalism.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "184": {
+  "formality": 1,
+  "rationale": "Transcripts plus frame-grabs analyzed systematically (hopscotch, archaeologists); worked examples, no formal apparatus.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "185": {
+  "formality": 1,
+  "rationale": "Enchrony framework with glossed Lao transcripts, diagrams, taxonomies of signs; systematic prose, no formal system.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "186": {
+  "formality": 1,
+  "rationale": "Rubric tie-breaker names Tomasello P1: prose argument on shared intentionality with examples, no formal core.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "187": {
+  "formality": 3,
+  "rationale": "Language-game strategies specified as algorithms with alignment/update dynamics and IRL semantics; real formalism, no proofs.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "189": {
+  "formality": 1,
+  "rationale": "BBS position paper: prose argument that language adapts to the brain, reviews simulations; no formalism of its own.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "190": {
+  "formality": 1,
+  "rationale": "Peircean icon/index/symbol taxonomy with diagrams and worked cases; scholarly prose, no formal apparatus.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "191": {
+  "formality": 1,
+  "rationale": "Essays with Hopi/SAE grammatical examples and covert-category taxonomy; linguistic analysis in prose, no formalism.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "192": {
+  "formality": 1,
+  "rationale": "BBS survey argument: cross-linguistic counterexample tables and design-feature diagnostics; no formal apparatus deployed.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "193": {
+  "formality": 1,
+  "rationale": "Field-linguistic prose with interlinear Piraha glosses; states immediacy-of-experience principle, derives predictions informally.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "194": {
+  "formality": 1,
+  "rationale": "Ethnography with glossed Apache place-names and a typology of place-name speech genres; worked examples, no apparatus.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "195": {
+  "formality": 0,
+  "rationale": "Narrative ethnography/oral history of glacier knowledge; argument entirely in prose, no taxonomy or diagnostics.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "196": {
+  "formality": 0,
+  "rationale": "Dense critical-theory essay on representation and subalternity; no definitions or formalism, pure discursive argument.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "197": {
+  "formality": 0,
+  "rationale": "Essayistic memoir-argument on language and colonialism; discursive throughout, no systematic apparatus.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "198": {
+  "formality": 0,
+  "rationale": "Decolonial theory monograph; border thinking developed in discursive prose, no diagnostics or formal machinery.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "199": {
+  "formality": 0,
+  "rationale": "Critical-theory prose; enumerated monocultures/ecologies are manifesto lists, not operationalized diagnostics. Tie-break lower.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "201": {
+  "formality": 0,
+  "rationale": "Rubric anchor for P0: affect theory via close readings, argument lives entirely in prose.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "202": {
+  "formality": 0,
+  "rationale": "Deleuzean affect theory; invokes topology/physics metaphorically, no actual formalism or definitions on the page.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "203": {
+  "formality": 0,
+  "rationale": "Theoretical prose on affective transmission citing endocrinology; no definitions, taxonomy, or formal apparatus.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "188": {
+  "formality": 1,
+  "rationale": "Facts undisputed: entropy/Mantel ARE the statistics the exp. tie-breaker discounts; linking theory stays prose. Torn goes lower anyway.",
+  "confidence": "high",
+  "method": "judge",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "200": {
+  "formality": 1,
+  "rationale": "25 named project types w/ examples + research-agenda framework + ethics checklists: Austin/Rosch-like systematic prose, above P0 bar.",
+  "confidence": "medium",
+  "method": "judge",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "204": {
+  "formality": 1,
+  "rationale": "Enactivist monograph: systematic conceptual argument engaging affective-science experiments; no definitions or notation on the page",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "205": {
+  "formality": 0,
+  "rationale": "Phenomenological essays on movement/kinesthesia; discursive prose throughout, no diagnostics, taxonomy, or formal apparatus",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "206": {
+  "formality": 1,
+  "rationale": "Aesthetic essays with a taxonomy of openness; one chapter recaps Shannon's probability/log formulas, borrowed notation doing no work",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "207": {
+  "formality": 1,
+  "rationale": "Systematic reader-response theory: defined concepts (implied reader, blanks) and worked textual examples; no formalism",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "208": {
+  "formality": 1,
+  "rationale": "Polemical essays with worked interpretive examples and explicit critiques of stylistics; argument entirely in prose",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "209": {
+  "formality": 1,
+  "rationale": "Five-code taxonomy applied exhaustively to 561 lexias of Sarrasine; systematic classification but no formal apparatus",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "210": {
+  "formality": 0,
+  "rationale": "Dense theoretical prose (semiotic/symbolic, Hegel, Lacan); occasional pseudo-formal gestures, no working definitions or calculus",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "211": {
+  "formality": 4,
+  "rationale": "Defines the SCOP formalism (states, contexts, properties) with lattice-theoretic definitions, theorems, and a Hilbert-space model",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "212": {
+  "formality": 3,
+  "rationale": "Derives quantum association models (superposition, tensor products) inside a mostly programmatic and empirical argument",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "213": {
+  "formality": 4,
+  "rationale": "Book's core is worked quantum probability: Hilbert spaces, projectors, Lueders rule, derivations carried through applications",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "214": {
+  "formality": 3,
+  "rationale": "BBS target article: survey prose with real QP fragments, e.g. projector computations for conjunction/order effects; no full system",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "215": {
+  "formality": 3,
+  "rationale": "Tutorial/position paper: lays out QP axioms with notation and example calculations inside a mostly-prose case for quantum models",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "x226": {
+  "formality": 4,
+  "rationale": "TOC confirms formal core: aspect calculus 2.3, interval truth conds Ch3, full fragment w/ model theory 7.7; book rule grades the core.",
+  "confidence": "high",
+  "method": "judge; n-keyed, remapped by content",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "x227": {
+  "formality": 4,
+  "rationale": "Whole textbook is the formal system: IL syntax/semantics, model theory, PTQ fragment with derivations worked end to end.",
+  "confidence": "high",
+  "method": "judge; n-keyed, remapped by content",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "x228": {
+  "formality": 4,
+  "rationale": "Core is a defined logic: displacement calculus, sequent rules, cut elim, Curry-Howard semantics; proofs carried through, not machine-checked.",
+  "confidence": "high",
+  "method": "judge; n-keyed, remapped by content",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "x229": {
+  "formality": 4,
+  "rationale": "Proof-theory textbook: Lambek/multimodal sequent calculi, cut elim and proof-net correctness proved in text; no P5 artifact.",
+  "confidence": "high",
+  "method": "judge; n-keyed, remapped by content",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "x219": {
+  "formality": 4,
+  "rationale": "Checked PDF: lexical-uncertainty calculus defined in body, Lemmas 1-2 proved in main text p20, not appendix-only; argument runs on it.",
+  "confidence": "medium",
+  "method": "judge; n-keyed, remapped by content",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "x220": {
+  "formality": 4,
+  "rationale": "MSCS math paper: free compact 2-categories defined, freeness/coherence theorems proved; fully formal core, no machine-checked artifact.",
+  "confidence": "high",
+  "method": "judge; n-keyed, remapped by content",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "x221": {
+  "formality": 4,
+  "rationale": "Defines Frobenius algebras over FVect, proves propositions diagrammatically; the formal system is the paper's core, so P4 not P3.",
+  "confidence": "high",
+  "method": "judge; n-keyed, remapped by content",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "x222": {
+  "formality": 4,
+  "rationale": "Update systems and default expectation patterns formally defined; facts/theorems proved. A formal system carried through, per P4.",
+  "confidence": "high",
+  "method": "judge; n-keyed, remapped by content",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "x223": {
+  "formality": 4,
+  "rationale": "JoLLI logic paper: InqL semantics, algebraic characterization, KP axiomatization with completeness proof. Paradigm P4, no Coq artifact.",
+  "confidence": "high",
+  "method": "judge; n-keyed, remapped by content",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "x224": {
+  "formality": 4,
+  "rationale": "Named P4 anchor in the rubric itself; CCG combinatory calculus and derivations carried through the book. Nothing to reconcile.",
+  "confidence": "high",
+  "method": "judge; n-keyed, remapped by content",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "x225": {
+  "formality": 3,
+  "rationale": "Model-theoretic defs of relative modality sit inside a prose argument; no calculus or proofs carried through — matches P3 anchors.",
+  "confidence": "high",
+  "method": "judge; n-keyed, remapped by content",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "x215": {
+  "formality": 4,
+  "rationale": "The paper IS a formal system: the syntactic calculus is defined by sequent-style rules, and theorems (including decidability via cut-elimination-style argument) are stated and proved in full, in a mathematics journal. Core is a defined calculus with proofs carried through — textbook P4. Not P5: no machine-checked artifact on its pages.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "x216": {
+  "formality": 4,
+  "rationale": "Book tie-breaker: grade the formal core, which the book has — grammar developed inside Martin-Löf type theory with explicit formation/introduction/elimination rules, contexts, sugaring/parsing operations, and derivations carried through chapter by chapter, alongside philosophical prose. Comparable to the Steedman-P4 case. Not P5: the book ships no proof-assistant artifact (GF postdates it and is not on these pages).",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "x217": {
+  "formality": 3,
+  "rationale": "Checked the PDF: the Science main text carries exactly two numbered equations (listener posterior, size-principle likelihood) plus prose and correlation statistics; the derivation S1-S4 with Boolean-function word meanings sits in the supplement. Experimental-paper tie-breaker: a formal linking model is defined and used to generate quantitative predictions, so P3 rather than P1-P2; but the apparatus is a fragment of a mostly experimental report — no calculus, no proofs — so nowhere near P4.",
+  "confidence": "high",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ },
+ "x218": {
+  "formality": 3,
+  "rationale": "Checked the PDF: real apparatus on the page — probability axioms, Bayes' rule, RSA L0/S1/L1 equations, a typed lambda-calculus degree semantics with compositional derivations ((21)-(23), POS computations), and joint (world, threshold) posterior inference. But grep finds zero theorems/lemmas/proofs; borderline-case and sorites properties are established by simulation and prose discussion, not derivation, unlike the P4 anchors (Church, G&S 1984, Charlow). Torn P3/P4 — per tie-breaker, take the lower: formal fragments within a substantial prose argument about vagueness.",
+  "confidence": "medium",
+  "method": "double-agree",
+  "graded": "2026-09-06",
+  "rubric": "FORMALITY_RUBRIC.md"
+ }
+}

@@ -118,3 +118,43 @@ function types and their subtyping (contravariance); situation types.
 7. MTT hooks (block 8); audit block (Print Assumptions, expect all
    closed); records + edge JSON (ttr__mtt) after.
 Estimated 700-1000 lines.
+
+## BUILD STATE 2026-09-06 (session checkpoint — WIP committed)
+
+`atlas/ttr/TTR.v` exists (~640 lines), compiles clean, NOT in _CoqProject,
+no record/lock entries. Built: Part 0 (labels=nat, paths, list_eqb+specs),
+Part 1 (ty with TBase/TPty/TMeet/TRec over assoc lists — TMeet is an
+UPGRADE over this design's option-meet, giving C23 A8 verbatim and a total
+mu-merge; val/rec; wf_rty/wf_rec; size measures + rty_lookup_in/size),
+Part 2 (of_ty/of_rty transcribing CDLL15 clauses 1-3, ambient-record path
+resolution, proof-irrelevant ptypes; of_ty_rec_iff/of_rty_iff Forall
+forms; TTR-J1..J4), Part 3 partial (sub_w refl/trans/sound with
+wf_rty_lookup; wf_ty + wf_ty_fields/wf_ty_rec_iff; subb structural on the
+SUPERTYPE with inner lft-descent for left meets and forallb over F2 —
+all unfolding equations are definitional (subb_meet_r, subb_meet_l_*,
+subb_rec_rec) — plus subb_rec_in/intro and subb_meet_l_mono).
+
+Key implementation lessons (hard-won, do not rediscover):
+- Make recursion structural on the SUPERTYPE/first-shrinking side and
+  sweep field lists with forallb/map + pattern lambdas: the guard
+  accepts recursive calls through them, and every unfolding lemma is
+  then `reflexivity`. A fused inner `find` fix (first attempt, struct on
+  the subtype) passes the guard too but its unfolding lemmas are
+  unprovable-by-induction (unnameable inner fixes).
+- All remaining structural proofs should be SIZE inductions (ty_size,
+  rty_size, rty_lookup_size are in place; ARTIFACT-v).
+- subb is NOT reflexive without hereditary wf (dup labels in a nested
+  record type break it): subb_refl needs wf_ty.
+- anonymous inner fixes CAN be named in lemma statements by writing the
+  same fix literal (wf_ty_fields pattern) — conversion matches them.
+
+Next session order: subb_refl -> subb_trans (size induction on summed
+measure; meet-left cases go through subb_meet_l_mono) -> subb_sound ->
+sub_w_subb -> merge_ty (subb-subsumption clauses first, map/filter over
+F1/F2, TMeet fallback; labelb_in helper) -> merge_sound (wf_ty T2 only;
+Forall algebra over map/filter/append) -> relabelling (injective sigma;
+rlookup_rename needs sigma_inj + Nat.eqb_spec) -> examples (ExD/ExB/ExP;
+man-runs; chain by reflexivity; hug(x,y) paths; merge example) -> MTT
+hook (rec_to_sigma extracts through the COMPUTABLE rlookup, so no
+Prop->Type escape is needed) -> Print Assumptions block -> _CoqProject +
+record + verify.py + lock + signatures + site.

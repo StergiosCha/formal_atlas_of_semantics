@@ -1,0 +1,88 @@
+{
+ "file": "atlas/pilots/Tarski1944.v",
+ "region": "model-theoretic core",
+ "summary": "P2 pilot: recursive first-order satisfaction, free-variable dependence, closed assignment invariance and language-specific T-equivalences. Snow instance and contradiction test. Object/meta levels remain distinct; no undefinability or classical bivalence theorem.",
+ "assessment_status": "pilot",
+ "sources": [
+  {
+   "citation": "Tarski (1944), The Semantic Conception of Truth, sections 4,9,11, pp.343-345,350-353.",
+   "path": "papers/foundations/Tarski_1944_TheSemanticConceptionOfTruth.pdf",
+   "available": "Selected source sections read on disk; see audit/inventory. No independent second review."
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "formula / satisfies",
+   "source": "Section 11 recursive satisfaction; restricted signature",
+   "match": "simplified"
+  },
+  {
+   "coq": "truth / closed_truth_instance",
+   "source": "Truth via all assignments and T-schema instances; no self-applicable truth",
+   "match": "simplified"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "satisfaction_depends_on_free_variables",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "closed_assignment_invariance",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "closed_truth_instance",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "snow_instance",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "contradiction_has_no_satisfying_assignment",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "no_true_contradiction",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "universal_closes_variable",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  }
+ ],
+ "counts": {
+  "theorems": 7,
+  "proved": 7,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "P2 pilot: recursive first-order satisfaction, free-variable dependence, closed assignment invariance and language-specific T-equivalences. Snow instance and contradiction test. Object/meta levels remain distinct; no undefinability or classical bivalence theorem."
+  ],
+  "simplifications": [
+   "Section 11 recursive satisfaction; restricted signature",
+   "Truth via all assignments and T-schema instances; no self-applicable truth"
+  ],
+  "omissions": [
+   "Whole-source coverage beyond the explicitly bounded fragment."
+  ],
+  "additions": []
+ },
+ "determination": "unassessed",
+ "determination_rationale": "Bounded partial implementation; source-level determination withheld. Incompleteness is not evidence of required restructuring.",
+ "artifact_classes": [],
+ "source_gap": null,
+ "notes": "2026-09-13 local single-researcher audit. See audits/revision_2026_09_13.md and campaigns/pilot_2026_09_13_results.md. Mechanical checks are separate from independent source review.",
+ "compiles": true
+}

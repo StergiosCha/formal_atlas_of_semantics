@@ -1,0 +1,101 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/mtt_ranta/DTS_Resolution.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "mtt_ranta.DTS_Resolution.substitution_preserves_typing": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.DTS_Resolution.covered_terms_resolve": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.DTS_Resolution.repeated_slot_consistent": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.DTS_Resolution.search_exact": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.DTS_Resolution.search_builds_equation": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.DTS_Resolution.choose_sound": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.DTS_Resolution.choose_covers": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.DTS_Resolution.automatic_resolution_sound": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.DTS_Resolution.automatic_resolution_total_on_projection_contexts": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.DTS_Resolution.automatic_resolution_examples": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.DTS_Resolution.negation_same_obligations": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.DTS_Resolution.projection_interpretation": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.DTS_Resolution.resolved_term_has_entity": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.DTS_Resolution.flatten_roundtrip": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.DTS_Resolution.unflatten_roundtrip": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.DTS_Resolution.source_projection_adequate": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.DTS_Resolution.mini_discourse_search": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.DTS_Resolution.mini_discourse_antecedent": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.DTS_Resolution.no_local_antecedent": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.DTS_Resolution.two_antecedents": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.DTS_Resolution.local_context_not_exported": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.DTS_Resolution.ambiguity_changes_referent": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    }
+  },
+  "summary": {
+    "probed": 22,
+    "vacuous": 0,
+    "trivial": 5,
+    "bailout": 0
+  }
+}

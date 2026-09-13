@@ -1,0 +1,272 @@
+{
+ "file": "atlas/pragmatics/Horn1984.v",
+ "region": "pragmatics",
+ "summary": "P2 bounded pilot: Q ignorance versus strengthened negative truth, Q/R cancellation logic, and a finite pragmatic-labor interpreter. Relevance, norm observance, stereotype and corresponding alternatives are inputs, not derived from words.",
+ "assessment_status": "pilot",
+ "bounded_attempt_status": "complete",
+ "sources": [
+  {
+   "citation": "Horn (1984), Toward a New Taxonomy for Pragmatic Inference, sections 1–11 pp.11–31; (12) pp.20–21 and (16)–(18) pp.22–23 visually checked.",
+   "path": "papers/foundations/Horn_1984_TowardANewTaxonomyFor.pdf",
+   "available": "Local primary source read within the stated scope; source inventory and limitations recorded. Independent source review pending."
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "knows; competent",
+   "source": "H1 p.13: added accessible-world encoding; competence is an EXTRA strengthening premise, not inferred from Q observance.",
+   "match": "added"
+  },
+  {
+   "coq": "q_content; r_content",
+   "source": "H2,H3 pp.20–21 (12): weaker content plus not-stronger versus stronger; conditional logical content, not automatic utterance interpretation.",
+   "match": "simplified"
+  },
+  {
+   "coq": "Numerals.lower; Numerals.q_reading",
+   "source": "H3 pp.14,20 (2a),(10): restricted natural-number lower bound with Q upper bound.",
+   "match": "simplified"
+  },
+  {
+   "coq": "expression; context; accepts; readings",
+   "source": "H4 pp.22–23 (17): added Boolean/default-context interpreter and finite enumeration; common extension, binary stereotypes and corresponding alternatives are supplied.",
+   "match": "added"
+  },
+  {
+   "coq": "Causatives.situation; literal; stereotype; normal; cancelled; no_counterpart",
+   "source": "H5 pp.27–29: assigned two-state direct/indirect example, not general lexical semantics or synonym blocking.",
+   "match": "added"
+  },
+  {
+   "coq": null,
+   "source": "H3 empirical restrictions on readings of negated utterances; H6 Q/R weighting, learned stereotypes, diachrony and general lexical selection.",
+   "match": "missing"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "q_yields_ignorance",
+   "status": "proved",
+   "inventory_id": "H1",
+   "claim_kind": "conditional result",
+   "source_claim": "p.13 Q knowledge qualification: relevance, availability and norm observance plus non-use of a stronger form imply ignorance.",
+   "note": "H1 — conditional result"
+  },
+  {
+   "name": "negative_truth_needs_strengthening",
+   "status": "proved",
+   "inventory_id": "H1",
+   "claim_kind": "new",
+   "source_claim": "Negative actual-world truth requires explicit competence and actual-world accessibility in addition to ignorance.",
+   "note": "H1 — new"
+  },
+  {
+   "name": "ignorance_compatible_with_strong_truth",
+   "status": "proved",
+   "inventory_id": "H1",
+   "claim_kind": "new",
+   "source_claim": "Two-world countermodel: ignorance of the stronger content can coexist with its actual truth.",
+   "note": "H1 — new"
+  },
+  {
+   "name": "descriptive_negation_excludes_stronger",
+   "status": "proved",
+   "inventory_id": "H3",
+   "claim_kind": "direct source formalization",
+   "source_claim": "pp.20–21 (12): descriptive not-W entails not-S when S entails W.",
+   "note": "H3 — direct source formalization"
+  },
+  {
+   "name": "stronger_forces_non_descriptive_rejection",
+   "status": "proved",
+   "inventory_id": "H3",
+   "claim_kind": "conditional result",
+   "source_claim": "pp.20–21: affirmation of S excludes descriptive not-W; does not compute metalinguistic readings.",
+   "note": "H3 — conditional result"
+  },
+  {
+   "name": "q_r_incompatible",
+   "status": "proved",
+   "inventory_id": "H2",
+   "claim_kind": "direct source formalization",
+   "source_claim": "pp.20–21 (12): upper-bound and strengthened contents are logically incompatible.",
+   "note": "H2 — direct source formalization; the vacuity probe intentionally flags the inconsistent Q/R premises. This is a disjointness result, not an inference from a consistent joint reading."
+  },
+  {
+   "name": "stronger_cancels_q_not_literal",
+   "status": "proved",
+   "inventory_id": "H3",
+   "claim_kind": "conditional result",
+   "source_claim": "pp.20–21: stronger continuation rejects Q upper bound without rejecting literal W.",
+   "note": "H3 — conditional result"
+  },
+  {
+   "name": "r_cancellation_preserves_literal",
+   "status": "proved",
+   "inventory_id": "H3",
+   "claim_kind": "conditional result",
+   "source_claim": "p.21 (13): retaining W while cancelling R enrichment is logically possible.",
+   "note": "H3 — conditional result"
+  },
+  {
+   "name": "reading_partition_requires_a_decision",
+   "status": "proved",
+   "inventory_id": "H2",
+   "claim_kind": "new",
+   "source_claim": "A logical partition requires a decision S or not-S; does not claim automatic pragmatic choice.",
+   "note": "H2 — new"
+  },
+  {
+   "name": "logical_entailment_does_not_ban_r_rejection",
+   "status": "proved",
+   "inventory_id": "H3",
+   "claim_kind": "new",
+   "source_claim": "Entailment-only countermodel, NOT a refutation of the empirical restriction on negated utterances.",
+   "note": "H3 — new"
+  },
+  {
+   "name": "Numerals.two_sided_is_exact",
+   "status": "proved",
+   "inventory_id": "H3",
+   "claim_kind": "direct source formalization",
+   "source_claim": "Numeral lower bound plus next-value upper bound gives exact quantity.",
+   "note": "H3 — direct source formalization"
+  },
+  {
+   "name": "Numerals.four_cancels_three_upper_bound",
+   "status": "proved",
+   "inventory_id": "H3",
+   "claim_kind": "illustrative reconstruction",
+   "source_claim": "p.20 (10a): four satisfies at-least-three while cancelling its upper bound.",
+   "note": "H3 — illustrative reconstruction"
+  },
+  {
+   "name": "Numerals.descriptive_not_three_excludes_four",
+   "status": "proved",
+   "inventory_id": "H3",
+   "claim_kind": "direct source formalization",
+   "source_claim": "p.20 descriptive not-at-least-three excludes at-least-four.",
+   "note": "H3 — direct source formalization"
+  },
+  {
+   "name": "Numerals.cancellation_is_not_descriptive_negation",
+   "status": "proved",
+   "inventory_id": "H3",
+   "claim_kind": "illustrative reconstruction",
+   "source_claim": "Upper-bound cancellation at four is not descriptive negation of at-least-three.",
+   "note": "H3 — illustrative reconstruction"
+  },
+  {
+   "name": "finite_readings_exact",
+   "status": "proved",
+   "inventory_id": "H4",
+   "claim_kind": "new",
+   "source_claim": "Finite enumeration exactly returns supplied-domain candidates satisfying the added acceptance predicate.",
+   "note": "H4 — new"
+  },
+  {
+   "name": "readings_preserve_literal",
+   "status": "proved",
+   "inventory_id": "H4",
+   "claim_kind": "new",
+   "source_claim": "The added interpreter preserves literal truth in its returned readings.",
+   "note": "H4 — new"
+  },
+  {
+   "name": "labor_disjoint_when_applicable",
+   "status": "proved",
+   "inventory_id": "H4",
+   "claim_kind": "conditional result",
+   "source_claim": "pp.22–23 (17): disjoint stereotypical/non-stereotypical readings under explicitly supplied ordinary/counterpart conditions.",
+   "note": "H4 — conditional result"
+  },
+  {
+   "name": "labor_covers_common_extension",
+   "status": "proved",
+   "inventory_id": "H4",
+   "claim_kind": "new",
+   "source_claim": "Binary supplied stereotype exhausts the chosen common extension; stronger than a general empirical exhaustivity claim.",
+   "note": "H4 — new"
+  },
+  {
+   "name": "context_cancellation_restores_literal",
+   "status": "proved",
+   "inventory_id": "H2",
+   "claim_kind": "new",
+   "source_claim": "Disabling ordinary defaults restores literal content in this interpreter.",
+   "note": "H2 — new"
+  },
+  {
+   "name": "no_counterpart_no_marked_exclusion",
+   "status": "proved",
+   "inventory_id": "H5",
+   "claim_kind": "new",
+   "source_claim": "Without a corresponding unmarked alternative the marked form is not automatically excluded from the stereotype.",
+   "note": "H5 — new"
+  },
+  {
+   "name": "Causatives.killed_caused_contrast",
+   "status": "proved",
+   "inventory_id": "H5",
+   "claim_kind": "illustrative reconstruction",
+   "source_claim": "p.27 (28): supplied direct/indirect kill/cause-to-die contrast.",
+   "note": "H5 — illustrative reconstruction"
+  },
+  {
+   "name": "Causatives.counterpart_and_context_matter",
+   "status": "proved",
+   "inventory_id": "H5",
+   "claim_kind": "new",
+   "source_claim": "Boundary tests withdrawing counterpart availability or ordinary context.",
+   "note": "H5 — new"
+  },
+  {
+   "name": "Causatives.same_extension_does_not_identify_readings",
+   "status": "proved",
+   "inventory_id": "H5",
+   "claim_kind": "new",
+   "source_claim": "Same supplied literal extension need not give identical pragmatic readings.",
+   "note": "H5 — new"
+  },
+  {
+   "name": "Causatives.removing_counterpart_restores_direct_case",
+   "status": "proved",
+   "inventory_id": "H5",
+   "claim_kind": "new",
+   "source_claim": "Removing the supplied corresponding alternative restores the direct case.",
+   "note": "H5 — new"
+  }
+ ],
+ "counts": {
+  "theorems": 24,
+  "proved": 24,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "P2 bounded pilot: Q ignorance versus strengthened negative truth, Q/R cancellation logic, and a finite pragmatic-labor interpreter. Relevance, norm observance, stereotype and corresponding alternatives are inputs, not derived from words."
+  ],
+  "simplifications": [
+   "H2,H3 pp.20–21 (12): weaker content plus not-stronger versus stronger; conditional logical content, not automatic utterance interpretation.",
+   "H3 pp.14,20 (2a),(10): restricted natural-number lower bound with Q upper bound."
+  ],
+  "omissions": [
+   "H3: logical compatibility does not establish the empirical ban on R-cancelling negated readings.",
+   "H6: no Q/R weighting, empirical validation, learned stereotypes or diachrony; sections after 11 not read for this bounded campaign.",
+   "Causative contrast is illustrative; no automatic lexical correspondence or shorter-synonym blocking."
+  ],
+  "additions": [
+   "H1 p.13: added accessible-world encoding; competence is an EXTRA strengthening premise, not inferred from Q observance.",
+   "H4 pp.22–23 (17): added Boolean/default-context interpreter and finite enumeration; common extension, binary stereotypes and corresponding alternatives are supplied.",
+   "H5 pp.27–29: assigned two-state direct/indirect example, not general lexical semantics or synonym blocking."
+  ]
+ },
+ "determination": "unassessed",
+ "determination_rationale": "Bounded attempt completed, not a completed source-theory formalization. Added machinery and uncovered core claims prevent a whole-source determination; these chosen restrictions do not show that restructuring was necessary.",
+ "artifact_classes": [],
+ "source_gap": null,
+ "notes": "2026-09-13 purposive P0/P1/P2 campaign. See campaigns/tiers_2026_09_13_protocol.md, tiers_2026_09_13_inventory.md and tiers_2026_09_13_results.md. Single-researcher assessment, not independent review. Counts include helper/example declarations; triviality flags are mechanical findings, not verified source claims.",
+ "compiles": true
+}

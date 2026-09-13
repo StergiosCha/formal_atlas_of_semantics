@@ -25,8 +25,10 @@
          restriction is precisely the formal residue of R95-Type
          (proof-relevant propositions, §2.16) vs CL20-Prop (UTT's
          impredicative, proof-irrelevant-in-spirit Prop, §2.3.1).  A
-         witness-extraction function exists on the Ranta side and
-         provably cannot be written on the MTT side (documented).
+         witness-extraction function exists for Sigma on BOTH sides.
+         CL20 pp. 15-16 explicitly retain Sigma alongside weak exists;
+         strong_some_agree checks that shared constructor.  The weak
+         existential comparison is not a framework non-definability result.
      B3  Intersective adjectives ARE separated subsets: MTT.inter_cn
          (sig) and Ranta.subset_cn (sigT) are equivalent both ways —
          CL20 §3.3.1 is R95 §2.12.
@@ -55,8 +57,8 @@
      [ARTIFACT-i]   Cross-sort equalities (Prop-valued vs Type-valued
                     meanings) are stated at Type via cumulativity; where
                     a genuine sort gap exists (some/exists), the
-                    mediation is inhabited — the gap is the finding, not
-                    an encoding accident.
+                    mediation is inhabited.  This compares selected
+                    constructors, not the expressive power of frameworks.
      [ARTIFACT-iv]  Zero axioms; every audited theorem closes under the
                     global context.
 *)
@@ -105,12 +107,21 @@ Theorem some_agree_bwd_inhabited :
   MTT.some A P -> inhabited (Ranta.some A P).
 Proof. intros [x Hx]; constructor; exists x; exact Hx. Qed.
 
-(* On the Ranta side, witness extraction is a FUNCTION (R95 §3.7
-   "reference to proofs"); on the MTT side no such function is
-   definable:
-     Fail Definition mtt_witness (H : MTT.some A P) : A := ...
-   fails with the elimination restriction ("Case analysis on sort Type
-   is not allowed for inductive definition ex").  *)
+(* Direct elimination of the WEAK Prop-existential into arbitrary Type
+   is rejected by Coq.  This is a checked rejection of this eliminator,
+   not a metatheorem excluding every possible function or MTT analysis. *)
+Fail Definition weak_witness (H : MTT.some A P) : A :=
+  match H with ex_intro _ x _ => x end.
+
+(* Both frameworks support witness-bearing Sigma (CL20 p. 16 note 26). *)
+Theorem strong_some_agree : MTT.strong_some A P = Ranta.some A P.
+Proof. reflexivity. Qed.
+
+Theorem strong_witness_agree : forall s : MTT.strong_some A P,
+  MTT.strong_witness A P s = projT1 s.
+Proof. reflexivity. Qed.
+
+(* R95 section 3.7, reference to proofs. *)
 Definition ranta_witness (p : Ranta.some A P) : A := projT1 p.
 
 Theorem ranta_witness_sound : forall p : Ranta.some A P,
@@ -196,12 +207,11 @@ Section Subtyping.
 
 Variables (Man Human : Type) (mh : Man -> Human) (walk : Human -> Prop).
 
-(* Without a lifting, the Ranta-side sentence is ill-typed — R95 has no
-   subtyping; the following fails with "The term x has type Man while it
-   is expected to have type Human":
-     Fail Check (Ranta.every Man (fun x : Man => walk x)).
-   (Kept as a comment: Fail Check inside a section reports the section
-   variables, which makes the error message environment-relative.) *)
+(* R95's fragment has no automatic coercive-subtyping mechanism.  The
+   rejected unlifted expression is ill-typed in both encodings: it does
+   not establish an expressivity separation between the theories. *)
+Fail Check (Ranta.every Man (fun x : Man => walk x)).
+Fail Check (MTT.every Man (fun x : Man => walk x)).
 
 (* With the lifting explicit, the two sides agree definitionally. *)
 Theorem sub_sentence_agree :
@@ -231,6 +241,8 @@ Print Assumptions no_agree_bwd.
 Print Assumptions some_agree_fwd.
 Print Assumptions some_agree_bwd_inhabited.
 Print Assumptions ranta_witness_sound.
+Print Assumptions strong_some_agree.
+Print Assumptions strong_witness_agree.
 Print Assumptions inter_subset_fwd.
 Print Assumptions inter_subset_bwd.
 Print Assumptions inter_subset_some.

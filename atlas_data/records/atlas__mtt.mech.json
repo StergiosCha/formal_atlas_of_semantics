@@ -11,25 +11,27 @@
     "stderr_tail": ""
   },
   "counts": {
-    "theorems": 33,
-    "proved": 33,
+    "theorems": 35,
+    "proved": 35,
     "admitted": 0,
     "aborted": 0,
     "admitted_definitions": 0,
     "unparsed_status": 0,
-    "definitions": 24,
+    "definitions": 27,
     "toplevel_axioms": 0,
     "section_assumptions": 6
   },
   "assumptions": {
-    "queried": 33,
-    "closed": 33,
+    "queried": 35,
+    "closed": 35,
     "not_closed": 0,
     "undocumented_axioms": [],
     "detail": {},
     "unresolved": []
   },
   "statements": {
+    "mtt_ranta.MTT.strong_some_to_some": "4a4ac9bb27a219b4",
+    "mtt_ranta.MTT.strong_witness_sound": "c6c611ac900392ba",
     "mtt_ranta.MTT.every_anti": "a58567f1e033ad22",
     "mtt_ranta.MTT.some_mono": "d7c266fa1431801d",
     "mtt_ranta.MTT.no_anti": "fd4aacc371a706f6",

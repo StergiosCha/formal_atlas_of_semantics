@@ -1,0 +1,75 @@
+{
+ "file": "atlas/ttr/TTR_vs_MTT.v",
+ "region": "TTR and modern type theories: scoped comparisons",
+ "summary": "At a fixed TTR model, induces an MTT noun type and erases ptype witnesses. Proves only a man-runs inhabitation correspondence. Distinct well-typed records have the same subject projection, which therefore has no inverse.",
+ "sources": [
+  {
+   "citation": "Cooper, R. (2023). From Perception to Communication. OUP.",
+   "path": "papers/foundations/Cooper_2023_FromPerceptionToCommunication.pdf",
+   "available": "read: section 1.3 pp. 11-14, section 1.4.1 pp. 18-19, A2-A3 pp. 400-401, A8-A9 pp. 404-406, A11.1-A11.3 pp. 407-411"
+  },
+  {
+   "citation": "Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories.",
+   "path": "papers/foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf",
+   "available": "read: sections 1.2, 1.4.2-1.4.3, 2.3.1, 3.2.3"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "individual / man / runs",
+   "source": "A2-A3 versus CL20 CN types and weak existential",
+   "match": "added",
+   "note": "Model-relative subtype plus existential witness erasure."
+  },
+  {
+   "coq": "fixed_model_inhabitation",
+   "source": "restricted cross-framework comparison",
+   "match": "added",
+   "note": "Equivalence of these two propositions, not frameworks, type identities or witness spaces."
+  }
+ ],
+ "theorems": [
+  {
+   "name": "record_to_mtt / mtt_to_record_inhabited / fixed_model_inhabitation",
+   "status": "proved",
+   "source_claim": "Model-indexed inhabitation correspondence on one construction."
+  },
+  {
+   "name": "LossOfInformation.subject_projection_loses_witnesses / LossOfInformation.no_inverse_from_subject",
+   "status": "proved",
+   "source_claim": "The subject projection is not injective and cannot reconstruct the original witness record."
+  }
+ ],
+ "counts": {
+  "theorems": 6,
+  "proved": 6,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "faithful",
+  "evidence": [
+   "Assessment limited to the explicitly stated fragment; see audits/ttr_comparison.md. Mechanical results are stored separately in the .mech.json sidecar."
+  ],
+  "simplifications": [
+   "One construction and a fixed model; no global TTR/MTT equivalence or reverse choice function."
+  ],
+  "omissions": [
+   "One construction and a fixed model; no global TTR/MTT equivalence or reverse choice function."
+  ],
+  "additions": [
+   "explicit cross-encoding translations and loss-of-information results"
+  ]
+ },
+ "determination": "not_applicable",
+ "determination_rationale": "Comparison infrastructure, not an independent determination of either whole source theory.",
+ "artifact_classes": [
+  {
+   "class": "iv",
+   "description": "Explicit deep type codes, assignments and list-based records or comparison maps; Coq is the metalanguage."
+  }
+ ],
+ "source_gap": null,
+ "notes": "Source-based implementation audit on 2026-09-12; no independent second semantic reviewer is claimed. See audits/ttr_comparison.md for limitations and references.",
+ "compiles": true
+}

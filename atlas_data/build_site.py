@@ -84,6 +84,7 @@ def main():
             "sources": r.get("sources", []), "counts": r.get("counts", {}), "compiles": r.get("compiles"),
             "faithfulness": r.get("faithfulness", {}), "determination": r.get("determination"),
             "determination_rationale": r.get("determination_rationale"), "artifact_classes": r.get("artifact_classes", []),
+            "assessment_status": r.get("assessment_status"),
             "definitions_mapped": r.get("definitions_mapped", []), "theorems": r.get("theorems", []),
             "duplicate_of": r.get("duplicate_of"), "source_gap": r.get("source_gap"), "notes": r.get("notes"),
             "final": r.get("_final", {}), "verify": {"agrees": v.get("agrees"), "disputes": v.get("disputes", []), "confidence": v.get("confidence")} if v else None,
@@ -93,7 +94,8 @@ def main():
     for p in papers:
         p["coq_present"] = [f for f in p.get("coq_files", []) if f in known_files]
     data = {"generated": datetime.date.today().isoformat(), "regions": [{"key": k, "name": n} for k, n, _ in REGIONS],
-            "papers": papers, "files": slim_files, "stats": stats, "edges": edges}
+            "papers": papers, "files": slim_files, "stats": stats, "edges": edges,
+            "claim_comparison": atlas.get("claim_comparison") if os.path.exists(atlas_path) else None}
     tpl = open(os.path.join(SITE, "template.html")).read()
     blob = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
     html = tpl.replace("__ATLAS_DATA__", blob).replace("__GENERATED__", data["generated"])

@@ -18,8 +18,8 @@
   {
    "coq": "subset_cn = sigT",
    "source": "R95 §2.11-2.12 separated subsets",
-   "match": "exact",
-   "note": "the coincidence with the existential is Ranta's own point"
+   "match": "simplified",
+   "note": "Evidence-bearing Sigma encoding after propositions-as-types; source judgemental subset membership is not literally the Coq sigT constructor."
   },
   {
    "coq": "donkey_ctx; he/it as projT1/projT2; donkey_sentence",
@@ -140,6 +140,6 @@
   }
  ],
  "source_gap": null,
- "notes": "Second file of the MTT+Ranta pair (designs/mtt_ranta.md); 416 lines. The djvu is read with djvutxt; cite by section.",
+ "notes": "Second file of the MTT+Ranta pair (designs/mtt_ranta.md); 416 lines. The djvu is read with djvutxt; cite by section. Source note 2026-09-12: section 2.12's judgemental separated subsets are encoded by Sigma packages; this and the selected Prop-valued MTT comparison do not establish whole-framework identity.",
  "compiles": true
 }

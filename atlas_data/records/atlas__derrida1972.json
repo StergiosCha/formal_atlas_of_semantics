@@ -1,0 +1,209 @@
+{
+ "file": "atlas/discursive/Derrida1972.v",
+ "region": "philosophical",
+ "summary": "P0 bounded illustrative reconstruction: context-sensitive reuse, quotation, signature-form information loss and possible failure. NOT a verification of deconstruction or universal semantic non-saturation.",
+ "assessment_status": "pilot",
+ "bounded_attempt_status": "complete",
+ "sources": [
+  {
+   "citation": "Derrida (1972), Signature Event Context, local English Limited Inc text pp.1–23 (whole essay read).",
+   "path": "papers/foundations/Derrida_1972_SignatureEventContext.pdf",
+   "available": "Local primary source read within the stated scope; source inventory and limitations recorded. Independent source review pending."
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "ContextualExample.mark; frame; effect; occurrence; reading; interpret; graft",
+   "source": "D1–D3 pp.7–12: added finite vocabulary and partial interpreter; exact equality restricts the essay's qualified sameness of forms.",
+   "match": "added"
+  },
+  {
+   "coq": "ContextualExample.depth; quote; ceiling",
+   "source": "D2–D3: added unbounded quotation syntax and finite-list bound, not a definition of all contexts or semantic non-saturation.",
+   "match": "added"
+  },
+  {
+   "coq": "visible_form; origin (section parameters)",
+   "source": "D4 pp.19–20: restricted token/form/origin representation with explicit indistinguishability assumptions.",
+   "match": "simplified"
+  },
+  {
+   "coq": "Risk.accessible; Risk.possible_failure",
+   "source": "D5 pp.15–18: added two-world illustration, not the source's definition of structural possibility.",
+   "match": "added"
+  },
+  {
+   "coq": null,
+   "source": "D6 pp.3,9,18–21: universal contextual non-saturation, dissemination and philosophical critique.",
+   "match": "missing"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "ContextualExample.agrammaticality_example",
+   "status": "proved",
+   "inventory_id": "D2",
+   "claim_kind": "illustrative reconstruction",
+   "source_claim": "p.12 agrammatical phrase functions as an example; behavior stipulated in the interpreter.",
+   "note": "D2 — illustrative reconstruction"
+  },
+  {
+   "name": "ContextualExample.graft_preserves_form",
+   "status": "proved",
+   "inventory_id": "D2",
+   "claim_kind": "new",
+   "source_claim": "Projection property of the added graft operation.",
+   "note": "D2 — new"
+  },
+  {
+   "name": "ContextualExample.graft_changes_possible_effect",
+   "status": "proved",
+   "inventory_id": "D2",
+   "claim_kind": "illustrative reconstruction",
+   "source_claim": "p.12 context change of the same form; concrete modeled example.",
+   "note": "D2 — illustrative reconstruction"
+  },
+  {
+   "name": "ContextualExample.context_cannot_be_erased_from_this_interpreter",
+   "status": "proved",
+   "inventory_id": "D3",
+   "claim_kind": "new",
+   "source_claim": "Two modeled contexts disprove context-erasure for THIS interpreter, not every theory.",
+   "note": "D3 — new"
+  },
+  {
+   "name": "ContextualExample.absent_producer_can_still_be_read",
+   "status": "proved",
+   "inventory_id": "D1",
+   "claim_kind": "illustrative reconstruction",
+   "source_claim": "pp.7–10 absence of producer; an example in a model omitting intention from interpretation.",
+   "note": "D1 — illustrative reconstruction"
+  },
+  {
+   "name": "ContextualExample.producer_metadata_invariant_here",
+   "status": "proved",
+   "inventory_id": "D1",
+   "claim_kind": "new",
+   "source_claim": "Origin-metadata independence is built into this interpreter, not established for language.",
+   "note": "D1 — new"
+  },
+  {
+   "name": "ContextualExample.same_form_need_not_be_same_occurrence",
+   "status": "proved",
+   "inventory_id": "D4",
+   "claim_kind": "illustrative reconstruction",
+   "source_claim": "pp.19–20 repeated form need not identify a unique occurrence.",
+   "note": "D4 — illustrative reconstruction"
+  },
+  {
+   "name": "ContextualExample.quotation_depth",
+   "status": "proved",
+   "inventory_id": "D2",
+   "claim_kind": "new",
+   "source_claim": "Helper lemma about the added quotation syntax.",
+   "note": "D2 — new"
+  },
+  {
+   "name": "ContextualExample.member_below_ceiling",
+   "status": "proved",
+   "inventory_id": "D2",
+   "claim_kind": "new",
+   "source_claim": "Finite-list depth-bound helper.",
+   "note": "D2 — new"
+  },
+  {
+   "name": "ContextualExample.fresh_quote_beyond_any_finite_list",
+   "status": "proved",
+   "inventory_id": "D2",
+   "claim_kind": "new",
+   "source_claim": "Unbounded fresh contexts in the added syntax, not semantic non-saturation.",
+   "note": "D2 — new"
+  },
+  {
+   "name": "ContextualExample.quotation_levels_distinct",
+   "status": "proved",
+   "inventory_id": "D2",
+   "claim_kind": "new",
+   "source_claim": "Distinct depths identify distinct syntactic quotation levels.",
+   "note": "D2 — new"
+  },
+  {
+   "name": "ContextualExample.unbounded_quotation_can_keep_effect_constant",
+   "status": "proved",
+   "inventory_id": "D3",
+   "claim_kind": "new",
+   "source_claim": "Countermodel to inferring semantic variation merely from syntactic unboundedness.",
+   "note": "D3 — new"
+  },
+  {
+   "name": "repeatable_form_cannot_recover_both_origins",
+   "status": "proved",
+   "inventory_id": "D4",
+   "claim_kind": "conditional result",
+   "source_claim": "pp.19–20 motivated information-loss result: equal observed forms and different origins rule out form-only decoding.",
+   "note": "D4 — conditional result"
+  },
+  {
+   "name": "richer_evidence_is_not_ruled_out",
+   "status": "proved",
+   "inventory_id": "D4",
+   "claim_kind": "new",
+   "source_claim": "The conditional form-only result does not exclude richer token evidence; not an authentication algorithm.",
+   "note": "D4 — new"
+  },
+  {
+   "name": "signature_form_and_origin_can_diverge",
+   "status": "proved",
+   "inventory_id": "D4",
+   "claim_kind": "illustrative reconstruction",
+   "source_claim": "A two-token witness to the premises of the conditional form-only result.",
+   "note": "D4 — illustrative reconstruction"
+  },
+  {
+   "name": "Risk.necessary_risk_coexists_with_success",
+   "status": "proved",
+   "inventory_id": "D5",
+   "claim_kind": "illustrative reconstruction",
+   "source_claim": "pp.15–18 successful performances coexist with the possibility of failure in an added modal model.",
+   "note": "D5 — illustrative reconstruction"
+  },
+  {
+   "name": "Risk.necessary_risk_does_not_mean_all_actual_fail",
+   "status": "proved",
+   "inventory_id": "D5",
+   "claim_kind": "new",
+   "source_claim": "Countermodel to conflating possible failure with all actual performances failing.",
+   "note": "D5 — new"
+  }
+ ],
+ "counts": {
+  "theorems": 17,
+  "proved": 17,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "P0 bounded illustrative reconstruction: context-sensitive reuse, quotation, signature-form information loss and possible failure. NOT a verification of deconstruction or universal semantic non-saturation."
+  ],
+  "simplifications": [
+   "D4 pp.19–20: restricted token/form/origin representation with explicit indistinguishability assumptions."
+  ],
+  "omissions": [
+   "D6 central philosophical claims are not statable in this signature; no verdict of false, inconsistent or unmechanizable.",
+   "No universal readability, theory of intention, real-world authentication or complete contextual interpretation."
+  ],
+  "additions": [
+   "D1–D3 pp.7–12: added finite vocabulary and partial interpreter; exact equality restricts the essay's qualified sameness of forms.",
+   "D2–D3: added unbounded quotation syntax and finite-list bound, not a definition of all contexts or semantic non-saturation.",
+   "D5 pp.15–18: added two-world illustration, not the source's definition of structural possibility."
+  ]
+ },
+ "determination": "unassessed",
+ "determination_rationale": "Bounded attempt completed, not a completed source-theory formalization. Added machinery and uncovered core claims prevent a whole-source determination; these chosen restrictions do not show that restructuring was necessary.",
+ "artifact_classes": [],
+ "source_gap": null,
+ "notes": "2026-09-13 purposive P0/P1/P2 campaign. See campaigns/tiers_2026_09_13_protocol.md, tiers_2026_09_13_inventory.md and tiers_2026_09_13_results.md. Single-researcher assessment, not independent review. Counts include helper/example declarations; triviality flags are mechanical findings, not verified source claims.",
+ "compiles": true
+}

@@ -1,0 +1,62 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "atlas/mtt_ranta/DTS_Resolution.v",
+  "key": "atlas__dts_resolution",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "unsafe_flags": [],
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 22,
+    "proved": 22,
+    "admitted": 0,
+    "aborted": 0,
+    "admitted_definitions": 0,
+    "unparsed_status": 0,
+    "definitions": 20,
+    "toplevel_axioms": 0,
+    "section_assumptions": 3
+  },
+  "assumptions": {
+    "queried": 22,
+    "closed": 22,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "statements": {
+    "mtt_ranta.DTS_Resolution.substitution_preserves_typing": "ae619839e8d7464a",
+    "mtt_ranta.DTS_Resolution.covered_terms_resolve": "6287c58d4527ba51",
+    "mtt_ranta.DTS_Resolution.repeated_slot_consistent": "5d9667b8c66d2d39",
+    "mtt_ranta.DTS_Resolution.search_exact": "b57308db3bd839b8",
+    "mtt_ranta.DTS_Resolution.search_builds_equation": "26fe589c520edd9b",
+    "mtt_ranta.DTS_Resolution.choose_sound": "a1fc7b7e78d33324",
+    "mtt_ranta.DTS_Resolution.choose_covers": "e77cd023d8f2c385",
+    "mtt_ranta.DTS_Resolution.automatic_resolution_sound": "8e9f39a412194de1",
+    "mtt_ranta.DTS_Resolution.automatic_resolution_total_on_projection_contexts": "a060214d43ac3b12",
+    "mtt_ranta.DTS_Resolution.automatic_resolution_examples": "45024f37a62d6789",
+    "mtt_ranta.DTS_Resolution.negation_same_obligations": "840dcf0d12347a2f",
+    "mtt_ranta.DTS_Resolution.projection_interpretation": "539ac694551b5f30",
+    "mtt_ranta.DTS_Resolution.resolved_term_has_entity": "5f7cf9bb42101c62",
+    "mtt_ranta.DTS_Resolution.flatten_roundtrip": "cc1cb40c20be66ee",
+    "mtt_ranta.DTS_Resolution.unflatten_roundtrip": "36dac1fdb9b1daa0",
+    "mtt_ranta.DTS_Resolution.source_projection_adequate": "a149447971b40b2c",
+    "mtt_ranta.DTS_Resolution.mini_discourse_search": "485642d864985853",
+    "mtt_ranta.DTS_Resolution.mini_discourse_antecedent": "46289950089121fc",
+    "mtt_ranta.DTS_Resolution.no_local_antecedent": "06fbdbda854247a7",
+    "mtt_ranta.DTS_Resolution.two_antecedents": "aba29bb7c4742bca",
+    "mtt_ranta.DTS_Resolution.local_context_not_exported": "15eb611ab81e3dff",
+    "mtt_ranta.DTS_Resolution.ambiguity_changes_referent": "f5437bc8317222e7"
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

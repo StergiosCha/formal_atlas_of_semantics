@@ -590,6 +590,108 @@
    "since": "2026-09-05",
    "status": "active"
   },
+  "discursive.Derrida1972.ContextualExample.absent_producer_can_still_be_read": {
+   "statement_sha": "6aff6e29f2065be8",
+   "file": "atlas/discursive/Derrida1972.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "discursive.Derrida1972.ContextualExample.agrammaticality_example": {
+   "statement_sha": "a272f9a653c31971",
+   "file": "atlas/discursive/Derrida1972.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "discursive.Derrida1972.ContextualExample.context_cannot_be_erased_from_this_interpreter": {
+   "statement_sha": "937b19ad89f6c2b4",
+   "file": "atlas/discursive/Derrida1972.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "discursive.Derrida1972.ContextualExample.fresh_quote_beyond_any_finite_list": {
+   "statement_sha": "0a00d0b197b56aea",
+   "file": "atlas/discursive/Derrida1972.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "discursive.Derrida1972.ContextualExample.graft_changes_possible_effect": {
+   "statement_sha": "1c7b65783a29321b",
+   "file": "atlas/discursive/Derrida1972.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "discursive.Derrida1972.ContextualExample.graft_preserves_form": {
+   "statement_sha": "424ea89904ee469c",
+   "file": "atlas/discursive/Derrida1972.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "discursive.Derrida1972.ContextualExample.member_below_ceiling": {
+   "statement_sha": "800275be4b727aa2",
+   "file": "atlas/discursive/Derrida1972.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "discursive.Derrida1972.ContextualExample.producer_metadata_invariant_here": {
+   "statement_sha": "71adfad5ddf6f19c",
+   "file": "atlas/discursive/Derrida1972.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "discursive.Derrida1972.ContextualExample.quotation_depth": {
+   "statement_sha": "31c4a1fa501169c3",
+   "file": "atlas/discursive/Derrida1972.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "discursive.Derrida1972.ContextualExample.quotation_levels_distinct": {
+   "statement_sha": "76e1091e318f81ad",
+   "file": "atlas/discursive/Derrida1972.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "discursive.Derrida1972.ContextualExample.same_form_need_not_be_same_occurrence": {
+   "statement_sha": "574a4e66aaa2e0a8",
+   "file": "atlas/discursive/Derrida1972.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "discursive.Derrida1972.ContextualExample.unbounded_quotation_can_keep_effect_constant": {
+   "statement_sha": "523cb0e4c63c5638",
+   "file": "atlas/discursive/Derrida1972.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "discursive.Derrida1972.Risk.necessary_risk_coexists_with_success": {
+   "statement_sha": "3eefa87168b407df",
+   "file": "atlas/discursive/Derrida1972.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "discursive.Derrida1972.Risk.necessary_risk_does_not_mean_all_actual_fail": {
+   "statement_sha": "1afc92b5a2967b28",
+   "file": "atlas/discursive/Derrida1972.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "discursive.Derrida1972.repeatable_form_cannot_recover_both_origins": {
+   "statement_sha": "893a74acc84c4fad",
+   "file": "atlas/discursive/Derrida1972.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "discursive.Derrida1972.richer_evidence_is_not_ruled_out": {
+   "statement_sha": "7a87b2d0ddec0115",
+   "file": "atlas/discursive/Derrida1972.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "discursive.Derrida1972.signature_form_and_origin_can_diverge": {
+   "statement_sha": "292562eb1a30fef2",
+   "file": "atlas/discursive/Derrida1972.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
   "dynamic.DPL.In_FV_all": {
    "statement_sha": "1bea5eeb7d85700d",
    "file": "atlas/dynamic/DPL.v",
@@ -2930,6 +3032,36 @@
    "since": "2026-09-05",
    "status": "active"
   },
+  "mtt_ranta.DTS.PredicateDTS.canonical_ranta_translation": {
+   "statement_sha": "ada3b7395e06f65e",
+   "file": "atlas/mtt_ranta/DTS.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "mtt_ranta.DTS.PredicateDTS.canonical_strong_reading": {
+   "statement_sha": "f63bca0cfe5f4330",
+   "file": "atlas/mtt_ranta/DTS.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "mtt_ranta.DTS.PredicateDTS.context_roundtrip": {
+   "statement_sha": "29efac9a80e7ba0c",
+   "file": "atlas/mtt_ranta/DTS.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "mtt_ranta.DTS.PredicateDTS.discourse_content": {
+   "statement_sha": "2b303b2bd382d29b",
+   "file": "atlas/mtt_ranta/DTS.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "mtt_ranta.DTS.PredicateDTS.sorted_roundtrip": {
+   "statement_sha": "c76b454b82f2ff85",
+   "file": "atlas/mtt_ranta/DTS.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
   "mtt_ranta.DTS.dts_donkey_canonical": {
    "statement_sha": "2461031f7abda737",
    "file": "atlas/mtt_ranta/DTS.v",
@@ -2970,6 +3102,138 @@
    "statement_sha": "247e435a674e2015",
    "file": "atlas/mtt_ranta/DTS.v",
    "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.DTS_Resolution.ambiguity_changes_referent": {
+   "statement_sha": "f5437bc8317222e7",
+   "file": "atlas/mtt_ranta/DTS_Resolution.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.DTS_Resolution.automatic_resolution_examples": {
+   "statement_sha": "45024f37a62d6789",
+   "file": "atlas/mtt_ranta/DTS_Resolution.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.DTS_Resolution.automatic_resolution_sound": {
+   "statement_sha": "8e9f39a412194de1",
+   "file": "atlas/mtt_ranta/DTS_Resolution.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.DTS_Resolution.automatic_resolution_total_on_projection_contexts": {
+   "statement_sha": "a060214d43ac3b12",
+   "file": "atlas/mtt_ranta/DTS_Resolution.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.DTS_Resolution.choose_covers": {
+   "statement_sha": "e77cd023d8f2c385",
+   "file": "atlas/mtt_ranta/DTS_Resolution.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.DTS_Resolution.choose_sound": {
+   "statement_sha": "a1fc7b7e78d33324",
+   "file": "atlas/mtt_ranta/DTS_Resolution.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.DTS_Resolution.covered_terms_resolve": {
+   "statement_sha": "6287c58d4527ba51",
+   "file": "atlas/mtt_ranta/DTS_Resolution.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.DTS_Resolution.flatten_roundtrip": {
+   "statement_sha": "cc1cb40c20be66ee",
+   "file": "atlas/mtt_ranta/DTS_Resolution.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.DTS_Resolution.local_context_not_exported": {
+   "statement_sha": "15eb611ab81e3dff",
+   "file": "atlas/mtt_ranta/DTS_Resolution.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.DTS_Resolution.mini_discourse_antecedent": {
+   "statement_sha": "46289950089121fc",
+   "file": "atlas/mtt_ranta/DTS_Resolution.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.DTS_Resolution.mini_discourse_search": {
+   "statement_sha": "485642d864985853",
+   "file": "atlas/mtt_ranta/DTS_Resolution.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.DTS_Resolution.negation_same_obligations": {
+   "statement_sha": "840dcf0d12347a2f",
+   "file": "atlas/mtt_ranta/DTS_Resolution.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.DTS_Resolution.no_local_antecedent": {
+   "statement_sha": "06fbdbda854247a7",
+   "file": "atlas/mtt_ranta/DTS_Resolution.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.DTS_Resolution.projection_interpretation": {
+   "statement_sha": "539ac694551b5f30",
+   "file": "atlas/mtt_ranta/DTS_Resolution.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.DTS_Resolution.repeated_slot_consistent": {
+   "statement_sha": "5d9667b8c66d2d39",
+   "file": "atlas/mtt_ranta/DTS_Resolution.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.DTS_Resolution.resolved_term_has_entity": {
+   "statement_sha": "5f7cf9bb42101c62",
+   "file": "atlas/mtt_ranta/DTS_Resolution.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.DTS_Resolution.search_builds_equation": {
+   "statement_sha": "26fe589c520edd9b",
+   "file": "atlas/mtt_ranta/DTS_Resolution.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.DTS_Resolution.search_exact": {
+   "statement_sha": "b57308db3bd839b8",
+   "file": "atlas/mtt_ranta/DTS_Resolution.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.DTS_Resolution.source_projection_adequate": {
+   "statement_sha": "a149447971b40b2c",
+   "file": "atlas/mtt_ranta/DTS_Resolution.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.DTS_Resolution.substitution_preserves_typing": {
+   "statement_sha": "ae619839e8d7464a",
+   "file": "atlas/mtt_ranta/DTS_Resolution.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.DTS_Resolution.two_antecedents": {
+   "statement_sha": "aba29bb7c4742bca",
+   "file": "atlas/mtt_ranta/DTS_Resolution.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.DTS_Resolution.unflatten_roundtrip": {
+   "statement_sha": "36dac1fdb9b1daa0",
+   "file": "atlas/mtt_ranta/DTS_Resolution.v",
+   "since": "2026-09-13",
    "status": "active"
   },
   "mtt_ranta.MTT.adv_some": {
@@ -3152,6 +3416,18 @@
    "since": "2026-09-05",
    "status": "active"
   },
+  "mtt_ranta.MTT.strong_some_to_some": {
+   "statement_sha": "4a4ac9bb27a219b4",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "mtt_ranta.MTT.strong_witness_sound": {
+   "statement_sha": "c6c611ac900392ba",
+   "file": "atlas/mtt_ranta/MTT.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
   "mtt_ranta.MTT.subs_noun_drop": {
    "statement_sha": "5dbbc13f835ee4b5",
    "file": "atlas/mtt_ranta/MTT.v",
@@ -3168,6 +3444,36 @@
    "statement_sha": "0dc2cdcbd13ff181",
    "file": "atlas/mtt_ranta/MTT.v",
    "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT_vs_DTS.donkey_after_noun_translation": {
+   "statement_sha": "0235beb077edc654",
+   "file": "atlas/mtt_ranta/MTT_vs_DTS.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "mtt_ranta.MTT_vs_DTS.existential_image": {
+   "statement_sha": "eb8b8f1b89336bbb",
+   "file": "atlas/mtt_ranta/MTT_vs_DTS.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "mtt_ranta.MTT_vs_DTS.negative_predication": {
+   "statement_sha": "e1a6eeb6b601cbb4",
+   "file": "atlas/mtt_ranta/MTT_vs_DTS.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "mtt_ranta.MTT_vs_DTS.negative_predication_without_positive_typing": {
+   "statement_sha": "64f380e9cdbda675",
+   "file": "atlas/mtt_ranta/MTT_vs_DTS.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "mtt_ranta.MTT_vs_DTS.universal_image": {
+   "statement_sha": "d3e2c1b32daa39d4",
+   "file": "atlas/mtt_ranta/MTT_vs_DTS.v",
+   "since": "2026-09-12",
    "status": "active"
   },
   "mtt_ranta.MTT_vs_Ranta.cn_agree": {
@@ -3252,6 +3558,18 @@
    "statement_sha": "37191413ba757cfc",
    "file": "atlas/mtt_ranta/MTT_vs_Ranta.v",
    "since": "2026-09-05",
+   "status": "active"
+  },
+  "mtt_ranta.MTT_vs_Ranta.strong_some_agree": {
+   "statement_sha": "8c8136f66f00e924",
+   "file": "atlas/mtt_ranta/MTT_vs_Ranta.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "mtt_ranta.MTT_vs_Ranta.strong_witness_agree": {
+   "statement_sha": "6fb30515a9d628c9",
+   "file": "atlas/mtt_ranta/MTT_vs_Ranta.v",
+   "since": "2026-09-12",
    "status": "active"
   },
   "mtt_ranta.MTT_vs_Ranta.sub_sentence_agree": {
@@ -3522,6 +3840,594 @@
    "statement_sha": "34272886d793a87f",
    "file": "atlas/mtt_ranta/Ranta_GQ.v",
    "since": "2026-09-06",
+   "status": "active"
+  },
+  "mtt_ranta.Shared_Examples.conditional_image": {
+   "statement_sha": "4dd5dff622c927e3",
+   "file": "atlas/mtt_ranta/Shared_Examples.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.Shared_Examples.conditional_ranta": {
+   "statement_sha": "3424bfd8d848343e",
+   "file": "atlas/mtt_ranta/Shared_Examples.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.Shared_Examples.discourse_record_sound": {
+   "statement_sha": "0e07c43010e8298e",
+   "file": "atlas/mtt_ranta/Shared_Examples.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.Shared_Examples.discourse_same_referent": {
+   "statement_sha": "d86cc87256feb994",
+   "file": "atlas/mtt_ranta/Shared_Examples.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.Shared_Examples.dts_discourse_translation": {
+   "statement_sha": "429e38693aeb587b",
+   "file": "atlas/mtt_ranta/Shared_Examples.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.Shared_Examples.negative_excludes_positive": {
+   "statement_sha": "c60383542dff419b",
+   "file": "atlas/mtt_ranta/Shared_Examples.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.Shared_Examples.negative_image": {
+   "statement_sha": "bee838f48144c12d",
+   "file": "atlas/mtt_ranta/Shared_Examples.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.Shared_Examples.negative_ranta": {
+   "statement_sha": "9541c27ecd26b60f",
+   "file": "atlas/mtt_ranta/Shared_Examples.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.Shared_Examples.positive_image": {
+   "statement_sha": "0b276a89dbd9f84c",
+   "file": "atlas/mtt_ranta/Shared_Examples.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.Shared_Examples.positive_ranta": {
+   "statement_sha": "1fc4d8c7d62ecb84",
+   "file": "atlas/mtt_ranta/Shared_Examples.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.Shared_Examples.pronoun_resolves": {
+   "statement_sha": "0c2953a37916c138",
+   "file": "atlas/mtt_ranta/Shared_Examples.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "mtt_ranta.Shared_Examples.strong_discourse_agreement": {
+   "statement_sha": "a395712fca39507c",
+   "file": "atlas/mtt_ranta/Shared_Examples.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Davidson1967.buttering_example": {
+   "statement_sha": "9f1ef61e82e4a12e",
+   "file": "atlas/pilots/Davidson1967.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Davidson1967.drop_all_modifiers": {
+   "statement_sha": "3e3c61436b5415c7",
+   "file": "atlas/pilots/Davidson1967.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Davidson1967.drop_modifiers": {
+   "statement_sha": "c6df549b8eb2d6f9",
+   "file": "atlas/pilots/Davidson1967.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Davidson1967.equal_names_substitute": {
+   "statement_sha": "eac7a98c041c4279",
+   "file": "atlas/pilots/Davidson1967.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Davidson1967.separate_events_not_shared": {
+   "statement_sha": "b46cab0cb62a8063",
+   "file": "atlas/pilots/Davidson1967.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Grice1975.Garage.garage_belief_with_explicit_relevance_premise": {
+   "statement_sha": "62c1b1455b9f9011",
+   "file": "atlas/pilots/Grice1975.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Grice1975.Garage.literal_and_inferred_do_not_entail_fact": {
+   "statement_sha": "9ef61b21f6ad34c3",
+   "file": "atlas/pilots/Grice1975.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Grice1975.Garage.literal_content_survives_opt_out": {
+   "statement_sha": "bdde9e6f1bfd8f98",
+   "file": "atlas/pilots/Grice1975.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Grice1975.licensed_belief": {
+   "statement_sha": "ed92ccd8fd11771b",
+   "file": "atlas/pilots/Grice1975.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Grice1975.opting_out_blocks_this_derivation": {
+   "statement_sha": "83671e28c50cff55",
+   "file": "atlas/pilots/Grice1975.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.ConstructedCategories.assigned_category_cues_allow_interior_maximum": {
+   "statement_sha": "43b3b19d23c595dd",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.ConstructedCategories.dropping_inclusion_breaks_monotonicity": {
+   "statement_sha": "26214b37f4a3bceb",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.ConstructedCategories.fixed_cues_favor_parent": {
+   "statement_sha": "8ab892efdaed2454",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.ConstructedCategories.hierarchy_and_positive_cues": {
+   "statement_sha": "c86348c1e19022d0",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.ConstructedCategories.negative_weight_breaks_monotonicity": {
+   "statement_sha": "35b3dc8698c05e10",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.ConstructedCategories.undefined_is_not_defined_zero": {
+   "statement_sha": "e04edf426a0feb56",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.Frequency.count_monotone": {
+   "statement_sha": "8fb1353841e669a4",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.Frequency.count_nonnegative": {
+   "statement_sha": "82d5b78bfc0cc9a2",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.Frequency.cue_ratio_monotone": {
+   "statement_sha": "6be451b4dfb35864",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.Frequency.cue_ratio_range": {
+   "statement_sha": "a3b502eaf999bc0d",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.Frequency.fixed_cue_score_monotone": {
+   "statement_sha": "0dfeee4ccd4d2bb2",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.Frequency.joint_count_le_cue": {
+   "statement_sha": "30a07caff69cf2dd",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.Frequency.no_strict_interior_maximum_with_fixed_cues": {
+   "statement_sha": "46a7c478eb377c94",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.Frequency.normalization_cancels": {
+   "statement_sha": "5b403dc3521b7a3e",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.Frequency.positive_cue_is_defined": {
+   "statement_sha": "9e2b6440df7a61f0",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.Frequency.undefined_exactly_zero_cue": {
+   "statement_sha": "e7954a238de85d12",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.Typicality.ConstructedBirds.members_can_differ_in_typicality": {
+   "statement_sha": "5176f92fa7970823",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.Typicality.ConstructedBirds.no_unique_best_member": {
+   "statement_sha": "9584b8fbffb32482",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.Typicality.ConstructedBirds.ordinal_matches_scores": {
+   "statement_sha": "70b5333eaea7a42f",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.Typicality.ConstructedBirds.ranking_does_not_determine_membership": {
+   "statement_sha": "bf19324cf38a0177",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.Typicality.ConstructedBirds.rescaling_preserves_best": {
+   "statement_sha": "5ae235b189b149a8",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.Typicality.ConstructedBirds.tied_best_members": {
+   "statement_sha": "7af00ab417ead5f6",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.Typicality.best_preserved_by_order": {
+   "statement_sha": "a99ed56ee33c68ea",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.Typicality.positive_affine_rescaling_preserves_order": {
+   "statement_sha": "0a2dbf5c925e0640",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Rosch1978.Typicality.score_order_is_preorder": {
+   "statement_sha": "dfc303803286a67f",
+   "file": "atlas/pilots/Rosch1978.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Tarski1944.closed_assignment_invariance": {
+   "statement_sha": "12517bbc64cc3970",
+   "file": "atlas/pilots/Tarski1944.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Tarski1944.closed_truth_instance": {
+   "statement_sha": "47f8f09633a671af",
+   "file": "atlas/pilots/Tarski1944.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Tarski1944.contradiction_has_no_satisfying_assignment": {
+   "statement_sha": "d1932b87075b3bb8",
+   "file": "atlas/pilots/Tarski1944.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Tarski1944.no_true_contradiction": {
+   "statement_sha": "641407400fb81ef7",
+   "file": "atlas/pilots/Tarski1944.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Tarski1944.satisfaction_depends_on_free_variables": {
+   "statement_sha": "782c9d4ce257ce64",
+   "file": "atlas/pilots/Tarski1944.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Tarski1944.snow_instance": {
+   "statement_sha": "45a5e532c077e7b5",
+   "file": "atlas/pilots/Tarski1944.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pilots.Tarski1944.universal_closes_variable": {
+   "statement_sha": "52c6269ed9f8ac7d",
+   "file": "atlas/pilots/Tarski1944.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Austin1962.Betting.accepted_offer_completes": {
+   "statement_sha": "d9eadf8aac775882",
+   "file": "atlas/pragmatics/Austin1962.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Austin1962.Betting.broken_absorbing": {
+   "statement_sha": "c6a0c5a5561f1f9a",
+   "file": "atlas/pragmatics/Austin1962.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Austin1962.Betting.complete_trace_exact": {
+   "statement_sha": "a7537b34ea2ff370",
+   "file": "atlas/pragmatics/Austin1962.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Austin1962.Betting.offer_requires_uptake": {
+   "statement_sha": "b90588dde17b7df2",
+   "file": "atlas/pragmatics/Austin1962.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Austin1962.Betting.refusal_and_reversed_order_fail": {
+   "statement_sha": "7d13b04b5e0fa31d",
+   "file": "atlas/pragmatics/Austin1962.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Austin1962.Cases.breach_not_incomplete_execution": {
+   "statement_sha": "6a698fbaeb092af5",
+   "file": "atlas/pragmatics/Austin1962.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Austin1962.Cases.inapplicable_attitudes_not_failures": {
+   "statement_sha": "cb719f889fe2c6f2",
+   "file": "atlas/pragmatics/Austin1962.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Austin1962.Cases.insincere_promise_can_be_achieved": {
+   "statement_sha": "e320879ad4830926",
+   "file": "atlas/pragmatics/Austin1962.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Austin1962.Cases.listed_conditions_are_not_sufficient": {
+   "statement_sha": "5cf052c2ddb4ed54",
+   "file": "atlas/pragmatics/Austin1962.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Austin1962.Cases.simultaneous_failures": {
+   "statement_sha": "ef871cc2a9daf798",
+   "file": "atlas/pragmatics/Austin1962.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Austin1962.Cases.truth_does_not_force_sincere_belief": {
+   "statement_sha": "48e7eec97a6832b8",
+   "file": "atlas/pragmatics/Austin1962.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Austin1962.Cases.unknown_is_not_success": {
+   "statement_sha": "19325073f5e5663d",
+   "file": "atlas/pragmatics/Austin1962.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Austin1962.Cases.void_act_can_have_other_effects": {
+   "statement_sha": "7c29ca290ba216ee",
+   "file": "atlas/pragmatics/Austin1962.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Austin1962.condition_enumeration": {
+   "statement_sha": "e1ee9f6da65053f7",
+   "file": "atlas/pragmatics/Austin1962.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Austin1962.failed_necessary_condition_blocks_felicity": {
+   "statement_sha": "33c42eb742a7e58e",
+   "file": "atlas/pragmatics/Austin1962.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Austin1962.known_failures_survive_refinement": {
+   "statement_sha": "0ba4433c27a50a91",
+   "file": "atlas/pragmatics/Austin1962.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Austin1962.misfire_blocks_intended_act": {
+   "statement_sha": "a3a96f9f65131c05",
+   "file": "atlas/pragmatics/Austin1962.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Austin1962.no_report_complete_when_assessed": {
+   "statement_sha": "21d9593a28a5c1f5",
+   "file": "atlas/pragmatics/Austin1962.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Austin1962.passing_excludes_failure": {
+   "statement_sha": "9d8de25143a42e8d",
+   "file": "atlas/pragmatics/Austin1962.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Austin1962.report_exact": {
+   "statement_sha": "3efbc806bf9a9db6",
+   "file": "atlas/pragmatics/Austin1962.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Horn1984.Causatives.counterpart_and_context_matter": {
+   "statement_sha": "f61f62c817c3e140",
+   "file": "atlas/pragmatics/Horn1984.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Horn1984.Causatives.killed_caused_contrast": {
+   "statement_sha": "6e038a7ee3426d83",
+   "file": "atlas/pragmatics/Horn1984.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Horn1984.Causatives.removing_counterpart_restores_direct_case": {
+   "statement_sha": "5e64ba0a5a35a008",
+   "file": "atlas/pragmatics/Horn1984.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Horn1984.Causatives.same_extension_does_not_identify_readings": {
+   "statement_sha": "7cf0cfe28e2dc64f",
+   "file": "atlas/pragmatics/Horn1984.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Horn1984.Numerals.cancellation_is_not_descriptive_negation": {
+   "statement_sha": "4a5855882b59dc38",
+   "file": "atlas/pragmatics/Horn1984.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Horn1984.Numerals.descriptive_not_three_excludes_four": {
+   "statement_sha": "ac6f7d60880b3c1d",
+   "file": "atlas/pragmatics/Horn1984.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Horn1984.Numerals.four_cancels_three_upper_bound": {
+   "statement_sha": "55fe3fd08b898a1a",
+   "file": "atlas/pragmatics/Horn1984.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Horn1984.Numerals.two_sided_is_exact": {
+   "statement_sha": "cb3a5b2e279efea6",
+   "file": "atlas/pragmatics/Horn1984.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Horn1984.context_cancellation_restores_literal": {
+   "statement_sha": "1b756b8865d59788",
+   "file": "atlas/pragmatics/Horn1984.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Horn1984.descriptive_negation_excludes_stronger": {
+   "statement_sha": "0e972697fb72f166",
+   "file": "atlas/pragmatics/Horn1984.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Horn1984.finite_readings_exact": {
+   "statement_sha": "fbe7a8953e716b9f",
+   "file": "atlas/pragmatics/Horn1984.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Horn1984.ignorance_compatible_with_strong_truth": {
+   "statement_sha": "e083b83d0ca23373",
+   "file": "atlas/pragmatics/Horn1984.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Horn1984.labor_covers_common_extension": {
+   "statement_sha": "140dc3487f98b774",
+   "file": "atlas/pragmatics/Horn1984.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Horn1984.labor_disjoint_when_applicable": {
+   "statement_sha": "fd0b1f18e969eaa2",
+   "file": "atlas/pragmatics/Horn1984.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Horn1984.logical_entailment_does_not_ban_r_rejection": {
+   "statement_sha": "870d1422362a9bf3",
+   "file": "atlas/pragmatics/Horn1984.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Horn1984.negative_truth_needs_strengthening": {
+   "statement_sha": "c9aab233277a9435",
+   "file": "atlas/pragmatics/Horn1984.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Horn1984.no_counterpart_no_marked_exclusion": {
+   "statement_sha": "411b16306f554e68",
+   "file": "atlas/pragmatics/Horn1984.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Horn1984.q_r_incompatible": {
+   "statement_sha": "b7d96c6853d9cba7",
+   "file": "atlas/pragmatics/Horn1984.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Horn1984.q_yields_ignorance": {
+   "statement_sha": "9285cd2d10b549c8",
+   "file": "atlas/pragmatics/Horn1984.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Horn1984.r_cancellation_preserves_literal": {
+   "statement_sha": "3b248e6d2ddf1536",
+   "file": "atlas/pragmatics/Horn1984.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Horn1984.reading_partition_requires_a_decision": {
+   "statement_sha": "7b11d62b5d4764f0",
+   "file": "atlas/pragmatics/Horn1984.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Horn1984.readings_preserve_literal": {
+   "statement_sha": "11e80f87c31eb9b9",
+   "file": "atlas/pragmatics/Horn1984.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Horn1984.stronger_cancels_q_not_literal": {
+   "statement_sha": "78ac352879416e29",
+   "file": "atlas/pragmatics/Horn1984.v",
+   "since": "2026-09-13",
+   "status": "active"
+  },
+  "pragmatics.Horn1984.stronger_forces_non_descriptive_rejection": {
+   "statement_sha": "e90642a4bcc7b4c9",
+   "file": "atlas/pragmatics/Horn1984.v",
+   "since": "2026-09-13",
    "status": "active"
   },
   "probabilistic.RSA.BergenTwoWorlds.bergen_all_truthful": {
@@ -4224,6 +5130,492 @@
    "statement_sha": "81036ef973442279",
    "file": "atlas/probabilistic/RSA.v",
    "since": "2026-09-05",
+   "status": "active"
+  },
+  "ttr.TTR.Examples.chain_1": {
+   "statement_sha": "b991f4d2671579c6",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.Examples.chain_2": {
+   "statement_sha": "0829ba632109e782",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.Examples.chain_semantic": {
+   "statement_sha": "f4d184c86c1f1a47",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.Examples.chain_strict": {
+   "statement_sha": "cfe856e51598df45",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.Examples.exb_eqb_spec": {
+   "statement_sha": "0ce265e402fcf12c",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.Examples.exp_eqb_spec": {
+   "statement_sha": "77a1bbbbbb6b8640",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.Examples.hook_roundtrip": {
+   "statement_sha": "a218af5b5ccb672e",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.Examples.hug_dependent": {
+   "statement_sha": "aefbb5537813d063",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.Examples.hug_missing_arg": {
+   "statement_sha": "1fd6e7a8434f2b95",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.Examples.man_runs_witness": {
+   "statement_sha": "dd558eb4c628b81e",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.Examples.merge_example": {
+   "statement_sha": "3c714517fada2972",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.Examples.merge_example_semantic": {
+   "statement_sha": "e75711f656e55312",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.Examples.mtt_to_ttr": {
+   "statement_sha": "331af2f386b6d9e3",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.Examples.of_ty_pty1": {
+   "statement_sha": "ab97686f6bb5f6a4",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.Examples.ttr_to_mtt": {
+   "statement_sha": "2bcd7d96042c341c",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.args_eqb_spec": {
+   "statement_sha": "ffbdee3352daafa6",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.list_eqb_spec": {
+   "statement_sha": "0cfbffd15fc7e0d9",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.merge_idem": {
+   "statement_sha": "916ac3480cd76e16",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.merge_rec_sound": {
+   "statement_sha": "579553560d4289c7",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.merge_sound": {
+   "statement_sha": "3ca603359d0edc6d",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.merge_sound_size": {
+   "statement_sha": "584e48f1e10cd1da",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.merge_unfold": {
+   "statement_sha": "ccd0ca25fe76b575",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.of_rty_cons": {
+   "statement_sha": "e4e85cbab2665725",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.of_rty_field": {
+   "statement_sha": "13d10079289ee77b",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.of_rty_iff": {
+   "statement_sha": "edebe799a9f37bd3",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.of_rty_nil": {
+   "statement_sha": "ca245a97b6e4e210",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.of_rty_rename": {
+   "statement_sha": "cc409292f90f6785",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.of_ty_rec_iff": {
+   "statement_sha": "650882ee2f55239c",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.path_eqb_spec": {
+   "statement_sha": "382057e0c9010b1d",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.rename_sound": {
+   "statement_sha": "22ddacfd9023c701",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.rename_sound_size": {
+   "statement_sha": "d40417bf3448e6db",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.rename_ty_rec": {
+   "statement_sha": "a0c0847dd0b39e01",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.rename_val_rec": {
+   "statement_sha": "6946bb6a23fa0dcd",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.resolve_arg_rename": {
+   "statement_sha": "5d9180285f824c5a",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.resolve_args_rename": {
+   "statement_sha": "210b37bc52247b3a",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.resolve_rename": {
+   "statement_sha": "c42bc2fb1c427342",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.rlookup_det": {
+   "statement_sha": "f36ed081822c91f6",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.rlookup_rename": {
+   "statement_sha": "b2e63172be07fe87",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.rty_lookup_in": {
+   "statement_sha": "9383fef1ce2468ee",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.rty_lookup_size": {
+   "statement_sha": "15bf26b7a3715fef",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.rty_size_cons": {
+   "statement_sha": "5862aae84ca9d622",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.rty_size_in": {
+   "statement_sha": "edc971b0b2dc7031",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.sub_w_refl": {
+   "statement_sha": "fbb50258080f629e",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.sub_w_sound": {
+   "statement_sha": "713d026921b73a16",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.sub_w_subb": {
+   "statement_sha": "57658dc2e1ef3cb9",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.sub_w_trans": {
+   "statement_sha": "8baa7e7dccd0bf67",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.subb_meet_l_base": {
+   "statement_sha": "c065cfb073d3f08d",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.subb_meet_l_mono": {
+   "statement_sha": "126a138661bdb8f5",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.subb_meet_l_pty": {
+   "statement_sha": "0ffeacb743b3faa2",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.subb_meet_l_rec": {
+   "statement_sha": "21779cfded882198",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.subb_meet_r": {
+   "statement_sha": "1b63f4a007b3404f",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.subb_rec_in": {
+   "statement_sha": "ce6bc8f58ac11a93",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.subb_rec_intro": {
+   "statement_sha": "863ecd41783d4645",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.subb_rec_rec": {
+   "statement_sha": "9f6538241a75c351",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.subb_refl": {
+   "statement_sha": "a7bb4c510419dee4",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.subb_refl_size": {
+   "statement_sha": "54fc1163177f77a9",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.subb_sound": {
+   "statement_sha": "059655f8f924df68",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.subb_sound_size": {
+   "statement_sha": "a2b00e5bdb97683d",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.subb_trans": {
+   "statement_sha": "4fa6a8b2b7e380db",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.subb_trans_size": {
+   "statement_sha": "6b4097f84085dd71",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.ty_size_pos": {
+   "statement_sha": "debeec9d9192b7d1",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.ty_size_rec": {
+   "statement_sha": "798b9ef0afc86a9d",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.wf_rty_lookup": {
+   "statement_sha": "336d1e6c7b17e5a0",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.wf_ty_fields": {
+   "statement_sha": "14347b650e2844c3",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR.wf_ty_rec_iff": {
+   "statement_sha": "970b3eb9b3d32d13",
+   "file": "atlas/ttr/TTR.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR_Model.Countermodels.assignments_admissible": {
+   "statement_sha": "880f07ac551b0a5b",
+   "file": "atlas/ttr/TTR_Model.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR_Model.Countermodels.coextension_does_not_identify_types": {
+   "statement_sha": "f43f381428d5a222",
+   "file": "atlas/ttr/TTR_Model.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR_Model.Countermodels.erased_assignments_agree": {
+   "statement_sha": "09929afd366f4de7",
+   "file": "atlas/ttr/TTR_Model.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR_Model.Countermodels.inhabited_conjuncts_empty_meet": {
+   "statement_sha": "136926f85438ca5b",
+   "file": "atlas/ttr/TTR_Model.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR_Model.Countermodels.same_type_same_object_different_models": {
+   "statement_sha": "46f94c4047f915d8",
+   "file": "atlas/ttr/TTR_Model.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR_Model.Countermodels.structured_witness_renaming_needs_model_compatibility": {
+   "statement_sha": "86b0b0070bd9149b",
+   "file": "atlas/ttr/TTR_Model.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR_Model.Countermodels.truth_does_not_type_every_object": {
+   "statement_sha": "912ac8d789556104",
+   "file": "atlas/ttr/TTR_Model.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR_Model.checked_subtype_all_models": {
+   "statement_sha": "993f6bd33c52070e",
+   "file": "atlas/ttr/TTR_Model.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR_Model.meet_same_witness": {
+   "statement_sha": "215cbc955a8456e5",
+   "file": "atlas/ttr/TTR_Model.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR_Model.necessary_possible": {
+   "statement_sha": "e41e021950b91f4f",
+   "file": "atlas/ttr/TTR_Model.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR_vs_MTT.LossOfInformation.no_inverse_from_subject": {
+   "statement_sha": "318719eedf0e1ecb",
+   "file": "atlas/ttr/TTR_vs_MTT.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR_vs_MTT.LossOfInformation.subject_projection_loses_witnesses": {
+   "statement_sha": "9176806351358381",
+   "file": "atlas/ttr/TTR_vs_MTT.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR_vs_MTT.fixed_model_inhabitation": {
+   "statement_sha": "85804117bea72824",
+   "file": "atlas/ttr/TTR_vs_MTT.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR_vs_MTT.mtt_to_record_inhabited": {
+   "statement_sha": "b96bda56a7f2c358",
+   "file": "atlas/ttr/TTR_vs_MTT.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR_vs_MTT.ptype_at_subject": {
+   "statement_sha": "e4fae1716cfec163",
+   "file": "atlas/ttr/TTR_vs_MTT.v",
+   "since": "2026-09-12",
+   "status": "active"
+  },
+  "ttr.TTR_vs_MTT.record_to_mtt": {
+   "statement_sha": "6020fa70a216f5f6",
+   "file": "atlas/ttr/TTR_vs_MTT.v",
+   "since": "2026-09-12",
    "status": "active"
   },
   "type_logical.Lambek.Fragment.compose_sem": {

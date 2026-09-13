@@ -1,0 +1,47 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "atlas/pilots/Tarski1944.v",
+  "key": "atlas__tarski1944",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "unsafe_flags": [],
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 7,
+    "proved": 7,
+    "admitted": 0,
+    "aborted": 0,
+    "admitted_definitions": 0,
+    "unparsed_status": 0,
+    "definitions": 9,
+    "toplevel_axioms": 0,
+    "section_assumptions": 3
+  },
+  "assumptions": {
+    "queried": 7,
+    "closed": 7,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "statements": {
+    "pilots.Tarski1944.satisfaction_depends_on_free_variables": "782c9d4ce257ce64",
+    "pilots.Tarski1944.closed_assignment_invariance": "12517bbc64cc3970",
+    "pilots.Tarski1944.closed_truth_instance": "47f8f09633a671af",
+    "pilots.Tarski1944.snow_instance": "45a5e532c077e7b5",
+    "pilots.Tarski1944.contradiction_has_no_satisfying_assignment": "d1932b87075b3bb8",
+    "pilots.Tarski1944.no_true_contradiction": "641407400fb81ef7",
+    "pilots.Tarski1944.universal_closes_variable": "52c6269ed9f8ac7d"
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

@@ -1,0 +1,175 @@
+{
+ "file": "atlas/mtt_ranta/DTS_Resolution.v",
+ "region": "modern type theories (DTS)",
+ "summary": "Typed entity-target @ slots and consistent substitution. Search is sound and complete for finite telescope entity projections only; dependent proof fields are retained by the interpretation. Explicit inverse reassociation maps connect the source mini-discourse context to the search telescope. An executable first-candidate resolver has soundness and conditional totality proofs; this choice policy is not attributed to the source.",
+ "assessment_status": "incomplete",
+ "sources": [
+  {
+   "citation": "Bekki & Mineshima (2017), Context-Passing and Underspecification in Dependent Type Semantics, sections 3.4-3.6 pp.28-30, Definition 5; section 4.2.",
+   "path": "papers/foundations/Bekki_Mineshima_2017_CalculatingProjectionsViaTypeChecking.pdf",
+   "available": "Selected source sections read on disk; see audit/inventory. No independent second review."
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "typed / resolution_equation",
+   "source": "BM17 Definition 5",
+   "match": "simplified"
+  },
+  {
+   "coq": "search / search_exact",
+   "source": "Projection proof search in (41)-(42); finite entity-only candidate language",
+   "match": "added"
+  },
+  {
+   "coq": "telescope / flatten / unflatten",
+   "source": "Dependent discourse context, (40)-(42), explicit reassociation",
+   "match": "simplified"
+  },
+  {
+   "coq": "choose / resolve",
+   "source": "Added deterministic policy over the source-motivated projection search",
+   "match": "added"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "substitution_preserves_typing",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+  },
+  {
+   "name": "covered_terms_resolve",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+  },
+  {
+   "name": "repeated_slot_consistent",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+  },
+  {
+   "name": "search_exact",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+  },
+  {
+   "name": "search_builds_equation",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+  },
+  {
+   "name": "choose_sound",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+  },
+  {
+   "name": "choose_covers",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+  },
+  {
+   "name": "automatic_resolution_sound",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+  },
+  {
+   "name": "automatic_resolution_total_on_projection_contexts",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+  },
+  {
+   "name": "automatic_resolution_examples",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+  },
+  {
+   "name": "negation_same_obligations",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+  },
+  {
+   "name": "projection_interpretation",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+  },
+  {
+   "name": "resolved_term_has_entity",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+  },
+  {
+   "name": "flatten_roundtrip",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+  },
+  {
+   "name": "unflatten_roundtrip",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+  },
+  {
+   "name": "source_projection_adequate",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+  },
+  {
+   "name": "mini_discourse_search",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+  },
+  {
+   "name": "mini_discourse_antecedent",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+  },
+  {
+   "name": "no_local_antecedent",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+  },
+  {
+   "name": "two_antecedents",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+  },
+  {
+   "name": "local_context_not_exported",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+  },
+  {
+   "name": "ambiguity_changes_referent",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+  }
+ ],
+ "counts": {
+  "theorems": 22,
+  "proved": 22,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "Typed entity-target @ slots and consistent substitution. Search is sound and complete for finite telescope entity projections only; dependent proof fields are retained by the interpretation. Explicit inverse reassociation maps connect the source mini-discourse context to the search telescope."
+  ],
+  "simplifications": [
+   "BM17 Definition 5",
+   "Dependent discourse context, (40)-(42), explicit reassociation"
+  ],
+  "omissions": [
+   "Whole-source coverage beyond the explicitly bounded fragment."
+  ],
+  "additions": [
+   "Projection proof search in (41)-(42); finite entity-only candidate language"
+  ]
+ },
+ "determination": "unassessed",
+ "determination_rationale": "Bounded partial implementation; source-level determination withheld. Incompleteness is not evidence of required restructuring.",
+ "artifact_classes": [],
+ "source_gap": null,
+ "notes": "2026-09-13 local single-researcher audit. See audits/revision_2026_09_13.md and campaigns/pilot_2026_09_13_results.md. Mechanical checks are separate from independent source review.",
+ "compiles": true
+}

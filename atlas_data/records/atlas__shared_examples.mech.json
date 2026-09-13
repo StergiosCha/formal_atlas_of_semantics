@@ -1,0 +1,52 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "atlas/mtt_ranta/Shared_Examples.v",
+  "key": "atlas__shared_examples",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "unsafe_flags": [],
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 12,
+    "proved": 12,
+    "admitted": 0,
+    "aborted": 0,
+    "admitted_definitions": 0,
+    "unparsed_status": 0,
+    "definitions": 17,
+    "toplevel_axioms": 0,
+    "section_assumptions": 11
+  },
+  "assumptions": {
+    "queried": 12,
+    "closed": 12,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "statements": {
+    "mtt_ranta.Shared_Examples.positive_image": "0b276a89dbd9f84c",
+    "mtt_ranta.Shared_Examples.positive_ranta": "1fc4d8c7d62ecb84",
+    "mtt_ranta.Shared_Examples.negative_image": "bee838f48144c12d",
+    "mtt_ranta.Shared_Examples.negative_ranta": "9541c27ecd26b60f",
+    "mtt_ranta.Shared_Examples.conditional_image": "4dd5dff622c927e3",
+    "mtt_ranta.Shared_Examples.conditional_ranta": "3424bfd8d848343e",
+    "mtt_ranta.Shared_Examples.negative_excludes_positive": "c60383542dff419b",
+    "mtt_ranta.Shared_Examples.strong_discourse_agreement": "a395712fca39507c",
+    "mtt_ranta.Shared_Examples.dts_discourse_translation": "429e38693aeb587b",
+    "mtt_ranta.Shared_Examples.discourse_record_sound": "0e07c43010e8298e",
+    "mtt_ranta.Shared_Examples.discourse_same_referent": "d86cc87256feb994",
+    "mtt_ranta.Shared_Examples.pronoun_resolves": "0c2953a37916c138"
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

@@ -1,28 +1,645 @@
 {
  "generated_from": {
-  "records": 65,
+  "records": 78,
   "papers": 230
  },
  "stats": {
-  "theorems": 1086,
-  "proved": 1073,
+  "theorems": 1318,
+  "proved": 1305,
   "admitted": 12,
   "determination": {
-   "as_is": 22,
-   "slight_modification": 22,
-   "major_restructuring": 16,
-   "not_applicable": 5
+   "unassessed": 9,
+   "as_is": 21,
+   "not_applicable": 9,
+   "slight_modification": 23,
+   "major_restructuring": 16
   },
   "faithfulness": {
-   "faithful": 16,
+   "partial": 45,
+   "faithful": 20,
    "faithful-with-corrections": 1,
-   "partial": 37,
-   "unfaithful": 10,
-   "not_applicable": 1
+   "not_applicable": 2,
+   "unfaithful": 10
   },
   "disputed_records": []
  },
  "files": [
+  {
+   "file": "atlas/pragmatics/Austin1962.v",
+   "region": "pragmatics",
+   "summary": "P1 bounded pilot of Austin's provisional necessary felicity conditions: partial diagnostics, overlapping misfires/abuses and a two-step bet. Passing the checklist is not sufficient for felicity; achievement is not inferred from it.",
+   "assessment_status": "pilot",
+   "bounded_attempt_status": "complete",
+   "sources": [
+    {
+     "citation": "Austin (1962), How to Do Things with Words, pp.5–11 and Lectures II–IV pp.12–52.",
+     "path": "papers/foundations/Austin_1962_HowToDoThingsWith.pdf",
+     "available": "Local primary source read within the stated scope; source inventory and limitations recorded. Independent source review pending."
+    }
+   ],
+   "definitions_mapped": [
+    {
+     "coq": "condition; constitutive_conditions; required",
+     "source": "A1 pp.14–18: A1 accepted conventional procedure, A2 appropriate persons/circumstances, B1 correct execution, B2 complete execution, Gamma1 attitudes/intentions, Gamma2 subsequent conduct. Gamma applicability is supplied.",
+     "match": "simplified"
+    },
+    {
+     "coq": "observations; passes; fails; failedb; report; assessed; refines",
+     "source": "A1,A5,A6: added partial observation/reporting machinery; does not discover conventions, authority or sincerity.",
+     "match": "added"
+    },
+    {
+     "coq": "misfire; abuse_of_achieved; listed_pass",
+     "source": "A1–A3 pp.14–17: restricted necessary-condition diagnostics, distinct from independently supplied institutional achievement.",
+     "match": "simplified"
+    },
+    {
+     "coq": "Cases.naming_attempt; insincere; overlapping; after_conduct",
+     "source": "A2,A3,A5: assigned observations for source examples, not empirical predictions.",
+     "match": "added"
+    },
+    {
+     "coq": "Betting.move; phase; step; run",
+     "source": "A4 pp.9,36–37: added strict recognizer for one isolated offer/acceptance exchange; later events are not modeled.",
+     "match": "added"
+    },
+    {
+     "coq": null,
+     "source": "A6,A7: social judgments, procedural laxness, complete felicity criteria and general speech-act/assertion semantics.",
+     "match": "missing"
+    }
+   ],
+   "theorems": [
+    {
+     "name": "condition_enumeration",
+     "status": "proved",
+     "inventory_id": "A1",
+     "claim_kind": "new",
+     "source_claim": "Enumeration helper for the six supplied condition labels.",
+     "note": "A1 — new"
+    },
+    {
+     "name": "report_exact",
+     "status": "proved",
+     "inventory_id": "A1",
+     "claim_kind": "new",
+     "source_claim": "Soundness and completeness of the added diagnostic report against its failure predicate.",
+     "note": "A1 — new"
+    },
+    {
+     "name": "passing_excludes_failure",
+     "status": "proved",
+     "inventory_id": "A1",
+     "claim_kind": "new",
+     "source_claim": "Passing and failing the same condition are incompatible in the diagnostic representation.",
+     "note": "A1 — new"
+    },
+    {
+     "name": "no_report_complete_when_assessed",
+     "status": "proved",
+     "inventory_id": "A6",
+     "claim_kind": "new",
+     "source_claim": "An empty report entails listed success only when all required observations are known.",
+     "note": "A6 — new"
+    },
+    {
+     "name": "known_failures_survive_refinement",
+     "status": "proved",
+     "inventory_id": "A6",
+     "claim_kind": "new",
+     "source_claim": "Previously known failures persist under information-preserving refinement.",
+     "note": "A6 — new"
+    },
+    {
+     "name": "misfire_blocks_intended_act",
+     "status": "proved",
+     "inventory_id": "A2",
+     "claim_kind": "conditional result",
+     "source_claim": "pp.16–17 intended act cannot occur if an explicitly necessary A/B condition fails; necessity is a premise.",
+     "note": "A2 — conditional result"
+    },
+    {
+     "name": "failed_necessary_condition_blocks_felicity",
+     "status": "proved",
+     "inventory_id": "A1",
+     "claim_kind": "conditional result",
+     "source_claim": "pp.14–15 failed necessary condition rules out felicity; felicity implies listed conditions is an explicit premise.",
+     "note": "A1 — conditional result"
+    },
+    {
+     "name": "Cases.unknown_is_not_success",
+     "status": "proved",
+     "inventory_id": "A6",
+     "claim_kind": "new",
+     "source_claim": "Countercase to treating missing observations as success.",
+     "note": "A6 — new"
+    },
+    {
+     "name": "Cases.insincere_promise_can_be_achieved",
+     "status": "proved",
+     "inventory_id": "A3",
+     "claim_kind": "illustrative reconstruction",
+     "source_claim": "pp.11,16,39–41 insincere promise; achievement is supplied as part of the example.",
+     "note": "A3 — illustrative reconstruction"
+    },
+    {
+     "name": "Cases.simultaneous_failures",
+     "status": "proved",
+     "inventory_id": "A5",
+     "claim_kind": "illustrative reconstruction",
+     "source_claim": "p.23 coexistence of A2 and Gamma1 failures; not an exclusive classification.",
+     "note": "A5 — illustrative reconstruction"
+    },
+    {
+     "name": "Cases.inapplicable_attitudes_not_failures",
+     "status": "proved",
+     "inventory_id": "A1",
+     "claim_kind": "illustrative reconstruction",
+     "source_claim": "p.15 Gamma applicability is conditional; non-required attitudes do not create a failure.",
+     "note": "A1 — illustrative reconstruction"
+    },
+    {
+     "name": "Cases.listed_conditions_are_not_sufficient",
+     "status": "proved",
+     "inventory_id": "A6",
+     "claim_kind": "new",
+     "source_claim": "Logical countermodel to checklist sufficiency with an additional unmet requirement; not a refutation of Austin.",
+     "note": "A6 — new"
+    },
+    {
+     "name": "Cases.void_act_can_have_other_effects",
+     "status": "proved",
+     "inventory_id": "A2",
+     "claim_kind": "illustrative reconstruction",
+     "source_claim": "p.17 an unauthorized ship-naming attempt can still break a bottle.",
+     "note": "A2 — illustrative reconstruction"
+    },
+    {
+     "name": "Cases.breach_not_incomplete_execution",
+     "status": "proved",
+     "inventory_id": "A2",
+     "claim_kind": "illustrative reconstruction",
+     "source_claim": "pp.39–44 subsequent breach is distinct from incomplete procedure execution.",
+     "note": "A2 — illustrative reconstruction"
+    },
+    {
+     "name": "Cases.truth_does_not_force_sincere_belief",
+     "status": "proved",
+     "inventory_id": "A7",
+     "claim_kind": "illustrative reconstruction",
+     "source_claim": "pp.41–43,49–50 truth and belief are independent coordinates here; no general assertion semantics.",
+     "note": "A7 — illustrative reconstruction"
+    },
+    {
+     "name": "Betting.broken_absorbing",
+     "status": "proved",
+     "inventory_id": "A4",
+     "claim_kind": "new",
+     "source_claim": "Absorption lemma for the strict recognizer's failure state.",
+     "note": "A4 — new"
+    },
+    {
+     "name": "Betting.complete_trace_exact",
+     "status": "proved",
+     "inventory_id": "A4",
+     "claim_kind": "new",
+     "source_claim": "Exact language of the added recognizer: a completed isolated exchange is offer followed by acceptance.",
+     "note": "A4 — new"
+    },
+    {
+     "name": "Betting.offer_requires_uptake",
+     "status": "proved",
+     "inventory_id": "A4",
+     "claim_kind": "illustrative reconstruction",
+     "source_claim": "pp.9,36–37 offer without acceptance does not complete this bet.",
+     "note": "A4 — illustrative reconstruction"
+    },
+    {
+     "name": "Betting.accepted_offer_completes",
+     "status": "proved",
+     "inventory_id": "A4",
+     "claim_kind": "illustrative reconstruction",
+     "source_claim": "pp.9,36–37 accepted offer completes this restricted recognizer.",
+     "note": "A4 — illustrative reconstruction"
+    },
+    {
+     "name": "Betting.refusal_and_reversed_order_fail",
+     "status": "proved",
+     "inventory_id": "A4",
+     "claim_kind": "new",
+     "source_claim": "Refusal and reversed ordering are negative tests of the added recognizer.",
+     "note": "A4 — new"
+    }
+   ],
+   "counts": {
+    "theorems": 20,
+    "proved": 20,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "P1 bounded pilot of Austin's provisional necessary felicity conditions: partial diagnostics, overlapping misfires/abuses and a two-step bet. Passing the checklist is not sufficient for felicity; achievement is not inferred from it."
+    ],
+    "simplifications": [
+     "A1 pp.14–18: A1 accepted conventional procedure, A2 appropriate persons/circumstances, B1 correct execution, B2 complete execution, Gamma1 attitudes/intentions, Gamma2 subsequent conduct. Gamma applicability is supplied.",
+     "A1–A3 pp.14–17: restricted necessary-condition diagnostics, distinct from independently supplied institutional achievement."
+    ],
+    "omissions": [
+     "A6: no algorithm for accepted conventions, entitlement, sincere intention, exclusions or procedural laxness.",
+     "A7 is a coordinate countercase only, not a formal semantics of assertion or Moore's paradox.",
+     "No whole-book locution/illocution/perlocution theory."
+    ],
+    "additions": [
+     "A1,A5,A6: added partial observation/reporting machinery; does not discover conventions, authority or sincerity.",
+     "A2,A3,A5: assigned observations for source examples, not empirical predictions.",
+     "A4 pp.9,36–37: added strict recognizer for one isolated offer/acceptance exchange; later events are not modeled."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "Bounded attempt completed, not a completed source-theory formalization. Added machinery and uncovered core claims prevent a whole-source determination; these chosen restrictions do not show that restructuring was necessary.",
+   "artifact_classes": [],
+   "source_gap": null,
+   "notes": "2026-09-13 purposive P0/P1/P2 campaign. See campaigns/tiers_2026_09_13_protocol.md, tiers_2026_09_13_inventory.md and tiers_2026_09_13_results.md. Single-researcher assessment, not independent review. Counts include helper/example declarations; triviality flags are mechanical findings, not verified source claims.",
+   "compiles": true,
+   "_key": "atlas__austin1962",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 20,
+    "proved": 20,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 20,
+    "queried": 20,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_probe": {
+    "probed": 20,
+    "trivial": 5,
+    "vacuous": 0,
+    "vacuous_names": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/pilots/Davidson1967.v",
+   "region": "model-theoretic core",
+   "summary": "P3 pilot: existential event argument shared by modifiers, modifier dropping, equality substitution and a two-event countermodel to separately witnessed conjunction. No intention or reference-class-sensitive adverbs.",
+   "assessment_status": "pilot",
+   "sources": [
+    {
+     "citation": "Davidson (1967), The Logical Form of Action Sentences, pp.81-83,92-93, (17)-(20).",
+     "path": "papers/foundations/Davidson_1967_TheLogicalFormOfAction.pdf",
+     "available": "Selected source sections read on disk; see audit/inventory. No independent second review."
+    }
+   ],
+   "definitions_mapped": [
+    {
+     "coq": "reading",
+     "source": "Existential event argument in (17)-(20), no thematic-role decomposition",
+     "match": "exact"
+    },
+    {
+     "coq": "modifier lists",
+     "source": "Finite modifier-sequence presentation of shared-event conjunction",
+     "match": "added"
+    }
+   ],
+   "theorems": [
+    {
+     "name": "drop_modifiers",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "drop_all_modifiers",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "equal_names_substitute",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "buttering_example",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "separate_events_not_shared",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    }
+   ],
+   "counts": {
+    "theorems": 5,
+    "proved": 5,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "P3 pilot: existential event argument shared by modifiers, modifier dropping, equality substitution and a two-event countermodel to separately witnessed conjunction. No intention or reference-class-sensitive adverbs."
+    ],
+    "simplifications": [],
+    "omissions": [
+     "Whole-source coverage beyond the explicitly bounded fragment."
+    ],
+    "additions": [
+     "Finite modifier-sequence presentation of shared-event conjunction"
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "Bounded partial implementation; source-level determination withheld. Incompleteness is not evidence of required restructuring.",
+   "artifact_classes": [],
+   "source_gap": null,
+   "notes": "2026-09-13 local single-researcher audit. See audits/revision_2026_09_13.md and campaigns/pilot_2026_09_13_results.md. Mechanical checks are separate from independent source review.",
+   "compiles": true,
+   "_key": "atlas__davidson1967",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 5,
+    "proved": 5,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 5,
+    "queried": 5,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_probe": {
+    "probed": 5,
+    "trivial": 0,
+    "vacuous": 0,
+    "vacuous_names": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/discursive/Derrida1972.v",
+   "region": "philosophical",
+   "summary": "P0 bounded illustrative reconstruction: context-sensitive reuse, quotation, signature-form information loss and possible failure. NOT a verification of deconstruction or universal semantic non-saturation.",
+   "assessment_status": "pilot",
+   "bounded_attempt_status": "complete",
+   "sources": [
+    {
+     "citation": "Derrida (1972), Signature Event Context, local English Limited Inc text pp.1–23 (whole essay read).",
+     "path": "papers/foundations/Derrida_1972_SignatureEventContext.pdf",
+     "available": "Local primary source read within the stated scope; source inventory and limitations recorded. Independent source review pending."
+    }
+   ],
+   "definitions_mapped": [
+    {
+     "coq": "ContextualExample.mark; frame; effect; occurrence; reading; interpret; graft",
+     "source": "D1–D3 pp.7–12: added finite vocabulary and partial interpreter; exact equality restricts the essay's qualified sameness of forms.",
+     "match": "added"
+    },
+    {
+     "coq": "ContextualExample.depth; quote; ceiling",
+     "source": "D2–D3: added unbounded quotation syntax and finite-list bound, not a definition of all contexts or semantic non-saturation.",
+     "match": "added"
+    },
+    {
+     "coq": "visible_form; origin (section parameters)",
+     "source": "D4 pp.19–20: restricted token/form/origin representation with explicit indistinguishability assumptions.",
+     "match": "simplified"
+    },
+    {
+     "coq": "Risk.accessible; Risk.possible_failure",
+     "source": "D5 pp.15–18: added two-world illustration, not the source's definition of structural possibility.",
+     "match": "added"
+    },
+    {
+     "coq": null,
+     "source": "D6 pp.3,9,18–21: universal contextual non-saturation, dissemination and philosophical critique.",
+     "match": "missing"
+    }
+   ],
+   "theorems": [
+    {
+     "name": "ContextualExample.agrammaticality_example",
+     "status": "proved",
+     "inventory_id": "D2",
+     "claim_kind": "illustrative reconstruction",
+     "source_claim": "p.12 agrammatical phrase functions as an example; behavior stipulated in the interpreter.",
+     "note": "D2 — illustrative reconstruction"
+    },
+    {
+     "name": "ContextualExample.graft_preserves_form",
+     "status": "proved",
+     "inventory_id": "D2",
+     "claim_kind": "new",
+     "source_claim": "Projection property of the added graft operation.",
+     "note": "D2 — new"
+    },
+    {
+     "name": "ContextualExample.graft_changes_possible_effect",
+     "status": "proved",
+     "inventory_id": "D2",
+     "claim_kind": "illustrative reconstruction",
+     "source_claim": "p.12 context change of the same form; concrete modeled example.",
+     "note": "D2 — illustrative reconstruction"
+    },
+    {
+     "name": "ContextualExample.context_cannot_be_erased_from_this_interpreter",
+     "status": "proved",
+     "inventory_id": "D3",
+     "claim_kind": "new",
+     "source_claim": "Two modeled contexts disprove context-erasure for THIS interpreter, not every theory.",
+     "note": "D3 — new"
+    },
+    {
+     "name": "ContextualExample.absent_producer_can_still_be_read",
+     "status": "proved",
+     "inventory_id": "D1",
+     "claim_kind": "illustrative reconstruction",
+     "source_claim": "pp.7–10 absence of producer; an example in a model omitting intention from interpretation.",
+     "note": "D1 — illustrative reconstruction"
+    },
+    {
+     "name": "ContextualExample.producer_metadata_invariant_here",
+     "status": "proved",
+     "inventory_id": "D1",
+     "claim_kind": "new",
+     "source_claim": "Origin-metadata independence is built into this interpreter, not established for language.",
+     "note": "D1 — new"
+    },
+    {
+     "name": "ContextualExample.same_form_need_not_be_same_occurrence",
+     "status": "proved",
+     "inventory_id": "D4",
+     "claim_kind": "illustrative reconstruction",
+     "source_claim": "pp.19–20 repeated form need not identify a unique occurrence.",
+     "note": "D4 — illustrative reconstruction"
+    },
+    {
+     "name": "ContextualExample.quotation_depth",
+     "status": "proved",
+     "inventory_id": "D2",
+     "claim_kind": "new",
+     "source_claim": "Helper lemma about the added quotation syntax.",
+     "note": "D2 — new"
+    },
+    {
+     "name": "ContextualExample.member_below_ceiling",
+     "status": "proved",
+     "inventory_id": "D2",
+     "claim_kind": "new",
+     "source_claim": "Finite-list depth-bound helper.",
+     "note": "D2 — new"
+    },
+    {
+     "name": "ContextualExample.fresh_quote_beyond_any_finite_list",
+     "status": "proved",
+     "inventory_id": "D2",
+     "claim_kind": "new",
+     "source_claim": "Unbounded fresh contexts in the added syntax, not semantic non-saturation.",
+     "note": "D2 — new"
+    },
+    {
+     "name": "ContextualExample.quotation_levels_distinct",
+     "status": "proved",
+     "inventory_id": "D2",
+     "claim_kind": "new",
+     "source_claim": "Distinct depths identify distinct syntactic quotation levels.",
+     "note": "D2 — new"
+    },
+    {
+     "name": "ContextualExample.unbounded_quotation_can_keep_effect_constant",
+     "status": "proved",
+     "inventory_id": "D3",
+     "claim_kind": "new",
+     "source_claim": "Countermodel to inferring semantic variation merely from syntactic unboundedness.",
+     "note": "D3 — new"
+    },
+    {
+     "name": "repeatable_form_cannot_recover_both_origins",
+     "status": "proved",
+     "inventory_id": "D4",
+     "claim_kind": "conditional result",
+     "source_claim": "pp.19–20 motivated information-loss result: equal observed forms and different origins rule out form-only decoding.",
+     "note": "D4 — conditional result"
+    },
+    {
+     "name": "richer_evidence_is_not_ruled_out",
+     "status": "proved",
+     "inventory_id": "D4",
+     "claim_kind": "new",
+     "source_claim": "The conditional form-only result does not exclude richer token evidence; not an authentication algorithm.",
+     "note": "D4 — new"
+    },
+    {
+     "name": "signature_form_and_origin_can_diverge",
+     "status": "proved",
+     "inventory_id": "D4",
+     "claim_kind": "illustrative reconstruction",
+     "source_claim": "A two-token witness to the premises of the conditional form-only result.",
+     "note": "D4 — illustrative reconstruction"
+    },
+    {
+     "name": "Risk.necessary_risk_coexists_with_success",
+     "status": "proved",
+     "inventory_id": "D5",
+     "claim_kind": "illustrative reconstruction",
+     "source_claim": "pp.15–18 successful performances coexist with the possibility of failure in an added modal model.",
+     "note": "D5 — illustrative reconstruction"
+    },
+    {
+     "name": "Risk.necessary_risk_does_not_mean_all_actual_fail",
+     "status": "proved",
+     "inventory_id": "D5",
+     "claim_kind": "new",
+     "source_claim": "Countermodel to conflating possible failure with all actual performances failing.",
+     "note": "D5 — new"
+    }
+   ],
+   "counts": {
+    "theorems": 17,
+    "proved": 17,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "P0 bounded illustrative reconstruction: context-sensitive reuse, quotation, signature-form information loss and possible failure. NOT a verification of deconstruction or universal semantic non-saturation."
+    ],
+    "simplifications": [
+     "D4 pp.19–20: restricted token/form/origin representation with explicit indistinguishability assumptions."
+    ],
+    "omissions": [
+     "D6 central philosophical claims are not statable in this signature; no verdict of false, inconsistent or unmechanizable.",
+     "No universal readability, theory of intention, real-world authentication or complete contextual interpretation."
+    ],
+    "additions": [
+     "D1–D3 pp.7–12: added finite vocabulary and partial interpreter; exact equality restricts the essay's qualified sameness of forms.",
+     "D2–D3: added unbounded quotation syntax and finite-list bound, not a definition of all contexts or semantic non-saturation.",
+     "D5 pp.15–18: added two-world illustration, not the source's definition of structural possibility."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "Bounded attempt completed, not a completed source-theory formalization. Added machinery and uncovered core claims prevent a whole-source determination; these chosen restrictions do not show that restructuring was necessary.",
+   "artifact_classes": [],
+   "source_gap": null,
+   "notes": "2026-09-13 purposive P0/P1/P2 campaign. See campaigns/tiers_2026_09_13_protocol.md, tiers_2026_09_13_inventory.md and tiers_2026_09_13_results.md. Single-researcher assessment, not independent review. Counts include helper/example declarations; triviality flags are mechanical findings, not verified source claims.",
+   "compiles": true,
+   "_key": "atlas__derrida1972",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 17,
+    "proved": 17,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 17,
+    "queried": 17,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_probe": {
+    "probed": 17,
+    "trivial": 3,
+    "vacuous": 0,
+    "vacuous_names": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
+    "disputed": false
+   }
+  },
   {
    "file": "atlas/categorical/DisCoCat.v",
    "region": "categorical / distributional",
@@ -433,7 +1050,7 @@
   {
    "file": "atlas/mtt_ranta/DTS.v",
    "region": "modern type theories (MTT + Ranta pair)",
-   "summary": "Dependent Type Semantics (Bekki): @-slots rendered as resolution spaces Ctx -> A with felicity = inhabitedness (type checking succeeds); the donkey conditional whose canonical projection-resolution recovers Ranta's donkey_sentence definitionally — DTS resolution generalizes the pronominalization rule; the strong reading inherited through the bridge; ambiguity = extensionally distinct resolvents (two-antecedent discourse over bool); presupposition as @-terms: bare 'the farmer talks' demands a witness (felicitous unit Farmer equivalent to Farmer), while inside the donkey conditional the definite resolves locally from the antecedent and the conditional projects nothing (context passing).",
+   "summary": "DTS predicate-CN fragment and explicit context translations. Dynamic conjunction retains old context and new evidence. This shallow module is complemented by DTS_Resolution.v: typed @ slots, projection search, substitution preservation and dependent telescope interpretation. Overall source coverage remains incomplete.",
    "sources": [
     {
      "citation": "Bekki, D. (2014). Representing anaphora with dependent types. LACL, LNCS 8535.",
@@ -454,14 +1071,21 @@
      "note": "underspecification as parameterization, resolution as application; the checking/search interleaving is meta-level (artifact i/ii)"
     },
     {
-     "coq": "ante := Ranta's donkey context; dts_donkey (he it : resolutions)",
-     "source": "B14's donkey analysis over the Sigma-context",
-     "match": "exact"
+     "coq": "PredicateDTS.context / to_sorted / from_sorted",
+     "source": "BM17 section 1.4 pp. 17-19, formulas (7) and (10)",
+     "match": "simplified",
+     "note": "Predicate CNs retained; sorted noun types explicitly induced as Sigma packages. Earlier ante is only a sorted specialization."
     },
     {
      "coq": "the_farmer_talks (the : resolution Ctx Farmer)",
      "source": "BM17 presupposition as @-terms",
      "match": "simplified"
+    },
+    {
+     "coq": "PredicateDTS.dynamic_and / extend",
+     "source": "BM17 section 3.1 Definition 4 p. 24",
+     "match": "exact",
+     "note": "The second clause receives both old context and the first clause's witness."
     }
    ],
    "theorems": [
@@ -469,7 +1093,7 @@
      "name": "dts_donkey_canonical",
      "status": "proved",
      "source_claim": "resolution generalizes Ranta's pronominalization (the projections are one resolvent)",
-     "note": "reflexivity — the headline bridge"
+     "note": "Legacy sorted specialization only; source-level comparison uses PredicateDTS.canonical_ranta_translation."
     },
     {
      "name": "dts_donkey_felicitous / dts_donkey_strong",
@@ -485,66 +1109,69 @@
      "name": "the_bare_presupposes / the_conditional_projects_nothing / the_conditional_is_donkey",
      "status": "proved",
      "source_claim": "BM17 presupposition and projection via context passing"
+    },
+    {
+     "name": "PredicateDTS.context_roundtrip / sorted_roundtrip / canonical_ranta_translation / canonical_strong_reading",
+     "status": "proved",
+     "source_claim": "Explicit evidence-preserving context re-encoding and the canonical strong reading."
+    },
+    {
+     "name": "PredicateDTS.discourse_content",
+     "status": "proved",
+     "source_claim": "BM17 discourse inferences: the same individual enters and whistles."
     }
    ],
    "counts": {
-    "theorems": 7,
-    "proved": 7,
+    "theorems": 12,
+    "proved": 12,
     "admitted": 0,
     "propositional_axioms": 0
    },
    "faithfulness": {
     "verdict": "partial",
     "evidence": [
-     "All 7 audited theorems closed under the global context; the Ranta bridge is definitional.",
-     "BM17 on disk and spot-checked: the abstract itself asserts local contexts, context-passing, underspecified terms, projection-as-type-checking and resolution-as-proof-search — the exact content of Parts 1-3."
+     "BM17 section 1.4 explicitly distinguishes predicate CNs from Ranta/MTT noun types; the new core retains this distinction.",
+     "Explicit inverse context maps and canonical-reading translations are proved; sorted helper reflexivity is not an architectural identity."
     ],
     "simplifications": [
-     "@-operators as lambda-abstracted parameters (no typed term-former)",
-     "no CCG interface",
-     "resolution exhibited, not searched"
+     "This file retains shallow parameterized helpers; the companion implements a bounded entity-projection calculus.",
+     "No CCG interface; finite telescope shape; no general search over proofs."
     ],
     "omissions": [
-     "B14's full @-calculus and its typing rules",
-     "selectional features on resolution",
-     "the lightblue pipeline"
+     "Full dependent type checking and inference of hole types",
+     "General proof search and background reasoning",
+     "Accommodation, salience ranking, dependent definite-description target types",
+     "Bekki 2014 source remains unavailable"
     ],
     "additions": [
      "the concrete ambiguity and projection theorems"
     ]
    },
-   "determination": "slight_modification",
-   "determination_rationale": "The analyses go through, but the @-operator is genuinely a term-former with its own typing discipline in B14; rendering it as parameterization is a real (if standard) modification, and the sources were not on hand for spot-checks — hence partial/slight rather than faithful/as-is until the PDFs are added and checked.",
+   "determination": "unassessed",
+   "determination_rationale": "Withheld: the source theory is not fully implemented. The prior major_restructuring label is withdrawn: replacing @ with parameters in an unfinished artifact did not establish that DTS had to be re-founded. DTS_Resolution.v now implements typed entity-projection holes, search and substitution, but not unrestricted dependent type checking or proof search.",
    "artifact_classes": [
     {
-     "class": "i",
-     "description": "@-slots as resolution parameters; checking/search interleaving is meta-level"
-    },
-    {
-     "class": "ii",
-     "description": "felicity as inhabitedness of the resolution space"
-    },
-    {
      "class": "iv",
-     "description": "zero axioms"
+     "description": "Context telescopes encoded by Sigma; noun-ontology translations explicit."
     }
    ],
    "source_gap": null,
-   "notes": "Third node of the type-theoretic cluster (edges/ranta__dts.json). BM17 spot-check PASSED 2026-09-05 (felicity-as-type-checking = ARTIFACT-ii confirmed; the chapter's own abstract states the Ranta/Sundholm descent). Bekki 2014 remains to be obtained for the @-calculus typing rules; until then the @-as-parameterization simplification keeps determination at slight_modification.",
+   "notes": "Source audit 2026-09-13: BM17 sections 3.4-3.7 and 4.2 read in addition to the earlier sections. Bekki 2014 remains unavailable. No architectural equivalence or independent second semantic review is claimed. See audits/ttr_comparison.md and audits/revision_2026_09_13.md.",
    "compiles": true,
+   "assessment_status": "incomplete",
    "_key": "atlas__dts",
    "_verify": null,
    "counts_claimed": {
-    "theorems": 7,
-    "proved": 7,
+    "theorems": 12,
+    "proved": 12,
     "admitted": 0,
     "propositional_axioms": 0
    },
    "_mech": {
     "compiles": true,
     "coq_version": "8.20.1",
-    "closed": 7,
-    "queried": 7,
+    "closed": 12,
+    "queried": 12,
     "axioms": [],
     "undocumented_axioms": [],
     "unsafe_flags": [],
@@ -552,14 +1179,632 @@
     "disputes": []
    },
    "_probe": {
-    "probed": 7,
+    "probed": 12,
     "trivial": 5,
     "vacuous": 0,
     "vacuous_names": []
    },
    "_final": {
     "faithfulness": "partial",
-    "determination": "slight_modification",
+    "determination": "unassessed",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/mtt_ranta/DTS_Resolution.v",
+   "region": "modern type theories (DTS)",
+   "summary": "Typed entity-target @ slots and consistent substitution. Search is sound and complete for finite telescope entity projections only; dependent proof fields are retained by the interpretation. Explicit inverse reassociation maps connect the source mini-discourse context to the search telescope. An executable first-candidate resolver has soundness and conditional totality proofs; this choice policy is not attributed to the source.",
+   "assessment_status": "incomplete",
+   "sources": [
+    {
+     "citation": "Bekki & Mineshima (2017), Context-Passing and Underspecification in Dependent Type Semantics, sections 3.4-3.6 pp.28-30, Definition 5; section 4.2.",
+     "path": "papers/foundations/Bekki_Mineshima_2017_CalculatingProjectionsViaTypeChecking.pdf",
+     "available": "Selected source sections read on disk; see audit/inventory. No independent second review."
+    }
+   ],
+   "definitions_mapped": [
+    {
+     "coq": "typed / resolution_equation",
+     "source": "BM17 Definition 5",
+     "match": "simplified"
+    },
+    {
+     "coq": "search / search_exact",
+     "source": "Projection proof search in (41)-(42); finite entity-only candidate language",
+     "match": "added"
+    },
+    {
+     "coq": "telescope / flatten / unflatten",
+     "source": "Dependent discourse context, (40)-(42), explicit reassociation",
+     "match": "simplified"
+    },
+    {
+     "coq": "choose / resolve",
+     "source": "Added deterministic policy over the source-motivated projection search",
+     "match": "added"
+    }
+   ],
+   "theorems": [
+    {
+     "name": "substitution_preserves_typing",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+    },
+    {
+     "name": "covered_terms_resolve",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+    },
+    {
+     "name": "repeated_slot_consistent",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+    },
+    {
+     "name": "search_exact",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+    },
+    {
+     "name": "search_builds_equation",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+    },
+    {
+     "name": "choose_sound",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+    },
+    {
+     "name": "choose_covers",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+    },
+    {
+     "name": "automatic_resolution_sound",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+    },
+    {
+     "name": "automatic_resolution_total_on_projection_contexts",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+    },
+    {
+     "name": "automatic_resolution_examples",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+    },
+    {
+     "name": "negation_same_obligations",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+    },
+    {
+     "name": "projection_interpretation",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+    },
+    {
+     "name": "resolved_term_has_entity",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+    },
+    {
+     "name": "flatten_roundtrip",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+    },
+    {
+     "name": "unflatten_roundtrip",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+    },
+    {
+     "name": "source_projection_adequate",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+    },
+    {
+     "name": "mini_discourse_search",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+    },
+    {
+     "name": "mini_discourse_antecedent",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+    },
+    {
+     "name": "no_local_antecedent",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+    },
+    {
+     "name": "two_antecedents",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+    },
+    {
+     "name": "local_context_not_exported",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+    },
+    {
+     "name": "ambiguity_changes_referent",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; source derivations (40)-(42) and Def.5 motivate projections. Search/algorithm metatheorems are new."
+    }
+   ],
+   "counts": {
+    "theorems": 22,
+    "proved": 22,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "Typed entity-target @ slots and consistent substitution. Search is sound and complete for finite telescope entity projections only; dependent proof fields are retained by the interpretation. Explicit inverse reassociation maps connect the source mini-discourse context to the search telescope."
+    ],
+    "simplifications": [
+     "BM17 Definition 5",
+     "Dependent discourse context, (40)-(42), explicit reassociation"
+    ],
+    "omissions": [
+     "Whole-source coverage beyond the explicitly bounded fragment."
+    ],
+    "additions": [
+     "Projection proof search in (41)-(42); finite entity-only candidate language"
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "Bounded partial implementation; source-level determination withheld. Incompleteness is not evidence of required restructuring.",
+   "artifact_classes": [],
+   "source_gap": null,
+   "notes": "2026-09-13 local single-researcher audit. See audits/revision_2026_09_13.md and campaigns/pilot_2026_09_13_results.md. Mechanical checks are separate from independent source review.",
+   "compiles": true,
+   "_key": "atlas__dts_resolution",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 22,
+    "proved": 22,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 22,
+    "queried": 22,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_probe": {
+    "probed": 22,
+    "trivial": 5,
+    "vacuous": 0,
+    "vacuous_names": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/pilots/Grice1975.v",
+   "region": "pragmatics",
+   "summary": "P1 pilot: a constraint representation of Grice's three implicature conditions, explicit-belief garage example, cancellation and literal/nonliteral separation. Compatibility is supplied, not derived from the maxims; no whole-theory determination.",
+   "assessment_status": "pilot",
+   "sources": [
+    {
+     "citation": "Grice (1975), Logic and Conversation, pp.49-51,57-58.",
+     "path": "papers/foundations/Grice_1975_LogicAndConversation.pdf",
+     "available": "Selected source sections read on disk; see audit/inventory. No independent second review."
+    }
+   ],
+   "definitions_mapped": [
+    {
+     "coq": "calculable",
+     "source": "Three conditions pp.49-50, compatibility/recognizability as explicit inputs",
+     "match": "simplified"
+    },
+    {
+     "coq": "Garage.compatible",
+     "source": "Concrete relevance assumption for p.51, not independently derived",
+     "match": "added"
+    }
+   ],
+   "theorems": [
+    {
+     "name": "licensed_belief",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "opting_out_blocks_this_derivation",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "Garage.garage_belief_with_explicit_relevance_premise",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "Garage.literal_and_inferred_do_not_entail_fact",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "Garage.literal_content_survives_opt_out",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    }
+   ],
+   "counts": {
+    "theorems": 5,
+    "proved": 5,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "P1 pilot: a constraint representation of Grice's three implicature conditions, explicit-belief garage example, cancellation and literal/nonliteral separation. Compatibility is supplied, not derived from the maxims; no whole-theory determination."
+    ],
+    "simplifications": [
+     "Three conditions pp.49-50, compatibility/recognizability as explicit inputs"
+    ],
+    "omissions": [
+     "Whole-source coverage beyond the explicitly bounded fragment."
+    ],
+    "additions": [
+     "Concrete relevance assumption for p.51, not independently derived"
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "Bounded partial implementation; source-level determination withheld. Incompleteness is not evidence of required restructuring.",
+   "artifact_classes": [],
+   "source_gap": null,
+   "notes": "2026-09-13 local single-researcher audit. See audits/revision_2026_09_13.md and campaigns/pilot_2026_09_13_results.md. Mechanical checks are separate from independent source review.",
+   "compiles": true,
+   "_key": "atlas__grice1975",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 5,
+    "proved": 5,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 5,
+    "queried": 5,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_probe": {
+    "probed": 5,
+    "trivial": 1,
+    "vacuous": 0,
+    "vacuous_names": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/pragmatics/Horn1984.v",
+   "region": "pragmatics",
+   "summary": "P2 bounded pilot: Q ignorance versus strengthened negative truth, Q/R cancellation logic, and a finite pragmatic-labor interpreter. Relevance, norm observance, stereotype and corresponding alternatives are inputs, not derived from words.",
+   "assessment_status": "pilot",
+   "bounded_attempt_status": "complete",
+   "sources": [
+    {
+     "citation": "Horn (1984), Toward a New Taxonomy for Pragmatic Inference, sections 1–11 pp.11–31; (12) pp.20–21 and (16)–(18) pp.22–23 visually checked.",
+     "path": "papers/foundations/Horn_1984_TowardANewTaxonomyFor.pdf",
+     "available": "Local primary source read within the stated scope; source inventory and limitations recorded. Independent source review pending."
+    }
+   ],
+   "definitions_mapped": [
+    {
+     "coq": "knows; competent",
+     "source": "H1 p.13: added accessible-world encoding; competence is an EXTRA strengthening premise, not inferred from Q observance.",
+     "match": "added"
+    },
+    {
+     "coq": "q_content; r_content",
+     "source": "H2,H3 pp.20–21 (12): weaker content plus not-stronger versus stronger; conditional logical content, not automatic utterance interpretation.",
+     "match": "simplified"
+    },
+    {
+     "coq": "Numerals.lower; Numerals.q_reading",
+     "source": "H3 pp.14,20 (2a),(10): restricted natural-number lower bound with Q upper bound.",
+     "match": "simplified"
+    },
+    {
+     "coq": "expression; context; accepts; readings",
+     "source": "H4 pp.22–23 (17): added Boolean/default-context interpreter and finite enumeration; common extension, binary stereotypes and corresponding alternatives are supplied.",
+     "match": "added"
+    },
+    {
+     "coq": "Causatives.situation; literal; stereotype; normal; cancelled; no_counterpart",
+     "source": "H5 pp.27–29: assigned two-state direct/indirect example, not general lexical semantics or synonym blocking.",
+     "match": "added"
+    },
+    {
+     "coq": null,
+     "source": "H3 empirical restrictions on readings of negated utterances; H6 Q/R weighting, learned stereotypes, diachrony and general lexical selection.",
+     "match": "missing"
+    }
+   ],
+   "theorems": [
+    {
+     "name": "q_yields_ignorance",
+     "status": "proved",
+     "inventory_id": "H1",
+     "claim_kind": "conditional result",
+     "source_claim": "p.13 Q knowledge qualification: relevance, availability and norm observance plus non-use of a stronger form imply ignorance.",
+     "note": "H1 — conditional result"
+    },
+    {
+     "name": "negative_truth_needs_strengthening",
+     "status": "proved",
+     "inventory_id": "H1",
+     "claim_kind": "new",
+     "source_claim": "Negative actual-world truth requires explicit competence and actual-world accessibility in addition to ignorance.",
+     "note": "H1 — new"
+    },
+    {
+     "name": "ignorance_compatible_with_strong_truth",
+     "status": "proved",
+     "inventory_id": "H1",
+     "claim_kind": "new",
+     "source_claim": "Two-world countermodel: ignorance of the stronger content can coexist with its actual truth.",
+     "note": "H1 — new"
+    },
+    {
+     "name": "descriptive_negation_excludes_stronger",
+     "status": "proved",
+     "inventory_id": "H3",
+     "claim_kind": "direct source formalization",
+     "source_claim": "pp.20–21 (12): descriptive not-W entails not-S when S entails W.",
+     "note": "H3 — direct source formalization"
+    },
+    {
+     "name": "stronger_forces_non_descriptive_rejection",
+     "status": "proved",
+     "inventory_id": "H3",
+     "claim_kind": "conditional result",
+     "source_claim": "pp.20–21: affirmation of S excludes descriptive not-W; does not compute metalinguistic readings.",
+     "note": "H3 — conditional result"
+    },
+    {
+     "name": "q_r_incompatible",
+     "status": "proved",
+     "inventory_id": "H2",
+     "claim_kind": "direct source formalization",
+     "source_claim": "pp.20–21 (12): upper-bound and strengthened contents are logically incompatible.",
+     "note": "H2 — direct source formalization; the vacuity probe intentionally flags the inconsistent Q/R premises. This is a disjointness result, not an inference from a consistent joint reading."
+    },
+    {
+     "name": "stronger_cancels_q_not_literal",
+     "status": "proved",
+     "inventory_id": "H3",
+     "claim_kind": "conditional result",
+     "source_claim": "pp.20–21: stronger continuation rejects Q upper bound without rejecting literal W.",
+     "note": "H3 — conditional result"
+    },
+    {
+     "name": "r_cancellation_preserves_literal",
+     "status": "proved",
+     "inventory_id": "H3",
+     "claim_kind": "conditional result",
+     "source_claim": "p.21 (13): retaining W while cancelling R enrichment is logically possible.",
+     "note": "H3 — conditional result"
+    },
+    {
+     "name": "reading_partition_requires_a_decision",
+     "status": "proved",
+     "inventory_id": "H2",
+     "claim_kind": "new",
+     "source_claim": "A logical partition requires a decision S or not-S; does not claim automatic pragmatic choice.",
+     "note": "H2 — new"
+    },
+    {
+     "name": "logical_entailment_does_not_ban_r_rejection",
+     "status": "proved",
+     "inventory_id": "H3",
+     "claim_kind": "new",
+     "source_claim": "Entailment-only countermodel, NOT a refutation of the empirical restriction on negated utterances.",
+     "note": "H3 — new"
+    },
+    {
+     "name": "Numerals.two_sided_is_exact",
+     "status": "proved",
+     "inventory_id": "H3",
+     "claim_kind": "direct source formalization",
+     "source_claim": "Numeral lower bound plus next-value upper bound gives exact quantity.",
+     "note": "H3 — direct source formalization"
+    },
+    {
+     "name": "Numerals.four_cancels_three_upper_bound",
+     "status": "proved",
+     "inventory_id": "H3",
+     "claim_kind": "illustrative reconstruction",
+     "source_claim": "p.20 (10a): four satisfies at-least-three while cancelling its upper bound.",
+     "note": "H3 — illustrative reconstruction"
+    },
+    {
+     "name": "Numerals.descriptive_not_three_excludes_four",
+     "status": "proved",
+     "inventory_id": "H3",
+     "claim_kind": "direct source formalization",
+     "source_claim": "p.20 descriptive not-at-least-three excludes at-least-four.",
+     "note": "H3 — direct source formalization"
+    },
+    {
+     "name": "Numerals.cancellation_is_not_descriptive_negation",
+     "status": "proved",
+     "inventory_id": "H3",
+     "claim_kind": "illustrative reconstruction",
+     "source_claim": "Upper-bound cancellation at four is not descriptive negation of at-least-three.",
+     "note": "H3 — illustrative reconstruction"
+    },
+    {
+     "name": "finite_readings_exact",
+     "status": "proved",
+     "inventory_id": "H4",
+     "claim_kind": "new",
+     "source_claim": "Finite enumeration exactly returns supplied-domain candidates satisfying the added acceptance predicate.",
+     "note": "H4 — new"
+    },
+    {
+     "name": "readings_preserve_literal",
+     "status": "proved",
+     "inventory_id": "H4",
+     "claim_kind": "new",
+     "source_claim": "The added interpreter preserves literal truth in its returned readings.",
+     "note": "H4 — new"
+    },
+    {
+     "name": "labor_disjoint_when_applicable",
+     "status": "proved",
+     "inventory_id": "H4",
+     "claim_kind": "conditional result",
+     "source_claim": "pp.22–23 (17): disjoint stereotypical/non-stereotypical readings under explicitly supplied ordinary/counterpart conditions.",
+     "note": "H4 — conditional result"
+    },
+    {
+     "name": "labor_covers_common_extension",
+     "status": "proved",
+     "inventory_id": "H4",
+     "claim_kind": "new",
+     "source_claim": "Binary supplied stereotype exhausts the chosen common extension; stronger than a general empirical exhaustivity claim.",
+     "note": "H4 — new"
+    },
+    {
+     "name": "context_cancellation_restores_literal",
+     "status": "proved",
+     "inventory_id": "H2",
+     "claim_kind": "new",
+     "source_claim": "Disabling ordinary defaults restores literal content in this interpreter.",
+     "note": "H2 — new"
+    },
+    {
+     "name": "no_counterpart_no_marked_exclusion",
+     "status": "proved",
+     "inventory_id": "H5",
+     "claim_kind": "new",
+     "source_claim": "Without a corresponding unmarked alternative the marked form is not automatically excluded from the stereotype.",
+     "note": "H5 — new"
+    },
+    {
+     "name": "Causatives.killed_caused_contrast",
+     "status": "proved",
+     "inventory_id": "H5",
+     "claim_kind": "illustrative reconstruction",
+     "source_claim": "p.27 (28): supplied direct/indirect kill/cause-to-die contrast.",
+     "note": "H5 — illustrative reconstruction"
+    },
+    {
+     "name": "Causatives.counterpart_and_context_matter",
+     "status": "proved",
+     "inventory_id": "H5",
+     "claim_kind": "new",
+     "source_claim": "Boundary tests withdrawing counterpart availability or ordinary context.",
+     "note": "H5 — new"
+    },
+    {
+     "name": "Causatives.same_extension_does_not_identify_readings",
+     "status": "proved",
+     "inventory_id": "H5",
+     "claim_kind": "new",
+     "source_claim": "Same supplied literal extension need not give identical pragmatic readings.",
+     "note": "H5 — new"
+    },
+    {
+     "name": "Causatives.removing_counterpart_restores_direct_case",
+     "status": "proved",
+     "inventory_id": "H5",
+     "claim_kind": "new",
+     "source_claim": "Removing the supplied corresponding alternative restores the direct case.",
+     "note": "H5 — new"
+    }
+   ],
+   "counts": {
+    "theorems": 24,
+    "proved": 24,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "P2 bounded pilot: Q ignorance versus strengthened negative truth, Q/R cancellation logic, and a finite pragmatic-labor interpreter. Relevance, norm observance, stereotype and corresponding alternatives are inputs, not derived from words."
+    ],
+    "simplifications": [
+     "H2,H3 pp.20–21 (12): weaker content plus not-stronger versus stronger; conditional logical content, not automatic utterance interpretation.",
+     "H3 pp.14,20 (2a),(10): restricted natural-number lower bound with Q upper bound."
+    ],
+    "omissions": [
+     "H3: logical compatibility does not establish the empirical ban on R-cancelling negated readings.",
+     "H6: no Q/R weighting, empirical validation, learned stereotypes or diachrony; sections after 11 not read for this bounded campaign.",
+     "Causative contrast is illustrative; no automatic lexical correspondence or shorter-synonym blocking."
+    ],
+    "additions": [
+     "H1 p.13: added accessible-world encoding; competence is an EXTRA strengthening premise, not inferred from Q observance.",
+     "H4 pp.22–23 (17): added Boolean/default-context interpreter and finite enumeration; common extension, binary stereotypes and corresponding alternatives are supplied.",
+     "H5 pp.27–29: assigned two-state direct/indirect example, not general lexical semantics or synonym blocking."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "Bounded attempt completed, not a completed source-theory formalization. Added machinery and uncovered core claims prevent a whole-source determination; these chosen restrictions do not show that restructuring was necessary.",
+   "artifact_classes": [],
+   "source_gap": null,
+   "notes": "2026-09-13 purposive P0/P1/P2 campaign. See campaigns/tiers_2026_09_13_protocol.md, tiers_2026_09_13_inventory.md and tiers_2026_09_13_results.md. Single-researcher assessment, not independent review. Counts include helper/example declarations; triviality flags are mechanical findings, not verified source claims.",
+   "compiles": true,
+   "_key": "atlas__horn1984",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 24,
+    "proved": 24,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 24,
+    "queried": 24,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_probe": {
+    "probed": 24,
+    "trivial": 2,
+    "vacuous": 1,
+    "vacuous_names": [
+     "pragmatics.Horn1984.q_r_incompatible"
+    ]
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
     "disputed": false
    }
   },
@@ -1127,6 +2372,11 @@
      "coq": "count_ge_2 over an identity criterion",
      "source": "CL20 §5.3 individuation/setoids",
      "match": "simplified"
+    },
+    {
+     "coq": "strong_some / strong_witness",
+     "source": "CL20 p. 16 note 26: Sigma and weak existential both available",
+     "match": "exact"
     }
    ],
    "theorems": [
@@ -1179,11 +2429,16 @@
      "name": "nli_* (8 theorems)",
      "status": "proved",
      "source_claim": "CL14 / CL20 ch. 6 NLI inferences"
+    },
+    {
+     "name": "strong_some_to_some / strong_witness_sound",
+     "status": "proved",
+     "source_claim": "A strong package supplies its witness and implies the weak existential."
     }
    ],
    "counts": {
-    "theorems": 33,
-    "proved": 33,
+    "theorems": 35,
+    "proved": 35,
     "admitted": 0,
     "propositional_axioms": 0
    },
@@ -1232,21 +2487,21 @@
     }
    ],
    "source_gap": null,
-   "notes": "First file of the MTT+Ranta pair (designs/mtt_ranta.md); 524 lines. Companion: atlas__ranta.json, atlas__mtt_vs_ranta.json.",
+   "notes": "2026-09-12: both weak existential and strong Sigma are exposed. The MTT/Ranta constructor comparison is not a claim that MTT lacks witness extraction. See audits/ttr_comparison.md. The pre-existing universe, dot-type and coherence assessments were not independently re-audited here.",
    "compiles": true,
    "_key": "atlas__mtt",
    "_verify": null,
    "counts_claimed": {
-    "theorems": 33,
-    "proved": 33,
+    "theorems": 35,
+    "proved": 35,
     "admitted": 0,
     "propositional_axioms": 0
    },
    "_mech": {
     "compiles": true,
     "coq_version": "8.20.1",
-    "closed": 33,
-    "queried": 33,
+    "closed": 35,
+    "queried": 35,
     "axioms": [],
     "undocumented_axioms": [],
     "unsafe_flags": [],
@@ -1254,8 +2509,8 @@
     "disputes": []
    },
    "_probe": {
-    "probed": 33,
-    "trivial": 3,
+    "probed": 35,
+    "trivial": 4,
     "vacuous": 1,
     "vacuous_names": [
      "mtt_ranta.MTT.nli_no_some_absurd"
@@ -1268,9 +2523,119 @@
    }
   },
   {
+   "file": "atlas/mtt_ranta/MTT_vs_DTS.v",
+   "region": "TTR and modern type theories: scoped comparisons",
+   "summary": "MTT/DTS comparison through explicit noun translation: type liftings induce predicates; quantifiers agree on those images; negative predication does not require positive typing; the canonical donkey reading transfers only after packaging DTS predicate evidence into noun types.",
+   "sources": [
+    {
+     "citation": "Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories.",
+     "path": "papers/foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf",
+     "available": "read: sections 1.2, 1.4.2-1.4.3, 2.3.1, 3.2.3"
+    },
+    {
+     "citation": "Bekki, D. & Mineshima, K. (2017). Context-Passing and Underspecification in Dependent Type Semantics.",
+     "path": "papers/foundations/Bekki_Mineshima_2017_CalculatingProjectionsViaTypeChecking.pdf",
+     "available": "read: sections 1.1-1.4 and 3.1-3.3; title verified against PDF"
+    }
+   ],
+   "definitions_mapped": [
+    {
+     "coq": "image_predicate",
+     "source": "CL20 3.2.3 / BM17 1.4",
+     "match": "simplified",
+     "note": "Uses the existing common-supertype image rendering, not CL20's full heterogeneous IS."
+    },
+    {
+     "coq": "donkey_after_noun_translation",
+     "source": "BM17 (7) versus Ranta/MTT sorted contexts",
+     "match": "added",
+     "note": "Restricted to Prop-valued predicates; explicit induced Sigma noun types."
+    }
+   ],
+   "theorems": [
+    {
+     "name": "existential_image / universal_image",
+     "status": "proved",
+     "source_claim": "Quantifier agreement after image translation."
+    },
+    {
+     "name": "negative_predication / negative_predication_without_positive_typing",
+     "status": "proved",
+     "source_claim": "Negative nominal predication is expressible without assuming positive membership."
+    },
+    {
+     "name": "donkey_after_noun_translation",
+     "status": "proved",
+     "source_claim": "Canonical reading agreement after noun-ontology translation."
+    }
+   ],
+   "counts": {
+    "theorems": 5,
+    "proved": 5,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "faithful",
+    "evidence": [
+     "Assessment limited to the explicitly stated fragment; see audits/ttr_comparison.md. Mechanical results are stored separately in the .mech.json sidecar."
+    ],
+    "simplifications": [
+     "No full heterogeneous IS, DTS @ calculus, proof search, or equivalence of arbitrary Type-valued predicates with Prop."
+    ],
+    "omissions": [
+     "No full heterogeneous IS, DTS @ calculus, proof search, or equivalence of arbitrary Type-valued predicates with Prop."
+    ],
+    "additions": [
+     "explicit cross-encoding translations and loss-of-information results"
+    ]
+   },
+   "determination": "not_applicable",
+   "determination_rationale": "Comparison infrastructure, not an independent determination of either whole source theory.",
+   "artifact_classes": [
+    {
+     "class": "iv",
+     "description": "Explicit deep type codes, assignments and list-based records or comparison maps; Coq is the metalanguage."
+    }
+   ],
+   "source_gap": null,
+   "notes": "Source-based implementation audit on 2026-09-12; no independent second semantic reviewer is claimed. See audits/ttr_comparison.md for limitations and references.",
+   "compiles": true,
+   "_key": "atlas__mtt_vs_dts",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 5,
+    "proved": 5,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 5,
+    "queried": 5,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_probe": {
+    "probed": 5,
+    "trivial": 1,
+    "vacuous": 0,
+    "vacuous_names": []
+   },
+   "_final": {
+    "faithfulness": "faithful",
+    "determination": "not_applicable",
+    "disputed": false
+   }
+  },
+  {
    "file": "atlas/mtt_ranta/MTT_vs_Ranta.v",
    "region": "modern type theories (MTT + Ranta pair)",
-   "summary": "The cross-framework bridge: CNs, every, no, subtyped sentences (under explicit lifting) and the donkey sentence agree DEFINITIONALLY between CL20's MTT-semantics and Ranta 1995 (cumulativity does the sort bookkeeping); intersective adjectives are separated subsets (sig/sigT equivalence both ways); the strong donkey reading transfers through the shared currying theorem. The one genuine divergence is proof relevance: Ranta's Sigma projects witnesses as a function, MTT's Prop-existential returns them only up to inhabited — Coq's elimination restriction is exactly the formal residue of R95-Type vs CL20-Prop. Subtyping exists as a package only on the MTT side; sugaring only on the Ranta side.",
+   "summary": "A restricted MTT/Ranta comparison. Both have CN types and strong Sigma packages; strong_some_agree and strong_witness_agree expose that shared structure. Weak Prop-existential versus Sigma requires inhabited mediation, a difference between selected constructors rather than an MTT expressivity limitation. Donkey readings agree on the shared Prop-valued lexicon; coercive-subtyping and sugaring mechanisms remain distinct.",
    "sources": [
     {
      "citation": "Chatzikyriakidis & Luo 2020, §1.4.2, §2.3.1, §3.2-3.3.",
@@ -1290,10 +2655,10 @@
      "match": "exact"
     },
     {
-     "coq": "inhabited as the Prop/Type mediator",
-     "source": "the R95-Type vs CL20-Prop gap",
-     "match": "changed",
-     "note": "the gap is the finding, not an encoding accident (artifact i)"
+     "coq": "inhabited mediation; strong_some_agree",
+     "source": "CL20 pp. 15-16 and Ranta section 2.16",
+     "match": "added",
+     "note": "CL20 retains both weak existential and Sigma. The comparison fixes constructors and lexicon, not entire frameworks."
     }
    ],
    "theorems": [
@@ -1311,7 +2676,7 @@
     {
      "name": "some_agree_fwd; some_agree_bwd_inhabited; ranta_witness / ranta_witness_sound",
      "status": "proved",
-     "source_claim": "proof-relevance divergence: Sigma implies exists; converse only up to inhabited; witness extraction is Ranta-side only"
+     "source_claim": "Weak existential versus Sigma: propositional inhabitation mediation; the strong Sigma witness also exists on the MTT side."
     },
     {
      "name": "inter_subset_fwd / inter_subset_bwd / inter_subset_some",
@@ -1327,20 +2692,25 @@
      "name": "ranta_some_mono",
      "status": "proved",
      "source_claim": "MTT's monotonicity package is provable ABOUT the Ranta forms once the lifting is explicit"
+    },
+    {
+     "name": "strong_some_agree / strong_witness_agree",
+     "status": "proved",
+     "source_claim": "Both frameworks expose witness-bearing Sigma on the shared Prop-valued lexicon."
     }
    ],
    "counts": {
-    "theorems": 15,
-    "proved": 15,
+    "theorems": 17,
+    "proved": 17,
     "admitted": 0,
     "propositional_axioms": 0
    },
    "faithfulness": {
     "verdict": "faithful",
     "evidence": [
-     "Agreement theorems are by reflexivity wherever the sources share the analysis, which is the strongest possible form of the claim 'CL20 builds on R95'.",
-     "The divergences are stated as theorems (inhabited mediation, witness extraction) or documented Fail-style (subtyping absence on the Ranta side).",
-     "All 15 audited theorems closed under the global context."
+     "Source-checked against CL20 pp. 15-16: both weak existential and Sigma are available.",
+     "Actual Fail commands test the particular weak existential eliminator and unlifted expressions in both encodings; they are not framework impossibility theorems.",
+     "Existing equations are restricted to a shared lexicon and selected constructions."
     ],
     "simplifications": [],
     "omissions": [
@@ -1351,34 +2721,30 @@
      "the bridge file itself — neither source states cross-framework theorems"
     ]
    },
-   "determination": "as_is",
-   "determination_rationale": "The bridge quantifies the folklore 'MTT-semantics descends from Ranta': the shared core is definitional, and the genuine delta is exactly proof relevance plus the subtyping/sugaring asymmetry.",
+   "determination": "not_applicable",
+   "determination_rationale": "Comparison infrastructure; constructor agreements do not determine whether either complete source theory transfers as-is.",
    "artifact_classes": [
     {
-     "class": "i",
-     "description": "cross-sort equalities via cumulativity; inhabited mediates the Prop/Type gap"
-    },
-    {
      "class": "iv",
-     "description": "zero axioms"
+     "description": "Explicit mediation and translations between chosen Coq representations; no global framework equivalence."
     }
    ],
    "source_gap": null,
-   "notes": "Third file of the MTT+Ranta pair (designs/mtt_ranta.md); the atlas's second cross-framework edge (first: DRT~DPL planned; Lambek Curry-Howard fragment gives a third via the shared Montague fragment).",
+   "notes": "Source correction 2026-09-12. Replaces the previous claim that witness extraction is available only in Ranta. See audits/ttr_comparison.md.",
    "compiles": true,
    "_key": "atlas__mtt_vs_ranta",
    "_verify": null,
    "counts_claimed": {
-    "theorems": 15,
-    "proved": 15,
+    "theorems": 17,
+    "proved": 17,
     "admitted": 0,
     "propositional_axioms": 0
    },
    "_mech": {
     "compiles": true,
     "coq_version": "8.20.1",
-    "closed": 15,
-    "queried": 15,
+    "closed": 17,
+    "queried": 17,
     "axioms": [],
     "undocumented_axioms": [],
     "unsafe_flags": [],
@@ -1386,14 +2752,377 @@
     "disputes": []
    },
    "_probe": {
-    "probed": 15,
-    "trivial": 9,
+    "probed": 17,
+    "trivial": 11,
     "vacuous": 0,
     "vacuous_names": []
    },
    "_final": {
     "faithfulness": "faithful",
-    "determination": "as_is",
+    "determination": "not_applicable",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/pilots/Rosch1978.v",
+   "region": "cognitive",
+   "summary": "P1 bounded Rosch pilot: finite cue validity, fixed-cue inclusion boundary, assigned category-specific cue sensitivity, and membership/typicality separation. Does not derive a basic level or model human processing.",
+   "assessment_status": "pilot",
+   "bounded_attempt_status": "complete",
+   "source_inventory": "atlas_data/campaigns/cohort2_2026_09_13_rosch_inventory.md",
+   "sources": [
+    {
+     "citation": "Rosch (1978), Principles of Categorization. Full local 25-page reformatted chapter read; local pp.5-6 cue validity and pp.10-16 typicality. Local pages are not original chapter pp.27-48.",
+     "path": "papers/foundations/Rosch_1978_PrinciplesOfCategorization.pdf",
+     "available": "Pinned local primary source; SHA-256 45e33ffdfe2d79f5c63f1d70b28bcc5c8e6e72f3b761c17930a8af4bc50d8fbe. Independent semantic review pending."
+    }
+   ],
+   "definitions_mapped": [
+    {
+     "coq": "Frequency.count; Frequency.joint; Frequency.cue_ratio; Frequency.cue_validity",
+     "source": "R2-03 local p.5: P(category | cue), restricted to finite empirical frequency and Boolean predicates; optional undefined case added.",
+     "match": "simplified"
+    },
+    {
+     "coq": "Frequency.score; Frequency.admissible",
+     "source": "R2-03 local pp.5-6: source sum at unit weights; generalized weights and the fixed-cue-list hypothesis are explicit added choices, not Rosch's category-specific selection rule.",
+     "match": "added"
+    },
+    {
+     "coq": "Frequency.event_probability; Frequency.conditional_from_probabilities",
+     "source": "Same-data normalized-frequency encoding for the conditional probability definition; finite restriction, not a full real-valued measure theory.",
+     "match": "simplified"
+    },
+    {
+     "coq": "ConstructedCategories.*",
+     "source": "R2-02/R2-03 hierarchy labels are source-inspired; sample, coextensive features, numerical counts and category-specific cue lists are constructed inputs.",
+     "match": "added"
+    },
+    {
+     "coq": "Typicality.at_least; Typicality.best; Typicality.ConstructedBirds.*",
+     "source": "R2-04 local pp.10-16: separate membership and ordinal goodness; finite numeric scales, direct weak ordering and ties are illustrative additions.",
+     "match": "added"
+    },
+    {
+     "coq": null,
+     "source": "R2-01 cognitive economy; R2-02 empirical basic-level convergence; R2-03 feature selection; R2-04 human ratings; R2-05 mechanisms; R2-06 context; R2-07 attribute origins; R2-08 events/scripts.",
+     "match": "missing"
+    }
+   ],
+   "theorems": [
+    {
+     "name": "Frequency.count_nonnegative",
+     "status": "proved",
+     "inventory_id": "R2-03",
+     "claim_kind": "new",
+     "source_claim": "Finite-frequency helper: unit-indicator counts are nonnegative.",
+     "note": "R2-03 — new"
+    },
+    {
+     "name": "Frequency.count_monotone",
+     "status": "proved",
+     "inventory_id": "R2-03",
+     "claim_kind": "new",
+     "source_claim": "Finite-frequency helper: observed inclusion implies a count inequality.",
+     "note": "R2-03 — new"
+    },
+    {
+     "name": "Frequency.joint_count_le_cue",
+     "status": "proved",
+     "inventory_id": "R2-03",
+     "claim_kind": "new",
+     "source_claim": "Intersection-count bound supporting the restricted conditional probability definition.",
+     "note": "R2-03 — new"
+    },
+    {
+     "name": "Frequency.undefined_exactly_zero_cue",
+     "status": "proved",
+     "inventory_id": "R2-03",
+     "claim_kind": "new",
+     "source_claim": "Explicit undefined-conditioning interface; zero-frequency cues are not assigned an empirical probability.",
+     "note": "R2-03 — new"
+    },
+    {
+     "name": "Frequency.positive_cue_is_defined",
+     "status": "proved",
+     "inventory_id": "R2-03",
+     "claim_kind": "conditional result",
+     "source_claim": "Local PDF p.5: positive cue frequency makes the finite conditional-frequency value defined.",
+     "note": "R2-03 — conditional result"
+    },
+    {
+     "name": "Frequency.cue_ratio_range",
+     "status": "proved",
+     "inventory_id": "R2-03",
+     "claim_kind": "conditional result",
+     "source_claim": "Finite conditional frequency lies in [0,1] when the cue has positive frequency.",
+     "note": "R2-03 — conditional result"
+    },
+    {
+     "name": "Frequency.cue_ratio_monotone",
+     "status": "proved",
+     "inventory_id": "R2-03",
+     "claim_kind": "new",
+     "source_claim": "Encoding boundary: nested categories and one fixed positive cue yield monotone conditional frequency.",
+     "note": "R2-03 — new"
+    },
+    {
+     "name": "Frequency.fixed_cue_score_monotone",
+     "status": "proved",
+     "inventory_id": "R2-03",
+     "claim_kind": "new",
+     "source_claim": "Same cue list and nonnegative weights preserve inclusion monotonicity; weights generalize the source's unweighted sum.",
+     "note": "R2-03 — new"
+    },
+    {
+     "name": "Frequency.no_strict_interior_maximum_with_fixed_cues",
+     "status": "proved",
+     "inventory_id": "R2-03",
+     "claim_kind": "new",
+     "source_claim": "A containing category cannot score strictly lower with identical admissible cues; not a refutation of Rosch's category-specific account.",
+     "note": "R2-03 — new"
+    },
+    {
+     "name": "Frequency.normalization_cancels",
+     "status": "proved",
+     "inventory_id": "R2-03",
+     "claim_kind": "new",
+     "source_claim": "Same-data representation check: conditioning normalized counts equals the direct ratio on positive denominators.",
+     "note": "R2-03 — new"
+    },
+    {
+     "name": "ConstructedCategories.hierarchy_and_positive_cues",
+     "status": "proved",
+     "inventory_id": "R2-03",
+     "claim_kind": "illustrative reconstruction",
+     "source_claim": "Constructed nonvacuity witness: nested kitchen-chair/chair/furniture predicates and positive shared cues.",
+     "note": "R2-03 — illustrative reconstruction"
+    },
+    {
+     "name": "ConstructedCategories.fixed_cues_favor_parent",
+     "status": "proved",
+     "inventory_id": "R2-03",
+     "claim_kind": "illustrative reconstruction",
+     "source_claim": "Assigned four-observation dataset: fixed cues give chair 8/3 and furniture 3; not published measurements.",
+     "note": "R2-03 — illustrative reconstruction"
+    },
+    {
+     "name": "ConstructedCategories.assigned_category_cues_allow_interior_maximum",
+     "status": "proved",
+     "inventory_id": "R2-03",
+     "claim_kind": "illustrative reconstruction",
+     "source_claim": "Assigned category-specific cue lists give furniture 1, chair 2, kitchen-chair 1; cue selection is input, not predicted.",
+     "note": "R2-03 — illustrative reconstruction"
+    },
+    {
+     "name": "ConstructedCategories.undefined_is_not_defined_zero",
+     "status": "proved",
+     "inventory_id": "R2-03",
+     "claim_kind": "illustrative reconstruction",
+     "source_claim": "Boundary case distinguishing an absent cue from a positive cue never paired with the category.",
+     "note": "R2-03 — illustrative reconstruction"
+    },
+    {
+     "name": "ConstructedCategories.negative_weight_breaks_monotonicity",
+     "status": "proved",
+     "inventory_id": "R2-03",
+     "claim_kind": "new",
+     "source_claim": "Counterexample to dropping nonnegative weights, not to the source's unweighted proposal.",
+     "note": "R2-03 — new"
+    },
+    {
+     "name": "ConstructedCategories.dropping_inclusion_breaks_monotonicity",
+     "status": "proved",
+     "inventory_id": "R2-03",
+     "claim_kind": "new",
+     "source_claim": "Reversed noninclusion in the constructed hierarchy invalidates the corresponding monotonicity claim.",
+     "note": "R2-03 — new"
+    },
+    {
+     "name": "Typicality.score_order_is_preorder",
+     "status": "proved",
+     "inventory_id": "R2-04",
+     "claim_kind": "new",
+     "source_claim": "Infrastructure for a restricted ordinal representation; not an empirical generalization.",
+     "note": "R2-04 — new"
+    },
+    {
+     "name": "Typicality.best_preserved_by_order",
+     "status": "proved",
+     "inventory_id": "R2-04",
+     "claim_kind": "new",
+     "source_claim": "Same membership and equivalent order on members preserve best-member status.",
+     "note": "R2-04 — new"
+    },
+    {
+     "name": "Typicality.positive_affine_rescaling_preserves_order",
+     "status": "proved",
+     "inventory_id": "R2-04",
+     "claim_kind": "new",
+     "source_claim": "Ordinal representation check; does not preserve or claim meaningful cardinal distances.",
+     "note": "R2-04 — new"
+    },
+    {
+     "name": "Typicality.ConstructedBirds.ordinal_matches_scores",
+     "status": "proved",
+     "inventory_id": "R2-04",
+     "claim_kind": "illustrative reconstruction",
+     "source_claim": "A directly specified weak ordering matches the assigned numeric scores on all four constructed items.",
+     "note": "R2-04 — illustrative reconstruction"
+    },
+    {
+     "name": "Typicality.ConstructedBirds.members_can_differ_in_typicality",
+     "status": "proved",
+     "inventory_id": "R2-04",
+     "claim_kind": "illustrative reconstruction",
+     "source_claim": "Local PDF pp.10-16 motivates unequal goodness among members; the numerical scores are constructed inputs.",
+     "note": "R2-04 — illustrative reconstruction"
+    },
+    {
+     "name": "Typicality.ConstructedBirds.tied_best_members",
+     "status": "proved",
+     "inventory_id": "R2-04",
+     "claim_kind": "illustrative reconstruction",
+     "source_claim": "Constructed robin/sparrow tie demonstrates compatibility with more than one best member; the tie is not a source measurement.",
+     "note": "R2-04 — illustrative reconstruction"
+    },
+    {
+     "name": "Typicality.ConstructedBirds.no_unique_best_member",
+     "status": "proved",
+     "inventory_id": "R2-04",
+     "claim_kind": "new",
+     "source_claim": "Nonuniqueness follows in this explicit tied-ranking example; not a universal claim about all category maxima.",
+     "note": "R2-04 — new"
+    },
+    {
+     "name": "Typicality.ConstructedBirds.rescaling_preserves_best",
+     "status": "proved",
+     "inventory_id": "R2-04",
+     "claim_kind": "new",
+     "source_claim": "Direct ordering and rescaled scores select the same best members in this finite example.",
+     "note": "R2-04 — new"
+    },
+    {
+     "name": "Typicality.ConstructedBirds.ranking_does_not_determine_membership",
+     "status": "proved",
+     "inventory_id": "R2-04",
+     "claim_kind": "new",
+     "source_claim": "Unconstrained membership can vary while ranking is held fixed; a logical separation illustration, not a competing empirical bird classification.",
+     "note": "R2-04 — new"
+    }
+   ],
+   "counts": {
+    "theorems": 25,
+    "proved": 25,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "inventory_dispositions": [
+    {
+     "inventory_id": "R2-01",
+     "disposition": "uncovered",
+     "scope": "No cognitive-economy objective or empirical perceived-world account."
+    },
+    {
+     "inventory_id": "R2-02",
+     "disposition": "representation only",
+     "scope": "Constructed nested category predicates only; no basic-level selection, four-measure convergence, knowledge-dependent prediction or branchwise cut theorem."
+    },
+    {
+     "inventory_id": "R2-03",
+     "disposition": "conditional/source-linked fragment",
+     "scope": "Finite conditional-frequency definition and encoding boundary checked; assigned cue-list sensitivity is illustrative. No derived feature selection or empirical/basic-level maximum claim established."
+    },
+    {
+     "inventory_id": "R2-04",
+     "disposition": "illustrative model",
+     "scope": "Membership/rank separation, differing member typicalities and tied maxima on assigned data; limited ordinal representation correspondence. No human-judgment validation."
+    },
+    {
+     "inventory_id": "R2-05",
+     "disposition": "uncovered",
+     "scope": "No pair of processing/representation/learning mechanisms fitted to the source evidence."
+    },
+    {
+     "inventory_id": "R2-06",
+     "disposition": "uncovered",
+     "scope": "No context dynamics or prediction of context-dependent category judgments."
+    },
+    {
+     "inventory_id": "R2-07",
+     "disposition": "uncovered",
+     "scope": "Cue lists are explicit inputs, not a theory of culturally/category-dependent attribute formation."
+    },
+    {
+     "inventory_id": "R2-08",
+     "disposition": "uncovered",
+     "scope": "No event/script hierarchy, memory or comprehension model."
+    }
+   ],
+   "encoding_checks": {
+    "frequency_normalization": "Proved equality on the same finite sample with positive denominators.",
+    "ordinal_representation": "Proved direct-order/score correspondence on constructed example and best-member invariance under order preservation.",
+    "scope": "Limited representation checks, not independent semantic validation or robustness of the entire theory.",
+    "category_specific_cues": "Semantic sensitivity with changed cue lists, not representation-preserving robustness."
+   },
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "Source-linked bounded construction and explicit source-to-code limitations; self-assessment, not independent review."
+    ],
+    "simplifications": [
+     "Finite uniform observation frequencies and Boolean event predicates replace general probabilities.",
+     "Natural-number scores represent one finite weak ordering; no cardinal psychological scale."
+    ],
+    "omissions": [
+     "R2-01: No cognitive-economy objective or empirical perceived-world account.",
+     "R2-05: No pair of processing/representation/learning mechanisms fitted to the source evidence.",
+     "R2-06: No context dynamics or prediction of context-dependent category judgments.",
+     "R2-07: Cue lists are explicit inputs, not a theory of culturally/category-dependent attribute formation.",
+     "R2-08: No event/script hierarchy, memory or comprehension model.",
+     "No empirical basic-level or prototype-effect validation; no cue-learning rule."
+    ],
+    "additions": [
+     "Nonnegative weighted sum generalizes the unit-weight source sum.",
+     "Category-specific feature lists, numeric frequency data and rank ties are assigned.",
+     "Zero-frequency cues use an explicit option interface; raw rational division is internal.",
+     "The non-entailment countermodel's alternative membership is not an empirical bird model."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "R2-03 and R2-04 fragments only. This attempt does not show whole-source as-is transfer, necessary restructuring, or impossibility. Keep all eight inventory dispositions visible.",
+   "artifact_classes": [],
+   "source_gap": null,
+   "notes": "2026-09-13 second-cohort Rosch attempt. Frozen P1 grade retained despite the recorded tension with its no-formal-apparatus rationale. Five computation checks flagged TRIVIAL; no vacuity flags. Bounded probes are not semantic review. See campaigns/rosch_2026_09_13_design.md and rosch_2026_09_13_results.md.",
+   "compiles": true,
+   "_key": "atlas__pilots__rosch1978",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 25,
+    "proved": 25,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 25,
+    "queried": 25,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_probe": {
+    "probed": 25,
+    "trivial": 5,
+    "vacuous": 0,
+    "vacuous_names": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
     "disputed": false
    }
   },
@@ -1748,8 +3477,8 @@
     {
      "coq": "subset_cn = sigT",
      "source": "R95 §2.11-2.12 separated subsets",
-     "match": "exact",
-     "note": "the coincidence with the existential is Ranta's own point"
+     "match": "simplified",
+     "note": "Evidence-bearing Sigma encoding after propositions-as-types; source judgemental subset membership is not literally the Coq sigT constructor."
     },
     {
      "coq": "donkey_ctx; he/it as projT1/projT2; donkey_sentence",
@@ -1870,7 +3599,7 @@
     }
    ],
    "source_gap": null,
-   "notes": "Second file of the MTT+Ranta pair (designs/mtt_ranta.md); 416 lines. The djvu is read with djvutxt; cite by section.",
+   "notes": "Second file of the MTT+Ranta pair (designs/mtt_ranta.md); 416 lines. The djvu is read with djvutxt; cite by section. Source note 2026-09-12: section 2.12's judgemental separated subsets are encoded by Sigma packages; this and the selected Prop-valued MTT comparison do not establish whole-framework identity.",
    "compiles": true,
    "_key": "atlas__ranta",
    "_verify": null,
@@ -2341,6 +4070,618 @@
    "_final": {
     "faithfulness": "faithful",
     "determination": "as_is",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/mtt_ranta/Shared_Examples.v",
+   "region": "modern type theories (TTR, MTT, Ranta, DTS)",
+   "summary": "Four shared constructions under explicit fixed-model and induced-noun assumptions. Positive/conditional image translation; MTT/Ranta/DTS constructive negative predication; Cooper preclusion-based negative witnesses imply exclusion but are not equated with fixed-model non-membership. Evidence-bearing discourse maps to a TTR record and uses a searched @ resolution.",
+   "assessment_status": "comparison",
+   "sources": [
+    {
+     "citation": "Cooper (2023) sections 1.3, A3, 7.4 (69); CL20 sections 1.4.2, 3.2.3; Ranta sections 6.1-6.2; BM17 sections 1.4, 3.1-3.5.",
+     "path": null,
+     "available": "Selected source sections read on disk; see audit/inventory. No independent second review."
+    }
+   ],
+   "definitions_mapped": [
+    {
+     "coq": "student_type / positive_image",
+     "source": "Induced noun type and simplified common-supertype image, not full heterogeneous IS",
+     "match": "simplified"
+    },
+    {
+     "coq": "precludes / negative_witness",
+     "source": "Cooper p.312 (69), fixed universe of type codes",
+     "match": "simplified"
+    },
+    {
+     "coq": "dts_discourse_translation / discourse_record_sound",
+     "source": "Explicit source-context translation with individual and witnesses retained",
+     "match": "added"
+    }
+   ],
+   "theorems": [
+    {
+     "name": "positive_image",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "positive_ranta",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "negative_image",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "negative_ranta",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "conditional_image",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "conditional_ranta",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "negative_excludes_positive",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "strong_discourse_agreement",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "dts_discourse_translation",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "discourse_record_sound",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "discourse_same_referent",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "pronoun_resolves",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    }
+   ],
+   "counts": {
+    "theorems": 12,
+    "proved": 12,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "not_applicable",
+    "evidence": [
+     "Four shared constructions under explicit fixed-model and induced-noun assumptions. Positive/conditional image translation; MTT/Ranta/DTS constructive negative predication; Cooper preclusion-based negative witnesses imply exclusion but are not equated with fixed-model non-membership. Evidence-bearing discourse maps to a TTR record and uses a searched @ resolution."
+    ],
+    "simplifications": [
+     "Induced noun type and simplified common-supertype image, not full heterogeneous IS",
+     "Cooper p.312 (69), fixed universe of type codes"
+    ],
+    "omissions": [
+     "Whole-source coverage beyond the explicitly bounded fragment."
+    ],
+    "additions": [
+     "Explicit source-context translation with individual and witnesses retained"
+    ]
+   },
+   "determination": "not_applicable",
+   "determination_rationale": "Comparison infrastructure, not a separate source theory.",
+   "artifact_classes": [],
+   "source_gap": null,
+   "notes": "2026-09-13 local single-researcher audit. See audits/revision_2026_09_13.md and campaigns/pilot_2026_09_13_results.md. Mechanical checks are separate from independent source review.",
+   "compiles": true,
+   "_key": "atlas__shared_examples",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 12,
+    "proved": 12,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 12,
+    "queried": 12,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_probe": {
+    "probed": 12,
+    "trivial": 1,
+    "vacuous": 0,
+    "vacuous_names": []
+   },
+   "_final": {
+    "faithfulness": "not_applicable",
+    "determination": "not_applicable",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/pilots/Tarski1944.v",
+   "region": "model-theoretic core",
+   "summary": "P2 pilot: recursive first-order satisfaction, free-variable dependence, closed assignment invariance and language-specific T-equivalences. Snow instance and contradiction test. Object/meta levels remain distinct; no undefinability or classical bivalence theorem.",
+   "assessment_status": "pilot",
+   "sources": [
+    {
+     "citation": "Tarski (1944), The Semantic Conception of Truth, sections 4,9,11, pp.343-345,350-353.",
+     "path": "papers/foundations/Tarski_1944_TheSemanticConceptionOfTruth.pdf",
+     "available": "Selected source sections read on disk; see audit/inventory. No independent second review."
+    }
+   ],
+   "definitions_mapped": [
+    {
+     "coq": "formula / satisfies",
+     "source": "Section 11 recursive satisfaction; restricted signature",
+     "match": "simplified"
+    },
+    {
+     "coq": "truth / closed_truth_instance",
+     "source": "Truth via all assignments and T-schema instances; no self-applicable truth",
+     "match": "simplified"
+    }
+   ],
+   "theorems": [
+    {
+     "name": "satisfaction_depends_on_free_variables",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "closed_assignment_invariance",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "closed_truth_instance",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "snow_instance",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "contradiction_has_no_satisfying_assignment",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "no_true_contradiction",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    },
+    {
+     "name": "universal_closes_variable",
+     "status": "proved",
+     "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+    }
+   ],
+   "counts": {
+    "theorems": 7,
+    "proved": 7,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "P2 pilot: recursive first-order satisfaction, free-variable dependence, closed assignment invariance and language-specific T-equivalences. Snow instance and contradiction test. Object/meta levels remain distinct; no undefinability or classical bivalence theorem."
+    ],
+    "simplifications": [
+     "Section 11 recursive satisfaction; restricted signature",
+     "Truth via all assignments and T-schema instances; no self-applicable truth"
+    ],
+    "omissions": [
+     "Whole-source coverage beyond the explicitly bounded fragment."
+    ],
+    "additions": []
+   },
+   "determination": "unassessed",
+   "determination_rationale": "Bounded partial implementation; source-level determination withheld. Incompleteness is not evidence of required restructuring.",
+   "artifact_classes": [],
+   "source_gap": null,
+   "notes": "2026-09-13 local single-researcher audit. See audits/revision_2026_09_13.md and campaigns/pilot_2026_09_13_results.md. Mechanical checks are separate from independent source review.",
+   "compiles": true,
+   "_key": "atlas__tarski1944",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 7,
+    "proved": 7,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 7,
+    "queried": 7,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_probe": {
+    "probed": 7,
+    "trivial": 2,
+    "vacuous": 0,
+    "vacuous_names": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/ttr/TTR.v",
+   "region": "TTR and modern type theories: scoped comparisons",
+   "summary": "A restricted deep TTR record core: witness-sensitive ptypes, path dependency, width/depth subtyping, semantic meet for a structural merge, and relabelling under explicit model compatibility. The concrete example hook is not a TTR/MTT equivalence.",
+   "sources": [
+    {
+     "citation": "Cooper, R. (2023). From Perception to Communication. OUP.",
+     "path": "papers/foundations/Cooper_2023_FromPerceptionToCommunication.pdf",
+     "available": "read: section 1.3 pp. 11-14, section 1.4.1 pp. 18-19, A2-A3 pp. 400-401, A8-A9 pp. 404-406, A11.1-A11.3 pp. 407-411"
+    }
+   ],
+   "definitions_mapped": [
+    {
+     "coq": "of_ty / of_rty",
+     "source": "A3.2(8), A8(2), A11.2",
+     "match": "simplified",
+     "note": "Ptype candidates are tested against F; atomic arguments and basic types, raw list carriers restricted to functional labels."
+    },
+    {
+     "coq": "subb",
+     "source": "section 1.4.3.5 semantic subtyping",
+     "match": "simplified",
+     "note": "Sound structural approximation, not a complete semantic decision procedure."
+    },
+    {
+     "coq": "merge_ty / merge_sound",
+     "source": "A11.3; A8",
+     "match": "simplified",
+     "note": "Binary structural implementation with the same-witness meet theorem, not the full normalization operation."
+    },
+    {
+     "coq": "holds_rename / rename_sound",
+     "source": "A3.2 witness assignments; A11.1 relabelling",
+     "match": "added",
+     "note": "Explicit equivariance condition is necessary for arbitrary structured witnesses in a fixed model."
+    }
+   ],
+   "theorems": [
+    {
+     "name": "subb_refl / subb_trans / subb_sound",
+     "status": "proved",
+     "source_claim": "Structural subtyping is a sound preorder under the stated well-formedness premises."
+    },
+    {
+     "name": "merge_sound",
+     "status": "proved",
+     "source_claim": "The merged type has precisely the shared witnesses of its operands."
+    },
+    {
+     "name": "rename_sound",
+     "status": "proved",
+     "source_claim": "Model-compatible relabelling preserves typing."
+    },
+    {
+     "name": "Examples.man_runs_witness / Examples.hug_dependent",
+     "status": "proved",
+     "source_claim": "Witness and path-resolution examples."
+    }
+   ],
+   "counts": {
+    "theorems": 65,
+    "proved": 65,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "faithful",
+    "evidence": [
+     "Assessment limited to the explicitly stated fragment; see audits/ttr_comparison.md. Mechanical results are stored separately in the .mech.json sidecar."
+    ],
+    "simplifications": [
+     "General dependent type functions, polymorphic arity formation, ERec and A10 stratification are not implemented.",
+     "Source record claims concern functional labels; raw association-list carriers also represent ill-formed inputs."
+    ],
+    "omissions": [
+     "General dependent type functions, polymorphic arity formation, ERec and A10 stratification are not implemented.",
+     "Source record claims concern functional labels; raw association-list carriers also represent ill-formed inputs."
+    ],
+    "additions": [
+     "countermodels and a computable structural subtyping approximation"
+    ]
+   },
+   "determination": "slight_modification",
+   "determination_rationale": "The stated restricted core is reconstructed with explicit representation choices. This is not an assessment that the full book transfers unchanged.",
+   "artifact_classes": [
+    {
+     "class": "iv",
+     "description": "Explicit deep type codes, assignments and list-based records or comparison maps; Coq is the metalanguage."
+    }
+   ],
+   "source_gap": null,
+   "notes": "Source-based implementation audit on 2026-09-12; no independent second semantic reviewer is claimed. See audits/ttr_comparison.md for limitations and references.",
+   "compiles": true,
+   "_key": "atlas__ttr",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 65,
+    "proved": 65,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 65,
+    "queried": 65,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_probe": {
+    "probed": 65,
+    "trivial": 20,
+    "vacuous": 0,
+    "vacuous_names": []
+   },
+   "_final": {
+    "faithfulness": "faithful",
+    "determination": "slight_modification",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/ttr/TTR_Model.v",
+   "region": "TTR and modern type theories: scoped comparisons",
+   "summary": "Explicit A/F models for the TTR fragment. Proves type identity differs from coextension, truth erasure loses witness assignments, inhabited ptypes need not have an inhabited meet, and structured-witness relabelling needs model compatibility.",
+   "sources": [
+    {
+     "citation": "Cooper, R. (2023). From Perception to Communication. OUP.",
+     "path": "papers/foundations/Cooper_2023_FromPerceptionToCommunication.pdf",
+     "available": "read: section 1.3 pp. 11-14, section 1.4.1 pp. 18-19, A2-A3 pp. 400-401, A8-A9 pp. 404-406, A11.1-A11.3 pp. 407-411"
+    }
+   ],
+   "definitions_mapped": [
+    {
+     "coq": "model / admissible",
+     "source": "A2-A3",
+     "match": "simplified",
+     "note": "Separate basic and ptype extensions; monomorphic basic arity checks and atom coverage."
+    },
+    {
+     "coq": "subtype_at / subtype_in / necessary / possible",
+     "source": "A9",
+     "match": "simplified",
+     "note": "Fixed syntax and chosen model family; not the varying Type_M formation discipline."
+    }
+   ],
+   "theorems": [
+    {
+     "name": "checked_subtype_all_models",
+     "status": "proved",
+     "source_claim": "Subtyping soundness quantified over assignments."
+    },
+    {
+     "name": "Countermodels.same_type_same_object_different_models / Countermodels.erased_assignments_agree",
+     "status": "proved",
+     "source_claim": "Assignment changes are invisible to the erased ptype truth values."
+    },
+    {
+     "name": "Countermodels.coextension_does_not_identify_types",
+     "status": "proved",
+     "source_claim": "Distinct type codes may have the same extension."
+    },
+    {
+     "name": "Countermodels.inhabited_conjuncts_empty_meet",
+     "status": "proved",
+     "source_claim": "Meet requires the same witness, not just separate inhabitation."
+    },
+    {
+     "name": "Countermodels.structured_witness_renaming_needs_model_compatibility",
+     "status": "proved",
+     "source_claim": "Arbitrary F can distinguish relabelled record witnesses."
+    }
+   ],
+   "counts": {
+    "theorems": 10,
+    "proved": 10,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "faithful",
+    "evidence": [
+     "Assessment limited to the explicitly stated fragment; see audits/ttr_comparison.md. Mechanical results are stored separately in the .mech.json sidecar."
+    ],
+    "simplifications": [
+     "Fixed type syntax; no full A9 varying type domains or A10 stratification."
+    ],
+    "omissions": [
+     "Fixed type syntax; no full A9 varying type domains or A10 stratification."
+    ],
+    "additions": [
+     "countermodels and a computable structural subtyping approximation"
+    ]
+   },
+   "determination": "slight_modification",
+   "determination_rationale": "The stated restricted core is reconstructed with explicit representation choices. This is not an assessment that the full book transfers unchanged.",
+   "artifact_classes": [
+    {
+     "class": "iv",
+     "description": "Explicit deep type codes, assignments and list-based records or comparison maps; Coq is the metalanguage."
+    }
+   ],
+   "source_gap": null,
+   "notes": "Source-based implementation audit on 2026-09-12; no independent second semantic reviewer is claimed. See audits/ttr_comparison.md for limitations and references.",
+   "compiles": true,
+   "_key": "atlas__ttr_model",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 10,
+    "proved": 10,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 10,
+    "queried": 10,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_probe": {
+    "probed": 10,
+    "trivial": 1,
+    "vacuous": 0,
+    "vacuous_names": []
+   },
+   "_final": {
+    "faithfulness": "faithful",
+    "determination": "slight_modification",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/ttr/TTR_vs_MTT.v",
+   "region": "TTR and modern type theories: scoped comparisons",
+   "summary": "At a fixed TTR model, induces an MTT noun type and erases ptype witnesses. Proves only a man-runs inhabitation correspondence. Distinct well-typed records have the same subject projection, which therefore has no inverse.",
+   "sources": [
+    {
+     "citation": "Cooper, R. (2023). From Perception to Communication. OUP.",
+     "path": "papers/foundations/Cooper_2023_FromPerceptionToCommunication.pdf",
+     "available": "read: section 1.3 pp. 11-14, section 1.4.1 pp. 18-19, A2-A3 pp. 400-401, A8-A9 pp. 404-406, A11.1-A11.3 pp. 407-411"
+    },
+    {
+     "citation": "Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories.",
+     "path": "papers/foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf",
+     "available": "read: sections 1.2, 1.4.2-1.4.3, 2.3.1, 3.2.3"
+    }
+   ],
+   "definitions_mapped": [
+    {
+     "coq": "individual / man / runs",
+     "source": "A2-A3 versus CL20 CN types and weak existential",
+     "match": "added",
+     "note": "Model-relative subtype plus existential witness erasure."
+    },
+    {
+     "coq": "fixed_model_inhabitation",
+     "source": "restricted cross-framework comparison",
+     "match": "added",
+     "note": "Equivalence of these two propositions, not frameworks, type identities or witness spaces."
+    }
+   ],
+   "theorems": [
+    {
+     "name": "record_to_mtt / mtt_to_record_inhabited / fixed_model_inhabitation",
+     "status": "proved",
+     "source_claim": "Model-indexed inhabitation correspondence on one construction."
+    },
+    {
+     "name": "LossOfInformation.subject_projection_loses_witnesses / LossOfInformation.no_inverse_from_subject",
+     "status": "proved",
+     "source_claim": "The subject projection is not injective and cannot reconstruct the original witness record."
+    }
+   ],
+   "counts": {
+    "theorems": 6,
+    "proved": 6,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "faithful",
+    "evidence": [
+     "Assessment limited to the explicitly stated fragment; see audits/ttr_comparison.md. Mechanical results are stored separately in the .mech.json sidecar."
+    ],
+    "simplifications": [
+     "One construction and a fixed model; no global TTR/MTT equivalence or reverse choice function."
+    ],
+    "omissions": [
+     "One construction and a fixed model; no global TTR/MTT equivalence or reverse choice function."
+    ],
+    "additions": [
+     "explicit cross-encoding translations and loss-of-information results"
+    ]
+   },
+   "determination": "not_applicable",
+   "determination_rationale": "Comparison infrastructure, not an independent determination of either whole source theory.",
+   "artifact_classes": [
+    {
+     "class": "iv",
+     "description": "Explicit deep type codes, assignments and list-based records or comparison maps; Coq is the metalanguage."
+    }
+   ],
+   "source_gap": null,
+   "notes": "Source-based implementation audit on 2026-09-12; no independent second semantic reviewer is claimed. See audits/ttr_comparison.md for limitations and references.",
+   "compiles": true,
+   "_key": "atlas__ttr_vs_mtt",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 6,
+    "proved": 6,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 6,
+    "queried": 6,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_probe": {
+    "probed": 6,
+    "trivial": 0,
+    "vacuous": 0,
+    "vacuous_names": []
+   },
+   "_final": {
+    "faithfulness": "faithful",
+    "determination": "not_applicable",
     "disputed": false
    }
   },
@@ -13840,11 +16181,13 @@
     "formalization": "Direct first-order logic implementation",
     "key_insight": "Compositional truth definitions"
    },
-   "coq_files": [],
+   "coq_files": [
+    "atlas/pilots/Tarski1944.v"
+   ],
    "year": 1944,
    "authors": "Tarski, A.",
    "title": "The Semantic Conception of Truth",
-   "level": "F1",
+   "level": "F3",
    "determination_actual": null,
    "prediction_disputed": false,
    "formality": 2,
@@ -13923,11 +16266,13 @@
     "formalization": "Direct existential quantification over events",
     "key_insight": "Event arguments for adverbial modification"
    },
-   "coq_files": [],
+   "coq_files": [
+    "atlas/pilots/Davidson1967.v"
+   ],
    "year": 1967,
    "authors": "Davidson, D.",
    "title": "The Logical Form of Action Sentences",
-   "level": "F1",
+   "level": "F3",
    "determination_actual": null,
    "prediction_disputed": false,
    "formality": 3,
@@ -13979,8 +16324,8 @@
    "authors": "Kamp, H.",
    "title": "A Theory of Truth and Semantic Representation",
    "level": "F3",
-   "determination_actual": "not_applicable",
-   "prediction_disputed": true,
+   "determination_actual": null,
+   "prediction_disputed": false,
    "formality": 4,
    "formality_rationale": "Formal DRS syntax, algorithmic construction rules, model-embedding truth definition; donkey-sentence derivations carried through",
    "formality_confidence": "high"
@@ -14672,7 +17017,7 @@
    "authors": "Chatzikyriakidis, S. & Luo, Z.",
    "title": "Adjectival and Adverbial Modification in Modern Type Theoretical Semantics",
    "level": "F3",
-   "determination_actual": "not_applicable",
+   "determination_actual": "slight_modification",
    "prediction_disputed": true,
    "formality": 4,
    "formality_rationale": "MTT analysis via Sigma-types, universes, disjoint unions, coercive subtyping; typing derivations carried through the paper",
@@ -14722,9 +17067,9 @@
    "authors": "Bekki, D.",
    "title": "Representing Anaphora with Dependent Types",
    "note": "linked to the atlas DTS file",
-   "level": "F5",
-   "determination_actual": "slight_modification",
-   "prediction_disputed": true,
+   "level": "F3",
+   "determination_actual": null,
+   "prediction_disputed": false,
    "formality": 4,
    "formality_rationale": "Defines DTS: dependent type calculus with @-operator, inference rules and worked derivations for anaphora",
    "formality_confidence": "high"
@@ -14757,7 +17102,7 @@
    "authors": "Chatzikyriakidis, S. & Luo, Z.",
    "title": "Modern Perspectives in Type-Theoretical Semantics",
    "level": "F3",
-   "determination_actual": "not_applicable",
+   "determination_actual": "slight_modification",
    "prediction_disputed": true,
    "formality": 4,
    "formality_rationale": "Edited volume whose chapters are predominantly full type-theoretic systems with rules and derivations; some prose chapters",
@@ -14783,8 +17128,8 @@
    "authors": "Luo, Z.",
    "title": "Type-Theoretical Semantics with Coercive Subtyping",
    "level": "F3",
-   "determination_actual": "not_applicable",
-   "prediction_disputed": true,
+   "determination_actual": null,
+   "prediction_disputed": false,
    "formality": 4,
    "formality_rationale": "SALT paper: formal coercive subtyping rules within UTT applied to CN semantics; judgements and rules on the page",
    "formality_confidence": "high"
@@ -14803,15 +17148,16 @@
     "key_insight": "Projection as type constraint"
    },
    "coq_files": [
-    "atlas/mtt_ranta/DTS.v"
+    "atlas/mtt_ranta/DTS.v",
+    "atlas/mtt_ranta/DTS_Resolution.v"
    ],
    "year": 2017,
    "authors": "Bekki, D. & Mineshima, K.",
    "title": "Calculating Projections via Type Checking",
    "note": "author name and title corrected (Mineshima; the Modern Perspectives chapter); linked",
-   "level": "F5",
-   "determination_actual": "slight_modification",
-   "prediction_disputed": true,
+   "level": "F3",
+   "determination_actual": null,
+   "prediction_disputed": false,
    "formality": 4,
    "formality_rationale": "DTS presupposition projection computed by type checking; full derivation trees and typing rules carried through",
    "formality_confidence": "high"
@@ -15504,11 +17850,13 @@
     "formalization": "Needs formalization of cooperative principle",
     "gap": "Precise implicature derivation algorithm missing"
    },
-   "coq_files": [],
+   "coq_files": [
+    "atlas/pilots/Grice1975.v"
+   ],
    "year": 1975,
    "authors": "Grice, H. P.",
    "title": "Logic and Conversation",
-   "level": "F1",
+   "level": "F3",
    "determination_actual": null,
    "prediction_disputed": false,
    "formality": 1,
@@ -15528,11 +17876,13 @@
     "formalization": "Q and R principles need formal characterization",
     "gap": "Systematic competition mechanism"
    },
-   "coq_files": [],
+   "coq_files": [
+    "atlas/pragmatics/Horn1984.v"
+   ],
    "year": 1984,
    "authors": "Horn, L.",
    "title": "Toward a New Taxonomy for Pragmatic Inference",
-   "level": "F2",
+   "level": "F3",
    "determination_actual": null,
    "prediction_disputed": false,
    "formality": 2,
@@ -16084,7 +18434,7 @@
    "year": 2015,
    "authors": "Degen, J. & Tanenhaus, M.",
    "title": "Processing Scalar Implicature: A Constraint-Based Approach",
-   "level": "F2",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false,
    "formality": 1,
@@ -16276,7 +18626,7 @@
    "year": 2011,
    "authors": "Deal, A. R.",
    "title": "Modals without Scales",
-   "level": "F2",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false,
    "formality": 3,
@@ -16847,11 +19197,13 @@
     "formalization": "Needs formal prototype structures",
     "gap": "Psychological reality constraints"
    },
-   "coq_files": [],
+   "coq_files": [
+    "atlas/pilots/Rosch1978.v"
+   ],
    "year": 1978,
    "authors": "Rosch, E.",
    "title": "Principles of Categorization",
-   "level": "F1",
+   "level": "F3",
    "determination_actual": null,
    "prediction_disputed": false,
    "formality": 1,
@@ -18050,11 +20402,13 @@
     "issue": "Infinite contextual variation",
     "barrier": "No stable meaning core"
    },
-   "coq_files": [],
+   "coq_files": [
+    "atlas/discursive/Derrida1972.v"
+   ],
    "year": 1972,
    "authors": "Derrida, J.",
    "title": "Signature Event Context",
-   "level": "F1",
+   "level": "F3",
    "determination_actual": null,
    "prediction_disputed": false,
    "formality": 0,
@@ -18170,11 +20524,13 @@
     "issue": "Open-ended social conventions",
     "barrier": "Infinite cultural context"
    },
-   "coq_files": [],
+   "coq_files": [
+    "atlas/pragmatics/Austin1962.v"
+   ],
    "year": 1962,
    "authors": "Austin, J. L.",
    "title": "How to Do Things with Words",
-   "level": "F1",
+   "level": "F3",
    "determination_actual": null,
    "prediction_disputed": false,
    "formality": 1,
@@ -18870,7 +21226,7 @@
    "year": 1962,
    "authors": "Eco, U.",
    "title": "The Open Work",
-   "level": "F2",
+   "level": "F1",
    "determination_actual": null,
    "prediction_disputed": false,
    "formality": 1,
@@ -19576,6 +21932,86 @@
   },
   {
    "a": "atlas__mtt",
+   "b": "atlas__dts",
+   "a_file": "atlas/mtt_ranta/MTT.v",
+   "b_file": "atlas/mtt_ranta/DTS.v",
+   "level": "intra-family",
+   "bridge_file": "atlas/mtt_ranta/MTT_vs_DTS.v",
+   "grading": "5 definitional / 4 equivalence on specified inputs / 3 mediated / 2 divergent / 1 re-encoding / null one-sided",
+   "phenomena": [
+    {
+     "name": "cn-ontology",
+     "attempted_by": [
+      "a",
+      "b"
+     ],
+     "grade": 1,
+     "evidence": "DTS.PredicateDTS.farmer_type/donkey_type; MTT_vs_DTS.image_predicate.",
+     "note": "Type CNs versus entity-to-type predicates; explicit translation required."
+    },
+    {
+     "name": "quantification-over-induced-images",
+     "attempted_by": [
+      "a",
+      "b"
+     ],
+     "grade": 4,
+     "evidence": "existential_image / universal_image.",
+     "note": "Scoped to predicates induced by the chosen lifting, not arbitrary DTS predicates."
+    },
+    {
+     "name": "anaphora-donkey",
+     "attempted_by": [
+      "a",
+      "b"
+     ],
+     "grade": 3,
+     "evidence": "donkey_after_noun_translation.",
+     "note": "Prop-valued fragment, induced Sigma noun types and translated context."
+    },
+    {
+     "name": "negative-nominal-predication",
+     "attempted_by": [
+      "a",
+      "b"
+     ],
+     "grade": 4,
+     "evidence": "negative_predication / negative_predication_without_positive_typing.",
+     "note": "Uses the common-domain image rendering of MTT.in_prop, not the full heterogeneous IS calculus."
+    },
+    {
+     "name": "anaphora-resolution-mechanism",
+     "attempted_by": [
+      "b"
+     ],
+     "grade": null,
+     "evidence": "DTS_Resolution.v: typed slots, search_exact, automatic_resolution_sound, and source_projection_adequate. Bounded entity-projection search only; not unrestricted DTT proof search."
+    },
+    {
+     "name": "coercive-subtyping-mechanism",
+     "attempted_by": [
+      "a"
+     ],
+     "grade": null,
+     "evidence": "MTT.v Part 2, explicit lifting representation."
+    }
+   ],
+   "notes": "BM17 section 1.4, especially p. 19, acknowledges the C&L account of negative and hypothetical predication. These translations avoid treating raw judgement formation as an impossibility result.",
+   "_key": "mtt__dts",
+   "_computed": {
+    "similarity": 3.0,
+    "overlap": 0.67,
+    "joint_phenomena": 4,
+    "a_only": [
+     "coercive-subtyping-mechanism"
+    ],
+    "b_only": [
+     "anaphora-resolution-mechanism"
+    ]
+   }
+  },
+  {
+   "a": "atlas__mtt",
    "b": "atlas__ranta",
    "a_file": "atlas/mtt_ranta/MTT.v",
    "b_file": "atlas/mtt_ranta/Ranta.v",
@@ -19620,7 +22056,7 @@
      ],
      "grade": 3,
      "evidence": "some_agree_fwd; some_agree_bwd_inhabited",
-     "note": "Sigma implies exists; converse only up to inhabited — the proof-relevance residue"
+     "note": "Selected weak-existential versus strong-Sigma comparison; MTT also provides strong_some."
     },
     {
      "name": "proof-relevance-witnesses",
@@ -19628,9 +22064,9 @@
       "a",
       "b"
      ],
-     "grade": 3,
-     "evidence": "ranta_witness / ranta_witness_sound; Fail on the MTT side (elimination restriction)",
-     "note": "witness extraction is a function only on the Ranta side"
+     "grade": 5,
+     "evidence": "strong_some_agree / strong_witness_agree",
+     "note": "Both support strong Sigma; CL20 also has weak existential. The direct elimination restriction applies to the latter constructor."
     },
     {
      "name": "adjectives-intersective",
@@ -19686,7 +22122,7 @@
      ],
      "grade": null,
      "evidence": "MTT.v Part 2; Fail Check documented in the bridge",
-     "note": "coercive subtyping is CL20-only; R95 has none"
+     "note": "Coercive-subtyping mechanism in CL20; failure of an unlifted Coq expression occurs in both encodings."
     },
     {
      "name": "copredication-dot-types",
@@ -19746,10 +22182,10 @@
      "evidence": "Ranta.v ac_iso, donkey_choice"
     }
    ],
-   "notes": "First backfilled edge; the grading scheme and aggregates (similarity = mean grade over jointly attempted phenomena; overlap = Jaccard of attempted sets) are computed by consolidate.py.",
+   "notes": "Corrected 2026-09-12 after reading CL20 pp. 15-16: grades concern specified constructions, not equivalence of the frameworks. Witness-bearing Sigma is available in both.",
    "_key": "mtt__ranta",
    "_computed": {
-    "similarity": 4.2,
+    "similarity": 4.4,
     "overlap": 0.56,
     "joint_phenomena": 10,
     "a_only": [
@@ -20168,13 +22604,23 @@
    "grading": "5 definitional / 4 equivalence / 3 one-way or mediated / 2 divergent / 1 after re-encoding / null one-sided",
    "phenomena": [
     {
+     "name": "cn-ontology",
+     "attempted_by": [
+      "a",
+      "b"
+     ],
+     "grade": 1,
+     "evidence": "BM17 section 1.4; PredicateDTS.farmer_type/donkey_type explicitly turn entity predicates into Sigma noun types.",
+     "note": "Ranta has noun types; DTS uses entity-to-type predicates."
+    },
+    {
      "name": "anaphora-donkey",
      "attempted_by": [
       "a",
       "b"
      ],
-     "grade": 5,
-     "evidence": "dts_donkey_canonical (reflexivity): the projection resolution IS Ranta's pronominalization"
+     "grade": 3,
+     "evidence": "PredicateDTS.canonical_ranta_translation: after predicate CNs are re-encoded as evidence-bearing Sigma noun types."
     },
     {
      "name": "anaphora-donkey-strong-reading",
@@ -20183,7 +22629,7 @@
       "b"
      ],
      "grade": 4,
-     "evidence": "dts_donkey_strong via Ranta.donkey_curry"
+     "evidence": "PredicateDTS.canonical_strong_reading with explicit farmer and donkey predicate evidence."
     },
     {
      "name": "context-as-sigma",
@@ -20191,8 +22637,8 @@
       "a",
       "b"
      ],
-     "grade": 5,
-     "evidence": "DTS.ante is literally Ranta.v's donkey context type"
+     "grade": 3,
+     "evidence": "PredicateDTS.to_sorted/from_sorted with context_roundtrip/sorted_roundtrip; explicit maps, not identical initial contexts."
     },
     {
      "name": "anaphora-resolution-mechanism",
@@ -20201,8 +22647,8 @@
       "b"
      ],
      "grade": 3,
-     "evidence": "DTS generalizes: resolution spaces (Ctx -> A) with felicity = inhabitedness (dts_donkey_felicitous); Ranta's rule picks one resolvent — one-way generalization",
-     "note": "the Bekki delta over Ranta"
+     "evidence": "DTS_Resolution.source_projection_adequate and search_builds_equation recover the source projection through explicit context reassociation; PredicateDTS.canonical_ranta_translation supplies the noun/context bridge.",
+     "note": "Mediated projection comparison, not an inclusion theorem between unrestricted calculi."
     },
     {
      "name": "anaphoric-ambiguity",
@@ -20235,15 +22681,15 @@
       "b"
      ],
      "grade": 4,
-     "evidence": "Ranta.v text2/sigma_assoc; DTS contexts are the same telescopes (the_conditional_is_donkey reflexivity on the shared shape)"
+     "evidence": "PredicateDTS.dynamic_and/discourse_content: previous context plus new witness, BM17 Definition 4."
     }
    ],
-   "notes": "DTS is the dynamic branch from Ranta: identical context ontology, resolution generalizing pronominalization (grade 3 one-way by design — that IS the contribution), plus phenomena Ranta lacks (ambiguity-as-multiplicity, presupposition via @-terms). Source caveat: Bekki 2014 / Bekki-Mineshima 2017 PDFs not yet in papers/; DTS.v's section refs are to be spot-checked.",
+   "notes": "Source-corrected 2026-09-13: BM17 section 1.4 separates the noun ontologies. Shared readings require re-encoding. DTS_Resolution.v adds typed entity-projection search, not a complete dependent checker or general proof search. Ranta sections 6.1-6.2 distinguish assertions/contexts from their Sigma representation.",
    "_key": "ranta__dts",
    "_computed": {
-    "similarity": 4.2,
-    "overlap": 0.62,
-    "joint_phenomena": 5,
+    "similarity": 3.0,
+    "overlap": 0.67,
+    "joint_phenomena": 6,
     "a_only": [
      "generation-sugaring"
     ],
@@ -20252,6 +22698,505 @@
      "presupposition-projection"
     ]
    }
+  },
+  {
+   "a": "atlas__ttr",
+   "b": "atlas__mtt",
+   "a_file": "atlas/ttr/TTR.v",
+   "b_file": "atlas/mtt_ranta/MTT.v",
+   "level": "cross-foundation",
+   "bridge_file": "atlas/ttr/TTR_vs_MTT.v",
+   "grading": "Grades concern the displayed fragment translations, never framework equivalence.",
+   "phenomena": [
+    {
+     "name": "cn-ontology",
+     "attempted_by": [
+      "a",
+      "b"
+     ],
+     "grade": 1,
+     "evidence": "TTR_vs_MTT.individual: a basic extension in a fixed TTR model is re-encoded as an MTT noun type."
+    },
+    {
+     "name": "man-runs-inhabitation",
+     "attempted_by": [
+      "a",
+      "b"
+     ],
+     "grade": 3,
+     "evidence": "fixed_model_inhabitation: model fixed; ptype witness objects existentially erased.",
+     "note": "Only these propositions are equivalent."
+    },
+    {
+     "name": "witness-preservation-under-projection",
+     "attempted_by": [
+      "a",
+      "b"
+     ],
+     "grade": 2,
+     "evidence": "LossOfInformation.subject_projection_loses_witnesses / no_inverse_from_subject.",
+     "note": "Non-injectivity of this comparison map, not a claim that MTT cannot represent witnesses."
+    },
+    {
+     "name": "external-type-assignments",
+     "attempted_by": [
+      "a"
+     ],
+     "grade": null,
+     "evidence": "TTR_Model.Countermodels.same_type_same_object_different_models / erased_assignments_agree.",
+     "note": "MTT.v uses the type theory as the foundational semantic language; it has no separate A/F layer for reified type codes."
+    }
+   ],
+   "notes": "Cooper 2023 sections 1.3-1.4.1 and A3.2 versus CL20 sections 1.2/1.4.3. A restricted model-indexed erasure is implemented. There is no assertion of full TTR/MTT equivalence.",
+   "_key": "ttr__mtt",
+   "_computed": {
+    "similarity": 2.0,
+    "overlap": 0.75,
+    "joint_phenomena": 3,
+    "a_only": [
+     "external-type-assignments"
+    ],
+    "b_only": []
+   }
   }
- ]
+ ],
+ "claim_comparison": {
+  "schema_version": 1,
+  "assessment_basis": "retrospective_single_researcher",
+  "title": "What transfers from a source into Coq?",
+  "method": "Qualitative claim-level comparison added after the implementations. Preserve original source-target groups; G/T labels are retrospective groupings. No success percentages, tier scores or effort-normalized comparisons are calculated.",
+  "limits": [
+   "All five sources remain F3 pilots with source-level determinations withheld.",
+   "Source-target groups differ in size and centrality; they are not interchangeable units in a rate.",
+   "One researcher assessed the mappings. Grice/Tarski are existing pilots, not held-out or independent replications.",
+   "Abstract parameters are not automatically semantic gaps; adding a conclusion-bearing constraint is different from choosing a carrier type.",
+   "Encoding robustness is untested for every profile. Existing parameter/boundary checks are reported separately.",
+   "Topic, scope, investigator choices and unmeasured effort confound any tier comparison; more formal notation alone would only restate the rubric."
+  ],
+  "profiles": [
+   {
+    "record_key": "atlas__derrida1972",
+    "paper_id": 172,
+    "formality": 0,
+    "label": "Derrida 1972",
+    "cohort": "initial comparison",
+    "inventory": "atlas_data/campaigns/tiers_2026_09_13_inventory.md",
+    "grouping": "D1–D6 retained from the pre-implementation inventory",
+    "source_supplies": "Conceptual distinctions between repeatable form, occurrence, context, origin and structural possibility.",
+    "coverage": "Selected distinctions are illustrated; the central non-saturation thesis is not stated or proved.",
+    "semantic_additions": "An inductive context syntax, exact form equality, a chosen interpreter and a two-world modal model. Ignoring producer metadata is our choice.",
+    "ordinary_parameters": "Token/form/origin carriers in the conditional information-loss lemma are legitimate abstraction parameters; no origin detector is required.",
+    "preservation": "Agrammaticality-as-example and possible-failure/success distinctions are represented. These are constructed examples, not predictions derived from the whole argument.",
+    "boundary_checks": "Within-model checks separate same form from same effect, syntactic infinity from semantic variation, and form-only from richer evidence.",
+    "encoding_robustness": "not_tested",
+    "robustness_note": "No alternative source-faithful account of contextual identity or interpretation has been implemented.",
+    "targets": [
+     {
+      "id": "D1",
+      "source_claim": "Readability/iterability can outlast a particular producer's presence.",
+      "pages": "pp.7–10",
+      "disposition": "illustrative_model",
+      "established": "A modeled occurrence is readable with producer metadata absent.",
+      "limit": "Metadata independence is stipulated; neither universal readability nor universal intention-independence follows.",
+      "evidence": [
+       "ContextualExample.absent_producer_can_still_be_read",
+       "ContextualExample.producer_metadata_invariant_here"
+      ]
+     },
+     {
+      "id": "D2",
+      "source_claim": "Detachment and citational graft; agrammaticality can itself be exemplified.",
+      "pages": "pp.9,12",
+      "disposition": "illustrative_model",
+      "established": "The worked contrast and unbounded quotation syntax have checked properties.",
+      "limit": "The syntax and interpretation are added, not a derivation of the philosophical claim.",
+      "evidence": [
+       "ContextualExample.agrammaticality_example",
+       "ContextualExample.graft_changes_possible_effect",
+       "ContextualExample.fresh_quote_beyond_any_finite_list"
+      ]
+     },
+     {
+      "id": "D3",
+      "source_claim": "Citability does not imply validity outside context.",
+      "pages": "p.12",
+      "disposition": "illustrative_model",
+      "established": "Context cannot be erased from this interpreter; infinitely many quotes can keep one effect.",
+      "limit": "These countermodels delimit inferences; they do not establish semantic non-saturation.",
+      "evidence": [
+       "ContextualExample.context_cannot_be_erased_from_this_interpreter",
+       "ContextualExample.unbounded_quotation_can_keep_effect_constant"
+      ]
+     },
+     {
+      "id": "D4",
+      "source_claim": "Repeatable signature form differs from a singular occurrence/origin.",
+      "pages": "pp.19–20",
+      "disposition": "conditional_fragment",
+      "established": "Equal observed forms with different origins prevent correct form-only decoding of both.",
+      "limit": "The collision premises and exact form criterion are supplied; richer authentication is not excluded.",
+      "evidence": [
+       "repeatable_form_cannot_recover_both_origins",
+       "signature_form_and_origin_can_diverge",
+       "richer_evidence_is_not_ruled_out"
+      ]
+     },
+     {
+      "id": "D5",
+      "source_claim": "Possibility of failure coexists with successful performances.",
+      "pages": "pp.15–18",
+      "disposition": "illustrative_model",
+      "established": "A two-world model separates necessary possible failure from every actual performance failing.",
+      "limit": "The accessibility relation is added, not a formal definition of Derrida's structural possibility.",
+      "evidence": [
+       "Risk.necessary_risk_coexists_with_success",
+       "Risk.necessary_risk_does_not_mean_all_actual_fail"
+      ]
+     },
+     {
+      "id": "D6",
+      "source_claim": "Universal non-saturation, dissemination and the philosophical critique.",
+      "pages": "pp.3,9,18–21",
+      "disposition": "uncovered",
+      "established": "No corresponding mathematical statement established.",
+      "limit": "Outside this signature, not proved impossible, false or inconsistent.",
+      "evidence": []
+     }
+    ],
+    "code_sha256": "ec9f547ab0d7fe7575b095183e3a43ae65dde167def2198aeff263630f56aa7b"
+   },
+   {
+    "record_key": "atlas__austin1962",
+    "paper_id": 177,
+    "formality": 1,
+    "label": "Austin 1962",
+    "cohort": "initial comparison",
+    "inventory": "atlas_data/campaigns/tiers_2026_09_13_inventory.md",
+    "grouping": "A1–A7 retained from the pre-implementation inventory",
+    "source_supplies": "Six provisional necessary conditions, conditional Gamma applicability, overlapping failures and worked speech-act examples.",
+    "coverage": "The taxonomy is represented and necessary-condition consequences checked; full felicity is not decided.",
+    "semantic_additions": "Partial Boolean observations, a strict two-event recognizer and assigned observations/achievement for worked cases.",
+    "ordinary_parameters": "Whether a procedure is accepted or an intention sincere can legitimately remain an input. Lack of an automatic social-fact detector is not a formalization failure.",
+    "preservation": "Misfire versus abuse, overlapping failures and incidental effects are retained. Promise achievement is supplied, not derived from passing the checklist.",
+    "boundary_checks": "Unknown observations are not success; extra requirements can defeat sufficiency; Gamma failure need not be incomplete execution.",
+    "encoding_robustness": "not_tested",
+    "robustness_note": "Information-refinement and example tests are within one representation, not comparisons of alternative felicity encodings.",
+    "targets": [
+     {
+      "id": "A1",
+      "source_claim": "Provisional necessary conditions; Gamma clauses apply where required.",
+      "pages": "pp.14–18",
+      "disposition": "mixed",
+      "established": "Six labels and conditional applicability are represented; failed necessary conditions exclude felicity given a necessity premise.",
+      "limit": "Diagnostic soundness is relative to assigned observations; the taxonomy is not established as a sufficient test.",
+      "evidence": [
+       "report_exact",
+       "failed_necessary_condition_blocks_felicity",
+       "Cases.inapplicable_attitudes_not_failures"
+      ]
+     },
+     {
+      "id": "A2",
+      "source_claim": "Misfire blocks the intended act, not every incidental effect; abuse can accompany achievement.",
+      "pages": "pp.16–17",
+      "disposition": "conditional_fragment",
+      "established": "The necessity implication is explicit; bottle-breaking and later breach are separate coordinates.",
+      "limit": "Achievement is not derived from A/B success, and the examples assign rather than discover institutional facts.",
+      "evidence": [
+       "misfire_blocks_intended_act",
+       "Cases.void_act_can_have_other_effects",
+       "Cases.breach_not_incomplete_execution"
+      ]
+     },
+     {
+      "id": "A3",
+      "source_claim": "An insincere promise is still a promise.",
+      "pages": "pp.11,16,39–41",
+      "disposition": "representation_only",
+      "established": "The example consistently combines supplied achievement with a Gamma1 failure.",
+      "limit": "Achievement is set to True for the example. The proof checks the representation, not an independent prediction.",
+      "evidence": [
+       "Cases.insincere_promise_can_be_achieved"
+      ]
+     },
+     {
+      "id": "A4",
+      "source_claim": "A bet needs acceptance; correct and complete execution differ.",
+      "pages": "pp.9,36–37",
+      "disposition": "restricted_construction",
+      "established": "An added strict recognizer accepts exactly an isolated offer followed by acceptance.",
+      "limit": "Not a grammar of all procedures; later events lie outside this recognizer and do not establish that bets are undone.",
+      "evidence": [
+       "Betting.complete_trace_exact",
+       "Betting.offer_requires_uptake",
+       "Betting.refusal_and_reversed_order_fail"
+      ]
+     },
+     {
+      "id": "A5",
+      "source_claim": "Failures can coexist and classifications may overlap.",
+      "pages": "pp.23–24,26,28–29,38",
+      "disposition": "representation_only",
+      "established": "The report retains all failed labels, including simultaneous A2 and Gamma1.",
+      "limit": "Classification of ambiguous social cases remains an input, not a tested judgment.",
+      "evidence": [
+       "report_exact",
+       "Cases.simultaneous_failures"
+      ]
+     },
+     {
+      "id": "A6",
+      "source_claim": "Exclusions, vague applicability and procedural laxness limit the checklist.",
+      "pages": "pp.21–22,31,37–38",
+      "disposition": "mixed",
+      "established": "Unknown observations are separated from success; a further unmet requirement defeats checklist sufficiency.",
+      "limit": "The countermodel is elementary; real exclusions, uptake and laxness are not modeled generally.",
+      "evidence": [
+       "Cases.unknown_is_not_success",
+       "no_report_complete_when_assessed",
+       "Cases.listed_conditions_are_not_sufficient"
+      ]
+     },
+     {
+      "id": "A7",
+      "source_claim": "Sincere belief and factual correctness differ.",
+      "pages": "pp.41–43,49–50",
+      "disposition": "illustrative_model",
+      "established": "A two-coordinate example separates content truth from speaker belief.",
+      "limit": "No general semantics of assertion or account of Moore's paradox is established.",
+      "evidence": [
+       "Cases.truth_does_not_force_sincere_belief"
+      ]
+     }
+    ],
+    "code_sha256": "a4bb4f2bf0037dd0c435375f4847872d4a7976fd8ee1f87ca8ff503942fefd3a"
+   },
+   {
+    "record_key": "atlas__horn1984",
+    "paper_id": 67,
+    "formality": 2,
+    "label": "Horn 1984",
+    "cohort": "initial comparison",
+    "inventory": "atlas_data/campaigns/tiers_2026_09_13_inventory.md",
+    "grouping": "H1–H6 retained from the pre-implementation inventory",
+    "source_supplies": "Regimented Q/R principles, weaker/stronger entailment relationships, cancellation patterns and a qualified division of pragmatic labor.",
+    "coverage": "Some source-linked logical relationships are proved directly; the pragmatic interpreter remains a conditional reconstruction.",
+    "semantic_additions": "Accessible-world knowledge, a competence premise for negative truth, binary stereotypes, exact common extensions and Boolean default/counterpart flags.",
+    "ordinary_parameters": "Worlds, literal propositions, relevance and alternative availability are not defects merely because supplied. Specific stereotype/default choices still need source justification.",
+    "preservation": "Numeral cancellation and descriptive-negation distinctions are checked; the direct/indirect causative split is an assigned illustrative case.",
+    "boundary_checks": "Ignorance can coexist with stronger truth; disabling defaults or counterpart availability changes the interpreter's readings.",
+    "encoding_robustness": "not_tested",
+    "robustness_note": "Parameter withdrawal tests do not compare alternative accounts of stereotypes, markedness or Q/R competition.",
+    "targets": [
+     {
+      "id": "H1",
+      "source_claim": "Relevant non-use of an available stronger form licenses ignorance under Q observance.",
+      "pages": "p.13",
+      "disposition": "conditional_fragment",
+      "established": "Non-use implies not knowing the stronger content given the norm; a countermodel separates ignorance from actual falsity.",
+      "limit": "Norm observance is a premise. Competence and actual-world accessibility are added only for the stronger negative-truth result.",
+      "evidence": [
+       "q_yields_ignorance",
+       "negative_truth_needs_strengthening",
+       "ignorance_compatible_with_strong_truth"
+      ]
+     },
+     {
+      "id": "H2",
+      "source_claim": "Q upper-bounding and R enrichment can compete and be cancelled.",
+      "pages": "pp.13–15,18–21",
+      "disposition": "mixed",
+      "established": "The two logical contents are incompatible; cancellation can preserve literal content.",
+      "limit": "The contradiction lemma intentionally has inconsistent joint premises. Actual contextual default selection is not derived.",
+      "evidence": [
+       "q_r_incompatible",
+       "stronger_cancels_q_not_literal",
+       "r_cancellation_preserves_literal",
+       "context_cancellation_restores_literal"
+      ]
+     },
+     {
+      "id": "H3",
+      "source_claim": "Descriptive negation differs from cancelling pragmatic enrichment.",
+      "pages": "pp.20–21 (10)–(13)",
+      "disposition": "mixed",
+      "established": "If S entails W, not-W entails not-S; numeral exactness and stronger-continuation cancellation are checked.",
+      "limit": "The empirical ban on R-cancelling interpretations of negated utterances is not established by the logic.",
+      "evidence": [
+       "descriptive_negation_excludes_stronger",
+       "Numerals.two_sided_is_exact",
+       "Numerals.cancellation_is_not_descriptive_negation",
+       "logical_entailment_does_not_ban_r_rejection"
+      ]
+     },
+     {
+      "id": "H4",
+      "source_claim": "An available unmarked counterpart supports a marked/non-stereotypical division of labor.",
+      "pages": "pp.22–23 (16)–(18)",
+      "disposition": "conditional_fragment",
+      "established": "A supplied binary stereotype partitions a common extension under the chosen ordinary/counterpart flags; enumeration is exact.",
+      "limit": "The acceptance rule is our implementation. Its exhaustive binary partition is not independently validated as a universal linguistic prediction.",
+      "evidence": [
+       "finite_readings_exact",
+       "labor_disjoint_when_applicable",
+       "labor_covers_common_extension"
+      ]
+     },
+     {
+      "id": "H5",
+      "source_claim": "Causatives illustrate the division, but not every shorter synonym is a corresponding alternative.",
+      "pages": "pp.27–29 (28)–(34)",
+      "disposition": "illustrative_model",
+      "established": "The chosen direct/indirect example changes when counterpart availability is withdrawn.",
+      "limit": "Correspondence, literal extension and stereotype are supplied; no universal synonym-blocking law follows.",
+      "evidence": [
+       "Causatives.killed_caused_contrast",
+       "no_counterpart_no_marked_exclusion",
+       "Causatives.removing_counterpart_restores_direct_case"
+      ]
+     },
+     {
+      "id": "H6",
+      "source_claim": "Empirical/historical generalizations and general Q/R weighting.",
+      "pages": "Scope boundary; sections 1–11 pp.11–31 read",
+      "disposition": "uncovered",
+      "established": "No general weighting, learned-stereotype or diachrony result established.",
+      "limit": "Later sections were outside the reading scope; no impossibility claim.",
+      "evidence": []
+     }
+    ],
+    "code_sha256": "cc7897f46fa8b6e6f04956744e37b483cf2be9e4f10f1ce3718e578ad990a724"
+   },
+   {
+    "record_key": "atlas__grice1975",
+    "paper_id": 66,
+    "formality": 1,
+    "label": "Grice 1975",
+    "cohort": "retrospective cross-check",
+    "inventory": "atlas_data/campaigns/pilot_2026_09_13_inventory.md",
+    "grouping": "G1–G4 are retrospective labels for the existing narrative inventory, not preregistered atomic claims",
+    "source_supplies": "Three conditions on conversational implicature, the garage example, and cancellation/non-entailment diagnostics.",
+    "coverage": "A conditional constraint representation is checked; the garage belief is not independently inferred from the maxims.",
+    "semantic_additions": "The garage compatibility predicate is defined to equal the desired belief predicate; presumed cooperation and recognizability are set for that example.",
+    "ordinary_parameters": "Belief states and context relations may be abstract. Equating compatibility with the target conclusion is a substantive example choice, not mere abstraction.",
+    "preservation": "Opting out blocks this derivation and literal truth is separated from world usability; garage relevance is stipulated.",
+    "boundary_checks": "Cooperation withdrawal and a belief/world-fact countercase are checked within the chosen constraint model.",
+    "encoding_robustness": "not_tested",
+    "robustness_note": "No alternative account of contextual compatibility or calculability is compared.",
+    "targets": [
+     {
+      "id": "G1",
+      "source_claim": "Three conditions for conversational implicature.",
+      "pages": "pp.49–50",
+      "disposition": "conditional_fragment",
+      "established": "The licensed belief follows from the represented conditions and a compatible belief state.",
+      "limit": "The conclusion is already required of every compatible state by calculable; no mechanism discovers that constraint.",
+      "evidence": [
+       "licensed_belief"
+      ]
+     },
+     {
+      "id": "G2",
+      "source_claim": "The garage reply supports belief in possible usability.",
+      "pages": "p.51",
+      "disposition": "representation_only",
+      "established": "The example satisfies the supplied compatibility/recognizability conditions.",
+      "limit": "Compatibility is defined as the desired belief. This is not an independent derivation from the maxims.",
+      "evidence": [
+       "Garage.garage_belief_with_explicit_relevance_premise"
+      ]
+     },
+     {
+      "id": "G3",
+      "source_claim": "Cancellation and non-entailment distinguish implicature from what is said.",
+      "pages": "pp.57–58",
+      "disposition": "mixed",
+      "established": "Opt-out blocks this conditional derivation while literal content can remain true; inferred belief does not force world fact.",
+      "limit": "These test cases do not characterize every cancellation mechanism or all conversational implicatures.",
+      "evidence": [
+       "opting_out_blocks_this_derivation",
+       "Garage.literal_and_inferred_do_not_entail_fact",
+       "Garage.literal_content_survives_opt_out"
+      ]
+     },
+     {
+      "id": "G4",
+      "source_claim": "General contextual relevance and recognizable reasoning.",
+      "pages": "p.46; pp.49–52 scope boundary",
+      "disposition": "uncovered",
+      "established": "No general relevance, mutual-recognition or raw-language inference procedure established.",
+      "limit": "Not having an automatic procedure is not by itself an impossibility of formalizing the conditions.",
+      "evidence": []
+     }
+    ],
+    "code_sha256": "95b0b26b63917c25b30e50173b4333db58cda006b5221426744f7cd2fcce2115"
+   },
+   {
+    "record_key": "atlas__tarski1944",
+    "paper_id": 1,
+    "formality": 2,
+    "label": "Tarski 1944",
+    "cohort": "retrospective cross-check",
+    "inventory": "atlas_data/campaigns/pilot_2026_09_13_inventory.md",
+    "grouping": "T1–T4 are retrospective labels for the existing narrative inventory, not preregistered atomic claims",
+    "source_supplies": "Object/metalanguage separation, an outline of recursive satisfaction and truth via assignments, and Convention T as an adequacy schema.",
+    "coverage": "A restricted first-order construction supports structural metatheorems and T-instances; no unrestricted truth theory is claimed.",
+    "semantic_additions": "A chosen unary-predicate language with variables, snow, conjunction, negation and universal quantification; a nonempty domain via a named snow object; constructive metatheory.",
+    "ordinary_parameters": "The domain and predicate interpretations are legitimate model parameters, not missing algorithms. Restricting the language and not proving classical bivalence must still be disclosed.",
+    "preservation": "The snow instance and closed contradiction test are checked; assignment invariance supports language-specific T-equivalences.",
+    "boundary_checks": "Free-variable agreement is sufficient for satisfaction invariance across arbitrary assignments in this syntax; contradiction has no satisfying assignment.",
+    "encoding_robustness": "not_tested",
+    "robustness_note": "A parametric structural theorem is stronger than one finite example, but no alternate syntax or classical metatheory is compared.",
+    "targets": [
+     {
+      "id": "T1",
+      "source_claim": "Recursive satisfaction separates object language from metalanguage.",
+      "pages": "pp.349–353; section 11",
+      "disposition": "restricted_construction",
+      "established": "Satisfaction is recursive for the chosen language; dependence only on free variables is proved structurally.",
+      "limit": "A specific fragment and nonempty domain are chosen; no internal truth predicate is added.",
+      "evidence": [
+       "satisfaction_depends_on_free_variables",
+       "closed_assignment_invariance"
+      ]
+     },
+     {
+      "id": "T2",
+      "source_claim": "Convention T is an adequacy schema, not a substitute truth definition.",
+      "pages": "pp.343–345,350–353",
+      "disposition": "restricted_construction",
+      "established": "Closed assignment invariance yields T-equivalences after recursive satisfaction is defined.",
+      "limit": "These are language-specific instances, not truth for Coq or unrestricted natural language.",
+      "evidence": [
+       "closed_truth_instance",
+       "snow_instance"
+      ]
+     },
+     {
+      "id": "T3",
+      "source_claim": "The construction should handle the snow example and exclude contradiction.",
+      "pages": "pp.343–345; constructive boundary test",
+      "disposition": "mixed",
+      "established": "The snow equivalence and absence of satisfying assignments for contradiction are checked.",
+      "limit": "The contradiction test is a new integrity check, not an independent empirical prediction or a proof of bivalence.",
+      "evidence": [
+       "snow_instance",
+       "contradiction_has_no_satisfying_assignment",
+       "no_true_contradiction"
+      ]
+     },
+     {
+      "id": "T4",
+      "source_claim": "Limits of the attempt: no self-applicable truth, undefinability proof or classical bivalence result.",
+      "pages": "Scope boundary; notes 15–16",
+      "disposition": "uncovered",
+      "established": "No diagonal lemma, undefinability theorem or classical bivalence result established.",
+      "limit": "These omissions are not counted as refutations and are not licensed by the bounded construction.",
+      "evidence": []
+     }
+    ],
+    "code_sha256": "f98f1f1114b959101a1ae6cb6c421415052b5149323419c934e2566e3a2c11e7"
+   }
+  ]
+ }
 }

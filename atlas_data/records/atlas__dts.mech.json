@@ -11,19 +11,19 @@
     "stderr_tail": ""
   },
   "counts": {
-    "theorems": 7,
-    "proved": 7,
+    "theorems": 12,
+    "proved": 12,
     "admitted": 0,
     "aborted": 0,
     "admitted_definitions": 0,
     "unparsed_status": 0,
-    "definitions": 5,
+    "definitions": 20,
     "toplevel_axioms": 0,
-    "section_assumptions": 0
+    "section_assumptions": 5
   },
   "assumptions": {
-    "queried": 7,
-    "closed": 7,
+    "queried": 12,
+    "closed": 12,
     "not_closed": 0,
     "undocumented_axioms": [],
     "detail": {},
@@ -36,7 +36,12 @@
     "mtt_ranta.DTS.resolution_ambiguity": "9a784190d786f6d2",
     "mtt_ranta.DTS.the_bare_presupposes": "dd634154f22a6604",
     "mtt_ranta.DTS.the_conditional_projects_nothing": "247e435a674e2015",
-    "mtt_ranta.DTS.the_conditional_is_donkey": "a35c7c727bd0a789"
+    "mtt_ranta.DTS.the_conditional_is_donkey": "a35c7c727bd0a789",
+    "mtt_ranta.DTS.PredicateDTS.context_roundtrip": "29efac9a80e7ba0c",
+    "mtt_ranta.DTS.PredicateDTS.sorted_roundtrip": "c76b454b82f2ff85",
+    "mtt_ranta.DTS.PredicateDTS.canonical_ranta_translation": "ada3b7395e06f65e",
+    "mtt_ranta.DTS.PredicateDTS.canonical_strong_reading": "f63bca0cfe5f4330",
+    "mtt_ranta.DTS.PredicateDTS.discourse_content": "2b303b2bd382d29b"
   },
   "admitted_names": [],
   "aborted_names": [],

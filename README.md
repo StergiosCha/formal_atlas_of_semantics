@@ -55,6 +55,37 @@ coqc deep/kratzer_deep2.v
 coqc deep/theorems_deep_PTQ.v
 ```
 
+The later FORMAL-ATLAS work lives in `atlas/` with records and the local site
+in `atlas_data/`. For the source-checked TTR, MTT, Ranta and DTS comparisons,
+see [the comparison audit](atlas_data/audits/ttr_comparison.md).
+It documents the explicit TTR model layer, the limited witness-erasing
+TTR-to-MTT comparison, and the noun/context translations required by DTS.
+The audit also lists the source passages read and reproducible build commands.
+The [September 13 revision](atlas_data/audits/revision_2026_09_13.md) adds
+typed DTS resolution, four shared constructions, and a prospectively selected
+[P1/P2/P3 pilot](atlas_data/campaigns/pilot_2026_09_13_results.md).
+Incomplete source coverage is reported as unassessed, not as evidence that
+the theory requires major restructuring.
+
+The subsequent [P0/P1/P2 coverage campaign](atlas_data/campaigns/tiers_2026_09_13_results.md)
+adds bounded Derrida, Austin and Horn pilots. The source-to-code ledger separates
+direct logical fragments from added illustrative models and uncovered claims.
+All three remain F3/unassessed; passing Coq does not verify the whole sources.
+
+The [claim-level comparison](atlas_data/campaigns/claim_comparison_2026_09_13.md)
+separates represented examples, source-linked fragments, added semantic commitments
+and uncovered claims across those three pilots plus Grice and Tarski. Open
+**Claim comparison** on the local atlas site; these qualitative profiles do not
+change evidence levels or establish a tier gradient.
+
+The [second cohort](atlas_data/campaigns/cohort2_2026_09_13.md) freezes
+Spivak/Rosch/Hobbs source inventories before implementation. Its first
+[Rosch pilot](atlas_data/campaigns/rosch_2026_09_13_results.md) checks finite
+cue validity and membership/typicality separation. Rosch remains P1 and is
+reported as F3/unassessed: the checked fragment does not derive a psychological
+basic level or validate prototype effects. Hobbs's local source version needs
+identification before its implementation; Spivak has not been implemented.
+
 ## Citation
 
 If you use this code, please cite the accompanying paper:

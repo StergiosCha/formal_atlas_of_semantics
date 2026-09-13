@@ -1,0 +1,85 @@
+{
+ "file": "atlas/ttr/TTR_Model.v",
+ "region": "TTR and modern type theories: scoped comparisons",
+ "summary": "Explicit A/F models for the TTR fragment. Proves type identity differs from coextension, truth erasure loses witness assignments, inhabited ptypes need not have an inhabited meet, and structured-witness relabelling needs model compatibility.",
+ "sources": [
+  {
+   "citation": "Cooper, R. (2023). From Perception to Communication. OUP.",
+   "path": "papers/foundations/Cooper_2023_FromPerceptionToCommunication.pdf",
+   "available": "read: section 1.3 pp. 11-14, section 1.4.1 pp. 18-19, A2-A3 pp. 400-401, A8-A9 pp. 404-406, A11.1-A11.3 pp. 407-411"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "model / admissible",
+   "source": "A2-A3",
+   "match": "simplified",
+   "note": "Separate basic and ptype extensions; monomorphic basic arity checks and atom coverage."
+  },
+  {
+   "coq": "subtype_at / subtype_in / necessary / possible",
+   "source": "A9",
+   "match": "simplified",
+   "note": "Fixed syntax and chosen model family; not the varying Type_M formation discipline."
+  }
+ ],
+ "theorems": [
+  {
+   "name": "checked_subtype_all_models",
+   "status": "proved",
+   "source_claim": "Subtyping soundness quantified over assignments."
+  },
+  {
+   "name": "Countermodels.same_type_same_object_different_models / Countermodels.erased_assignments_agree",
+   "status": "proved",
+   "source_claim": "Assignment changes are invisible to the erased ptype truth values."
+  },
+  {
+   "name": "Countermodels.coextension_does_not_identify_types",
+   "status": "proved",
+   "source_claim": "Distinct type codes may have the same extension."
+  },
+  {
+   "name": "Countermodels.inhabited_conjuncts_empty_meet",
+   "status": "proved",
+   "source_claim": "Meet requires the same witness, not just separate inhabitation."
+  },
+  {
+   "name": "Countermodels.structured_witness_renaming_needs_model_compatibility",
+   "status": "proved",
+   "source_claim": "Arbitrary F can distinguish relabelled record witnesses."
+  }
+ ],
+ "counts": {
+  "theorems": 10,
+  "proved": 10,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "faithful",
+  "evidence": [
+   "Assessment limited to the explicitly stated fragment; see audits/ttr_comparison.md. Mechanical results are stored separately in the .mech.json sidecar."
+  ],
+  "simplifications": [
+   "Fixed type syntax; no full A9 varying type domains or A10 stratification."
+  ],
+  "omissions": [
+   "Fixed type syntax; no full A9 varying type domains or A10 stratification."
+  ],
+  "additions": [
+   "countermodels and a computable structural subtyping approximation"
+  ]
+ },
+ "determination": "slight_modification",
+ "determination_rationale": "The stated restricted core is reconstructed with explicit representation choices. This is not an assessment that the full book transfers unchanged.",
+ "artifact_classes": [
+  {
+   "class": "iv",
+   "description": "Explicit deep type codes, assignments and list-based records or comparison maps; Coq is the metalanguage."
+  }
+ ],
+ "source_gap": null,
+ "notes": "Source-based implementation audit on 2026-09-12; no independent second semantic reviewer is claimed. See audits/ttr_comparison.md for limitations and references.",
+ "compiles": true
+}

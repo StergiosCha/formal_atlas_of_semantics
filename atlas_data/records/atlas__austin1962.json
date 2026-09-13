@@ -1,0 +1,240 @@
+{
+ "file": "atlas/pragmatics/Austin1962.v",
+ "region": "pragmatics",
+ "summary": "P1 bounded pilot of Austin's provisional necessary felicity conditions: partial diagnostics, overlapping misfires/abuses and a two-step bet. Passing the checklist is not sufficient for felicity; achievement is not inferred from it.",
+ "assessment_status": "pilot",
+ "bounded_attempt_status": "complete",
+ "sources": [
+  {
+   "citation": "Austin (1962), How to Do Things with Words, pp.5–11 and Lectures II–IV pp.12–52.",
+   "path": "papers/foundations/Austin_1962_HowToDoThingsWith.pdf",
+   "available": "Local primary source read within the stated scope; source inventory and limitations recorded. Independent source review pending."
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "condition; constitutive_conditions; required",
+   "source": "A1 pp.14–18: A1 accepted conventional procedure, A2 appropriate persons/circumstances, B1 correct execution, B2 complete execution, Gamma1 attitudes/intentions, Gamma2 subsequent conduct. Gamma applicability is supplied.",
+   "match": "simplified"
+  },
+  {
+   "coq": "observations; passes; fails; failedb; report; assessed; refines",
+   "source": "A1,A5,A6: added partial observation/reporting machinery; does not discover conventions, authority or sincerity.",
+   "match": "added"
+  },
+  {
+   "coq": "misfire; abuse_of_achieved; listed_pass",
+   "source": "A1–A3 pp.14–17: restricted necessary-condition diagnostics, distinct from independently supplied institutional achievement.",
+   "match": "simplified"
+  },
+  {
+   "coq": "Cases.naming_attempt; insincere; overlapping; after_conduct",
+   "source": "A2,A3,A5: assigned observations for source examples, not empirical predictions.",
+   "match": "added"
+  },
+  {
+   "coq": "Betting.move; phase; step; run",
+   "source": "A4 pp.9,36–37: added strict recognizer for one isolated offer/acceptance exchange; later events are not modeled.",
+   "match": "added"
+  },
+  {
+   "coq": null,
+   "source": "A6,A7: social judgments, procedural laxness, complete felicity criteria and general speech-act/assertion semantics.",
+   "match": "missing"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "condition_enumeration",
+   "status": "proved",
+   "inventory_id": "A1",
+   "claim_kind": "new",
+   "source_claim": "Enumeration helper for the six supplied condition labels.",
+   "note": "A1 — new"
+  },
+  {
+   "name": "report_exact",
+   "status": "proved",
+   "inventory_id": "A1",
+   "claim_kind": "new",
+   "source_claim": "Soundness and completeness of the added diagnostic report against its failure predicate.",
+   "note": "A1 — new"
+  },
+  {
+   "name": "passing_excludes_failure",
+   "status": "proved",
+   "inventory_id": "A1",
+   "claim_kind": "new",
+   "source_claim": "Passing and failing the same condition are incompatible in the diagnostic representation.",
+   "note": "A1 — new"
+  },
+  {
+   "name": "no_report_complete_when_assessed",
+   "status": "proved",
+   "inventory_id": "A6",
+   "claim_kind": "new",
+   "source_claim": "An empty report entails listed success only when all required observations are known.",
+   "note": "A6 — new"
+  },
+  {
+   "name": "known_failures_survive_refinement",
+   "status": "proved",
+   "inventory_id": "A6",
+   "claim_kind": "new",
+   "source_claim": "Previously known failures persist under information-preserving refinement.",
+   "note": "A6 — new"
+  },
+  {
+   "name": "misfire_blocks_intended_act",
+   "status": "proved",
+   "inventory_id": "A2",
+   "claim_kind": "conditional result",
+   "source_claim": "pp.16–17 intended act cannot occur if an explicitly necessary A/B condition fails; necessity is a premise.",
+   "note": "A2 — conditional result"
+  },
+  {
+   "name": "failed_necessary_condition_blocks_felicity",
+   "status": "proved",
+   "inventory_id": "A1",
+   "claim_kind": "conditional result",
+   "source_claim": "pp.14–15 failed necessary condition rules out felicity; felicity implies listed conditions is an explicit premise.",
+   "note": "A1 — conditional result"
+  },
+  {
+   "name": "Cases.unknown_is_not_success",
+   "status": "proved",
+   "inventory_id": "A6",
+   "claim_kind": "new",
+   "source_claim": "Countercase to treating missing observations as success.",
+   "note": "A6 — new"
+  },
+  {
+   "name": "Cases.insincere_promise_can_be_achieved",
+   "status": "proved",
+   "inventory_id": "A3",
+   "claim_kind": "illustrative reconstruction",
+   "source_claim": "pp.11,16,39–41 insincere promise; achievement is supplied as part of the example.",
+   "note": "A3 — illustrative reconstruction"
+  },
+  {
+   "name": "Cases.simultaneous_failures",
+   "status": "proved",
+   "inventory_id": "A5",
+   "claim_kind": "illustrative reconstruction",
+   "source_claim": "p.23 coexistence of A2 and Gamma1 failures; not an exclusive classification.",
+   "note": "A5 — illustrative reconstruction"
+  },
+  {
+   "name": "Cases.inapplicable_attitudes_not_failures",
+   "status": "proved",
+   "inventory_id": "A1",
+   "claim_kind": "illustrative reconstruction",
+   "source_claim": "p.15 Gamma applicability is conditional; non-required attitudes do not create a failure.",
+   "note": "A1 — illustrative reconstruction"
+  },
+  {
+   "name": "Cases.listed_conditions_are_not_sufficient",
+   "status": "proved",
+   "inventory_id": "A6",
+   "claim_kind": "new",
+   "source_claim": "Logical countermodel to checklist sufficiency with an additional unmet requirement; not a refutation of Austin.",
+   "note": "A6 — new"
+  },
+  {
+   "name": "Cases.void_act_can_have_other_effects",
+   "status": "proved",
+   "inventory_id": "A2",
+   "claim_kind": "illustrative reconstruction",
+   "source_claim": "p.17 an unauthorized ship-naming attempt can still break a bottle.",
+   "note": "A2 — illustrative reconstruction"
+  },
+  {
+   "name": "Cases.breach_not_incomplete_execution",
+   "status": "proved",
+   "inventory_id": "A2",
+   "claim_kind": "illustrative reconstruction",
+   "source_claim": "pp.39–44 subsequent breach is distinct from incomplete procedure execution.",
+   "note": "A2 — illustrative reconstruction"
+  },
+  {
+   "name": "Cases.truth_does_not_force_sincere_belief",
+   "status": "proved",
+   "inventory_id": "A7",
+   "claim_kind": "illustrative reconstruction",
+   "source_claim": "pp.41–43,49–50 truth and belief are independent coordinates here; no general assertion semantics.",
+   "note": "A7 — illustrative reconstruction"
+  },
+  {
+   "name": "Betting.broken_absorbing",
+   "status": "proved",
+   "inventory_id": "A4",
+   "claim_kind": "new",
+   "source_claim": "Absorption lemma for the strict recognizer's failure state.",
+   "note": "A4 — new"
+  },
+  {
+   "name": "Betting.complete_trace_exact",
+   "status": "proved",
+   "inventory_id": "A4",
+   "claim_kind": "new",
+   "source_claim": "Exact language of the added recognizer: a completed isolated exchange is offer followed by acceptance.",
+   "note": "A4 — new"
+  },
+  {
+   "name": "Betting.offer_requires_uptake",
+   "status": "proved",
+   "inventory_id": "A4",
+   "claim_kind": "illustrative reconstruction",
+   "source_claim": "pp.9,36–37 offer without acceptance does not complete this bet.",
+   "note": "A4 — illustrative reconstruction"
+  },
+  {
+   "name": "Betting.accepted_offer_completes",
+   "status": "proved",
+   "inventory_id": "A4",
+   "claim_kind": "illustrative reconstruction",
+   "source_claim": "pp.9,36–37 accepted offer completes this restricted recognizer.",
+   "note": "A4 — illustrative reconstruction"
+  },
+  {
+   "name": "Betting.refusal_and_reversed_order_fail",
+   "status": "proved",
+   "inventory_id": "A4",
+   "claim_kind": "new",
+   "source_claim": "Refusal and reversed ordering are negative tests of the added recognizer.",
+   "note": "A4 — new"
+  }
+ ],
+ "counts": {
+  "theorems": 20,
+  "proved": 20,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "P1 bounded pilot of Austin's provisional necessary felicity conditions: partial diagnostics, overlapping misfires/abuses and a two-step bet. Passing the checklist is not sufficient for felicity; achievement is not inferred from it."
+  ],
+  "simplifications": [
+   "A1 pp.14–18: A1 accepted conventional procedure, A2 appropriate persons/circumstances, B1 correct execution, B2 complete execution, Gamma1 attitudes/intentions, Gamma2 subsequent conduct. Gamma applicability is supplied.",
+   "A1–A3 pp.14–17: restricted necessary-condition diagnostics, distinct from independently supplied institutional achievement."
+  ],
+  "omissions": [
+   "A6: no algorithm for accepted conventions, entitlement, sincere intention, exclusions or procedural laxness.",
+   "A7 is a coordinate countercase only, not a formal semantics of assertion or Moore's paradox.",
+   "No whole-book locution/illocution/perlocution theory."
+  ],
+  "additions": [
+   "A1,A5,A6: added partial observation/reporting machinery; does not discover conventions, authority or sincerity.",
+   "A2,A3,A5: assigned observations for source examples, not empirical predictions.",
+   "A4 pp.9,36–37: added strict recognizer for one isolated offer/acceptance exchange; later events are not modeled."
+  ]
+ },
+ "determination": "unassessed",
+ "determination_rationale": "Bounded attempt completed, not a completed source-theory formalization. Added machinery and uncovered core claims prevent a whole-source determination; these chosen restrictions do not show that restructuring was necessary.",
+ "artifact_classes": [],
+ "source_gap": null,
+ "notes": "2026-09-13 purposive P0/P1/P2 campaign. See campaigns/tiers_2026_09_13_protocol.md, tiers_2026_09_13_inventory.md and tiers_2026_09_13_results.md. Single-researcher assessment, not independent review. Counts include helper/example declarations; triviality flags are mechanical findings, not verified source claims.",
+ "compiles": true
+}

@@ -1,0 +1,46 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "atlas/ttr/TTR_vs_MTT.v",
+  "key": "atlas__ttr_vs_mtt",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "unsafe_flags": [],
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 6,
+    "proved": 6,
+    "admitted": 0,
+    "aborted": 0,
+    "admitted_definitions": 0,
+    "unparsed_status": 0,
+    "definitions": 8,
+    "toplevel_axioms": 0,
+    "section_assumptions": 4
+  },
+  "assumptions": {
+    "queried": 6,
+    "closed": 6,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "statements": {
+    "ttr.TTR_vs_MTT.ptype_at_subject": "e4fae1716cfec163",
+    "ttr.TTR_vs_MTT.record_to_mtt": "6020fa70a216f5f6",
+    "ttr.TTR_vs_MTT.mtt_to_record_inhabited": "b96bda56a7f2c358",
+    "ttr.TTR_vs_MTT.fixed_model_inhabitation": "85804117bea72824",
+    "ttr.TTR_vs_MTT.LossOfInformation.subject_projection_loses_witnesses": "9176806351358381",
+    "ttr.TTR_vs_MTT.LossOfInformation.no_inverse_from_subject": "318719eedf0e1ecb"
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

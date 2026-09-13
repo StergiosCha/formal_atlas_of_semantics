@@ -1,0 +1,45 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "atlas/pilots/Davidson1967.v",
+  "key": "atlas__davidson1967",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "unsafe_flags": [],
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 5,
+    "proved": 5,
+    "admitted": 0,
+    "aborted": 0,
+    "admitted_definitions": 0,
+    "unparsed_status": 0,
+    "definitions": 1,
+    "toplevel_axioms": 0,
+    "section_assumptions": 2
+  },
+  "assumptions": {
+    "queried": 5,
+    "closed": 5,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "statements": {
+    "pilots.Davidson1967.drop_modifiers": "c6df549b8eb2d6f9",
+    "pilots.Davidson1967.drop_all_modifiers": "3e3c61436b5415c7",
+    "pilots.Davidson1967.equal_names_substitute": "eac7a98c041c4279",
+    "pilots.Davidson1967.buttering_example": "9f1ef61e82e4a12e",
+    "pilots.Davidson1967.separate_events_not_shared": "b46cab0cb62a8063"
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

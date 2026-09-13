@@ -7,14 +7,86 @@
  "bridge_file": "atlas/mtt_ranta/DTS.v",
  "grading": "5 definitional / 4 equivalence / 3 one-way or mediated / 2 divergent / 1 after re-encoding / null one-sided",
  "phenomena": [
-  {"name": "anaphora-donkey", "attempted_by": ["a", "b"], "grade": 5, "evidence": "dts_donkey_canonical (reflexivity): the projection resolution IS Ranta's pronominalization"},
-  {"name": "anaphora-donkey-strong-reading", "attempted_by": ["a", "b"], "grade": 4, "evidence": "dts_donkey_strong via Ranta.donkey_curry"},
-  {"name": "context-as-sigma", "attempted_by": ["a", "b"], "grade": 5, "evidence": "DTS.ante is literally Ranta.v's donkey context type"},
-  {"name": "anaphora-resolution-mechanism", "attempted_by": ["a", "b"], "grade": 3, "evidence": "DTS generalizes: resolution spaces (Ctx -> A) with felicity = inhabitedness (dts_donkey_felicitous); Ranta's rule picks one resolvent — one-way generalization", "note": "the Bekki delta over Ranta"},
-  {"name": "anaphoric-ambiguity", "attempted_by": ["b"], "grade": null, "evidence": "resolution_ambiguity: two-antecedent discourse has extensionally distinct resolvents"},
-  {"name": "presupposition-projection", "attempted_by": ["b"], "grade": null, "evidence": "the_bare_presupposes / the_conditional_projects_nothing (BM17 context passing)"},
-  {"name": "generation-sugaring", "attempted_by": ["a"], "grade": null, "evidence": "Ranta.v Part 5"},
-  {"name": "text-discourse-progression", "attempted_by": ["a", "b"], "grade": 4, "evidence": "Ranta.v text2/sigma_assoc; DTS contexts are the same telescopes (the_conditional_is_donkey reflexivity on the shared shape)"}
+  {
+   "name": "cn-ontology",
+   "attempted_by": [
+    "a",
+    "b"
+   ],
+   "grade": 1,
+   "evidence": "BM17 section 1.4; PredicateDTS.farmer_type/donkey_type explicitly turn entity predicates into Sigma noun types.",
+   "note": "Ranta has noun types; DTS uses entity-to-type predicates."
+  },
+  {
+   "name": "anaphora-donkey",
+   "attempted_by": [
+    "a",
+    "b"
+   ],
+   "grade": 3,
+   "evidence": "PredicateDTS.canonical_ranta_translation: after predicate CNs are re-encoded as evidence-bearing Sigma noun types."
+  },
+  {
+   "name": "anaphora-donkey-strong-reading",
+   "attempted_by": [
+    "a",
+    "b"
+   ],
+   "grade": 4,
+   "evidence": "PredicateDTS.canonical_strong_reading with explicit farmer and donkey predicate evidence."
+  },
+  {
+   "name": "context-as-sigma",
+   "attempted_by": [
+    "a",
+    "b"
+   ],
+   "grade": 3,
+   "evidence": "PredicateDTS.to_sorted/from_sorted with context_roundtrip/sorted_roundtrip; explicit maps, not identical initial contexts."
+  },
+  {
+   "name": "anaphora-resolution-mechanism",
+   "attempted_by": [
+    "a",
+    "b"
+   ],
+   "grade": 3,
+   "evidence": "DTS_Resolution.source_projection_adequate and search_builds_equation recover the source projection through explicit context reassociation; PredicateDTS.canonical_ranta_translation supplies the noun/context bridge.",
+   "note": "Mediated projection comparison, not an inclusion theorem between unrestricted calculi."
+  },
+  {
+   "name": "anaphoric-ambiguity",
+   "attempted_by": [
+    "b"
+   ],
+   "grade": null,
+   "evidence": "resolution_ambiguity: two-antecedent discourse has extensionally distinct resolvents"
+  },
+  {
+   "name": "presupposition-projection",
+   "attempted_by": [
+    "b"
+   ],
+   "grade": null,
+   "evidence": "the_bare_presupposes / the_conditional_projects_nothing (BM17 context passing)"
+  },
+  {
+   "name": "generation-sugaring",
+   "attempted_by": [
+    "a"
+   ],
+   "grade": null,
+   "evidence": "Ranta.v Part 5"
+  },
+  {
+   "name": "text-discourse-progression",
+   "attempted_by": [
+    "a",
+    "b"
+   ],
+   "grade": 4,
+   "evidence": "PredicateDTS.dynamic_and/discourse_content: previous context plus new witness, BM17 Definition 4."
+  }
  ],
- "notes": "DTS is the dynamic branch from Ranta: identical context ontology, resolution generalizing pronominalization (grade 3 one-way by design — that IS the contribution), plus phenomena Ranta lacks (ambiguity-as-multiplicity, presupposition via @-terms). Source caveat: Bekki 2014 / Bekki-Mineshima 2017 PDFs not yet in papers/; DTS.v's section refs are to be spot-checked."
+ "notes": "Source-corrected 2026-09-13: BM17 section 1.4 separates the noun ontologies. Shared readings require re-encoding. DTS_Resolution.v adds typed entity-projection search, not a complete dependent checker or general proof search. Ranta sections 6.1-6.2 distinguish assertions/contexts from their Sigma representation."
 }

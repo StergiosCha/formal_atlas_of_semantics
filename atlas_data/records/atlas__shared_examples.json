@@ -1,0 +1,120 @@
+{
+ "file": "atlas/mtt_ranta/Shared_Examples.v",
+ "region": "modern type theories (TTR, MTT, Ranta, DTS)",
+ "summary": "Four shared constructions under explicit fixed-model and induced-noun assumptions. Positive/conditional image translation; MTT/Ranta/DTS constructive negative predication; Cooper preclusion-based negative witnesses imply exclusion but are not equated with fixed-model non-membership. Evidence-bearing discourse maps to a TTR record and uses a searched @ resolution.",
+ "assessment_status": "comparison",
+ "sources": [
+  {
+   "citation": "Cooper (2023) sections 1.3, A3, 7.4 (69); CL20 sections 1.4.2, 3.2.3; Ranta sections 6.1-6.2; BM17 sections 1.4, 3.1-3.5.",
+   "path": null,
+   "available": "Selected source sections read on disk; see audit/inventory. No independent second review."
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "student_type / positive_image",
+   "source": "Induced noun type and simplified common-supertype image, not full heterogeneous IS",
+   "match": "simplified"
+  },
+  {
+   "coq": "precludes / negative_witness",
+   "source": "Cooper p.312 (69), fixed universe of type codes",
+   "match": "simplified"
+  },
+  {
+   "coq": "dts_discourse_translation / discourse_record_sound",
+   "source": "Explicit source-context translation with individual and witnesses retained",
+   "match": "added"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "positive_image",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "positive_ranta",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "negative_image",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "negative_ranta",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "conditional_image",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "conditional_ranta",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "negative_excludes_positive",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "strong_discourse_agreement",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "dts_discourse_translation",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "discourse_record_sound",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "discourse_same_referent",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "pronoun_resolves",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  }
+ ],
+ "counts": {
+  "theorems": 12,
+  "proved": 12,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "not_applicable",
+  "evidence": [
+   "Four shared constructions under explicit fixed-model and induced-noun assumptions. Positive/conditional image translation; MTT/Ranta/DTS constructive negative predication; Cooper preclusion-based negative witnesses imply exclusion but are not equated with fixed-model non-membership. Evidence-bearing discourse maps to a TTR record and uses a searched @ resolution."
+  ],
+  "simplifications": [
+   "Induced noun type and simplified common-supertype image, not full heterogeneous IS",
+   "Cooper p.312 (69), fixed universe of type codes"
+  ],
+  "omissions": [
+   "Whole-source coverage beyond the explicitly bounded fragment."
+  ],
+  "additions": [
+   "Explicit source-context translation with individual and witnesses retained"
+  ]
+ },
+ "determination": "not_applicable",
+ "determination_rationale": "Comparison infrastructure, not a separate source theory.",
+ "artifact_classes": [],
+ "source_gap": null,
+ "notes": "2026-09-13 local single-researcher audit. See audits/revision_2026_09_13.md and campaigns/pilot_2026_09_13_results.md. Mechanical checks are separate from independent source review.",
+ "compiles": true
+}

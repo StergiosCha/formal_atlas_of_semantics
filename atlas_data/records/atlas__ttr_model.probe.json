@@ -1,0 +1,53 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/ttr/TTR_Model.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "ttr.TTR_Model.necessary_possible": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR_Model.checked_subtype_all_models": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR_Model.meet_same_witness": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "ttr.TTR_Model.Countermodels.assignments_admissible": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR_Model.Countermodels.erased_assignments_agree": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR_Model.Countermodels.same_type_same_object_different_models": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR_Model.Countermodels.truth_does_not_type_every_object": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR_Model.Countermodels.coextension_does_not_identify_types": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR_Model.Countermodels.inhabited_conjuncts_empty_meet": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR_Model.Countermodels.structured_witness_renaming_needs_model_compatibility": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    }
+  },
+  "summary": {
+    "probed": 10,
+    "vacuous": 0,
+    "trivial": 1,
+    "bailout": 0
+  }
+}

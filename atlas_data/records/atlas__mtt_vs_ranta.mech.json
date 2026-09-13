@@ -11,8 +11,8 @@
     "stderr_tail": ""
   },
   "counts": {
-    "theorems": 15,
-    "proved": 15,
+    "theorems": 17,
+    "proved": 17,
     "admitted": 0,
     "aborted": 0,
     "admitted_definitions": 0,
@@ -22,8 +22,8 @@
     "section_assumptions": 0
   },
   "assumptions": {
-    "queried": 15,
-    "closed": 15,
+    "queried": 17,
+    "closed": 17,
     "not_closed": 0,
     "undocumented_axioms": [],
     "detail": {},
@@ -36,6 +36,8 @@
     "mtt_ranta.MTT_vs_Ranta.no_agree_bwd": "f44e5d2ae05feca3",
     "mtt_ranta.MTT_vs_Ranta.some_agree_fwd": "37191413ba757cfc",
     "mtt_ranta.MTT_vs_Ranta.some_agree_bwd_inhabited": "0e6a4eca61e88928",
+    "mtt_ranta.MTT_vs_Ranta.strong_some_agree": "8c8136f66f00e924",
+    "mtt_ranta.MTT_vs_Ranta.strong_witness_agree": "6fb30515a9d628c9",
     "mtt_ranta.MTT_vs_Ranta.ranta_witness_sound": "ce75475d4fa445f6",
     "mtt_ranta.MTT_vs_Ranta.inter_subset_fwd": "393f64667598ce8f",
     "mtt_ranta.MTT_vs_Ranta.inter_subset_bwd": "57a9429ce8c548be",

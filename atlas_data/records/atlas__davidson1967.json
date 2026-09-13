@@ -1,0 +1,77 @@
+{
+ "file": "atlas/pilots/Davidson1967.v",
+ "region": "model-theoretic core",
+ "summary": "P3 pilot: existential event argument shared by modifiers, modifier dropping, equality substitution and a two-event countermodel to separately witnessed conjunction. No intention or reference-class-sensitive adverbs.",
+ "assessment_status": "pilot",
+ "sources": [
+  {
+   "citation": "Davidson (1967), The Logical Form of Action Sentences, pp.81-83,92-93, (17)-(20).",
+   "path": "papers/foundations/Davidson_1967_TheLogicalFormOfAction.pdf",
+   "available": "Selected source sections read on disk; see audit/inventory. No independent second review."
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "reading",
+   "source": "Existential event argument in (17)-(20), no thematic-role decomposition",
+   "match": "exact"
+  },
+  {
+   "coq": "modifier lists",
+   "source": "Finite modifier-sequence presentation of shared-event conjunction",
+   "match": "added"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "drop_modifiers",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "drop_all_modifiers",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "equal_names_substitute",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "buttering_example",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "separate_events_not_shared",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  }
+ ],
+ "counts": {
+  "theorems": 5,
+  "proved": 5,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "P3 pilot: existential event argument shared by modifiers, modifier dropping, equality substitution and a two-event countermodel to separately witnessed conjunction. No intention or reference-class-sensitive adverbs."
+  ],
+  "simplifications": [],
+  "omissions": [
+   "Whole-source coverage beyond the explicitly bounded fragment."
+  ],
+  "additions": [
+   "Finite modifier-sequence presentation of shared-event conjunction"
+  ]
+ },
+ "determination": "unassessed",
+ "determination_rationale": "Bounded partial implementation; source-level determination withheld. Incompleteness is not evidence of required restructuring.",
+ "artifact_classes": [],
+ "source_gap": null,
+ "notes": "2026-09-13 local single-researcher audit. See audits/revision_2026_09_13.md and campaigns/pilot_2026_09_13_results.md. Mechanical checks are separate from independent source review.",
+ "compiles": true
+}

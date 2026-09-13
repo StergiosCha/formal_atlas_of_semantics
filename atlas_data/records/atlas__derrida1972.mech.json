@@ -1,0 +1,57 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "atlas/discursive/Derrida1972.v",
+  "key": "atlas__derrida1972",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "unsafe_flags": [],
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 17,
+    "proved": 17,
+    "admitted": 0,
+    "aborted": 0,
+    "admitted_definitions": 0,
+    "unparsed_status": 0,
+    "definitions": 12,
+    "toplevel_axioms": 0,
+    "section_assumptions": 6
+  },
+  "assumptions": {
+    "queried": 17,
+    "closed": 17,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "statements": {
+    "discursive.Derrida1972.ContextualExample.agrammaticality_example": "a272f9a653c31971",
+    "discursive.Derrida1972.ContextualExample.graft_preserves_form": "424ea89904ee469c",
+    "discursive.Derrida1972.ContextualExample.graft_changes_possible_effect": "1c7b65783a29321b",
+    "discursive.Derrida1972.ContextualExample.context_cannot_be_erased_from_this_interpreter": "937b19ad89f6c2b4",
+    "discursive.Derrida1972.ContextualExample.absent_producer_can_still_be_read": "6aff6e29f2065be8",
+    "discursive.Derrida1972.ContextualExample.producer_metadata_invariant_here": "71adfad5ddf6f19c",
+    "discursive.Derrida1972.ContextualExample.same_form_need_not_be_same_occurrence": "574a4e66aaa2e0a8",
+    "discursive.Derrida1972.ContextualExample.quotation_depth": "31c4a1fa501169c3",
+    "discursive.Derrida1972.ContextualExample.member_below_ceiling": "800275be4b727aa2",
+    "discursive.Derrida1972.ContextualExample.fresh_quote_beyond_any_finite_list": "0a00d0b197b56aea",
+    "discursive.Derrida1972.ContextualExample.quotation_levels_distinct": "76e1091e318f81ad",
+    "discursive.Derrida1972.ContextualExample.unbounded_quotation_can_keep_effect_constant": "523cb0e4c63c5638",
+    "discursive.Derrida1972.repeatable_form_cannot_recover_both_origins": "893a74acc84c4fad",
+    "discursive.Derrida1972.richer_evidence_is_not_ruled_out": "7a87b2d0ddec0115",
+    "discursive.Derrida1972.signature_form_and_origin_can_diverge": "292562eb1a30fef2",
+    "discursive.Derrida1972.Risk.necessary_risk_coexists_with_success": "3eefa87168b407df",
+    "discursive.Derrida1972.Risk.necessary_risk_does_not_mean_all_actual_fail": "1afc92b5a2967b28"
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

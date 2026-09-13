@@ -1,0 +1,60 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "atlas/pragmatics/Austin1962.v",
+  "key": "atlas__austin1962",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "unsafe_flags": [],
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 20,
+    "proved": 20,
+    "admitted": 0,
+    "aborted": 0,
+    "admitted_definitions": 0,
+    "unparsed_status": 0,
+    "definitions": 25,
+    "toplevel_axioms": 0,
+    "section_assumptions": 1
+  },
+  "assumptions": {
+    "queried": 20,
+    "closed": 20,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "statements": {
+    "pragmatics.Austin1962.condition_enumeration": "e1ee9f6da65053f7",
+    "pragmatics.Austin1962.report_exact": "3efbc806bf9a9db6",
+    "pragmatics.Austin1962.passing_excludes_failure": "9d8de25143a42e8d",
+    "pragmatics.Austin1962.no_report_complete_when_assessed": "21d9593a28a5c1f5",
+    "pragmatics.Austin1962.known_failures_survive_refinement": "0ba4433c27a50a91",
+    "pragmatics.Austin1962.misfire_blocks_intended_act": "a3a96f9f65131c05",
+    "pragmatics.Austin1962.failed_necessary_condition_blocks_felicity": "33c42eb742a7e58e",
+    "pragmatics.Austin1962.Cases.unknown_is_not_success": "19325073f5e5663d",
+    "pragmatics.Austin1962.Cases.insincere_promise_can_be_achieved": "e320879ad4830926",
+    "pragmatics.Austin1962.Cases.simultaneous_failures": "ef871cc2a9daf798",
+    "pragmatics.Austin1962.Cases.inapplicable_attitudes_not_failures": "cb719f889fe2c6f2",
+    "pragmatics.Austin1962.Cases.listed_conditions_are_not_sufficient": "5cf052c2ddb4ed54",
+    "pragmatics.Austin1962.Cases.void_act_can_have_other_effects": "7c29ca290ba216ee",
+    "pragmatics.Austin1962.Cases.breach_not_incomplete_execution": "6a698fbaeb092af5",
+    "pragmatics.Austin1962.Cases.truth_does_not_force_sincere_belief": "48e7eec97a6832b8",
+    "pragmatics.Austin1962.Betting.broken_absorbing": "c6a0c5a5561f1f9a",
+    "pragmatics.Austin1962.Betting.complete_trace_exact": "a7537b34ea2ff370",
+    "pragmatics.Austin1962.Betting.offer_requires_uptake": "b90588dde17b7df2",
+    "pragmatics.Austin1962.Betting.accepted_offer_completes": "d9eadf8aac775882",
+    "pragmatics.Austin1962.Betting.refusal_and_reversed_order_fail": "7d13b04b5e0fa31d"
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

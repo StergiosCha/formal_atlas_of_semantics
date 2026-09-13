@@ -1,0 +1,61 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/mtt_ranta/Shared_Examples.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "mtt_ranta.Shared_Examples.positive_image": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.Shared_Examples.positive_ranta": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.Shared_Examples.negative_image": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.Shared_Examples.negative_ranta": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.Shared_Examples.conditional_image": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.Shared_Examples.conditional_ranta": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.Shared_Examples.negative_excludes_positive": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.Shared_Examples.strong_discourse_agreement": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.Shared_Examples.dts_discourse_translation": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.Shared_Examples.discourse_record_sound": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.Shared_Examples.discourse_same_referent": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.Shared_Examples.pronoun_resolves": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    }
+  },
+  "summary": {
+    "probed": 12,
+    "vacuous": 0,
+    "trivial": 1,
+    "bailout": 0
+  }
+}

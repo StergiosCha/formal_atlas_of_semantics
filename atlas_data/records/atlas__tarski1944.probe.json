@@ -1,0 +1,41 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/pilots/Tarski1944.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "pilots.Tarski1944.satisfaction_depends_on_free_variables": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pilots.Tarski1944.closed_assignment_invariance": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pilots.Tarski1944.closed_truth_instance": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pilots.Tarski1944.snow_instance": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pilots.Tarski1944.contradiction_has_no_satisfying_assignment": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "pilots.Tarski1944.no_true_contradiction": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pilots.Tarski1944.universal_closes_variable": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    }
+  },
+  "summary": {
+    "probed": 7,
+    "vacuous": 0,
+    "trivial": 2,
+    "bailout": 0
+  }
+}

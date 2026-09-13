@@ -1,0 +1,181 @@
+{
+  "campaign": "cohort2_2026_09_13",
+  "stage": "B: source-read inventories before implementation",
+  "protocol": "atlas_data/campaigns/cohort2_2026_09_13_protocol.md",
+  "protocol_sha256": "f38f42640ed9a543d0372ef541394d060eedf10f652d1e7e14cc43b2f45f5e2a",
+  "reading_and_future_attempt_order": [
+    "122",
+    "101",
+    "196"
+  ],
+  "target_group_count": 25,
+  "all_targets_implementation_status": "not_attempted",
+  "inventory_is_formalization_outcome": false,
+  "independent_semantic_review": "pending",
+  "alternative_encoding_robustness": "not_tested",
+  "new_coq_files": [],
+  "evidence_level_promotions": [],
+  "tier_regrades": [],
+  "sources": [
+    {
+      "paper_id": "122",
+      "author": "rosch",
+      "survey_year": 1978,
+      "frozen_tier": "P1",
+      "baseline_evidence_level": "F1",
+      "baseline_coq_files": [],
+      "baseline_actual_determination": null,
+      "external_source": "foundations/Rosch_1978_PrinciplesOfCategorization.pdf",
+      "source_sha256": "45e33ffdfe2d79f5c63f1d70b28bcc5c8e6e72f3b761c17930a8af4bc50d8fbe",
+      "pdf_pages": 25,
+      "reading_scope": "full local text including notes/references and appended editorial matter, if present",
+      "page_system": "local PDF pages; original chapter pagination not mapped",
+      "source_identity_status": "Reformatted local chapter identifies 1978; not collated against original printing",
+      "attribution_gate": null,
+      "inventory": "atlas_data/campaigns/cohort2_2026_09_13_rosch_inventory.md",
+      "target_group_count": 8,
+      "targets": [
+        {
+          "id": "R2-01",
+          "title": "Cognitive economy and perceived-world structure"
+        },
+        {
+          "id": "R2-02",
+          "title": "Basic level as the most inclusive level with shared structure"
+        },
+        {
+          "id": "R2-03",
+          "title": "Cue validity and the proposed basic-level maximum"
+        },
+        {
+          "id": "R2-04",
+          "title": "Graded typicality without a unique prototype object"
+        },
+        {
+          "id": "R2-05",
+          "title": "Prototype effects constrain, but do not determine, mechanisms"
+        },
+        {
+          "id": "R2-06",
+          "title": "Context changes what counts as basic or typical"
+        },
+        {
+          "id": "R2-07",
+          "title": "Attributes are not all prior to categorization"
+        },
+        {
+          "id": "R2-08",
+          "title": "Tentative extension from objects to events and scripts"
+        }
+      ]
+    },
+    {
+      "paper_id": "101",
+      "author": "hobbs",
+      "survey_year": 1985,
+      "frozen_tier": "P2",
+      "baseline_evidence_level": "F1",
+      "baseline_coq_files": [],
+      "baseline_actual_determination": null,
+      "external_source": "dynamic/Hobbs_1985_OnTheCoherenceAndStructure.pdf",
+      "source_sha256": "422ce067714e0865ec63f6b549cf96ac87e809d32fe98a79458bb9e96b618d9a",
+      "pdf_pages": 36,
+      "reading_scope": "full local text including notes/references and appended editorial matter, if present",
+      "page_system": "local PDF pages / numbered body pagination",
+      "source_identity_status": "Unverified revision; 1985 filename/survey label but Hovy 1988 and forthcoming Linde 1989 cited",
+      "attribution_gate": "resolve local revision versus graded 1985 source before paper-attributed implementation",
+      "inventory": "atlas_data/campaigns/cohort2_2026_09_13_hobbs_inventory.md",
+      "target_group_count": 10,
+      "targets": [
+        {
+          "id": "H2-01",
+          "title": "Possible interpretation is not best interpretation"
+        },
+        {
+          "id": "H2-02",
+          "title": "Occasion is weaker than causation, stronger than chronology"
+        },
+        {
+          "id": "H2-03",
+          "title": "Explanation of an event versus reason for an utterance"
+        },
+        {
+          "id": "H2-04",
+          "title": "Parallel and Elaboration need informative shared content"
+        },
+        {
+          "id": "H2-05",
+          "title": "Exemplification and Generalization have opposite orientations"
+        },
+        {
+          "id": "H2-06",
+          "title": "Contrast need not make the retained assertions inconsistent"
+        },
+        {
+          "id": "H2-07",
+          "title": "Violated expectation requires overridable inference"
+        },
+        {
+          "id": "H2-08",
+          "title": "Recursive discourse structure is not always one global tree"
+        },
+        {
+          "id": "H2-09",
+          "title": "Summaries depend on relation and asserted content"
+        },
+        {
+          "id": "H2-10",
+          "title": "Hypothesized knowledge needs validation beyond the worked text"
+        }
+      ]
+    },
+    {
+      "paper_id": "196",
+      "author": "spivak",
+      "survey_year": 1988,
+      "frozen_tier": "P0",
+      "baseline_evidence_level": "F1",
+      "baseline_coq_files": [],
+      "baseline_actual_determination": null,
+      "external_source": "foundations/Spivak_1988_CanTheSubalternSpeak.pdf",
+      "source_sha256": "96aef1b47c30e7070f420fa62f90d89e1ed00ba0d8f09683768f7d4b3cbd7e12",
+      "pdf_pages": 46,
+      "reading_scope": "full local text including notes/references and appended editorial matter, if present",
+      "page_system": "printed pages 271–313 correspond to PDF pages 1–43; three appended book pages",
+      "source_identity_status": "1988 publication identified by appended book title/copyright/contents",
+      "attribution_gate": null,
+      "inventory": "atlas_data/campaigns/cohort2_2026_09_13_spivak_inventory.md",
+      "target_group_count": 7,
+      "targets": [
+        {
+          "id": "S2-01",
+          "title": "Political proxy and representational staging are not interchangeable"
+        },
+        {
+          "id": "S2-02",
+          "title": "Epistemic violence cannot be reduced to an unmediated voice channel"
+        },
+        {
+          "id": "S2-03",
+          "title": "Subaltern positions are heterogeneous and historically located"
+        },
+        {
+          "id": "S2-04",
+          "title": "Competing widow-sacrifice discourses can both efface female agency"
+        },
+        {
+          "id": "S2-05",
+          "title": "Translating names does not transparently recover social reality"
+        },
+        {
+          "id": "S2-06",
+          "title": "The Bhaduri case concerns failed hearing/reading, not absent action"
+        },
+        {
+          "id": "S2-07",
+          "title": "Mediation does not release the intellectual from responsibility"
+        }
+      ]
+    }
+  ]
+}

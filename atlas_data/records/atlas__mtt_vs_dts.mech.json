@@ -1,0 +1,45 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "atlas/mtt_ranta/MTT_vs_DTS.v",
+  "key": "atlas__mtt_vs_dts",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "unsafe_flags": [],
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 5,
+    "proved": 5,
+    "admitted": 0,
+    "aborted": 0,
+    "admitted_definitions": 0,
+    "unparsed_status": 0,
+    "definitions": 1,
+    "toplevel_axioms": 0,
+    "section_assumptions": 3
+  },
+  "assumptions": {
+    "queried": 5,
+    "closed": 5,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "statements": {
+    "mtt_ranta.MTT_vs_DTS.existential_image": "eb8b8f1b89336bbb",
+    "mtt_ranta.MTT_vs_DTS.universal_image": "d3e2c1b32daa39d4",
+    "mtt_ranta.MTT_vs_DTS.negative_predication": "e1a6eeb6b601cbb4",
+    "mtt_ranta.MTT_vs_DTS.negative_predication_without_positive_typing": "64f380e9cdbda675",
+    "mtt_ranta.MTT_vs_DTS.donkey_after_noun_translation": "0235beb077edc654"
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

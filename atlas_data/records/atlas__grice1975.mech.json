@@ -1,0 +1,45 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "atlas/pilots/Grice1975.v",
+  "key": "atlas__grice1975",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "unsafe_flags": [],
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 5,
+    "proved": 5,
+    "admitted": 0,
+    "aborted": 0,
+    "admitted_definitions": 0,
+    "unparsed_status": 0,
+    "definitions": 4,
+    "toplevel_axioms": 0,
+    "section_assumptions": 4
+  },
+  "assumptions": {
+    "queried": 5,
+    "closed": 5,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "statements": {
+    "pilots.Grice1975.licensed_belief": "ed92ccd8fd11771b",
+    "pilots.Grice1975.opting_out_blocks_this_derivation": "83671e28c50cff55",
+    "pilots.Grice1975.Garage.garage_belief_with_explicit_relevance_premise": "62c1b1455b9f9011",
+    "pilots.Grice1975.Garage.literal_and_inferred_do_not_entail_fact": "9ef61b21f6ad34c3",
+    "pilots.Grice1975.Garage.literal_content_survives_opt_out": "bdde9e6f1bfd8f98"
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

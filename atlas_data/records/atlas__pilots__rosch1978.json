@@ -1,0 +1,333 @@
+{
+ "file": "atlas/pilots/Rosch1978.v",
+ "region": "cognitive",
+ "summary": "P1 bounded Rosch pilot: finite cue validity, fixed-cue inclusion boundary, assigned category-specific cue sensitivity, and membership/typicality separation. Does not derive a basic level or model human processing.",
+ "assessment_status": "pilot",
+ "bounded_attempt_status": "complete",
+ "source_inventory": "atlas_data/campaigns/cohort2_2026_09_13_rosch_inventory.md",
+ "sources": [
+  {
+   "citation": "Rosch (1978), Principles of Categorization. Full local 25-page reformatted chapter read; local pp.5-6 cue validity and pp.10-16 typicality. Local pages are not original chapter pp.27-48.",
+   "path": "papers/foundations/Rosch_1978_PrinciplesOfCategorization.pdf",
+   "available": "Pinned local primary source; SHA-256 45e33ffdfe2d79f5c63f1d70b28bcc5c8e6e72f3b761c17930a8af4bc50d8fbe. Independent semantic review pending."
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "Frequency.count; Frequency.joint; Frequency.cue_ratio; Frequency.cue_validity",
+   "source": "R2-03 local p.5: P(category | cue), restricted to finite empirical frequency and Boolean predicates; optional undefined case added.",
+   "match": "simplified"
+  },
+  {
+   "coq": "Frequency.score; Frequency.admissible",
+   "source": "R2-03 local pp.5-6: source sum at unit weights; generalized weights and the fixed-cue-list hypothesis are explicit added choices, not Rosch's category-specific selection rule.",
+   "match": "added"
+  },
+  {
+   "coq": "Frequency.event_probability; Frequency.conditional_from_probabilities",
+   "source": "Same-data normalized-frequency encoding for the conditional probability definition; finite restriction, not a full real-valued measure theory.",
+   "match": "simplified"
+  },
+  {
+   "coq": "ConstructedCategories.*",
+   "source": "R2-02/R2-03 hierarchy labels are source-inspired; sample, coextensive features, numerical counts and category-specific cue lists are constructed inputs.",
+   "match": "added"
+  },
+  {
+   "coq": "Typicality.at_least; Typicality.best; Typicality.ConstructedBirds.*",
+   "source": "R2-04 local pp.10-16: separate membership and ordinal goodness; finite numeric scales, direct weak ordering and ties are illustrative additions.",
+   "match": "added"
+  },
+  {
+   "coq": null,
+   "source": "R2-01 cognitive economy; R2-02 empirical basic-level convergence; R2-03 feature selection; R2-04 human ratings; R2-05 mechanisms; R2-06 context; R2-07 attribute origins; R2-08 events/scripts.",
+   "match": "missing"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "Frequency.count_nonnegative",
+   "status": "proved",
+   "inventory_id": "R2-03",
+   "claim_kind": "new",
+   "source_claim": "Finite-frequency helper: unit-indicator counts are nonnegative.",
+   "note": "R2-03 — new"
+  },
+  {
+   "name": "Frequency.count_monotone",
+   "status": "proved",
+   "inventory_id": "R2-03",
+   "claim_kind": "new",
+   "source_claim": "Finite-frequency helper: observed inclusion implies a count inequality.",
+   "note": "R2-03 — new"
+  },
+  {
+   "name": "Frequency.joint_count_le_cue",
+   "status": "proved",
+   "inventory_id": "R2-03",
+   "claim_kind": "new",
+   "source_claim": "Intersection-count bound supporting the restricted conditional probability definition.",
+   "note": "R2-03 — new"
+  },
+  {
+   "name": "Frequency.undefined_exactly_zero_cue",
+   "status": "proved",
+   "inventory_id": "R2-03",
+   "claim_kind": "new",
+   "source_claim": "Explicit undefined-conditioning interface; zero-frequency cues are not assigned an empirical probability.",
+   "note": "R2-03 — new"
+  },
+  {
+   "name": "Frequency.positive_cue_is_defined",
+   "status": "proved",
+   "inventory_id": "R2-03",
+   "claim_kind": "conditional result",
+   "source_claim": "Local PDF p.5: positive cue frequency makes the finite conditional-frequency value defined.",
+   "note": "R2-03 — conditional result"
+  },
+  {
+   "name": "Frequency.cue_ratio_range",
+   "status": "proved",
+   "inventory_id": "R2-03",
+   "claim_kind": "conditional result",
+   "source_claim": "Finite conditional frequency lies in [0,1] when the cue has positive frequency.",
+   "note": "R2-03 — conditional result"
+  },
+  {
+   "name": "Frequency.cue_ratio_monotone",
+   "status": "proved",
+   "inventory_id": "R2-03",
+   "claim_kind": "new",
+   "source_claim": "Encoding boundary: nested categories and one fixed positive cue yield monotone conditional frequency.",
+   "note": "R2-03 — new"
+  },
+  {
+   "name": "Frequency.fixed_cue_score_monotone",
+   "status": "proved",
+   "inventory_id": "R2-03",
+   "claim_kind": "new",
+   "source_claim": "Same cue list and nonnegative weights preserve inclusion monotonicity; weights generalize the source's unweighted sum.",
+   "note": "R2-03 — new"
+  },
+  {
+   "name": "Frequency.no_strict_interior_maximum_with_fixed_cues",
+   "status": "proved",
+   "inventory_id": "R2-03",
+   "claim_kind": "new",
+   "source_claim": "A containing category cannot score strictly lower with identical admissible cues; not a refutation of Rosch's category-specific account.",
+   "note": "R2-03 — new"
+  },
+  {
+   "name": "Frequency.normalization_cancels",
+   "status": "proved",
+   "inventory_id": "R2-03",
+   "claim_kind": "new",
+   "source_claim": "Same-data representation check: conditioning normalized counts equals the direct ratio on positive denominators.",
+   "note": "R2-03 — new"
+  },
+  {
+   "name": "ConstructedCategories.hierarchy_and_positive_cues",
+   "status": "proved",
+   "inventory_id": "R2-03",
+   "claim_kind": "illustrative reconstruction",
+   "source_claim": "Constructed nonvacuity witness: nested kitchen-chair/chair/furniture predicates and positive shared cues.",
+   "note": "R2-03 — illustrative reconstruction"
+  },
+  {
+   "name": "ConstructedCategories.fixed_cues_favor_parent",
+   "status": "proved",
+   "inventory_id": "R2-03",
+   "claim_kind": "illustrative reconstruction",
+   "source_claim": "Assigned four-observation dataset: fixed cues give chair 8/3 and furniture 3; not published measurements.",
+   "note": "R2-03 — illustrative reconstruction"
+  },
+  {
+   "name": "ConstructedCategories.assigned_category_cues_allow_interior_maximum",
+   "status": "proved",
+   "inventory_id": "R2-03",
+   "claim_kind": "illustrative reconstruction",
+   "source_claim": "Assigned category-specific cue lists give furniture 1, chair 2, kitchen-chair 1; cue selection is input, not predicted.",
+   "note": "R2-03 — illustrative reconstruction"
+  },
+  {
+   "name": "ConstructedCategories.undefined_is_not_defined_zero",
+   "status": "proved",
+   "inventory_id": "R2-03",
+   "claim_kind": "illustrative reconstruction",
+   "source_claim": "Boundary case distinguishing an absent cue from a positive cue never paired with the category.",
+   "note": "R2-03 — illustrative reconstruction"
+  },
+  {
+   "name": "ConstructedCategories.negative_weight_breaks_monotonicity",
+   "status": "proved",
+   "inventory_id": "R2-03",
+   "claim_kind": "new",
+   "source_claim": "Counterexample to dropping nonnegative weights, not to the source's unweighted proposal.",
+   "note": "R2-03 — new"
+  },
+  {
+   "name": "ConstructedCategories.dropping_inclusion_breaks_monotonicity",
+   "status": "proved",
+   "inventory_id": "R2-03",
+   "claim_kind": "new",
+   "source_claim": "Reversed noninclusion in the constructed hierarchy invalidates the corresponding monotonicity claim.",
+   "note": "R2-03 — new"
+  },
+  {
+   "name": "Typicality.score_order_is_preorder",
+   "status": "proved",
+   "inventory_id": "R2-04",
+   "claim_kind": "new",
+   "source_claim": "Infrastructure for a restricted ordinal representation; not an empirical generalization.",
+   "note": "R2-04 — new"
+  },
+  {
+   "name": "Typicality.best_preserved_by_order",
+   "status": "proved",
+   "inventory_id": "R2-04",
+   "claim_kind": "new",
+   "source_claim": "Same membership and equivalent order on members preserve best-member status.",
+   "note": "R2-04 — new"
+  },
+  {
+   "name": "Typicality.positive_affine_rescaling_preserves_order",
+   "status": "proved",
+   "inventory_id": "R2-04",
+   "claim_kind": "new",
+   "source_claim": "Ordinal representation check; does not preserve or claim meaningful cardinal distances.",
+   "note": "R2-04 — new"
+  },
+  {
+   "name": "Typicality.ConstructedBirds.ordinal_matches_scores",
+   "status": "proved",
+   "inventory_id": "R2-04",
+   "claim_kind": "illustrative reconstruction",
+   "source_claim": "A directly specified weak ordering matches the assigned numeric scores on all four constructed items.",
+   "note": "R2-04 — illustrative reconstruction"
+  },
+  {
+   "name": "Typicality.ConstructedBirds.members_can_differ_in_typicality",
+   "status": "proved",
+   "inventory_id": "R2-04",
+   "claim_kind": "illustrative reconstruction",
+   "source_claim": "Local PDF pp.10-16 motivates unequal goodness among members; the numerical scores are constructed inputs.",
+   "note": "R2-04 — illustrative reconstruction"
+  },
+  {
+   "name": "Typicality.ConstructedBirds.tied_best_members",
+   "status": "proved",
+   "inventory_id": "R2-04",
+   "claim_kind": "illustrative reconstruction",
+   "source_claim": "Constructed robin/sparrow tie demonstrates compatibility with more than one best member; the tie is not a source measurement.",
+   "note": "R2-04 — illustrative reconstruction"
+  },
+  {
+   "name": "Typicality.ConstructedBirds.no_unique_best_member",
+   "status": "proved",
+   "inventory_id": "R2-04",
+   "claim_kind": "new",
+   "source_claim": "Nonuniqueness follows in this explicit tied-ranking example; not a universal claim about all category maxima.",
+   "note": "R2-04 — new"
+  },
+  {
+   "name": "Typicality.ConstructedBirds.rescaling_preserves_best",
+   "status": "proved",
+   "inventory_id": "R2-04",
+   "claim_kind": "new",
+   "source_claim": "Direct ordering and rescaled scores select the same best members in this finite example.",
+   "note": "R2-04 — new"
+  },
+  {
+   "name": "Typicality.ConstructedBirds.ranking_does_not_determine_membership",
+   "status": "proved",
+   "inventory_id": "R2-04",
+   "claim_kind": "new",
+   "source_claim": "Unconstrained membership can vary while ranking is held fixed; a logical separation illustration, not a competing empirical bird classification.",
+   "note": "R2-04 — new"
+  }
+ ],
+ "counts": {
+  "theorems": 25,
+  "proved": 25,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "inventory_dispositions": [
+  {
+   "inventory_id": "R2-01",
+   "disposition": "uncovered",
+   "scope": "No cognitive-economy objective or empirical perceived-world account."
+  },
+  {
+   "inventory_id": "R2-02",
+   "disposition": "representation only",
+   "scope": "Constructed nested category predicates only; no basic-level selection, four-measure convergence, knowledge-dependent prediction or branchwise cut theorem."
+  },
+  {
+   "inventory_id": "R2-03",
+   "disposition": "conditional/source-linked fragment",
+   "scope": "Finite conditional-frequency definition and encoding boundary checked; assigned cue-list sensitivity is illustrative. No derived feature selection or empirical/basic-level maximum claim established."
+  },
+  {
+   "inventory_id": "R2-04",
+   "disposition": "illustrative model",
+   "scope": "Membership/rank separation, differing member typicalities and tied maxima on assigned data; limited ordinal representation correspondence. No human-judgment validation."
+  },
+  {
+   "inventory_id": "R2-05",
+   "disposition": "uncovered",
+   "scope": "No pair of processing/representation/learning mechanisms fitted to the source evidence."
+  },
+  {
+   "inventory_id": "R2-06",
+   "disposition": "uncovered",
+   "scope": "No context dynamics or prediction of context-dependent category judgments."
+  },
+  {
+   "inventory_id": "R2-07",
+   "disposition": "uncovered",
+   "scope": "Cue lists are explicit inputs, not a theory of culturally/category-dependent attribute formation."
+  },
+  {
+   "inventory_id": "R2-08",
+   "disposition": "uncovered",
+   "scope": "No event/script hierarchy, memory or comprehension model."
+  }
+ ],
+ "encoding_checks": {
+  "frequency_normalization": "Proved equality on the same finite sample with positive denominators.",
+  "ordinal_representation": "Proved direct-order/score correspondence on constructed example and best-member invariance under order preservation.",
+  "scope": "Limited representation checks, not independent semantic validation or robustness of the entire theory.",
+  "category_specific_cues": "Semantic sensitivity with changed cue lists, not representation-preserving robustness."
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "Source-linked bounded construction and explicit source-to-code limitations; self-assessment, not independent review."
+  ],
+  "simplifications": [
+   "Finite uniform observation frequencies and Boolean event predicates replace general probabilities.",
+   "Natural-number scores represent one finite weak ordering; no cardinal psychological scale."
+  ],
+  "omissions": [
+   "R2-01: No cognitive-economy objective or empirical perceived-world account.",
+   "R2-05: No pair of processing/representation/learning mechanisms fitted to the source evidence.",
+   "R2-06: No context dynamics or prediction of context-dependent category judgments.",
+   "R2-07: Cue lists are explicit inputs, not a theory of culturally/category-dependent attribute formation.",
+   "R2-08: No event/script hierarchy, memory or comprehension model.",
+   "No empirical basic-level or prototype-effect validation; no cue-learning rule."
+  ],
+  "additions": [
+   "Nonnegative weighted sum generalizes the unit-weight source sum.",
+   "Category-specific feature lists, numeric frequency data and rank ties are assigned.",
+   "Zero-frequency cues use an explicit option interface; raw rational division is internal.",
+   "The non-entailment countermodel's alternative membership is not an empirical bird model."
+  ]
+ },
+ "determination": "unassessed",
+ "determination_rationale": "R2-03 and R2-04 fragments only. This attempt does not show whole-source as-is transfer, necessary restructuring, or impossibility. Keep all eight inventory dispositions visible.",
+ "artifact_classes": [],
+ "source_gap": null,
+ "notes": "2026-09-13 second-cohort Rosch attempt. Frozen P1 grade retained despite the recorded tension with its no-formal-apparatus rationale. Five computation checks flagged TRIVIAL; no vacuity flags. Bounded probes are not semantic review. See campaigns/rosch_2026_09_13_design.md and rosch_2026_09_13_results.md.",
+ "compiles": true
+}

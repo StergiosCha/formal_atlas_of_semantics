@@ -7,13 +7,17 @@ are kept so the disagreement is visible.
 """
 import json, glob, os, re, sys
 from collections import Counter, defaultdict
+from pathlib import Path
+from claim_comparison import load_comparison
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REC = os.path.join(HERE, "records")
 EDGES = os.path.join(HERE, "edges")
-DET_ORDER = ["as_is", "slight_modification", "major_restructuring", "cannot", "not_applicable"]
+DET_ORDER = ["as_is", "slight_modification", "major_restructuring", "cannot", "not_applicable", "unassessed"]
+THEORY_OUTCOMES = {"as_is", "slight_modification", "major_restructuring", "cannot"}
 DET_LABEL = {"as_is": "1 as-is", "slight_modification": "2 slight modification",
-             "major_restructuring": "3 major restructuring", "cannot": "4 cannot", "not_applicable": "n/a"}
+             "major_restructuring": "3 major restructuring", "cannot": "4 cannot", "not_applicable": "n/a",
+             "unassessed": "unassessed (incomplete scope)"}
 FAITH_ORDER = ["faithful", "partial", "unfaithful", "not_applicable"]
 
 
@@ -148,13 +152,15 @@ def compute_levels(papers, files, edges):
         s = unicodedata.normalize("NFKD", str(s)).encode("ascii", "ignore").decode()
         return re.sub(r"[^a-z0-9]", "", s.lower())
 
-    papers_dir = os.path.join(os.path.dirname(HERE), "papers")
+    # Local corpus may live outside the code checkout.  Make that input
+    # explicit so rebuilding this mirror does not erase sourced evidence.
+    papers_dir = os.environ.get("ATLAS_PAPERS") or os.path.join(os.path.dirname(HERE), "papers")
     disk = []
     if os.path.isdir(papers_dir):
         for root, _, fs in os.walk(papers_dir):
             disk += [norm(f) for f in fs if f.lower().endswith((".pdf", ".djvu"))]
     designs = " ".join(
-        open(os.path.join(HERE, "designs", d)).read().lower()
+        Path(HERE, "designs", d).read_text().lower()
         for d in (os.listdir(os.path.join(HERE, "designs"))
                   if os.path.isdir(os.path.join(HERE, "designs")) else [])
         if d.endswith(".md"))
@@ -168,13 +174,17 @@ def compute_levels(papers, files, edges):
         sn = norm(au.split()[-1]) if au else ""
         yr = str(p.get("year") or "")
         sourced = any(sn and sn in f and yr in f for f in disk)
-        designed = bool(sn) and sn in designs
+        # A surname must be a complete token: "Das" in "lambdas" is
+        # not evidence that the Das paper has a design plan.
+        designed = bool(sn) and bool(re.search(
+            r"(?<![a-z0-9])" + re.escape(sn) + r"(?![a-z0-9])", designs))
         cfs = p.get("coq_files") or []
         recs = [rec_by_file[f] for f in cfs if f in rec_by_file]
         atlas_recs = [r for r in recs if r.get("file", "").startswith("atlas/")]
         clean = [r for r in atlas_recs
-                 if (r.get("counts") or {}).get("admitted", 1) == 0]
-        verified = any(r.get("_verify") for r in recs) or \
+                 if (r.get("counts") or {}).get("admitted", 1) == 0
+                 and r.get("assessment_status") not in ("pilot", "incomplete")]
+        verified = any((r.get("_verify") or {}).get("agrees") is True for r in recs) or \
             any(f in edge_files for f in cfs)
         if clean and verified:
             level = "F5"
@@ -192,8 +202,9 @@ def compute_levels(papers, files, edges):
         # prediction vs determination (rubric §5: disagreements are findings)
         det = None
         for r in clean or recs:
-            det = r.get("_final", {}).get("determination") or r.get("determination")
-            if det:
+            candidate = r.get("_final", {}).get("determination") or r.get("determination")
+            if candidate in THEORY_OUTCOMES:
+                det = candidate
                 break
         p["determination_actual"] = det
         pred = p.get("survey_determination")
@@ -224,6 +235,12 @@ def main():
         if p.get("id") in (None, ""):
             p["id"] = f"x{i}"
 
+    # Evidence links are additive and separate from the frozen survey and
+    # intrinsic grades. A pilot remains F3 even when its bounded code is clean.
+    links = load(os.path.join(HERE, "paper_evidence.json")) or {}
+    for p in papers:
+        additions = links.get(str(p["id"]), [])
+        p["coq_files"] = list(dict.fromkeys((p.get("coq_files") or []) + additions))
     papers = compute_levels(papers, files, edges)
 
     # Intrinsic formality P0-P5 (FORMALITY_RUBRIC.md): a FROZEN grade of how
@@ -237,6 +254,10 @@ def main():
             p["formality"] = g["formality"]
             p["formality_rationale"] = g.get("rationale")
             p["formality_confidence"] = g.get("confidence")
+
+    # Qualitative source-claim profiles never alter evidence levels, grades,
+    # or determinations. Validate source links and code freshness separately.
+    comparison = load_comparison(files, papers)
 
     # --- summary statistics over Coq files
     det_count = Counter(r["_final"]["determination"] for r in files)
@@ -257,6 +278,7 @@ def main():
         "files": files,
         "papers": papers,
         "edges": edges,
+        "claim_comparison": comparison,
     }
     with open(os.path.join(HERE, "atlas.json"), "w") as f:
         json.dump(atlas, f, indent=1, ensure_ascii=False)
@@ -269,6 +291,15 @@ def main():
           md_table([[DET_LABEL.get(d, d), det_count.get(d, 0)] for d in DET_ORDER], ["Determination", "Files"]), "",
           "## Faithfulness verdicts", "",
           md_table([[f, faith_count.get(f, 0)] for f in FAITH_ORDER], ["Verdict", "Files"]), ""]
+    if comparison:
+        md += ["## Claim-level comparison beneath the evidence ladder", "",
+               comparison["method"], "",
+               md_table([[p["label"], "P" + str(p["formality"]),
+                          p["coverage"], p["semantic_additions"],
+                          p["encoding_robustness"].replace("_", " ")]
+                         for p in comparison["profiles"]],
+                        ["Source", "Frozen tier", "Checked scope", "Added commitments", "Encoding robustness"]), "",
+               "All remain F3/unassessed. [Method and limitations](campaigns/claim_comparison_2026_09_13.md).", ""]
     for region in sorted(regions):
         rows = []
         for r in sorted(regions[region], key=lambda x: x.get("file", "")):

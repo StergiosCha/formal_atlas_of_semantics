@@ -1,0 +1,273 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/ttr/TTR.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "ttr.TTR.list_eqb_spec": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.path_eqb_spec": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.args_eqb_spec": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.ty_size_rec": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "ttr.TTR.ty_size_pos": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.rty_size_cons": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "ttr.TTR.rty_size_in": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.rty_lookup_in": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.rty_lookup_size": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.of_ty_rec_iff": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.of_rty_iff": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.of_rty_nil": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "ttr.TTR.of_rty_cons": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.of_rty_field": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.rlookup_det": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.sub_w_refl": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "ttr.TTR.sub_w_trans": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.wf_rty_lookup": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.sub_w_sound": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.wf_ty_fields": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.wf_ty_rec_iff": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.subb_meet_r": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "ttr.TTR.subb_meet_l_base": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "ttr.TTR.subb_meet_l_pty": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "ttr.TTR.subb_meet_l_rec": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "ttr.TTR.subb_rec_rec": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "ttr.TTR.subb_rec_in": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.subb_rec_intro": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.subb_meet_l_mono": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.subb_refl_size": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.subb_refl": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.subb_trans_size": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.subb_trans": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.subb_sound_size": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.subb_sound": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.sub_w_subb": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.merge_unfold": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.merge_idem": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.merge_sound_size": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.merge_sound": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.merge_rec_sound": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.rename_val_rec": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "ttr.TTR.rename_ty_rec": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "ttr.TTR.rlookup_rename": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.resolve_rename": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.resolve_arg_rename": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.resolve_args_rename": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.rename_sound_size": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.rename_sound": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.of_rty_rename": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.Examples.exb_eqb_spec": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.Examples.exp_eqb_spec": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.Examples.man_runs_witness": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "ttr.TTR.Examples.chain_1": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "ttr.TTR.Examples.chain_2": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "ttr.TTR.Examples.chain_strict": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "ttr.TTR.Examples.chain_semantic": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.Examples.hug_dependent": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "ttr.TTR.Examples.hug_missing_arg": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "ttr.TTR.Examples.merge_example": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "ttr.TTR.Examples.merge_example_semantic": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "ttr.TTR.Examples.mtt_to_ttr": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.Examples.of_ty_pty1": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.Examples.ttr_to_mtt": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR.Examples.hook_roundtrip": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    }
+  },
+  "summary": {
+    "probed": 65,
+    "vacuous": 0,
+    "trivial": 20,
+    "bailout": 0
+  }
+}

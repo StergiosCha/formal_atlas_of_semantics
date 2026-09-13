@@ -1,0 +1,68 @@
+{
+ "a": "atlas__mtt",
+ "b": "atlas__dts",
+ "a_file": "atlas/mtt_ranta/MTT.v",
+ "b_file": "atlas/mtt_ranta/DTS.v",
+ "level": "intra-family",
+ "bridge_file": "atlas/mtt_ranta/MTT_vs_DTS.v",
+ "grading": "5 definitional / 4 equivalence on specified inputs / 3 mediated / 2 divergent / 1 re-encoding / null one-sided",
+ "phenomena": [
+  {
+   "name": "cn-ontology",
+   "attempted_by": [
+    "a",
+    "b"
+   ],
+   "grade": 1,
+   "evidence": "DTS.PredicateDTS.farmer_type/donkey_type; MTT_vs_DTS.image_predicate.",
+   "note": "Type CNs versus entity-to-type predicates; explicit translation required."
+  },
+  {
+   "name": "quantification-over-induced-images",
+   "attempted_by": [
+    "a",
+    "b"
+   ],
+   "grade": 4,
+   "evidence": "existential_image / universal_image.",
+   "note": "Scoped to predicates induced by the chosen lifting, not arbitrary DTS predicates."
+  },
+  {
+   "name": "anaphora-donkey",
+   "attempted_by": [
+    "a",
+    "b"
+   ],
+   "grade": 3,
+   "evidence": "donkey_after_noun_translation.",
+   "note": "Prop-valued fragment, induced Sigma noun types and translated context."
+  },
+  {
+   "name": "negative-nominal-predication",
+   "attempted_by": [
+    "a",
+    "b"
+   ],
+   "grade": 4,
+   "evidence": "negative_predication / negative_predication_without_positive_typing.",
+   "note": "Uses the common-domain image rendering of MTT.in_prop, not the full heterogeneous IS calculus."
+  },
+  {
+   "name": "anaphora-resolution-mechanism",
+   "attempted_by": [
+    "b"
+   ],
+   "grade": null,
+   "evidence": "DTS_Resolution.v: typed slots, search_exact, automatic_resolution_sound, and source_projection_adequate. Bounded entity-projection search only; not unrestricted DTT proof search."
+  },
+  {
+   "name": "coercive-subtyping-mechanism",
+   "attempted_by": [
+    "a"
+   ],
+   "grade": null,
+   "evidence": "MTT.v Part 2, explicit lifting representation."
+  }
+ ],
+ "notes": "BM17 section 1.4, especially p. 19, acknowledges the C&L account of negative and hypothetical predication. These translations avoid treating raw judgement formation as an impossibility result."
+}

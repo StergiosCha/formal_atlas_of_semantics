@@ -1,5 +1,11 @@
 # Design: `atlas/mtt_ranta/` — MTT-semantics (C&L 2020) and Type-Theoretical Grammar (Ranta 1995), as a comparable pair
 
+> **SOURCE CORRECTION 2026-09-12:** See [the comparison audit](../audits/ttr_comparison.md).
+> MTT supports both weak existential and strong Sigma; the witness-extraction
+> restriction below concerns the weak constructor only. DTS uses CN predicates
+> over Entity, so its relation to the sorted Ranta/MTT fragment requires an
+> explicit noun/context translation. `MTT_vs_DTS.v` now implements that comparison.
+
 Targets (three files, ONE region, this one design doc; user decision 2026-09-05:
 "on a par, very close, should be able to compare them"):
 

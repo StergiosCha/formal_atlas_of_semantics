@@ -1,5 +1,11 @@
 # Design: `atlas/ttr/TTR.v` — Type Theory with Records (Cooper)
 
+> **IMPLEMENTED AND REVISED 2026-09-12:** The historical checkpoint below
+> is superseded by [the source audit](../audits/ttr_comparison.md). The core
+> now uses witness-sensitive ptypes; `TTR_Model.v` adds explicit A/F models
+> and countermodels; `TTR_vs_MTT.v` proves a limited, information-losing
+> model-indexed correspondence. No TTR/MTT framework equivalence is claimed.
+
 > **SOURCE UPDATE 2026-09-05**: Cooper 2023 is now ON DISK at `papers/foundations/Cooper_2023_FromPerceptionToCommunication.pdf` (also: the full Modern Perspectives 2017 volume). Resolve every [NOT-ON-DISK] tag against the PDF during the build session.
 
 

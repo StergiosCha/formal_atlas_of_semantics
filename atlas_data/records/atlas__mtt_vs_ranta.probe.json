@@ -27,6 +27,14 @@
       "vacuity": "ok",
       "triviality": "ok"
     },
+    "mtt_ranta.MTT_vs_Ranta.strong_some_agree": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.MTT_vs_Ranta.strong_witness_agree": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
     "mtt_ranta.MTT_vs_Ranta.ranta_witness_sound": {
       "vacuity": "ok",
       "triviality": "ok"
@@ -65,9 +73,9 @@
     }
   },
   "summary": {
-    "probed": 15,
+    "probed": 17,
     "vacuous": 0,
-    "trivial": 9,
+    "trivial": 11,
     "bailout": 0
   }
 }

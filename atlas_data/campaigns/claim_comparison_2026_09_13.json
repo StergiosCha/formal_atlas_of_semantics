@@ -1,0 +1,439 @@
+{
+  "schema_version": 1,
+  "assessment_basis": "retrospective_single_researcher",
+  "title": "What transfers from a source into Coq?",
+  "method": "Qualitative claim-level comparison added after the implementations. Preserve original source-target groups; G/T labels are retrospective groupings. No success percentages, tier scores or effort-normalized comparisons are calculated.",
+  "limits": [
+    "All five sources remain F3 pilots with source-level determinations withheld.",
+    "Source-target groups differ in size and centrality; they are not interchangeable units in a rate.",
+    "One researcher assessed the mappings. Grice/Tarski are existing pilots, not held-out or independent replications.",
+    "Abstract parameters are not automatically semantic gaps; adding a conclusion-bearing constraint is different from choosing a carrier type.",
+    "Encoding robustness is untested for every profile. Existing parameter/boundary checks are reported separately.",
+    "Topic, scope, investigator choices and unmeasured effort confound any tier comparison; more formal notation alone would only restate the rubric."
+  ],
+  "profiles": [
+    {
+      "record_key": "atlas__derrida1972",
+      "paper_id": 172,
+      "formality": 0,
+      "label": "Derrida 1972",
+      "cohort": "initial comparison",
+      "inventory": "atlas_data/campaigns/tiers_2026_09_13_inventory.md",
+      "grouping": "D1–D6 retained from the pre-implementation inventory",
+      "source_supplies": "Conceptual distinctions between repeatable form, occurrence, context, origin and structural possibility.",
+      "coverage": "Selected distinctions are illustrated; the central non-saturation thesis is not stated or proved.",
+      "semantic_additions": "An inductive context syntax, exact form equality, a chosen interpreter and a two-world modal model. Ignoring producer metadata is our choice.",
+      "ordinary_parameters": "Token/form/origin carriers in the conditional information-loss lemma are legitimate abstraction parameters; no origin detector is required.",
+      "preservation": "Agrammaticality-as-example and possible-failure/success distinctions are represented. These are constructed examples, not predictions derived from the whole argument.",
+      "boundary_checks": "Within-model checks separate same form from same effect, syntactic infinity from semantic variation, and form-only from richer evidence.",
+      "encoding_robustness": "not_tested",
+      "robustness_note": "No alternative source-faithful account of contextual identity or interpretation has been implemented.",
+      "targets": [
+        {
+          "id": "D1",
+          "source_claim": "Readability/iterability can outlast a particular producer's presence.",
+          "pages": "pp.7–10",
+          "disposition": "illustrative_model",
+          "established": "A modeled occurrence is readable with producer metadata absent.",
+          "limit": "Metadata independence is stipulated; neither universal readability nor universal intention-independence follows.",
+          "evidence": [
+            "ContextualExample.absent_producer_can_still_be_read",
+            "ContextualExample.producer_metadata_invariant_here"
+          ]
+        },
+        {
+          "id": "D2",
+          "source_claim": "Detachment and citational graft; agrammaticality can itself be exemplified.",
+          "pages": "pp.9,12",
+          "disposition": "illustrative_model",
+          "established": "The worked contrast and unbounded quotation syntax have checked properties.",
+          "limit": "The syntax and interpretation are added, not a derivation of the philosophical claim.",
+          "evidence": [
+            "ContextualExample.agrammaticality_example",
+            "ContextualExample.graft_changes_possible_effect",
+            "ContextualExample.fresh_quote_beyond_any_finite_list"
+          ]
+        },
+        {
+          "id": "D3",
+          "source_claim": "Citability does not imply validity outside context.",
+          "pages": "p.12",
+          "disposition": "illustrative_model",
+          "established": "Context cannot be erased from this interpreter; infinitely many quotes can keep one effect.",
+          "limit": "These countermodels delimit inferences; they do not establish semantic non-saturation.",
+          "evidence": [
+            "ContextualExample.context_cannot_be_erased_from_this_interpreter",
+            "ContextualExample.unbounded_quotation_can_keep_effect_constant"
+          ]
+        },
+        {
+          "id": "D4",
+          "source_claim": "Repeatable signature form differs from a singular occurrence/origin.",
+          "pages": "pp.19–20",
+          "disposition": "conditional_fragment",
+          "established": "Equal observed forms with different origins prevent correct form-only decoding of both.",
+          "limit": "The collision premises and exact form criterion are supplied; richer authentication is not excluded.",
+          "evidence": [
+            "repeatable_form_cannot_recover_both_origins",
+            "signature_form_and_origin_can_diverge",
+            "richer_evidence_is_not_ruled_out"
+          ]
+        },
+        {
+          "id": "D5",
+          "source_claim": "Possibility of failure coexists with successful performances.",
+          "pages": "pp.15–18",
+          "disposition": "illustrative_model",
+          "established": "A two-world model separates necessary possible failure from every actual performance failing.",
+          "limit": "The accessibility relation is added, not a formal definition of Derrida's structural possibility.",
+          "evidence": [
+            "Risk.necessary_risk_coexists_with_success",
+            "Risk.necessary_risk_does_not_mean_all_actual_fail"
+          ]
+        },
+        {
+          "id": "D6",
+          "source_claim": "Universal non-saturation, dissemination and the philosophical critique.",
+          "pages": "pp.3,9,18–21",
+          "disposition": "uncovered",
+          "established": "No corresponding mathematical statement established.",
+          "limit": "Outside this signature, not proved impossible, false or inconsistent.",
+          "evidence": []
+        }
+      ],
+      "code_sha256": "ec9f547ab0d7fe7575b095183e3a43ae65dde167def2198aeff263630f56aa7b"
+    },
+    {
+      "record_key": "atlas__austin1962",
+      "paper_id": 177,
+      "formality": 1,
+      "label": "Austin 1962",
+      "cohort": "initial comparison",
+      "inventory": "atlas_data/campaigns/tiers_2026_09_13_inventory.md",
+      "grouping": "A1–A7 retained from the pre-implementation inventory",
+      "source_supplies": "Six provisional necessary conditions, conditional Gamma applicability, overlapping failures and worked speech-act examples.",
+      "coverage": "The taxonomy is represented and necessary-condition consequences checked; full felicity is not decided.",
+      "semantic_additions": "Partial Boolean observations, a strict two-event recognizer and assigned observations/achievement for worked cases.",
+      "ordinary_parameters": "Whether a procedure is accepted or an intention sincere can legitimately remain an input. Lack of an automatic social-fact detector is not a formalization failure.",
+      "preservation": "Misfire versus abuse, overlapping failures and incidental effects are retained. Promise achievement is supplied, not derived from passing the checklist.",
+      "boundary_checks": "Unknown observations are not success; extra requirements can defeat sufficiency; Gamma failure need not be incomplete execution.",
+      "encoding_robustness": "not_tested",
+      "robustness_note": "Information-refinement and example tests are within one representation, not comparisons of alternative felicity encodings.",
+      "targets": [
+        {
+          "id": "A1",
+          "source_claim": "Provisional necessary conditions; Gamma clauses apply where required.",
+          "pages": "pp.14–18",
+          "disposition": "mixed",
+          "established": "Six labels and conditional applicability are represented; failed necessary conditions exclude felicity given a necessity premise.",
+          "limit": "Diagnostic soundness is relative to assigned observations; the taxonomy is not established as a sufficient test.",
+          "evidence": [
+            "report_exact",
+            "failed_necessary_condition_blocks_felicity",
+            "Cases.inapplicable_attitudes_not_failures"
+          ]
+        },
+        {
+          "id": "A2",
+          "source_claim": "Misfire blocks the intended act, not every incidental effect; abuse can accompany achievement.",
+          "pages": "pp.16–17",
+          "disposition": "conditional_fragment",
+          "established": "The necessity implication is explicit; bottle-breaking and later breach are separate coordinates.",
+          "limit": "Achievement is not derived from A/B success, and the examples assign rather than discover institutional facts.",
+          "evidence": [
+            "misfire_blocks_intended_act",
+            "Cases.void_act_can_have_other_effects",
+            "Cases.breach_not_incomplete_execution"
+          ]
+        },
+        {
+          "id": "A3",
+          "source_claim": "An insincere promise is still a promise.",
+          "pages": "pp.11,16,39–41",
+          "disposition": "representation_only",
+          "established": "The example consistently combines supplied achievement with a Gamma1 failure.",
+          "limit": "Achievement is set to True for the example. The proof checks the representation, not an independent prediction.",
+          "evidence": [
+            "Cases.insincere_promise_can_be_achieved"
+          ]
+        },
+        {
+          "id": "A4",
+          "source_claim": "A bet needs acceptance; correct and complete execution differ.",
+          "pages": "pp.9,36–37",
+          "disposition": "restricted_construction",
+          "established": "An added strict recognizer accepts exactly an isolated offer followed by acceptance.",
+          "limit": "Not a grammar of all procedures; later events lie outside this recognizer and do not establish that bets are undone.",
+          "evidence": [
+            "Betting.complete_trace_exact",
+            "Betting.offer_requires_uptake",
+            "Betting.refusal_and_reversed_order_fail"
+          ]
+        },
+        {
+          "id": "A5",
+          "source_claim": "Failures can coexist and classifications may overlap.",
+          "pages": "pp.23–24,26,28–29,38",
+          "disposition": "representation_only",
+          "established": "The report retains all failed labels, including simultaneous A2 and Gamma1.",
+          "limit": "Classification of ambiguous social cases remains an input, not a tested judgment.",
+          "evidence": [
+            "report_exact",
+            "Cases.simultaneous_failures"
+          ]
+        },
+        {
+          "id": "A6",
+          "source_claim": "Exclusions, vague applicability and procedural laxness limit the checklist.",
+          "pages": "pp.21–22,31,37–38",
+          "disposition": "mixed",
+          "established": "Unknown observations are separated from success; a further unmet requirement defeats checklist sufficiency.",
+          "limit": "The countermodel is elementary; real exclusions, uptake and laxness are not modeled generally.",
+          "evidence": [
+            "Cases.unknown_is_not_success",
+            "no_report_complete_when_assessed",
+            "Cases.listed_conditions_are_not_sufficient"
+          ]
+        },
+        {
+          "id": "A7",
+          "source_claim": "Sincere belief and factual correctness differ.",
+          "pages": "pp.41–43,49–50",
+          "disposition": "illustrative_model",
+          "established": "A two-coordinate example separates content truth from speaker belief.",
+          "limit": "No general semantics of assertion or account of Moore's paradox is established.",
+          "evidence": [
+            "Cases.truth_does_not_force_sincere_belief"
+          ]
+        }
+      ],
+      "code_sha256": "a4bb4f2bf0037dd0c435375f4847872d4a7976fd8ee1f87ca8ff503942fefd3a"
+    },
+    {
+      "record_key": "atlas__horn1984",
+      "paper_id": 67,
+      "formality": 2,
+      "label": "Horn 1984",
+      "cohort": "initial comparison",
+      "inventory": "atlas_data/campaigns/tiers_2026_09_13_inventory.md",
+      "grouping": "H1–H6 retained from the pre-implementation inventory",
+      "source_supplies": "Regimented Q/R principles, weaker/stronger entailment relationships, cancellation patterns and a qualified division of pragmatic labor.",
+      "coverage": "Some source-linked logical relationships are proved directly; the pragmatic interpreter remains a conditional reconstruction.",
+      "semantic_additions": "Accessible-world knowledge, a competence premise for negative truth, binary stereotypes, exact common extensions and Boolean default/counterpart flags.",
+      "ordinary_parameters": "Worlds, literal propositions, relevance and alternative availability are not defects merely because supplied. Specific stereotype/default choices still need source justification.",
+      "preservation": "Numeral cancellation and descriptive-negation distinctions are checked; the direct/indirect causative split is an assigned illustrative case.",
+      "boundary_checks": "Ignorance can coexist with stronger truth; disabling defaults or counterpart availability changes the interpreter's readings.",
+      "encoding_robustness": "not_tested",
+      "robustness_note": "Parameter withdrawal tests do not compare alternative accounts of stereotypes, markedness or Q/R competition.",
+      "targets": [
+        {
+          "id": "H1",
+          "source_claim": "Relevant non-use of an available stronger form licenses ignorance under Q observance.",
+          "pages": "p.13",
+          "disposition": "conditional_fragment",
+          "established": "Non-use implies not knowing the stronger content given the norm; a countermodel separates ignorance from actual falsity.",
+          "limit": "Norm observance is a premise. Competence and actual-world accessibility are added only for the stronger negative-truth result.",
+          "evidence": [
+            "q_yields_ignorance",
+            "negative_truth_needs_strengthening",
+            "ignorance_compatible_with_strong_truth"
+          ]
+        },
+        {
+          "id": "H2",
+          "source_claim": "Q upper-bounding and R enrichment can compete and be cancelled.",
+          "pages": "pp.13–15,18–21",
+          "disposition": "mixed",
+          "established": "The two logical contents are incompatible; cancellation can preserve literal content.",
+          "limit": "The contradiction lemma intentionally has inconsistent joint premises. Actual contextual default selection is not derived.",
+          "evidence": [
+            "q_r_incompatible",
+            "stronger_cancels_q_not_literal",
+            "r_cancellation_preserves_literal",
+            "context_cancellation_restores_literal"
+          ]
+        },
+        {
+          "id": "H3",
+          "source_claim": "Descriptive negation differs from cancelling pragmatic enrichment.",
+          "pages": "pp.20–21 (10)–(13)",
+          "disposition": "mixed",
+          "established": "If S entails W, not-W entails not-S; numeral exactness and stronger-continuation cancellation are checked.",
+          "limit": "The empirical ban on R-cancelling interpretations of negated utterances is not established by the logic.",
+          "evidence": [
+            "descriptive_negation_excludes_stronger",
+            "Numerals.two_sided_is_exact",
+            "Numerals.cancellation_is_not_descriptive_negation",
+            "logical_entailment_does_not_ban_r_rejection"
+          ]
+        },
+        {
+          "id": "H4",
+          "source_claim": "An available unmarked counterpart supports a marked/non-stereotypical division of labor.",
+          "pages": "pp.22–23 (16)–(18)",
+          "disposition": "conditional_fragment",
+          "established": "A supplied binary stereotype partitions a common extension under the chosen ordinary/counterpart flags; enumeration is exact.",
+          "limit": "The acceptance rule is our implementation. Its exhaustive binary partition is not independently validated as a universal linguistic prediction.",
+          "evidence": [
+            "finite_readings_exact",
+            "labor_disjoint_when_applicable",
+            "labor_covers_common_extension"
+          ]
+        },
+        {
+          "id": "H5",
+          "source_claim": "Causatives illustrate the division, but not every shorter synonym is a corresponding alternative.",
+          "pages": "pp.27–29 (28)–(34)",
+          "disposition": "illustrative_model",
+          "established": "The chosen direct/indirect example changes when counterpart availability is withdrawn.",
+          "limit": "Correspondence, literal extension and stereotype are supplied; no universal synonym-blocking law follows.",
+          "evidence": [
+            "Causatives.killed_caused_contrast",
+            "no_counterpart_no_marked_exclusion",
+            "Causatives.removing_counterpart_restores_direct_case"
+          ]
+        },
+        {
+          "id": "H6",
+          "source_claim": "Empirical/historical generalizations and general Q/R weighting.",
+          "pages": "Scope boundary; sections 1–11 pp.11–31 read",
+          "disposition": "uncovered",
+          "established": "No general weighting, learned-stereotype or diachrony result established.",
+          "limit": "Later sections were outside the reading scope; no impossibility claim.",
+          "evidence": []
+        }
+      ],
+      "code_sha256": "cc7897f46fa8b6e6f04956744e37b483cf2be9e4f10f1ce3718e578ad990a724"
+    },
+    {
+      "record_key": "atlas__grice1975",
+      "paper_id": 66,
+      "formality": 1,
+      "label": "Grice 1975",
+      "cohort": "retrospective cross-check",
+      "inventory": "atlas_data/campaigns/pilot_2026_09_13_inventory.md",
+      "grouping": "G1–G4 are retrospective labels for the existing narrative inventory, not preregistered atomic claims",
+      "source_supplies": "Three conditions on conversational implicature, the garage example, and cancellation/non-entailment diagnostics.",
+      "coverage": "A conditional constraint representation is checked; the garage belief is not independently inferred from the maxims.",
+      "semantic_additions": "The garage compatibility predicate is defined to equal the desired belief predicate; presumed cooperation and recognizability are set for that example.",
+      "ordinary_parameters": "Belief states and context relations may be abstract. Equating compatibility with the target conclusion is a substantive example choice, not mere abstraction.",
+      "preservation": "Opting out blocks this derivation and literal truth is separated from world usability; garage relevance is stipulated.",
+      "boundary_checks": "Cooperation withdrawal and a belief/world-fact countercase are checked within the chosen constraint model.",
+      "encoding_robustness": "not_tested",
+      "robustness_note": "No alternative account of contextual compatibility or calculability is compared.",
+      "targets": [
+        {
+          "id": "G1",
+          "source_claim": "Three conditions for conversational implicature.",
+          "pages": "pp.49–50",
+          "disposition": "conditional_fragment",
+          "established": "The licensed belief follows from the represented conditions and a compatible belief state.",
+          "limit": "The conclusion is already required of every compatible state by calculable; no mechanism discovers that constraint.",
+          "evidence": [
+            "licensed_belief"
+          ]
+        },
+        {
+          "id": "G2",
+          "source_claim": "The garage reply supports belief in possible usability.",
+          "pages": "p.51",
+          "disposition": "representation_only",
+          "established": "The example satisfies the supplied compatibility/recognizability conditions.",
+          "limit": "Compatibility is defined as the desired belief. This is not an independent derivation from the maxims.",
+          "evidence": [
+            "Garage.garage_belief_with_explicit_relevance_premise"
+          ]
+        },
+        {
+          "id": "G3",
+          "source_claim": "Cancellation and non-entailment distinguish implicature from what is said.",
+          "pages": "pp.57–58",
+          "disposition": "mixed",
+          "established": "Opt-out blocks this conditional derivation while literal content can remain true; inferred belief does not force world fact.",
+          "limit": "These test cases do not characterize every cancellation mechanism or all conversational implicatures.",
+          "evidence": [
+            "opting_out_blocks_this_derivation",
+            "Garage.literal_and_inferred_do_not_entail_fact",
+            "Garage.literal_content_survives_opt_out"
+          ]
+        },
+        {
+          "id": "G4",
+          "source_claim": "General contextual relevance and recognizable reasoning.",
+          "pages": "p.46; pp.49–52 scope boundary",
+          "disposition": "uncovered",
+          "established": "No general relevance, mutual-recognition or raw-language inference procedure established.",
+          "limit": "Not having an automatic procedure is not by itself an impossibility of formalizing the conditions.",
+          "evidence": []
+        }
+      ],
+      "code_sha256": "95b0b26b63917c25b30e50173b4333db58cda006b5221426744f7cd2fcce2115"
+    },
+    {
+      "record_key": "atlas__tarski1944",
+      "paper_id": 1,
+      "formality": 2,
+      "label": "Tarski 1944",
+      "cohort": "retrospective cross-check",
+      "inventory": "atlas_data/campaigns/pilot_2026_09_13_inventory.md",
+      "grouping": "T1–T4 are retrospective labels for the existing narrative inventory, not preregistered atomic claims",
+      "source_supplies": "Object/metalanguage separation, an outline of recursive satisfaction and truth via assignments, and Convention T as an adequacy schema.",
+      "coverage": "A restricted first-order construction supports structural metatheorems and T-instances; no unrestricted truth theory is claimed.",
+      "semantic_additions": "A chosen unary-predicate language with variables, snow, conjunction, negation and universal quantification; a nonempty domain via a named snow object; constructive metatheory.",
+      "ordinary_parameters": "The domain and predicate interpretations are legitimate model parameters, not missing algorithms. Restricting the language and not proving classical bivalence must still be disclosed.",
+      "preservation": "The snow instance and closed contradiction test are checked; assignment invariance supports language-specific T-equivalences.",
+      "boundary_checks": "Free-variable agreement is sufficient for satisfaction invariance across arbitrary assignments in this syntax; contradiction has no satisfying assignment.",
+      "encoding_robustness": "not_tested",
+      "robustness_note": "A parametric structural theorem is stronger than one finite example, but no alternate syntax or classical metatheory is compared.",
+      "targets": [
+        {
+          "id": "T1",
+          "source_claim": "Recursive satisfaction separates object language from metalanguage.",
+          "pages": "pp.349–353; section 11",
+          "disposition": "restricted_construction",
+          "established": "Satisfaction is recursive for the chosen language; dependence only on free variables is proved structurally.",
+          "limit": "A specific fragment and nonempty domain are chosen; no internal truth predicate is added.",
+          "evidence": [
+            "satisfaction_depends_on_free_variables",
+            "closed_assignment_invariance"
+          ]
+        },
+        {
+          "id": "T2",
+          "source_claim": "Convention T is an adequacy schema, not a substitute truth definition.",
+          "pages": "pp.343–345,350–353",
+          "disposition": "restricted_construction",
+          "established": "Closed assignment invariance yields T-equivalences after recursive satisfaction is defined.",
+          "limit": "These are language-specific instances, not truth for Coq or unrestricted natural language.",
+          "evidence": [
+            "closed_truth_instance",
+            "snow_instance"
+          ]
+        },
+        {
+          "id": "T3",
+          "source_claim": "The construction should handle the snow example and exclude contradiction.",
+          "pages": "pp.343–345; constructive boundary test",
+          "disposition": "mixed",
+          "established": "The snow equivalence and absence of satisfying assignments for contradiction are checked.",
+          "limit": "The contradiction test is a new integrity check, not an independent empirical prediction or a proof of bivalence.",
+          "evidence": [
+            "snow_instance",
+            "contradiction_has_no_satisfying_assignment",
+            "no_true_contradiction"
+          ]
+        },
+        {
+          "id": "T4",
+          "source_claim": "Limits of the attempt: no self-applicable truth, undefinability proof or classical bivalence result.",
+          "pages": "Scope boundary; notes 15–16",
+          "disposition": "uncovered",
+          "established": "No diagonal lemma, undefinability theorem or classical bivalence result established.",
+          "limit": "These omissions are not counted as refutations and are not licensed by the bounded construction.",
+          "evidence": []
+        }
+      ],
+      "code_sha256": "f98f1f1114b959101a1ae6cb6c421415052b5149323419c934e2566e3a2c11e7"
+    }
+  ]
+}

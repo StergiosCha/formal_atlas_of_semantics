@@ -1,0 +1,33 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/pilots/Davidson1967.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "pilots.Davidson1967.drop_modifiers": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pilots.Davidson1967.drop_all_modifiers": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pilots.Davidson1967.equal_names_substitute": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pilots.Davidson1967.buttering_example": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pilots.Davidson1967.separate_events_not_shared": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    }
+  },
+  "summary": {
+    "probed": 5,
+    "vacuous": 0,
+    "trivial": 0,
+    "bailout": 0
+  }
+}

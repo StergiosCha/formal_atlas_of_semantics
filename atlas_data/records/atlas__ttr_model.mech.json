@@ -1,0 +1,50 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "atlas/ttr/TTR_Model.v",
+  "key": "atlas__ttr_model",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "unsafe_flags": [],
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 10,
+    "proved": 10,
+    "admitted": 0,
+    "aborted": 0,
+    "admitted_definitions": 0,
+    "unparsed_status": 0,
+    "definitions": 12,
+    "toplevel_axioms": 0,
+    "section_assumptions": 1
+  },
+  "assumptions": {
+    "queried": 10,
+    "closed": 10,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "statements": {
+    "ttr.TTR_Model.necessary_possible": "e41e021950b91f4f",
+    "ttr.TTR_Model.checked_subtype_all_models": "993f6bd33c52070e",
+    "ttr.TTR_Model.meet_same_witness": "215cbc955a8456e5",
+    "ttr.TTR_Model.Countermodels.assignments_admissible": "880f07ac551b0a5b",
+    "ttr.TTR_Model.Countermodels.erased_assignments_agree": "09929afd366f4de7",
+    "ttr.TTR_Model.Countermodels.same_type_same_object_different_models": "46f94c4047f915d8",
+    "ttr.TTR_Model.Countermodels.truth_does_not_type_every_object": "912ac8d789556104",
+    "ttr.TTR_Model.Countermodels.coextension_does_not_identify_types": "f43f381428d5a222",
+    "ttr.TTR_Model.Countermodels.inhabited_conjuncts_empty_meet": "136926f85438ca5b",
+    "ttr.TTR_Model.Countermodels.structured_witness_renaming_needs_model_compatibility": "86b0b0070bd9149b"
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

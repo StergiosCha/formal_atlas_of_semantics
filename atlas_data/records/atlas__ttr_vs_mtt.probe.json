@@ -1,0 +1,37 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/ttr/TTR_vs_MTT.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "ttr.TTR_vs_MTT.ptype_at_subject": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR_vs_MTT.record_to_mtt": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR_vs_MTT.mtt_to_record_inhabited": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR_vs_MTT.fixed_model_inhabitation": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR_vs_MTT.LossOfInformation.subject_projection_loses_witnesses": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "ttr.TTR_vs_MTT.LossOfInformation.no_inverse_from_subject": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    }
+  },
+  "summary": {
+    "probed": 6,
+    "vacuous": 0,
+    "trivial": 0,
+    "bailout": 0
+  }
+}

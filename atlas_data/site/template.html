@@ -182,6 +182,7 @@ footer .r{margin-left:auto}
     <a href="#/theories" data-r="theories">Theories</a>
     <a href="#/edges" data-r="edges">Edges</a>
     <a href="#/papers" data-r="papers">Papers</a>
+    <a href="#/comparison" data-r="comparison">Claim comparison</a>
     <a href="#/check" data-r="check">Verifier</a>
     <a href="#/exhibits" data-r="exhibits">Countermodels</a>
     <a class="btn" href="#/plate">Open the atlas</a>
@@ -534,6 +535,51 @@ function filterCards(v){
     c.style.display = !v || c.dataset.s.includes(v) ? '' : 'none';});
 }
 
+function claimProfile(key){
+  return ((D.claim_comparison||{}).profiles||[]).find(p=>p.record_key===key);
+}
+function claimProfileHTML(p){
+  if(!p) return '';
+  const labels={representation_only:'Representation only',conditional_fragment:'Conditional fragment',
+    direct_logical_fragment:'Direct logical fragment',illustrative_model:'Illustrative model',
+    restricted_construction:'Restricted construction',mixed:'Mixed / partly uncovered',uncovered:'Uncovered'};
+  const paper=D.papers.find(x=>String(x.id)===String(p.paper_id));
+  return `<div class="block claim-profile"><h3>Claim-level evidence: ${esc(p.label)}</h3>
+    <p><span class="b mid">${esc(paper?.level||'')}</span> <span class="b q">P${esc(p.formality)}</span>
+    <span class="b q">source determination withheld</span></p>
+    <p class="small" style="max-width:none">${esc(p.coverage)}</p>
+    <dl class="small"><dt>Added semantic commitments</dt><dd>${esc(p.semantic_additions)}</dd>
+      <dt>Ordinary parameters — not automatically gaps</dt><dd>${esc(p.ordinary_parameters)}</dd>
+      <dt>Source examples / counterexamples</dt><dd>${esc(p.preservation)}</dd>
+      <dt>Within-model boundary checks</dt><dd>${esc(p.boundary_checks)}</dd>
+      <dt>Alternative-encoding robustness</dt><dd>${esc(p.encoding_robustness.replace(/_/g,' '))}: ${esc(p.robustness_note)}</dd></dl>
+    <details style="margin-top:16px"><summary>Source-target ledger (${p.targets.length} groups; not a success rate)</summary>
+      <p class="tiny dim" style="margin-top:10px">${esc(p.grouping)}. Inventory: ${esc(p.inventory)}.</p>
+      <div style="overflow-x:auto"><table><thead><tr><th>Source target</th><th>Disposition</th><th>Established / evidence</th><th>Limit</th></tr></thead><tbody>
+      ${p.targets.map(t=>`<tr><td><b>${esc(t.id)}</b> ${esc(t.source_claim)}<div class="tiny dim">${esc(t.pages)}</div></td>
+        <td>${esc(labels[t.disposition]||t.disposition)}</td><td>${esc(t.established)}
+        <div class="tiny mono" style="overflow-wrap:anywhere">${t.evidence.map(esc).join('<br>')}</div></td><td>${esc(t.limit)}</td></tr>`).join('')}
+      </tbody></table></div></details>
+    <p class="tiny dim" style="margin-top:12px">Retrospective, single-researcher mapping; not independent semantic verification.
+      <a href="#/comparison">Compare all profiles and limitations</a>.</p></div>`;
+}
+function vComparison(){
+  const c=D.claim_comparison;
+  if(!c) return `<div class="wrap empty"><h2>No claim comparison recorded.</h2><p>Missing profiles are not zero coverage.</p></div>`;
+  return `<div class="wrap"><div class="crumb"><a href="#/">Atlas</a> / Claim comparison</div>
+    <section style="padding-top:24px"><h2>${esc(c.title)}</h2>
+    <p style="margin-top:16px;max-width:none">${esc(c.method)}</p>
+    <p style="margin-top:12px">P grades describe the source; F levels describe pipeline progress.
+      These profiles describe what the checked fragment actually establishes. They do not change either grade.</p>
+    <div style="overflow-x:auto"><table><thead><tr><th>Source</th><th>Source supplies</th><th>Checked scope</th><th>Examples preserved?</th><th>Encoding robustness</th></tr></thead><tbody>
+      ${c.profiles.map(p=>`<tr><td><a href="#/theory/${encodeURIComponent(p.record_key)}">${esc(p.label)}</a>
+        <div class="tiny dim">P${esc(p.formality)} · ${esc(p.cohort)}</div></td><td>${esc(p.source_supplies)}</td>
+        <td>${esc(p.coverage)}</td><td>${esc(p.preservation)}</td><td>${esc(p.encoding_robustness.replace(/_/g,' '))}</td></tr>`).join('')}
+    </tbody></table></div>
+    <div class="block"><h3>What this comparison cannot establish</h3><ul class="tick neg">${c.limits.map(s=>`<li>${esc(s)}</li>`).join('')}</ul></div>
+    ${c.profiles.map(claimProfileHTML).join('')}</section></div>`;
+}
+
 function vTheory(key){
   const f=byKey[key]; if(!f) return notFound();
   const nm = META[key]?name(key):(f.file||'').split('/').pop().replace('.v','');
@@ -554,6 +600,8 @@ function vTheory(key){
     ${f.source_gap?`<div class="block gap"><span class="kicker">Gap found in the published source</span>
       <h3 style="margin:8px 0 8px;border:0;padding:0">${esc(f.source_gap.kind||'')}</h3>
       <p style="max-width:none">${esc(f.source_gap.detail||'')}</p></div>`:''}
+
+    ${claimProfileHTML(claimProfile(key))}
 
     ${(f.definitions_mapped||[]).length?`<div class="block"><h3>Definitions mapped</h3>
       <table><thead><tr><th>Coq</th><th>Source</th><th class="n">Match</th></tr></thead><tbody>
@@ -605,7 +653,8 @@ function vTheory(key){
       </dl>
       <p class="tiny dim" style="max-width:none;margin-top:6px">Ltac2 probes: <i>trivial</i> means
         the statement closes by unfolding alone — true, audited, but shallow. <i>Vacuous</i> means
-        the conclusion is False by design (a countermodel lemma) — listed, never hidden.</p>`:''}</div>
+        the probe derives False from the premises. This can be intentional for an incompatibility
+        theorem; inspect its statement and source mapping before interpreting the flag.</p>`:''}</div>
     `:`<div><span class="kicker" style="color:var(--rust)">Self-reported only</span>
       <p class="tiny dim" style="max-width:none;margin-top:6px">No mechanical verification
         record — the numbers below are the auditor's own claim.</p></div>`}
@@ -694,6 +743,8 @@ function vPapers(q){
       (the rubric is FORMALITY_RUBRIC.md). The project's question lives in the cross-table:
       what happens to each formality stratum under a proof assistant.</span></div>
     ${ladderHTML()}
+    ${D.claim_comparison?`<p class="small" style="margin-top:18px"><a href="#/comparison">Compare source-claim coverage beneath the F3 label</a>:
+      direct fragments, representations, added commitments and uncovered claims. No tier score is inferred.</p>`:''}
     <div class="controls" style="margin-top:26px">
       <input type="search" id="pq" placeholder="Search author, title, topic…" oninput="pFilter()">
       <button class="chip ${lvl||fm?'':'on'}" onclick="go('#/papers')">All</button>
@@ -708,7 +759,8 @@ function vPapers(q){
     <tbody id="prows">${D.papers.filter(p=>(!lvl||p.level===lvl)&&(!fm||String(p.formality)===fm)).map(p=>{
       const files=(p.coq_present||p.coq_files||[]);
       return `<tr data-s="${esc((p.citation+' '+p.topic+' '+(p.title||'')).toLowerCase())}">
-      <td class="n"><span class="b ${p.level>='F4'?'ok':p.level>='F2'?'mid':'q'}">${esc(p.level||'')}</span></td>
+      <td class="n"><span class="b ${p.level>='F4'?'ok':p.level>='F2'?'mid':'q'}">${esc(p.level||'')}</span>
+        ${(D.claim_comparison?.profiles||[]).some(x=>String(x.paper_id)===String(p.id))?'<div class="tiny"><a href="#/comparison">claim profile</a></div>':''}</td>
       ${hasFm?`<td class="n">${p.formality!==undefined?`<span class="b ${p.formality>=4?'ok':p.formality>=2?'mid':'q'}"
         title="${esc(p.formality_rationale||'')}">P${p.formality}</span>${p.formality_confidence==='low'?'<span class="tiny dim"> ?</span>':''}`:'—'}</td>`:''}
       <td>${esc(p.citation)}${p.prediction_disputed?'<span class="b bad" style="margin-left:8px">survey call disputed</span>':''}</td>
@@ -1019,6 +1071,7 @@ function route(){
   else if(seg[0]==='edge') {html=vEdge(seg[1]); tab='edges';}
   else if(seg[0]==='region') {html=vRegion(seg[1]); tab='';}
   else if(seg[0]==='papers') html=vPapers(q);
+  else if(seg[0]==='comparison') html=vComparison();
   else if(seg[0]==='check') html=vCheck();
   else if(seg[0]==='exhibits') html=vExhibits();
   else html=notFound();

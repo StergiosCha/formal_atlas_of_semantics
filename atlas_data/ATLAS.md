@@ -1,25 +1,49 @@
 # Formalizability Atlas of Semantics — current state
 
-Coq files audited: **65** · theorem statements: **1086** (proved 1073, admitted 12) · papers assessed: **230** · records disputed by the verifier: **0**
+Coq files audited: **78** · theorem statements: **1318** (proved 1305, admitted 12) · papers assessed: **230** · records disputed by the verifier: **0**
 
 ## Determination (four-point scale) over formalized sources
 
 | Determination | Files |
 |---|---|
-| 1 as-is | 22 |
-| 2 slight modification | 22 |
+| 1 as-is | 21 |
+| 2 slight modification | 23 |
 | 3 major restructuring | 16 |
 | 4 cannot | 0 |
-| n/a | 5 |
+| n/a | 9 |
+| unassessed (incomplete scope) | 9 |
 
 ## Faithfulness verdicts
 
 | Verdict | Files |
 |---|---|
-| faithful | 16 |
-| partial | 37 |
+| faithful | 20 |
+| partial | 45 |
 | unfaithful | 10 |
-| not_applicable | 1 |
+| not_applicable | 2 |
+
+## Claim-level comparison beneath the evidence ladder
+
+Qualitative claim-level comparison added after the implementations. Preserve original source-target groups; G/T labels are retrospective groupings. No success percentages, tier scores or effort-normalized comparisons are calculated.
+
+| Source | Frozen tier | Checked scope | Added commitments | Encoding robustness |
+|---|---|---|---|---|
+| Derrida 1972 | P0 | Selected distinctions are illustrated; the central non-saturation thesis is not stated or proved. | An inductive context syntax, exact form equality, a chosen interpreter and a two-world modal model. Ignoring producer metadata is our choice. | not tested |
+| Austin 1962 | P1 | The taxonomy is represented and necessary-condition consequences checked; full felicity is not decided. | Partial Boolean observations, a strict two-event recognizer and assigned observations/achievement for worked cases. | not tested |
+| Horn 1984 | P2 | Some source-linked logical relationships are proved directly; the pragmatic interpreter remains a conditional reconstruction. | Accessible-world knowledge, a competence premise for negative truth, binary stereotypes, exact common extensions and Boolean default/counterpart flags. | not tested |
+| Grice 1975 | P1 | A conditional constraint representation is checked; the garage belief is not independently inferred from the maxims. | The garage compatibility predicate is defined to equal the desired belief predicate; presumed cooperation and recognizability are set for that example. | not tested |
+| Tarski 1944 | P2 | A restricted first-order construction supports structural metatheorems and T-instances; no unrestricted truth theory is claimed. | A chosen unary-predicate language with variables, snow, conjunction, negation and universal quantification; a nonempty domain via a named snow object; constructive metatheory. | not tested |
+
+All remain F3/unassessed. [Method and limitations](campaigns/claim_comparison_2026_09_13.md).
+
+## TTR and modern type theories: scoped comparisons
+
+| File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
+|---|---|---|---|---|---|---|
+| atlas/mtt_ranta/MTT_vs_DTS.v | Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories.; Bekki, D. & Mineshima, K. (2017). Context-Passing and Underspecification in Dependent Type Semantics. | 5/5 | faithful | n/a | iv | — |
+| atlas/ttr/TTR.v | Cooper, R. (2023). From Perception to Communication. OUP. | 65/65 | faithful | 2 slight modification | iv | — |
+| atlas/ttr/TTR_Model.v | Cooper, R. (2023). From Perception to Communication. OUP. | 10/10 | faithful | 2 slight modification | iv | — |
+| atlas/ttr/TTR_vs_MTT.v | Cooper, R. (2023). From Perception to Communication. OUP.; Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. | 6/6 | faithful | n/a | iv | — |
 
 ## boundary (cognitive semantics)
 
@@ -32,6 +56,12 @@ Coq files audited: **65** · theorem statements: **1086** (proved 1073, admitted
 | File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
 |---|---|---|---|---|---|---|
 | atlas/categorical/DisCoCat.v | Coecke, B., Sadrzadeh, M. & Clark, S. (2010). Mathematical foundations for a compositional distributional model of meaning. Linguistic Analysis 36.; Lambek, J. (2008). From Word to Sentence. (source gap) | 98/98 | faithful | 1 as-is | i, ii, iii, iv, v | — |
+
+## cognitive
+
+| File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
+|---|---|---|---|---|---|---|
+| atlas/pilots/Rosch1978.v | Rosch (1978), Principles of Categorization. Full local 25-page reformatted chapter read; local pp.5-6 cue validity and pp.10-16 typicality. Local pages are not original chapter pp.27-48. | 25/25 | partial | unassessed (incomplete scope) | — | — |
 
 ## definiteness and prominence
 
@@ -166,21 +196,40 @@ Coq files audited: **65** · theorem statements: **1086** (proved 1073, admitted
 |---|---|---|---|---|---|---|
 | /Users/graogro/Dropbox/revisiting-formal-semantics/extras/dowty_roles.v | Dowty, David (1991). Thematic Proto-Roles and Argument Selection. Language 67(3): 547-619. Relevant: §7 lists (27) p.572 and (28) p.572 with fn.16; §8.1 (31) ASP, (32) Corollary 1, (33) Corollary 2, (34) Nondiscreteness, p.576; p.574 remarks on movement and weighting; §8.2 hierarchies (36)-(37) p.578. (source gap) | 1/1 | unfaithful | 2 slight modification | iii, v | — |
 
+## model-theoretic core
+
+| File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
+|---|---|---|---|---|---|---|
+| atlas/pilots/Davidson1967.v | Davidson (1967), The Logical Form of Action Sentences, pp.81-83,92-93, (17)-(20). | 5/5 | partial | unassessed (incomplete scope) | — | — |
+| atlas/pilots/Tarski1944.v | Tarski (1944), The Semantic Conception of Truth, sections 4,9,11, pp.343-345,350-353. | 7/7 | partial | unassessed (incomplete scope) | — | — |
+
 ## model-theoretic/dynamic (presupposition)
 
 | File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
 |---|---|---|---|---|---|---|
 | /Users/graogro/Dropbox/revisiting-formal-semantics/extras/PresuppositionProjection.v | Heim, I. (1983). On the Projection Problem for Presuppositions. WCCFL 2, 114-125; on disk as the Portner & Partee (eds.) 2002 reprint, Formal Semantics: The Essential Readings, ch. 10, pp. 249-260 (page numbers in this record refer to the reprint). Section 1.1 (K&P content/presupposition/heritage properties; rule (4): presupposition of 'If A, B' is p' & (p -> q'), p. 250); 1.2 (examples (5)-(6), disjunction and 'stopped smoking' counterexamples, p. 251); 1.3 (quantified sentences (7)-(9), free-variable presuppositions, pp. 251-252); 2.1 ((10) local contexts, (11) admittance, (12) 'S presupposes p iff all contexts that admit S entail p', p. 252); 2.2 ((13) truth via CCP, (14) c + If A,B = c \ (c+A \ c+A+B), (15) c + Not S = c \ c+S, negation as a Karttunen-1973 'hole', pp. 253-254); 2.3 (global vs local accommodation, example (16) 'The king of France didn't come', pp. 254-255); 3.1 ((17)-(20) contexts as sets of sequence-world pairs, pp. 255-256); 3.2 ((21) CCP of 'every', (22) novelty condition, 'Every x, A, B' presupposes 'Every x, A, X', (23)-(24), pp. 256-258); 3.3 ((25)-(27) indefinites, p. 258); 4 (explicitly defers 'or', modals and propositional attitude verbs, p. 259).; Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Ph.D. dissertation, UMass Amherst; on disk as the Schoubye & Glick retypeset edition (pagination differs from the original). Relevant parts: Ch. II 6.2 'The felicity conditions of definites with descriptive content' (definites presuppose their descriptive content (4b) cat(x1), not existence-and-uniqueness (4c); uniqueness argued to follow from felicity conditions, pp. 153-157); Ch. II 6.3 'Non-referring definites and a projection problem for felicity conditions' (K&P quantifiers as filters; universal rule (8); existential rule (12); 'and' rule (13): [phi /\ psi] presupposes [chi /\ [phi -> xi]]; the existential-projection problem, pp. 157-163); Ch. III 2.5 'The Novelty-Familiarity-Condition and the Projection Problem' (a complex formula is felicitous w.r.t. F iff every elementary step in computing F + phi respects the felicity conditions, pp. 208-211); Ch. III 5.2 'Novel definites and accommodation' (accommodation as file adjustment with bridging cross-references, pp. 238-241). (source gap) | 8/8 | unfaithful | 2 slight modification | ii, iv | — |
 
+## modern type theories (DTS)
+
+| File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
+|---|---|---|---|---|---|---|
+| atlas/mtt_ranta/DTS_Resolution.v | Bekki & Mineshima (2017), Context-Passing and Underspecification in Dependent Type Semantics, sections 3.4-3.6 pp.28-30, Definition 5; section 4.2. | 22/22 | partial | unassessed (incomplete scope) | — | — |
+
 ## modern type theories (MTT + Ranta pair)
 
 | File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
 |---|---|---|---|---|---|---|
-| atlas/mtt_ranta/DTS.v | Bekki, D. (2014). Representing anaphora with dependent types. LACL, LNCS 8535.; Bekki, D. & Mineshima, K. (2017). Context-passing and underspecification in Dependent Type Semantics. In Chatzikyriakidis & Luo (eds), Modern Perspectives in Type-Theoretical Semantics. | 7/7 | partial | 2 slight modification | i, ii, iv | — |
-| atlas/mtt_ranta/MTT.v | Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. ISTE/Wiley.; Luo, Z. (2012). Common nouns as types. LACL. | 33/33 | faithful | 1 as-is | i, ii, iii, iv | — |
-| atlas/mtt_ranta/MTT_vs_Ranta.v | Chatzikyriakidis & Luo 2020, §1.4.2, §2.3.1, §3.2-3.3.; Ranta 1995, §2.12, §2.16, §3.1, §3.7, §4.2, ch. 9. | 15/15 | faithful | 1 as-is | i, iv | — |
+| atlas/mtt_ranta/DTS.v | Bekki, D. (2014). Representing anaphora with dependent types. LACL, LNCS 8535.; Bekki, D. & Mineshima, K. (2017). Context-passing and underspecification in Dependent Type Semantics. In Chatzikyriakidis & Luo (eds), Modern Perspectives in Type-Theoretical Semantics. | 12/12 | partial | unassessed (incomplete scope) | iv | — |
+| atlas/mtt_ranta/MTT.v | Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. ISTE/Wiley.; Luo, Z. (2012). Common nouns as types. LACL. | 35/35 | faithful | 1 as-is | i, ii, iii, iv | — |
+| atlas/mtt_ranta/MTT_vs_Ranta.v | Chatzikyriakidis & Luo 2020, §1.4.2, §2.3.1, §3.2-3.3.; Ranta 1995, §2.12, §2.16, §3.1, §3.7, §4.2, ch. 9. | 17/17 | faithful | n/a | iv | — |
 | atlas/mtt_ranta/Ranta.v | Ranta, A. (1995). Type-Theoretical Grammar. OUP. | 14/14 | faithful | 1 as-is | i, ii, iii, iv | — |
 | atlas/mtt_ranta/Ranta_GQ.v | Sundholm, G. (1989). Constructive Generalized Quantifiers. Synthese 79(1): 1-12.; Barwise, J. & Cooper, R. (1981). Generalized Quantifiers and Natural Language. L&P 4. | 30/30 | faithful | 1 as-is | i, ii, iii, iv | — |
+
+## modern type theories (TTR, MTT, Ranta, DTS)
+
+| File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
+|---|---|---|---|---|---|---|
+| atlas/mtt_ranta/Shared_Examples.v | Cooper (2023) sections 1.3, A3, 7.4 (69); CL20 sections 1.4.2, 3.2.3; Ranta sections 6.1-6.2; BM17 sections 1.4, 3.1-3.5. | 12/12 | not_applicable | n/a | — | — |
 
 ## montague lineage
 
@@ -197,11 +246,25 @@ Coq files audited: **65** · theorem statements: **1086** (proved 1073, admitted
 | deep/PTQ_deep2.v | Montague, R. (1973). The Proper Treatment of Quantification in Ordinary English. In Hintikka, Moravcsik & Suppes (eds.), Approaches to Natural Language, 221-242.; Dowty, D., Wall, R. & Peters, S. (1981). Introduction to Montague Semantics. Reidel. [secondary source used to verify the f(IV) type map (7-2), Appendix III, and the PTQ necessity clause pp. 132-133] | 13/13 | partial | 3 major restructuring | iv, ii | — |
 | shallow/PTQ.v | Montague, R. (1973). The Proper Treatment of Quantification in Ordinary English. In Hintikka, Moravcsik & Suppes (eds.), Approaches to Natural Language, 221-242. Reidel. (File cites pp. 19, 25, 28, 29-32.); Dowty, D., Wall, R. & Peters, S. (1981). Introduction to Montague Semantics. Reidel. (Secondary exposition of PTQ.) | 8/9 +1 adm | partial | 2 slight modification | iv, ii, iii | — |
 
+## philosophical
+
+| File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
+|---|---|---|---|---|---|---|
+| atlas/discursive/Derrida1972.v | Derrida (1972), Signature Event Context, local English Limited Inc text pp.1–23 (whole essay read). | 17/17 | partial | unassessed (incomplete scope) | — | — |
+
 ## plurality and coordination
 
 | File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
 |---|---|---|---|---|---|---|
 | extras/Champollion.v | Champollion, L. (2016). Ten men and women got married today: Noun coordination and the intersective theory of conjunction. Journal of Semantics 33(3):561-622.; Winter, Y. (2001). Flexibility Principles in Boolean Semantics. MIT Press. (origin of the ER/MIN/choice-closure operator inventory that Champollion 2016 adopts) | 0/0 | partial | 3 major restructuring | iv, ii | — |
+
+## pragmatics
+
+| File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
+|---|---|---|---|---|---|---|
+| atlas/pilots/Grice1975.v | Grice (1975), Logic and Conversation, pp.49-51,57-58. | 5/5 | partial | unassessed (incomplete scope) | — | — |
+| atlas/pragmatics/Austin1962.v | Austin (1962), How to Do Things with Words, pp.5–11 and Lectures II–IV pp.12–52. | 20/20 | partial | unassessed (incomplete scope) | — | — |
+| atlas/pragmatics/Horn1984.v | Horn (1984), Toward a New Taxonomy for Pragmatic Inference, sections 1–11 pp.11–31; (12) pp.20–21 and (16)–(18) pp.22–23 visually checked. | 24/24 | partial | unassessed (incomplete scope) | — | — |
 
 ## probabilistic pragmatics
 
@@ -273,12 +336,14 @@ Grades per phenomenon, from bridge theorems: 5 definitional / 4 equivalence / 3 
 | Edge | Level | Bridge | Similarity | Overlap | Joint | A-only | B-only |
 |---|---|---|---|---|---|---|---|
 | lambek__discocat | intra-family | — | 3.0 | 0.33 | 2 | 2 | 2 |
-| mtt__ranta | intra-family | atlas/mtt_ranta/MTT_vs_Ranta.v | 4.2 | 0.56 | 10 | 5 | 3 |
+| mtt__dts | intra-family | atlas/mtt_ranta/MTT_vs_DTS.v | 3.0 | 0.67 | 4 | 1 | 1 |
+| mtt__ranta | intra-family | atlas/mtt_ranta/MTT_vs_Ranta.v | 4.4 | 0.56 | 10 | 5 | 3 |
 | ptq__barwise_cooper | intra-family | atlas/montague/PTQ.v | 4.33 | 0.43 | 3 | 2 | 2 |
 | ptq__kratzer | intra-family | shallow/kratzer2.v | 4.0 | 0.43 | 3 | 2 | 2 |
 | ptq__lambek | cross-family | atlas/montague/PTQ_vs_Lambek.v | 5.0 | 0.5 | 4 | 2 | 2 |
 | ptq__mtt | cross-family | atlas/montague/PTQ_vs_MTT.v | 2.83 | 0.55 | 6 | 2 | 3 |
-| ranta__dts | intra-family | atlas/mtt_ranta/DTS.v | 4.2 | 0.62 | 5 | 1 | 2 |
+| ranta__dts | intra-family | atlas/mtt_ranta/DTS.v | 3.0 | 0.67 | 6 | 1 | 2 |
+| ttr__mtt | cross-foundation | atlas/ttr/TTR_vs_MTT.v | 2.0 | 0.75 | 3 | 1 | 0 |
 
 ## Paper assessment (200-paper survey)
 
@@ -294,27 +359,23 @@ Grades per phenomenon, from bridge theorems: 5 definitional / 4 equivalence / 3 
 | Level | Meaning | Papers |
 |---|---|---|
 | F0 | surveyed only (A-D prediction, no source on disk) | 86 |
-| F1 | sourced (PDF/djvu on disk) | 90 |
-| F2 | designed (design doc maps its content) | 21 |
-| F3 | piloted (some Coq exists; record may be partial) | 13 |
+| F1 | sourced (PDF/djvu on disk) | 87 |
+| F2 | designed (design doc maps its content) | 17 |
+| F3 | piloted (some Coq exists; record may be partial) | 22 |
 | F4 | formalized (atlas-standard file, audited record) | 9 |
-| F5 | verified & connected (verify agrees and/or in a graded edge) | 11 |
+| F5 | verified & connected (verify agrees and/or in a graded edge) | 9 |
 
 ### Survey prediction vs actual determination (findings)
 
 | Paper | Predicted | Determined | Level |
 |---|---|---|---|
-| Kamp, H. (1981) - "A Theory of Truth and Semantic Representation" (DRT | as_is | not_applicable | F3 |
 | Heim, I. (1982) - "The Semantics of Definite and Indefinite Noun Phras | as_is | slight_modification | F3 |
 | Barwise, J. & Cooper, R. (1981) - "Generalized Quantifiers and Natural | as_is | major_restructuring | F3 |
 | Champollion, L. (2017) - "Parts of a Whole: Distributivity as a Bridge | as_is | slight_modification | F3 |
 | Rooth, M. (1992) - "A Theory of Focus Interpretation" | as_is | slight_modification | F3 |
 | Chatzikyriakidis, S. & Luo, Z. (2013) - "Natural Language Inference in | as_is | slight_modification | F3 |
 | Luo, Z. (2012) - "Common Nouns as Types" | as_is | slight_modification | F3 |
-| Chatzikyriakidis, S. & Luo, Z. (2014) - "Adjectival and Adverbial Modi | as_is | not_applicable | F3 |
-| Bekki, D. (2014) - "Representing Anaphora with Dependent Types" | as_is | slight_modification | F5 |
-| Chatzikyriakidis, S. & Luo, Z. (2017) - "Modern Perspectives in Type-T | as_is | not_applicable | F3 |
-| Luo, Z. (2010) - "Type-Theoretical Semantics with Coercive Subtyping" | as_is | not_applicable | F3 |
-| Bekki, D. & Mineshima, K. (2017) - "Context-Passing and Underspecifica | as_is | slight_modification | F5 |
+| Chatzikyriakidis, S. & Luo, Z. (2014) - "Adjectival and Adverbial Modi | as_is | slight_modification | F3 |
+| Chatzikyriakidis, S. & Luo, Z. (2017) - "Modern Perspectives in Type-T | as_is | slight_modification | F3 |
 | Cooper, R. (2005) - "Records and Record Types in Semantic Theory" | as_is | major_restructuring | F3 |
 | Coecke, B., Sadrzadeh, M. & Clark, S. (2010) - "Mathematical Foundatio | major_restructuring | as_is | F5 |

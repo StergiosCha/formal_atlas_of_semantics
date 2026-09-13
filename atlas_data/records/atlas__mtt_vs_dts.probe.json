@@ -1,0 +1,33 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/mtt_ranta/MTT_vs_DTS.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "mtt_ranta.MTT_vs_DTS.existential_image": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT_vs_DTS.universal_image": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT_vs_DTS.negative_predication": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.MTT_vs_DTS.negative_predication_without_positive_typing": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "mtt_ranta.MTT_vs_DTS.donkey_after_noun_translation": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    }
+  },
+  "summary": {
+    "probed": 5,
+    "vacuous": 0,
+    "trivial": 1,
+    "bailout": 0
+  }
+}

@@ -1,0 +1,79 @@
+{
+ "file": "atlas/pilots/Grice1975.v",
+ "region": "pragmatics",
+ "summary": "P1 pilot: a constraint representation of Grice's three implicature conditions, explicit-belief garage example, cancellation and literal/nonliteral separation. Compatibility is supplied, not derived from the maxims; no whole-theory determination.",
+ "assessment_status": "pilot",
+ "sources": [
+  {
+   "citation": "Grice (1975), Logic and Conversation, pp.49-51,57-58.",
+   "path": "papers/foundations/Grice_1975_LogicAndConversation.pdf",
+   "available": "Selected source sections read on disk; see audit/inventory. No independent second review."
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "calculable",
+   "source": "Three conditions pp.49-50, compatibility/recognizability as explicit inputs",
+   "match": "simplified"
+  },
+  {
+   "coq": "Garage.compatible",
+   "source": "Concrete relevance assumption for p.51, not independently derived",
+   "match": "added"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "licensed_belief",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "opting_out_blocks_this_derivation",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "Garage.garage_belief_with_explicit_relevance_premise",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "Garage.literal_and_inferred_do_not_entail_fact",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  },
+  {
+   "name": "Garage.literal_content_survives_opt_out",
+   "status": "proved",
+   "source_claim": "Restricted construction or boundary test; attribution and limitations in the source header and audit."
+  }
+ ],
+ "counts": {
+  "theorems": 5,
+  "proved": 5,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "P1 pilot: a constraint representation of Grice's three implicature conditions, explicit-belief garage example, cancellation and literal/nonliteral separation. Compatibility is supplied, not derived from the maxims; no whole-theory determination."
+  ],
+  "simplifications": [
+   "Three conditions pp.49-50, compatibility/recognizability as explicit inputs"
+  ],
+  "omissions": [
+   "Whole-source coverage beyond the explicitly bounded fragment."
+  ],
+  "additions": [
+   "Concrete relevance assumption for p.51, not independently derived"
+  ]
+ },
+ "determination": "unassessed",
+ "determination_rationale": "Bounded partial implementation; source-level determination withheld. Incompleteness is not evidence of required restructuring.",
+ "artifact_classes": [],
+ "source_gap": null,
+ "notes": "2026-09-13 local single-researcher audit. See audits/revision_2026_09_13.md and campaigns/pilot_2026_09_13_results.md. Mechanical checks are separate from independent source review.",
+ "compiles": true
+}

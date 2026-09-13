@@ -1,0 +1,50 @@
+{
+ "a": "atlas__ttr",
+ "b": "atlas__mtt",
+ "a_file": "atlas/ttr/TTR.v",
+ "b_file": "atlas/mtt_ranta/MTT.v",
+ "level": "cross-foundation",
+ "bridge_file": "atlas/ttr/TTR_vs_MTT.v",
+ "grading": "Grades concern the displayed fragment translations, never framework equivalence.",
+ "phenomena": [
+  {
+   "name": "cn-ontology",
+   "attempted_by": [
+    "a",
+    "b"
+   ],
+   "grade": 1,
+   "evidence": "TTR_vs_MTT.individual: a basic extension in a fixed TTR model is re-encoded as an MTT noun type."
+  },
+  {
+   "name": "man-runs-inhabitation",
+   "attempted_by": [
+    "a",
+    "b"
+   ],
+   "grade": 3,
+   "evidence": "fixed_model_inhabitation: model fixed; ptype witness objects existentially erased.",
+   "note": "Only these propositions are equivalent."
+  },
+  {
+   "name": "witness-preservation-under-projection",
+   "attempted_by": [
+    "a",
+    "b"
+   ],
+   "grade": 2,
+   "evidence": "LossOfInformation.subject_projection_loses_witnesses / no_inverse_from_subject.",
+   "note": "Non-injectivity of this comparison map, not a claim that MTT cannot represent witnesses."
+  },
+  {
+   "name": "external-type-assignments",
+   "attempted_by": [
+    "a"
+   ],
+   "grade": null,
+   "evidence": "TTR_Model.Countermodels.same_type_same_object_different_models / erased_assignments_agree.",
+   "note": "MTT.v uses the type theory as the foundational semantic language; it has no separate A/F layer for reified type codes."
+  }
+ ],
+ "notes": "Cooper 2023 sections 1.3-1.4.1 and A3.2 versus CL20 sections 1.2/1.4.3. A restricted model-indexed erasure is implemented. There is no assertion of full TTR/MTT equivalence."
+}

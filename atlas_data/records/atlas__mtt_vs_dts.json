@@ -1,0 +1,80 @@
+{
+ "file": "atlas/mtt_ranta/MTT_vs_DTS.v",
+ "region": "TTR and modern type theories: scoped comparisons",
+ "summary": "MTT/DTS comparison through explicit noun translation: type liftings induce predicates; quantifiers agree on those images; negative predication does not require positive typing; the canonical donkey reading transfers only after packaging DTS predicate evidence into noun types.",
+ "sources": [
+  {
+   "citation": "Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories.",
+   "path": "papers/foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf",
+   "available": "read: sections 1.2, 1.4.2-1.4.3, 2.3.1, 3.2.3"
+  },
+  {
+   "citation": "Bekki, D. & Mineshima, K. (2017). Context-Passing and Underspecification in Dependent Type Semantics.",
+   "path": "papers/foundations/Bekki_Mineshima_2017_CalculatingProjectionsViaTypeChecking.pdf",
+   "available": "read: sections 1.1-1.4 and 3.1-3.3; title verified against PDF"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "image_predicate",
+   "source": "CL20 3.2.3 / BM17 1.4",
+   "match": "simplified",
+   "note": "Uses the existing common-supertype image rendering, not CL20's full heterogeneous IS."
+  },
+  {
+   "coq": "donkey_after_noun_translation",
+   "source": "BM17 (7) versus Ranta/MTT sorted contexts",
+   "match": "added",
+   "note": "Restricted to Prop-valued predicates; explicit induced Sigma noun types."
+  }
+ ],
+ "theorems": [
+  {
+   "name": "existential_image / universal_image",
+   "status": "proved",
+   "source_claim": "Quantifier agreement after image translation."
+  },
+  {
+   "name": "negative_predication / negative_predication_without_positive_typing",
+   "status": "proved",
+   "source_claim": "Negative nominal predication is expressible without assuming positive membership."
+  },
+  {
+   "name": "donkey_after_noun_translation",
+   "status": "proved",
+   "source_claim": "Canonical reading agreement after noun-ontology translation."
+  }
+ ],
+ "counts": {
+  "theorems": 5,
+  "proved": 5,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "faithful",
+  "evidence": [
+   "Assessment limited to the explicitly stated fragment; see audits/ttr_comparison.md. Mechanical results are stored separately in the .mech.json sidecar."
+  ],
+  "simplifications": [
+   "No full heterogeneous IS, DTS @ calculus, proof search, or equivalence of arbitrary Type-valued predicates with Prop."
+  ],
+  "omissions": [
+   "No full heterogeneous IS, DTS @ calculus, proof search, or equivalence of arbitrary Type-valued predicates with Prop."
+  ],
+  "additions": [
+   "explicit cross-encoding translations and loss-of-information results"
+  ]
+ },
+ "determination": "not_applicable",
+ "determination_rationale": "Comparison infrastructure, not an independent determination of either whole source theory.",
+ "artifact_classes": [
+  {
+   "class": "iv",
+   "description": "Explicit deep type codes, assignments and list-based records or comparison maps; Coq is the metalanguage."
+  }
+ ],
+ "source_gap": null,
+ "notes": "Source-based implementation audit on 2026-09-12; no independent second semantic reviewer is claimed. See audits/ttr_comparison.md for limitations and references.",
+ "compiles": true
+}

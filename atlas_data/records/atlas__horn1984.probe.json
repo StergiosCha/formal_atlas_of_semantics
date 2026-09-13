@@ -1,0 +1,109 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/pragmatics/Horn1984.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "pragmatics.Horn1984.q_yields_ignorance": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Horn1984.negative_truth_needs_strengthening": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Horn1984.ignorance_compatible_with_strong_truth": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Horn1984.descriptive_negation_excludes_stronger": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Horn1984.stronger_forces_non_descriptive_rejection": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Horn1984.q_r_incompatible": {
+      "vacuity": "VACUOUS",
+      "triviality": "ok"
+    },
+    "pragmatics.Horn1984.stronger_cancels_q_not_literal": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Horn1984.r_cancellation_preserves_literal": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Horn1984.reading_partition_requires_a_decision": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Horn1984.logical_entailment_does_not_ban_r_rejection": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Horn1984.Numerals.two_sided_is_exact": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Horn1984.Numerals.four_cancels_three_upper_bound": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Horn1984.Numerals.descriptive_not_three_excludes_four": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Horn1984.Numerals.cancellation_is_not_descriptive_negation": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Horn1984.finite_readings_exact": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Horn1984.readings_preserve_literal": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Horn1984.labor_disjoint_when_applicable": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Horn1984.labor_covers_common_extension": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Horn1984.context_cancellation_restores_literal": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Horn1984.no_counterpart_no_marked_exclusion": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Horn1984.Causatives.killed_caused_contrast": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "pragmatics.Horn1984.Causatives.counterpart_and_context_matter": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "pragmatics.Horn1984.Causatives.same_extension_does_not_identify_readings": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Horn1984.Causatives.removing_counterpart_restores_direct_case": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    }
+  },
+  "summary": {
+    "probed": 24,
+    "vacuous": 1,
+    "trivial": 2,
+    "bailout": 0
+  }
+}

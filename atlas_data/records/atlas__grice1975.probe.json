@@ -1,0 +1,33 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/pilots/Grice1975.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "pilots.Grice1975.licensed_belief": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pilots.Grice1975.opting_out_blocks_this_derivation": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pilots.Grice1975.Garage.garage_belief_with_explicit_relevance_premise": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "pilots.Grice1975.Garage.literal_and_inferred_do_not_entail_fact": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pilots.Grice1975.Garage.literal_content_survives_opt_out": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    }
+  },
+  "summary": {
+    "probed": 5,
+    "vacuous": 0,
+    "trivial": 1,
+    "bailout": 0
+  }
+}

@@ -105,6 +105,23 @@ Definition some  (A : CN) (P : A -> Prop) : Prop := exists x : A, P x.
 Definition no    (A : CN) (P : A -> Prop) : Prop := forall x : A, ~ P x.
 Definition a_indef := some.   (* the indefinite article, CL20 §3.1 *)
 
+(* CL20 section 1.4.2 pp. 15-16, especially note 26: UTT has BOTH the
+   weak propositional existential and strong Sigma.  Comparing only
+   some above with Ranta's Sigma is not a limitation of MTT as a whole. *)
+Definition strong_some (A : CN) (P : A -> Prop) : Type := {x : A & P x}.
+(* The general Sigma constructor also permits Type-valued fibres;
+   strong_some is its Prop-valued specialization, not its limit. *)
+Definition strong_package (A : CN) (P : A -> Type) : Type := {x : A & P x}.
+Definition strong_witness (A : CN) (P : A -> Prop) (s : strong_some A P) : A :=
+  projT1 s.
+
+Theorem strong_some_to_some : forall A P, strong_some A P -> some A P.
+Proof. intros A P [x Hx]; exists x; exact Hx. Qed.
+
+Theorem strong_witness_sound : forall A P (s : strong_some A P),
+  P (strong_witness A P s).
+Proof. intros A P [x Hx]; exact Hx. Qed.
+
 (* ========================================================================== *)
 (*  Part 2 — Subtyping as explicit coercions                                  *)
 (* ========================================================================== *)

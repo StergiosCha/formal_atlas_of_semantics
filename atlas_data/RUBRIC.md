@@ -64,6 +64,15 @@ from counts by the verifier.
 
 ## 4. Four-point determination of the source theory
 
+An incomplete attempt may withhold this determination (`unassessed`, with
+`assessment_status: incomplete` or `pilot`). Missing implementation, an
+unfinished proof, or an investigator's chosen simplification does not show
+that the theory **had to** change. Major restructuring requires documented
+evidence that recovering the source claim required the changed foundation;
+it is not an automatic consequence of the file being partial. Pending
+assessments are excluded from prediction/outcome disagreements and the
+four-outcome counts. Their bounded proofs still have mechanical records.
+
 Answers: *how does the theory itself fare under mechanization?* It is a property of the
 theory, evidenced by its best formalization, not a property of one file.
 

@@ -3,6 +3,14 @@
   "file": "atlas/mtt_ranta/MTT.v",
   "coq_version": "8.20.1",
   "probes": {
+    "mtt_ranta.MTT.strong_some_to_some": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "mtt_ranta.MTT.strong_witness_sound": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
     "mtt_ranta.MTT.every_anti": {
       "vacuity": "ok",
       "triviality": "ok"
@@ -137,9 +145,9 @@
     }
   },
   "summary": {
-    "probed": 33,
+    "probed": 35,
     "vacuous": 1,
-    "trivial": 3,
+    "trivial": 4,
     "bailout": 0
   }
 }

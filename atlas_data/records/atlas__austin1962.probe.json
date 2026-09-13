@@ -1,0 +1,93 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/pragmatics/Austin1962.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "pragmatics.Austin1962.condition_enumeration": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Austin1962.report_exact": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Austin1962.passing_excludes_failure": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Austin1962.no_report_complete_when_assessed": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Austin1962.known_failures_survive_refinement": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Austin1962.misfire_blocks_intended_act": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Austin1962.failed_necessary_condition_blocks_felicity": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Austin1962.Cases.unknown_is_not_success": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Austin1962.Cases.insincere_promise_can_be_achieved": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Austin1962.Cases.simultaneous_failures": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "pragmatics.Austin1962.Cases.inapplicable_attitudes_not_failures": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "pragmatics.Austin1962.Cases.listed_conditions_are_not_sufficient": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Austin1962.Cases.void_act_can_have_other_effects": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "pragmatics.Austin1962.Cases.breach_not_incomplete_execution": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Austin1962.Cases.truth_does_not_force_sincere_belief": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Austin1962.Betting.broken_absorbing": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Austin1962.Betting.complete_trace_exact": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Austin1962.Betting.offer_requires_uptake": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "pragmatics.Austin1962.Betting.accepted_offer_completes": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "pragmatics.Austin1962.Betting.refusal_and_reversed_order_fail": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    }
+  },
+  "summary": {
+    "probed": 20,
+    "vacuous": 0,
+    "trivial": 5,
+    "bailout": 0
+  }
+}

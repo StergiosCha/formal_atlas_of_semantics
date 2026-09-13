@@ -1,0 +1,94 @@
+{
+ "file": "atlas/ttr/TTR.v",
+ "region": "TTR and modern type theories: scoped comparisons",
+ "summary": "A restricted deep TTR record core: witness-sensitive ptypes, path dependency, width/depth subtyping, semantic meet for a structural merge, and relabelling under explicit model compatibility. The concrete example hook is not a TTR/MTT equivalence.",
+ "sources": [
+  {
+   "citation": "Cooper, R. (2023). From Perception to Communication. OUP.",
+   "path": "papers/foundations/Cooper_2023_FromPerceptionToCommunication.pdf",
+   "available": "read: section 1.3 pp. 11-14, section 1.4.1 pp. 18-19, A2-A3 pp. 400-401, A8-A9 pp. 404-406, A11.1-A11.3 pp. 407-411"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "of_ty / of_rty",
+   "source": "A3.2(8), A8(2), A11.2",
+   "match": "simplified",
+   "note": "Ptype candidates are tested against F; atomic arguments and basic types, raw list carriers restricted to functional labels."
+  },
+  {
+   "coq": "subb",
+   "source": "section 1.4.3.5 semantic subtyping",
+   "match": "simplified",
+   "note": "Sound structural approximation, not a complete semantic decision procedure."
+  },
+  {
+   "coq": "merge_ty / merge_sound",
+   "source": "A11.3; A8",
+   "match": "simplified",
+   "note": "Binary structural implementation with the same-witness meet theorem, not the full normalization operation."
+  },
+  {
+   "coq": "holds_rename / rename_sound",
+   "source": "A3.2 witness assignments; A11.1 relabelling",
+   "match": "added",
+   "note": "Explicit equivariance condition is necessary for arbitrary structured witnesses in a fixed model."
+  }
+ ],
+ "theorems": [
+  {
+   "name": "subb_refl / subb_trans / subb_sound",
+   "status": "proved",
+   "source_claim": "Structural subtyping is a sound preorder under the stated well-formedness premises."
+  },
+  {
+   "name": "merge_sound",
+   "status": "proved",
+   "source_claim": "The merged type has precisely the shared witnesses of its operands."
+  },
+  {
+   "name": "rename_sound",
+   "status": "proved",
+   "source_claim": "Model-compatible relabelling preserves typing."
+  },
+  {
+   "name": "Examples.man_runs_witness / Examples.hug_dependent",
+   "status": "proved",
+   "source_claim": "Witness and path-resolution examples."
+  }
+ ],
+ "counts": {
+  "theorems": 65,
+  "proved": 65,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "faithful",
+  "evidence": [
+   "Assessment limited to the explicitly stated fragment; see audits/ttr_comparison.md. Mechanical results are stored separately in the .mech.json sidecar."
+  ],
+  "simplifications": [
+   "General dependent type functions, polymorphic arity formation, ERec and A10 stratification are not implemented.",
+   "Source record claims concern functional labels; raw association-list carriers also represent ill-formed inputs."
+  ],
+  "omissions": [
+   "General dependent type functions, polymorphic arity formation, ERec and A10 stratification are not implemented.",
+   "Source record claims concern functional labels; raw association-list carriers also represent ill-formed inputs."
+  ],
+  "additions": [
+   "countermodels and a computable structural subtyping approximation"
+  ]
+ },
+ "determination": "slight_modification",
+ "determination_rationale": "The stated restricted core is reconstructed with explicit representation choices. This is not an assessment that the full book transfers unchanged.",
+ "artifact_classes": [
+  {
+   "class": "iv",
+   "description": "Explicit deep type codes, assignments and list-based records or comparison maps; Coq is the metalanguage."
+  }
+ ],
+ "source_gap": null,
+ "notes": "Source-based implementation audit on 2026-09-12; no independent second semantic reviewer is claimed. See audits/ttr_comparison.md for limitations and references.",
+ "compiles": true
+}

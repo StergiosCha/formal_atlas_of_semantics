@@ -368,6 +368,38 @@ function countsB(c){ if(!c) return '';
   const t=c.theorems||0, ad=c.admitted||0;
   return `<span class="b ${ad?'bad':'ok'}">${t} thm · ${ad} admitted</span>`;}
 
+function paperOutcomeHTML(p){
+  const outcomes=['as_is','slight_modification','major_restructuring','cannot'];
+  const review=p.determination_review;
+  const reviewed=p.determination_status==='reviewed' && review?.status==='reviewed'
+    && String(review.paper_id)===String(p.id) && review.source_citation===p.citation
+    && outcomes.includes(review.determination) && p.determination_actual===review.determination;
+  const differs=reviewed && outcomes.includes(p.survey_determination)
+    && p.survey_determination!==review.determination;
+  const candidates=p.determination_candidates||[];
+  let out=reviewed?`<div class="tiny" style="margin-top:8px">
+    <span class="b ${differs?'mid':'ok'}">${differs?'Reviewed assessment differs from survey':'Source assessment reviewed'}</span>
+    <details><summary>Survey and reviewed outcome</summary>
+      <p>Survey prediction: ${esc(p.survey_determination||'unassessed')}. Reviewed outcome: ${esc(review.determination)}.</p>
+      <p>Scope: ${esc(review.scope)}. Coverage justification: ${esc(review.coverage_justification)}</p>
+      <p>Source passages: ${esc(review.source_passages||'')}</p>
+      <p>${esc(review.rationale)}</p>
+      ${review.necessity_evidence?`<p>Necessity/obstruction evidence: ${esc(review.necessity_evidence)}</p>`:''}
+      <p>Record reconciliation: ${esc(review.record_resolution)}</p>
+      <p>Reviewer: ${esc(review.reviewer)}. Review reference: ${esc(review.review_reference)}</p>
+      <p>Declared independence: ${esc(review.independence_statement||'')}</p>
+    </details></div>`:candidates.length?`<div style="margin-top:8px"><span class="b q">Source review pending</span></div>`:'';
+  if(candidates.length) out+=`<details class="tiny" style="margin-top:8px"><summary>${candidates.length} recorded file assessment${candidates.length===1?'':'s'} — not source verdicts</summary>
+    <p>Survey prediction: ${esc(p.survey_determination||'unassessed')}. File assessments concern particular attempts; they do not by themselves settle this source.</p>
+    ${p.record_outcome_conflict?'<p>Linked file assessments differ. Different attempts and scopes need reconciliation; this is not a demonstrated contradiction in the theory.</p>':''}
+    <ul>${candidates.map(c=>`<li><a href="#/theory/${esc(encodeURIComponent(c.record_key||''))}">${esc(c.file)}</a>: ${esc(c.determination)}
+      <div>Recorded faithfulness: ${esc(c.faithfulness||'unassessed')}.</div>
+      ${(c.record_limits||[]).length?`<div>Review cautions: ${esc(c.record_limits.map(x=>x.replace(/_/g,' ')).join('; '))}.</div>`:''}
+      <div>Recorded rationale: ${esc(c.rationale||'No rationale recorded.')}</div>
+      <div>Sources named by this file: ${esc((c.source_citations||[]).join('; '))}</div></li>`).join('')}</ul></details>`;
+  return out;
+}
+
 /* ---------- views ---------- */
 function vHome(){
   return `
@@ -597,9 +629,9 @@ function vTheory(key){
     <div class="mono small dim" style="margin-bottom:20px">${esc(shortPath(f.file))}</div>
     <p style="font-size:16.5px">${esc(f.summary||'')}</p>
 
-    ${f.source_gap?`<div class="block gap"><span class="kicker">Gap found in the published source</span>
-      <h3 style="margin:8px 0 8px;border:0;padding:0">${esc(f.source_gap.kind||'')}</h3>
-      <p style="max-width:none">${esc(f.source_gap.detail||'')}</p></div>`:''}
+    ${f.source_gap?`<div class="block gap"><span class="kicker">Recorded source note — not independently confirmed here</span>
+      <h3 style="margin:8px 0 8px;border:0;padding:0">${esc(typeof f.source_gap==='object'?f.source_gap.kind||'':'')}</h3>
+      <p style="max-width:none">${esc(typeof f.source_gap==='string'?f.source_gap:f.source_gap.detail||'')}</p></div>`:''}
 
     ${claimProfileHTML(claimProfile(key))}
 
@@ -666,6 +698,8 @@ function vTheory(key){
       <dt>Prop. axioms</dt><dd>${c.propositional_axioms||0}</dd>
       <dt>Compiles</dt><dd>${f.compiles?'yes':'—'}</dd>
     </dl>
+    <p class="tiny dim" style="max-width:none">Recorded file assessment — not a reviewed source verdict.
+      Compilation checks the code; it does not certify its interpretation of the source.</p>
     <div style="display:flex;gap:6px;flex-wrap:wrap">
       ${faithB(fa.verdict)}${detB(f.determination)}</div>
     ${f.determination_rationale?`<p class="tiny dim" style="max-width:none">${esc(f.determination_rationale)}</p>`:''}
@@ -739,9 +773,12 @@ function vPapers(q){
     <div class="sechead"><h2>${D.papers.length} papers surveyed</h2>
       <span class="note">Two orthogonal axes. <b>Evidence</b> (F0–F5) is how far the paper has traveled
       through this pipeline — ${totals.formalized} have reached F4/F5. <b>Formality</b> (P0–P5) is how
-      formal the paper is on its own pages, graded once and frozen before any Coq work
+      formal the paper is on its own pages, graded once and frozen
       (the rubric is FORMALITY_RUBRIC.md). The project's question lives in the cross-table:
       what happens to each formality stratum under a proof assistant.</span></div>
+    <p class="small">F levels describe pipeline evidence, not approval of a paper-level outcome.
+      A survey comparison requires a separate source-specific review. Original file assessments
+      remain available below, including conflicting opinions and coverage cautions.</p>
     ${ladderHTML()}
     ${D.claim_comparison?`<p class="small" style="margin-top:18px"><a href="#/comparison">Compare source-claim coverage beneath the F3 label</a>:
       direct fragments, representations, added commitments and uncovered claims. No tier score is inferred.</p>`:''}
@@ -763,7 +800,7 @@ function vPapers(q){
         ${(D.claim_comparison?.profiles||[]).some(x=>String(x.paper_id)===String(p.id))?'<div class="tiny"><a href="#/comparison">claim profile</a></div>':''}</td>
       ${hasFm?`<td class="n">${p.formality!==undefined?`<span class="b ${p.formality>=4?'ok':p.formality>=2?'mid':'q'}"
         title="${esc(p.formality_rationale||'')}">P${p.formality}</span>${p.formality_confidence==='low'?'<span class="tiny dim"> ?</span>':''}`:'—'}</td>`:''}
-      <td>${esc(p.citation)}${p.prediction_disputed?'<span class="b bad" style="margin-left:8px">survey call disputed</span>':''}</td>
+      <td>${esc(p.citation)}${paperOutcomeHTML(p)}</td>
       <td class="small dim">${esc(p.topic)}</td>
       <td class="n mono tiny">${files.length?files.map(f=>esc(f.split('/').pop())).join('<br>'):'—'}</td></tr>`;}).join('')}
     </tbody></table></section></div>`;

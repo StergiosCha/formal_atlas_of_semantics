@@ -59,8 +59,11 @@ a result, and must carry one of three classifications:
   (this is evidence about the theory: it names a hidden premise);
 - **HARD** — believed true, proof not completed (this is evidence about us, not the theory).
 
-Trivial theorems (true by unfolding, or with inconsistent hypotheses) are excluded
-from counts by the verifier.
+The generated mechanical counts include statements that close by unfolding and
+statements whose premises imply False. Depth probes flag these separately; they
+are not automatically subtracted. A source review must interpret each flag:
+an intentional incompatibility theorem is not a failed proof, and a definitional
+result can be meaningful without establishing a substantive source claim.
 
 ## 4. Four-point determination of the source theory
 
@@ -98,14 +101,23 @@ Recorded for every file (typology from the March 2026 comparative-study proposal
 
 ## 5. Survey category (papers without code)
 
-The 200-paper survey's categories A–D are *predictions*, not determinations. They are
-mapped provisionally to 1–4 and displayed in a different colour until a formalization
-exists; a completed formalization replaces the prediction with a determination, and
-the atlas records where the two disagree (these disagreements are themselves findings).
+The survey's categories A–D are *predictions*, not determinations. They are mapped
+provisionally to 1–4 and retained as historical predictions. Neither code existence,
+an F4/F5 level, a graded edge, nor a file-level determination establishes a
+paper-level outcome. The [outcome policy](OUTCOME_POLICY.md) requires a source-bound
+review of the stated core, with coverage justified at the survey's unit of assessment.
+Only an accepted review permits a prediction/outcome comparison. A disagreement is
+then reported as a reviewed assessment differing from the survey, not as proof that
+the source theory is inconsistent or cannot be formalized.
 
 ## 6. Independent verification
 
-Every record is checked by a second, adversarial pass that reads the source and the
-Coq file independently, recompiles, reruns `Print Assumptions`, and is instructed to
-dispute when uncertain. The verifier's revised verdict is the one displayed; the
-original is retained and the dispute is listed.
+Independent source review is a requirement, not a claim that every existing record
+has already received it. A reviewer should read the source and Coq file independently,
+check compilation and `Print Assumptions`, reconcile linked assessments, and state
+remaining uncertainty. Mechanical `.mech.json` records are not semantic reviews.
+An explicit `agrees: false` in a `.verify.json` record is a file-review dispute;
+missing or unknown agreement is not a dispute. Original opinions are preserved.
+Paper-level outcomes require the separate registry described in the outcome policy.
+At the September 13 outcome audit, that registry is empty: no source outcome has
+been accepted through this gate, including outcomes agreeing with the survey.

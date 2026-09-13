@@ -9,16 +9,16 @@ import json, glob, os, re, sys
 from collections import Counter, defaultdict
 from pathlib import Path
 from claim_comparison import load_comparison
+from outcome_policy import apply_outcome, load_reviews
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REC = os.path.join(HERE, "records")
 EDGES = os.path.join(HERE, "edges")
 DET_ORDER = ["as_is", "slight_modification", "major_restructuring", "cannot", "not_applicable", "unassessed"]
-THEORY_OUTCOMES = {"as_is", "slight_modification", "major_restructuring", "cannot"}
 DET_LABEL = {"as_is": "1 as-is", "slight_modification": "2 slight modification",
              "major_restructuring": "3 major restructuring", "cannot": "4 cannot", "not_applicable": "n/a",
              "unassessed": "unassessed (incomplete scope)"}
-FAITH_ORDER = ["faithful", "partial", "unfaithful", "not_applicable"]
+FAITH_ORDER = ["faithful", "faithful-with-corrections", "partial", "unfaithful", "not_applicable"]
 
 
 def load(path):
@@ -47,7 +47,7 @@ def merge_records():
         final_det = rec.get("determination")
         disputed = False
         if ver:
-            if not ver.get("agrees"):
+            if ver.get("agrees") is False:
                 disputed = True
                 final_faith = ver.get("revised_faithfulness") or final_faith
                 final_det = ver.get("revised_determination") or final_det
@@ -141,11 +141,12 @@ LEVEL_LABEL = {
 }
 
 
-def compute_levels(papers, files, edges):
-    """Evidence-based formalizability levels replacing the A-D
-    predictions (rubric §5: predictions until a formalization exists).
-    Each paper gets `level`, and where a determination exists that
-    disagrees with the survey's prediction, `prediction_disputed`."""
+def compute_levels(papers, files, edges, outcome_reviews=None):
+    """Compute pipeline levels separately from reviewed source outcomes.
+
+    F levels do not replace survey predictions. Only an explicit source-bound
+    review may establish an outcome or a prediction/outcome disagreement.
+    """
     import unicodedata
 
     def norm(s):
@@ -199,16 +200,9 @@ def compute_levels(papers, files, edges):
         else:
             level = "F0"
         p["level"] = level
-        # prediction vs determination (rubric §5: disagreements are findings)
-        det = None
-        for r in clean or recs:
-            candidate = r.get("_final", {}).get("determination") or r.get("determination")
-            if candidate in THEORY_OUTCOMES:
-                det = candidate
-                break
-        p["determination_actual"] = det
-        pred = p.get("survey_determination")
-        p["prediction_disputed"] = bool(det and pred and det != pred)
+        # A file-level opinion is not a source-level result. Preserve all
+        # candidates/conflicts; no first-record-wins or edge-based approval.
+        apply_outcome(p, recs, outcome_reviews)
     return papers
 
 
@@ -241,7 +235,9 @@ def main():
     for p in papers:
         additions = links.get(str(p["id"]), [])
         p["coq_files"] = list(dict.fromkeys((p.get("coq_files") or []) + additions))
-    papers = compute_levels(papers, files, edges)
+    reviews = load_reviews(Path(HERE, "paper_outcome_reviews.json"),
+                           papers, files, Path(HERE).parent)
+    papers = compute_levels(papers, files, edges, reviews)
 
     # Intrinsic formality P0-P5 (FORMALITY_RUBRIC.md): a FROZEN grade of how
     # formal the paper is on its own pages — orthogonal to the evidence
@@ -274,7 +270,11 @@ def main():
         "generated_from": {"records": len(files), "papers": len(papers)},
         "stats": {"theorems": thm, "proved": proved, "admitted": admitted,
                   "determination": dict(det_count), "faithfulness": dict(faith_count),
-                  "disputed_records": disputed},
+                  "disputed_records": disputed,
+                  "determination_unit": "file_assessments_not_paper_outcomes",
+                  "paper_outcomes": dict(Counter(p["determination_actual"] for p in papers
+                                                 if p["determination_actual"])),
+                  "paper_outcome_status": dict(Counter(p["determination_status"] for p in papers))},
         "files": files,
         "papers": papers,
         "edges": edges,
@@ -286,8 +286,10 @@ def main():
     # --- markdown
     md = ["# Formalizability Atlas of Semantics — current state", "",
           f"Coq files audited: **{len(files)}** · theorem statements: **{thm}** (proved {proved}, admitted {admitted}) · "
-          f"papers assessed: **{len(papers)}** · records disputed by the verifier: **{len(disputed)}**", "",
-          "## Determination (four-point scale) over formalized sources", "",
+          f"papers surveyed: **{len(papers)}** · records explicitly disputed by a reviewer: **{len(disputed)}**", "",
+          "## Recorded file assessments (not reviewed paper outcomes)", "",
+          "These preserved file-level opinions do not establish source-wide conclusions. "
+          "Compilation, a graded edge, or an F level is not independent semantic review.", "",
           md_table([[DET_LABEL.get(d, d), det_count.get(d, 0)] for d in DET_ORDER], ["Determination", "Files"]), "",
           "## Faithfulness verdicts", "",
           md_table([[f, faith_count.get(f, 0)] for f in FAITH_ORDER], ["Verdict", "Files"]), ""]
@@ -306,7 +308,7 @@ def main():
             c = r.get("counts") or {}
             src = "; ".join(s.get("citation", "") for s in (r.get("sources") or [])[:2])
             flag = " ⚠" if r["_final"]["disputed"] else ""
-            gap = " (source gap)" if r.get("source_gap") else ""
+            gap = " (source note)" if r.get("source_gap") else ""
             rows.append([r.get("file", r["_key"]), src + gap, f"{c.get('proved', 0)}/{c.get('theorems', 0)}" + (f" +{c.get('admitted')} adm" if c.get("admitted") else ""),
                          r["_final"]["faithfulness"], DET_LABEL.get(r["_final"]["determination"], r["_final"]["determination"]) + flag,
                          ", ".join(a.get("class", "") for a in (r.get("artifact_classes") or [])) or "—",
@@ -336,16 +338,22 @@ def main():
             md.append("")
     if papers:
         cats = Counter(p.get("category") for p in papers)
-        md += ["## Paper assessment (200-paper survey)", "",
+        md += ["## Survey predictions (including addenda)", "",
                md_table([[k, v] for k, v in sorted(cats.items())], ["Category", "Papers"]), ""]
         lvls = Counter(p.get("level") for p in papers)
         md += ["## Formalizability levels (evidence-based; rubric §5)", "",
                md_table([[l, LEVEL_LABEL.get(l, ""), lvls.get(l, 0)]
                          for l in ["F0", "F1", "F2", "F3", "F4", "F5"]],
-                        ["Level", "Meaning", "Papers"]), ""]
+                        ["Level", "Meaning", "Papers"]), "",
+               "## Paper-level outcome review", "",
+               md_table([[s, sum(p["determination_status"] == s for p in papers)]
+                         for s in ("reviewed", "review_required", "unassessed")],
+                        ["Status", "Papers"]), "",
+               "File candidates and conflicts are preserved in atlas.json and shown on the papers page. "
+               "No comparison to the survey is asserted without a source-specific reviewed outcome.", ""]
         disputed_preds = [p for p in papers if p.get("prediction_disputed")]
         if disputed_preds:
-            md += ["### Survey prediction vs actual determination (findings)", "",
+            md += ["### Reviewed source assessment differs from survey prediction", "",
                    md_table([[p.get("citation", "")[:70],
                               p.get("survey_determination"),
                               p.get("determination_actual"),

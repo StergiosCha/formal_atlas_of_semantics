@@ -41,9 +41,12 @@ class EvidenceStatusTests(unittest.TestCase):
         self.assertIsNone(p["determination_actual"])
         self.assertFalse(p["prediction_disputed"])
 
-    def test_actual_determination_can_dispute_prediction(self):
+    def test_file_determination_cannot_dispute_prediction_without_source_review(self):
         p = self.grade(determination="slight_modification")
-        self.assertTrue(p["prediction_disputed"])
+        self.assertFalse(p["prediction_disputed"])
+        self.assertIsNone(p["determination_actual"])
+        self.assertEqual(p["determination_status"], "review_required")
+        self.assertEqual(p["determination_candidates"][0]["determination"], "slight_modification")
 
 
 if __name__ == "__main__":

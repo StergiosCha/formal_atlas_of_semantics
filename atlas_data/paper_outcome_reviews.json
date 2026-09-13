@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "description": "Source-specific reviewed outcomes only. Existing file assessments remain visible as candidates; no independent paper-level reviews have been supplied. See OUTCOME_POLICY.md.",
+  "reviews": []
+}

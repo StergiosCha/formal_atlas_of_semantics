@@ -6,6 +6,8 @@
 # axiom, an unsafe flag, or a silently reworded statement all surface as a
 # diff against the committed records — reviewable, not a wall of coqc output.
 name: verify
+permissions:
+  contents: read
 on:
   push:
     branches: [main]
@@ -14,14 +16,33 @@ on:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    container: coqorg/coq:8.20.1
+    timeout-minutes: 45
+    container:
+      image: coqorg/coq:8.20.1
+      # JavaScript actions must be able to write the runner's mounted state
+      # files. The image's default coq user cannot, so checkout fails first.
+      options: --user root
+    defaults:
+      run:
+        # Keep the image's installed Coq switch when running as root; do not
+        # depend on an interactive login shell or initialize a new root switch.
+        shell: opam exec --root=/home/coq/.opam -- bash --noprofile --norc -e -o pipefail {0}
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check verification setup
+        run: |
+          apt-get update -qq
+          apt-get install -y -qq python3 python3-yaml
+          coqc --version
+          python3 -m unittest discover -s .github/tests -p 'test_*.py'
+
       - name: Compile the corpus
         run: |
-          sudo chown -R coq:coq .
-          make -k -j"$(nproc)" 2>&1 | tail -20
+          # The committed Makefile.conf contains local macOS tool paths.
+          # Generate a separate, ignored build configuration for this runner.
+          coq_makefile -f _CoqProject -o Makefile.coq
+          make -f Makefile.coq -k -j"$(nproc)"
 
       - name: coqchk — independent kernel recheck (atlas layer)
         run: |
@@ -31,7 +52,6 @@ jobs:
 
       - name: Mechanical verification (counts, assumptions, fingerprints)
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq python3
           python3 atlas_data/verify.py --all
           python3 atlas_data/verify.py --lock
 

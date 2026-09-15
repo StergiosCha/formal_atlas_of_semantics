@@ -82,6 +82,20 @@ class VerificationSetupTests(unittest.TestCase):
         self.assertIn("git diff --exit-code -- atlas_data/records atlas_data/claims.lock",
                       STEPS["Gate — measured state must match the committed records"]["run"])
 
+    def test_untracked_sidecars_cannot_escape_the_record_gate(self):
+        with tempfile.TemporaryDirectory(prefix="atlas-ci-gate-") as directory:
+            git = Path(directory) / "git"
+            git.write_text('#!/bin/sh\nif [ "$1" = "ls-files" ]; then\n'
+                           '  echo atlas_data/records/wrong_key.mech.json\nfi\nexit 0\n')
+            git.chmod(0o755)
+            env = dict(os.environ, PATH=directory + os.pathsep + os.environ["PATH"])
+            result = subprocess.run(
+                ["bash", "-e", "-o", "pipefail", "-c",
+                 STEPS["Gate — measured state must match the committed records"]["run"]],
+                cwd=directory, env=env, capture_output=True, text=True)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("untracked records", result.stdout)
+
 
 if __name__ == "__main__":
     unittest.main()

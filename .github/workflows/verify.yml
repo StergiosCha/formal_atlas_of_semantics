@@ -63,6 +63,13 @@ jobs:
             echo 'If the change is intended, rerun verify.py --all && --lock locally and commit the diff.'
             exit 1
           }
+          # git diff does not report new, incorrectly keyed sidecar files.
+          untracked_records=$(git ls-files --others --exclude-standard -- atlas_data/records)
+          if [ -n "$untracked_records" ]; then
+            echo '::error::Verification generated untracked records; check file-to-record matching.'
+            printf '%s\n' "$untracked_records"
+            exit 1
+          fi
 
       - name: Gate — atlas layer invariants
         run: |

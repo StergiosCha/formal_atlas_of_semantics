@@ -401,6 +401,42 @@ def write_lock():
           f"({changed} statement change(s), {n_dep} deprecated)")
 
 
+def record_project_path(record_path, project_files):
+    """Resolve a record's file against the explicit project inventory.
+
+    Legacy records retain an absolute path from the original checkout. Match
+    its complete project-relative suffix, never just a basename, so relocation
+    does not silently discard the record (or change its case-sensitive key).
+    Ambiguous suffixes fail visibly rather than choosing a source arbitrarily.
+    """
+    if not isinstance(record_path, str):
+        return None
+    if record_path in project_files:
+        return record_path
+    if not os.path.isabs(record_path):
+        return None
+    matches = [rel for rel in project_files if record_path.endswith("/" + rel)]
+    if len(matches) > 1:
+        raise ValueError(f"Ambiguous record file path: {record_path}")
+    return matches[0] if matches else None
+
+
+def index_records(project_files):
+    """Keep original record contents/keys while locating them portably."""
+    by_file = {}
+    for p in sorted(glob.glob(os.path.join(REC, "*.json"))):
+        if p.endswith((".verify.json", ".mech.json", ".probe.json")):
+            continue
+        with open(p) as stream:
+            record = json.load(stream)
+        rel = record_project_path(record.get("file"), project_files)
+        if rel is not None:
+            if rel in by_file:
+                raise ValueError(f"Duplicate records for project file: {rel}")
+            by_file[rel] = (os.path.basename(p)[:-5], record)
+    return by_file
+
+
 def main():
     global COQ_VERSION
     COQ_VERSION = subprocess.run(["coqc", "--version"], capture_output=True, text=True
@@ -409,27 +445,18 @@ def main():
     if "--lock" in sys.argv:  # standalone: build the lock from existing mech files
         return write_lock() or 0
 
+    with open(os.path.join(REPO, "_CoqProject")) as project:
+        project_files = [line.strip() for line in project if line.strip().endswith(".v")]
     args = [a for a in sys.argv[1:] if not a.startswith("-")]
     if "--all" in sys.argv:
-        files = [l.strip() for l in open(os.path.join(REPO, "_CoqProject"))
-                 if l.strip().endswith(".v")]
+        files = project_files
     elif args:
         files = args
     else:
         files = sorted(glob.glob("atlas/*/*.v", root_dir=REPO))
 
-    # file -> record key, taken from the records themselves
-    by_file = {}
-    for p in sorted(glob.glob(os.path.join(REC, "*.json"))):
-        if p.endswith((".verify.json", ".mech.json", ".probe.json")):
-            continue
-        try:
-            r = json.load(open(p))
-        except Exception:
-            continue
-        f = (r.get("file") or "").replace(REPO + "/", "")
-        if f:
-            by_file[f] = (os.path.basename(p)[:-5], r)
+    # A record's original checkout prefix need not match this CI checkout.
+    by_file = index_records(project_files)
 
     scratch = tempfile.mkdtemp(prefix="atlas-verify-", dir=os.environ.get("TMPDIR"))
     summary, bad = [], 0

@@ -1,0 +1,264 @@
+{
+  "file": "atlas/dynamic/Heim1982_Extensions.v",
+  "region": "dynamic",
+  "summary": "Interleaved repair semantics, conditional father/king accommodation results, local/global distinction, explicit open-policy interfaces and proved requirements/countermodels.",
+  "assessment_status": "incomplete",
+  "implementation_scope": "Explicit rules and theorems implemented; open source policies/grammar are interfaces, not complete predictions.",
+  "sources": [
+    {
+      "citation": "Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Consulted edition: Schoubye–Glick 2011 retypesetting. III.3.3 pp.218–220; III.5 pp.236–252, especially p.238 fn.21, pp.242–246 and pp.250–251.",
+      "path": "papers/dynamic/Heim_1982_DefiniteIndefiniteNPs.pdf",
+      "available": "Local primary-source passages read. Independent semantic review pending."
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "Run; RepairPolicy; strengthens; weakens",
+      "source": "Added formal interface for interleaving source interpretation with supplied contextual repairs. Does not discover bridges or preferences.",
+      "match": "added"
+    },
+    {
+      "coq": "bridge; situation_bridge; father_scope; father_repair",
+      "source": "Specified old-card/situation bridges and the source's locally accommodated father example.",
+      "match": "exact"
+    },
+    {
+      "coq": "revised_truth",
+      "source": "C′ schema with an explicit relevance/erasure policy; structural weakening is necessary here but is not claimed sufficient for source relevance.",
+      "match": "exact"
+    },
+    {
+      "coq": "MemoryItem; pronoun_with_proxy",
+      "source": "A representation of the source's provisional prominence/proxy suggestion, parameterized by unprovided policy.",
+      "match": "added"
+    },
+    {
+      "coq": "RequirementModels",
+      "source": "Countermodels to conflating Sat/W, B/full support, and structural repair with a unique prediction; decider-strength reduction.",
+      "match": "added"
+    }
+  ],
+  "theorems": [
+    {
+      "name": "raw_run",
+      "status": "proved",
+      "inventory_id": "H09",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: raw_run. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 50."
+    },
+    {
+      "name": "no_repair_is_exact",
+      "status": "proved",
+      "inventory_id": "H09",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: no_repair_is_exact. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 62."
+    },
+    {
+      "name": "local_negation_accommodation",
+      "status": "proved",
+      "inventory_id": "H11",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: local_negation_accommodation. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 69."
+    },
+    {
+      "name": "global_negation_accommodation",
+      "status": "proved",
+      "inventory_id": "H11",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: global_negation_accommodation. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 76."
+    },
+    {
+      "name": "bridge_adds_information",
+      "status": "proved",
+      "inventory_id": "H09",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: bridge_adds_information. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 93."
+    },
+    {
+      "name": "bridge_licenses_description",
+      "status": "proved",
+      "inventory_id": "H09",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: bridge_licenses_description. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 95."
+    },
+    {
+      "name": "bridge_has_old_anchor",
+      "status": "proved",
+      "inventory_id": "H09",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: bridge_has_old_anchor. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 98."
+    },
+    {
+      "name": "situation_bridge_adds_information",
+      "status": "proved",
+      "inventory_id": "H09",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: situation_bridge_adds_information. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 102."
+    },
+    {
+      "name": "universal_scope_extensional",
+      "status": "proved",
+      "inventory_id": "H09",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: universal_scope_extensional. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 106."
+    },
+    {
+      "name": "father_repair_licenses_scope",
+      "status": "proved",
+      "inventory_id": "H10",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: father_repair_licenses_scope. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 123."
+    },
+    {
+      "name": "accommodated_father_run",
+      "status": "proved",
+      "inventory_id": "H10",
+      "claim_kind": "conditional result",
+      "source_claim": "pp.242–243: definite syntax is licensed by the specified local bridge if the supplied policy permits it.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 132."
+    },
+    {
+      "name": "accommodated_father_truth_conditions",
+      "status": "proved",
+      "inventory_id": "H10",
+      "claim_kind": "source claim",
+      "source_claim": "p.243: every man has a father he hates, under the specified local accommodation.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 149."
+    },
+    {
+      "name": "existentially_supported_introduction_preserves_worlds",
+      "status": "proved",
+      "inventory_id": "H14",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: existentially_supported_introduction_preserves_worlds. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 178."
+    },
+    {
+      "name": "nontrivial_entailment_forces_familiarity",
+      "status": "proved",
+      "inventory_id": "H07",
+      "claim_kind": "source claim",
+      "source_claim": "Full p.238 fn.21 membership conclusion; uses excluded middle.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 187."
+    },
+    {
+      "name": "criterion_C_exhaustive_on_felicitous_true_inputs",
+      "status": "proved",
+      "inventory_id": "H05",
+      "claim_kind": "new",
+      "source_claim": "Classical exhaustiveness of criterion C, with felicity and true input explicit.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 194."
+    },
+    {
+      "name": "proxy_needs_recorded_precedent",
+      "status": "proved",
+      "inventory_id": "H13",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: proxy_needs_recorded_precedent. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 218."
+    },
+    {
+      "name": "proxy_policy_changes_licensing",
+      "status": "proved",
+      "inventory_id": "H13",
+      "claim_kind": "new",
+      "source_claim": "Prominence-by-proxy predictions depend on the policy left unspecified by the source.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 227."
+    },
+    {
+      "name": "RequirementModels.world_preservation_is_not_Sat_preservation",
+      "status": "proved",
+      "inventory_id": "H14",
+      "claim_kind": "source clarification",
+      "source_claim": "pp.250–251 literal satisfaction-set preservation fails; existential world-content preservation is distinct.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 243."
+    },
+    {
+      "name": "RequirementModels.B_does_not_imply_full_domain_support",
+      "status": "proved",
+      "inventory_id": "H02",
+      "claim_kind": "new",
+      "source_claim": "Eventually-true sequence countermodel to silently strengthening condition B.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 260."
+    },
+    {
+      "name": "RequirementModels.total_felicity_decider_decides_arbitrary_propositions",
+      "status": "proved",
+      "inventory_id": "H04",
+      "claim_kind": "new",
+      "source_claim": "A uniform total felicity decider for arbitrary predicates yields informative excluded middle.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 279."
+    },
+    {
+      "name": "RequirementModels.local_global_accommodation_differ",
+      "status": "proved",
+      "inventory_id": "H11",
+      "claim_kind": "source claim",
+      "source_claim": "pp.245–246: local and global accommodation yield different truth conditions.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 294."
+    },
+    {
+      "name": "RequirementModels.false_context_repair_is_not_determined_by_weakening",
+      "status": "proved",
+      "inventory_id": "H12",
+      "claim_kind": "new",
+      "source_claim": "Weakening/felicity constraints do not determine the relevance-based repair in C′.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 313."
+    }
+  ],
+  "counts": {
+    "theorems": 22,
+    "proved": 22,
+    "admitted": 0,
+    "propositional_axioms": 0
+  },
+  "documented_logical_axioms": [
+    "Coq.Logic.Classical_Prop.classic; exact dependent theorems listed by the mechanical record."
+  ],
+  "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+      "Interleaved repair semantics, conditional father/king accommodation results, local/global distinction, explicit open-policy interfaces and proved requirements/countermodels.",
+      "Source-complete approval is withheld; this self-assessment does not authenticate independent review."
+    ],
+    "simplifications": [],
+    "omissions": [
+      "No resolved bridge-selection, local/global preference, relevance, recency or proxy policy.",
+      "Memory/proxy data are not a complete integrated processing theory.",
+      "No claim that these selected policy instances predict every accommodation/pronoun contrast in the dissertation."
+    ],
+    "additions": [
+      "Added formal interface for interleaving source interpretation with supplied contextual repairs. Does not discover bridges or preferences.",
+      "A representation of the source's provisional prominence/proxy suggestion, parameterized by unprovided policy.",
+      "Countermodels to conflating Sat/W, B/full support, and structural repair with a unique prediction; decider-strength reduction."
+    ]
+  },
+  "determination": "unassessed",
+  "determination_rationale": "The explicit mathematical semantics has substantial checked support. Unresolved pragmatic policies, general grammar coverage and the source clarification are recorded, not silently repaired or converted into a necessity-of-restructuring verdict. Source-level approval remains pending.",
+  "artifact_classes": [
+    {
+      "class": "iv",
+      "description": "Explicit file/domain, finite-arity syntax and relational interfaces are representation infrastructure; no changed predictions are inferred from their addition."
+    },
+    {
+      "class": "v",
+      "description": "Arbitrary satisfaction/entailment has no supplied decision procedure. A total executable resolver would require additional capabilities or a declared restricted model."
+    }
+  ],
+  "source_gap": {
+    "kind": "clarification",
+    "detail": "Local 2011 edition pp.250–251: new-card accommodation can preserve world content without preserving the assignment satisfaction set. RequirementModels.world_preservation_is_not_Sat_preservation checks the distinction. Not independently reviewed."
+  },
+  "notes": "See campaigns/heim_1982_design.md and campaigns/heim_1982_results.md. Original attempts and frozen P grades retained. Counts include helpers and conditional/interface results; inspect mechanical depth flags. No source-outcome approval.",
+  "compiles": true
+}

@@ -1,0 +1,145 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/dynamic/Heim1982_Policies.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "dynamic.Heim1982_Policies.repaired_description_licensed": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982_Policies.fresh_description_is_unlicensed": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.no_repair_blocks_fresh_description": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.selected_local_is_a_valid_run": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.selected_global_is_a_valid_run": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.local_truth_condition": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.global_truth_condition": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.local_world_truth": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.global_world_truth": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.local_global_domain_difference": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.selected_negation_has_unique_output": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.assignment_safe_implies_world_safe": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.world_safe_implies_bridge_only": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982_Policies.deny_is_least_policy": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982_Policies.enlarging_permission_preserves_runs": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.world_safe_preserves_worlds": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.assignment_safe_preserves_every_assignment": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.world_safe_characterizes_world_preservation": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.factive_program_allowed_by_world_safe": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.bridge_only_allows_modal_program": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.universal_description_allowed_by_assignment_safe": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.deny_blocks_modal_program": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.NegationModels.absent_king_local_true_global_false": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.NegationModels.existing_king_same_truth_different_next_pronoun": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.ProxyModels.desired_world_case_bridge_allowed": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.ProxyModels.desired_world_case_world_safe_blocks_proxy": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.ProxyModels.desired_world_case_world_safe_blocks_program": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.ProxyModels.desired_world_bridge_loses_actual_world": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.ProxyModels.already_guaranteed_witness_world_safe_allows": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.ProxyModels.already_guaranteed_witness_assignment_safe_blocks": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.ProxyModels.already_guaranteed_witness_assignment_safe_blocks_program": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.bridge_only_is_strictly_more_permissive": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Policies.world_safe_is_strictly_more_permissive": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    }
+  },
+  "summary": {
+    "probed": 33,
+    "vacuous": 0,
+    "trivial": 3,
+    "bailout": 0
+  }
+}

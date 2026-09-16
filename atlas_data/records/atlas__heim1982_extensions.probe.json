@@ -1,0 +1,101 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/dynamic/Heim1982_Extensions.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "dynamic.Heim1982_Extensions.raw_run": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Extensions.no_repair_is_exact": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Extensions.local_negation_accommodation": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Extensions.global_negation_accommodation": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Extensions.bridge_adds_information": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982_Extensions.bridge_licenses_description": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982_Extensions.bridge_has_old_anchor": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Extensions.situation_bridge_adds_information": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982_Extensions.universal_scope_extensional": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Extensions.father_repair_licenses_scope": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982_Extensions.accommodated_father_run": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Extensions.accommodated_father_truth_conditions": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Extensions.existentially_supported_introduction_preserves_worlds": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Extensions.nontrivial_entailment_forces_familiarity": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Extensions.criterion_C_exhaustive_on_felicitous_true_inputs": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Extensions.proxy_needs_recorded_precedent": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Extensions.proxy_policy_changes_licensing": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Extensions.RequirementModels.world_preservation_is_not_Sat_preservation": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Extensions.RequirementModels.B_does_not_imply_full_domain_support": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Extensions.RequirementModels.total_felicity_decider_decides_arbitrary_propositions": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Extensions.RequirementModels.local_global_accommodation_differ": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Extensions.RequirementModels.false_context_repair_is_not_determined_by_weakening": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    }
+  },
+  "summary": {
+    "probed": 22,
+    "vacuous": 0,
+    "trivial": 4,
+    "bailout": 0
+  }
+}

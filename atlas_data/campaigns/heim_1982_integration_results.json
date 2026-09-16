@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-15",
+  "paper_id": 7,
+  "source_citation": "Heim, I. (1982) - \"The Semantics of Definite and Indefinite Noun Phrases\"",
+  "consulted_edition": "Schoubye–Glick 2011 retypesetting",
+  "status": "integration_step_1_implemented_for_selected_construals",
+  "whole_source_complete": false,
+  "accepted_outcome": null,
+  "independent_review": false,
+  "files": [
+    "atlas/dynamic/Heim1982_Binding.v",
+    "atlas/dynamic/Heim1982_Integration.v",
+    "atlas/dynamic/Heim1982_EndToEnd.v"
+  ],
+  "targets": [
+    {
+      "id": "I01",
+      "status": "implemented",
+      "scope": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities.",
+      "support": [
+        "dynamic.Heim1982_Binding.in_without",
+        "dynamic.Heim1982_Binding.free_indices_exact",
+        "dynamic.Heim1982_Binding.agree_indices_sym",
+        "dynamic.Heim1982_Binding.agree_indices_app",
+        "dynamic.Heim1982_Binding.splice_outside",
+        "dynamic.Heim1982_Binding.splice_transport",
+        "dynamic.Heim1982_Binding.selected_all_depends",
+        "dynamic.Heim1982_Binding.selected_exists_depends",
+        "dynamic.Heim1982_Binding.best_predicate_congr",
+        "dynamic.Heim1982_Binding.satisfaction_depends_only_on_free",
+        "dynamic.Heim1982_Binding.changing_bound_or_absent_index_preserves_truth",
+        "dynamic.Heim1982_Binding.closed_indexed_formula_ignores_assignment",
+        "dynamic.Heim1982_Binding.empty_selection_is_semantically_vacuous"
+      ]
+    },
+    {
+      "id": "I02",
+      "status": "implemented_for_selected_construal_tree",
+      "scope": "Nearest-operator selection, nuclear/text existential closure and checked donkey/nuclear truth conditions for a supplied scope-resolved NP-prefixed tree.",
+      "support": [
+        "dynamic.Heim1982_Binding.selection_exact",
+        "dynamic.Heim1982_Binding.pronouns_do_not_request_binding",
+        "dynamic.Heim1982_Binding.inner_operator_shields_introductions",
+        "dynamic.Heim1982_Binding.nuclear_index_not_selected_by_outer",
+        "dynamic.Heim1982_Binding.compiler_nuclear_indices",
+        "dynamic.Heim1982_Binding.compiler_nuclear_truth",
+        "dynamic.Heim1982_Binding.compiled_closed_text_truth",
+        "dynamic.Heim1982_Binding.compiler_donkey_truth"
+      ]
+    },
+    {
+      "id": "I03",
+      "status": "implemented",
+      "scope": "Computed contextual reference requirements and a runner guard rejecting unresolved deictic indices.",
+      "support": [
+        "dynamic.Heim1982_Binding.computed_context_uses_exact_free_indices",
+        "dynamic.Heim1982_Binding.text_closure_keeps_deictic_free",
+        "dynamic.Heim1982_Binding.deictic_not_accidentally_bound",
+        "dynamic.Heim1982_Binding.contextual_truth_agrees_with_resolved_assignment",
+        "dynamic.Heim1982_Integration.read_requires_computed_references",
+        "dynamic.Heim1982_EndToEnd.modal_compiler_has_no_free_individuals",
+        "dynamic.Heim1982_EndToEnd.unresolved_deictic_blocks_read"
+      ]
+    },
+    {
+      "id": "I04",
+      "status": "implemented",
+      "scope": "Compositional runner with exact final-FCS and earlier indexed truth-test adapters; no whole-system equivalence claimed.",
+      "support": [
+        "dynamic.Heim1982_Integration.indexed_test_exact",
+        "dynamic.Heim1982_Integration.indexed_test_does_not_export",
+        "dynamic.Heim1982_Integration.indexed_test_preserves_B",
+        "dynamic.Heim1982_Integration.indexed_test_preserves_support",
+        "dynamic.Heim1982_Integration.core_adapter_exact",
+        "dynamic.Heim1982_Integration.read_adapter_exact",
+        "dynamic.Heim1982_Integration.execute_preserves_B"
+      ]
+    },
+    {
+      "id": "I05",
+      "status": "implemented",
+      "scope": "Finite traces retain tentative cards without exporting their indices; history is generated during actual core or indexed-calculation steps.",
+      "support": [
+        "dynamic.Heim1982_Integration.core_trace_files_satisfy_B",
+        "dynamic.Heim1982_Integration.universal_trace_keeps_restrictor",
+        "dynamic.Heim1982_Integration.remember_all_preserves_history",
+        "dynamic.Heim1982_Integration.remembered_frame_has_event",
+        "dynamic.Heim1982_Integration.execute_keeps_history",
+        "dynamic.Heim1982_EndToEnd.keep_all_records_each_frame",
+        "dynamic.Heim1982_EndToEnd.read_generates_tentative_memory_without_export",
+        "dynamic.Heim1982_EndToEnd.core_run_remembers_but_cannot_directly_reuse_scoped_card"
+      ]
+    },
+    {
+      "id": "I06",
+      "status": "implemented_with_explicit_permission",
+      "scope": "Actual proxy transition consumes a recorded prominent card, a distinct fresh index and explicit permission, then establishes the new description and connects the prior licensing interface.",
+      "support": [
+        "dynamic.Heim1982_Integration.direct_requires_accessible_index",
+        "dynamic.Heim1982_Integration.proxy_has_recorded_authorized_origin",
+        "dynamic.Heim1982_Integration.proxy_establishes_description",
+        "dynamic.Heim1982_Integration.proxy_connects_existing_licensing_interface",
+        "dynamic.Heim1982_Integration.denying_permission_blocks_proxy",
+        "dynamic.Heim1982_Integration.missing_memory_blocks_proxy"
+      ]
+    },
+    {
+      "id": "I07",
+      "status": "implemented",
+      "scope": "World-relative modal traces, exact modal truth tests, factive preservation and a nonfactive countermodel; no automatic actual-world inference from a remembered modal card.",
+      "support": [
+        "dynamic.Heim1982_Integration.world_reset_preserves_B",
+        "dynamic.Heim1982_Integration.indexed_frame_preserves_B",
+        "dynamic.Heim1982_Integration.indexed_trace_files_satisfy_B",
+        "dynamic.Heim1982_Integration.modal_trace_not_an_actual_world_update",
+        "dynamic.Heim1982_EndToEnd.compiled_modal_truth",
+        "dynamic.Heim1982_EndToEnd.modal_trace_contains_description",
+        "dynamic.Heim1982_EndToEnd.modal_stage_retains_world_argument",
+        "dynamic.Heim1982_EndToEnd.factive_modal_proxy_preserves_world_content",
+        "dynamic.Heim1982_EndToEnd.NonfactiveModel.desired_witness_is_not_an_actual_witness"
+      ]
+    },
+    {
+      "id": "I08",
+      "status": "implemented",
+      "scope": "A compiled modal statement, proxy accommodation and ordinary core assertion execute together and have proved truth conditions under stated hypotheses.",
+      "support": [
+        "dynamic.Heim1982_EndToEnd.complete_modal_proxy_core_run",
+        "dynamic.Heim1982_EndToEnd.proxy_core_truth",
+        "dynamic.Heim1982_EndToEnd.complete_program_truth_conditions"
+      ]
+    }
+  ],
+  "boundaries": [
+    "Input is a selected NP-prefixed scope tree with lexical interpretations and referential indices. Movement/readings and source-order novelty/binding constraints remain supplied grammar responsibilities, not solved by free-variable extraction.",
+    "Read is a conservative earlier-indexed truth test with computed reference availability, not the complete final dynamic semantics for arbitrary modal presuppositions.",
+    "Core runs licensed final FCS blocks; repairs occur as explicit proxy transitions in this runner. The older general Run relation remains separate for other accommodation interleavings.",
+    "Indexed snapshots are tagged calculations retaining candidate-world predicates, not evidence that their content is true in the actual world.",
+    "Attention/retention and authorization are explicit parameters. Keep-all attention is only a proof fixture; no production prominence/accommodation policy is selected.",
+    "This is relational mathematical execution. No total entailment/felicity decider or raw-English parser is claimed."
+  ],
+  "baseline": {
+    "files_sha256": "7cd9ac1ed6936d1037be95372a2e8676ea7d30da14a05002e952cbdb4a6aefc4",
+    "file_count": 82,
+    "papers_except_heim_links_sha256": "5b5ed8ecbb9e917ae4fe91c89bfd715d715133b706842957782ee099214ab7de",
+    "claim_entries_sha256": "217ccbe7e4d277b89594db296009ebf8c731b3e50d20c20e65de51e41cd4d453",
+    "claim_count": 1068
+  }
+}

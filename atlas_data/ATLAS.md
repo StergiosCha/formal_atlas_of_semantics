@@ -1,6 +1,6 @@
 # Formalizability Atlas of Semantics — current state
 
-Coq files audited: **78** · theorem statements: **1318** (proved 1305, admitted 12) · papers surveyed: **230** · records explicitly disputed by a reviewer: **0**
+Coq files audited: **86** · theorem statements: **1504** (proved 1491, admitted 12) · papers surveyed: **230** · records explicitly disputed by a reviewer: **0**
 
 ## Recorded file assessments (not reviewed paper outcomes)
 
@@ -13,7 +13,7 @@ These preserved file-level opinions do not establish source-wide conclusions. Co
 | 3 major restructuring | 16 |
 | 4 cannot | 0 |
 | n/a | 9 |
-| unassessed (incomplete scope) | 9 |
+| unassessed (incomplete scope) | 17 |
 
 ## Faithfulness verdicts
 
@@ -21,7 +21,7 @@ These preserved file-level opinions do not establish source-wide conclusions. Co
 |---|---|
 | faithful | 20 |
 | faithful-with-corrections | 1 |
-| partial | 45 |
+| partial | 53 |
 | unfaithful | 10 |
 | not_applicable | 2 |
 
@@ -71,6 +71,19 @@ All remain F3/unassessed. [Method and limitations](campaigns/claim_comparison_20
 | File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
 |---|---|---|---|---|---|---|
 | extras/PolydefiniteSemantics.v | Chatzikyriakidis, S. & Spathas, G. (2023). A unified analysis of the semantics and pragmatics of Greek polydefinites. LENLS 20, Osaka (journal version 'Polydefinites as Markers of Prominence' under review). Header spells 'Chatzykiriakidis & Spathas (2023)'.; von Heusinger, K. & Schumacher, P. B. (2019). Prominence in discourse (Defs 1-3 of prominence). Journal of Pragmatics 154. (source note) | 46/47 | partial | 3 major restructuring | iv | — |
+
+## dynamic
+
+| File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
+|---|---|---|---|---|---|---|
+| atlas/dynamic/Heim1982.v | Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Consulted edition: Schoubye–Glick 2011 retypesetting. III.1.4 pp.185–190; III.2.1.1 pp.196–198; pp.202,214–218,234,236–238; p.254 fn.28. | 34/34 | partial | unassessed (incomplete scope) | iv, v | — |
+| atlas/dynamic/Heim1982_Binding.v | Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Consulted Schoubye–Glick 2011 retypesetting, pp.90–100,105–111,118–120,234,247–254. | 25/25 | partial | unassessed (incomplete scope) | iv | — |
+| atlas/dynamic/Heim1982_EndToEnd.v | Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Consulted Schoubye–Glick 2011 retypesetting, pp.90–100,105–111,118–120,234,247–254. | 13/13 | partial | unassessed (incomplete scope) | iv | — |
+| atlas/dynamic/Heim1982_Examples.v | Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Consulted edition: Schoubye–Glick 2011 retypesetting. III.3 pp.214–218; III.4 pp.222–234; III.5.1 pp.236–238; II.2 pp.93–99. | 17/17 | partial | unassessed (incomplete scope) | iv, v | — |
+| atlas/dynamic/Heim1982_Extensions.v | Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Consulted edition: Schoubye–Glick 2011 retypesetting. III.3.3 pp.218–220; III.5 pp.236–252, especially p.238 fn.21, pp.242–246 and pp.250–251. (source note) | 22/22 | partial | unassessed (incomplete scope) | iv, v | — |
+| atlas/dynamic/Heim1982_Indexed.v | Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Consulted edition: Schoubye–Glick 2011 retypesetting. II.2 pp.87–100; II.3 pp.105–111; II.4 pp.115–129; II.5 pp.130–144, especially p.117 fn.8 and pp.137–138 fn.27. | 19/19 | partial | unassessed (incomplete scope) | iv, v | — |
+| atlas/dynamic/Heim1982_Integration.v | Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Consulted Schoubye–Glick 2011 retypesetting, pp.90–100,105–111,118–120,234,247–254. | 23/23 | partial | unassessed (incomplete scope) | iv | — |
+| atlas/dynamic/Heim1982_Policies.v | Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Consulted Schoubye–Glick 2011 retypesetting, pp.244–246 and 247–252. | 33/33 | partial | unassessed (incomplete scope) | iv | — |
 
 ## dynamic (file change semantics)
 

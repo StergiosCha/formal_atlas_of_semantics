@@ -1,0 +1,70 @@
+{
+  "checkpoint": "2026-09-15 Heim and DisCoCat source-review drafts",
+  "git_base": "786e07b3f6f03c7b24212d8aad580f443ea9edfb",
+  "state": "local review drafts; not accepted outcomes; not committed, pushed or deployed",
+  "reviewer": "Codex, single retrospective assistant review; not independent replication or maintainer approval",
+  "paper_proposals": [
+    {
+      "paper_id": 7,
+      "status": "review_required",
+      "accepted_determination": null,
+      "report": "heim_1982.md",
+      "consulted_edition": "2011 Schoubye-Glick retypesetting of Heim 1982 dissertation",
+      "scope": "Specified Chapter III sections; no whole-dissertation coverage claim"
+    },
+    {
+      "paper_id": 159,
+      "status": "review_required",
+      "accepted_determination": null,
+      "report": "discocat_2010.md",
+      "consulted_edition": "arXiv:1003.4394v1, 23 March 2010",
+      "scope": "Local 34-page source; journal version and other separately cited works not independently checked"
+    }
+  ],
+  "checks": {
+    "coq_version": "8.20.1",
+    "ocaml_version": "5.2.1",
+    "fresh_modules_compiled": 6,
+    "diagnostic_lemmas_proved": 7,
+    "diagnostic_admissions": 0,
+    "diagnostic_axiom_declarations": 0,
+    "diagnostic_closed_lemmas": 4,
+    "diagnostic_signature_dependent_lemmas": 3,
+    "kernel_recheck_passed": true,
+    "source_outcomes_accepted": 0,
+    "previous_checkpoint_hashes_matched": 144
+  },
+  "files": {
+    "_CoqProject": "cdf0d5991a0cc19dd66e92fa3278adf119a753b5a6aa4ca2ad803f8c01dbccfc",
+    "atlas/categorical/DisCoCat.v": "17bf5825a7f4a1c8429a8af994f0b8e8121097cb09100e82a408c65dfd210bd8",
+    "atlas_data/OUTCOME_POLICY.md": "43612ba591f7e6cb9c09dd85b5feff7a3e6189c8fa0de336787eb8bffd081b69",
+    "atlas_data/RUBRIC.md": "21f92841f92515f223ac0e59df9922b0ca3f69c1da53affd46d397b4394daecd",
+    "atlas_data/atlas.json": "d7456ef2ec22c789f11c876f8bec93da7444a74e91e3324591ed38fed646a3f1",
+    "atlas_data/audits/source_reviews_2026_09_15/README.md": "99a1de744ba1451bdaf45ea5a8290bd683f266241e83fab6fd11a9601fecf4aa",
+    "atlas_data/audits/source_reviews_2026_09_15/ReviewChecks.v": "a09507b7bf419cb659fb6432c5d5d686973e7585ed33bc8b07bdc9647e34b26f",
+    "atlas_data/audits/source_reviews_2026_09_15/discocat_2010.md": "6f028e389de9f2a3605b73a8b3175141e179dd49aab2b2e33a1673b09a8dd216",
+    "atlas_data/audits/source_reviews_2026_09_15/heim_1982.md": "8f741538be1e15194445d7bb3d3059d2d57255cd307a26f593ee2c27d9a784c5",
+    "atlas_data/audits/source_reviews_2026_09_15/run_checks.sh": "b9f101a54dc9cfc1b465ee4892a6ff4c2eb0453d8bc6aa48755a6a115f4b6096",
+    "atlas_data/formality.json": "35dc302ae28c91e7e7d4c9677713b35bbd6af014ccb3aef6253e126f59eead0e",
+    "atlas_data/paper_outcome_reviews.json": "c765986bbba6d575e54984db3065faa38b871786c9805b3a6cb7fb6da1a13d40",
+    "atlas_data/papers.json": "176bb99d48bc4d2eee9a1eab0896ab5d04e416e3eb189abc16e2849446fe7e98",
+    "atlas_data/papers_addendum.json": "c119cac262bdab87d1a8f6a2e6f9efcffc074d64aaed58c42208c1a57edc9880",
+    "atlas_data/records/atlas__discocat.json": "4addb0010f274780cbfbcf588921d0978425d6caf798f3518899e937732dc74a",
+    "atlas_data/records/atlas__discocat.mech.json": "9d58ca07ac094742a82f50a462d37f1018f1bcd2e3539fac931ab2804a96d79f",
+    "atlas_data/records/atlas__discocat.probe.json": "f9f5b2de8af0003d9dfb9782e6c869d16360512b7da6f387d7b39a144d46cc23",
+    "atlas_data/records/extras__DonkeyScope.json": "1971a26beb1a1c51fda826344e8c44372b2e026282e8b78e3a72b720935b7711",
+    "atlas_data/records/extras__DonkeyScope.mech.json": "50df3915b0b3ddccf340948965560411658575fba82a68a21e9a0822fb129b0e",
+    "atlas_data/records/extras__FCS.json": "2fb91ecb2f0194a643983d84c142b9e620a7c8e3e0bb5281cf5310b3c50760d9",
+    "atlas_data/records/extras__FCS.mech.json": "78245991d3fe90854382548602fa7c00bc6df34538dbce75f176195761154a37",
+    "atlas_data/records/extras__FCS2.json": "3a6895899e8e914af15fc0853bdc384a014cef1f67b3a45c8e484ee9615e1971",
+    "atlas_data/records/extras__FCS2.mech.json": "1566674781910bdee71f725776407b2f333bb2edac08a7f7ac4b69153e6b82ab",
+    "extras/DonkeyScope.v": "a0094f5d4c040874f9ba2cd77e64dbe5baf2035a74aed693b010b1c68ce70ba7",
+    "extras/FCS.v": "0647c8778e3cf8c1a6e7ab1e08f284f26732a75afa361ea0574ee6d7611fb17f",
+    "extras/FCS2.v": "5064cefff72c7222ca61011fd08177658314e019a67b6f6addb6561c96717d7c",
+    "shallow/MontagueFragment.v": "2a81b5cb64eb7387b6c5c66f05e5461079b21e6ae764531695cae06f5dda9da9"
+  },
+  "external_sources": {
+    "dynamic/Heim_1982_DefiniteIndefiniteNPs.pdf": "bbfbf310d84618b1a8a68b6bc00e6185fc97bdcb3f2e2f0042aa663a575ae819",
+    "categorical/Coecke_2010_MathFoundationsCompositionalDistributional.pdf": "d558cc2ff0a980e358de5b78026ea97704e71ab9096f943a27fb0723257fc00c"
+  }
+}

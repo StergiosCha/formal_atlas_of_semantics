@@ -1,0 +1,89 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/dynamic/Heim1982_Indexed.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "dynamic.Heim1982_Indexed.outside_put": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Indexed.outside_put2": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Indexed.outside_keeps": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Indexed.indexed_donkey_truth": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Indexed.final_indexed_donkey_correspondence": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Indexed.indexed_nuclear_truth": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Indexed.final_indexed_nuclear_correspondence": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Indexed.indexed_text_closure": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Indexed.may_implies_not_must_not": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Indexed.modal_duality_classical": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Indexed.no_best_worlds_make_necessity_vacuous": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Indexed.realistic_necessity_has_actual_consequences": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Indexed.indefinite_prefix_has_no_quantifier": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982_Indexed.proper_name_scope_on_felicitous_assignments": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Indexed.ModalModels.limit_assumption_is_substantive": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Indexed.ModalModels.ideal_necessity_does_not_entail_actuality": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Indexed.ModalModels.reflexive_access_gives_factivity": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Indexed.ModalModels.nonfactive_access_does_not_give_factivity": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982_Indexed.ConstrualConstraints.earlier_definite_also_blocks_indefinite_coindexing": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    }
+  },
+  "summary": {
+    "probed": 19,
+    "vacuous": 0,
+    "trivial": 2,
+    "bailout": 0
+  }
+}

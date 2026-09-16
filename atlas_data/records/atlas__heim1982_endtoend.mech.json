@@ -1,0 +1,53 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "atlas/dynamic/Heim1982_EndToEnd.v",
+  "key": "atlas__heim1982_endtoend",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "unsafe_flags": [],
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 13,
+    "proved": 13,
+    "admitted": 0,
+    "aborted": 0,
+    "admitted_definitions": 0,
+    "unparsed_status": 0,
+    "definitions": 16,
+    "toplevel_axioms": 0,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 13,
+    "closed": 13,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "statements": {
+    "dynamic.Heim1982_EndToEnd.keep_all_records_each_frame": "d55807c82b8900f5",
+    "dynamic.Heim1982_EndToEnd.modal_compiler_has_no_free_individuals": "4375eb1e4543033f",
+    "dynamic.Heim1982_EndToEnd.compiled_modal_truth": "05d806cd80f7c945",
+    "dynamic.Heim1982_EndToEnd.modal_trace_contains_description": "2cb46c5153ba74cd",
+    "dynamic.Heim1982_EndToEnd.modal_stage_retains_world_argument": "cf0d2989bdc7e15c",
+    "dynamic.Heim1982_EndToEnd.read_generates_tentative_memory_without_export": "d5871f77fe23643c",
+    "dynamic.Heim1982_EndToEnd.complete_modal_proxy_core_run": "865af840a811bebd",
+    "dynamic.Heim1982_EndToEnd.proxy_core_truth": "f61cce6d8b1804f0",
+    "dynamic.Heim1982_EndToEnd.complete_program_truth_conditions": "87eae27daef63edd",
+    "dynamic.Heim1982_EndToEnd.factive_modal_proxy_preserves_world_content": "949184cf77e919a8",
+    "dynamic.Heim1982_EndToEnd.core_run_remembers_but_cannot_directly_reuse_scoped_card": "4e3f5a38b4345e1f",
+    "dynamic.Heim1982_EndToEnd.unresolved_deictic_blocks_read": "33281eaa84d3749c",
+    "dynamic.Heim1982_EndToEnd.NonfactiveModel.desired_witness_is_not_an_actual_witness": "737beb6d00fed498"
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

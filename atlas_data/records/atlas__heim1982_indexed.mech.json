@@ -1,0 +1,67 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "atlas/dynamic/Heim1982_Indexed.v",
+  "key": "atlas__heim1982_indexed",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "unsafe_flags": [],
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 19,
+    "proved": 19,
+    "admitted": 0,
+    "aborted": 0,
+    "admitted_definitions": 0,
+    "unparsed_status": 0,
+    "definitions": 28,
+    "toplevel_axioms": 0,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 19,
+    "closed": 18,
+    "not_closed": 1,
+    "undocumented_axioms": [],
+    "detail": {
+      "dynamic.Heim1982_Indexed.modal_duality_classical": {
+        "closed": false,
+        "axioms": [
+          "Classical_Prop.classic"
+        ],
+        "raw": "Axioms:\nClassical_Prop.classic : forall P : Prop, P \\/ ~ P"
+      }
+    },
+    "unresolved": []
+  },
+  "statements": {
+    "dynamic.Heim1982_Indexed.outside_put": "ed141895a710e0ce",
+    "dynamic.Heim1982_Indexed.outside_put2": "4d63a4d36ddd1972",
+    "dynamic.Heim1982_Indexed.outside_keeps": "4f33d70d245f4406",
+    "dynamic.Heim1982_Indexed.indexed_donkey_truth": "88ff757a7466274a",
+    "dynamic.Heim1982_Indexed.final_indexed_donkey_correspondence": "6c5e12ebae20890c",
+    "dynamic.Heim1982_Indexed.indexed_nuclear_truth": "6876e8b58c89a0d3",
+    "dynamic.Heim1982_Indexed.final_indexed_nuclear_correspondence": "e0b6e858388632b1",
+    "dynamic.Heim1982_Indexed.indexed_text_closure": "9d4fa17ed67938cc",
+    "dynamic.Heim1982_Indexed.may_implies_not_must_not": "bfab2aff999f6671",
+    "dynamic.Heim1982_Indexed.modal_duality_classical": "ed680fc46ac51b95",
+    "dynamic.Heim1982_Indexed.no_best_worlds_make_necessity_vacuous": "f8e11fd7b4376d09",
+    "dynamic.Heim1982_Indexed.realistic_necessity_has_actual_consequences": "111d9cd358f3f121",
+    "dynamic.Heim1982_Indexed.indefinite_prefix_has_no_quantifier": "312be471120567f1",
+    "dynamic.Heim1982_Indexed.proper_name_scope_on_felicitous_assignments": "932e4661c4653664",
+    "dynamic.Heim1982_Indexed.ModalModels.limit_assumption_is_substantive": "38582f5032a44624",
+    "dynamic.Heim1982_Indexed.ModalModels.ideal_necessity_does_not_entail_actuality": "3df2787a6bbb7b6d",
+    "dynamic.Heim1982_Indexed.ModalModels.reflexive_access_gives_factivity": "75558be6fc21bd0d",
+    "dynamic.Heim1982_Indexed.ModalModels.nonfactive_access_does_not_give_factivity": "f7116d4ade8884c6",
+    "dynamic.Heim1982_Indexed.ConstrualConstraints.earlier_definite_also_blocks_indefinite_coindexing": "2b081003156c3120"
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

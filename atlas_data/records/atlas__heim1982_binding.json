@@ -1,0 +1,273 @@
+{
+  "file": "atlas/dynamic/Heim1982_Binding.v",
+  "region": "dynamic",
+  "summary": "Complete free-index extraction and nearest-operator indexing for the supported earlier LF; constructive support theorem and compiler truth checks.",
+  "assessment_status": "incomplete",
+  "implementation_scope": "Authorized integration step implemented for selected construal trees and typed commands. Not a raw-English parser, full movement generator, total semantic decision procedure or completed pragmatic theory.",
+  "sources": [
+    {
+      "citation": "Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Consulted Schoubye–Glick 2011 retypesetting, pp.90–100,105–111,118–120,234,247–254.",
+      "path": "papers/dynamic/Heim_1982_DefiniteIndefiniteNPs.pdf",
+      "available": "Relevant primary-source passages read; single-assistant comparison, independent source review pending."
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "free_indices; occurs_free",
+      "source": "Free indices of the earlier indexed LF, with all explicit operator selections subtracted.",
+      "match": "exact"
+    },
+    {
+      "coq": "Construal; pending_indices; selection; compile_indexed; compile_text",
+      "source": "pp.90–100 nuclear/text closure and nearest-operator indexing on an already NP-prefixed, scope-resolved fragment; no movement generator.",
+      "match": "simplified"
+    },
+    {
+      "coq": "contextual_truth_computed",
+      "source": "pp.109–111 context-reference schema now supplied with computed rather than caller-provided free indices.",
+      "match": "exact"
+    },
+    {
+      "coq": "splice; depends_on",
+      "source": "Constructive infrastructure establishing that syntactically free coordinates suffice for semantic dependence.",
+      "match": "added"
+    }
+  ],
+  "theorems": [
+    {
+      "name": "in_without",
+      "status": "proved",
+      "inventory_id": "I01",
+      "claim_kind": "new",
+      "source_claim": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities. Helper, definition check or integration construction: in_without.",
+      "note": "Code line 12. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "free_indices_exact",
+      "status": "proved",
+      "inventory_id": "I01",
+      "claim_kind": "new",
+      "source_claim": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities. Helper, definition check or integration construction: free_indices_exact.",
+      "note": "Code line 40. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "agree_indices_sym",
+      "status": "proved",
+      "inventory_id": "I01",
+      "claim_kind": "new",
+      "source_claim": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities. Helper, definition check or integration construction: agree_indices_sym.",
+      "note": "Code line 50. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "agree_indices_app",
+      "status": "proved",
+      "inventory_id": "I01",
+      "claim_kind": "new",
+      "source_claim": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities. Helper, definition check or integration construction: agree_indices_app.",
+      "note": "Code line 53. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "splice_outside",
+      "status": "proved",
+      "inventory_id": "I01",
+      "claim_kind": "new",
+      "source_claim": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities. Helper, definition check or integration construction: splice_outside.",
+      "note": "Code line 63. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "splice_transport",
+      "status": "proved",
+      "inventory_id": "I01",
+      "claim_kind": "new",
+      "source_claim": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities. Helper, definition check or integration construction: splice_transport.",
+      "note": "Code line 68. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "selected_all_depends",
+      "status": "proved",
+      "inventory_id": "I01",
+      "claim_kind": "new",
+      "source_claim": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities. Helper, definition check or integration construction: selected_all_depends.",
+      "note": "Code line 76. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "selected_exists_depends",
+      "status": "proved",
+      "inventory_id": "I01",
+      "claim_kind": "new",
+      "source_claim": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities. Helper, definition check or integration construction: selected_exists_depends.",
+      "note": "Code line 86. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "best_predicate_congr",
+      "status": "proved",
+      "inventory_id": "I01",
+      "claim_kind": "new",
+      "source_claim": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities. Helper, definition check or integration construction: best_predicate_congr.",
+      "note": "Code line 96. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "satisfaction_depends_only_on_free",
+      "status": "proved",
+      "inventory_id": "I01",
+      "claim_kind": "new",
+      "source_claim": "Metatheorem for the earlier satisfaction clauses pp.105–111,118–120, proved for every constructor.",
+      "note": "Code line 101. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "changing_bound_or_absent_index_preserves_truth",
+      "status": "proved",
+      "inventory_id": "I01",
+      "claim_kind": "new",
+      "source_claim": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities. Helper, definition check or integration construction: changing_bound_or_absent_index_preserves_truth.",
+      "note": "Code line 154. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "computed_context_uses_exact_free_indices",
+      "status": "proved",
+      "inventory_id": "I03",
+      "claim_kind": "new",
+      "source_claim": "Computed contextual reference requirements and a runner guard rejecting unresolved deictic indices. Helper, definition check or integration construction: computed_context_uses_exact_free_indices.",
+      "note": "Code line 163. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "selection_exact",
+      "status": "proved",
+      "inventory_id": "I02",
+      "claim_kind": "new",
+      "source_claim": "p.96 nearest-operator indexing, represented by explicit seeds plus unshielded indefinite indices.",
+      "note": "Code line 206. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "pronouns_do_not_request_binding",
+      "status": "proved",
+      "inventory_id": "I02",
+      "claim_kind": "new",
+      "source_claim": "Nearest-operator selection, nuclear/text existential closure and checked donkey/nuclear truth conditions for a supplied scope-resolved NP-prefixed tree. Helper, definition check or integration construction: pronouns_do_not_request_binding.",
+      "note": "Code line 209. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "inner_operator_shields_introductions",
+      "status": "proved",
+      "inventory_id": "I02",
+      "claim_kind": "new",
+      "source_claim": "Nearest-operator selection, nuclear/text existential closure and checked donkey/nuclear truth conditions for a supplied scope-resolved NP-prefixed tree. Helper, definition check or integration construction: inner_operator_shields_introductions.",
+      "note": "Code line 211. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "nuclear_index_not_selected_by_outer",
+      "status": "proved",
+      "inventory_id": "I02",
+      "claim_kind": "new",
+      "source_claim": "Nearest-operator selection, nuclear/text existential closure and checked donkey/nuclear truth conditions for a supplied scope-resolved NP-prefixed tree. Helper, definition check or integration construction: nuclear_index_not_selected_by_outer.",
+      "note": "Code line 214. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "text_closure_keeps_deictic_free",
+      "status": "proved",
+      "inventory_id": "I03",
+      "claim_kind": "new",
+      "source_claim": "Computed contextual reference requirements and a runner guard rejecting unresolved deictic indices. Helper, definition check or integration construction: text_closure_keeps_deictic_free.",
+      "note": "Code line 225. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "deictic_not_accidentally_bound",
+      "status": "proved",
+      "inventory_id": "I03",
+      "claim_kind": "new",
+      "source_claim": "Computed contextual reference requirements and a runner guard rejecting unresolved deictic indices. Helper, definition check or integration construction: deictic_not_accidentally_bound.",
+      "note": "Code line 228. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "compiler_nuclear_indices",
+      "status": "proved",
+      "inventory_id": "I02",
+      "claim_kind": "new",
+      "source_claim": "Nearest-operator selection, nuclear/text existential closure and checked donkey/nuclear truth conditions for a supplied scope-resolved NP-prefixed tree. Helper, definition check or integration construction: compiler_nuclear_indices.",
+      "note": "Code line 234. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "compiler_nuclear_truth",
+      "status": "proved",
+      "inventory_id": "I02",
+      "claim_kind": "source claim",
+      "source_claim": "pp.90–97: a nuclear-scope indefinite receives existential force below the universal.",
+      "note": "Code line 240. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "closed_indexed_formula_ignores_assignment",
+      "status": "proved",
+      "inventory_id": "I01",
+      "claim_kind": "new",
+      "source_claim": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities. Helper, definition check or integration construction: closed_indexed_formula_ignores_assignment.",
+      "note": "Code line 252. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "empty_selection_is_semantically_vacuous",
+      "status": "proved",
+      "inventory_id": "I01",
+      "claim_kind": "new",
+      "source_claim": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities. Helper, definition check or integration construction: empty_selection_is_semantically_vacuous.",
+      "note": "Code line 258. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "compiled_closed_text_truth",
+      "status": "proved",
+      "inventory_id": "I02",
+      "claim_kind": "new",
+      "source_claim": "Nearest-operator selection, nuclear/text existential closure and checked donkey/nuclear truth conditions for a supplied scope-resolved NP-prefixed tree. Helper, definition check or integration construction: compiled_closed_text_truth.",
+      "note": "Code line 267. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "contextual_truth_agrees_with_resolved_assignment",
+      "status": "proved",
+      "inventory_id": "I03",
+      "claim_kind": "new",
+      "source_claim": "Computed contextual reference requirements and a runner guard rejecting unresolved deictic indices. Helper, definition check or integration construction: contextual_truth_agrees_with_resolved_assignment.",
+      "note": "Code line 274. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "compiler_donkey_truth",
+      "status": "proved",
+      "inventory_id": "I02",
+      "claim_kind": "source claim",
+      "source_claim": "pp.93–97: restrictor indefinites generate universal quantification over qualifying pairs.",
+      "note": "Code line 289. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    }
+  ],
+  "counts": {
+    "theorems": 25,
+    "proved": 25,
+    "admitted": 0,
+    "propositional_axioms": 0
+  },
+  "documented_logical_axioms": [],
+  "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+      "See campaigns/heim_1982_integration_results.md and every-theorem mechanical records. Existing source definitions are reused through explicit adapters; added integration machinery is identified above."
+    ],
+    "simplifications": [
+      "pp.90–100 nuclear/text closure and nearest-operator indexing on an already NP-prefixed, scope-resolved fragment; no movement generator."
+    ],
+    "omissions": [
+      "Raw-English analysis, general movement derivations and a complete generic/specific-indefinite theory are outside this step.",
+      "No chosen recency/prominence threshold, proxy-resolution algorithm, local/global accommodation preference or complete modal presupposition projection theory.",
+      "No whole-system equivalence between earlier indexed semantics and final FCS, and no total executable decision procedure for arbitrary interpretations."
+    ],
+    "additions": [
+      "Constructive infrastructure establishing that syntactically free coordinates suffice for semantic dependence."
+    ]
+  },
+  "determination": "unassessed",
+  "determination_rationale": "Integration and source-linked conditional results are checked; this does not settle whole-source coverage, the earlier source wording clarification or open pragmatic policy choices.",
+  "artifact_classes": [
+    {
+      "class": "iv",
+      "description": "Explicit syntax traversal, assignment splicing, tagged trace storage and conservative adapters; added engineering is not evidence of necessary theoretical change."
+    }
+  ],
+  "source_gap": null,
+  "notes": "Integration step 1. Prior four modules, research records and frozen P grades preserved. Counts include helpers and construction checks. No accepted source outcome or deployment.",
+  "compiles": true
+}

@@ -1,0 +1,179 @@
+{
+  "file": "atlas/dynamic/Heim1982_EndToEnd.v",
+  "region": "dynamic",
+  "summary": "End-to-end compiled modal/proxy/core runs, truth conditions, scope and world-safety checks.",
+  "assessment_status": "incomplete",
+  "implementation_scope": "Authorized integration step implemented for selected construal trees and typed commands. Not a raw-English parser, full movement generator, total semantic decision procedure or completed pragmatic theory.",
+  "sources": [
+    {
+      "citation": "Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Consulted Schoubye–Glick 2011 retypesetting, pp.90–100,105–111,118–120,234,247–254.",
+      "path": "papers/dynamic/Heim_1982_DefiniteIndefiniteNPs.pdf",
+      "available": "Relevant primary-source passages read; single-assistant comparison, independent source review pending."
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "modal_tree; modal_query",
+      "source": "pp.118–120 necessity with flat ordering and nuclear indefinite, compiled rather than manually assigned selection indices.",
+      "match": "simplified"
+    },
+    {
+      "coq": "modal_proxy_program; after_read; after_proxy; after_assertion",
+      "source": "Added end-to-end integration of the modal truth test, conditional proxy step and final-FCS assertion.",
+      "match": "added"
+    },
+    {
+      "coq": "keep_all; keep_all_sound; kept_event",
+      "source": "Explicit deterministic instrumentation fixture; keeping every in-domain card eligible is not Heim's theory of prominence.",
+      "match": "added"
+    },
+    {
+      "coq": "NonfactiveModel",
+      "source": "Two-world diagnostic that separates a desired-world witness from an actual-world witness.",
+      "match": "added"
+    }
+  ],
+  "theorems": [
+    {
+      "name": "keep_all_records_each_frame",
+      "status": "proved",
+      "inventory_id": "I05",
+      "claim_kind": "new",
+      "source_claim": "Finite traces retain tentative cards without exporting their indices; history is generated during actual core or indexed-calculation steps. Helper, definition check or integration construction: keep_all_records_each_frame.",
+      "note": "Code line 20. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "modal_compiler_has_no_free_individuals",
+      "status": "proved",
+      "inventory_id": "I03",
+      "claim_kind": "new",
+      "source_claim": "Computed contextual reference requirements and a runner guard rejecting unresolved deictic indices. Helper, definition check or integration construction: modal_compiler_has_no_free_individuals.",
+      "note": "Code line 35. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "compiled_modal_truth",
+      "status": "proved",
+      "inventory_id": "I07",
+      "claim_kind": "new",
+      "source_claim": "World-relative modal traces, exact modal truth tests, factive preservation and a nonfactive countermodel; no automatic actual-world inference from a remembered modal card. Helper, definition check or integration construction: compiled_modal_truth.",
+      "note": "Code line 38. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "modal_trace_contains_description",
+      "status": "proved",
+      "inventory_id": "I07",
+      "claim_kind": "new",
+      "source_claim": "World-relative modal traces, exact modal truth tests, factive preservation and a nonfactive countermodel; no automatic actual-world inference from a remembered modal card. Helper, definition check or integration construction: modal_trace_contains_description.",
+      "note": "Code line 63. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "modal_stage_retains_world_argument",
+      "status": "proved",
+      "inventory_id": "I07",
+      "claim_kind": "new",
+      "source_claim": "World-relative modal traces, exact modal truth tests, factive preservation and a nonfactive countermodel; no automatic actual-world inference from a remembered modal card. Helper, definition check or integration construction: modal_stage_retains_world_argument.",
+      "note": "Code line 66. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "read_generates_tentative_memory_without_export",
+      "status": "proved",
+      "inventory_id": "I05",
+      "claim_kind": "new",
+      "source_claim": "Finite traces retain tentative cards without exporting their indices; history is generated during actual core or indexed-calculation steps. Helper, definition check or integration construction: read_generates_tentative_memory_without_export.",
+      "note": "Code line 91. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "complete_modal_proxy_core_run",
+      "status": "proved",
+      "inventory_id": "I08",
+      "claim_kind": "conditional result",
+      "source_claim": "Added integration witness, conditional on attention fixture, fresh distinct proxy index and explicit authorization; not an unconditional source acceptability claim.",
+      "note": "Code line 101. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "proxy_core_truth",
+      "status": "proved",
+      "inventory_id": "I08",
+      "claim_kind": "new",
+      "source_claim": "A compiled modal statement, proxy accommodation and ordinary core assertion execute together and have proved truth conditions under stated hypotheses. Helper, definition check or integration construction: proxy_core_truth.",
+      "note": "Code line 121. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "complete_program_truth_conditions",
+      "status": "proved",
+      "inventory_id": "I08",
+      "claim_kind": "conditional result",
+      "source_claim": "Derived truth conditions of the complete added pipeline; source necessity and final-FCS meanings remain separate adapters.",
+      "note": "Code line 132. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "factive_modal_proxy_preserves_world_content",
+      "status": "proved",
+      "inventory_id": "I07",
+      "claim_kind": "conditional result",
+      "source_claim": "pp.251–252 factivity supports an actual witness: preservation is of world content, not the literal assignment-set claim previously qualified.",
+      "note": "Code line 150. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "core_run_remembers_but_cannot_directly_reuse_scoped_card",
+      "status": "proved",
+      "inventory_id": "I05",
+      "claim_kind": "new",
+      "source_claim": "Finite traces retain tentative cards without exporting their indices; history is generated during actual core or indexed-calculation steps. Helper, definition check or integration construction: core_run_remembers_but_cannot_directly_reuse_scoped_card.",
+      "note": "Code line 167. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "unresolved_deictic_blocks_read",
+      "status": "proved",
+      "inventory_id": "I03",
+      "claim_kind": "new",
+      "source_claim": "Computed contextual reference requirements and a runner guard rejecting unresolved deictic indices. Helper, definition check or integration construction: unresolved_deictic_blocks_read.",
+      "note": "Code line 179. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "NonfactiveModel.desired_witness_is_not_an_actual_witness",
+      "status": "proved",
+      "inventory_id": "I07",
+      "claim_kind": "new",
+      "source_claim": "pp.251–252 motivation: a two-world countermodel to inferring an actual witness from desire-world satisfaction.",
+      "note": "Code line 193. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    }
+  ],
+  "counts": {
+    "theorems": 13,
+    "proved": 13,
+    "admitted": 0,
+    "propositional_axioms": 0
+  },
+  "documented_logical_axioms": [],
+  "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+      "See campaigns/heim_1982_integration_results.md and every-theorem mechanical records. Existing source definitions are reused through explicit adapters; added integration machinery is identified above."
+    ],
+    "simplifications": [
+      "pp.118–120 necessity with flat ordering and nuclear indefinite, compiled rather than manually assigned selection indices."
+    ],
+    "omissions": [
+      "Raw-English analysis, general movement derivations and a complete generic/specific-indefinite theory are outside this step.",
+      "No chosen recency/prominence threshold, proxy-resolution algorithm, local/global accommodation preference or complete modal presupposition projection theory.",
+      "No whole-system equivalence between earlier indexed semantics and final FCS, and no total executable decision procedure for arbitrary interpretations."
+    ],
+    "additions": [
+      "Added end-to-end integration of the modal truth test, conditional proxy step and final-FCS assertion.",
+      "Explicit deterministic instrumentation fixture; keeping every in-domain card eligible is not Heim's theory of prominence.",
+      "Two-world diagnostic that separates a desired-world witness from an actual-world witness."
+    ]
+  },
+  "determination": "unassessed",
+  "determination_rationale": "Integration and source-linked conditional results are checked; this does not settle whole-source coverage, the earlier source wording clarification or open pragmatic policy choices.",
+  "artifact_classes": [
+    {
+      "class": "iv",
+      "description": "Explicit syntax traversal, assignment splicing, tagged trace storage and conservative adapters; added engineering is not evidence of necessary theoretical change."
+    }
+  ],
+  "source_gap": null,
+  "notes": "Integration step 1. Prior four modules, research records and frozen P grades preserved. Counts include helpers and construction checks. No accepted source outcome or deployment.",
+  "compiles": true
+}

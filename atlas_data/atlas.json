@@ -1,21 +1,21 @@
 {
  "generated_from": {
-  "records": 78,
+  "records": 86,
   "papers": 230
  },
  "stats": {
-  "theorems": 1318,
-  "proved": 1305,
+  "theorems": 1504,
+  "proved": 1491,
   "admitted": 12,
   "determination": {
-   "unassessed": 9,
+   "unassessed": 17,
    "as_is": 21,
    "not_applicable": 9,
    "slight_modification": 23,
    "major_restructuring": 16
   },
   "faithfulness": {
-   "partial": 45,
+   "partial": 53,
    "faithful": 20,
    "faithful-with-corrections": 1,
    "not_applicable": 2,
@@ -1501,6 +1501,2368 @@
    "_probe": {
     "probed": 5,
     "trivial": 1,
+    "vacuous": 0,
+    "vacuous_names": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/dynamic/Heim1982.v",
+   "region": "dynamic",
+   "summary": "World-sensitive final file-change rules I–V; independent file domains, exact condition B, local extended NFC and contextual truth. General invariance and existential-force proofs, with no added logical axioms.",
+   "assessment_status": "incomplete",
+   "implementation_scope": "Explicit rules and theorems implemented; open source policies/grammar are interfaces, not complete predictions.",
+   "sources": [
+    {
+     "citation": "Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Consulted edition: Schoubye–Glick 2011 retypesetting. III.1.4 pp.185–190; III.2.1.1 pp.196–198; pp.202,214–218,234,236–238; p.254 fn.28.",
+     "path": "papers/dynamic/Heim_1982_DefiniteIndefiniteNPs.pdf",
+     "available": "Local primary-source passages read. Independent semantic review pending."
+    }
+   ],
+   "definitions_mapped": [
+    {
+     "coq": "Assignment; File; condition_B; world_content",
+     "source": "Infinite assignments, independent domains/satisfaction, world projection, and the source's single-coordinate condition B.",
+     "match": "exact"
+    },
+    {
+     "coq": "tuple; slots; values; Formula",
+     "source": "Finite-arity tuples and semantic LF syntax; not the full grammar of English.",
+     "match": "added"
+    },
+    {
+     "coq": "atomic; update; universal_result; negative_result; disjunctive_result",
+     "source": "Final rules I–IV at p.234 and proposed disjunction V at p.254 fn.28; factorized existential/disjunction is proved equivalent.",
+     "match": "exact"
+    },
+    {
+     "coq": "Mark; Use; licensed; entails; defined_update",
+     "source": "Local extended NFC, complex descriptive entailment and mathematically partial updates represented by a guard.",
+     "match": "exact"
+    },
+    {
+     "coq": "utterance_true; utterance_false",
+     "source": "Criterion C on pp.214–218, not a solution of C′ for false contexts.",
+     "match": "exact"
+    },
+    {
+     "coq": "supported; file_equiv",
+     "source": "Stronger full-domain support and pointwise equality; kept distinct from B.",
+     "match": "added"
+    }
+   ],
+   "theorems": [
+    {
+     "name": "put_same",
+     "status": "proved",
+     "inventory_id": "H03",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: put_same. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 40."
+    },
+    {
+     "name": "put_other",
+     "status": "proved",
+     "inventory_id": "H03",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: put_other. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 42."
+    },
+    {
+     "name": "agree_refl",
+     "status": "proved",
+     "inventory_id": "H03",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: agree_refl. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 44."
+    },
+    {
+     "name": "agree_sym",
+     "status": "proved",
+     "inventory_id": "H03",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: agree_sym. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 46."
+    },
+    {
+     "name": "agree_trans",
+     "status": "proved",
+     "inventory_id": "H03",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: agree_trans. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 48."
+    },
+    {
+     "name": "differs_agree",
+     "status": "proved",
+     "inventory_id": "H03",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: differs_agree. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 51."
+    },
+    {
+     "name": "supported_implies_B",
+     "status": "proved",
+     "inventory_id": "H02",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: supported_implies_B. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 69."
+    },
+    {
+     "name": "empty_supported",
+     "status": "proved",
+     "inventory_id": "H02",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: empty_supported. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 71."
+    },
+    {
+     "name": "false_supported",
+     "status": "proved",
+     "inventory_id": "H02",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: false_supported. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 73."
+    },
+    {
+     "name": "empty_file_truth_needs_inhabited_domain",
+     "status": "proved",
+     "inventory_id": "H01",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: empty_file_truth_needs_inhabited_domain. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 75."
+    },
+    {
+     "name": "fresh_put",
+     "status": "proved",
+     "inventory_id": "H02",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: fresh_put. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 82."
+    },
+    {
+     "name": "values_agree",
+     "status": "proved",
+     "inventory_id": "H03",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: values_agree. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 94."
+    },
+    {
+     "name": "disjunction_single_witness",
+     "status": "proved",
+     "inventory_id": "H03",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: disjunction_single_witness. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 128."
+    },
+    {
+     "name": "domain_update",
+     "status": "proved",
+     "inventory_id": "H03",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: domain_update. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 179."
+    },
+    {
+     "name": "update_contractive",
+     "status": "proved",
+     "inventory_id": "H03",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: update_contractive. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 191."
+    },
+    {
+     "name": "file_truth_contracts",
+     "status": "proved",
+     "inventory_id": "H05",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: file_truth_contracts. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 203."
+    },
+    {
+     "name": "true_false_exclusive",
+     "status": "proved",
+     "inventory_id": "H05",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: true_false_exclusive. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 206."
+    },
+    {
+     "name": "false_input_has_no_C_truth_value",
+     "status": "proved",
+     "inventory_id": "H05",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: false_input_has_no_C_truth_value. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 209."
+    },
+    {
+     "name": "infelicity_is_neither_true_nor_false",
+     "status": "proved",
+     "inventory_id": "H04",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: infelicity_is_neither_true_nor_false. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 216."
+    },
+    {
+     "name": "extension_at_agree",
+     "status": "proved",
+     "inventory_id": "H03",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: extension_at_agree. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 220."
+    },
+    {
+     "name": "universal_test_agree",
+     "status": "proved",
+     "inventory_id": "H03",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: universal_test_agree. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 227."
+    },
+    {
+     "name": "update_preserves_B",
+     "status": "proved",
+     "inventory_id": "H02",
+     "claim_kind": "new",
+     "source_claim": "All final updates preserve the stated single-coordinate condition B.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 241."
+    },
+    {
+     "name": "update_preserves_support",
+     "status": "proved",
+     "inventory_id": "H02",
+     "claim_kind": "new",
+     "source_claim": "The stronger support property is preserved separately; it is not assumed equivalent to B.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 270."
+    },
+    {
+     "name": "indefinite_felicity",
+     "status": "proved",
+     "inventory_id": "H04",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: indefinite_felicity. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 305."
+    },
+    {
+     "name": "definite_felicity",
+     "status": "proved",
+     "inventory_id": "H04",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: definite_felicity. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 308."
+    },
+    {
+     "name": "fresh_indefinite_truth",
+     "status": "proved",
+     "inventory_id": "H05",
+     "claim_kind": "source claim",
+     "source_claim": "pp.215–216: novelty and B derive existential force.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 312."
+    },
+    {
+     "name": "descriptive_update_is_vacuous",
+     "status": "proved",
+     "inventory_id": "H08",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: descriptive_update_is_vacuous. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 323."
+    },
+    {
+     "name": "introduction_licenses_anaphor",
+     "status": "proved",
+     "inventory_id": "H05",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: introduction_licenses_anaphor. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 331."
+    },
+    {
+     "name": "negation_does_not_export",
+     "status": "proved",
+     "inventory_id": "H06",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: negation_does_not_export. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 334."
+    },
+    {
+     "name": "universal_does_not_export",
+     "status": "proved",
+     "inventory_id": "H06",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: universal_does_not_export. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 337."
+    },
+    {
+     "name": "disjunction_does_not_export",
+     "status": "proved",
+     "inventory_id": "H06",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: disjunction_does_not_export. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 340."
+    },
+    {
+     "name": "negation_projects_felicity",
+     "status": "proved",
+     "inventory_id": "H08",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: negation_projects_felicity. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 343."
+    },
+    {
+     "name": "local_descriptive_projection",
+     "status": "proved",
+     "inventory_id": "H08",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: local_descriptive_projection. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 346."
+    },
+    {
+     "name": "nontrivial_entailment_not_not_familiar",
+     "status": "proved",
+     "inventory_id": "H07",
+     "claim_kind": "source claim",
+     "source_claim": "Constructive double-negation part of p.238 fn.21.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 354."
+    }
+   ],
+   "counts": {
+    "theorems": 34,
+    "proved": 34,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "documented_logical_axioms": [],
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "World-sensitive final file-change rules I–V; independent file domains, exact condition B, local extended NFC and contextual truth. General invariance and existential-force proofs, with no added logical axioms.",
+     "Source-complete approval is withheld; this self-assessment does not authenticate independent review."
+    ],
+    "simplifications": [],
+    "omissions": [
+     "No automatic choice of LF, referent or accommodation policy.",
+     "Felicity covers the named semantic checks, not all pragmatic acceptability.",
+     "Criterion C′ and modal/indexed semantics are in companion modules, not blended into these final rules."
+    ],
+    "additions": [
+     "Finite-arity tuples and semantic LF syntax; not the full grammar of English.",
+     "Stronger full-domain support and pointwise equality; kept distinct from B."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "The explicit mathematical semantics has substantial checked support. Unresolved pragmatic policies, general grammar coverage and the source clarification are recorded, not silently repaired or converted into a necessity-of-restructuring verdict. Source-level approval remains pending.",
+   "artifact_classes": [
+    {
+     "class": "iv",
+     "description": "Explicit file/domain, finite-arity syntax and relational interfaces are representation infrastructure; no changed predictions are inferred from their addition."
+    },
+    {
+     "class": "v",
+     "description": "Arbitrary satisfaction/entailment has no supplied decision procedure. A total executable resolver would require additional capabilities or a declared restricted model."
+    }
+   ],
+   "source_gap": null,
+   "notes": "See campaigns/heim_1982_design.md and campaigns/heim_1982_results.md. Original attempts and frozen P grades retained. Counts include helpers and conditional/interface results; inspect mechanical depth flags. No source-outcome approval.",
+   "compiles": true,
+   "_key": "atlas__heim1982",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 34,
+    "proved": 34,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 34,
+    "queried": 34,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_probe": {
+    "probed": 34,
+    "trivial": 12,
+    "vacuous": 0,
+    "vacuous_names": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "region": "dynamic",
+   "summary": "Complete free-index extraction and nearest-operator indexing for the supported earlier LF; constructive support theorem and compiler truth checks.",
+   "assessment_status": "incomplete",
+   "implementation_scope": "Authorized integration step implemented for selected construal trees and typed commands. Not a raw-English parser, full movement generator, total semantic decision procedure or completed pragmatic theory.",
+   "sources": [
+    {
+     "citation": "Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Consulted Schoubye–Glick 2011 retypesetting, pp.90–100,105–111,118–120,234,247–254.",
+     "path": "papers/dynamic/Heim_1982_DefiniteIndefiniteNPs.pdf",
+     "available": "Relevant primary-source passages read; single-assistant comparison, independent source review pending."
+    }
+   ],
+   "definitions_mapped": [
+    {
+     "coq": "free_indices; occurs_free",
+     "source": "Free indices of the earlier indexed LF, with all explicit operator selections subtracted.",
+     "match": "exact"
+    },
+    {
+     "coq": "Construal; pending_indices; selection; compile_indexed; compile_text",
+     "source": "pp.90–100 nuclear/text closure and nearest-operator indexing on an already NP-prefixed, scope-resolved fragment; no movement generator.",
+     "match": "simplified"
+    },
+    {
+     "coq": "contextual_truth_computed",
+     "source": "pp.109–111 context-reference schema now supplied with computed rather than caller-provided free indices.",
+     "match": "exact"
+    },
+    {
+     "coq": "splice; depends_on",
+     "source": "Constructive infrastructure establishing that syntactically free coordinates suffice for semantic dependence.",
+     "match": "added"
+    }
+   ],
+   "theorems": [
+    {
+     "name": "in_without",
+     "status": "proved",
+     "inventory_id": "I01",
+     "claim_kind": "new",
+     "source_claim": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities. Helper, definition check or integration construction: in_without.",
+     "note": "Code line 12. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "free_indices_exact",
+     "status": "proved",
+     "inventory_id": "I01",
+     "claim_kind": "new",
+     "source_claim": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities. Helper, definition check or integration construction: free_indices_exact.",
+     "note": "Code line 40. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "agree_indices_sym",
+     "status": "proved",
+     "inventory_id": "I01",
+     "claim_kind": "new",
+     "source_claim": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities. Helper, definition check or integration construction: agree_indices_sym.",
+     "note": "Code line 50. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "agree_indices_app",
+     "status": "proved",
+     "inventory_id": "I01",
+     "claim_kind": "new",
+     "source_claim": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities. Helper, definition check or integration construction: agree_indices_app.",
+     "note": "Code line 53. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "splice_outside",
+     "status": "proved",
+     "inventory_id": "I01",
+     "claim_kind": "new",
+     "source_claim": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities. Helper, definition check or integration construction: splice_outside.",
+     "note": "Code line 63. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "splice_transport",
+     "status": "proved",
+     "inventory_id": "I01",
+     "claim_kind": "new",
+     "source_claim": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities. Helper, definition check or integration construction: splice_transport.",
+     "note": "Code line 68. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "selected_all_depends",
+     "status": "proved",
+     "inventory_id": "I01",
+     "claim_kind": "new",
+     "source_claim": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities. Helper, definition check or integration construction: selected_all_depends.",
+     "note": "Code line 76. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "selected_exists_depends",
+     "status": "proved",
+     "inventory_id": "I01",
+     "claim_kind": "new",
+     "source_claim": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities. Helper, definition check or integration construction: selected_exists_depends.",
+     "note": "Code line 86. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "best_predicate_congr",
+     "status": "proved",
+     "inventory_id": "I01",
+     "claim_kind": "new",
+     "source_claim": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities. Helper, definition check or integration construction: best_predicate_congr.",
+     "note": "Code line 96. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "satisfaction_depends_only_on_free",
+     "status": "proved",
+     "inventory_id": "I01",
+     "claim_kind": "new",
+     "source_claim": "Metatheorem for the earlier satisfaction clauses pp.105–111,118–120, proved for every constructor.",
+     "note": "Code line 101. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "changing_bound_or_absent_index_preserves_truth",
+     "status": "proved",
+     "inventory_id": "I01",
+     "claim_kind": "new",
+     "source_claim": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities. Helper, definition check or integration construction: changing_bound_or_absent_index_preserves_truth.",
+     "note": "Code line 154. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "computed_context_uses_exact_free_indices",
+     "status": "proved",
+     "inventory_id": "I03",
+     "claim_kind": "new",
+     "source_claim": "Computed contextual reference requirements and a runner guard rejecting unresolved deictic indices. Helper, definition check or integration construction: computed_context_uses_exact_free_indices.",
+     "note": "Code line 163. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "selection_exact",
+     "status": "proved",
+     "inventory_id": "I02",
+     "claim_kind": "new",
+     "source_claim": "p.96 nearest-operator indexing, represented by explicit seeds plus unshielded indefinite indices.",
+     "note": "Code line 206. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "pronouns_do_not_request_binding",
+     "status": "proved",
+     "inventory_id": "I02",
+     "claim_kind": "new",
+     "source_claim": "Nearest-operator selection, nuclear/text existential closure and checked donkey/nuclear truth conditions for a supplied scope-resolved NP-prefixed tree. Helper, definition check or integration construction: pronouns_do_not_request_binding.",
+     "note": "Code line 209. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "inner_operator_shields_introductions",
+     "status": "proved",
+     "inventory_id": "I02",
+     "claim_kind": "new",
+     "source_claim": "Nearest-operator selection, nuclear/text existential closure and checked donkey/nuclear truth conditions for a supplied scope-resolved NP-prefixed tree. Helper, definition check or integration construction: inner_operator_shields_introductions.",
+     "note": "Code line 211. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "nuclear_index_not_selected_by_outer",
+     "status": "proved",
+     "inventory_id": "I02",
+     "claim_kind": "new",
+     "source_claim": "Nearest-operator selection, nuclear/text existential closure and checked donkey/nuclear truth conditions for a supplied scope-resolved NP-prefixed tree. Helper, definition check or integration construction: nuclear_index_not_selected_by_outer.",
+     "note": "Code line 214. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "text_closure_keeps_deictic_free",
+     "status": "proved",
+     "inventory_id": "I03",
+     "claim_kind": "new",
+     "source_claim": "Computed contextual reference requirements and a runner guard rejecting unresolved deictic indices. Helper, definition check or integration construction: text_closure_keeps_deictic_free.",
+     "note": "Code line 225. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "deictic_not_accidentally_bound",
+     "status": "proved",
+     "inventory_id": "I03",
+     "claim_kind": "new",
+     "source_claim": "Computed contextual reference requirements and a runner guard rejecting unresolved deictic indices. Helper, definition check or integration construction: deictic_not_accidentally_bound.",
+     "note": "Code line 228. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "compiler_nuclear_indices",
+     "status": "proved",
+     "inventory_id": "I02",
+     "claim_kind": "new",
+     "source_claim": "Nearest-operator selection, nuclear/text existential closure and checked donkey/nuclear truth conditions for a supplied scope-resolved NP-prefixed tree. Helper, definition check or integration construction: compiler_nuclear_indices.",
+     "note": "Code line 234. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "compiler_nuclear_truth",
+     "status": "proved",
+     "inventory_id": "I02",
+     "claim_kind": "source claim",
+     "source_claim": "pp.90–97: a nuclear-scope indefinite receives existential force below the universal.",
+     "note": "Code line 240. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "closed_indexed_formula_ignores_assignment",
+     "status": "proved",
+     "inventory_id": "I01",
+     "claim_kind": "new",
+     "source_claim": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities. Helper, definition check or integration construction: closed_indexed_formula_ignores_assignment.",
+     "note": "Code line 252. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "empty_selection_is_semantically_vacuous",
+     "status": "proved",
+     "inventory_id": "I01",
+     "claim_kind": "new",
+     "source_claim": "Computed free-variable membership and constructive semantic dependence for all earlier indexed constructors, including both modalities. Helper, definition check or integration construction: empty_selection_is_semantically_vacuous.",
+     "note": "Code line 258. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "compiled_closed_text_truth",
+     "status": "proved",
+     "inventory_id": "I02",
+     "claim_kind": "new",
+     "source_claim": "Nearest-operator selection, nuclear/text existential closure and checked donkey/nuclear truth conditions for a supplied scope-resolved NP-prefixed tree. Helper, definition check or integration construction: compiled_closed_text_truth.",
+     "note": "Code line 267. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "contextual_truth_agrees_with_resolved_assignment",
+     "status": "proved",
+     "inventory_id": "I03",
+     "claim_kind": "new",
+     "source_claim": "Computed contextual reference requirements and a runner guard rejecting unresolved deictic indices. Helper, definition check or integration construction: contextual_truth_agrees_with_resolved_assignment.",
+     "note": "Code line 274. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "compiler_donkey_truth",
+     "status": "proved",
+     "inventory_id": "I02",
+     "claim_kind": "source claim",
+     "source_claim": "pp.93–97: restrictor indefinites generate universal quantification over qualifying pairs.",
+     "note": "Code line 289. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    }
+   ],
+   "counts": {
+    "theorems": 25,
+    "proved": 25,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "documented_logical_axioms": [],
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "See campaigns/heim_1982_integration_results.md and every-theorem mechanical records. Existing source definitions are reused through explicit adapters; added integration machinery is identified above."
+    ],
+    "simplifications": [
+     "pp.90–100 nuclear/text closure and nearest-operator indexing on an already NP-prefixed, scope-resolved fragment; no movement generator."
+    ],
+    "omissions": [
+     "Raw-English analysis, general movement derivations and a complete generic/specific-indefinite theory are outside this step.",
+     "No chosen recency/prominence threshold, proxy-resolution algorithm, local/global accommodation preference or complete modal presupposition projection theory.",
+     "No whole-system equivalence between earlier indexed semantics and final FCS, and no total executable decision procedure for arbitrary interpretations."
+    ],
+    "additions": [
+     "Constructive infrastructure establishing that syntactically free coordinates suffice for semantic dependence."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "Integration and source-linked conditional results are checked; this does not settle whole-source coverage, the earlier source wording clarification or open pragmatic policy choices.",
+   "artifact_classes": [
+    {
+     "class": "iv",
+     "description": "Explicit syntax traversal, assignment splicing, tagged trace storage and conservative adapters; added engineering is not evidence of necessary theoretical change."
+    }
+   ],
+   "source_gap": null,
+   "notes": "Integration step 1. Prior four modules, research records and frozen P grades preserved. Counts include helpers and construction checks. No accepted source outcome or deployment.",
+   "compiles": true,
+   "_key": "atlas__heim1982_binding",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 25,
+    "proved": 25,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 25,
+    "queried": 25,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_probe": {
+    "probed": 25,
+    "trivial": 4,
+    "vacuous": 0,
+    "vacuous_names": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/dynamic/Heim1982_EndToEnd.v",
+   "region": "dynamic",
+   "summary": "End-to-end compiled modal/proxy/core runs, truth conditions, scope and world-safety checks.",
+   "assessment_status": "incomplete",
+   "implementation_scope": "Authorized integration step implemented for selected construal trees and typed commands. Not a raw-English parser, full movement generator, total semantic decision procedure or completed pragmatic theory.",
+   "sources": [
+    {
+     "citation": "Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Consulted Schoubye–Glick 2011 retypesetting, pp.90–100,105–111,118–120,234,247–254.",
+     "path": "papers/dynamic/Heim_1982_DefiniteIndefiniteNPs.pdf",
+     "available": "Relevant primary-source passages read; single-assistant comparison, independent source review pending."
+    }
+   ],
+   "definitions_mapped": [
+    {
+     "coq": "modal_tree; modal_query",
+     "source": "pp.118–120 necessity with flat ordering and nuclear indefinite, compiled rather than manually assigned selection indices.",
+     "match": "simplified"
+    },
+    {
+     "coq": "modal_proxy_program; after_read; after_proxy; after_assertion",
+     "source": "Added end-to-end integration of the modal truth test, conditional proxy step and final-FCS assertion.",
+     "match": "added"
+    },
+    {
+     "coq": "keep_all; keep_all_sound; kept_event",
+     "source": "Explicit deterministic instrumentation fixture; keeping every in-domain card eligible is not Heim's theory of prominence.",
+     "match": "added"
+    },
+    {
+     "coq": "NonfactiveModel",
+     "source": "Two-world diagnostic that separates a desired-world witness from an actual-world witness.",
+     "match": "added"
+    }
+   ],
+   "theorems": [
+    {
+     "name": "keep_all_records_each_frame",
+     "status": "proved",
+     "inventory_id": "I05",
+     "claim_kind": "new",
+     "source_claim": "Finite traces retain tentative cards without exporting their indices; history is generated during actual core or indexed-calculation steps. Helper, definition check or integration construction: keep_all_records_each_frame.",
+     "note": "Code line 20. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "modal_compiler_has_no_free_individuals",
+     "status": "proved",
+     "inventory_id": "I03",
+     "claim_kind": "new",
+     "source_claim": "Computed contextual reference requirements and a runner guard rejecting unresolved deictic indices. Helper, definition check or integration construction: modal_compiler_has_no_free_individuals.",
+     "note": "Code line 35. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "compiled_modal_truth",
+     "status": "proved",
+     "inventory_id": "I07",
+     "claim_kind": "new",
+     "source_claim": "World-relative modal traces, exact modal truth tests, factive preservation and a nonfactive countermodel; no automatic actual-world inference from a remembered modal card. Helper, definition check or integration construction: compiled_modal_truth.",
+     "note": "Code line 38. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "modal_trace_contains_description",
+     "status": "proved",
+     "inventory_id": "I07",
+     "claim_kind": "new",
+     "source_claim": "World-relative modal traces, exact modal truth tests, factive preservation and a nonfactive countermodel; no automatic actual-world inference from a remembered modal card. Helper, definition check or integration construction: modal_trace_contains_description.",
+     "note": "Code line 63. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "modal_stage_retains_world_argument",
+     "status": "proved",
+     "inventory_id": "I07",
+     "claim_kind": "new",
+     "source_claim": "World-relative modal traces, exact modal truth tests, factive preservation and a nonfactive countermodel; no automatic actual-world inference from a remembered modal card. Helper, definition check or integration construction: modal_stage_retains_world_argument.",
+     "note": "Code line 66. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "read_generates_tentative_memory_without_export",
+     "status": "proved",
+     "inventory_id": "I05",
+     "claim_kind": "new",
+     "source_claim": "Finite traces retain tentative cards without exporting their indices; history is generated during actual core or indexed-calculation steps. Helper, definition check or integration construction: read_generates_tentative_memory_without_export.",
+     "note": "Code line 91. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "complete_modal_proxy_core_run",
+     "status": "proved",
+     "inventory_id": "I08",
+     "claim_kind": "conditional result",
+     "source_claim": "Added integration witness, conditional on attention fixture, fresh distinct proxy index and explicit authorization; not an unconditional source acceptability claim.",
+     "note": "Code line 101. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "proxy_core_truth",
+     "status": "proved",
+     "inventory_id": "I08",
+     "claim_kind": "new",
+     "source_claim": "A compiled modal statement, proxy accommodation and ordinary core assertion execute together and have proved truth conditions under stated hypotheses. Helper, definition check or integration construction: proxy_core_truth.",
+     "note": "Code line 121. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "complete_program_truth_conditions",
+     "status": "proved",
+     "inventory_id": "I08",
+     "claim_kind": "conditional result",
+     "source_claim": "Derived truth conditions of the complete added pipeline; source necessity and final-FCS meanings remain separate adapters.",
+     "note": "Code line 132. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "factive_modal_proxy_preserves_world_content",
+     "status": "proved",
+     "inventory_id": "I07",
+     "claim_kind": "conditional result",
+     "source_claim": "pp.251–252 factivity supports an actual witness: preservation is of world content, not the literal assignment-set claim previously qualified.",
+     "note": "Code line 150. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "core_run_remembers_but_cannot_directly_reuse_scoped_card",
+     "status": "proved",
+     "inventory_id": "I05",
+     "claim_kind": "new",
+     "source_claim": "Finite traces retain tentative cards without exporting their indices; history is generated during actual core or indexed-calculation steps. Helper, definition check or integration construction: core_run_remembers_but_cannot_directly_reuse_scoped_card.",
+     "note": "Code line 167. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "unresolved_deictic_blocks_read",
+     "status": "proved",
+     "inventory_id": "I03",
+     "claim_kind": "new",
+     "source_claim": "Computed contextual reference requirements and a runner guard rejecting unresolved deictic indices. Helper, definition check or integration construction: unresolved_deictic_blocks_read.",
+     "note": "Code line 179. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "NonfactiveModel.desired_witness_is_not_an_actual_witness",
+     "status": "proved",
+     "inventory_id": "I07",
+     "claim_kind": "new",
+     "source_claim": "pp.251–252 motivation: a two-world countermodel to inferring an actual witness from desire-world satisfaction.",
+     "note": "Code line 193. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    }
+   ],
+   "counts": {
+    "theorems": 13,
+    "proved": 13,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "documented_logical_axioms": [],
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "See campaigns/heim_1982_integration_results.md and every-theorem mechanical records. Existing source definitions are reused through explicit adapters; added integration machinery is identified above."
+    ],
+    "simplifications": [
+     "pp.118–120 necessity with flat ordering and nuclear indefinite, compiled rather than manually assigned selection indices."
+    ],
+    "omissions": [
+     "Raw-English analysis, general movement derivations and a complete generic/specific-indefinite theory are outside this step.",
+     "No chosen recency/prominence threshold, proxy-resolution algorithm, local/global accommodation preference or complete modal presupposition projection theory.",
+     "No whole-system equivalence between earlier indexed semantics and final FCS, and no total executable decision procedure for arbitrary interpretations."
+    ],
+    "additions": [
+     "Added end-to-end integration of the modal truth test, conditional proxy step and final-FCS assertion.",
+     "Explicit deterministic instrumentation fixture; keeping every in-domain card eligible is not Heim's theory of prominence.",
+     "Two-world diagnostic that separates a desired-world witness from an actual-world witness."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "Integration and source-linked conditional results are checked; this does not settle whole-source coverage, the earlier source wording clarification or open pragmatic policy choices.",
+   "artifact_classes": [
+    {
+     "class": "iv",
+     "description": "Explicit syntax traversal, assignment splicing, tagged trace storage and conservative adapters; added engineering is not evidence of necessary theoretical change."
+    }
+   ],
+   "source_gap": null,
+   "notes": "Integration step 1. Prior four modules, research records and frozen P grades preserved. Counts include helpers and construction checks. No accepted source outcome or deployment.",
+   "compiles": true,
+   "_key": "atlas__heim1982_endtoend",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 13,
+    "proved": 13,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 13,
+    "queried": 13,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_probe": {
+    "probed": 13,
+    "trivial": 3,
+    "vacuous": 0,
+    "vacuous_names": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/dynamic/Heim1982_Examples.v",
+   "region": "dynamic",
+   "summary": "General source-linked donkey, nuclear existential, negation and discourse truth conditions; finite separating models and intensional presupposition checks.",
+   "assessment_status": "incomplete",
+   "implementation_scope": "Explicit rules and theorems implemented; open source policies/grammar are interfaces, not complete predictions.",
+   "sources": [
+    {
+     "citation": "Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Consulted edition: Schoubye–Glick 2011 retypesetting. III.3 pp.214–218; III.4 pp.222–234; III.5.1 pp.236–238; II.2 pp.93–99.",
+     "path": "papers/dynamic/Heim_1982_DefiniteIndefiniteNPs.pdf",
+     "available": "Local primary-source passages read. Independent semantic review pending."
+    }
+   ],
+   "definitions_mapped": [
+    {
+     "coq": "donkey_restrictor; donkey_sentence; nuclear_indefinite; negative_indefinite",
+     "source": "Semantic LF instances for source construction families. 0/1 are fixed representative indices, with explicit freshness premises.",
+     "match": "exact"
+    },
+    {
+     "coq": "SeparatingModels; IntensionalPresupposition",
+     "source": "New small countermodels checking nonowners, multiple donkeys, domains, anaphora and all-world entailment.",
+     "match": "added"
+    }
+   ],
+   "theorems": [
+    {
+     "name": "agree_put_fresh",
+     "status": "proved",
+     "inventory_id": "H06",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: agree_put_fresh. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 14."
+    },
+    {
+     "name": "restrictor_sat",
+     "status": "proved",
+     "inventory_id": "H06",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: restrictor_sat. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 26."
+    },
+    {
+     "name": "restrictor_dom",
+     "status": "proved",
+     "inventory_id": "H06",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: restrictor_dom. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 30."
+    },
+    {
+     "name": "donkey_felicity",
+     "status": "proved",
+     "inventory_id": "H06",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: donkey_felicity. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 34."
+    },
+    {
+     "name": "donkey_truth_conditions",
+     "status": "proved",
+     "inventory_id": "H06",
+     "claim_kind": "source claim",
+     "source_claim": "pp.228–234: strong donkey restriction; nonowners are not required to own a donkey.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 38."
+    },
+    {
+     "name": "nuclear_indefinite_felicity",
+     "status": "proved",
+     "inventory_id": "H06",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: nuclear_indefinite_felicity. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 74."
+    },
+    {
+     "name": "nuclear_existential_truth_conditions",
+     "status": "proved",
+     "inventory_id": "H06",
+     "claim_kind": "source claim",
+     "source_claim": "p.232 and final III p.234: fresh nuclear-scope witnesses are existential, not universal.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 78."
+    },
+    {
+     "name": "negative_existential_truth_conditions",
+     "status": "proved",
+     "inventory_id": "H06",
+     "claim_kind": "source claim",
+     "source_claim": "Final IV p.234: negation closes fresh variables existentially.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 112."
+    },
+    {
+     "name": "discourse_anaphora_truth",
+     "status": "proved",
+     "inventory_id": "H05",
+     "claim_kind": "source claim",
+     "source_claim": "pp.214–218: fresh introduction supports a later anaphor and existential discourse truth.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 128."
+    },
+    {
+     "name": "complex_definite_requires_whole_content",
+     "status": "proved",
+     "inventory_id": "H04",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: complex_definite_requires_whole_content. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 142."
+    },
+    {
+     "name": "SeparatingModels.nonowners_do_not_falsify_donkey",
+     "status": "proved",
+     "inventory_id": "H06",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: SeparatingModels.nonowners_do_not_falsify_donkey. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 158."
+    },
+    {
+     "name": "SeparatingModels.one_beaten_donkey_is_not_enough",
+     "status": "proved",
+     "inventory_id": "H06",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: SeparatingModels.one_beaten_donkey_is_not_enough. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 167."
+    },
+    {
+     "name": "SeparatingModels.existential_nuclear_scope_allows_one_witness",
+     "status": "proved",
+     "inventory_id": "H06",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: SeparatingModels.existential_nuclear_scope_allows_one_witness. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 176."
+    },
+    {
+     "name": "SeparatingModels.false_files_still_have_distinct_domains",
+     "status": "proved",
+     "inventory_id": "H01",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: SeparatingModels.false_files_still_have_distinct_domains. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 188."
+    },
+    {
+     "name": "SeparatingModels.scope_blocks_later_pronoun",
+     "status": "proved",
+     "inventory_id": "H06",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: SeparatingModels.scope_blocks_later_pronoun. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 197."
+    },
+    {
+     "name": "SeparatingModels.same_world_content_different_anaphoric_truth",
+     "status": "proved",
+     "inventory_id": "H01",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: SeparatingModels.same_world_content_different_anaphoric_truth. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 204."
+    },
+    {
+     "name": "IntensionalPresupposition.actual_truth_is_not_contextual_entailment",
+     "status": "proved",
+     "inventory_id": "H08",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: IntensionalPresupposition.actual_truth_is_not_contextual_entailment. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 221."
+    }
+   ],
+   "counts": {
+    "theorems": 17,
+    "proved": 17,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "documented_logical_axioms": [],
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "General source-linked donkey, nuclear existential, negation and discourse truth conditions; finite separating models and intensional presupposition checks.",
+     "Source-complete approval is withheld; this self-assessment does not authenticate independent review."
+    ],
+    "simplifications": [],
+    "omissions": [
+     "No independent empirical test of English judgments; the finite models test logical distinctions.",
+     "No claim that the four-outcome assessment follows from these example families alone."
+    ],
+    "additions": [
+     "New small countermodels checking nonowners, multiple donkeys, domains, anaphora and all-world entailment."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "The explicit mathematical semantics has substantial checked support. Unresolved pragmatic policies, general grammar coverage and the source clarification are recorded, not silently repaired or converted into a necessity-of-restructuring verdict. Source-level approval remains pending.",
+   "artifact_classes": [
+    {
+     "class": "iv",
+     "description": "Explicit file/domain, finite-arity syntax and relational interfaces are representation infrastructure; no changed predictions are inferred from their addition."
+    },
+    {
+     "class": "v",
+     "description": "Arbitrary satisfaction/entailment has no supplied decision procedure. A total executable resolver would require additional capabilities or a declared restricted model."
+    }
+   ],
+   "source_gap": null,
+   "notes": "See campaigns/heim_1982_design.md and campaigns/heim_1982_results.md. Original attempts and frozen P grades retained. Counts include helpers and conditional/interface results; inspect mechanical depth flags. No source-outcome approval.",
+   "compiles": true,
+   "_key": "atlas__heim1982_examples",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 17,
+    "proved": 17,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 17,
+    "queried": 17,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_probe": {
+    "probed": 17,
+    "trivial": 4,
+    "vacuous": 0,
+    "vacuous_names": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/dynamic/Heim1982_Extensions.v",
+   "region": "dynamic",
+   "summary": "Interleaved repair semantics, conditional father/king accommodation results, local/global distinction, explicit open-policy interfaces and proved requirements/countermodels.",
+   "assessment_status": "incomplete",
+   "implementation_scope": "Explicit rules and theorems implemented; open source policies/grammar are interfaces, not complete predictions.",
+   "sources": [
+    {
+     "citation": "Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Consulted edition: Schoubye–Glick 2011 retypesetting. III.3.3 pp.218–220; III.5 pp.236–252, especially p.238 fn.21, pp.242–246 and pp.250–251.",
+     "path": "papers/dynamic/Heim_1982_DefiniteIndefiniteNPs.pdf",
+     "available": "Local primary-source passages read. Independent semantic review pending."
+    }
+   ],
+   "definitions_mapped": [
+    {
+     "coq": "Run; RepairPolicy; strengthens; weakens",
+     "source": "Added formal interface for interleaving source interpretation with supplied contextual repairs. Does not discover bridges or preferences.",
+     "match": "added"
+    },
+    {
+     "coq": "bridge; situation_bridge; father_scope; father_repair",
+     "source": "Specified old-card/situation bridges and the source's locally accommodated father example.",
+     "match": "exact"
+    },
+    {
+     "coq": "revised_truth",
+     "source": "C′ schema with an explicit relevance/erasure policy; structural weakening is necessary here but is not claimed sufficient for source relevance.",
+     "match": "exact"
+    },
+    {
+     "coq": "MemoryItem; pronoun_with_proxy",
+     "source": "A representation of the source's provisional prominence/proxy suggestion, parameterized by unprovided policy.",
+     "match": "added"
+    },
+    {
+     "coq": "RequirementModels",
+     "source": "Countermodels to conflating Sat/W, B/full support, and structural repair with a unique prediction; decider-strength reduction.",
+     "match": "added"
+    }
+   ],
+   "theorems": [
+    {
+     "name": "raw_run",
+     "status": "proved",
+     "inventory_id": "H09",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: raw_run. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 50."
+    },
+    {
+     "name": "no_repair_is_exact",
+     "status": "proved",
+     "inventory_id": "H09",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: no_repair_is_exact. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 62."
+    },
+    {
+     "name": "local_negation_accommodation",
+     "status": "proved",
+     "inventory_id": "H11",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: local_negation_accommodation. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 69."
+    },
+    {
+     "name": "global_negation_accommodation",
+     "status": "proved",
+     "inventory_id": "H11",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: global_negation_accommodation. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 76."
+    },
+    {
+     "name": "bridge_adds_information",
+     "status": "proved",
+     "inventory_id": "H09",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: bridge_adds_information. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 93."
+    },
+    {
+     "name": "bridge_licenses_description",
+     "status": "proved",
+     "inventory_id": "H09",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: bridge_licenses_description. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 95."
+    },
+    {
+     "name": "bridge_has_old_anchor",
+     "status": "proved",
+     "inventory_id": "H09",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: bridge_has_old_anchor. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 98."
+    },
+    {
+     "name": "situation_bridge_adds_information",
+     "status": "proved",
+     "inventory_id": "H09",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: situation_bridge_adds_information. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 102."
+    },
+    {
+     "name": "universal_scope_extensional",
+     "status": "proved",
+     "inventory_id": "H09",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: universal_scope_extensional. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 106."
+    },
+    {
+     "name": "father_repair_licenses_scope",
+     "status": "proved",
+     "inventory_id": "H10",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: father_repair_licenses_scope. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 123."
+    },
+    {
+     "name": "accommodated_father_run",
+     "status": "proved",
+     "inventory_id": "H10",
+     "claim_kind": "conditional result",
+     "source_claim": "pp.242–243: definite syntax is licensed by the specified local bridge if the supplied policy permits it.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 132."
+    },
+    {
+     "name": "accommodated_father_truth_conditions",
+     "status": "proved",
+     "inventory_id": "H10",
+     "claim_kind": "source claim",
+     "source_claim": "p.243: every man has a father he hates, under the specified local accommodation.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 149."
+    },
+    {
+     "name": "existentially_supported_introduction_preserves_worlds",
+     "status": "proved",
+     "inventory_id": "H14",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: existentially_supported_introduction_preserves_worlds. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 178."
+    },
+    {
+     "name": "nontrivial_entailment_forces_familiarity",
+     "status": "proved",
+     "inventory_id": "H07",
+     "claim_kind": "source claim",
+     "source_claim": "Full p.238 fn.21 membership conclusion; uses excluded middle.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 187."
+    },
+    {
+     "name": "criterion_C_exhaustive_on_felicitous_true_inputs",
+     "status": "proved",
+     "inventory_id": "H05",
+     "claim_kind": "new",
+     "source_claim": "Classical exhaustiveness of criterion C, with felicity and true input explicit.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 194."
+    },
+    {
+     "name": "proxy_needs_recorded_precedent",
+     "status": "proved",
+     "inventory_id": "H13",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: proxy_needs_recorded_precedent. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 218."
+    },
+    {
+     "name": "proxy_policy_changes_licensing",
+     "status": "proved",
+     "inventory_id": "H13",
+     "claim_kind": "new",
+     "source_claim": "Prominence-by-proxy predictions depend on the policy left unspecified by the source.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 227."
+    },
+    {
+     "name": "RequirementModels.world_preservation_is_not_Sat_preservation",
+     "status": "proved",
+     "inventory_id": "H14",
+     "claim_kind": "source clarification",
+     "source_claim": "pp.250–251 literal satisfaction-set preservation fails; existential world-content preservation is distinct.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 243."
+    },
+    {
+     "name": "RequirementModels.B_does_not_imply_full_domain_support",
+     "status": "proved",
+     "inventory_id": "H02",
+     "claim_kind": "new",
+     "source_claim": "Eventually-true sequence countermodel to silently strengthening condition B.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 260."
+    },
+    {
+     "name": "RequirementModels.total_felicity_decider_decides_arbitrary_propositions",
+     "status": "proved",
+     "inventory_id": "H04",
+     "claim_kind": "new",
+     "source_claim": "A uniform total felicity decider for arbitrary predicates yields informative excluded middle.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 279."
+    },
+    {
+     "name": "RequirementModels.local_global_accommodation_differ",
+     "status": "proved",
+     "inventory_id": "H11",
+     "claim_kind": "source claim",
+     "source_claim": "pp.245–246: local and global accommodation yield different truth conditions.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 294."
+    },
+    {
+     "name": "RequirementModels.false_context_repair_is_not_determined_by_weakening",
+     "status": "proved",
+     "inventory_id": "H12",
+     "claim_kind": "new",
+     "source_claim": "Weakening/felicity constraints do not determine the relevance-based repair in C′.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 313."
+    }
+   ],
+   "counts": {
+    "theorems": 22,
+    "proved": 22,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "documented_logical_axioms": [
+    "Coq.Logic.Classical_Prop.classic; exact dependent theorems listed by the mechanical record."
+   ],
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "Interleaved repair semantics, conditional father/king accommodation results, local/global distinction, explicit open-policy interfaces and proved requirements/countermodels.",
+     "Source-complete approval is withheld; this self-assessment does not authenticate independent review."
+    ],
+    "simplifications": [],
+    "omissions": [
+     "No resolved bridge-selection, local/global preference, relevance, recency or proxy policy.",
+     "Memory/proxy data are not a complete integrated processing theory.",
+     "No claim that these selected policy instances predict every accommodation/pronoun contrast in the dissertation."
+    ],
+    "additions": [
+     "Added formal interface for interleaving source interpretation with supplied contextual repairs. Does not discover bridges or preferences.",
+     "A representation of the source's provisional prominence/proxy suggestion, parameterized by unprovided policy.",
+     "Countermodels to conflating Sat/W, B/full support, and structural repair with a unique prediction; decider-strength reduction."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "The explicit mathematical semantics has substantial checked support. Unresolved pragmatic policies, general grammar coverage and the source clarification are recorded, not silently repaired or converted into a necessity-of-restructuring verdict. Source-level approval remains pending.",
+   "artifact_classes": [
+    {
+     "class": "iv",
+     "description": "Explicit file/domain, finite-arity syntax and relational interfaces are representation infrastructure; no changed predictions are inferred from their addition."
+    },
+    {
+     "class": "v",
+     "description": "Arbitrary satisfaction/entailment has no supplied decision procedure. A total executable resolver would require additional capabilities or a declared restricted model."
+    }
+   ],
+   "source_gap": {
+    "kind": "clarification",
+    "detail": "Local 2011 edition pp.250–251: new-card accommodation can preserve world content without preserving the assignment satisfaction set. RequirementModels.world_preservation_is_not_Sat_preservation checks the distinction. Not independently reviewed."
+   },
+   "notes": "See campaigns/heim_1982_design.md and campaigns/heim_1982_results.md. Original attempts and frozen P grades retained. Counts include helpers and conditional/interface results; inspect mechanical depth flags. No source-outcome approval.",
+   "compiles": true,
+   "_key": "atlas__heim1982_extensions",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 22,
+    "proved": 22,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 20,
+    "queried": 22,
+    "axioms": [
+     "Classical_Prop.classic"
+    ],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_probe": {
+    "probed": 22,
+    "trivial": 4,
+    "vacuous": 0,
+    "vacuous_names": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/dynamic/Heim1982_Indexed.v",
+   "region": "dynamic",
+   "summary": "Earlier indexed satisfaction and contextual-reference schema; ordered-world human necessity/possibility; selected correspondences with final FCS; source-directed construal interfaces.",
+   "assessment_status": "incomplete",
+   "implementation_scope": "Explicit rules and theorems implemented; open source policies/grammar are interfaces, not complete predictions.",
+   "sources": [
+    {
+     "citation": "Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Consulted edition: Schoubye–Glick 2011 retypesetting. II.2 pp.87–100; II.3 pp.105–111; II.4 pp.115–129; II.5 pp.130–144, especially p.117 fn.8 and pp.137–138 fn.27.",
+     "path": "papers/dynamic/Heim_1982_DefiniteIndefiniteNPs.pdf",
+     "available": "Local primary-source passages read. Independent semantic review pending."
+    }
+   ],
+   "definitions_mapped": [
+    {
+     "coq": "Indexed; satisfies; outside",
+     "source": "The five earlier indexed satisfaction clauses, plus the world/assignment modal clauses of pp.119–120.",
+     "match": "exact"
+    },
+    {
+     "coq": "best; IMust; IMay",
+     "source": "Source's simplified best-world human necessity/possibility, not an imported limit-free replacement.",
+     "match": "exact"
+    },
+    {
+     "coq": "context_references; contextual_truth",
+     "source": "Source's necessary deictic provision and truth schema; free-variable list/reference relation are explicit inputs.",
+     "match": "exact"
+    },
+    {
+     "coq": "prefix_subject; ConstrualConstraints",
+     "source": "Minimal subject NP prefixing and stated constraints on supplied syntactic analyses, not a full derivation generator.",
+     "match": "simplified"
+    },
+    {
+     "coq": "ModalModels",
+     "source": "New countermodels for the source's best-world assumption, nonactual ideality and nonfactive access.",
+     "match": "added"
+    }
+   ],
+   "theorems": [
+    {
+     "name": "outside_put",
+     "status": "proved",
+     "inventory_id": "H15",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: outside_put. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 51."
+    },
+    {
+     "name": "outside_put2",
+     "status": "proved",
+     "inventory_id": "H15",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: outside_put2. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 56."
+    },
+    {
+     "name": "outside_keeps",
+     "status": "proved",
+     "inventory_id": "H15",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: outside_keeps. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 62."
+    },
+    {
+     "name": "indexed_donkey_truth",
+     "status": "proved",
+     "inventory_id": "H15",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: indexed_donkey_truth. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 69."
+    },
+    {
+     "name": "final_indexed_donkey_correspondence",
+     "status": "proved",
+     "inventory_id": "H15",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: final_indexed_donkey_correspondence. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 82."
+    },
+    {
+     "name": "indexed_nuclear_truth",
+     "status": "proved",
+     "inventory_id": "H15",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: indexed_nuclear_truth. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 93."
+    },
+    {
+     "name": "final_indexed_nuclear_correspondence",
+     "status": "proved",
+     "inventory_id": "H15",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: final_indexed_nuclear_correspondence. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 110."
+    },
+    {
+     "name": "indexed_text_closure",
+     "status": "proved",
+     "inventory_id": "H15",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: indexed_text_closure. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 119."
+    },
+    {
+     "name": "may_implies_not_must_not",
+     "status": "proved",
+     "inventory_id": "H16",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: may_implies_not_must_not. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 138."
+    },
+    {
+     "name": "modal_duality_classical",
+     "status": "proved",
+     "inventory_id": "H16",
+     "claim_kind": "source claim",
+     "source_claim": "p.120: human possibility is dual to human necessity; converse uses classical logic.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 142."
+    },
+    {
+     "name": "no_best_worlds_make_necessity_vacuous",
+     "status": "proved",
+     "inventory_id": "H17",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: no_best_worlds_make_necessity_vacuous. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 150."
+    },
+    {
+     "name": "realistic_necessity_has_actual_consequences",
+     "status": "proved",
+     "inventory_id": "H18",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: realistic_necessity_has_actual_consequences. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 159."
+    },
+    {
+     "name": "indefinite_prefix_has_no_quantifier",
+     "status": "proved",
+     "inventory_id": "H19",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: indefinite_prefix_has_no_quantifier. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 180."
+    },
+    {
+     "name": "proper_name_scope_on_felicitous_assignments",
+     "status": "proved",
+     "inventory_id": "H19",
+     "claim_kind": "source claim",
+     "source_claim": "pp.137–138 fn.27: the displayed name-scope equivalence requires the name's felicity condition.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 187."
+    },
+    {
+     "name": "ModalModels.limit_assumption_is_substantive",
+     "status": "proved",
+     "inventory_id": "H17",
+     "claim_kind": "new",
+     "source_claim": "p.117 fn.8: an unbounded ordering without best worlds makes simplified necessity vacuous.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 204."
+    },
+    {
+     "name": "ModalModels.ideal_necessity_does_not_entail_actuality",
+     "status": "proved",
+     "inventory_id": "H18",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: ModalModels.ideal_necessity_does_not_entail_actuality. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 218."
+    },
+    {
+     "name": "ModalModels.reflexive_access_gives_factivity",
+     "status": "proved",
+     "inventory_id": "H18",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: ModalModels.reflexive_access_gives_factivity. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 230."
+    },
+    {
+     "name": "ModalModels.nonfactive_access_does_not_give_factivity",
+     "status": "proved",
+     "inventory_id": "H18",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: ModalModels.nonfactive_access_does_not_give_factivity. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 233."
+    },
+    {
+     "name": "ConstrualConstraints.earlier_definite_also_blocks_indefinite_coindexing",
+     "status": "proved",
+     "inventory_id": "H19",
+     "claim_kind": "new",
+     "source_claim": "Helper, definition check or explicit construction test: ConstrualConstraints.earlier_definite_also_blocks_indefinite_coindexing. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+     "note": "Single-assistant implementation; semantic review pending. Source line 255."
+    }
+   ],
+   "counts": {
+    "theorems": 19,
+    "proved": 19,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "documented_logical_axioms": [
+    "Coq.Logic.Classical_Prop.classic; exact dependent theorems listed by the mechanical record."
+   ],
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "Earlier indexed satisfaction and contextual-reference schema; ordered-world human necessity/possibility; selected correspondences with final FCS; source-directed construal interfaces.",
+     "Source-complete approval is withheld; this self-assessment does not authenticate independent review."
+    ],
+    "simplifications": [
+     "Minimal subject NP prefixing and stated constraints on supplied syntactic analyses, not a full derivation generator."
+    ],
+    "omissions": [
+     "No theorem equating the complete earlier and final systems; correspondences cover the named donkey and nuclear-scope families.",
+     "No full movement derivation generator, automatic free-variable extraction, empirical generic/attitude theory, or independently supplied grammar parser.",
+     "Weak-crossover alternative, modal base/ordering and source-excluded attitude exceptions remain explicit."
+    ],
+    "additions": [
+     "New countermodels for the source's best-world assumption, nonactual ideality and nonfactive access."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "The explicit mathematical semantics has substantial checked support. Unresolved pragmatic policies, general grammar coverage and the source clarification are recorded, not silently repaired or converted into a necessity-of-restructuring verdict. Source-level approval remains pending.",
+   "artifact_classes": [
+    {
+     "class": "iv",
+     "description": "Explicit file/domain, finite-arity syntax and relational interfaces are representation infrastructure; no changed predictions are inferred from their addition."
+    },
+    {
+     "class": "v",
+     "description": "Arbitrary satisfaction/entailment has no supplied decision procedure. A total executable resolver would require additional capabilities or a declared restricted model."
+    }
+   ],
+   "source_gap": null,
+   "notes": "See campaigns/heim_1982_design.md and campaigns/heim_1982_results.md. Original attempts and frozen P grades retained. Counts include helpers and conditional/interface results; inspect mechanical depth flags. No source-outcome approval.",
+   "compiles": true,
+   "_key": "atlas__heim1982_indexed",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 19,
+    "proved": 19,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 18,
+    "queried": 19,
+    "axioms": [
+     "Classical_Prop.classic"
+    ],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_probe": {
+    "probed": 19,
+    "trivial": 2,
+    "vacuous": 0,
+    "vacuous_names": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/dynamic/Heim1982_Integration.v",
+   "region": "dynamic",
+   "summary": "Compositional final-FCS/indexed-modal/proxy runner with generated traces, explicit world-relative memory and supplied authorization.",
+   "assessment_status": "incomplete",
+   "implementation_scope": "Authorized integration step implemented for selected construal trees and typed commands. Not a raw-English parser, full movement generator, total semantic decision procedure or completed pragmatic theory.",
+   "sources": [
+    {
+     "citation": "Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Consulted Schoubye–Glick 2011 retypesetting, pp.90–100,105–111,118–120,234,247–254.",
+     "path": "papers/dynamic/Heim_1982_DefiniteIndefiniteNPs.pdf",
+     "available": "Relevant primary-source passages read; single-assistant comparison, independent source review pending."
+    }
+   ],
+   "definitions_mapped": [
+    {
+     "coq": "indexed_test; references_available",
+     "source": "Added adapter for existing indexed satisfaction into file filtering, guarded by computed reference availability; not a full modal felicity theory.",
+     "match": "added"
+    },
+    {
+     "coq": "core_trace; indexed_trace; indexed_frame; world_reset",
+     "source": "Added finite event instrumentation. Core snapshots are actual intermediate updates; indexed snapshots are tagged world-relative satisfaction-calculation frames.",
+     "match": "added"
+    },
+    {
+     "coq": "Event; State; remember_all; Execute",
+     "source": "Added compositional execution relation keeping current file and history separate. Attention and proxy authorization remain explicit inputs.",
+     "match": "added"
+    },
+    {
+     "coq": "execute_core",
+     "source": "Conservative adapter for the existing final FCS update and licensed guard.",
+     "match": "exact"
+    },
+    {
+     "coq": "execute_proxy",
+     "source": "pp.247–252 motivate proxy accommodation; explicit fresh, distinct index plus recorded precedent and supplied permission. No automatic resolution or source acceptability verdict.",
+     "match": "added"
+    }
+   ],
+   "theorems": [
+    {
+     "name": "indexed_test_exact",
+     "status": "proved",
+     "inventory_id": "I04",
+     "claim_kind": "new",
+     "source_claim": "Compositional runner with exact final-FCS and earlier indexed truth-test adapters; no whole-system equivalence claimed. Helper, definition check or integration construction: indexed_test_exact.",
+     "note": "Code line 21. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "indexed_test_does_not_export",
+     "status": "proved",
+     "inventory_id": "I04",
+     "claim_kind": "new",
+     "source_claim": "Compositional runner with exact final-FCS and earlier indexed truth-test adapters; no whole-system equivalence claimed. Helper, definition check or integration construction: indexed_test_does_not_export.",
+     "note": "Code line 24. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "indexed_test_preserves_B",
+     "status": "proved",
+     "inventory_id": "I04",
+     "claim_kind": "new",
+     "source_claim": "Compositional runner with exact final-FCS and earlier indexed truth-test adapters; no whole-system equivalence claimed. Helper, definition check or integration construction: indexed_test_preserves_B.",
+     "note": "Code line 27. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "indexed_test_preserves_support",
+     "status": "proved",
+     "inventory_id": "I04",
+     "claim_kind": "new",
+     "source_claim": "Compositional runner with exact final-FCS and earlier indexed truth-test adapters; no whole-system equivalence claimed. Helper, definition check or integration construction: indexed_test_preserves_support.",
+     "note": "Code line 35. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "world_reset_preserves_B",
+     "status": "proved",
+     "inventory_id": "I07",
+     "claim_kind": "new",
+     "source_claim": "World-relative modal traces, exact modal truth tests, factive preservation and a nonfactive countermodel; no automatic actual-world inference from a remembered modal card. Helper, definition check or integration construction: world_reset_preserves_B.",
+     "note": "Code line 51. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "indexed_frame_preserves_B",
+     "status": "proved",
+     "inventory_id": "I07",
+     "claim_kind": "new",
+     "source_claim": "World-relative modal traces, exact modal truth tests, factive preservation and a nonfactive countermodel; no automatic actual-world inference from a remembered modal card. Helper, definition check or integration construction: indexed_frame_preserves_B.",
+     "note": "Code line 53. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "core_trace_files_satisfy_B",
+     "status": "proved",
+     "inventory_id": "I05",
+     "claim_kind": "new",
+     "source_claim": "Finite traces retain tentative cards without exporting their indices; history is generated during actual core or indexed-calculation steps. Helper, definition check or integration construction: core_trace_files_satisfy_B.",
+     "note": "Code line 72. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "universal_trace_keeps_restrictor",
+     "status": "proved",
+     "inventory_id": "I05",
+     "claim_kind": "new",
+     "source_claim": "Finite traces retain tentative cards without exporting their indices; history is generated during actual core or indexed-calculation steps. Helper, definition check or integration construction: universal_trace_keeps_restrictor.",
+     "note": "Code line 89. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "indexed_trace_files_satisfy_B",
+     "status": "proved",
+     "inventory_id": "I07",
+     "claim_kind": "new",
+     "source_claim": "World-relative modal traces, exact modal truth tests, factive preservation and a nonfactive countermodel; no automatic actual-world inference from a remembered modal card. Helper, definition check or integration construction: indexed_trace_files_satisfy_B.",
+     "note": "Code line 103. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "modal_trace_not_an_actual_world_update",
+     "status": "proved",
+     "inventory_id": "I07",
+     "claim_kind": "new",
+     "source_claim": "World-relative modal traces, exact modal truth tests, factive preservation and a nonfactive countermodel; no automatic actual-world inference from a remembered modal card. Helper, definition check or integration construction: modal_trace_not_an_actual_world_update.",
+     "note": "Code line 109. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "remember_all_preserves_history",
+     "status": "proved",
+     "inventory_id": "I05",
+     "claim_kind": "new",
+     "source_claim": "Finite traces retain tentative cards without exporting their indices; history is generated during actual core or indexed-calculation steps. Helper, definition check or integration construction: remember_all_preserves_history.",
+     "note": "Code line 135. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "remembered_frame_has_event",
+     "status": "proved",
+     "inventory_id": "I05",
+     "claim_kind": "new",
+     "source_claim": "Finite traces retain tentative cards without exporting their indices; history is generated during actual core or indexed-calculation steps. Helper, definition check or integration construction: remembered_frame_has_event.",
+     "note": "Code line 141. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "core_adapter_exact",
+     "status": "proved",
+     "inventory_id": "I04",
+     "claim_kind": "new",
+     "source_claim": "Compositional runner with exact final-FCS and earlier indexed truth-test adapters; no whole-system equivalence claimed. Helper, definition check or integration construction: core_adapter_exact.",
+     "note": "Code line 188. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "read_adapter_exact",
+     "status": "proved",
+     "inventory_id": "I04",
+     "claim_kind": "new",
+     "source_claim": "Compositional runner with exact final-FCS and earlier indexed truth-test adapters; no whole-system equivalence claimed. Helper, definition check or integration construction: read_adapter_exact.",
+     "note": "Code line 192. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "read_requires_computed_references",
+     "status": "proved",
+     "inventory_id": "I03",
+     "claim_kind": "new",
+     "source_claim": "Computed contextual reference requirements and a runner guard rejecting unresolved deictic indices. Helper, definition check or integration construction: read_requires_computed_references.",
+     "note": "Code line 196. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "execute_preserves_B",
+     "status": "proved",
+     "inventory_id": "I04",
+     "claim_kind": "new",
+     "source_claim": "Compositional runner with exact final-FCS and earlier indexed truth-test adapters; no whole-system equivalence claimed. Helper, definition check or integration construction: execute_preserves_B.",
+     "note": "Code line 199. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "execute_keeps_history",
+     "status": "proved",
+     "inventory_id": "I05",
+     "claim_kind": "new",
+     "source_claim": "Finite traces retain tentative cards without exporting their indices; history is generated during actual core or indexed-calculation steps. Helper, definition check or integration construction: execute_keeps_history.",
+     "note": "Code line 209. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "direct_requires_accessible_index",
+     "status": "proved",
+     "inventory_id": "I06",
+     "claim_kind": "new",
+     "source_claim": "Actual proxy transition consumes a recorded prominent card, a distinct fresh index and explicit permission, then establishes the new description and connects the prior licensing interface. Helper, definition check or integration construction: direct_requires_accessible_index.",
+     "note": "Code line 216. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "proxy_has_recorded_authorized_origin",
+     "status": "proved",
+     "inventory_id": "I06",
+     "claim_kind": "new",
+     "source_claim": "Actual proxy transition consumes a recorded prominent card, a distinct fresh index and explicit permission, then establishes the new description and connects the prior licensing interface. Helper, definition check or integration construction: proxy_has_recorded_authorized_origin.",
+     "note": "Code line 219. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "proxy_establishes_description",
+     "status": "proved",
+     "inventory_id": "I06",
+     "claim_kind": "new",
+     "source_claim": "Actual proxy transition consumes a recorded prominent card, a distinct fresh index and explicit permission, then establishes the new description and connects the prior licensing interface. Helper, definition check or integration construction: proxy_establishes_description.",
+     "note": "Code line 225. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "proxy_connects_existing_licensing_interface",
+     "status": "proved",
+     "inventory_id": "I06",
+     "claim_kind": "new",
+     "source_claim": "Actual proxy transition consumes a recorded prominent card, a distinct fresh index and explicit permission, then establishes the new description and connects the prior licensing interface. Helper, definition check or integration construction: proxy_connects_existing_licensing_interface.",
+     "note": "Code line 230. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "denying_permission_blocks_proxy",
+     "status": "proved",
+     "inventory_id": "I06",
+     "claim_kind": "new",
+     "source_claim": "Actual proxy transition consumes a recorded prominent card, a distinct fresh index and explicit permission, then establishes the new description and connects the prior licensing interface. Helper, definition check or integration construction: denying_permission_blocks_proxy.",
+     "note": "Code line 248. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+     "name": "missing_memory_blocks_proxy",
+     "status": "proved",
+     "inventory_id": "I06",
+     "claim_kind": "new",
+     "source_claim": "Actual proxy transition consumes a recorded prominent card, a distinct fresh index and explicit permission, then establishes the new description and connects the prior licensing interface. Helper, definition check or integration construction: missing_memory_blocks_proxy.",
+     "note": "Code line 251. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    }
+   ],
+   "counts": {
+    "theorems": 23,
+    "proved": 23,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "documented_logical_axioms": [],
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "See campaigns/heim_1982_integration_results.md and every-theorem mechanical records. Existing source definitions are reused through explicit adapters; added integration machinery is identified above."
+    ],
+    "simplifications": [],
+    "omissions": [
+     "Raw-English analysis, general movement derivations and a complete generic/specific-indefinite theory are outside this step.",
+     "No chosen recency/prominence threshold, proxy-resolution algorithm, local/global accommodation preference or complete modal presupposition projection theory.",
+     "No whole-system equivalence between earlier indexed semantics and final FCS, and no total executable decision procedure for arbitrary interpretations."
+    ],
+    "additions": [
+     "Added adapter for existing indexed satisfaction into file filtering, guarded by computed reference availability; not a full modal felicity theory.",
+     "Added finite event instrumentation. Core snapshots are actual intermediate updates; indexed snapshots are tagged world-relative satisfaction-calculation frames.",
+     "Added compositional execution relation keeping current file and history separate. Attention and proxy authorization remain explicit inputs.",
+     "pp.247–252 motivate proxy accommodation; explicit fresh, distinct index plus recorded precedent and supplied permission. No automatic resolution or source acceptability verdict."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "Integration and source-linked conditional results are checked; this does not settle whole-source coverage, the earlier source wording clarification or open pragmatic policy choices.",
+   "artifact_classes": [
+    {
+     "class": "iv",
+     "description": "Explicit syntax traversal, assignment splicing, tagged trace storage and conservative adapters; added engineering is not evidence of necessary theoretical change."
+    }
+   ],
+   "source_gap": null,
+   "notes": "Integration step 1. Prior four modules, research records and frozen P grades preserved. Counts include helpers and construction checks. No accepted source outcome or deployment.",
+   "compiles": true,
+   "_key": "atlas__heim1982_integration",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 23,
+    "proved": 23,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 23,
+    "queried": 23,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_probe": {
+    "probed": 23,
+    "trivial": 4,
+    "vacuous": 0,
+    "vacuous_names": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "region": "dynamic",
+   "summary": "Explicit local/global accommodation and proxy-policy comparisons: different truth/accessibility predictions, world-preserving versus assignment-preserving permissions, and complete allowed/blocked runs.",
+   "assessment_status": "incomplete",
+   "implementation_scope": "Policy comparison step 2 for named repair requests and supported modal/proxy programs; no policy selected as the source's default or a complete theory of appropriateness.",
+   "sources": [
+    {
+     "citation": "Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Consulted Schoubye–Glick 2011 retypesetting, pp.244–246 and 247–252.",
+     "path": "papers/dynamic/Heim_1982_DefiniteIndefiniteNPs.pdf",
+     "available": "Relevant primary-source passages read; independent semantic review pending."
+    }
+   ],
+   "definitions_mapped": [
+    {
+     "coq": "local_result; global_result",
+     "source": "pp.245–246 options (a)/(b), applied to fresh descriptive accommodation under negation.",
+     "match": "exact"
+    },
+    {
+     "coq": "selected_negation; at_request",
+     "source": "Added explicit selector and certificates for an identified fresh repair request; not a general accommodation search algorithm.",
+     "match": "added"
+    },
+    {
+     "coq": "deny_proxy; bridge_only; included",
+     "source": "Added comparison bounds and permission-order infrastructure, not source appropriateness rules.",
+     "match": "added"
+    },
+    {
+     "coq": "world_safe; assignment_safe",
+     "source": "Alternative restrictions motivated by pp.250–252; distinguish preserved world content from literal satisfaction-set preservation. Neither declared to be the complete source policy.",
+     "match": "added"
+    },
+    {
+     "coq": "NegationModels; ProxyModels",
+     "source": "New fixed-input diagnostics and instantiations of the source's king/factivity discussions. Keep-all attention is held fixed as an instrumentation fixture.",
+     "match": "added"
+    }
+   ],
+   "theorems": [
+    {
+     "name": "repaired_description_licensed",
+     "status": "proved",
+     "inventory_id": "K01",
+     "claim_kind": "new",
+     "source_claim": "Declared fresh-description repair requests: no repair blocks; local/global selections are certified runs of the existing accommodation relation. Selector uniqueness is not a whole-policy completeness theorem. Checked statement: repaired_description_licensed.",
+     "note": "Code line 31. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "fresh_description_is_unlicensed",
+     "status": "proved",
+     "inventory_id": "K01",
+     "claim_kind": "new",
+     "source_claim": "Declared fresh-description repair requests: no repair blocks; local/global selections are certified runs of the existing accommodation relation. Selector uniqueness is not a whole-policy completeness theorem. Checked statement: fresh_description_is_unlicensed.",
+     "note": "Code line 34. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "no_repair_blocks_fresh_description",
+     "status": "proved",
+     "inventory_id": "K01",
+     "claim_kind": "new",
+     "source_claim": "Declared fresh-description repair requests: no repair blocks; local/global selections are certified runs of the existing accommodation relation. Selector uniqueness is not a whole-policy completeness theorem. Checked statement: no_repair_blocks_fresh_description.",
+     "note": "Code line 37. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "selected_local_is_a_valid_run",
+     "status": "proved",
+     "inventory_id": "K01",
+     "claim_kind": "new",
+     "source_claim": "Declared fresh-description repair requests: no repair blocks; local/global selections are certified runs of the existing accommodation relation. Selector uniqueness is not a whole-policy completeness theorem. Checked statement: selected_local_is_a_valid_run.",
+     "note": "Code line 43. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "selected_global_is_a_valid_run",
+     "status": "proved",
+     "inventory_id": "K01",
+     "claim_kind": "new",
+     "source_claim": "Declared fresh-description repair requests: no repair blocks; local/global selections are certified runs of the existing accommodation relation. Selector uniqueness is not a whole-policy completeness theorem. Checked statement: selected_global_is_a_valid_run.",
+     "note": "Code line 53. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "local_truth_condition",
+     "status": "proved",
+     "inventory_id": "K02",
+     "claim_kind": "source claim",
+     "source_claim": "pp.244–245 option (a): local repair yields no witness that both satisfies the description and the positive predicate.",
+     "note": "Code line 63. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "global_truth_condition",
+     "status": "proved",
+     "inventory_id": "K02",
+     "claim_kind": "source claim",
+     "source_claim": "pp.245–246 option (b): global repair retains the described referent and negates the predicate of that referent.",
+     "note": "Code line 78. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "local_world_truth",
+     "status": "proved",
+     "inventory_id": "K02",
+     "claim_kind": "new",
+     "source_claim": "General source-linked local/global truth conditions and different exported domains over arbitrary models. Checked statement: local_world_truth.",
+     "note": "Code line 90. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "global_world_truth",
+     "status": "proved",
+     "inventory_id": "K02",
+     "claim_kind": "new",
+     "source_claim": "General source-linked local/global truth conditions and different exported domains over arbitrary models. Checked statement: global_world_truth.",
+     "note": "Code line 101. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "local_global_domain_difference",
+     "status": "proved",
+     "inventory_id": "K02",
+     "claim_kind": "source claim",
+     "source_claim": "pp.245–246: the local result keeps Dom(F), while global accommodation keeps the enlarged domain.",
+     "note": "Code line 112. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "selected_negation_has_unique_output",
+     "status": "proved",
+     "inventory_id": "K01",
+     "claim_kind": "new",
+     "source_claim": "Declared fresh-description repair requests: no repair blocks; local/global selections are certified runs of the existing accommodation relation. Selector uniqueness is not a whole-policy completeness theorem. Checked statement: selected_negation_has_unique_output.",
+     "note": "Code line 117. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "assignment_safe_implies_world_safe",
+     "status": "proved",
+     "inventory_id": "K04",
+     "claim_kind": "new",
+     "source_claim": "Explicit deny, bridge-only, world-safe and assignment-safe permissions. Inclusion lifts to complete executions; world-safe exactly characterizes world preservation for fresh bridges in B-files. Checked statement: assignment_safe_implies_world_safe.",
+     "note": "Code line 133. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "world_safe_implies_bridge_only",
+     "status": "proved",
+     "inventory_id": "K04",
+     "claim_kind": "new",
+     "source_claim": "Explicit deny, bridge-only, world-safe and assignment-safe permissions. Inclusion lifts to complete executions; world-safe exactly characterizes world preservation for fresh bridges in B-files. Checked statement: world_safe_implies_bridge_only.",
+     "note": "Code line 139. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "deny_is_least_policy",
+     "status": "proved",
+     "inventory_id": "K04",
+     "claim_kind": "new",
+     "source_claim": "Explicit deny, bridge-only, world-safe and assignment-safe permissions. Inclusion lifts to complete executions; world-safe exactly characterizes world preservation for fresh bridges in B-files. Checked statement: deny_is_least_policy.",
+     "note": "Code line 141. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "enlarging_permission_preserves_runs",
+     "status": "proved",
+     "inventory_id": "K04",
+     "claim_kind": "new",
+     "source_claim": "Explicit deny, bridge-only, world-safe and assignment-safe permissions. Inclusion lifts to complete executions; world-safe exactly characterizes world preservation for fresh bridges in B-files. Checked statement: enlarging_permission_preserves_runs.",
+     "note": "Code line 143. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "world_safe_preserves_worlds",
+     "status": "proved",
+     "inventory_id": "K04",
+     "claim_kind": "new",
+     "source_claim": "Explicit deny, bridge-only, world-safe and assignment-safe permissions. Inclusion lifts to complete executions; world-safe exactly characterizes world preservation for fresh bridges in B-files. Checked statement: world_safe_preserves_worlds.",
+     "note": "Code line 150. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "assignment_safe_preserves_every_assignment",
+     "status": "proved",
+     "inventory_id": "K04",
+     "claim_kind": "new",
+     "source_claim": "Explicit deny, bridge-only, world-safe and assignment-safe permissions. Inclusion lifts to complete executions; world-safe exactly characterizes world preservation for fresh bridges in B-files. Checked statement: assignment_safe_preserves_every_assignment.",
+     "note": "Code line 157. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "world_safe_characterizes_world_preservation",
+     "status": "proved",
+     "inventory_id": "K04",
+     "claim_kind": "new",
+     "source_claim": "New exact characterization of the world-information-preserving candidate policy under B and freshness; not the literal assignment-preservation wording.",
+     "note": "Code line 163. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "factive_program_allowed_by_world_safe",
+     "status": "proved",
+     "inventory_id": "K05",
+     "claim_kind": "new",
+     "source_claim": "Same compiled modal/proxy/core program and attention fixture: factive permission versus unsupported actual-world witness blocked under world-safe but allowed by the structural bound. Checked statement: factive_program_allowed_by_world_safe.",
+     "note": "Code line 173. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "bridge_only_allows_modal_program",
+     "status": "proved",
+     "inventory_id": "K05",
+     "claim_kind": "new",
+     "source_claim": "Same compiled modal/proxy/core program and attention fixture: factive permission versus unsupported actual-world witness blocked under world-safe but allowed by the structural bound. Checked statement: bridge_only_allows_modal_program.",
+     "note": "Code line 183. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "universal_description_allowed_by_assignment_safe",
+     "status": "proved",
+     "inventory_id": "K06",
+     "claim_kind": "new",
+     "source_claim": "Literal assignment preservation rejects a fresh witness even when existentially guaranteed; explicit allowed/blocked complete programs establish strict policy differences. Checked statement: universal_description_allowed_by_assignment_safe.",
+     "note": "Code line 188. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "deny_blocks_modal_program",
+     "status": "proved",
+     "inventory_id": "K05",
+     "claim_kind": "new",
+     "source_claim": "Same compiled modal/proxy/core program and attention fixture: factive permission versus unsupported actual-world witness blocked under world-safe but allowed by the structural bound. Checked statement: deny_blocks_modal_program.",
+     "note": "Code line 197. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "NegationModels.absent_king_local_true_global_false",
+     "status": "proved",
+     "inventory_id": "K03",
+     "claim_kind": "new",
+     "source_claim": "Same inputs: absent king separates truth; an existing king with no lunch separates following-pronoun availability even when both results are true. Checked statement: NegationModels.absent_king_local_true_global_false.",
+     "note": "Code line 215. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "NegationModels.existing_king_same_truth_different_next_pronoun",
+     "status": "proved",
+     "inventory_id": "K03",
+     "claim_kind": "new",
+     "source_claim": "New diagnostic of the source's different domains: both results true, but only global accommodation retains the fresh index.",
+     "note": "Code line 227. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "ProxyModels.desired_world_case_bridge_allowed",
+     "status": "proved",
+     "inventory_id": "K05",
+     "claim_kind": "new",
+     "source_claim": "Same compiled modal/proxy/core program and attention fixture: factive permission versus unsupported actual-world witness blocked under world-safe but allowed by the structural bound. Checked statement: ProxyModels.desired_world_case_bridge_allowed.",
+     "note": "Code line 249. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "ProxyModels.desired_world_case_world_safe_blocks_proxy",
+     "status": "proved",
+     "inventory_id": "K05",
+     "claim_kind": "new",
+     "source_claim": "Same compiled modal/proxy/core program and attention fixture: factive permission versus unsupported actual-world witness blocked under world-safe but allowed by the structural bound. Checked statement: ProxyModels.desired_world_case_world_safe_blocks_proxy.",
+     "note": "Code line 253. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "ProxyModels.desired_world_case_world_safe_blocks_program",
+     "status": "proved",
+     "inventory_id": "K05",
+     "claim_kind": "new",
+     "source_claim": "Same compiled modal/proxy/core program and attention fixture: factive permission versus unsupported actual-world witness blocked under world-safe but allowed by the structural bound. Checked statement: ProxyModels.desired_world_case_world_safe_blocks_program.",
+     "note": "Code line 263. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "ProxyModels.desired_world_bridge_loses_actual_world",
+     "status": "proved",
+     "inventory_id": "K05",
+     "claim_kind": "new",
+     "source_claim": "Same compiled modal/proxy/core program and attention fixture: factive permission versus unsupported actual-world witness blocked under world-safe but allowed by the structural bound. Checked statement: ProxyModels.desired_world_bridge_loses_actual_world.",
+     "note": "Code line 274. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "ProxyModels.already_guaranteed_witness_world_safe_allows",
+     "status": "proved",
+     "inventory_id": "K06",
+     "claim_kind": "new",
+     "source_claim": "Literal assignment preservation rejects a fresh witness even when existentially guaranteed; explicit allowed/blocked complete programs establish strict policy differences. Checked statement: ProxyModels.already_guaranteed_witness_world_safe_allows.",
+     "note": "Code line 289. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "ProxyModels.already_guaranteed_witness_assignment_safe_blocks",
+     "status": "proved",
+     "inventory_id": "K06",
+     "claim_kind": "new",
+     "source_claim": "Literal assignment preservation rejects a fresh witness even when existentially guaranteed; explicit allowed/blocked complete programs establish strict policy differences. Checked statement: ProxyModels.already_guaranteed_witness_assignment_safe_blocks.",
+     "note": "Code line 297. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "ProxyModels.already_guaranteed_witness_assignment_safe_blocks_program",
+     "status": "proved",
+     "inventory_id": "K06",
+     "claim_kind": "new",
+     "source_claim": "Literal assignment preservation rejects a fresh witness even when existentially guaranteed; explicit allowed/blocked complete programs establish strict policy differences. Checked statement: ProxyModels.already_guaranteed_witness_assignment_safe_blocks_program.",
+     "note": "Code line 307. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "bridge_only_is_strictly_more_permissive",
+     "status": "proved",
+     "inventory_id": "K05",
+     "claim_kind": "new",
+     "source_claim": "Same compiled modal/proxy/core program and attention fixture: factive permission versus unsupported actual-world witness blocked under world-safe but allowed by the structural bound. Checked statement: bridge_only_is_strictly_more_permissive.",
+     "note": "Code line 320. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+     "name": "world_safe_is_strictly_more_permissive",
+     "status": "proved",
+     "inventory_id": "K06",
+     "claim_kind": "new",
+     "source_claim": "New strictness result using the completed program: guaranteed existential witnesses need not satisfy a fresh description at every pre-existing assignment.",
+     "note": "Code line 327. Policy and model conditions are explicit; no independent source outcome."
+    }
+   ],
+   "counts": {
+    "theorems": 33,
+    "proved": 33,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "documented_logical_axioms": [],
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "General source formulas and named conditional policy comparisons are proved; see campaigns/heim_1982_policy_results.md."
+    ],
+    "simplifications": [
+     "The examples use a fixed keep-all attention fixture and named descriptions; finite countermodels do not restrict the general theorems."
+    ],
+    "omissions": [
+     "No empirical preference ranking or complete appropriateness/recency/bridge-selection theory.",
+     "No proof that these alternatives exhaust every reasonable completion of Heim.",
+     "No whole-source transfer determination."
+    ],
+    "additions": [
+     "Explicit alternative policy definitions, inclusion/strictness proofs and complete-run diagnostics."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "Different completions have demonstrably different predictions. This identifies additional commitments, not which completion is correct or whether whole-source restructuring is necessary.",
+   "artifact_classes": [
+    {
+     "class": "iv",
+     "description": "Policy selectors and run-comparison infrastructure; no substrate obstruction or necessity-of-restructuring inferred."
+    }
+   ],
+   "source_gap": null,
+   "notes": "Prior research preserved. New theory commitments are explicitly labeled and none adopted. Counts include helpers and diagnostics; probe flags retained. See policy results and manifest.",
+   "compiles": true,
+   "_key": "atlas__heim1982_policies",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 33,
+    "proved": 33,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 33,
+    "queried": 33,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_probe": {
+    "probed": 33,
+    "trivial": 3,
     "vacuous": 0,
     "vacuous_names": []
    },
@@ -16479,7 +18841,15 @@
    "coq_files": [
     "extras/FCS.v",
     "extras/FCS2.v",
-    "extras/DonkeyScope.v"
+    "extras/DonkeyScope.v",
+    "atlas/dynamic/Heim1982.v",
+    "atlas/dynamic/Heim1982_Examples.v",
+    "atlas/dynamic/Heim1982_Extensions.v",
+    "atlas/dynamic/Heim1982_Indexed.v",
+    "atlas/dynamic/Heim1982_Binding.v",
+    "atlas/dynamic/Heim1982_Integration.v",
+    "atlas/dynamic/Heim1982_EndToEnd.v",
+    "atlas/dynamic/Heim1982_Policies.v"
    ],
    "year": 1982,
    "authors": "Heim, I.",

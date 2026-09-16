@@ -1,0 +1,201 @@
+{
+  "file": "atlas/dynamic/Heim1982_Examples.v",
+  "region": "dynamic",
+  "summary": "General source-linked donkey, nuclear existential, negation and discourse truth conditions; finite separating models and intensional presupposition checks.",
+  "assessment_status": "incomplete",
+  "implementation_scope": "Explicit rules and theorems implemented; open source policies/grammar are interfaces, not complete predictions.",
+  "sources": [
+    {
+      "citation": "Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Consulted edition: Schoubye–Glick 2011 retypesetting. III.3 pp.214–218; III.4 pp.222–234; III.5.1 pp.236–238; II.2 pp.93–99.",
+      "path": "papers/dynamic/Heim_1982_DefiniteIndefiniteNPs.pdf",
+      "available": "Local primary-source passages read. Independent semantic review pending."
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "donkey_restrictor; donkey_sentence; nuclear_indefinite; negative_indefinite",
+      "source": "Semantic LF instances for source construction families. 0/1 are fixed representative indices, with explicit freshness premises.",
+      "match": "exact"
+    },
+    {
+      "coq": "SeparatingModels; IntensionalPresupposition",
+      "source": "New small countermodels checking nonowners, multiple donkeys, domains, anaphora and all-world entailment.",
+      "match": "added"
+    }
+  ],
+  "theorems": [
+    {
+      "name": "agree_put_fresh",
+      "status": "proved",
+      "inventory_id": "H06",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: agree_put_fresh. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 14."
+    },
+    {
+      "name": "restrictor_sat",
+      "status": "proved",
+      "inventory_id": "H06",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: restrictor_sat. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 26."
+    },
+    {
+      "name": "restrictor_dom",
+      "status": "proved",
+      "inventory_id": "H06",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: restrictor_dom. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 30."
+    },
+    {
+      "name": "donkey_felicity",
+      "status": "proved",
+      "inventory_id": "H06",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: donkey_felicity. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 34."
+    },
+    {
+      "name": "donkey_truth_conditions",
+      "status": "proved",
+      "inventory_id": "H06",
+      "claim_kind": "source claim",
+      "source_claim": "pp.228–234: strong donkey restriction; nonowners are not required to own a donkey.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 38."
+    },
+    {
+      "name": "nuclear_indefinite_felicity",
+      "status": "proved",
+      "inventory_id": "H06",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: nuclear_indefinite_felicity. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 74."
+    },
+    {
+      "name": "nuclear_existential_truth_conditions",
+      "status": "proved",
+      "inventory_id": "H06",
+      "claim_kind": "source claim",
+      "source_claim": "p.232 and final III p.234: fresh nuclear-scope witnesses are existential, not universal.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 78."
+    },
+    {
+      "name": "negative_existential_truth_conditions",
+      "status": "proved",
+      "inventory_id": "H06",
+      "claim_kind": "source claim",
+      "source_claim": "Final IV p.234: negation closes fresh variables existentially.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 112."
+    },
+    {
+      "name": "discourse_anaphora_truth",
+      "status": "proved",
+      "inventory_id": "H05",
+      "claim_kind": "source claim",
+      "source_claim": "pp.214–218: fresh introduction supports a later anaphor and existential discourse truth.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 128."
+    },
+    {
+      "name": "complex_definite_requires_whole_content",
+      "status": "proved",
+      "inventory_id": "H04",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: complex_definite_requires_whole_content. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 142."
+    },
+    {
+      "name": "SeparatingModels.nonowners_do_not_falsify_donkey",
+      "status": "proved",
+      "inventory_id": "H06",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: SeparatingModels.nonowners_do_not_falsify_donkey. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 158."
+    },
+    {
+      "name": "SeparatingModels.one_beaten_donkey_is_not_enough",
+      "status": "proved",
+      "inventory_id": "H06",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: SeparatingModels.one_beaten_donkey_is_not_enough. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 167."
+    },
+    {
+      "name": "SeparatingModels.existential_nuclear_scope_allows_one_witness",
+      "status": "proved",
+      "inventory_id": "H06",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: SeparatingModels.existential_nuclear_scope_allows_one_witness. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 176."
+    },
+    {
+      "name": "SeparatingModels.false_files_still_have_distinct_domains",
+      "status": "proved",
+      "inventory_id": "H01",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: SeparatingModels.false_files_still_have_distinct_domains. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 188."
+    },
+    {
+      "name": "SeparatingModels.scope_blocks_later_pronoun",
+      "status": "proved",
+      "inventory_id": "H06",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: SeparatingModels.scope_blocks_later_pronoun. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 197."
+    },
+    {
+      "name": "SeparatingModels.same_world_content_different_anaphoric_truth",
+      "status": "proved",
+      "inventory_id": "H01",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: SeparatingModels.same_world_content_different_anaphoric_truth. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 204."
+    },
+    {
+      "name": "IntensionalPresupposition.actual_truth_is_not_contextual_entailment",
+      "status": "proved",
+      "inventory_id": "H08",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: IntensionalPresupposition.actual_truth_is_not_contextual_entailment. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 221."
+    }
+  ],
+  "counts": {
+    "theorems": 17,
+    "proved": 17,
+    "admitted": 0,
+    "propositional_axioms": 0
+  },
+  "documented_logical_axioms": [],
+  "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+      "General source-linked donkey, nuclear existential, negation and discourse truth conditions; finite separating models and intensional presupposition checks.",
+      "Source-complete approval is withheld; this self-assessment does not authenticate independent review."
+    ],
+    "simplifications": [],
+    "omissions": [
+      "No independent empirical test of English judgments; the finite models test logical distinctions.",
+      "No claim that the four-outcome assessment follows from these example families alone."
+    ],
+    "additions": [
+      "New small countermodels checking nonowners, multiple donkeys, domains, anaphora and all-world entailment."
+    ]
+  },
+  "determination": "unassessed",
+  "determination_rationale": "The explicit mathematical semantics has substantial checked support. Unresolved pragmatic policies, general grammar coverage and the source clarification are recorded, not silently repaired or converted into a necessity-of-restructuring verdict. Source-level approval remains pending.",
+  "artifact_classes": [
+    {
+      "class": "iv",
+      "description": "Explicit file/domain, finite-arity syntax and relational interfaces are representation infrastructure; no changed predictions are inferred from their addition."
+    },
+    {
+      "class": "v",
+      "description": "Arbitrary satisfaction/entailment has no supplied decision procedure. A total executable resolver would require additional capabilities or a declared restricted model."
+    }
+  ],
+  "source_gap": null,
+  "notes": "See campaigns/heim_1982_design.md and campaigns/heim_1982_results.md. Original attempts and frozen P grades retained. Counts include helpers and conditional/interface results; inspect mechanical depth flags. No source-outcome approval.",
+  "compiles": true
+}

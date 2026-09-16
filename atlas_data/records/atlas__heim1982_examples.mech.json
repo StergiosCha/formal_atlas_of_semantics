@@ -1,0 +1,57 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "atlas/dynamic/Heim1982_Examples.v",
+  "key": "atlas__heim1982_examples",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "unsafe_flags": [],
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 17,
+    "proved": 17,
+    "admitted": 0,
+    "aborted": 0,
+    "admitted_definitions": 0,
+    "unparsed_status": 0,
+    "definitions": 16,
+    "toplevel_axioms": 0,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 17,
+    "closed": 17,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "statements": {
+    "dynamic.Heim1982_Examples.agree_put_fresh": "c1a144a5d1c9d450",
+    "dynamic.Heim1982_Examples.restrictor_sat": "6947a70578b0bdc3",
+    "dynamic.Heim1982_Examples.restrictor_dom": "5132d4740fd36e8d",
+    "dynamic.Heim1982_Examples.donkey_felicity": "21fe5f8450de87b7",
+    "dynamic.Heim1982_Examples.donkey_truth_conditions": "4e9ce77bb260c58b",
+    "dynamic.Heim1982_Examples.nuclear_indefinite_felicity": "722c9490b10d7a5d",
+    "dynamic.Heim1982_Examples.nuclear_existential_truth_conditions": "aaa81e101dd2d06d",
+    "dynamic.Heim1982_Examples.negative_existential_truth_conditions": "7e61171f6fd51f0f",
+    "dynamic.Heim1982_Examples.discourse_anaphora_truth": "be93592921f291c4",
+    "dynamic.Heim1982_Examples.complex_definite_requires_whole_content": "56820cbfa082b82f",
+    "dynamic.Heim1982_Examples.SeparatingModels.nonowners_do_not_falsify_donkey": "cd336ccf1d9484b7",
+    "dynamic.Heim1982_Examples.SeparatingModels.one_beaten_donkey_is_not_enough": "da8ed87b825c14f2",
+    "dynamic.Heim1982_Examples.SeparatingModels.existential_nuclear_scope_allows_one_witness": "f99790704b48fe02",
+    "dynamic.Heim1982_Examples.SeparatingModels.false_files_still_have_distinct_domains": "3054ea929e7d92dd",
+    "dynamic.Heim1982_Examples.SeparatingModels.scope_blocks_later_pronoun": "eed48770673aca7f",
+    "dynamic.Heim1982_Examples.SeparatingModels.same_world_content_different_anaphoric_truth": "8ff2d747f9fe77dd",
+    "dynamic.Heim1982_Examples.IntensionalPresupposition.actual_truth_is_not_contextual_entailment": "bfb03b4a319aaf24"
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

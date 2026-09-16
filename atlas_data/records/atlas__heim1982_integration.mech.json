@@ -1,0 +1,63 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "atlas/dynamic/Heim1982_Integration.v",
+  "key": "atlas__heim1982_integration",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "unsafe_flags": [],
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 23,
+    "proved": 23,
+    "admitted": 0,
+    "aborted": 0,
+    "admitted_definitions": 0,
+    "unparsed_status": 0,
+    "definitions": 13,
+    "toplevel_axioms": 0,
+    "section_assumptions": 5
+  },
+  "assumptions": {
+    "queried": 23,
+    "closed": 23,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "statements": {
+    "dynamic.Heim1982_Integration.indexed_test_exact": "72ef803df0cff0a4",
+    "dynamic.Heim1982_Integration.indexed_test_does_not_export": "9a8bffc653e02712",
+    "dynamic.Heim1982_Integration.indexed_test_preserves_B": "e5ccfcb8b75127ec",
+    "dynamic.Heim1982_Integration.indexed_test_preserves_support": "402402ec0c25d86c",
+    "dynamic.Heim1982_Integration.world_reset_preserves_B": "bdf499d6067b9701",
+    "dynamic.Heim1982_Integration.indexed_frame_preserves_B": "e5831c9e5003bfec",
+    "dynamic.Heim1982_Integration.core_trace_files_satisfy_B": "06b01b4dd2fa4c07",
+    "dynamic.Heim1982_Integration.universal_trace_keeps_restrictor": "59cc9e881c3a5187",
+    "dynamic.Heim1982_Integration.indexed_trace_files_satisfy_B": "1129eec32d2f6094",
+    "dynamic.Heim1982_Integration.modal_trace_not_an_actual_world_update": "e226071795789f6a",
+    "dynamic.Heim1982_Integration.remember_all_preserves_history": "cf0f3a0ad2ec57e0",
+    "dynamic.Heim1982_Integration.remembered_frame_has_event": "e041473cb36e0b24",
+    "dynamic.Heim1982_Integration.core_adapter_exact": "46833ad2907c45a3",
+    "dynamic.Heim1982_Integration.read_adapter_exact": "025f59a2da684d7c",
+    "dynamic.Heim1982_Integration.read_requires_computed_references": "0022b32888cc5c08",
+    "dynamic.Heim1982_Integration.execute_preserves_B": "002921cb972baabf",
+    "dynamic.Heim1982_Integration.execute_keeps_history": "56d8ebaf70920733",
+    "dynamic.Heim1982_Integration.direct_requires_accessible_index": "b55dbe2003e4a430",
+    "dynamic.Heim1982_Integration.proxy_has_recorded_authorized_origin": "afdf3556f32d7f11",
+    "dynamic.Heim1982_Integration.proxy_establishes_description": "af6b2e8868cc09ca",
+    "dynamic.Heim1982_Integration.proxy_connects_existing_licensing_interface": "d56bf4bd842861bc",
+    "dynamic.Heim1982_Integration.denying_permission_blocks_proxy": "c143109ba670ef1e",
+    "dynamic.Heim1982_Integration.missing_memory_blocks_proxy": "334982f0b477f174"
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

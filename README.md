@@ -1,139 +1,136 @@
-# Revisiting Formal Semantics Using Proof Assistants
+# Formal Atlas of Semantics
 
-Coq formalisations accompanying the paper *Revisiting formal semantics using proof assistants* (Stergios Chatzikyriakidis). 
+What must be made explicit, assumed, or added to mechanize a semantic theory—and
+what changes when different choices are made?
 
-The paper argues that mechanisation in a proof assistant is a way to make formal-semantics theories precise and testable, and illustrates this with a case study of Montague's Intensional Logic (PTQ) and Kratzer's conversational backgrounds in Coq. The case study is run twice: once as a shallow embedding (Experiment A) and once as a deep embedding (Experiment B), so the two methodological choices can be compared side by side.
+Formal Atlas connects a **230-source survey** with Coq implementations,
+source-to-code audits, checked comparisons and countermodels. It records both
+what an encoding establishes and which additional commitments affect its results.
 
-## Repository layout
+[Explore the atlas](https://orange-beach-0c447e210.5.azurestaticapps.net) ·
+[Read the evidence](atlas_data/ATLAS.md) ·
+[Propose a change](CONTRIBUTING.md)
 
-```
-shallow/   Experiment A — shallow embedding
-deep/      Experiment B — deep embedding
-extras/    other formalisations, not part of the paper
-atlas/     later FORMAL-ATLAS implementations, bridges and bounded pilots
-atlas_data/ source assessments, evidence records, tests and generated atlas site
-```
+Two axes keep the survey separate from implementation progress:
 
-### `shallow/` — Experiment A
+- **P0–P5: intrinsic formality**, from discursive prose to a machine-checked
+  source. See the [frozen rubric](atlas_data/FORMALITY_RUBRIC.md).
+- **F0–F5: project evidence**, from surveyed, sourced and designed through
+  piloted, formalized and verified/connected. These are pipeline labels, not
+  grades of a theory's truth or importance.
 
-| File | Description |
-| --- | --- |
-| `MontagueFragment.v` | Extensional, intensional, and world--time Montague fragments. Provides the `MontagueWorldTime` module used by `kratzer2.v`. |
-| `PTQ.v` | Shallow embedding of Montague (1973), "The Proper Treatment of Quantification in Ordinary English". Hybrid: deep analysis trees + shallow IL denotations. |
-| `kratzer2.v` | Shallow embedding of Kratzer's conversational backgrounds. Contains the `kratzer_equals_montague` theorem proved by `reflexivity`, plus duality, Axiom K, monotonicity, necessitation, and disjunction distribution for the possibility operator. |
+Checked proofs concern explicitly scoped encodings; whole-source fidelity needs
+separate review. No accepted source-level reviews are currently registered.
+See [Reading the atlas responsibly](atlas_data/READING_THE_ATLAS.md).
 
-### `deep/` — Experiment B
+## Selected checked results
 
-| File | Description |
-| --- | --- |
-| `PTQ_deep2.v` | Deep embedding of Montague's Intensional Logic: `ILType` as an inductive type, IL expressions as a GADT indexed by context and type, full `eval` interpretation function, temperature-puzzle countermodel section. |
-| `kratzer_deep2.v` | Kratzer's modal operators built as semantic functions over the denotations of deep IL expressions. Re-proves the Kratzer--Montague equivalence (still by `reflexivity`) and the S5 axioms on top of the deep IL. |
-| `theorems_deep_PTQ.v` | Metatheorems about the deep IL: every-to-some, the-entails-a, relative-clause restriction, T and S4 axioms for the box, extensional collapse, beta-soundness, up/down identity, temperature non-entailment. |
+| Case study | What the encoding establishes | Evidence |
+| --- | --- | --- |
+| TTR's model layer | Inhabited component types need not have an inhabited meet: their witnesses can differ. | [Countermodels and source audit](atlas_data/audits/ttr_comparison.md#what-changed-in-ttr) |
+| TTR → MTT comparison | A fixed-model translation preserves the selected inhabitation reading, while its subject projection loses witness information and has no inverse. This is not framework equivalence. | [Translation](atlas/ttr/TTR_vs_MTT.v) |
+| Typed DTS resolution | Substitution preserves typing; resolution has soundness and bounded completeness guarantees for the implemented projection-context fragment. | [Resolution calculus](atlas/mtt_ranta/DTS_Resolution.v), [scope and source audit](atlas_data/audits/revision_2026_09_13.md) |
+| Heim's accommodation policies | Local/global repair can differ in truth conditions and subsequent anaphoric accessibility. Preserving worlds and preserving assignments impose distinct proxy permissions. No default policy is selected. | [Policy comparison](atlas_data/campaigns/heim_1982_policy_results.md) |
+| Montague/Kratzer modal clauses | Particular encoded clauses agree by unfolding definitions; the deep embedding also checks T, 4 and 5 for its universal-world necessity operator. | [Shallow clauses](shallow/kratzer2.v), [deep modal proofs](deep/kratzer_deep2.v) |
 
-### `extras/`
-
-Additional Coq formalisations from a broader research programme on type-theoretic and event semantics, Champollion-style event semantics, Dowty's thematic proto-roles, Lakoff prototypes, file-change-style fragments, polydefinites, presupposition projection, and so on. These are not part of the paper's case study but are kept here for reference and reuse.
-
-## Building
-
-A `_CoqProject` is provided. With Coq (8.16 or later) installed:
-
-```bash
-coq_makefile -f _CoqProject -o Makefile
-make
-```
-
-To build only one experiment in dependency order:
-
-```bash
-coqc shallow/MontagueFragment.v
-coqc shallow/PTQ.v
-coqc shallow/kratzer2.v
-```
-
-```bash
-coqc deep/PTQ_deep2.v
-coqc deep/kratzer_deep2.v
-coqc deep/theorems_deep_PTQ.v
-```
-
-The later FORMAL-ATLAS work lives in `atlas/` with records and the local site
-in `atlas_data/`. For the source-checked TTR, MTT, Ranta and DTS comparisons,
-see [the comparison audit](atlas_data/audits/ttr_comparison.md).
-It documents the explicit TTR model layer, the limited witness-erasing
-TTR-to-MTT comparison, and the noun/context translations required by DTS.
-The audit also lists the source passages read and reproducible build commands.
-The [September 13 revision](atlas_data/audits/revision_2026_09_13.md) adds
-typed DTS resolution, four shared constructions, and a prospectively selected
-[P1/P2/P3 pilot](atlas_data/campaigns/pilot_2026_09_13_results.md).
-Incomplete source coverage is reported as unassessed, not as evidence that
-the theory requires major restructuring.
-
-The subsequent [P0/P1/P2 coverage campaign](atlas_data/campaigns/tiers_2026_09_13_results.md)
-adds bounded Derrida, Austin and Horn pilots. The source-to-code ledger separates
-direct logical fragments from added illustrative models and uncovered claims.
-All three remain F3/unassessed; passing Coq does not verify the whole sources.
-
+The [Heim implementation](atlas_data/campaigns/heim_1982_results.md) and
+[integration report](atlas_data/campaigns/heim_1982_integration_results.md)
+connect file changes, operator binding, modal tests and proxy transitions.
 The [claim-level comparison](atlas_data/campaigns/claim_comparison_2026_09_13.md)
-separates represented examples, source-linked fragments, added semantic commitments
-and uncovered claims across those three pilots plus Grice and Tarski. Open
-**Claim comparison** on the local atlas site; these qualitative profiles do not
-change evidence levels or establish a tier gradient.
+separates source-linked fragments, illustrative models and uncovered claims in
+the Derrida, Austin, Horn, Grice and Tarski pilots. It does not establish a
+formality-tier gradient. More campaigns and correction history are indexed in
+the [reading guide](atlas_data/READING_THE_ATLAS.md#campaigns-and-correction-history).
 
-The [second cohort](atlas_data/campaigns/cohort2_2026_09_13.md) freezes
-Spivak/Rosch/Hobbs source inventories before implementation. Its first
-[Rosch pilot](atlas_data/campaigns/rosch_2026_09_13_results.md) checks finite
-cue validity and membership/typicality separation. Rosch remains P1 and is
-reported as F3/unassessed: the checked fragment does not derive a psychological
-basic level or validate prototype effects. Hobbs's local source version needs
-identification before its implementation; Spivak has not been implemented.
+## Development and review
 
-## Reading the atlas responsibly
+Development is LLM-assisted. Coq checks proof artifacts; source comparisons
+record passages, scope, assumptions and reviewer provenance where available.
+Assistant source reading and multiple agent passes are not independent human
+semantic review. The [review registry](atlas_data/paper_outcome_reviews.json)
+tracks accepted source-level assessments separately from file assessments.
 
-The atlas surveys 230 sources. **P0–P5** grades describe intrinsic formality;
-**F0–F5** labels describe progress through this project's evidence pipeline.
-Neither axis is a verdict that a whole theory has been verified.
+The [verification workflow](.github/workflows/verify.yml) compiles the project,
+kernel-rechecks the atlas layer and checks recorded statements and assumptions.
+Its admission-free gate applies to `atlas/`, not the entire repository: legacy
+material retains admissions and parameters, visible in the records. A green
+check is not maintainer approval or a certificate of source fidelity.
 
-The [outcome-flag audit](atlas_data/audits/outcome_flags_2026_09_13.md) corrects
-automatic “survey call disputed” badges: a linked file's assessment cannot
-settle a whole paper, especially when the file is partial or names a different
-source. File assessments and proofs remain visible as evidence. Paper-level
-outcomes now require an explicit source-specific review under the
-[outcome policy](atlas_data/OUTCOME_POLICY.md); the review registry is currently
-empty. Earlier aggregate transfer claims based on inherited outcomes should
-not be treated as established results.
+## Repository map
 
-## Contributing and proposing edits
+| Path | Role |
+| --- | --- |
+| `atlas/` | Later implementations, translations, countermodels and bounded pilots. |
+| `atlas_data/` | Survey, source assessments, claim/evidence records, audits, campaigns and reporting tests. |
+| `atlas_data/site/` | Site template, generated static atlas and rendering tests. |
+| `shallow/`, `deep/` | Original paper's two Montague/Kratzer experiments. |
+| `extras/`, `ttr_mtt/` | Earlier implementations and pilots retained as research history and reusable material. Consult their records for status. |
+| `tool/` | Optional checker service and LLM workbench tooling; see its [README](tool/README.md). |
+| `tools/` | Local build/watch helper scripts. |
 
-Contributors can edit Coq files in GitHub's browser editor and submit a pull
-request for maintainer review. They do not edit the deployed static page or
-publish their changes directly. See [CONTRIBUTING.md](CONTRIBUTING.md) for the
-browser workflow, local checks, source-review requirements and approval limits.
-The existing `verify` GitHub workflow runs Coq checks on pull requests; those
-checks do not replace semantic review or your approval. Enforced approval and
-deployment restrictions depend on repository settings and are not configured
-by these documentation changes.
+## Reproduce the checks
 
-To check the reporting code locally (Python 3 and Node.js required):
+The tested toolchain is **Coq 8.20.1** (the project retains Coq naming; the
+proof assistant is now known as Rocq). CI uses `coqorg/coq:8.20.1`.
+With that version on your path, build from the repository root:
+
+```bash
+coqc --version
+coq_makefile -f _CoqProject -o Makefile.coq
+make -f Makefile.coq
+```
+
+The separate generated makefile avoids the historical machine-local
+`Makefile.conf`. For just the paper experiments, use the same generated makefile
+and its dependency-aware targets:
+
+```bash
+make -f Makefile.coq shallow/PTQ.vo shallow/kratzer2.vo
+make -f Makefile.coq deep/kratzer_deep2.vo deep/theorems_deep_PTQ.vo
+```
+
+Reporting checks require Python 3 and Node.js, but not the source PDFs:
 
 ```bash
 python3 -m unittest discover -s atlas_data -p 'test_*.py'
 python3 atlas_data/build_site.py
+node atlas_data/site/test_landing.cjs
 node atlas_data/site/test_claim_comparison.cjs
 node atlas_data/site/test_rosch_campaign.cjs
 node atlas_data/site/test_outcomes.cjs
 ```
 
-Rebuilding `atlas.json` additionally requires the same external source corpus
-for reproducible F1/F2 evidence; see the contribution guide. Do not replace
-source PDFs with uploads of copyrighted material to this repository.
+The site builder uses the checked-in `atlas.json`. Recomputing that file with
+`consolidate.py` is a different operation: reproducing source-presence levels
+requires the external corpus via `ATLAS_PAPERS`. Existing campaign manifests
+pin selected artifacts; a corpus-wide registry and explicit source/design
+bindings remain work to do. See [reproducibility limits](atlas_data/READING_THE_ATLAS.md#reproducibility-and-source-access)
+and [CONTRIBUTING.md](CONTRIBUTING.md). Do not upload copyrighted source PDFs.
 
-## Citation
+## Original paper companion
 
-If you use this code, please cite the accompanying paper:
+This repository also accompanies *Revisiting formal semantics using proof
+assistants* (Stergios Chatzikyriakidis). Its case study compares shallow and
+deep embeddings of Montague's Intensional Logic and Kratzer's conversational
+backgrounds.
 
-> Chatzikyriakidis, Stergios. *Revisiting formal semantics using proof assistants*. In progress.
+| Experiment | Files and scope |
+| --- | --- |
+| A — shallow | [MontagueFragment.v](shallow/MontagueFragment.v): extensional, intensional and world–time fragments. [PTQ.v](shallow/PTQ.v): analysis trees with shallow denotations. [kratzer2.v](shallow/kratzer2.v): conversational backgrounds and modal-clause comparisons. |
+| B — deep | [PTQ_deep2.v](deep/PTQ_deep2.v): typed IL syntax and interpretation, including a temperature-puzzle non-entailment result under stated model hypotheses. [kratzer_deep2.v](deep/kratzer_deep2.v): modal clauses over deep IL denotations. [theorems_deep_PTQ.v](deep/theorems_deep_PTQ.v): further metatheorems. |
 
-## License
+## Contributing
 
-MIT, see `LICENSE`.
+Open a Coq file in GitHub's browser editor and propose a pull request for
+maintainer review. The deployed atlas is read-only; editing it does not submit
+or publish a proposal. [CONTRIBUTING.md](CONTRIBUTING.md) explains browser edits,
+local checks, source-review requirements and the limits of approval enforcement.
+
+## Citation and license
+
+Until a versioned archive is assigned, cite *Formal Atlas of Semantics*, Stergios
+Chatzikyriakidis, with the [repository URL](https://github.com/StergiosCha/formal_atlas_of_semantics)
+and the exact commit you used. The accompanying paper, *Revisiting formal
+semantics using proof assistants*, is in progress.
+
+MIT, see [LICENSE](LICENSE). External source publications retain their own rights.

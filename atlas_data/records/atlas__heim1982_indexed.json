@@ -1,0 +1,237 @@
+{
+  "file": "atlas/dynamic/Heim1982_Indexed.v",
+  "region": "dynamic",
+  "summary": "Earlier indexed satisfaction and contextual-reference schema; ordered-world human necessity/possibility; selected correspondences with final FCS; source-directed construal interfaces.",
+  "assessment_status": "incomplete",
+  "implementation_scope": "Explicit rules and theorems implemented; open source policies/grammar are interfaces, not complete predictions.",
+  "sources": [
+    {
+      "citation": "Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Consulted edition: Schoubye–Glick 2011 retypesetting. II.2 pp.87–100; II.3 pp.105–111; II.4 pp.115–129; II.5 pp.130–144, especially p.117 fn.8 and pp.137–138 fn.27.",
+      "path": "papers/dynamic/Heim_1982_DefiniteIndefiniteNPs.pdf",
+      "available": "Local primary-source passages read. Independent semantic review pending."
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "Indexed; satisfies; outside",
+      "source": "The five earlier indexed satisfaction clauses, plus the world/assignment modal clauses of pp.119–120.",
+      "match": "exact"
+    },
+    {
+      "coq": "best; IMust; IMay",
+      "source": "Source's simplified best-world human necessity/possibility, not an imported limit-free replacement.",
+      "match": "exact"
+    },
+    {
+      "coq": "context_references; contextual_truth",
+      "source": "Source's necessary deictic provision and truth schema; free-variable list/reference relation are explicit inputs.",
+      "match": "exact"
+    },
+    {
+      "coq": "prefix_subject; ConstrualConstraints",
+      "source": "Minimal subject NP prefixing and stated constraints on supplied syntactic analyses, not a full derivation generator.",
+      "match": "simplified"
+    },
+    {
+      "coq": "ModalModels",
+      "source": "New countermodels for the source's best-world assumption, nonactual ideality and nonfactive access.",
+      "match": "added"
+    }
+  ],
+  "theorems": [
+    {
+      "name": "outside_put",
+      "status": "proved",
+      "inventory_id": "H15",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: outside_put. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 51."
+    },
+    {
+      "name": "outside_put2",
+      "status": "proved",
+      "inventory_id": "H15",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: outside_put2. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 56."
+    },
+    {
+      "name": "outside_keeps",
+      "status": "proved",
+      "inventory_id": "H15",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: outside_keeps. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 62."
+    },
+    {
+      "name": "indexed_donkey_truth",
+      "status": "proved",
+      "inventory_id": "H15",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: indexed_donkey_truth. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 69."
+    },
+    {
+      "name": "final_indexed_donkey_correspondence",
+      "status": "proved",
+      "inventory_id": "H15",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: final_indexed_donkey_correspondence. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 82."
+    },
+    {
+      "name": "indexed_nuclear_truth",
+      "status": "proved",
+      "inventory_id": "H15",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: indexed_nuclear_truth. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 93."
+    },
+    {
+      "name": "final_indexed_nuclear_correspondence",
+      "status": "proved",
+      "inventory_id": "H15",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: final_indexed_nuclear_correspondence. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 110."
+    },
+    {
+      "name": "indexed_text_closure",
+      "status": "proved",
+      "inventory_id": "H15",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: indexed_text_closure. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 119."
+    },
+    {
+      "name": "may_implies_not_must_not",
+      "status": "proved",
+      "inventory_id": "H16",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: may_implies_not_must_not. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 138."
+    },
+    {
+      "name": "modal_duality_classical",
+      "status": "proved",
+      "inventory_id": "H16",
+      "claim_kind": "source claim",
+      "source_claim": "p.120: human possibility is dual to human necessity; converse uses classical logic.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 142."
+    },
+    {
+      "name": "no_best_worlds_make_necessity_vacuous",
+      "status": "proved",
+      "inventory_id": "H17",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: no_best_worlds_make_necessity_vacuous. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 150."
+    },
+    {
+      "name": "realistic_necessity_has_actual_consequences",
+      "status": "proved",
+      "inventory_id": "H18",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: realistic_necessity_has_actual_consequences. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 159."
+    },
+    {
+      "name": "indefinite_prefix_has_no_quantifier",
+      "status": "proved",
+      "inventory_id": "H19",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: indefinite_prefix_has_no_quantifier. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 180."
+    },
+    {
+      "name": "proper_name_scope_on_felicitous_assignments",
+      "status": "proved",
+      "inventory_id": "H19",
+      "claim_kind": "source claim",
+      "source_claim": "pp.137–138 fn.27: the displayed name-scope equivalence requires the name's felicity condition.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 187."
+    },
+    {
+      "name": "ModalModels.limit_assumption_is_substantive",
+      "status": "proved",
+      "inventory_id": "H17",
+      "claim_kind": "new",
+      "source_claim": "p.117 fn.8: an unbounded ordering without best worlds makes simplified necessity vacuous.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 204."
+    },
+    {
+      "name": "ModalModels.ideal_necessity_does_not_entail_actuality",
+      "status": "proved",
+      "inventory_id": "H18",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: ModalModels.ideal_necessity_does_not_entail_actuality. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 218."
+    },
+    {
+      "name": "ModalModels.reflexive_access_gives_factivity",
+      "status": "proved",
+      "inventory_id": "H18",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: ModalModels.reflexive_access_gives_factivity. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 230."
+    },
+    {
+      "name": "ModalModels.nonfactive_access_does_not_give_factivity",
+      "status": "proved",
+      "inventory_id": "H18",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: ModalModels.nonfactive_access_does_not_give_factivity. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 233."
+    },
+    {
+      "name": "ConstrualConstraints.earlier_definite_also_blocks_indefinite_coindexing",
+      "status": "proved",
+      "inventory_id": "H19",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: ConstrualConstraints.earlier_definite_also_blocks_indefinite_coindexing. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 255."
+    }
+  ],
+  "counts": {
+    "theorems": 19,
+    "proved": 19,
+    "admitted": 0,
+    "propositional_axioms": 0
+  },
+  "documented_logical_axioms": [
+    "Coq.Logic.Classical_Prop.classic; exact dependent theorems listed by the mechanical record."
+  ],
+  "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+      "Earlier indexed satisfaction and contextual-reference schema; ordered-world human necessity/possibility; selected correspondences with final FCS; source-directed construal interfaces.",
+      "Source-complete approval is withheld; this self-assessment does not authenticate independent review."
+    ],
+    "simplifications": [
+      "Minimal subject NP prefixing and stated constraints on supplied syntactic analyses, not a full derivation generator."
+    ],
+    "omissions": [
+      "No theorem equating the complete earlier and final systems; correspondences cover the named donkey and nuclear-scope families.",
+      "No full movement derivation generator, automatic free-variable extraction, empirical generic/attitude theory, or independently supplied grammar parser.",
+      "Weak-crossover alternative, modal base/ordering and source-excluded attitude exceptions remain explicit."
+    ],
+    "additions": [
+      "New countermodels for the source's best-world assumption, nonactual ideality and nonfactive access."
+    ]
+  },
+  "determination": "unassessed",
+  "determination_rationale": "The explicit mathematical semantics has substantial checked support. Unresolved pragmatic policies, general grammar coverage and the source clarification are recorded, not silently repaired or converted into a necessity-of-restructuring verdict. Source-level approval remains pending.",
+  "artifact_classes": [
+    {
+      "class": "iv",
+      "description": "Explicit file/domain, finite-arity syntax and relational interfaces are representation infrastructure; no changed predictions are inferred from their addition."
+    },
+    {
+      "class": "v",
+      "description": "Arbitrary satisfaction/entailment has no supplied decision procedure. A total executable resolver would require additional capabilities or a declared restricted model."
+    }
+  ],
+  "source_gap": null,
+  "notes": "See campaigns/heim_1982_design.md and campaigns/heim_1982_results.md. Original attempts and frozen P grades retained. Counts include helpers and conditional/interface results; inspect mechanical depth flags. No source-outcome approval.",
+  "compiles": true
+}

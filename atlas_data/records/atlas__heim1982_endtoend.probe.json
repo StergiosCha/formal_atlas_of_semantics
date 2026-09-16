@@ -1,0 +1,65 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/dynamic/Heim1982_EndToEnd.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "dynamic.Heim1982_EndToEnd.keep_all_records_each_frame": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_EndToEnd.modal_compiler_has_no_free_individuals": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982_EndToEnd.compiled_modal_truth": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_EndToEnd.modal_trace_contains_description": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982_EndToEnd.modal_stage_retains_world_argument": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_EndToEnd.read_generates_tentative_memory_without_export": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982_EndToEnd.complete_modal_proxy_core_run": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_EndToEnd.proxy_core_truth": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_EndToEnd.complete_program_truth_conditions": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_EndToEnd.factive_modal_proxy_preserves_world_content": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_EndToEnd.core_run_remembers_but_cannot_directly_reuse_scoped_card": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_EndToEnd.unresolved_deictic_blocks_read": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_EndToEnd.NonfactiveModel.desired_witness_is_not_an_actual_witness": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    }
+  },
+  "summary": {
+    "probed": 13,
+    "vacuous": 0,
+    "trivial": 3,
+    "bailout": 0
+  }
+}

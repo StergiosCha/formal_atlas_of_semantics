@@ -1,0 +1,149 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/dynamic/Heim1982.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "dynamic.Heim1982.put_same": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982.put_other": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982.agree_refl": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982.agree_sym": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982.agree_trans": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982.differs_agree": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982.supported_implies_B": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982.empty_supported": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982.false_supported": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982.empty_file_truth_needs_inhabited_domain": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982.fresh_put": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982.values_agree": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982.disjunction_single_witness": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982.domain_update": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982.update_contractive": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982.file_truth_contracts": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982.true_false_exclusive": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982.false_input_has_no_C_truth_value": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982.infelicity_is_neither_true_nor_false": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982.extension_at_agree": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982.universal_test_agree": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982.update_preserves_B": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982.update_preserves_support": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982.indefinite_felicity": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982.definite_felicity": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982.fresh_indefinite_truth": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982.descriptive_update_is_vacuous": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982.introduction_licenses_anaphor": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982.negation_does_not_export": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982.universal_does_not_export": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982.disjunction_does_not_export": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982.negation_projects_felicity": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982.local_descriptive_projection": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982.nontrivial_entailment_not_not_familiar": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    }
+  },
+  "summary": {
+    "probed": 34,
+    "vacuous": 0,
+    "trivial": 12,
+    "bailout": 0
+  }
+}

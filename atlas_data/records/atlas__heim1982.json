@@ -1,0 +1,359 @@
+{
+  "file": "atlas/dynamic/Heim1982.v",
+  "region": "dynamic",
+  "summary": "World-sensitive final file-change rules I–V; independent file domains, exact condition B, local extended NFC and contextual truth. General invariance and existential-force proofs, with no added logical axioms.",
+  "assessment_status": "incomplete",
+  "implementation_scope": "Explicit rules and theorems implemented; open source policies/grammar are interfaces, not complete predictions.",
+  "sources": [
+    {
+      "citation": "Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Consulted edition: Schoubye–Glick 2011 retypesetting. III.1.4 pp.185–190; III.2.1.1 pp.196–198; pp.202,214–218,234,236–238; p.254 fn.28.",
+      "path": "papers/dynamic/Heim_1982_DefiniteIndefiniteNPs.pdf",
+      "available": "Local primary-source passages read. Independent semantic review pending."
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "Assignment; File; condition_B; world_content",
+      "source": "Infinite assignments, independent domains/satisfaction, world projection, and the source's single-coordinate condition B.",
+      "match": "exact"
+    },
+    {
+      "coq": "tuple; slots; values; Formula",
+      "source": "Finite-arity tuples and semantic LF syntax; not the full grammar of English.",
+      "match": "added"
+    },
+    {
+      "coq": "atomic; update; universal_result; negative_result; disjunctive_result",
+      "source": "Final rules I–IV at p.234 and proposed disjunction V at p.254 fn.28; factorized existential/disjunction is proved equivalent.",
+      "match": "exact"
+    },
+    {
+      "coq": "Mark; Use; licensed; entails; defined_update",
+      "source": "Local extended NFC, complex descriptive entailment and mathematically partial updates represented by a guard.",
+      "match": "exact"
+    },
+    {
+      "coq": "utterance_true; utterance_false",
+      "source": "Criterion C on pp.214–218, not a solution of C′ for false contexts.",
+      "match": "exact"
+    },
+    {
+      "coq": "supported; file_equiv",
+      "source": "Stronger full-domain support and pointwise equality; kept distinct from B.",
+      "match": "added"
+    }
+  ],
+  "theorems": [
+    {
+      "name": "put_same",
+      "status": "proved",
+      "inventory_id": "H03",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: put_same. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 40."
+    },
+    {
+      "name": "put_other",
+      "status": "proved",
+      "inventory_id": "H03",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: put_other. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 42."
+    },
+    {
+      "name": "agree_refl",
+      "status": "proved",
+      "inventory_id": "H03",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: agree_refl. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 44."
+    },
+    {
+      "name": "agree_sym",
+      "status": "proved",
+      "inventory_id": "H03",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: agree_sym. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 46."
+    },
+    {
+      "name": "agree_trans",
+      "status": "proved",
+      "inventory_id": "H03",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: agree_trans. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 48."
+    },
+    {
+      "name": "differs_agree",
+      "status": "proved",
+      "inventory_id": "H03",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: differs_agree. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 51."
+    },
+    {
+      "name": "supported_implies_B",
+      "status": "proved",
+      "inventory_id": "H02",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: supported_implies_B. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 69."
+    },
+    {
+      "name": "empty_supported",
+      "status": "proved",
+      "inventory_id": "H02",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: empty_supported. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 71."
+    },
+    {
+      "name": "false_supported",
+      "status": "proved",
+      "inventory_id": "H02",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: false_supported. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 73."
+    },
+    {
+      "name": "empty_file_truth_needs_inhabited_domain",
+      "status": "proved",
+      "inventory_id": "H01",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: empty_file_truth_needs_inhabited_domain. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 75."
+    },
+    {
+      "name": "fresh_put",
+      "status": "proved",
+      "inventory_id": "H02",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: fresh_put. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 82."
+    },
+    {
+      "name": "values_agree",
+      "status": "proved",
+      "inventory_id": "H03",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: values_agree. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 94."
+    },
+    {
+      "name": "disjunction_single_witness",
+      "status": "proved",
+      "inventory_id": "H03",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: disjunction_single_witness. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 128."
+    },
+    {
+      "name": "domain_update",
+      "status": "proved",
+      "inventory_id": "H03",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: domain_update. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 179."
+    },
+    {
+      "name": "update_contractive",
+      "status": "proved",
+      "inventory_id": "H03",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: update_contractive. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 191."
+    },
+    {
+      "name": "file_truth_contracts",
+      "status": "proved",
+      "inventory_id": "H05",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: file_truth_contracts. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 203."
+    },
+    {
+      "name": "true_false_exclusive",
+      "status": "proved",
+      "inventory_id": "H05",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: true_false_exclusive. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 206."
+    },
+    {
+      "name": "false_input_has_no_C_truth_value",
+      "status": "proved",
+      "inventory_id": "H05",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: false_input_has_no_C_truth_value. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 209."
+    },
+    {
+      "name": "infelicity_is_neither_true_nor_false",
+      "status": "proved",
+      "inventory_id": "H04",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: infelicity_is_neither_true_nor_false. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 216."
+    },
+    {
+      "name": "extension_at_agree",
+      "status": "proved",
+      "inventory_id": "H03",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: extension_at_agree. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 220."
+    },
+    {
+      "name": "universal_test_agree",
+      "status": "proved",
+      "inventory_id": "H03",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: universal_test_agree. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 227."
+    },
+    {
+      "name": "update_preserves_B",
+      "status": "proved",
+      "inventory_id": "H02",
+      "claim_kind": "new",
+      "source_claim": "All final updates preserve the stated single-coordinate condition B.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 241."
+    },
+    {
+      "name": "update_preserves_support",
+      "status": "proved",
+      "inventory_id": "H02",
+      "claim_kind": "new",
+      "source_claim": "The stronger support property is preserved separately; it is not assumed equivalent to B.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 270."
+    },
+    {
+      "name": "indefinite_felicity",
+      "status": "proved",
+      "inventory_id": "H04",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: indefinite_felicity. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 305."
+    },
+    {
+      "name": "definite_felicity",
+      "status": "proved",
+      "inventory_id": "H04",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: definite_felicity. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 308."
+    },
+    {
+      "name": "fresh_indefinite_truth",
+      "status": "proved",
+      "inventory_id": "H05",
+      "claim_kind": "source claim",
+      "source_claim": "pp.215–216: novelty and B derive existential force.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 312."
+    },
+    {
+      "name": "descriptive_update_is_vacuous",
+      "status": "proved",
+      "inventory_id": "H08",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: descriptive_update_is_vacuous. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 323."
+    },
+    {
+      "name": "introduction_licenses_anaphor",
+      "status": "proved",
+      "inventory_id": "H05",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: introduction_licenses_anaphor. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 331."
+    },
+    {
+      "name": "negation_does_not_export",
+      "status": "proved",
+      "inventory_id": "H06",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: negation_does_not_export. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 334."
+    },
+    {
+      "name": "universal_does_not_export",
+      "status": "proved",
+      "inventory_id": "H06",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: universal_does_not_export. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 337."
+    },
+    {
+      "name": "disjunction_does_not_export",
+      "status": "proved",
+      "inventory_id": "H06",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: disjunction_does_not_export. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 340."
+    },
+    {
+      "name": "negation_projects_felicity",
+      "status": "proved",
+      "inventory_id": "H08",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: negation_projects_felicity. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 343."
+    },
+    {
+      "name": "local_descriptive_projection",
+      "status": "proved",
+      "inventory_id": "H08",
+      "claim_kind": "new",
+      "source_claim": "Helper, definition check or explicit construction test: local_descriptive_projection. Scope and source location are documented in the Coq file and results report; not an independently verified whole-source claim.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 346."
+    },
+    {
+      "name": "nontrivial_entailment_not_not_familiar",
+      "status": "proved",
+      "inventory_id": "H07",
+      "claim_kind": "source claim",
+      "source_claim": "Constructive double-negation part of p.238 fn.21.",
+      "note": "Single-assistant implementation; semantic review pending. Source line 354."
+    }
+  ],
+  "counts": {
+    "theorems": 34,
+    "proved": 34,
+    "admitted": 0,
+    "propositional_axioms": 0
+  },
+  "documented_logical_axioms": [],
+  "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+      "World-sensitive final file-change rules I–V; independent file domains, exact condition B, local extended NFC and contextual truth. General invariance and existential-force proofs, with no added logical axioms.",
+      "Source-complete approval is withheld; this self-assessment does not authenticate independent review."
+    ],
+    "simplifications": [],
+    "omissions": [
+      "No automatic choice of LF, referent or accommodation policy.",
+      "Felicity covers the named semantic checks, not all pragmatic acceptability.",
+      "Criterion C′ and modal/indexed semantics are in companion modules, not blended into these final rules."
+    ],
+    "additions": [
+      "Finite-arity tuples and semantic LF syntax; not the full grammar of English.",
+      "Stronger full-domain support and pointwise equality; kept distinct from B."
+    ]
+  },
+  "determination": "unassessed",
+  "determination_rationale": "The explicit mathematical semantics has substantial checked support. Unresolved pragmatic policies, general grammar coverage and the source clarification are recorded, not silently repaired or converted into a necessity-of-restructuring verdict. Source-level approval remains pending.",
+  "artifact_classes": [
+    {
+      "class": "iv",
+      "description": "Explicit file/domain, finite-arity syntax and relational interfaces are representation infrastructure; no changed predictions are inferred from their addition."
+    },
+    {
+      "class": "v",
+      "description": "Arbitrary satisfaction/entailment has no supplied decision procedure. A total executable resolver would require additional capabilities or a declared restricted model."
+    }
+  ],
+  "source_gap": null,
+  "notes": "See campaigns/heim_1982_design.md and campaigns/heim_1982_results.md. Original attempts and frozen P grades retained. Counts include helpers and conditional/interface results; inspect mechanical depth flags. No source-outcome approval.",
+  "compiles": true
+}

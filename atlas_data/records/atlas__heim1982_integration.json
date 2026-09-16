@@ -1,0 +1,263 @@
+{
+  "file": "atlas/dynamic/Heim1982_Integration.v",
+  "region": "dynamic",
+  "summary": "Compositional final-FCS/indexed-modal/proxy runner with generated traces, explicit world-relative memory and supplied authorization.",
+  "assessment_status": "incomplete",
+  "implementation_scope": "Authorized integration step implemented for selected construal trees and typed commands. Not a raw-English parser, full movement generator, total semantic decision procedure or completed pragmatic theory.",
+  "sources": [
+    {
+      "citation": "Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Consulted Schoubye–Glick 2011 retypesetting, pp.90–100,105–111,118–120,234,247–254.",
+      "path": "papers/dynamic/Heim_1982_DefiniteIndefiniteNPs.pdf",
+      "available": "Relevant primary-source passages read; single-assistant comparison, independent source review pending."
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "indexed_test; references_available",
+      "source": "Added adapter for existing indexed satisfaction into file filtering, guarded by computed reference availability; not a full modal felicity theory.",
+      "match": "added"
+    },
+    {
+      "coq": "core_trace; indexed_trace; indexed_frame; world_reset",
+      "source": "Added finite event instrumentation. Core snapshots are actual intermediate updates; indexed snapshots are tagged world-relative satisfaction-calculation frames.",
+      "match": "added"
+    },
+    {
+      "coq": "Event; State; remember_all; Execute",
+      "source": "Added compositional execution relation keeping current file and history separate. Attention and proxy authorization remain explicit inputs.",
+      "match": "added"
+    },
+    {
+      "coq": "execute_core",
+      "source": "Conservative adapter for the existing final FCS update and licensed guard.",
+      "match": "exact"
+    },
+    {
+      "coq": "execute_proxy",
+      "source": "pp.247–252 motivate proxy accommodation; explicit fresh, distinct index plus recorded precedent and supplied permission. No automatic resolution or source acceptability verdict.",
+      "match": "added"
+    }
+  ],
+  "theorems": [
+    {
+      "name": "indexed_test_exact",
+      "status": "proved",
+      "inventory_id": "I04",
+      "claim_kind": "new",
+      "source_claim": "Compositional runner with exact final-FCS and earlier indexed truth-test adapters; no whole-system equivalence claimed. Helper, definition check or integration construction: indexed_test_exact.",
+      "note": "Code line 21. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "indexed_test_does_not_export",
+      "status": "proved",
+      "inventory_id": "I04",
+      "claim_kind": "new",
+      "source_claim": "Compositional runner with exact final-FCS and earlier indexed truth-test adapters; no whole-system equivalence claimed. Helper, definition check or integration construction: indexed_test_does_not_export.",
+      "note": "Code line 24. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "indexed_test_preserves_B",
+      "status": "proved",
+      "inventory_id": "I04",
+      "claim_kind": "new",
+      "source_claim": "Compositional runner with exact final-FCS and earlier indexed truth-test adapters; no whole-system equivalence claimed. Helper, definition check or integration construction: indexed_test_preserves_B.",
+      "note": "Code line 27. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "indexed_test_preserves_support",
+      "status": "proved",
+      "inventory_id": "I04",
+      "claim_kind": "new",
+      "source_claim": "Compositional runner with exact final-FCS and earlier indexed truth-test adapters; no whole-system equivalence claimed. Helper, definition check or integration construction: indexed_test_preserves_support.",
+      "note": "Code line 35. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "world_reset_preserves_B",
+      "status": "proved",
+      "inventory_id": "I07",
+      "claim_kind": "new",
+      "source_claim": "World-relative modal traces, exact modal truth tests, factive preservation and a nonfactive countermodel; no automatic actual-world inference from a remembered modal card. Helper, definition check or integration construction: world_reset_preserves_B.",
+      "note": "Code line 51. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "indexed_frame_preserves_B",
+      "status": "proved",
+      "inventory_id": "I07",
+      "claim_kind": "new",
+      "source_claim": "World-relative modal traces, exact modal truth tests, factive preservation and a nonfactive countermodel; no automatic actual-world inference from a remembered modal card. Helper, definition check or integration construction: indexed_frame_preserves_B.",
+      "note": "Code line 53. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "core_trace_files_satisfy_B",
+      "status": "proved",
+      "inventory_id": "I05",
+      "claim_kind": "new",
+      "source_claim": "Finite traces retain tentative cards without exporting their indices; history is generated during actual core or indexed-calculation steps. Helper, definition check or integration construction: core_trace_files_satisfy_B.",
+      "note": "Code line 72. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "universal_trace_keeps_restrictor",
+      "status": "proved",
+      "inventory_id": "I05",
+      "claim_kind": "new",
+      "source_claim": "Finite traces retain tentative cards without exporting their indices; history is generated during actual core or indexed-calculation steps. Helper, definition check or integration construction: universal_trace_keeps_restrictor.",
+      "note": "Code line 89. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "indexed_trace_files_satisfy_B",
+      "status": "proved",
+      "inventory_id": "I07",
+      "claim_kind": "new",
+      "source_claim": "World-relative modal traces, exact modal truth tests, factive preservation and a nonfactive countermodel; no automatic actual-world inference from a remembered modal card. Helper, definition check or integration construction: indexed_trace_files_satisfy_B.",
+      "note": "Code line 103. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "modal_trace_not_an_actual_world_update",
+      "status": "proved",
+      "inventory_id": "I07",
+      "claim_kind": "new",
+      "source_claim": "World-relative modal traces, exact modal truth tests, factive preservation and a nonfactive countermodel; no automatic actual-world inference from a remembered modal card. Helper, definition check or integration construction: modal_trace_not_an_actual_world_update.",
+      "note": "Code line 109. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "remember_all_preserves_history",
+      "status": "proved",
+      "inventory_id": "I05",
+      "claim_kind": "new",
+      "source_claim": "Finite traces retain tentative cards without exporting their indices; history is generated during actual core or indexed-calculation steps. Helper, definition check or integration construction: remember_all_preserves_history.",
+      "note": "Code line 135. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "remembered_frame_has_event",
+      "status": "proved",
+      "inventory_id": "I05",
+      "claim_kind": "new",
+      "source_claim": "Finite traces retain tentative cards without exporting their indices; history is generated during actual core or indexed-calculation steps. Helper, definition check or integration construction: remembered_frame_has_event.",
+      "note": "Code line 141. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "core_adapter_exact",
+      "status": "proved",
+      "inventory_id": "I04",
+      "claim_kind": "new",
+      "source_claim": "Compositional runner with exact final-FCS and earlier indexed truth-test adapters; no whole-system equivalence claimed. Helper, definition check or integration construction: core_adapter_exact.",
+      "note": "Code line 188. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "read_adapter_exact",
+      "status": "proved",
+      "inventory_id": "I04",
+      "claim_kind": "new",
+      "source_claim": "Compositional runner with exact final-FCS and earlier indexed truth-test adapters; no whole-system equivalence claimed. Helper, definition check or integration construction: read_adapter_exact.",
+      "note": "Code line 192. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "read_requires_computed_references",
+      "status": "proved",
+      "inventory_id": "I03",
+      "claim_kind": "new",
+      "source_claim": "Computed contextual reference requirements and a runner guard rejecting unresolved deictic indices. Helper, definition check or integration construction: read_requires_computed_references.",
+      "note": "Code line 196. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "execute_preserves_B",
+      "status": "proved",
+      "inventory_id": "I04",
+      "claim_kind": "new",
+      "source_claim": "Compositional runner with exact final-FCS and earlier indexed truth-test adapters; no whole-system equivalence claimed. Helper, definition check or integration construction: execute_preserves_B.",
+      "note": "Code line 199. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "execute_keeps_history",
+      "status": "proved",
+      "inventory_id": "I05",
+      "claim_kind": "new",
+      "source_claim": "Finite traces retain tentative cards without exporting their indices; history is generated during actual core or indexed-calculation steps. Helper, definition check or integration construction: execute_keeps_history.",
+      "note": "Code line 209. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "direct_requires_accessible_index",
+      "status": "proved",
+      "inventory_id": "I06",
+      "claim_kind": "new",
+      "source_claim": "Actual proxy transition consumes a recorded prominent card, a distinct fresh index and explicit permission, then establishes the new description and connects the prior licensing interface. Helper, definition check or integration construction: direct_requires_accessible_index.",
+      "note": "Code line 216. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "proxy_has_recorded_authorized_origin",
+      "status": "proved",
+      "inventory_id": "I06",
+      "claim_kind": "new",
+      "source_claim": "Actual proxy transition consumes a recorded prominent card, a distinct fresh index and explicit permission, then establishes the new description and connects the prior licensing interface. Helper, definition check or integration construction: proxy_has_recorded_authorized_origin.",
+      "note": "Code line 219. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "proxy_establishes_description",
+      "status": "proved",
+      "inventory_id": "I06",
+      "claim_kind": "new",
+      "source_claim": "Actual proxy transition consumes a recorded prominent card, a distinct fresh index and explicit permission, then establishes the new description and connects the prior licensing interface. Helper, definition check or integration construction: proxy_establishes_description.",
+      "note": "Code line 225. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "proxy_connects_existing_licensing_interface",
+      "status": "proved",
+      "inventory_id": "I06",
+      "claim_kind": "new",
+      "source_claim": "Actual proxy transition consumes a recorded prominent card, a distinct fresh index and explicit permission, then establishes the new description and connects the prior licensing interface. Helper, definition check or integration construction: proxy_connects_existing_licensing_interface.",
+      "note": "Code line 230. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "denying_permission_blocks_proxy",
+      "status": "proved",
+      "inventory_id": "I06",
+      "claim_kind": "new",
+      "source_claim": "Actual proxy transition consumes a recorded prominent card, a distinct fresh index and explicit permission, then establishes the new description and connects the prior licensing interface. Helper, definition check or integration construction: denying_permission_blocks_proxy.",
+      "note": "Code line 248. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    },
+    {
+      "name": "missing_memory_blocks_proxy",
+      "status": "proved",
+      "inventory_id": "I06",
+      "claim_kind": "new",
+      "source_claim": "Actual proxy transition consumes a recorded prominent card, a distinct fresh index and explicit permission, then establishes the new description and connects the prior licensing interface. Helper, definition check or integration construction: missing_memory_blocks_proxy.",
+      "note": "Code line 251. Model and policy hypotheses remain in the theorem statement; no independent source verdict."
+    }
+  ],
+  "counts": {
+    "theorems": 23,
+    "proved": 23,
+    "admitted": 0,
+    "propositional_axioms": 0
+  },
+  "documented_logical_axioms": [],
+  "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+      "See campaigns/heim_1982_integration_results.md and every-theorem mechanical records. Existing source definitions are reused through explicit adapters; added integration machinery is identified above."
+    ],
+    "simplifications": [],
+    "omissions": [
+      "Raw-English analysis, general movement derivations and a complete generic/specific-indefinite theory are outside this step.",
+      "No chosen recency/prominence threshold, proxy-resolution algorithm, local/global accommodation preference or complete modal presupposition projection theory.",
+      "No whole-system equivalence between earlier indexed semantics and final FCS, and no total executable decision procedure for arbitrary interpretations."
+    ],
+    "additions": [
+      "Added adapter for existing indexed satisfaction into file filtering, guarded by computed reference availability; not a full modal felicity theory.",
+      "Added finite event instrumentation. Core snapshots are actual intermediate updates; indexed snapshots are tagged world-relative satisfaction-calculation frames.",
+      "Added compositional execution relation keeping current file and history separate. Attention and proxy authorization remain explicit inputs.",
+      "pp.247–252 motivate proxy accommodation; explicit fresh, distinct index plus recorded precedent and supplied permission. No automatic resolution or source acceptability verdict."
+    ]
+  },
+  "determination": "unassessed",
+  "determination_rationale": "Integration and source-linked conditional results are checked; this does not settle whole-source coverage, the earlier source wording clarification or open pragmatic policy choices.",
+  "artifact_classes": [
+    {
+      "class": "iv",
+      "description": "Explicit syntax traversal, assignment splicing, tagged trace storage and conservative adapters; added engineering is not evidence of necessary theoretical change."
+    }
+  ],
+  "source_gap": null,
+  "notes": "Integration step 1. Prior four modules, research records and frozen P grades preserved. Counts include helpers and construction checks. No accepted source outcome or deployment.",
+  "compiles": true
+}

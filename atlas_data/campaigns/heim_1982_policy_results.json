@@ -1,0 +1,297 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-15",
+  "paper_id": 7,
+  "source_citation": "Heim, I. (1982) - \"The Semantics of Definite and Indefinite Noun Phrases\"",
+  "consulted_edition": "Schoubye–Glick 2011 retypesetting",
+  "status": "explicit_policy_comparison",
+  "whole_source_complete": false,
+  "accepted_outcome": null,
+  "independent_review": false,
+  "selected_default_policy": null,
+  "files": [
+    "atlas/dynamic/Heim1982_Policies.v"
+  ],
+  "targets": [
+    {
+      "id": "K01",
+      "status": "implemented",
+      "scope": "Declared fresh-description repair requests: no repair blocks; local/global selections are certified runs of the existing accommodation relation. Selector uniqueness is not a whole-policy completeness theorem.",
+      "support": [
+        "dynamic.Heim1982_Policies.repaired_description_licensed",
+        "dynamic.Heim1982_Policies.fresh_description_is_unlicensed",
+        "dynamic.Heim1982_Policies.no_repair_blocks_fresh_description",
+        "dynamic.Heim1982_Policies.selected_local_is_a_valid_run",
+        "dynamic.Heim1982_Policies.selected_global_is_a_valid_run",
+        "dynamic.Heim1982_Policies.selected_negation_has_unique_output"
+      ]
+    },
+    {
+      "id": "K02",
+      "status": "implemented",
+      "scope": "General source-linked local/global truth conditions and different exported domains over arbitrary models.",
+      "support": [
+        "dynamic.Heim1982_Policies.local_truth_condition",
+        "dynamic.Heim1982_Policies.global_truth_condition",
+        "dynamic.Heim1982_Policies.local_world_truth",
+        "dynamic.Heim1982_Policies.global_world_truth",
+        "dynamic.Heim1982_Policies.local_global_domain_difference"
+      ]
+    },
+    {
+      "id": "K03",
+      "status": "implemented",
+      "scope": "Same inputs: absent king separates truth; an existing king with no lunch separates following-pronoun availability even when both results are true.",
+      "support": [
+        "dynamic.Heim1982_Policies.NegationModels.absent_king_local_true_global_false",
+        "dynamic.Heim1982_Policies.NegationModels.existing_king_same_truth_different_next_pronoun"
+      ]
+    },
+    {
+      "id": "K04",
+      "status": "implemented",
+      "scope": "Explicit deny, bridge-only, world-safe and assignment-safe permissions. Inclusion lifts to complete executions; world-safe exactly characterizes world preservation for fresh bridges in B-files.",
+      "support": [
+        "dynamic.Heim1982_Policies.assignment_safe_implies_world_safe",
+        "dynamic.Heim1982_Policies.world_safe_implies_bridge_only",
+        "dynamic.Heim1982_Policies.deny_is_least_policy",
+        "dynamic.Heim1982_Policies.enlarging_permission_preserves_runs",
+        "dynamic.Heim1982_Policies.world_safe_preserves_worlds",
+        "dynamic.Heim1982_Policies.assignment_safe_preserves_every_assignment",
+        "dynamic.Heim1982_Policies.world_safe_characterizes_world_preservation"
+      ]
+    },
+    {
+      "id": "K05",
+      "status": "implemented",
+      "scope": "Same compiled modal/proxy/core program and attention fixture: factive permission versus unsupported actual-world witness blocked under world-safe but allowed by the structural bound.",
+      "support": [
+        "dynamic.Heim1982_Policies.factive_program_allowed_by_world_safe",
+        "dynamic.Heim1982_Policies.bridge_only_allows_modal_program",
+        "dynamic.Heim1982_Policies.deny_blocks_modal_program",
+        "dynamic.Heim1982_Policies.ProxyModels.desired_world_case_bridge_allowed",
+        "dynamic.Heim1982_Policies.ProxyModels.desired_world_case_world_safe_blocks_proxy",
+        "dynamic.Heim1982_Policies.ProxyModels.desired_world_case_world_safe_blocks_program",
+        "dynamic.Heim1982_Policies.ProxyModels.desired_world_bridge_loses_actual_world",
+        "dynamic.Heim1982_Policies.bridge_only_is_strictly_more_permissive"
+      ]
+    },
+    {
+      "id": "K06",
+      "status": "implemented",
+      "scope": "Literal assignment preservation rejects a fresh witness even when existentially guaranteed; explicit allowed/blocked complete programs establish strict policy differences.",
+      "support": [
+        "dynamic.Heim1982_Policies.universal_description_allowed_by_assignment_safe",
+        "dynamic.Heim1982_Policies.ProxyModels.already_guaranteed_witness_world_safe_allows",
+        "dynamic.Heim1982_Policies.ProxyModels.already_guaranteed_witness_assignment_safe_blocks",
+        "dynamic.Heim1982_Policies.ProxyModels.already_guaranteed_witness_assignment_safe_blocks_program",
+        "dynamic.Heim1982_Policies.world_safe_is_strictly_more_permissive"
+      ]
+    },
+    {
+      "id": "K07",
+      "status": "implemented",
+      "scope": "Mechanical/probe/traceability checks with prior code, records, outcomes and grades preserved; one historical regression test made additive-campaign aware without changing its protected hashes.",
+      "support": [],
+      "checks": [
+        "atlas_data/test_heim_policies.py",
+        "atlas_data/campaigns/check_heim_1982_policies.sh"
+      ]
+    }
+  ],
+  "negation_comparison": [
+    {
+      "input": "Fresh king index; no king exists",
+      "no_repair": "blocked",
+      "local": "true result; fresh index not exported",
+      "global": "false result; fresh index present in domain",
+      "support": [
+        "NegationModels.absent_king_local_true_global_false",
+        "no_repair_blocks_fresh_description",
+        "local_global_domain_difference"
+      ]
+    },
+    {
+      "input": "Fresh king index; a king exists; no lunch",
+      "no_repair": "blocked",
+      "local": "true result; next Use of index unlicensed",
+      "global": "true result; next Use of index licensed",
+      "support": [
+        "NegationModels.existing_king_same_truth_different_next_pronoun",
+        "no_repair_blocks_fresh_description"
+      ]
+    }
+  ],
+  "proxy_comparison": [
+    {
+      "input": "Witness only in desire worlds, absent in actual world",
+      "deny": "blocked",
+      "bridge_only": "complete run allowed; actual world lost",
+      "world_safe": "complete run blocked",
+      "assignment_safe": "blocked by policy inclusion",
+      "support": [
+        "deny_blocks_modal_program",
+        "ProxyModels.desired_world_case_bridge_allowed",
+        "ProxyModels.desired_world_case_world_safe_blocks_program",
+        "ProxyModels.desired_world_bridge_loses_actual_world",
+        "assignment_safe_implies_world_safe",
+        "enlarging_permission_preserves_runs"
+      ]
+    },
+    {
+      "input": "Existential witness already guaranteed; not every individual fits description",
+      "deny": "blocked",
+      "bridge_only": "allowed by inclusion",
+      "world_safe": "complete run allowed",
+      "assignment_safe": "complete run blocked",
+      "support": [
+        "deny_blocks_modal_program",
+        "world_safe_implies_bridge_only",
+        "enlarging_permission_preserves_runs",
+        "ProxyModels.already_guaranteed_witness_world_safe_allows",
+        "ProxyModels.already_guaranteed_witness_assignment_safe_blocks_program"
+      ]
+    },
+    {
+      "input": "Description true of every individual",
+      "deny": "blocked",
+      "bridge_only": "allowed by inclusion",
+      "world_safe": "allowed by inclusion",
+      "assignment_safe": "complete run allowed",
+      "support": [
+        "deny_blocks_modal_program",
+        "universal_description_allowed_by_assignment_safe",
+        "assignment_safe_implies_world_safe",
+        "world_safe_implies_bridge_only",
+        "enlarging_permission_preserves_runs"
+      ]
+    }
+  ],
+  "commitments": [
+    {
+      "choice": "Local versus global repair",
+      "classification": "source alternatives; choosing a general preference adds a theoretical policy",
+      "source": "pp.245–246",
+      "consequence": "changes truth conditions and subsequent accessibility"
+    },
+    {
+      "choice": "World-safe proxy permission",
+      "classification": "additional candidate constraint motivated by the source",
+      "source": "pp.250–252",
+      "consequence": "requires the description's existential witness in every input-compatible world"
+    },
+    {
+      "choice": "Assignment-safe proxy permission",
+      "classification": "literal stronger candidate constraint, not interchangeable with world safety",
+      "source": "pp.250–251 wording",
+      "consequence": "can reject an existentially redundant introduction"
+    },
+    {
+      "choice": "Bridge-only permission",
+      "classification": "deliberately permissive comparison bound, not conversational appropriateness",
+      "source": "integration construction",
+      "consequence": "allows a proxy that removes the actual world"
+    },
+    {
+      "choice": "Keep-all attention",
+      "classification": "fixed test fixture",
+      "source": "integration construction",
+      "consequence": "isolates permission differences; not a claim about prominence"
+    }
+  ],
+  "baseline": {
+    "files": [
+      "atlas/pragmatics/Austin1962.v",
+      "atlas/pilots/Davidson1967.v",
+      "atlas/discursive/Derrida1972.v",
+      "atlas/categorical/DisCoCat.v",
+      "atlas/dynamic/DPL.v",
+      "atlas/mtt_ranta/DTS.v",
+      "atlas/mtt_ranta/DTS_Resolution.v",
+      "atlas/pilots/Grice1975.v",
+      "atlas/dynamic/Heim1982.v",
+      "atlas/dynamic/Heim1982_Binding.v",
+      "atlas/dynamic/Heim1982_EndToEnd.v",
+      "atlas/dynamic/Heim1982_Examples.v",
+      "atlas/dynamic/Heim1982_Extensions.v",
+      "atlas/dynamic/Heim1982_Indexed.v",
+      "atlas/dynamic/Heim1982_Integration.v",
+      "atlas/pragmatics/Horn1984.v",
+      "atlas/inquisitive/InqB.v",
+      "atlas/type_logical/Lambek.v",
+      "atlas/mtt_ranta/MTT.v",
+      "atlas/mtt_ranta/MTT_vs_DTS.v",
+      "atlas/mtt_ranta/MTT_vs_Ranta.v",
+      "atlas/pilots/Rosch1978.v",
+      "atlas/montague/PTQ.v",
+      "atlas/montague/PTQ_vs_Lambek.v",
+      "atlas/montague/PTQ_vs_MTT.v",
+      "atlas/mtt_ranta/Ranta.v",
+      "atlas/mtt_ranta/Ranta_GQ.v",
+      "atlas/probabilistic/RSA.v",
+      "atlas/mtt_ranta/Shared_Examples.v",
+      "atlas/pilots/Tarski1944.v",
+      "atlas/ttr/TTR.v",
+      "atlas/ttr/TTR_Model.v",
+      "atlas/ttr/TTR_vs_MTT.v",
+      "deep/PTQ_deep2.v",
+      "/Users/graogro/Dropbox/revisiting-formal-semantics/deep/kratzer_deep2.v",
+      "deep/theorems_deep_PTQ.v",
+      "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/AdjectivesExtension.v",
+      "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/Aspect.v",
+      "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/BarwiseCooper.v",
+      "extras/Champollion.v",
+      "extras/DonkeyScope.v",
+      "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/DowtyTense.v",
+      "extras/FCS.v",
+      "extras/FCS2.v",
+      "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/FocusEven.v",
+      "extras/FocusEven2.v",
+      "extras/Imperfective2.v",
+      "extras/ImperfectiveParadox.v",
+      "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/LakoffPrototypes.v",
+      "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/Link1983.v",
+      "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/MTT_base.v",
+      "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/MTTbase.v",
+      "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/Montague.v",
+      "extras/PoC_Foundations.v",
+      "extras/PolydefiniteSemantics.v",
+      "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/PresuppositionProjection.v",
+      "extras/Quantifiers.v",
+      "extras/Set_theoretic_Defs.v",
+      "extras/additive.v",
+      "extras/additive_new.v",
+      "extras/champollion_full.v",
+      "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/dowty_roles.v",
+      "extras/indi.v",
+      "extras/kratzer_1977.v",
+      "extras/kratzer_deep.v",
+      "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/mass.v",
+      "/Users/graogro/Dropbox/revisiting-formal-semantics/extras/quanrifiers2.v",
+      "extras/theorems_PTQ.v",
+      "/Users/graogro/Dropbox/revisiting-formal-semantics/shallow/MontagueFragment.v",
+      "shallow/PTQ.v",
+      "/Users/graogro/Dropbox/revisiting-formal-semantics/shallow/kratzer2.v",
+      "ttr_mtt/Book_Event_Adv.v",
+      "ttr_mtt/Book_Homonymy.v",
+      "ttr_mtt/Book_Individuation.v",
+      "ttr_mtt/Book_Inter_Sub.v",
+      "ttr_mtt/Book_Multi.v",
+      "ttr_mtt/Book_gradable.v",
+      "ttr_mtt/Book_veridical.v",
+      "ttr_mtt/Coq_book_ontology.v",
+      "ttr_mtt/TTR_base.v",
+      "ttr_mtt/TTR_records.v",
+      "ttr_mtt/TTR_shallow.v",
+      "ttr_mtt/TTR_theorems_deep.v",
+      "ttr_mtt/TTR_theorems_shallow.v",
+      "ttr_mtt/TTR_types.v"
+    ],
+    "files_sha256": "ad6908aa877bceea1fea1ad84a5e0e7760aa8e9fb8a2e2290d6684c2811af3d6",
+    "file_count": 85,
+    "claim_entries_sha256": "55ea7f465990f5828809d63d3ea61ace79692295e02287b3b3d89019ddfd27b5",
+    "claim_count": 1129,
+    "papers_except_heim_links_sha256": "5b5ed8ecbb9e917ae4fe91c89bfd715d715133b706842957782ee099214ab7de"
+  },
+  "historical_test_change": "test_heim_integration.py now checks the exact original file projection, whose identities are pinned in heim_1982_integration_baseline_paths.json. Original aggregate hashes remain unchanged; later additive campaigns no longer count as baseline drift."
+}

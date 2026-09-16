@@ -1,0 +1,342 @@
+{
+  "file": "atlas/dynamic/Heim1982_Policies.v",
+  "region": "dynamic",
+  "summary": "Explicit local/global accommodation and proxy-policy comparisons: different truth/accessibility predictions, world-preserving versus assignment-preserving permissions, and complete allowed/blocked runs.",
+  "assessment_status": "incomplete",
+  "implementation_scope": "Policy comparison step 2 for named repair requests and supported modal/proxy programs; no policy selected as the source's default or a complete theory of appropriateness.",
+  "sources": [
+    {
+      "citation": "Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. Consulted Schoubye–Glick 2011 retypesetting, pp.244–246 and 247–252.",
+      "path": "papers/dynamic/Heim_1982_DefiniteIndefiniteNPs.pdf",
+      "available": "Relevant primary-source passages read; independent semantic review pending."
+    }
+  ],
+  "definitions_mapped": [
+    {
+      "coq": "local_result; global_result",
+      "source": "pp.245–246 options (a)/(b), applied to fresh descriptive accommodation under negation.",
+      "match": "exact"
+    },
+    {
+      "coq": "selected_negation; at_request",
+      "source": "Added explicit selector and certificates for an identified fresh repair request; not a general accommodation search algorithm.",
+      "match": "added"
+    },
+    {
+      "coq": "deny_proxy; bridge_only; included",
+      "source": "Added comparison bounds and permission-order infrastructure, not source appropriateness rules.",
+      "match": "added"
+    },
+    {
+      "coq": "world_safe; assignment_safe",
+      "source": "Alternative restrictions motivated by pp.250–252; distinguish preserved world content from literal satisfaction-set preservation. Neither declared to be the complete source policy.",
+      "match": "added"
+    },
+    {
+      "coq": "NegationModels; ProxyModels",
+      "source": "New fixed-input diagnostics and instantiations of the source's king/factivity discussions. Keep-all attention is held fixed as an instrumentation fixture.",
+      "match": "added"
+    }
+  ],
+  "theorems": [
+    {
+      "name": "repaired_description_licensed",
+      "status": "proved",
+      "inventory_id": "K01",
+      "claim_kind": "new",
+      "source_claim": "Declared fresh-description repair requests: no repair blocks; local/global selections are certified runs of the existing accommodation relation. Selector uniqueness is not a whole-policy completeness theorem. Checked statement: repaired_description_licensed.",
+      "note": "Code line 31. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "fresh_description_is_unlicensed",
+      "status": "proved",
+      "inventory_id": "K01",
+      "claim_kind": "new",
+      "source_claim": "Declared fresh-description repair requests: no repair blocks; local/global selections are certified runs of the existing accommodation relation. Selector uniqueness is not a whole-policy completeness theorem. Checked statement: fresh_description_is_unlicensed.",
+      "note": "Code line 34. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "no_repair_blocks_fresh_description",
+      "status": "proved",
+      "inventory_id": "K01",
+      "claim_kind": "new",
+      "source_claim": "Declared fresh-description repair requests: no repair blocks; local/global selections are certified runs of the existing accommodation relation. Selector uniqueness is not a whole-policy completeness theorem. Checked statement: no_repair_blocks_fresh_description.",
+      "note": "Code line 37. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "selected_local_is_a_valid_run",
+      "status": "proved",
+      "inventory_id": "K01",
+      "claim_kind": "new",
+      "source_claim": "Declared fresh-description repair requests: no repair blocks; local/global selections are certified runs of the existing accommodation relation. Selector uniqueness is not a whole-policy completeness theorem. Checked statement: selected_local_is_a_valid_run.",
+      "note": "Code line 43. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "selected_global_is_a_valid_run",
+      "status": "proved",
+      "inventory_id": "K01",
+      "claim_kind": "new",
+      "source_claim": "Declared fresh-description repair requests: no repair blocks; local/global selections are certified runs of the existing accommodation relation. Selector uniqueness is not a whole-policy completeness theorem. Checked statement: selected_global_is_a_valid_run.",
+      "note": "Code line 53. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "local_truth_condition",
+      "status": "proved",
+      "inventory_id": "K02",
+      "claim_kind": "source claim",
+      "source_claim": "pp.244–245 option (a): local repair yields no witness that both satisfies the description and the positive predicate.",
+      "note": "Code line 63. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "global_truth_condition",
+      "status": "proved",
+      "inventory_id": "K02",
+      "claim_kind": "source claim",
+      "source_claim": "pp.245–246 option (b): global repair retains the described referent and negates the predicate of that referent.",
+      "note": "Code line 78. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "local_world_truth",
+      "status": "proved",
+      "inventory_id": "K02",
+      "claim_kind": "new",
+      "source_claim": "General source-linked local/global truth conditions and different exported domains over arbitrary models. Checked statement: local_world_truth.",
+      "note": "Code line 90. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "global_world_truth",
+      "status": "proved",
+      "inventory_id": "K02",
+      "claim_kind": "new",
+      "source_claim": "General source-linked local/global truth conditions and different exported domains over arbitrary models. Checked statement: global_world_truth.",
+      "note": "Code line 101. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "local_global_domain_difference",
+      "status": "proved",
+      "inventory_id": "K02",
+      "claim_kind": "source claim",
+      "source_claim": "pp.245–246: the local result keeps Dom(F), while global accommodation keeps the enlarged domain.",
+      "note": "Code line 112. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "selected_negation_has_unique_output",
+      "status": "proved",
+      "inventory_id": "K01",
+      "claim_kind": "new",
+      "source_claim": "Declared fresh-description repair requests: no repair blocks; local/global selections are certified runs of the existing accommodation relation. Selector uniqueness is not a whole-policy completeness theorem. Checked statement: selected_negation_has_unique_output.",
+      "note": "Code line 117. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "assignment_safe_implies_world_safe",
+      "status": "proved",
+      "inventory_id": "K04",
+      "claim_kind": "new",
+      "source_claim": "Explicit deny, bridge-only, world-safe and assignment-safe permissions. Inclusion lifts to complete executions; world-safe exactly characterizes world preservation for fresh bridges in B-files. Checked statement: assignment_safe_implies_world_safe.",
+      "note": "Code line 133. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "world_safe_implies_bridge_only",
+      "status": "proved",
+      "inventory_id": "K04",
+      "claim_kind": "new",
+      "source_claim": "Explicit deny, bridge-only, world-safe and assignment-safe permissions. Inclusion lifts to complete executions; world-safe exactly characterizes world preservation for fresh bridges in B-files. Checked statement: world_safe_implies_bridge_only.",
+      "note": "Code line 139. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "deny_is_least_policy",
+      "status": "proved",
+      "inventory_id": "K04",
+      "claim_kind": "new",
+      "source_claim": "Explicit deny, bridge-only, world-safe and assignment-safe permissions. Inclusion lifts to complete executions; world-safe exactly characterizes world preservation for fresh bridges in B-files. Checked statement: deny_is_least_policy.",
+      "note": "Code line 141. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "enlarging_permission_preserves_runs",
+      "status": "proved",
+      "inventory_id": "K04",
+      "claim_kind": "new",
+      "source_claim": "Explicit deny, bridge-only, world-safe and assignment-safe permissions. Inclusion lifts to complete executions; world-safe exactly characterizes world preservation for fresh bridges in B-files. Checked statement: enlarging_permission_preserves_runs.",
+      "note": "Code line 143. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "world_safe_preserves_worlds",
+      "status": "proved",
+      "inventory_id": "K04",
+      "claim_kind": "new",
+      "source_claim": "Explicit deny, bridge-only, world-safe and assignment-safe permissions. Inclusion lifts to complete executions; world-safe exactly characterizes world preservation for fresh bridges in B-files. Checked statement: world_safe_preserves_worlds.",
+      "note": "Code line 150. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "assignment_safe_preserves_every_assignment",
+      "status": "proved",
+      "inventory_id": "K04",
+      "claim_kind": "new",
+      "source_claim": "Explicit deny, bridge-only, world-safe and assignment-safe permissions. Inclusion lifts to complete executions; world-safe exactly characterizes world preservation for fresh bridges in B-files. Checked statement: assignment_safe_preserves_every_assignment.",
+      "note": "Code line 157. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "world_safe_characterizes_world_preservation",
+      "status": "proved",
+      "inventory_id": "K04",
+      "claim_kind": "new",
+      "source_claim": "New exact characterization of the world-information-preserving candidate policy under B and freshness; not the literal assignment-preservation wording.",
+      "note": "Code line 163. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "factive_program_allowed_by_world_safe",
+      "status": "proved",
+      "inventory_id": "K05",
+      "claim_kind": "new",
+      "source_claim": "Same compiled modal/proxy/core program and attention fixture: factive permission versus unsupported actual-world witness blocked under world-safe but allowed by the structural bound. Checked statement: factive_program_allowed_by_world_safe.",
+      "note": "Code line 173. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "bridge_only_allows_modal_program",
+      "status": "proved",
+      "inventory_id": "K05",
+      "claim_kind": "new",
+      "source_claim": "Same compiled modal/proxy/core program and attention fixture: factive permission versus unsupported actual-world witness blocked under world-safe but allowed by the structural bound. Checked statement: bridge_only_allows_modal_program.",
+      "note": "Code line 183. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "universal_description_allowed_by_assignment_safe",
+      "status": "proved",
+      "inventory_id": "K06",
+      "claim_kind": "new",
+      "source_claim": "Literal assignment preservation rejects a fresh witness even when existentially guaranteed; explicit allowed/blocked complete programs establish strict policy differences. Checked statement: universal_description_allowed_by_assignment_safe.",
+      "note": "Code line 188. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "deny_blocks_modal_program",
+      "status": "proved",
+      "inventory_id": "K05",
+      "claim_kind": "new",
+      "source_claim": "Same compiled modal/proxy/core program and attention fixture: factive permission versus unsupported actual-world witness blocked under world-safe but allowed by the structural bound. Checked statement: deny_blocks_modal_program.",
+      "note": "Code line 197. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "NegationModels.absent_king_local_true_global_false",
+      "status": "proved",
+      "inventory_id": "K03",
+      "claim_kind": "new",
+      "source_claim": "Same inputs: absent king separates truth; an existing king with no lunch separates following-pronoun availability even when both results are true. Checked statement: NegationModels.absent_king_local_true_global_false.",
+      "note": "Code line 215. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "NegationModels.existing_king_same_truth_different_next_pronoun",
+      "status": "proved",
+      "inventory_id": "K03",
+      "claim_kind": "new",
+      "source_claim": "New diagnostic of the source's different domains: both results true, but only global accommodation retains the fresh index.",
+      "note": "Code line 227. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "ProxyModels.desired_world_case_bridge_allowed",
+      "status": "proved",
+      "inventory_id": "K05",
+      "claim_kind": "new",
+      "source_claim": "Same compiled modal/proxy/core program and attention fixture: factive permission versus unsupported actual-world witness blocked under world-safe but allowed by the structural bound. Checked statement: ProxyModels.desired_world_case_bridge_allowed.",
+      "note": "Code line 249. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "ProxyModels.desired_world_case_world_safe_blocks_proxy",
+      "status": "proved",
+      "inventory_id": "K05",
+      "claim_kind": "new",
+      "source_claim": "Same compiled modal/proxy/core program and attention fixture: factive permission versus unsupported actual-world witness blocked under world-safe but allowed by the structural bound. Checked statement: ProxyModels.desired_world_case_world_safe_blocks_proxy.",
+      "note": "Code line 253. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "ProxyModels.desired_world_case_world_safe_blocks_program",
+      "status": "proved",
+      "inventory_id": "K05",
+      "claim_kind": "new",
+      "source_claim": "Same compiled modal/proxy/core program and attention fixture: factive permission versus unsupported actual-world witness blocked under world-safe but allowed by the structural bound. Checked statement: ProxyModels.desired_world_case_world_safe_blocks_program.",
+      "note": "Code line 263. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "ProxyModels.desired_world_bridge_loses_actual_world",
+      "status": "proved",
+      "inventory_id": "K05",
+      "claim_kind": "new",
+      "source_claim": "Same compiled modal/proxy/core program and attention fixture: factive permission versus unsupported actual-world witness blocked under world-safe but allowed by the structural bound. Checked statement: ProxyModels.desired_world_bridge_loses_actual_world.",
+      "note": "Code line 274. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "ProxyModels.already_guaranteed_witness_world_safe_allows",
+      "status": "proved",
+      "inventory_id": "K06",
+      "claim_kind": "new",
+      "source_claim": "Literal assignment preservation rejects a fresh witness even when existentially guaranteed; explicit allowed/blocked complete programs establish strict policy differences. Checked statement: ProxyModels.already_guaranteed_witness_world_safe_allows.",
+      "note": "Code line 289. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "ProxyModels.already_guaranteed_witness_assignment_safe_blocks",
+      "status": "proved",
+      "inventory_id": "K06",
+      "claim_kind": "new",
+      "source_claim": "Literal assignment preservation rejects a fresh witness even when existentially guaranteed; explicit allowed/blocked complete programs establish strict policy differences. Checked statement: ProxyModels.already_guaranteed_witness_assignment_safe_blocks.",
+      "note": "Code line 297. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "ProxyModels.already_guaranteed_witness_assignment_safe_blocks_program",
+      "status": "proved",
+      "inventory_id": "K06",
+      "claim_kind": "new",
+      "source_claim": "Literal assignment preservation rejects a fresh witness even when existentially guaranteed; explicit allowed/blocked complete programs establish strict policy differences. Checked statement: ProxyModels.already_guaranteed_witness_assignment_safe_blocks_program.",
+      "note": "Code line 307. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "bridge_only_is_strictly_more_permissive",
+      "status": "proved",
+      "inventory_id": "K05",
+      "claim_kind": "new",
+      "source_claim": "Same compiled modal/proxy/core program and attention fixture: factive permission versus unsupported actual-world witness blocked under world-safe but allowed by the structural bound. Checked statement: bridge_only_is_strictly_more_permissive.",
+      "note": "Code line 320. Policy and model conditions are explicit; no independent source outcome."
+    },
+    {
+      "name": "world_safe_is_strictly_more_permissive",
+      "status": "proved",
+      "inventory_id": "K06",
+      "claim_kind": "new",
+      "source_claim": "New strictness result using the completed program: guaranteed existential witnesses need not satisfy a fresh description at every pre-existing assignment.",
+      "note": "Code line 327. Policy and model conditions are explicit; no independent source outcome."
+    }
+  ],
+  "counts": {
+    "theorems": 33,
+    "proved": 33,
+    "admitted": 0,
+    "propositional_axioms": 0
+  },
+  "documented_logical_axioms": [],
+  "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+      "General source formulas and named conditional policy comparisons are proved; see campaigns/heim_1982_policy_results.md."
+    ],
+    "simplifications": [
+      "The examples use a fixed keep-all attention fixture and named descriptions; finite countermodels do not restrict the general theorems."
+    ],
+    "omissions": [
+      "No empirical preference ranking or complete appropriateness/recency/bridge-selection theory.",
+      "No proof that these alternatives exhaust every reasonable completion of Heim.",
+      "No whole-source transfer determination."
+    ],
+    "additions": [
+      "Explicit alternative policy definitions, inclusion/strictness proofs and complete-run diagnostics."
+    ]
+  },
+  "determination": "unassessed",
+  "determination_rationale": "Different completions have demonstrably different predictions. This identifies additional commitments, not which completion is correct or whether whole-source restructuring is necessary.",
+  "artifact_classes": [
+    {
+      "class": "iv",
+      "description": "Policy selectors and run-comparison infrastructure; no substrate obstruction or necessity-of-restructuring inferred."
+    }
+  ],
+  "source_gap": null,
+  "notes": "Prior research preserved. New theory commitments are explicitly labeled and none adopted. Counts include helpers and diagnostics; probe flags retained. See policy results and manifest.",
+  "compiles": true
+}

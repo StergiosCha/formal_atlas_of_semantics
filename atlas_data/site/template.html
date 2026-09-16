@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Formalizing Formal Semantics — A Coq-verified Atlas of Semantic Structures</title>
-<meta name="description" content="An atlas of semantic theories, machine-checked in Coq. Every theory is a module; every relation between theories is a graded, evidenced edge.">
+<title>Formal Atlas of Semantics — Sources, Proofs and Explicit Assumptions</title>
+<meta name="description" content="What does formalization require? A source survey connected to scoped Coq implementations, checked comparisons, countermodels and explicit assumptions.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,6 +58,8 @@ textarea:focus,select:focus,input:focus{outline:2px solid var(--accent);outline-
 .heromark{width:100%;height:auto;display:block}
 .hero h1{margin:18px 0 22px;max-width:15ch}
 .hero p{font-size:17px;color:var(--n700);max-width:60ch}
+.hero .status{font-size:14px;margin-top:18px}
+.textlink{text-decoration:underline;text-underline-offset:3px}
 .cta{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:var(--rule);margin-top:52px;padding-top:24px}
 .stat b{display:block;font-size:38px;font-weight:800;letter-spacing:-.03em;line-height:1}
@@ -197,8 +199,10 @@ footer .r{margin-left:auto}
   repository and need no browser at all.</p></div></noscript>
 
 <footer><div class="wrap" style="display:flex;gap:20px;width:100%;flex-wrap:wrap">
-  <span>Formalizing Formal Semantics — a Coq-verified atlas of semantic structures</span>
-  <span class="r">Generated __GENERATED__ · zero <span class="mono">Admitted</span> in the atlas layer</span>
+  <span>Formal Atlas of Semantics</span>
+  <a class="textlink" href="#/reading">Reading the atlas responsibly</a>
+  <a class="textlink" href="https://github.com/StergiosCha/formal_atlas_of_semantics">Repository</a>
+  <span class="r">Generated __GENERATED__ · scoped proof and source records</span>
 </div></footer>
 
 <script id="atlas-data" type="application/json">__ATLAS_DATA__</script>
@@ -261,6 +265,7 @@ const totals = {
   theories: nodes.length, edges: edges.length, bridges: bridges.length,
   theorems: (D.stats&&D.stats.theorems)||0, admitted:(D.stats&&D.stats.admitted)||0,
   records: D.files.length, papers: D.papers.length,
+  sourceReviews: D.papers.filter(hasReviewedSourceOutcome).length,
   formalized: D.papers.filter(p=>['F4','F5'].includes(p.level)).length,
   atlasAdmitted: D.files.filter(f=>(f.file||'').startsWith('atlas/'))
                         .reduce((s,f)=>s+((f.counts||{}).admitted||0),0),
@@ -368,12 +373,18 @@ function countsB(c){ if(!c) return '';
   const t=c.theorems||0, ad=c.admitted||0;
   return `<span class="b ${ad?'bad':'ok'}">${t} thm · ${ad} admitted</span>`;}
 
+function hasReviewedSourceOutcome(p){
+  const review=p.determination_review;
+  return p.determination_status==='reviewed' && review?.status==='reviewed'
+    && String(review.paper_id)===String(p.id) && review.source_citation===p.citation
+    && ['as_is','slight_modification','major_restructuring','cannot'].includes(review.determination)
+    && p.determination_actual===review.determination;
+}
+
 function paperOutcomeHTML(p){
   const outcomes=['as_is','slight_modification','major_restructuring','cannot'];
   const review=p.determination_review;
-  const reviewed=p.determination_status==='reviewed' && review?.status==='reviewed'
-    && String(review.paper_id)===String(p.id) && review.source_citation===p.citation
-    && outcomes.includes(review.determination) && p.determination_actual===review.determination;
+  const reviewed=hasReviewedSourceOutcome(p);
   const differs=reviewed && outcomes.includes(p.survey_determination)
     && p.survey_determination!==review.determination;
   const candidates=p.determination_candidates||[];
@@ -405,45 +416,56 @@ function vHome(){
   return `
   <div class="wrap hero">
     <div class="herogrid"><div>
-      <span class="kicker">An atlas of semantic theories</span>
-      <h1>Every theory, on one map. Every edge, machine-checked.</h1>
-      <p>Formal Atlas formalizes the theories of linguistic semantics — Montague,
-      type-logical, modern type theory, dynamic, inquisitive, probabilistic, categorical —
-      in the Coq proof assistant, then surveys the relations between them. Where two
-      theories agree, the proof says so. Where they don't, the countermodel does.</p>
-      <div class="cta"><a class="btn" href="#/plate">Open Plate I</a>
-        <a class="btn ghost" href="#/theories">Read the records</a></div>
+      <span class="kicker">Formal Atlas of Semantics</span>
+      <h1>What does formalization require?</h1>
+      <p>What must be made explicit, assumed, or added to mechanize a semantic theory—and
+      what changes when different choices are made? Formal Atlas connects a
+      ${totals.papers}-source survey with Coq implementations, source-to-code audits,
+      checked comparisons and countermodels.</p>
+      <p class="status">Checked proofs concern explicitly scoped encodings; whole-source
+      fidelity needs separate review. ${totals.sourceReviews} accepted source-level reviews recorded.
+      <a class="textlink" href="#/reading">Reading the atlas responsibly</a>.</p>
+      <div class="cta"><a class="btn" href="#/papers">Explore the source survey</a>
+        <a class="btn ghost" href="#/theories">Read the proof records</a></div>
     </div>
     <img class="heromark" src="assets/svg/mark-a-meridian.svg" alt="Formal Atlas mark: a lambda drawn as a meridian, with the proof-locked wedge">
     </div>
     <div class="stats">
-      <div class="stat"><b>${totals.theories}</b><span>theories on the plate</span></div>
-      <div class="stat"><b>${totals.edges}</b><span>graded edges, every one evidenced</span></div>
-      <div class="stat"><b>${totals.theorems.toLocaleString()}</b><span>theorems across ${totals.records} records</span></div>
+      <div class="stat"><b>${totals.papers}</b><span>sources in the survey</span></div>
+      <div class="stat"><b>${totals.edges}</b><span>recorded comparison edges</span></div>
+      <div class="stat"><b>${totals.theorems.toLocaleString()}</b><span>statements across ${totals.records} records</span></div>
       <div class="stat"><b>${totals.atlasAdmitted}</b><span>admitted in the atlas layer
-        <br>(${totals.admitted} in pre-atlas material)</span></div>
+        <br>(${totals.admitted - totals.atlasAdmitted} in pre-atlas material)</span></div>
     </div>
   </div>
 
   <section class="wrap">
-    <div class="sechead"><span class="kicker">What the atlas does</span></div>
+    <div class="sechead"><span class="kicker">Selected checked results</span>
+      <span class="note">Follow each result to its statements, assumptions and source scope.</span></div>
     <div class="grid g3">
-      <div class="card"><span class="kicker">01</span><h3>Theories as plates</h3>
-        <p>Each theory is a Coq module with its own types, lexicon and composition rules — a plate in the atlas.
-        The notation you see on a plate is the notation the checker sees.</p></div>
-      <div class="card"><span class="kicker">02</span><h3>Edges with a weight</h3>
-        <p>A relation between two theories is graded per phenomenon, from 5 (definitional) down to 0 (not statable
-        with comparable instruments). Line weight is data, not decoration.</p></div>
-      <div class="card"><span class="kicker">03</span><h3>Four verdicts, not two</h3>
-        <p>A claim comes back <b>proved</b>, <b>refuted</b> with the countermodel, <b>needing an assumption</b> that
-        gets named, or <b>not statable</b> in the theory's vocabulary. The last one is usually the interesting one.</p></div>
+      <a class="card" data-result="ttr-meet" href="#/theory/atlas__ttr_model">
+        <span class="kicker">TTR · model layer</span><h3>Witnesses matter</h3>
+        <p>Two component types can each be inhabited while their meet is empty.
+        The counterexample exposes why existence alone cannot replace witness identity.</p>
+        <span class="foot small">Read the countermodel →</span></a>
+      <a class="card" data-result="heim-policies" href="#/theory/atlas__heim1982_policies">
+        <span class="kicker">Heim · policy comparison</span><h3>Choices change predictions</h3>
+        <p>Local/global accommodation can change truth conditions and later anaphoric
+        accessibility. World preservation and assignment preservation impose different
+        proxy permissions. No default policy is selected.</p>
+        <span class="foot small">Read the policy comparisons →</span></a>
+      <a class="card" data-result="dts-resolution" href="#/theory/atlas__dts_resolution">
+        <span class="kicker">DTS · typed resolution</span><h3>Resolution with a scope</h3>
+        <p>Substitution preserves typing. Resolution has soundness and bounded completeness
+        guarantees for the implemented projection-context fragment—not unrestricted DTS.</p>
+        <span class="foot small">Read the resolution proofs →</span></a>
     </div>
   </section>
 
   <section class="wrap">
-    <div class="sechead"><span class="kicker">Plate I</span><h2>${totals.theories} theories, surveyed.</h2>
-      <span class="note">Line weight is data: it encodes the measured strength of each relation.
-      The legend reads the way a map's legend explains elevation.</span></div>
+    <div class="sechead"><span class="kicker">Plate I</span><h2>${totals.theories} implementation records, mapped.</h2>
+      <span class="note">Edges compare selected constructions and encodings.
+      Their grades are not whole-framework equivalence claims.</span></div>
     <div class="plate">${plateSVG()}
       <div class="cap"><span>Formal Atlas — Plate I</span><span>·</span>
         <span>${liveEdges.length} drawn edges · click a plate or a line</span></div></div>
@@ -462,17 +484,63 @@ function vHome(){
   </section>
 
   <section class="wrap">
-    <div class="sechead"><span class="kicker">The corpus</span><h2>Levels of formalizability</h2>
-      <span class="note">Every paper in the ${totals.papers}-entry survey sits on a rung: surveyed only,
-      sourced, designed, piloted, formalized, verified and connected.</span></div>
+    <div class="sechead"><span class="kicker">The corpus</span><h2>Two axes, different questions</h2>
+      <span class="note">P0–P5 describes intrinsic formality. F0–F5 records progress
+      through this project's evidence pipeline. Neither verifies a whole source.</span></div>
+    <p class="small dim" style="margin-bottom:20px">P0 discursive · P1 systematic prose ·
+      P2 semi-formal · P3 formal fragments · P4 full system · P5 machine-checked source.
+      <a class="textlink" href="#/papers">Filter the survey by both axes</a>.</p>
     ${ladderHTML()}
   </section>
 
   <div class="band"><div class="wrap">
     <span class="kicker" style="color:#BFD8AB">Formal Atlas</span>
-    <h2 style="margin-top:14px">Semantic theories,<br>machine-checked.</h2>
+    <h2 style="margin-top:14px">Inspect the claims.<br>Compare the commitments.</h2>
     <a class="btn" href="#/theories">Browse ${totals.records} records</a>
   </div></div>`;
+}
+
+function vReading(){
+  return `<div class="wrap"><div class="crumb"><a href="#/">Atlas</a> / Reading guide</div>
+  <section style="padding-top:24px">
+    <div class="sechead"><h2>Reading the atlas responsibly</h2></div>
+    <p>The atlas connects sources, encodings, proofs and comparisons. They are different
+    kinds of evidence: a checked theorem establishes its conclusion for the stated
+    definitions and assumptions, not automatic fidelity to a whole source.</p>
+    <div class="block"><h3>Two axes</h3>
+      <p>P0–P5 describes a source's intrinsic formality, from discursive prose to a
+      machine-checked artifact. F0–F5 records project evidence: surveyed, sourced,
+      designed, piloted, formalized, verified/connected. F5 is not a whole-source
+      certificate; F0 is not evidence of impossibility.</p></div>
+    <div class="block"><h3>Proof scope and review status</h3>
+      <p>${totals.sourceReviews} accepted source-level reviews are recorded. File assessments
+      describe particular implementation attempts; differing assessments need reconciliation,
+      not an automatic “survey disputed” badge. An unfinished implementation does not
+      establish necessary restructuring of the theory.</p>
+      <p style="margin-top:14px">The records contain ${totals.atlasAdmitted} admissions in the
+      atlas layer and ${totals.admitted - totals.atlasAdmitted} in legacy material. The
+      admission-free CI gate applies to the atlas layer. Statement counts include helpers
+      and conditional results, not just independent linguistic claims.</p></div>
+    <div class="block"><h3>Read comparisons with their boundaries</h3>
+      <p>The <a class="textlink" href="#/theory/atlas__ttr_vs_mtt">TTR → MTT translation</a>
+      fixes a model and a selected construction; the subject projection loses witness
+      information and has no inverse. It is not framework equivalence. The
+      <a class="textlink" href="#/theory/atlas__heim1982_policies">Heim policy comparison</a>
+      compares candidate commitments without selecting a default. Bounded Derrida,
+      Austin, Horn and Rosch pilots are not whole-book formalizations.</p></div>
+    <div class="block"><h3>Development method</h3>
+      <p>Development is LLM-assisted. Consult each source comparison's passages, scope,
+      assumptions and reviewer provenance. Assistant source reading and multiple agent
+      passes are not independent human semantic review. Machine checking, maintainer
+      approval and independent semantic review are separate.</p></div>
+    <div class="block"><h3>Reproduction and source access</h3>
+      <p>The tested toolchain is Coq 8.20.1. Rebuilding this site from the checked-in
+      atlas data requires no source PDFs. Recomputing the consolidated evidence currently
+      depends on the external corpus and filename/design heuristics. Campaign manifests
+      pin selected artifacts; a corpus-wide source registry and explicit evidence
+      bindings remain work to do. Copyrighted PDFs are not redistributed.</p></div>
+    <a class="btn ghost" href="https://github.com/StergiosCha/formal_atlas_of_semantics/blob/main/atlas_data/READING_THE_ATLAS.md">Read the detailed guide and correction history</a>
+  </section></div>`;
 }
 
 function ladderHTML(){
@@ -1101,6 +1169,7 @@ function route(){
   const seg=path.split('/').filter(Boolean);
   let html, tab=seg[0]||'';
   if(!seg.length) html=vHome();
+  else if(seg[0]==='reading') html=vReading();
   else if(seg[0]==='plate') html=vPlate();
   else if(seg[0]==='theories') html=vTheories();
   else if(seg[0]==='theory') {html=vTheory(seg[1]); tab='theories';}

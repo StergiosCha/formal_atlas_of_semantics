@@ -1718,6 +1718,1122 @@
    "since": "2026-09-05",
    "status": "active"
   },
+  "dynamic.Heim1982.agree_refl": {
+   "statement_sha": "bd61fd3c6dd7f395",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.agree_sym": {
+   "statement_sha": "3a3192ca62c6b2e2",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.agree_trans": {
+   "statement_sha": "a46091ba33bfc2fd",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.definite_felicity": {
+   "statement_sha": "8afd42647b6ec485",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.descriptive_update_is_vacuous": {
+   "statement_sha": "b4d6ad5e83789a71",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.differs_agree": {
+   "statement_sha": "c72914106c1cf368",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.disjunction_does_not_export": {
+   "statement_sha": "ae2afd83fa1e29c1",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.disjunction_single_witness": {
+   "statement_sha": "6fde3b0045cf7db9",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.domain_update": {
+   "statement_sha": "6730a482c5ff31ae",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.empty_file_truth_needs_inhabited_domain": {
+   "statement_sha": "56af00c670637d98",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.empty_supported": {
+   "statement_sha": "a7122fb355e2c4ab",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.extension_at_agree": {
+   "statement_sha": "2054413157bc6ceb",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.false_input_has_no_C_truth_value": {
+   "statement_sha": "cd885d19cec265c8",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.false_supported": {
+   "statement_sha": "a60ed74bcd506065",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.file_truth_contracts": {
+   "statement_sha": "3667b8126849c59f",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.fresh_indefinite_truth": {
+   "statement_sha": "cb4cf3fcd8f0754e",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.fresh_put": {
+   "statement_sha": "f37464057f772254",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.indefinite_felicity": {
+   "statement_sha": "082d50496164ca25",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.infelicity_is_neither_true_nor_false": {
+   "statement_sha": "2185f2cd36b4e10c",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.introduction_licenses_anaphor": {
+   "statement_sha": "e852f7327a0314f5",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.local_descriptive_projection": {
+   "statement_sha": "757829baa32af80d",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.negation_does_not_export": {
+   "statement_sha": "06fa719fff7aa45d",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.negation_projects_felicity": {
+   "statement_sha": "bb15e6863d8fb7d1",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.nontrivial_entailment_not_not_familiar": {
+   "statement_sha": "ea916b72b15df3c0",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.put_other": {
+   "statement_sha": "a0bcb3d25a671f6c",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.put_same": {
+   "statement_sha": "130f8abde3b303cd",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.supported_implies_B": {
+   "statement_sha": "a22c3cc23139ac78",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.true_false_exclusive": {
+   "statement_sha": "c568d9d485316ddf",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.universal_does_not_export": {
+   "statement_sha": "16734fd87b02a378",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.universal_test_agree": {
+   "statement_sha": "7dff062b29c4e66c",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.update_contractive": {
+   "statement_sha": "8cea24e845db8b58",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.update_preserves_B": {
+   "statement_sha": "45cbcf279a072c1d",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.update_preserves_support": {
+   "statement_sha": "59f80d247c937244",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982.values_agree": {
+   "statement_sha": "4025ef033e21b022",
+   "file": "atlas/dynamic/Heim1982.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.agree_indices_app": {
+   "statement_sha": "1e4f2bb4adb11dea",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.agree_indices_sym": {
+   "statement_sha": "b0787606e1146b9d",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.best_predicate_congr": {
+   "statement_sha": "2bf52e31188b0169",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.changing_bound_or_absent_index_preserves_truth": {
+   "statement_sha": "2c53b4aeb6409d7b",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.closed_indexed_formula_ignores_assignment": {
+   "statement_sha": "72affd075ac9aebc",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.compiled_closed_text_truth": {
+   "statement_sha": "c99cfae9842c6214",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.compiler_donkey_truth": {
+   "statement_sha": "42cc8ec32de1662f",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.compiler_nuclear_indices": {
+   "statement_sha": "e94ffccf2c26a9e0",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.compiler_nuclear_truth": {
+   "statement_sha": "31e65dcc2ac24937",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.computed_context_uses_exact_free_indices": {
+   "statement_sha": "1d615172f94c4be8",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.contextual_truth_agrees_with_resolved_assignment": {
+   "statement_sha": "80160308cf02db80",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.deictic_not_accidentally_bound": {
+   "statement_sha": "0dc578bc209529d2",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.empty_selection_is_semantically_vacuous": {
+   "statement_sha": "0bb2edf629a98cde",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.free_indices_exact": {
+   "statement_sha": "f606f50d90539161",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.in_without": {
+   "statement_sha": "f86e2341d8f63b83",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.inner_operator_shields_introductions": {
+   "statement_sha": "fd795fa9de31edb0",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.nuclear_index_not_selected_by_outer": {
+   "statement_sha": "f78c4313e2890a7a",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.pronouns_do_not_request_binding": {
+   "statement_sha": "fa12d83798308a63",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.satisfaction_depends_only_on_free": {
+   "statement_sha": "a0d1e409d7e28a66",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.selected_all_depends": {
+   "statement_sha": "9c43f1e7488dca05",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.selected_exists_depends": {
+   "statement_sha": "dc2daba5778e0bd2",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.selection_exact": {
+   "statement_sha": "adb433c1b59fa861",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.splice_outside": {
+   "statement_sha": "1c7aebf801b2029d",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.splice_transport": {
+   "statement_sha": "54e8cb2637e34952",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Binding.text_closure_keeps_deictic_free": {
+   "statement_sha": "06b993b3598a9a8d",
+   "file": "atlas/dynamic/Heim1982_Binding.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_EndToEnd.NonfactiveModel.desired_witness_is_not_an_actual_witness": {
+   "statement_sha": "737beb6d00fed498",
+   "file": "atlas/dynamic/Heim1982_EndToEnd.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_EndToEnd.compiled_modal_truth": {
+   "statement_sha": "05d806cd80f7c945",
+   "file": "atlas/dynamic/Heim1982_EndToEnd.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_EndToEnd.complete_modal_proxy_core_run": {
+   "statement_sha": "865af840a811bebd",
+   "file": "atlas/dynamic/Heim1982_EndToEnd.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_EndToEnd.complete_program_truth_conditions": {
+   "statement_sha": "87eae27daef63edd",
+   "file": "atlas/dynamic/Heim1982_EndToEnd.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_EndToEnd.core_run_remembers_but_cannot_directly_reuse_scoped_card": {
+   "statement_sha": "4e3f5a38b4345e1f",
+   "file": "atlas/dynamic/Heim1982_EndToEnd.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_EndToEnd.factive_modal_proxy_preserves_world_content": {
+   "statement_sha": "949184cf77e919a8",
+   "file": "atlas/dynamic/Heim1982_EndToEnd.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_EndToEnd.keep_all_records_each_frame": {
+   "statement_sha": "d55807c82b8900f5",
+   "file": "atlas/dynamic/Heim1982_EndToEnd.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_EndToEnd.modal_compiler_has_no_free_individuals": {
+   "statement_sha": "4375eb1e4543033f",
+   "file": "atlas/dynamic/Heim1982_EndToEnd.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_EndToEnd.modal_stage_retains_world_argument": {
+   "statement_sha": "cf0d2989bdc7e15c",
+   "file": "atlas/dynamic/Heim1982_EndToEnd.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_EndToEnd.modal_trace_contains_description": {
+   "statement_sha": "2cb46c5153ba74cd",
+   "file": "atlas/dynamic/Heim1982_EndToEnd.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_EndToEnd.proxy_core_truth": {
+   "statement_sha": "f61cce6d8b1804f0",
+   "file": "atlas/dynamic/Heim1982_EndToEnd.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_EndToEnd.read_generates_tentative_memory_without_export": {
+   "statement_sha": "d5871f77fe23643c",
+   "file": "atlas/dynamic/Heim1982_EndToEnd.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_EndToEnd.unresolved_deictic_blocks_read": {
+   "statement_sha": "33281eaa84d3749c",
+   "file": "atlas/dynamic/Heim1982_EndToEnd.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Examples.IntensionalPresupposition.actual_truth_is_not_contextual_entailment": {
+   "statement_sha": "bfb03b4a319aaf24",
+   "file": "atlas/dynamic/Heim1982_Examples.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Examples.SeparatingModels.existential_nuclear_scope_allows_one_witness": {
+   "statement_sha": "f99790704b48fe02",
+   "file": "atlas/dynamic/Heim1982_Examples.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Examples.SeparatingModels.false_files_still_have_distinct_domains": {
+   "statement_sha": "3054ea929e7d92dd",
+   "file": "atlas/dynamic/Heim1982_Examples.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Examples.SeparatingModels.nonowners_do_not_falsify_donkey": {
+   "statement_sha": "cd336ccf1d9484b7",
+   "file": "atlas/dynamic/Heim1982_Examples.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Examples.SeparatingModels.one_beaten_donkey_is_not_enough": {
+   "statement_sha": "da8ed87b825c14f2",
+   "file": "atlas/dynamic/Heim1982_Examples.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Examples.SeparatingModels.same_world_content_different_anaphoric_truth": {
+   "statement_sha": "8ff2d747f9fe77dd",
+   "file": "atlas/dynamic/Heim1982_Examples.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Examples.SeparatingModels.scope_blocks_later_pronoun": {
+   "statement_sha": "eed48770673aca7f",
+   "file": "atlas/dynamic/Heim1982_Examples.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Examples.agree_put_fresh": {
+   "statement_sha": "c1a144a5d1c9d450",
+   "file": "atlas/dynamic/Heim1982_Examples.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Examples.complex_definite_requires_whole_content": {
+   "statement_sha": "56820cbfa082b82f",
+   "file": "atlas/dynamic/Heim1982_Examples.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Examples.discourse_anaphora_truth": {
+   "statement_sha": "be93592921f291c4",
+   "file": "atlas/dynamic/Heim1982_Examples.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Examples.donkey_felicity": {
+   "statement_sha": "21fe5f8450de87b7",
+   "file": "atlas/dynamic/Heim1982_Examples.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Examples.donkey_truth_conditions": {
+   "statement_sha": "4e9ce77bb260c58b",
+   "file": "atlas/dynamic/Heim1982_Examples.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Examples.negative_existential_truth_conditions": {
+   "statement_sha": "7e61171f6fd51f0f",
+   "file": "atlas/dynamic/Heim1982_Examples.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Examples.nuclear_existential_truth_conditions": {
+   "statement_sha": "aaa81e101dd2d06d",
+   "file": "atlas/dynamic/Heim1982_Examples.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Examples.nuclear_indefinite_felicity": {
+   "statement_sha": "722c9490b10d7a5d",
+   "file": "atlas/dynamic/Heim1982_Examples.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Examples.restrictor_dom": {
+   "statement_sha": "5132d4740fd36e8d",
+   "file": "atlas/dynamic/Heim1982_Examples.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Examples.restrictor_sat": {
+   "statement_sha": "6947a70578b0bdc3",
+   "file": "atlas/dynamic/Heim1982_Examples.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Extensions.RequirementModels.B_does_not_imply_full_domain_support": {
+   "statement_sha": "b077a7068f46e388",
+   "file": "atlas/dynamic/Heim1982_Extensions.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Extensions.RequirementModels.false_context_repair_is_not_determined_by_weakening": {
+   "statement_sha": "11419e2bc7da1fcc",
+   "file": "atlas/dynamic/Heim1982_Extensions.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Extensions.RequirementModels.local_global_accommodation_differ": {
+   "statement_sha": "5b1aa52269ff7040",
+   "file": "atlas/dynamic/Heim1982_Extensions.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Extensions.RequirementModels.total_felicity_decider_decides_arbitrary_propositions": {
+   "statement_sha": "2cf669f0cc974746",
+   "file": "atlas/dynamic/Heim1982_Extensions.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Extensions.RequirementModels.world_preservation_is_not_Sat_preservation": {
+   "statement_sha": "ffc26dec2b892481",
+   "file": "atlas/dynamic/Heim1982_Extensions.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Extensions.accommodated_father_run": {
+   "statement_sha": "8242877426476c3f",
+   "file": "atlas/dynamic/Heim1982_Extensions.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Extensions.accommodated_father_truth_conditions": {
+   "statement_sha": "2f64505e9ae77ea3",
+   "file": "atlas/dynamic/Heim1982_Extensions.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Extensions.bridge_adds_information": {
+   "statement_sha": "b29523a35bcd699b",
+   "file": "atlas/dynamic/Heim1982_Extensions.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Extensions.bridge_has_old_anchor": {
+   "statement_sha": "2b76a0ae6b202726",
+   "file": "atlas/dynamic/Heim1982_Extensions.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Extensions.bridge_licenses_description": {
+   "statement_sha": "f8e7a54efe8a0adb",
+   "file": "atlas/dynamic/Heim1982_Extensions.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Extensions.criterion_C_exhaustive_on_felicitous_true_inputs": {
+   "statement_sha": "dc8018e5f1fc7d5c",
+   "file": "atlas/dynamic/Heim1982_Extensions.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Extensions.existentially_supported_introduction_preserves_worlds": {
+   "statement_sha": "121b0c66fe130ba6",
+   "file": "atlas/dynamic/Heim1982_Extensions.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Extensions.father_repair_licenses_scope": {
+   "statement_sha": "7c8eb09a2f94b062",
+   "file": "atlas/dynamic/Heim1982_Extensions.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Extensions.global_negation_accommodation": {
+   "statement_sha": "ebebb9eff198d58f",
+   "file": "atlas/dynamic/Heim1982_Extensions.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Extensions.local_negation_accommodation": {
+   "statement_sha": "a2645967a62597e5",
+   "file": "atlas/dynamic/Heim1982_Extensions.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Extensions.no_repair_is_exact": {
+   "statement_sha": "afc87f4d407e01ca",
+   "file": "atlas/dynamic/Heim1982_Extensions.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Extensions.nontrivial_entailment_forces_familiarity": {
+   "statement_sha": "2b39080b2524c39b",
+   "file": "atlas/dynamic/Heim1982_Extensions.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Extensions.proxy_needs_recorded_precedent": {
+   "statement_sha": "ce46be6bdc58f715",
+   "file": "atlas/dynamic/Heim1982_Extensions.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Extensions.proxy_policy_changes_licensing": {
+   "statement_sha": "1bed111379da77b8",
+   "file": "atlas/dynamic/Heim1982_Extensions.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Extensions.raw_run": {
+   "statement_sha": "c8d18bc86cb2508b",
+   "file": "atlas/dynamic/Heim1982_Extensions.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Extensions.situation_bridge_adds_information": {
+   "statement_sha": "f6ae351ccecb3860",
+   "file": "atlas/dynamic/Heim1982_Extensions.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Extensions.universal_scope_extensional": {
+   "statement_sha": "5ffcd8674a5ac080",
+   "file": "atlas/dynamic/Heim1982_Extensions.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Indexed.ConstrualConstraints.earlier_definite_also_blocks_indefinite_coindexing": {
+   "statement_sha": "2b081003156c3120",
+   "file": "atlas/dynamic/Heim1982_Indexed.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Indexed.ModalModels.ideal_necessity_does_not_entail_actuality": {
+   "statement_sha": "3df2787a6bbb7b6d",
+   "file": "atlas/dynamic/Heim1982_Indexed.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Indexed.ModalModels.limit_assumption_is_substantive": {
+   "statement_sha": "38582f5032a44624",
+   "file": "atlas/dynamic/Heim1982_Indexed.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Indexed.ModalModels.nonfactive_access_does_not_give_factivity": {
+   "statement_sha": "f7116d4ade8884c6",
+   "file": "atlas/dynamic/Heim1982_Indexed.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Indexed.ModalModels.reflexive_access_gives_factivity": {
+   "statement_sha": "75558be6fc21bd0d",
+   "file": "atlas/dynamic/Heim1982_Indexed.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Indexed.final_indexed_donkey_correspondence": {
+   "statement_sha": "6c5e12ebae20890c",
+   "file": "atlas/dynamic/Heim1982_Indexed.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Indexed.final_indexed_nuclear_correspondence": {
+   "statement_sha": "e0b6e858388632b1",
+   "file": "atlas/dynamic/Heim1982_Indexed.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Indexed.indefinite_prefix_has_no_quantifier": {
+   "statement_sha": "312be471120567f1",
+   "file": "atlas/dynamic/Heim1982_Indexed.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Indexed.indexed_donkey_truth": {
+   "statement_sha": "88ff757a7466274a",
+   "file": "atlas/dynamic/Heim1982_Indexed.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Indexed.indexed_nuclear_truth": {
+   "statement_sha": "6876e8b58c89a0d3",
+   "file": "atlas/dynamic/Heim1982_Indexed.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Indexed.indexed_text_closure": {
+   "statement_sha": "9d4fa17ed67938cc",
+   "file": "atlas/dynamic/Heim1982_Indexed.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Indexed.may_implies_not_must_not": {
+   "statement_sha": "bfab2aff999f6671",
+   "file": "atlas/dynamic/Heim1982_Indexed.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Indexed.modal_duality_classical": {
+   "statement_sha": "ed680fc46ac51b95",
+   "file": "atlas/dynamic/Heim1982_Indexed.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Indexed.no_best_worlds_make_necessity_vacuous": {
+   "statement_sha": "f8e11fd7b4376d09",
+   "file": "atlas/dynamic/Heim1982_Indexed.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Indexed.outside_keeps": {
+   "statement_sha": "4f33d70d245f4406",
+   "file": "atlas/dynamic/Heim1982_Indexed.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Indexed.outside_put": {
+   "statement_sha": "ed141895a710e0ce",
+   "file": "atlas/dynamic/Heim1982_Indexed.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Indexed.outside_put2": {
+   "statement_sha": "4d63a4d36ddd1972",
+   "file": "atlas/dynamic/Heim1982_Indexed.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Indexed.proper_name_scope_on_felicitous_assignments": {
+   "statement_sha": "932e4661c4653664",
+   "file": "atlas/dynamic/Heim1982_Indexed.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Indexed.realistic_necessity_has_actual_consequences": {
+   "statement_sha": "111d9cd358f3f121",
+   "file": "atlas/dynamic/Heim1982_Indexed.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Integration.core_adapter_exact": {
+   "statement_sha": "46833ad2907c45a3",
+   "file": "atlas/dynamic/Heim1982_Integration.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Integration.core_trace_files_satisfy_B": {
+   "statement_sha": "06b01b4dd2fa4c07",
+   "file": "atlas/dynamic/Heim1982_Integration.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Integration.denying_permission_blocks_proxy": {
+   "statement_sha": "c143109ba670ef1e",
+   "file": "atlas/dynamic/Heim1982_Integration.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Integration.direct_requires_accessible_index": {
+   "statement_sha": "b55dbe2003e4a430",
+   "file": "atlas/dynamic/Heim1982_Integration.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Integration.execute_keeps_history": {
+   "statement_sha": "56d8ebaf70920733",
+   "file": "atlas/dynamic/Heim1982_Integration.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Integration.execute_preserves_B": {
+   "statement_sha": "002921cb972baabf",
+   "file": "atlas/dynamic/Heim1982_Integration.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Integration.indexed_frame_preserves_B": {
+   "statement_sha": "e5831c9e5003bfec",
+   "file": "atlas/dynamic/Heim1982_Integration.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Integration.indexed_test_does_not_export": {
+   "statement_sha": "9a8bffc653e02712",
+   "file": "atlas/dynamic/Heim1982_Integration.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Integration.indexed_test_exact": {
+   "statement_sha": "72ef803df0cff0a4",
+   "file": "atlas/dynamic/Heim1982_Integration.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Integration.indexed_test_preserves_B": {
+   "statement_sha": "e5ccfcb8b75127ec",
+   "file": "atlas/dynamic/Heim1982_Integration.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Integration.indexed_test_preserves_support": {
+   "statement_sha": "402402ec0c25d86c",
+   "file": "atlas/dynamic/Heim1982_Integration.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Integration.indexed_trace_files_satisfy_B": {
+   "statement_sha": "1129eec32d2f6094",
+   "file": "atlas/dynamic/Heim1982_Integration.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Integration.missing_memory_blocks_proxy": {
+   "statement_sha": "334982f0b477f174",
+   "file": "atlas/dynamic/Heim1982_Integration.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Integration.modal_trace_not_an_actual_world_update": {
+   "statement_sha": "e226071795789f6a",
+   "file": "atlas/dynamic/Heim1982_Integration.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Integration.proxy_connects_existing_licensing_interface": {
+   "statement_sha": "d56bf4bd842861bc",
+   "file": "atlas/dynamic/Heim1982_Integration.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Integration.proxy_establishes_description": {
+   "statement_sha": "af6b2e8868cc09ca",
+   "file": "atlas/dynamic/Heim1982_Integration.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Integration.proxy_has_recorded_authorized_origin": {
+   "statement_sha": "afdf3556f32d7f11",
+   "file": "atlas/dynamic/Heim1982_Integration.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Integration.read_adapter_exact": {
+   "statement_sha": "025f59a2da684d7c",
+   "file": "atlas/dynamic/Heim1982_Integration.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Integration.read_requires_computed_references": {
+   "statement_sha": "0022b32888cc5c08",
+   "file": "atlas/dynamic/Heim1982_Integration.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Integration.remember_all_preserves_history": {
+   "statement_sha": "cf0f3a0ad2ec57e0",
+   "file": "atlas/dynamic/Heim1982_Integration.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Integration.remembered_frame_has_event": {
+   "statement_sha": "e041473cb36e0b24",
+   "file": "atlas/dynamic/Heim1982_Integration.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Integration.universal_trace_keeps_restrictor": {
+   "statement_sha": "59cc9e881c3a5187",
+   "file": "atlas/dynamic/Heim1982_Integration.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Integration.world_reset_preserves_B": {
+   "statement_sha": "bdf499d6067b9701",
+   "file": "atlas/dynamic/Heim1982_Integration.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.NegationModels.absent_king_local_true_global_false": {
+   "statement_sha": "2936b61e8b0a2119",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.NegationModels.existing_king_same_truth_different_next_pronoun": {
+   "statement_sha": "5c8bd7130b99a6dc",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.ProxyModels.already_guaranteed_witness_assignment_safe_blocks": {
+   "statement_sha": "753344f94df6adfa",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.ProxyModels.already_guaranteed_witness_assignment_safe_blocks_program": {
+   "statement_sha": "2112db8a53d21515",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.ProxyModels.already_guaranteed_witness_world_safe_allows": {
+   "statement_sha": "73720c4ca7f384c2",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.ProxyModels.desired_world_bridge_loses_actual_world": {
+   "statement_sha": "2ef80d1ba263da32",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.ProxyModels.desired_world_case_bridge_allowed": {
+   "statement_sha": "fbdc4cb08fcecf44",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.ProxyModels.desired_world_case_world_safe_blocks_program": {
+   "statement_sha": "7c8b708a1394cbef",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.ProxyModels.desired_world_case_world_safe_blocks_proxy": {
+   "statement_sha": "8c5babe2b40d5b1a",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.assignment_safe_implies_world_safe": {
+   "statement_sha": "77372838e38ec2a8",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.assignment_safe_preserves_every_assignment": {
+   "statement_sha": "82e6f8aef504d235",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.bridge_only_allows_modal_program": {
+   "statement_sha": "9f6111965c83b1e5",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.bridge_only_is_strictly_more_permissive": {
+   "statement_sha": "1587ba92271bff74",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.deny_blocks_modal_program": {
+   "statement_sha": "33b52eb0bab56762",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.deny_is_least_policy": {
+   "statement_sha": "3b6e3f89f25d74c3",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.enlarging_permission_preserves_runs": {
+   "statement_sha": "97e002014117f9b7",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.factive_program_allowed_by_world_safe": {
+   "statement_sha": "9b693405f04d72cd",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.fresh_description_is_unlicensed": {
+   "statement_sha": "baffd02e3901393f",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.global_truth_condition": {
+   "statement_sha": "d4cdb98faaef67af",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.global_world_truth": {
+   "statement_sha": "e205aa22af59acb3",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.local_global_domain_difference": {
+   "statement_sha": "1443d655cfa566f9",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.local_truth_condition": {
+   "statement_sha": "e155709f7da6ec2b",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.local_world_truth": {
+   "statement_sha": "acbde42eafe509cf",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.no_repair_blocks_fresh_description": {
+   "statement_sha": "c4eee4ebbc02e01b",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.repaired_description_licensed": {
+   "statement_sha": "7135538a9acbcc08",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.selected_global_is_a_valid_run": {
+   "statement_sha": "86d1c760ab8e793f",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.selected_local_is_a_valid_run": {
+   "statement_sha": "74e1d6c46d5ec544",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.selected_negation_has_unique_output": {
+   "statement_sha": "ad4a81ac4914cd8e",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.universal_description_allowed_by_assignment_safe": {
+   "statement_sha": "575a6714c393b1a0",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.world_safe_characterizes_world_preservation": {
+   "statement_sha": "7601c8097794e4bb",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.world_safe_implies_bridge_only": {
+   "statement_sha": "a7504d88a75e1380",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.world_safe_is_strictly_more_permissive": {
+   "statement_sha": "355901d6451b5a8d",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
+  "dynamic.Heim1982_Policies.world_safe_preserves_worlds": {
+   "statement_sha": "23c3e76fbf6174a7",
+   "file": "atlas/dynamic/Heim1982_Policies.v",
+   "since": "2026-09-15",
+   "status": "active"
+  },
   "inquisitive.InqB.Counter.DNE_fails_or_4": {
    "statement_sha": "f5e86c693121acee",
    "file": "atlas/inquisitive/InqB.v",

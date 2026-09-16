@@ -1,0 +1,273 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-15",
+  "paper_id": 7,
+  "source_citation": "Heim, I. (1982) - \"The Semantics of Definite and Indefinite Noun Phrases\"",
+  "consulted_edition": "Schoubye–Glick 2011 retypesetting",
+  "status": "implementation_with_explicit_boundaries",
+  "whole_source_complete": false,
+  "accepted_outcome": null,
+  "independent_review": false,
+  "files": [
+    "atlas/dynamic/Heim1982.v",
+    "atlas/dynamic/Heim1982_Examples.v",
+    "atlas/dynamic/Heim1982_Extensions.v",
+    "atlas/dynamic/Heim1982_Indexed.v"
+  ],
+  "targets": [
+    {
+      "id": "H01",
+      "status": "implemented",
+      "scope": "Independent world/assignment satisfaction and domains; explicit inhabited-domain condition for empty-file truth.",
+      "support": [
+        "dynamic.Heim1982.empty_file_truth_needs_inhabited_domain",
+        "dynamic.Heim1982_Examples.SeparatingModels.false_files_still_have_distinct_domains",
+        "dynamic.Heim1982_Examples.SeparatingModels.same_world_content_different_anaphoric_truth"
+      ]
+    },
+    {
+      "id": "H02",
+      "status": "implemented_with_boundary",
+      "scope": "Literal B is preserved; stronger support is proved separately and a countermodel distinguishes them.",
+      "support": [
+        "dynamic.Heim1982.update_preserves_B",
+        "dynamic.Heim1982.update_preserves_support",
+        "dynamic.Heim1982_Extensions.RequirementModels.B_does_not_imply_full_domain_support"
+      ]
+    },
+    {
+      "id": "H03",
+      "status": "implemented",
+      "scope": "Final rules I–IV and proposed V, not just preliminary p.228 universal rule.",
+      "support": [
+        "dynamic.Heim1982.domain_update",
+        "dynamic.Heim1982.update_contractive",
+        "dynamic.Heim1982.disjunction_single_witness"
+      ]
+    },
+    {
+      "id": "H04",
+      "status": "implemented",
+      "scope": "Local extended NFC, complex descriptive checks, and partial mathematical updates without a total entailment decider.",
+      "support": [
+        "dynamic.Heim1982.definite_felicity",
+        "dynamic.Heim1982.infelicity_is_neither_true_nor_false",
+        "dynamic.Heim1982_Examples.complex_definite_requires_whole_content"
+      ]
+    },
+    {
+      "id": "H05",
+      "status": "implemented",
+      "scope": "File truth, criterion C, existential force and discourse anaphora; classical exhaustiveness only under felicitous true input.",
+      "support": [
+        "dynamic.Heim1982.fresh_indefinite_truth",
+        "dynamic.Heim1982_Examples.discourse_anaphora_truth",
+        "dynamic.Heim1982_Extensions.criterion_C_exhaustive_on_felicitous_true_inputs"
+      ]
+    },
+    {
+      "id": "H06",
+      "status": "implemented",
+      "scope": "Strong donkey restrictor, existential nuclear closure, negative closure and nonexport; fixed 0/1 representative indices with arbitrary models.",
+      "support": [
+        "dynamic.Heim1982_Examples.donkey_truth_conditions",
+        "dynamic.Heim1982_Examples.nuclear_existential_truth_conditions",
+        "dynamic.Heim1982_Examples.negative_existential_truth_conditions",
+        "dynamic.Heim1982_Examples.SeparatingModels.one_beaten_donkey_is_not_enough"
+      ]
+    },
+    {
+      "id": "H07",
+      "status": "implemented_classical_step",
+      "scope": "Footnote 21 constructive double-negation conclusion and its classical positive membership conclusion separated.",
+      "support": [
+        "dynamic.Heim1982.nontrivial_entailment_not_not_familiar",
+        "dynamic.Heim1982_Extensions.nontrivial_entailment_forces_familiarity"
+      ]
+    },
+    {
+      "id": "H08",
+      "status": "implemented",
+      "scope": "Entailment quantifies across worlds; description licensing uses the local intermediate file.",
+      "support": [
+        "dynamic.Heim1982.local_descriptive_projection",
+        "dynamic.Heim1982_Examples.IntensionalPresupposition.actual_truth_is_not_contextual_entailment"
+      ]
+    },
+    {
+      "id": "H09",
+      "status": "conditional_policy_interface",
+      "scope": "Finite interleavings and explicit bridges implemented; selecting contextually acceptable bridges remains a policy input.",
+      "support": [
+        "dynamic.Heim1982_Extensions.no_repair_is_exact",
+        "dynamic.Heim1982_Extensions.bridge_has_old_anchor",
+        "dynamic.Heim1982_Extensions.bridge_licenses_description"
+      ]
+    },
+    {
+      "id": "H10",
+      "status": "conditional_source_examples",
+      "scope": "Actual definite father syntax, permitted bridge run and derived existential reading; local king-negation separation.",
+      "support": [
+        "dynamic.Heim1982_Extensions.accommodated_father_run",
+        "dynamic.Heim1982_Extensions.accommodated_father_truth_conditions"
+      ]
+    },
+    {
+      "id": "H11",
+      "status": "implemented_with_open_preference",
+      "scope": "Both local/global calculations and a separating model; no automatic preference invented.",
+      "support": [
+        "dynamic.Heim1982_Extensions.local_negation_accommodation",
+        "dynamic.Heim1982_Extensions.global_negation_accommodation",
+        "dynamic.Heim1982_Extensions.RequirementModels.local_global_accommodation_differ"
+      ]
+    },
+    {
+      "id": "H12",
+      "status": "conditional_policy_interface",
+      "scope": "C′ represented with relevance/erasure input; structural weakening alone is shown insufficient for a unique truth prediction.",
+      "support": [
+        "dynamic.Heim1982_Extensions.RequirementModels.false_context_repair_is_not_determined_by_weakening"
+      ]
+    },
+    {
+      "id": "H13",
+      "status": "partial_open_policy",
+      "scope": "Memory/proxy interface and dependence on proxy policy; no full integrated recency/acceptability processor.",
+      "support": [
+        "dynamic.Heim1982_Extensions.proxy_needs_recorded_precedent",
+        "dynamic.Heim1982_Extensions.proxy_policy_changes_licensing"
+      ]
+    },
+    {
+      "id": "H14",
+      "status": "source_clarification",
+      "scope": "Literal equality of assignment sets does not follow from informationally redundant new-card accommodation; world-content preservation is proved separately.",
+      "support": [
+        "dynamic.Heim1982_Extensions.existentially_supported_introduction_preserves_worlds",
+        "dynamic.Heim1982_Extensions.RequirementModels.world_preservation_is_not_Sat_preservation"
+      ]
+    },
+    {
+      "id": "H15",
+      "status": "implemented_with_bounded_correspondence",
+      "scope": "Earlier indexed satisfaction and context-reference schema; two family correspondences and text closure, not a whole-system equivalence.",
+      "support": [
+        "dynamic.Heim1982_Indexed.final_indexed_donkey_correspondence",
+        "dynamic.Heim1982_Indexed.final_indexed_nuclear_correspondence",
+        "dynamic.Heim1982_Indexed.indexed_text_closure"
+      ]
+    },
+    {
+      "id": "H16",
+      "status": "implemented",
+      "scope": "World/assignment human necessity and possibility, contextual accessibility/ordering and classical duality.",
+      "support": [
+        "dynamic.Heim1982_Indexed.modal_duality_classical"
+      ]
+    },
+    {
+      "id": "H17",
+      "status": "source_assumption_exposed",
+      "scope": "The source's best-world/limit assumption matters: explicit unbounded-order countermodel shows vacuity.",
+      "support": [
+        "dynamic.Heim1982_Indexed.ModalModels.limit_assumption_is_substantive"
+      ]
+    },
+    {
+      "id": "H18",
+      "status": "conditional_modal_results",
+      "scope": "Realistic actual consequences, ideality/actuality and factivity separations; not a solved generic or attitude-anaphora theory.",
+      "support": [
+        "dynamic.Heim1982_Indexed.realistic_necessity_has_actual_consequences",
+        "dynamic.Heim1982_Indexed.ModalModels.ideal_necessity_does_not_entail_actuality",
+        "dynamic.Heim1982_Indexed.ModalModels.nonfactive_access_does_not_give_factivity"
+      ]
+    },
+    {
+      "id": "H19",
+      "status": "partial_grammar_interface",
+      "scope": "Subject prefixing, indexing/coindexing/scope constraints on supplied syntax and name-scope example. General movement derivations/free-variable extraction are not implemented; crossover alternatives and the source's unresolved specific/generic indefinite exceptions (pp.147–150) are not settled.",
+      "support": [
+        "dynamic.Heim1982_Indexed.indefinite_prefix_has_no_quantifier",
+        "dynamic.Heim1982_Indexed.proper_name_scope_on_felicitous_assignments"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "classification": "representation",
+      "requirement": "Predicates for sets, independent domains, typed tuples, recursive updates and an explicit felicity guard.",
+      "changes_source_predictions": false,
+      "evidence": [
+        "H01",
+        "H03",
+        "H04"
+      ]
+    },
+    {
+      "id": "R2",
+      "classification": "source_metatheory",
+      "requirement": "Excluded middle in three named metatheorems; source's classical setting made explicit, not added to the constructive update core.",
+      "changes_source_predictions": false,
+      "evidence": [
+        "H05",
+        "H07",
+        "H16"
+      ]
+    },
+    {
+      "id": "R3",
+      "classification": "source_assumption",
+      "requirement": "Best-world existence for nonvacuous simplified human necessity (p.117 fn.8).",
+      "changes_source_predictions": false,
+      "evidence": [
+        "H17"
+      ]
+    },
+    {
+      "id": "R4",
+      "classification": "source_clarification",
+      "requirement": "For pp.250–251 distinguish unchanged possible-world content from unchanged assignment satisfaction sets; no silent rewrite of the source.",
+      "changes_source_predictions": "requires review of intended claim",
+      "evidence": [
+        "H14"
+      ]
+    },
+    {
+      "id": "R5",
+      "classification": "additional_policy_for_unique_predictions",
+      "requirement": "Contextual bridge choice, local/global preference, false-file relevance repair, prominence and proxy licensing.",
+      "changes_source_predictions": "a concrete policy adds predictions absent from the current specification",
+      "evidence": [
+        "H09",
+        "H11",
+        "H12",
+        "H13"
+      ]
+    },
+    {
+      "id": "R6",
+      "classification": "executable_extension",
+      "requirement": "A total checker for arbitrary semantic predicates would decide arbitrary propositions. Execution needs supplied decisions or an explicitly restricted model; mathematical formalization does not.",
+      "changes_source_predictions": "restriction or oracle must be declared if an executable processor is built",
+      "evidence": [
+        "H04"
+      ]
+    },
+    {
+      "id": "R7",
+      "classification": "implementation_boundary",
+      "requirement": "Full movement derivations, automatic free-variable extraction and integration of modal/file/proxy processing remain beyond the delivered modules.",
+      "changes_source_predictions": "not evidence of theoretical impossibility or necessary restructuring",
+      "evidence": [
+        "H13",
+        "H15",
+        "H18",
+        "H19"
+      ]
+    }
+  ]
+}

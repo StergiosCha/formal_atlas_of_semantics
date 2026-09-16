@@ -1,0 +1,81 @@
+{
+  "_generated_by": "atlas/probes/run_probes.py (A3 L2)",
+  "file": "atlas/dynamic/Heim1982_Examples.v",
+  "coq_version": "8.20.1",
+  "probes": {
+    "dynamic.Heim1982_Examples.agree_put_fresh": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Examples.restrictor_sat": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982_Examples.restrictor_dom": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982_Examples.donkey_felicity": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Examples.donkey_truth_conditions": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Examples.nuclear_indefinite_felicity": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Examples.nuclear_existential_truth_conditions": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Examples.negative_existential_truth_conditions": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Examples.discourse_anaphora_truth": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Examples.complex_definite_requires_whole_content": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Examples.SeparatingModels.nonowners_do_not_falsify_donkey": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982_Examples.SeparatingModels.one_beaten_donkey_is_not_enough": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Examples.SeparatingModels.existential_nuclear_scope_allows_one_witness": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Examples.SeparatingModels.false_files_still_have_distinct_domains": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Examples.SeparatingModels.scope_blocks_later_pronoun": {
+      "vacuity": "ok",
+      "triviality": "TRIVIAL"
+    },
+    "dynamic.Heim1982_Examples.SeparatingModels.same_world_content_different_anaphoric_truth": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    },
+    "dynamic.Heim1982_Examples.IntensionalPresupposition.actual_truth_is_not_contextual_entailment": {
+      "vacuity": "ok",
+      "triviality": "ok"
+    }
+  },
+  "summary": {
+    "probed": 17,
+    "vacuous": 0,
+    "trivial": 4,
+    "bailout": 0
+  }
+}

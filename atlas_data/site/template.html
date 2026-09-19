@@ -173,6 +173,10 @@ footer .r{margin-left:auto}
   .wrap{padding:0 18px}.g3,.g4,.embs{grid-template-columns:1fr}
   nav{gap:14px}nav a{font-size:13px}.hd{height:auto;padding:10px 0;flex-wrap:wrap}
 }
+.proof-code{overflow:auto;max-height:65vh;border:2px solid var(--ink);padding:12px 0;tab-size:2}
+.proof-line{display:block;min-height:1.5em;padding:0 14px;white-space:pre}
+.proof-line.selected{background:#fff0bd;color:#111}
+.proof-line .line-no{display:inline-block;width:5em;color:#666;text-decoration:none;user-select:none}
 </style>
 </head>
 <body>
@@ -201,8 +205,9 @@ footer .r{margin-left:auto}
 <footer><div class="wrap" style="display:flex;gap:20px;width:100%;flex-wrap:wrap">
   <span>Formal Atlas of Semantics</span>
   <a class="textlink" href="#/reading">Reading the atlas responsibly</a>
+  <a class="textlink" href="#/sources">Source registry</a>
   <a class="textlink" href="https://github.com/StergiosCha/formal_atlas_of_semantics">Repository</a>
-  <span class="r">Generated __GENERATED__ · scoped proof and source records</span>
+  <span class="r">Generated __GENERATED__ · revision __REVISION__</span>
 </div></footer>
 
 <script id="atlas-data" type="application/json">__ATLAS_DATA__</script>
@@ -535,12 +540,71 @@ function vReading(){
       approval and independent semantic review are separate.</p></div>
     <div class="block"><h3>Reproduction and source access</h3>
       <p>The tested toolchain is Coq 8.20.1. Rebuilding this site from the checked-in
-      atlas data requires no source PDFs. Recomputing the consolidated evidence currently
-      depends on the external corpus and filename/design heuristics. Campaign manifests
-      pin selected artifacts; a corpus-wide source registry and explicit evidence
-      bindings remain work to do. Copyrighted PDFs are not redistributed.</p></div>
+      atlas data requires no source PDFs. Consolidation now uses the
+      <a class="textlink" href="#/sources">source registry</a>, not filename/design heuristics.
+      Published F0–F2 labels are retained as a historical baseline pending migration review;
+      the registry's documented-only comparison does not silently replace them.
+      Optional local PDF hash checks are separate from source identity and recorded reading.
+      Copyrighted PDFs are not redistributed.</p></div>
     <a class="btn ghost" href="https://github.com/StergiosCha/formal_atlas_of_semantics/blob/main/atlas_data/READING_THE_ATLAS.md">Read the detailed guide and correction history</a>
   </section></div>`;
+}
+
+function vSources(){
+  const registry=D.source_registry;
+  if(!registry) return '<div class="wrap"><section><h2>Source registry unavailable</h2></section></div>';
+  const summary=registry.summary;
+  const comparisons=new Map(summary.sources.map(s=>[String(s.paper_id),s]));
+  const refLink=ref=>`<a class="textlink" href="https://github.com/StergiosCha/formal_atlas_of_semantics/blob/main/${ref.path.split('/').map(encodeURIComponent).join('/')}">${esc(ref.path)}</a>`;
+  const entry=source=>{
+    const row=comparisons.get(String(source.paper_id));
+    return `<article class="block" id="source-${esc(source.paper_id??source.supplement_id)}" data-source-search="${esc(source.citation)}">
+      <h3>${esc(source.citation)}</h3>
+      <p class="small">${row?`Survey ID ${esc(source.paper_id)} · published ${esc(row.published_level)} · documented-only comparison ${esc(row.registered_only_level)} (not adopted)`:
+        'Supplementary source — outside the frozen 230-source survey; no P grade or F promotion'}</p>
+      <details><summary>Artifact identity, reading and design evidence</summary>
+        ${source.artifact_links.length?source.artifact_links.map(link=>{
+          const artifact=registry.artifacts[link.artifact];
+          return `<div class="small" style="margin-top:14px;overflow-wrap:anywhere">
+            <span class="b ${link.status==='documented'?'mid':'q'}">${esc(link.status)} identity</span>
+            <p>${esc(link.edition||'Edition not identified')}</p>
+            <p>${esc(link.identity_note)}</p>
+            <p>Recorded path(s): ${esc(artifact.paths.join('; '))}</p>
+            <p>SHA256: <span class="mono">${esc(link.artifact)}</span></p>
+            <p>Identifiers: ${esc((link.identifiers||[]).map(i=>i.kind+': '+i.value).join('; ')||'not yet documented')}</p>
+            ${link.identity_reference?`<p>Identity evidence: ${refLink(link.identity_reference)}</p>`:''}
+          </div>`;
+        }).join(''):'<p>No artifact linked. This is not proof that the source is unavailable.</p>'}
+        <h4 style="margin-top:18px">Recorded consultations</h4>
+        ${source.consultations.length?source.consultations.map(c=>`<p class="small" style="margin-top:10px">
+          ${esc(c.passages.join('; '))}. ${esc(c.reviewer)}. ${refLink(c.report)}.
+          Not independent semantic review.</p>`).join(''):'<p class="small">No source-reading record imported.</p>'}
+        <h4 style="margin-top:18px">Design bindings</h4>
+        ${source.designs.length?source.designs.map(d=>`<p class="small" style="margin-top:10px">
+          ${esc(d.status)}: ${refLink(d)} — ${esc(d.scope)}</p>`).join(''):'<p class="small">No design binding recorded.</p>'}
+      </details></article>`;
+  };
+  return `<div class="wrap"><div class="crumb"><a href="#/">Atlas</a> / Source registry</div><section>
+    <div class="sechead"><h2>Source provenance, made explicit</h2></div>
+    <p>${summary.survey_sources} survey sources · ${summary.artifact_count} hashed artifacts ·
+      ${summary.sources_with_documented_identity} survey sources with documented identity links.
+      A hash identifies bytes, not the correctness of a citation or a reading.</p>
+    <p class="small" style="margin-top:14px">${summary.differences.length} published low-tier labels lack
+      equivalent documented-only support in this initial migration. These are evidence-registration
+      gaps, not findings that the sources are missing or unformalizable. No grade or outcome is changed.</p>
+    <p class="small" style="margin-top:14px">Candidate filename/design matches are not confirmed evidence.
+      “Documented” means a source-specific audit supplies the link; it does not mean independent
+      review. Local file availability is checked separately and is not asserted by this page.</p>
+    <div class="controls" style="margin-top:24px"><input type="search" aria-label="Filter source registry" placeholder="Find author or title…" oninput="sourceFilter(this.value)"></div>
+    ${registry.sources.map(entry).join('')}
+    <h2>Supplementary works</h2>${registry.supplementary_sources.map(entry).join('')}
+  </section></div>`;
+}
+
+function sourceFilter(value){
+  document.querySelectorAll('[data-source-search]').forEach(entry=>{
+    entry.hidden=!entry.dataset.sourceSearch.toLowerCase().includes(value.toLowerCase());
+  });
 }
 
 function ladderHTML(){
@@ -635,6 +699,68 @@ function filterCards(v){
     c.style.display = !v || c.dataset.s.includes(v) ? '' : 'none';});
 }
 
+/* Real source is bundled at build time. The index is navigation, not a proof checker. */
+function proofURL(key,line){
+  return '#/proof/'+encodeURIComponent(key)+(line?'?line='+line:'');
+}
+function proofLink(key,text){
+  const source=(D.proof_sources||{})[key];
+  if(!source) return esc(text);
+  return String(text).split(/([A-Za-z_][A-Za-z0-9_'.]*)/).map(token=>{
+    let found=source.declarations.filter(d=>d.name===token||d.qualified===token);
+    if(!found.length) found=source.declarations.filter(d=>d.name.endsWith('.'+token));
+    return found.length===1?`<a class="textlink" href="${proofURL(key,found[0].line)}">${esc(token)}</a>`:esc(token);
+  }).join('');
+}
+function proofAudit(source,decl){
+  const audit=source.audit, assumptions=audit?.assumptions;
+  if(!decl) return 'Select a declaration to inspect its recorded assumption audit.';
+  if(decl.status==='admitted'||decl.status==='aborted') return `${esc(decl.status)} — no completed proof.`;
+  const detail=assumptions?.detail?.[decl.qualified];
+  if(detail) return `<pre class="mono tiny">${esc(detail.raw||detail.axioms.join('\n'))}</pre>`;
+  if(decl.status==='proved'&&audit?.compile?.ok&&audit.statements?.[decl.qualified]
+      && assumptions && !assumptions.unresolved?.length
+      && Object.keys(audit.statements).length===assumptions.queried){
+    return 'Recorded Print Assumptions: Closed under the global context. Explicit theorem premises still apply.';
+  }
+  return 'No individual assumption audit recorded for this declaration; no closure claim is inferred.';
+}
+function vProof(key,requestedLine){
+  const source=(D.proof_sources||{})[key]; if(!source) return notFound();
+  const lines=source.text.split('\n');
+  const parsed=Number(requestedLine);
+  const line=Number.isInteger(parsed)&&parsed>0&&parsed<=lines.length?parsed:1;
+  const decl=source.declarations.find(d=>d.line===line);
+  const revision=/^[a-f0-9]{40}$/.test(D.revision||'')?D.revision:'main';
+  const github='https://github.com/StergiosCha/formal_atlas_of_semantics/blob/'+revision+'/'+source.path.split('/').map(encodeURIComponent).join('/')+'#L'+line;
+  return `<div class="wrap"><div class="crumb"><a href="#/theory/${encodeURIComponent(key)}">Proof record</a> / Coq source</div>
+    <section style="padding-top:24px"><h2>Coq source: ${esc(source.path)}</h2>
+      <p style="margin-top:14px">Full repository source, including declarations, proof scripts and context.
+      This is a source reader, not a live Coq session or a generated proof summary.</p>
+      <p class="tiny dim">Revision: ${esc(D.revision||'working copy')}. Source SHA256: <span class="mono" style="overflow-wrap:anywhere">${esc(source.sha256)}</span>.</p>
+      <div class="controls" style="margin:16px 0;gap:14px"><a class="btn ghost" href="${esc(github)}">${revision==='main'?'GitHub main (may differ)':'GitHub at this revision'}</a>
+        <button class="btn" onclick="downloadCoq()">Download .v</button>
+        <label class="tiny">Jump to declaration <select aria-label="Coq declaration" onchange="location.hash=this.value" style="max-width:100%">
+          <option value="${proofURL(key,1)}">Full file</option>${source.declarations.map(d=>`<option value="${proofURL(key,d.line)}"${d===decl?' selected':''}>${esc(d.name)} · L${d.line}</option>`).join('')}</select></label></div>
+      <div class="block"><h3>${decl?esc(decl.qualified):'Recorded Coq audit'}</h3>
+        <div class="small">${decl?`${esc(decl.keyword)} · source-index status: ${esc(decl.status||decl.kind)}. `:''}${proofAudit(source,decl)}</div>
+        <p class="tiny dim">${source.audit?`Recorded compiler: Coq ${esc(source.audit.coq_version)}; compile ${source.audit.compile?.ok?'passed':'failed'}.`:'No mechanical audit sidecar.'}
+          Audit records are not rerun by opening this page. Source bytes alone do not establish source fidelity or fresh verification.</p>
+        ${source.audit?.compile?.unsafe_flags?.length?`<p>Unsafe flags: ${source.audit.compile.unsafe_flags.map(esc).join(', ')}</p>`:''}
+        ${source.index_warnings.length?`<p>Navigation-index warnings: ${source.index_warnings.map(esc).join('; ')}. Inspect the full file.</p>`:''}</div>
+      <pre class="proof-code mono tiny" aria-label="Full Coq source">${lines.map((text,i)=>`<span id="coq-L${i+1}" class="proof-line${i+1===line?' selected':''}"><a class="line-no" href="${proofURL(key,i+1)}" aria-label="Line ${i+1}">${i+1}</a>${esc(text)}</span>`).join('')}</pre>
+      <p class="tiny dim">To check this file with its imports, use the <a href="https://github.com/StergiosCha/formal_atlas_of_semantics">repository build instructions</a>. A downloaded .v is not necessarily standalone.</p>
+    </section></div>`;
+}
+function downloadCoq(){
+  const key=decodeURIComponent((location.hash.split('?')[0].split('/')[2])||'');
+  const source=(D.proof_sources||{})[key]; if(!source) return;
+  const url=URL.createObjectURL(new Blob([source.text],{type:'text/plain;charset=utf-8'}));
+  const link=document.createElement('a'); link.href=url; link.download=source.path.split('/').pop();
+  document.body.appendChild(link); link.click(); link.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+
 function claimProfile(key){
   return ((D.claim_comparison||{}).profiles||[]).find(p=>p.record_key===key);
 }
@@ -658,7 +784,7 @@ function claimProfileHTML(p){
       <div style="overflow-x:auto"><table><thead><tr><th>Source target</th><th>Disposition</th><th>Established / evidence</th><th>Limit</th></tr></thead><tbody>
       ${p.targets.map(t=>`<tr><td><b>${esc(t.id)}</b> ${esc(t.source_claim)}<div class="tiny dim">${esc(t.pages)}</div></td>
         <td>${esc(labels[t.disposition]||t.disposition)}</td><td>${esc(t.established)}
-        <div class="tiny mono" style="overflow-wrap:anywhere">${t.evidence.map(esc).join('<br>')}</div></td><td>${esc(t.limit)}</td></tr>`).join('')}
+        <div class="tiny mono" style="overflow-wrap:anywhere">${t.evidence.map(n=>proofLink(p.record_key,n)).join('<br>')}</div></td><td>${esc(t.limit)}</td></tr>`).join('')}
       </tbody></table></div></details>
     <p class="tiny dim" style="margin-top:12px">Retrospective, single-researcher mapping; not independent semantic verification.
       <a href="#/comparison">Compare all profiles and limitations</a>.</p></div>`;
@@ -695,6 +821,7 @@ function vTheory(key){
     <h2 style="margin:12px 0 8px;display:flex;align-items:center;gap:14px">
       ${r?`<img src="assets/svg/emblem-${r}.svg" alt="" width="40" height="40">`:''}${esc(nm)}</h2>
     <div class="mono small dim" style="margin-bottom:20px">${esc(shortPath(f.file))}</div>
+    ${(D.proof_sources||{})[key]?`<p style="margin-bottom:20px"><a class="btn ghost" href="${proofURL(key)}">Read the actual Coq source and proofs</a></p>`:''}
     <p style="font-size:16.5px">${esc(f.summary||'')}</p>
 
     ${f.source_gap?`<div class="block gap"><span class="kicker">Recorded source note — not independently confirmed here</span>
@@ -705,14 +832,14 @@ function vTheory(key){
 
     ${(f.definitions_mapped||[]).length?`<div class="block"><h3>Definitions mapped</h3>
       <table><thead><tr><th>Coq</th><th>Source</th><th class="n">Match</th></tr></thead><tbody>
-      ${f.definitions_mapped.map(d=>`<tr><td class="mono">${esc(d.coq)}</td>
+      ${f.definitions_mapped.map(d=>`<tr><td class="mono">${proofLink(key,d.coq)}</td>
         <td>${esc(d.source)}${d.note?`<div class="tiny dim" style="margin-top:5px">${esc(d.note)}</div>`:''}</td>
         <td class="n"><span class="b ${d.match==='exact'?'ok':d.match==='changed'?'bad':'mid'}">${esc(d.match||'')}</span></td></tr>`).join('')}
       </tbody></table></div>`:''}
 
     ${(f.theorems||[]).length?`<div class="block"><h3>Theorems</h3>
       <table><thead><tr><th>Name</th><th>Claim in the source</th><th class="n">Status</th></tr></thead><tbody>
-      ${f.theorems.map(t=>`<tr><td class="mono">${esc(t.name)}</td>
+      ${f.theorems.map(t=>`<tr><td class="mono">${proofLink(key,t.name)}</td>
         <td>${esc(t.source_claim||'')}${t.note?`<div class="tiny dim" style="margin-top:5px">${esc(t.note)}</div>`:''}</td>
         <td class="n"><span class="b ${t.status==='proved'?'ok':t.status==='refuted'?'bad':'q'}">${esc(t.status||'')}</span></td></tr>`).join('')}
       </tbody></table></div>`:''}
@@ -814,6 +941,7 @@ function vEdge(key){
       <div class="stat"><b>${e.bridge_file?'yes':'no'}</b><span>formal bridge in Coq</span></div>
     </div>
     ${e.notes?`<p style="margin-top:26px;font-size:16.5px">${esc(e.notes)}</p>`:''}
+    ${e.bridge_file?Object.entries(D.proof_sources||{}).filter(([k,s])=>s.path===shortPath(e.bridge_file)).map(([k,s])=>`<p style="margin-top:16px"><a class="btn ghost" href="${proofURL(k)}">Read the Coq bridge: ${esc(s.path)}</a></p>`).join(''):''}
     <div class="block"><h3>Phenomenon by phenomenon</h3>
       <table><thead><tr><th>Phenomenon</th><th>Evidence</th><th class="n">Grade</th></tr></thead><tbody>
       ${(e.phenomena||[]).map(p=>`<tr>
@@ -847,6 +975,9 @@ function vPapers(q){
     <p class="small">F levels describe pipeline evidence, not approval of a paper-level outcome.
       A survey comparison requires a separate source-specific review. Original file assessments
       remain available below, including conflicting opinions and coverage cautions.</p>
+    <p class="small" style="margin-top:12px">F0–F2 labels currently retain the historical baseline
+      pending <a class="textlink" href="#/sources">source-registry migration review</a>.
+      Filename candidates are not certified source identities.</p>
     ${ladderHTML()}
     ${D.claim_comparison?`<p class="small" style="margin-top:18px"><a href="#/comparison">Compare source-claim coverage beneath the F3 label</a>:
       direct fragments, representations, added commitments and uncovered claims. No tier score is inferred.</p>`:''}
@@ -889,7 +1020,7 @@ const CHECK_THEORIES=[
   ['probabilistic.RSA','RSA'],['categorical.DisCoCat','DisCoCat'],
   ['type_logical.Lambek','Lambek'],
 ];
-const api=()=>localStorage.getItem('atlas_api')||'http://localhost:8477';
+const api=()=>localStorage.getItem('atlas_api')||'https://atlas-checker.greenrock-e642001f.westus2.azurecontainerapps.io';
 function vCheck(){
   return `<div class="wrap"><div class="crumb"><a href="#/">Atlas</a> / Verifier</div>
   <section style="padding-top:24px">
@@ -1152,8 +1283,9 @@ function vExhibits(){
       <details style="margin-top:12px">
         <summary style="cursor:pointer;font-weight:600">Commit first — then open the compiler’s answer</summary>
         <div style="margin-top:10px"><span class="b bad">${esc(e.verdict.toLowerCase())}</span>
-          <span class="tiny dim"> · ${e.thms.map(t=>`<span class="mono">${esc(t)}</span>`).join(', ')}
-          · <a href="#/theory/${esc(e.page)}">${esc(e.file)}</a></span></div>
+          <span class="tiny dim"> · ${e.thms.map(t=>`<span class="mono">${proofLink(e.page,t)}</span>`).join(', ')}
+          · <a href="${proofURL(e.page)}">Read full Coq proof: ${esc(e.file)}</a></span></div>
+        <p class="tiny dim">Statement excerpt below; the linked source contains the proof script and context.</p>
         <pre class="mono tiny" style="margin-top:10px;border-left:2px solid var(--n400);padding:10px 14px;overflow:auto">${esc(e.coq)}</pre>
         <p class="tiny" style="margin-top:8px;max-width:none">${esc(e.lesson)}</p>
       </details></article>`).join('')}
@@ -1170,9 +1302,11 @@ function route(){
   let html, tab=seg[0]||'';
   if(!seg.length) html=vHome();
   else if(seg[0]==='reading') html=vReading();
+  else if(seg[0]==='sources') html=vSources();
   else if(seg[0]==='plate') html=vPlate();
   else if(seg[0]==='theories') html=vTheories();
   else if(seg[0]==='theory') {html=vTheory(seg[1]); tab='theories';}
+  else if(seg[0]==='proof') {html=vProof(decodeURIComponent(seg[1]||''),q.line); tab='theories';}
   else if(seg[0]==='edges') html=vEdges();
   else if(seg[0]==='edge') {html=vEdge(seg[1]); tab='edges';}
   else if(seg[0]==='region') {html=vRegion(seg[1]); tab='';}
@@ -1185,6 +1319,7 @@ function route(){
   if(seg[0]==='check') loadModels();
   document.querySelectorAll('#nav a[data-r]').forEach(a=>a.classList.toggle('on',a.dataset.r===tab));
   window.scrollTo(0,0);
+  if(seg[0]==='proof'&&/^\d+$/.test(q.line||'')) document.getElementById('coq-L'+q.line)?.scrollIntoView?.({block:'center'});
 }
 addEventListener('hashchange',route); route();
 </script>

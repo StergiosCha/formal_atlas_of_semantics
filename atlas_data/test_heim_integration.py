@@ -92,6 +92,9 @@ class HeimIntegrationTests(unittest.TestCase):
         previous = json.loads((HERE / "campaigns/heim_1982_manifest.json").read_text())
         shared = {"README.md", "_CoqProject", "atlas_data/ATLAS.md", "atlas_data/atlas.json",
                   "atlas_data/claims.lock", "atlas_data/paper_evidence.json", "atlas_data/site/index.html"}
+        # Source-registry migration revises reporting infrastructure, not the
+        # protected research. Historical manifest hashes remain unedited.
+        shared |= {"atlas_data/build_site.py", "atlas_data/consolidate.py"}
         for name, expected in previous["files"].items():
             if name in shared:
                 continue

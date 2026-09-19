@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: >-
+  Cite this research atlas with the exact Git commit used.
+  Source-level fidelity and independent review are tracked separately
+  from machine checking. No archived release DOI has been assigned.
+type: software
+title: Formal Atlas of Semantics
+authors:
+  - family-names: Chatzikyriakidis
+    given-names: Stergios
+repository-code: https://github.com/StergiosCha/formal_atlas_of_semantics
+url: https://orange-beach-0c447e210.5.azurestaticapps.net
+license: MIT
+abstract: >-
+  A 230-source survey connected to explicitly scoped Coq implementations,
+  source-to-code audits, checked comparisons, countermodels and a
+  provenance registry. Intrinsic source formality and project evidence
+  are separate axes. The atlas investigates which representations,
+  assumptions, clarifications and additional commitments mechanization
+  requires; it does not claim whole-source verification of the corpus.
+keywords:
+  - formal semantics
+  - proof assistants
+  - Coq
+  - Rocq
+  - research provenance

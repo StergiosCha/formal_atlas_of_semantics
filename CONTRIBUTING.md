@@ -20,8 +20,10 @@ browser-editing and pull-request workflow for proposing changes to the maintaine
    Notifications depend on their GitHub notification settings; this is not an
    automatic email attachment or a submission through the atlas webpage.
 5. Wait for review and checks. Approval does not itself deploy the site: merging
-   into `main` triggers the existing deployment workflow. That workflow also
-   handles pull-request previews, subject to its credentials and configuration.
+   into `main` triggers Coq and reporting checks before production upload.
+   Same-repository pull requests may get verified previews; fork proposals run
+   checks without deployment credentials. Preview availability depends on the
+   configured Azure credentials. Uploads are serialized per target.
 
 GitHub's editor does not compile Coq. The existing `verify` workflow runs on pull
 requests and checks compilation, kernel checking, mechanical records and atlas
@@ -52,6 +54,7 @@ For reporting/UI changes:
 python3 -m unittest discover -s atlas_data -p 'test_*.py'
 python3 atlas_data/build_site.py
 node atlas_data/site/test_landing.cjs
+node atlas_data/site/test_source_registry.cjs
 node atlas_data/site/test_claim_comparison.cjs
 node atlas_data/site/test_rosch_campaign.cjs
 node atlas_data/site/test_outcomes.cjs
@@ -61,13 +64,16 @@ git diff --check
 If you change consolidation inputs, rebuild before running those checks:
 
 ```bash
-ATLAS_PAPERS=/absolute/path/to/your/source-corpus python3 atlas_data/consolidate.py
+python3 atlas_data/source_registry.py
+python3 atlas_data/consolidate.py
 python3 atlas_data/build_site.py
 ```
 
-Use the same source corpus as the checkpoint when comparing evidence levels.
-Without it, source-presence detection may lower F1/F2 levels. The site builder
-alone uses the committed atlas data and does not require the external PDFs.
+The [source registry](atlas_data/SOURCE_REGISTRY.md) makes these rebuilds
+independent of external PDF availability. F0–F2 retain a labelled historical
+baseline pending migration review; candidate matches do not certify identity.
+Use `python3 atlas_data/source_registry.py --corpus /absolute/path/to/papers`
+for optional local byte verification, separately from identity and consultation.
 Edit `atlas_data/site/template.html`, not only generated `index.html`.
 
 ## Protect research provenance
@@ -81,6 +87,6 @@ Edit `atlas_data/site/template.html`, not only generated `index.html`.
 - Do not upload external source PDFs, credentials, machine-specific configuration
   or compiled Coq artifacts. Cite sources and include permitted excerpts only.
 
-The current tests cover reporting and selected claim inventories; the Python/JS
-commands above are local checks, not a promise that every one is already wired
-into the existing GitHub workflow. Source review remains human/research work.
+The deployment workflow requires the Coq and reporting/provenance jobs to pass
+before upload. These checks cover structure and encoded claims; source fidelity
+and authentic independent review remain human/research work.

@@ -13,7 +13,7 @@ Feedback arms (experiment E2 in A3_PLAN — pick with --feedback):
 Usage:
   export AZURE_AI_KEY=...            # never stored in the repo
   python3 loop.py "claim in English" --imports probabilistic.RSA
-  python3 loop.py "claim" --model claude-opus-5 --feedback raw
+  python3 loop.py "claim" --model gpt-6-astra --feedback raw
   python3 loop.py "claim" --compare  # whole roster, one table
 Checker: local coqc by default; --checker http://host:8477 uses the service.
 """

@@ -1,11 +1,9 @@
 """Azure Foundry model access for the Semantics Workbench.
 
-Every deployment in models.json is served by the same Foundry resource
-through the OpenAI-compatible inference route
-    POST {endpoint}/models/chat/completions?api-version=...
-with the deployment name as `model`. Azure-OpenAI-native deployments
-(gpt-*) also answer on /openai/deployments/{name}/chat/completions; we
-try the unified route first and fall back once per process.
+Deployments are allowlisted in models.json. Astra and GPT-5.4 Pro use
+POST {endpoint}/openai/v1/responses. Existing OpenAI chat deployments keep
+their versioned route; other text models keep the Foundry inference route.
+Model values are deployment names, which can differ from base model names.
 
 The key comes from the environment (AZURE_AI_KEY) and is never written
 anywhere. In production it is an Azure Container Apps secret
@@ -19,14 +17,13 @@ import urllib.error
 import urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-CFG = json.load(open(os.path.join(HERE, "models.json")))
+with open(os.path.join(HERE, "models.json")) as _cfg_file:
+    CFG = json.load(_cfg_file)
 
 ENDPOINT = os.environ.get(CFG["endpoint_env"], CFG["default_endpoint"]).rstrip("/")
 API_VERSION = CFG["api_version"]
 ROSTER = {m["deployment"]: m for m in CFG["roster"]}
 POLICY = CFG["policy"]
-
-_openai_fallback: set[str] = set()
 
 
 class ModelError(RuntimeError):
@@ -44,11 +41,11 @@ def _key() -> str:
 
 
 def _post(url: str, payload: dict, timeout: int) -> dict:
+    key = _key()
     req = urllib.request.Request(
         url, data=json.dumps(payload).encode(),
-        headers={"content-type": "application/json", "api-key": _key(),
-                 "x-api-key": _key(), "anthropic-version": "2023-06-01",
-                 "authorization": f"Bearer {_key()}"})
+        headers={"content-type": "application/json", "api-key": key,
+                 "authorization": f"Bearer {key}"})
     with urllib.request.urlopen(req, timeout=timeout) as r:
         return json.load(r)
 
@@ -58,12 +55,9 @@ def chat(deployment: str, messages: list[dict], *, max_tokens: int = 8000,
     """One chat call; returns the assistant text. Raises ModelError with the
     server's own words on failure — never invents a reply.
 
-    Foundry serves three API shapes behind one endpoint (measured 2026-09-05):
-    - Anthropic deployments: native Messages API at /anthropic/v1/messages
-      (the OpenAI-compatible routes 404 with api_not_supported)
-    - gpt-5.x: OpenAI route, but max_completion_tokens and no temperature
-      (reasoning models reject both legacy params)
-    - everything else (grok/deepseek/kimi/mistral): plain OpenAI-compatible
+    Responses models omit sampling parameters and use max_output_tokens.
+    Incomplete/refusal-only/empty replies are errors, never proof candidates.
+    Other routes preserve their existing request contracts.
     """
     if deployment not in ROSTER:
         raise ModelError(f"{deployment} is not in models.json roster")
@@ -71,15 +65,20 @@ def chat(deployment: str, messages: list[dict], *, max_tokens: int = 8000,
     last = None
     for attempt in range(retries + 1):
         try:
-            if family == "anthropic":
-                out = _post(f"{ENDPOINT}/anthropic/v1/messages",
-                            {"model": deployment, "max_tokens": max_tokens,
-                             "messages": messages}, timeout)
-                texts = [c.get("text", "") for c in out.get("content", [])
-                         if c.get("type") == "text"]
-                if not texts:
-                    raise ModelError(f"{deployment}: no text block in reply")
-                return "\n".join(texts)
+            if ROSTER[deployment].get("api") == "responses":
+                out = _post(f"{ENDPOINT}/openai/v1/responses",
+                            {"model": deployment, "input": messages,
+                             "max_output_tokens": max_tokens, "store": False}, timeout)
+                if out.get("status") != "completed":
+                    raise ModelError(f"{deployment}: response {out.get('status', 'missing status')}")
+                texts = [c["text"] for item in out.get("output", [])
+                         if item.get("type") == "message" and item.get("role") == "assistant"
+                         for c in item.get("content", [])
+                         if c.get("type") == "output_text" and isinstance(c.get("text"), str)]
+                text = "\n".join(texts)
+                if not text.strip():
+                    raise ModelError(f"{deployment}: no assistant text in reply")
+                return text
             if family == "openai":
                 out = _post(f"{ENDPOINT}/openai/deployments/{deployment}"
                             f"/chat/completions?api-version={API_VERSION}",
@@ -91,7 +90,12 @@ def chat(deployment: str, messages: list[dict], *, max_tokens: int = 8000,
                             {"model": deployment, "messages": messages,
                              "max_tokens": max_tokens,
                              "temperature": temperature}, timeout)
-            return out["choices"][0]["message"]["content"]
+            text = out["choices"][0]["message"]["content"]
+            if not isinstance(text, str) or not text.strip():
+                raise ModelError(f"{deployment}: no assistant text in reply")
+            return text
+        except (KeyError, IndexError, TypeError, AttributeError) as e:
+            raise ModelError(f"{deployment}: malformed model response") from e
         except urllib.error.HTTPError as e:
             body = e.read().decode(errors="replace")[:500]
             last = ModelError(f"{deployment}: HTTP {e.code} {body}")
@@ -102,7 +106,8 @@ def chat(deployment: str, messages: list[dict], *, max_tokens: int = 8000,
             # includes IncompleteRead (dropped stream mid-body) and bad JSON —
             # both transient on long generations; retry
             last = ModelError(f"{deployment}: {type(e).__name__}: {e}")
-        time.sleep(2 * (attempt + 1))
+        if attempt < retries:
+            time.sleep(2 * (attempt + 1))
     raise last or ModelError(f"{deployment}: exhausted retries")
 
 

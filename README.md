@@ -9,6 +9,7 @@ what an encoding establishes and which additional commitments affect its results
 
 [Explore the atlas](https://orange-beach-0c447e210.5.azurestaticapps.net) ·
 [Read the evidence](atlas_data/ATLAS.md) ·
+[Source registry](atlas_data/SOURCE_REGISTRY.md) ·
 [Propose a change](CONTRIBUTING.md)
 
 Two axes keep the survey separate from implementation progress:
@@ -41,6 +42,11 @@ separates source-linked fragments, illustrative models and uncovered claims in
 the Derrida, Austin, Horn, Grice and Tarski pilots. It does not establish a
 formality-tier gradient. More campaigns and correction history are indexed in
 the [reading guide](atlas_data/READING_THE_ATLAS.md#campaigns-and-correction-history).
+
+Each proof record on the site includes **Read the actual Coq source and proofs**.
+Named declarations link to the full `.v` source with line navigation, recorded
+assumption audits and a download. This reader works without the LLM backend;
+it displays repository code, not generated proof summaries or live proof states.
 
 ## Development and review
 
@@ -93,18 +99,24 @@ Reporting checks require Python 3 and Node.js, but not the source PDFs:
 
 ```bash
 python3 -m unittest discover -s atlas_data -p 'test_*.py'
+python3 -m unittest discover -s tool/llm -p 'test_*.py'
 python3 atlas_data/build_site.py
 node atlas_data/site/test_landing.cjs
+node atlas_data/site/test_source_registry.cjs
 node atlas_data/site/test_claim_comparison.cjs
 node atlas_data/site/test_rosch_campaign.cjs
 node atlas_data/site/test_outcomes.cjs
+node atlas_data/site/test_proofs.cjs
 ```
 
-The site builder uses the checked-in `atlas.json`. Recomputing that file with
-`consolidate.py` is a different operation: reproducing source-presence levels
-requires the external corpus via `ATLAS_PAPERS`. Existing campaign manifests
-pin selected artifacts; a corpus-wide registry and explicit source/design
-bindings remain work to do. See [reproducibility limits](atlas_data/READING_THE_ATLAS.md#reproducibility-and-source-access)
+Both the site and consolidated evidence now rebuild without external PDFs.
+The [source registry](atlas_data/SOURCE_REGISTRY.md) covers all 230 survey entries
+and pins 138 artifacts. Candidate matches are distinguished from documented
+identity, consultation and design links. Bibliographic metadata remains incomplete.
+Published low-tier levels are explicitly retained from a historical baseline
+pending migration review; 104 documented-only differences are diagnostic, not
+automatic downgrades. Optional local hash checks never change those levels.
+See [reproducibility limits](atlas_data/READING_THE_ATLAS.md#reproducibility-and-source-access)
 and [CONTRIBUTING.md](CONTRIBUTING.md). Do not upload copyrighted source PDFs.
 
 ## Original paper companion
@@ -132,5 +144,10 @@ Until a versioned archive is assigned, cite *Formal Atlas of Semantics*, Stergio
 Chatzikyriakidis, with the [repository URL](https://github.com/StergiosCha/formal_atlas_of_semantics)
 and the exact commit you used. The accompanying paper, *Revisiting formal
 semantics using proof assistants*, is in progress.
+
+[CITATION.cff](CITATION.cff) supplies machine-readable metadata.
+[Release preparation](RELEASING.md) and the
+[independent-review packages](atlas_data/audits/INDEPENDENT_REVIEW_PACKAGES.md)
+keep an archived release, actual reviewer approval and checked code separate.
 
 MIT, see [LICENSE](LICENSE). External source publications retain their own rights.

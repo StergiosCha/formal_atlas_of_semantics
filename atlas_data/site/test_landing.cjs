@@ -66,6 +66,7 @@ assert(guide.includes('not independent human semantic review'));
 assert(guide.includes('It is not framework equivalence'));
 assert(guide.includes('without selecting a default'));
 assert(guide.includes('filename/design heuristics'));
+assert(guide.includes('historical baseline pending migration review'));
 const atlasAdmissions = data.files.filter(f => f.file.startsWith('atlas/'))
   .reduce((sum, f) => sum + (f.counts?.admitted || 0), 0);
 assert(guide.includes(`${data.stats.admitted - atlasAdmissions} in legacy material`));
@@ -85,7 +86,9 @@ totals.sourceReviews = D.papers.filter(hasReviewedSourceOutcome).length;`, conte
 assert(vm.runInContext('vReading()', context).includes('1 accepted source-level reviews'));
 
 // Documentation links must resolve in this checkout, including retained campaign history.
-for (const rel of ['README.md', 'atlas_data/READING_THE_ATLAS.md', 'CONTRIBUTING.md']) {
+for (const rel of ['README.md', 'atlas_data/READING_THE_ATLAS.md', 'CONTRIBUTING.md',
+                  'atlas_data/SOURCE_REGISTRY.md', 'RELEASING.md',
+                  'atlas_data/audits/INDEPENDENT_REVIEW_PACKAGES.md']) {
   const filename = path.join(root, rel);
   const markdown = fs.readFileSync(filename, 'utf8');
   for (const match of markdown.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)) {

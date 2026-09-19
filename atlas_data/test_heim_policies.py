@@ -77,6 +77,9 @@ class HeimPolicyTests(unittest.TestCase):
         expected_changes = {"README.md", "_CoqProject", "atlas_data/ATLAS.md", "atlas_data/atlas.json",
                             "atlas_data/claims.lock", "atlas_data/paper_evidence.json", "atlas_data/site/index.html",
                             "atlas_data/test_heim_integration.py"}
+        # Explicit subsequent infrastructure revision; no proof/record hash
+        # exemption is added. See SOURCE_REGISTRY.md and its regression tests.
+        expected_changes |= {"atlas_data/build_site.py", "atlas_data/consolidate.py"}
         for path, expected in prior["files"].items():
             if path in expected_changes:
                 continue

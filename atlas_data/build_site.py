@@ -6,6 +6,8 @@ site/assets/ is vendored in the repo so the build works standalone; when the
 brand handoff folder is present alongside, it is re-synced first so a re-theme
 propagates without a manual copy."""
 import json, os, re, sys, shutil, datetime
+from source_registry import load_registry, report as registry_report
+from proof_sources import bundle_sources
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.join(HERE, "site")
@@ -96,9 +98,20 @@ def main():
     data = {"generated": datetime.date.today().isoformat(), "regions": [{"key": k, "name": n} for k, n, _ in REGIONS],
             "papers": papers, "files": slim_files, "stats": stats, "edges": edges,
             "claim_comparison": atlas.get("claim_comparison") if os.path.exists(atlas_path) else None}
+    if os.path.exists(atlas_path):
+        registry = load_registry(papers)
+        data["source_registry"] = {
+            "summary": registry_report(registry, papers),
+            "sources": registry["sources"], "artifacts": registry["artifacts"],
+            "supplementary_sources": registry["supplementary_sources"],
+        }
     tpl = open(os.path.join(SITE, "template.html")).read()
+    revision = os.environ.get("GITHUB_SHA", "")
+    revision = revision if re.fullmatch(r"[a-f0-9]{40}", revision) else "working copy"
+    data["revision"] = revision
+    data["proof_sources"] = bundle_sources(slim_files, os.path.dirname(HERE))
     blob = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
-    html = tpl.replace("__ATLAS_DATA__", blob).replace("__GENERATED__", data["generated"])
+    html = tpl.replace("__ATLAS_DATA__", blob).replace("__GENERATED__", data["generated"]).replace("__REVISION__", revision)
     out = os.path.join(SITE, "index.html")
     open(out, "w").write(html)
     n_assets = sync_assets()

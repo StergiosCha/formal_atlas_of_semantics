@@ -1,0 +1,119 @@
+[
+  {
+    "paper_id": 7,
+    "citation": "Heim, I. (1982) - \"The Semantics of Definite and Indefinite Noun Phrases\"",
+    "artifact_path": "dynamic/Heim_1982_DefiniteIndefiniteNPs.pdf",
+    "manifest": "atlas_data/audits/source_reviews_2026_09_15/manifest.json",
+    "audit": "atlas_data/audits/source_reviews_2026_09_15/heim_1982.md",
+    "edition": "Schoubye–Glick 2011 retypesetting of the 1982 dissertation; 263 PDF pages",
+    "identity_note": "The audit explicitly identifies the source, retypesetting and different pagination. Not the separately cited Heim 1983 article.",
+    "passages": ["Edition note and abstract", "Chapter III, printed pp.182–206, 212–216, 226–231, 238–241"],
+    "reviewer": "Codex; imported single-assistant source-review draft, not independent human review",
+    "designs": [{"path": "atlas_data/campaigns/heim_1982_design.md", "scope": "Heim 1982 final file-change rules and the explicit H01–H19 requirements inventory."}]
+  },
+  {
+    "paper_id": 159,
+    "citation": "Coecke, B., Sadrzadeh, M. & Clark, S. (2010) - \"Mathematical Foundations for a Compositional Distributional Model of Meaning\"",
+    "artifact_path": "categorical/Coecke_2010_MathFoundationsCompositionalDistributional.pdf",
+    "manifest": "atlas_data/audits/source_reviews_2026_09_15/manifest.json",
+    "audit": "atlas_data/audits/source_reviews_2026_09_15/discocat_2010.md",
+    "edition": "arXiv:1003.4394v1, 23 March 2010, 34 pages",
+    "identity_note": "The audit identifies the arXiv v1; journal and later versions are not silently substituted.",
+    "identifiers": [{"kind": "arxiv", "value": "1003.4394v1"}],
+    "passages": ["§2.2 pp.4–7", "§§3.1–3.5 pp.8–16", "§§4.1–4.2 pp.17–24", "§5 pp.24–27", "§6 pp.28–29"],
+    "reviewer": "Codex; imported single-assistant source-review draft, not independent human review"
+  },
+  {
+    "paper_id": 38,
+    "citation": "Bekki, D. & Mineshima, K. (2017) - \"Context-Passing and Underspecification in Dependent Type Semantics\"",
+    "artifact_path": "foundations/Bekki_Mineshima_2017_CalculatingProjectionsViaTypeChecking.pdf",
+    "manifest": "atlas_data/audits/revision_2026_09_13_manifest.json",
+    "audit": "atlas_data/audits/ttr_comparison.md",
+    "edition": "2017 Context-Passing and Underspecification chapter, as identified in the comparison audit",
+    "identity_note": "The audit corrects the misleading CalculatingProjectionsViaTypeChecking filename. It does not identify this artifact with Bekki 2014.",
+    "passages": ["§§1.1–1.4 pp.11–19", "§2 inference tests", "§§3.1–3.3 pp.23–27"],
+    "reviewer": "Imported implementation/source audit; individual reader identity not authenticated, no independent review claimed"
+  },
+  {
+    "paper_id": 40,
+    "citation": "Chatzikyriakidis, S. & Luo, Z. (2020) - \"Formal Semantics in Modern Type Theories\"",
+    "artifact_path": "foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf",
+    "manifest": "atlas_data/audits/revision_2026_09_13_manifest.json",
+    "audit": "atlas_data/audits/ttr_comparison.md",
+    "edition": "2020 volume as identified in the comparison audit; ISBN not yet transcribed",
+    "identity_note": "Explicit CL20 source mapping in the audit; passages concern MTT architecture, quantification and common nouns.",
+    "passages": ["§§1.2, 1.4.2–1.4.3, pp.5, 15–20", "§2.3.1 pp.33–34", "§3.2.3 pp.60–64"],
+    "reviewer": "Imported implementation/source audit; individual reader identity not authenticated, no independent review claimed",
+    "designs": [{"path": "atlas_data/designs/mtt_ranta.md", "scope": "Explicit CL20 target, named MTT.v implementation and MTT/Ranta bridge; not every publication by these authors."}]
+  },
+  {
+    "paper_id": "x216",
+    "citation": "Ranta, A. (1995) - \"Type-Theoretical Grammar\"",
+    "artifact_path": "foundations/Ranta_1995_TypeTheoreticalGrammar.djvu",
+    "manifest": "atlas_data/audits/revision_2026_09_13_manifest.json",
+    "audit": "atlas_data/audits/ttr_comparison.md",
+    "status": "candidate",
+    "edition": "Date unresolved: filename/survey 1995; cited as 1994 in CL20/BM17",
+    "identity_note": "Exact bytes pinned, but the audit leaves the edition/year discrepancy unresolved. Consultation passages remain in the original audit, not certified here.",
+    "designs": [{"path": "atlas_data/designs/mtt_ranta.md", "scope": "Explicit Ranta Type-Theoretical Grammar target; design binding does not resolve the edition/date discrepancy."}]
+  },
+  {
+    "paper_id": null,
+    "supplement_id": "cooper-2023",
+    "citation": "Cooper, R. (2023), From Perception to Communication",
+    "artifact_path": "foundations/Cooper_2023_FromPerceptionToCommunication.pdf",
+    "manifest": "atlas_data/audits/revision_2026_09_13_manifest.json",
+    "audit": "atlas_data/audits/ttr_comparison.md",
+    "edition": "2023 volume as identified in the comparison audit",
+    "identity_note": "Supplementary source, NOT survey ID 50 (Cooper 2005). No P grade or survey ID is minted.",
+    "passages": ["§1.3 pp.11–14", "§1.4.1 pp.18–19", "A2–A3 pp.400–401", "A8–A9 pp.404–406", "A11.1–A11.3 pp.407–411"],
+    "reviewer": "Imported implementation/source audit; individual reader identity not authenticated, no independent review claimed",
+    "designs": [{"path": "atlas_data/designs/ttr.md", "scope": "Explicit Cooper 2023 formal-appendix target, with the subsequent source-audit correction retained."}]
+  },
+  {
+    "paper_id": 172,
+    "citation": "Derrida, J. (1972) - \"Signature Event Context\"",
+    "artifact_path": "foundations/Derrida_1972_SignatureEventContext.pdf",
+    "manifest": "atlas_data/campaigns/tiers_2026_09_13_manifest.json",
+    "audit": "atlas_data/campaigns/tiers_2026_09_13_inventory.md",
+    "edition": "Local English text in Limited Inc, pp.1–23; edition identifiers not yet transcribed",
+    "identity_note": "Inventory explicitly names this essay, ID172 and the consulted English text; not Of Grammatology.",
+    "passages": ["Full local English essay, printed pp.1–23 including notes"],
+    "reviewer": "Imported campaign reading inventory; individual reader identity not authenticated, no independent review claimed",
+    "designs": [{"path": "atlas_data/campaigns/tiers_2026_09_13_inventory.md", "scope": "Derrida D1–D6 bounded targets and uncovered philosophical claims."}]
+  },
+  {
+    "paper_id": 177,
+    "citation": "Austin, J. L. (1962) - \"How to Do Things with Words\"",
+    "artifact_path": "foundations/Austin_1962_HowToDoThingsWith.pdf",
+    "manifest": "atlas_data/campaigns/tiers_2026_09_13_manifest.json",
+    "audit": "atlas_data/campaigns/tiers_2026_09_13_inventory.md",
+    "edition": "Local text identified as How to Do Things with Words; edition identifiers not yet transcribed",
+    "identity_note": "Inventory explicitly names the book and ID177; not Austin 1950 Truth.",
+    "passages": ["Printed pp.5–11 and Lectures II–IV pp.12–52"],
+    "reviewer": "Imported campaign reading inventory; individual reader identity not authenticated, no independent review claimed",
+    "designs": [{"path": "atlas_data/campaigns/tiers_2026_09_13_inventory.md", "scope": "Austin A1–A7 infelicity, performance and sincerity diagnostics."}]
+  },
+  {
+    "paper_id": 67,
+    "citation": "Horn, L. (1984) - \"Toward a New Taxonomy for Pragmatic Inference\"",
+    "artifact_path": "foundations/Horn_1984_TowardANewTaxonomyFor.pdf",
+    "manifest": "atlas_data/campaigns/tiers_2026_09_13_manifest.json",
+    "audit": "atlas_data/campaigns/tiers_2026_09_13_inventory.md",
+    "edition": "Scanned local chapter, printed pp.11–31, as identified by the campaign inventory",
+    "identity_note": "Inventory explicitly names the source, ID67 and Q/R sections; exact publisher identifiers remain unfilled.",
+    "passages": ["§§1–11 pp.11–31; especially §3 p.13, §7 pp.20–21, §8 pp.22–23, §10 pp.26–29"],
+    "reviewer": "Imported campaign reading inventory; individual reader identity not authenticated, no independent review claimed",
+    "designs": [{"path": "atlas_data/campaigns/tiers_2026_09_13_inventory.md", "scope": "Horn H1–H6 Q/R fragments, supplied pragmatic inputs and excluded generalizations."}]
+  },
+  {
+    "paper_id": 101,
+    "citation": "Hobbs, J. (1985) - \"On the Coherence and Structure of Discourse\"",
+    "artifact_path": "dynamic/Hobbs_1985_OnTheCoherenceAndStructure.pdf",
+    "manifest": "atlas_data/campaigns/cohort2_2026_09_13_manifest.json",
+    "audit": "atlas_data/campaigns/cohort2_2026_09_13.md",
+    "status": "candidate",
+    "edition": "Unresolved: survey 1985, local text cites Hovy 1988 and forthcoming Linde 1989",
+    "identity_note": "The cohort explicitly requires version identification before implementation. A matching filename is not enough."
+  }
+]

@@ -4,18 +4,24 @@
   "default_endpoint": "https://crete-xamoulis-resource.services.ai.azure.com",
   "api_version": "2024-05-01-preview",
   "roster": [
-    {"deployment": "claude-opus-5",  "family": "anthropic", "role": "drafter"},
-    {"deployment": "claude-fable-5", "family": "anthropic", "role": "drafter"},
+    {"deployment": "gpt-6-astra",    "family": "openai",    "role": "drafter", "api": "responses"},
     {"deployment": "gpt-5.6-sol",    "family": "openai",    "role": "drafter"},
     {"deployment": "gpt-5.5",        "family": "openai",    "role": "drafter"},
     {"deployment": "grok-4.3",       "family": "xai",       "role": "drafter"},
     {"deployment": "DeepSeek-V4-Pro","family": "deepseek",  "role": "drafter"},
     {"deployment": "Kimi-K2.6",      "family": "moonshot",  "role": "drafter"},
+    {"deployment": "gpt-5.4",        "family": "openai",    "role": "drafter"},
+    {"deployment": "gpt-5.4-pro-2",  "family": "openai",    "role": "drafter", "api": "responses"},
+    {"deployment": "DeepSeek-V4-Flash", "family": "deepseek", "role": "drafter"},
+    {"deployment": "grok-4-1-fast-reasoning", "family": "xai", "role": "drafter"},
+    {"deployment": "mistral-medium-2505", "family": "mistral", "role": "drafter"},
+    {"deployment": "MAI-Thinking-1", "family": "microsoft", "role": "drafter"},
+    {"deployment": "Cohere-command-a-plus-05-2026", "family": "cohere", "role": "drafter"},
     {"deployment": "gpt-5.4-mini",   "family": "openai",    "role": "cheap_first"}
   ],
   "policy": {
     "first_draft": "gpt-5.4-mini",
-    "escalate_to": "claude-opus-5",
+    "escalate_to": "gpt-6-astra",
     "escalate_after_round": 2,
     "max_rounds": 4
   }

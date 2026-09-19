@@ -73,9 +73,10 @@ There are three distinct operations:
    the checked-in `atlas.json`; it does not require external PDFs or recompute
    grades and outcomes.
 3. **Recompute the consolidated evidence.** `consolidate.py` reads the records
-   and an external source corpus selected through `ATLAS_PAPERS`. Currently,
-   F1 uses surname/year filename matching and F2 uses surname tokens in design
-   documents. Without the same inputs, these levels are not reproducible.
+   and the validated [source registry](SOURCE_REGISTRY.md), not the local PDF
+   directory or surname matches. Published F0–F2 levels retain a labelled
+   historical baseline pending migration review. The documented-only comparison
+   is separate and does not silently alter those levels.
 
 Campaign manifests already pin selected repository artifacts and external PDF
 hashes, for example the [September revision](audits/revision_2026_09_13_manifest.json)
@@ -84,13 +85,14 @@ historical checkpoints, not promises that later presentation edits leave every
 recorded file byte-identical. Preserve their original hashes when documenting
 subsequent changes.
 
-The remaining corpus-wide work is an explicit source registry connecting source
-IDs to bibliographic identifiers, exact editions, artifact hashes, passages
-consulted, reviewer provenance and design/claim bindings. DOI/ISBN identity,
-byte-level PDF identity, recorded consultation and availability in a particular
-checkout are different facts. The registry must replace heuristic evidence
-matching, not merely supplement it. Missing metadata must remain missing rather
-than be inferred as if verified. Copyrighted PDFs are not redistributed here.
+The registry now covers all 230 survey IDs and 138 distinct artifacts, with
+seven surveyed identity links imported from named audits. The remaining work
+is to resolve candidate identities, editions, identifiers and design bindings,
+not merely to count files. Its 104 low-tier comparison differences are missing
+documented support in this migration, not findings of unavailable sources or
+failed formalization. DOI/ISBN identity, byte-level identity, recorded reading
+and availability in a checkout remain different facts. Missing metadata is
+not inferred as verified. Copyrighted PDFs are not redistributed here.
 
 ## Campaigns and correction history
 

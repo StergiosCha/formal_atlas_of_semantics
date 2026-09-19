@@ -10,6 +10,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from claim_comparison import load_comparison
 from outcome_policy import apply_outcome, load_reviews
+from source_registry import load_registry, low_levels
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REC = os.path.join(HERE, "records")
@@ -141,44 +142,25 @@ LEVEL_LABEL = {
 }
 
 
-def compute_levels(papers, files, edges, outcome_reviews=None):
+def compute_levels(papers, files, edges, outcome_reviews=None, source_levels=None):
     """Compute pipeline levels separately from reviewed source outcomes.
 
     F levels do not replace survey predictions. Only an explicit source-bound
     review may establish an outcome or a prediction/outcome disagreement.
     """
-    import unicodedata
-
-    def norm(s):
-        s = unicodedata.normalize("NFKD", str(s)).encode("ascii", "ignore").decode()
-        return re.sub(r"[^a-z0-9]", "", s.lower())
-
-    # Local corpus may live outside the code checkout.  Make that input
-    # explicit so rebuilding this mirror does not erase sourced evidence.
-    papers_dir = os.environ.get("ATLAS_PAPERS") or os.path.join(os.path.dirname(HERE), "papers")
-    disk = []
-    if os.path.isdir(papers_dir):
-        for root, _, fs in os.walk(papers_dir):
-            disk += [norm(f) for f in fs if f.lower().endswith((".pdf", ".djvu"))]
-    designs = " ".join(
-        Path(HERE, "designs", d).read_text().lower()
-        for d in (os.listdir(os.path.join(HERE, "designs"))
-                  if os.path.isdir(os.path.join(HERE, "designs")) else [])
-        if d.endswith(".md"))
+    # Pure source-ID lookup: no filename, surname, corpus-presence or design
+    # token inference. main() validates the complete registry before calling.
+    # Synthetic callers without source evidence receive F0 below the Coq tiers.
+    source_levels = source_levels or {}
     rec_by_file = {r.get("file"): r for r in files}
     edge_files = set()
     for e in edges:
         edge_files.add(e.get("a_file")); edge_files.add(e.get("b_file"))
 
     for p in papers:
-        au = (p.get("authors") or "").split("&")[0].split(",")[0].strip()
-        sn = norm(au.split()[-1]) if au else ""
-        yr = str(p.get("year") or "")
-        sourced = any(sn and sn in f and yr in f for f in disk)
-        # A surname must be a complete token: "Das" in "lambdas" is
-        # not evidence that the Das paper has a design plan.
-        designed = bool(sn) and bool(re.search(
-            r"(?<![a-z0-9])" + re.escape(sn) + r"(?![a-z0-9])", designs))
+        source_level = source_levels.get(str(p.get("id")), "F0")
+        if source_level not in ("F0", "F1", "F2"):
+            raise ValueError("Source provenance may establish only F0–F2")
         cfs = p.get("coq_files") or []
         recs = [rec_by_file[f] for f in cfs if f in rec_by_file]
         atlas_recs = [r for r in recs if r.get("file", "").startswith("atlas/")]
@@ -193,12 +175,8 @@ def compute_levels(papers, files, edges, outcome_reviews=None):
             level = "F4"
         elif recs:
             level = "F3"
-        elif designed:
-            level = "F2"
-        elif sourced:
-            level = "F1"
         else:
-            level = "F0"
+            level = source_level
         p["level"] = level
         # A file-level opinion is not a source-level result. Preserve all
         # candidates/conflicts; no first-record-wins or edge-based approval.
@@ -237,7 +215,8 @@ def main():
         p["coq_files"] = list(dict.fromkeys((p.get("coq_files") or []) + additions))
     reviews = load_reviews(Path(HERE, "paper_outcome_reviews.json"),
                            papers, files, Path(HERE).parent)
-    papers = compute_levels(papers, files, edges, reviews)
+    registry = load_registry(papers)
+    papers = compute_levels(papers, files, edges, reviews, low_levels(registry))
 
     # Intrinsic formality P0-P5 (FORMALITY_RUBRIC.md): a FROZEN grade of how
     # formal the paper is on its own pages — orthogonal to the evidence

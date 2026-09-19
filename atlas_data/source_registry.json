@@ -1,0 +1,4610 @@
+{
+  "schema_version": 1,
+  "migration_status": "pending_review",
+  "baseline_commit": "91983bc561226f90f7b306620f7d4fe8fd07ed86",
+  "baseline": {
+    "path": "atlas_data/source_registry_baseline.json",
+    "sha256": "380d6033bf02a902566f44afcdae5080c9211641a8e8d0fcf871c4ada03fd593"
+  },
+  "artifacts": {
+    "041cd4c601f60c0be7839c1888ae70c86f12be1d1282072461253b6f80a21b40": {
+      "sha256": "041cd4c601f60c0be7839c1888ae70c86f12be1d1282072461253b6f80a21b40",
+      "paths": [
+        "dynamic/Beaver_2001_PresuppositionAndAssertionInDynamic.pdf"
+      ],
+      "manifests": []
+    },
+    "07eb12fc87f3e422e488d9ca88d5f38aaf0e3031df91bd39df0b2e85580d3eba": {
+      "sha256": "07eb12fc87f3e422e488d9ca88d5f38aaf0e3031df91bd39df0b2e85580d3eba",
+      "paths": [
+        "foundations/Maskharashvili_Bernardy_Chatzikyriakidis_2018_AComputationalTreatmentOfAnaphora.pdf"
+      ],
+      "manifests": []
+    },
+    "08bf2a14a29db44af91b60419e75cad8f886927d70db201d96772a7c120c8f5b": {
+      "sha256": "08bf2a14a29db44af91b60419e75cad8f886927d70db201d96772a7c120c8f5b",
+      "paths": [
+        "foundations/Schwarz_2009_TwoTypesOfDefinitesIn.pdf"
+      ],
+      "manifests": []
+    },
+    "091c29a100c29805559e388b62132af6dd4e2bb5d01ca892a00dd923e873b275": {
+      "sha256": "091c29a100c29805559e388b62132af6dd4e2bb5d01ca892a00dd923e873b275",
+      "paths": [
+        "type_logical/Moot_Retore_2012_LogicOfCategorialGrammars.pdf"
+      ],
+      "manifests": []
+    },
+    "0afeaad7ce567c37f746d5a2206d92eef127664210b8d67354d49d5813dc2699": {
+      "sha256": "0afeaad7ce567c37f746d5a2206d92eef127664210b8d67354d49d5813dc2699",
+      "paths": [
+        "foundations/Partee_1995_QuantificationalStructuresAndCompositionality.pdf"
+      ],
+      "manifests": []
+    },
+    "0eee8132d263f1c2c7c50a9c27d28d978dcedcac955cf4fefadc4262656c4894": {
+      "sha256": "0eee8132d263f1c2c7c50a9c27d28d978dcedcac955cf4fefadc4262656c4894",
+      "paths": [
+        "dynamic/Groenendijk_Stokhof_1991_DPL.pdf"
+      ],
+      "manifests": []
+    },
+    "0f29f5ce6101501f1b0a5c8d633593cbec90d2ff8a03d4e1c39156dbe5c14c80": {
+      "sha256": "0f29f5ce6101501f1b0a5c8d633593cbec90d2ff8a03d4e1c39156dbe5c14c80",
+      "paths": [
+        "probabilistic/Potts_2012_GoaldrivenAnswersInTheCards.pdf"
+      ],
+      "manifests": []
+    },
+    "0fad27d7073e02ca5e202b831cc83b825898715b1dc9e6269d8225e83e370358": {
+      "sha256": "0fad27d7073e02ca5e202b831cc83b825898715b1dc9e6269d8225e83e370358",
+      "paths": [
+        "foundations/Roberts_2012_InformationStructureTowardsAnIntegrated.pdf"
+      ],
+      "manifests": []
+    },
+    "1105f23c267d21b781b3ac9cddf8039f31712cd3ccb7ae0c2e5645cd8a898143": {
+      "sha256": "1105f23c267d21b781b3ac9cddf8039f31712cd3ccb7ae0c2e5645cd8a898143",
+      "paths": [
+        "inquisitive/Roelofsen_2013_AlgebraicFoundations.pdf"
+      ],
+      "manifests": []
+    },
+    "1223f3f7a28ee9996c3522dedac59cd102fec4aacae96b2f168dd4923b830766": {
+      "sha256": "1223f3f7a28ee9996c3522dedac59cd102fec4aacae96b2f168dd4923b830766",
+      "paths": [
+        "foundations/Fintel_2001_CounterfactualsInADynamicContext.pdf"
+      ],
+      "manifests": []
+    },
+    "135cccfdb232b529c96593ce0fe40553e734cb0e38e876d37e9b0918e09de08b": {
+      "sha256": "135cccfdb232b529c96593ce0fe40553e734cb0e38e876d37e9b0918e09de08b",
+      "paths": [
+        "foundations/Zwaan_Taylor_2006_SeeingActingUnderstandingMotorResonance.pdf"
+      ],
+      "manifests": []
+    },
+    "13b324d051a303eb1a4d1c5f75e26632f89e3d3d79f1dff1a60e57fe3bfa72d8": {
+      "sha256": "13b324d051a303eb1a4d1c5f75e26632f89e3d3d79f1dff1a60e57fe3bfa72d8",
+      "paths": [
+        "foundations/Kratzer_1977_MustCan.pdf"
+      ],
+      "manifests": []
+    },
+    "13bb034672d8130c8b3401382827d0ff455e8cfb0c5636dd3bd60ab05a3fc85f": {
+      "sha256": "13bb034672d8130c8b3401382827d0ff455e8cfb0c5636dd3bd60ab05a3fc85f",
+      "paths": [
+        "foundations/Ryle_1949_TheConceptOfMind.pdf"
+      ],
+      "manifests": []
+    },
+    "1466b40473900de40b3f60ef69bcf1415fa8d3b7f5f84138a8de70a7b36064d3": {
+      "sha256": "1466b40473900de40b3f60ef69bcf1415fa8d3b7f5f84138a8de70a7b36064d3",
+      "paths": [
+        "foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf"
+      ],
+      "manifests": [
+        {
+          "path": "atlas_data/audits/revision_2026_09_13_manifest.json",
+          "sha256": "44d4522dc31d0f75d61f87b1ae05b4ea3b4aaa2bd45b288321a69205e3d021bf"
+        }
+      ]
+    },
+    "1554c9a66a8e6664c290de9f06a455973a0ea2ed5dc1deeb9ce4e2ee7fbca969": {
+      "sha256": "1554c9a66a8e6664c290de9f06a455973a0ea2ed5dc1deeb9ce4e2ee7fbca969",
+      "paths": [
+        "foundations/Dowty_Wall_Peters_1981_IntroductionToMontagueSemantics.pdf"
+      ],
+      "manifests": []
+    },
+    "162e1c6725f8d1d838bcea6f528a395b704f08e0afa5683a8f9c02b277bf59c1": {
+      "sha256": "162e1c6725f8d1d838bcea6f528a395b704f08e0afa5683a8f9c02b277bf59c1",
+      "paths": [
+        "foundations/Barthes_1970_Sz.pdf"
+      ],
+      "manifests": []
+    },
+    "17b91367d4da981567d8eecf1583c5d320d537918406b93113e5ae13c8bad045": {
+      "sha256": "17b91367d4da981567d8eecf1583c5d320d537918406b93113e5ae13c8bad045",
+      "paths": [
+        "foundations/Beaver_Velleman_2011_TheCommunicativeSignificanceOfPrimary.pdf"
+      ],
+      "manifests": []
+    },
+    "19128baebb097a6f93a3b818088d34c243516816f7c29968259b673e5c65b24f": {
+      "sha256": "19128baebb097a6f93a3b818088d34c243516816f7c29968259b673e5c65b24f",
+      "paths": [
+        "foundations/Lewis_1973_Counterfactuals.pdf"
+      ],
+      "manifests": []
+    },
+    "1a6dfa26c8375e4be4f35f9259f23c738376f6c6f20176a9a961686b91a9c24c": {
+      "sha256": "1a6dfa26c8375e4be4f35f9259f23c738376f6c6f20176a9a961686b91a9c24c",
+      "paths": [
+        "foundations/Gillies_2007_CounterfactualScorekeeping.pdf"
+      ],
+      "manifests": []
+    },
+    "1b47b61dcee2154192b1935960b124105d9ac4f266b7858528d118a8541b93c8": {
+      "sha256": "1b47b61dcee2154192b1935960b124105d9ac4f266b7858528d118a8541b93c8",
+      "paths": [
+        "foundations/Schegloff_Jefferson_Sacks_1977_ThePreferenceForSelfcorrectionIn.pdf"
+      ],
+      "manifests": []
+    },
+    "1d776af7acbccbe71ccff613abf5b2753b683dc4ec0ce538222fd9acf2985fb8": {
+      "sha256": "1d776af7acbccbe71ccff613abf5b2753b683dc4ec0ce538222fd9acf2985fb8",
+      "paths": [
+        "foundations/Kennedy_2007_VaguenessAndGrammarTheSemantics.pdf"
+      ],
+      "manifests": []
+    },
+    "1e0e484165015773807e814e3ed73347a124266360b5d032e9a072cae813e125": {
+      "sha256": "1e0e484165015773807e814e3ed73347a124266360b5d032e9a072cae813e125",
+      "paths": [
+        "type_logical/Steedman_2000_TheSyntacticProcess.pdf"
+      ],
+      "manifests": []
+    },
+    "1e1a0c713d7344b8f73eaf648ce70a52deab8c8e227f05cdc22dc03fd368d376": {
+      "sha256": "1e1a0c713d7344b8f73eaf648ce70a52deab8c8e227f05cdc22dc03fd368d376",
+      "paths": [
+        "foundations/Kratzer_1998_MoreStructuralAnalogiesBetweenPronouns.pdf"
+      ],
+      "manifests": []
+    },
+    "20a9131103c666a9c33ed175d70c3b7730a1622866e8ed99e4ee8b8297e89a82": {
+      "sha256": "20a9131103c666a9c33ed175d70c3b7730a1622866e8ed99e4ee8b8297e89a82",
+      "paths": [
+        "probabilistic/Lassiter_Goodman_2017_AdjectivalVagueness.pdf"
+      ],
+      "manifests": []
+    },
+    "20ae854db413d35a9eebdcfb8241605a0bbe19f3a2a519c87ae38aff17a0a866": {
+      "sha256": "20ae854db413d35a9eebdcfb8241605a0bbe19f3a2a519c87ae38aff17a0a866",
+      "paths": [
+        "categorical/Boleda_Herbelot_2016_FormalDistributionalSemanticsIntroductionTo.pdf"
+      ],
+      "manifests": []
+    },
+    "21cf078b427c3a4e671238b95f280d0671762e0fa3ce4e170150528dbcc58092": {
+      "sha256": "21cf078b427c3a4e671238b95f280d0671762e0fa3ce4e170150528dbcc58092",
+      "paths": [
+        "foundations/Christiansen_Chater_2008_LanguageAsShapedByThe.pdf"
+      ],
+      "manifests": []
+    },
+    "21f5ba608f51b8ab159d1bb8be134974bef6934a5e4c613e7ab9147cf0d8d466": {
+      "sha256": "21f5ba608f51b8ab159d1bb8be134974bef6934a5e4c613e7ab9147cf0d8d466",
+      "paths": [
+        "foundations/Shan_2001_MonadsForNaturalLanguageSemantics.pdf"
+      ],
+      "manifests": []
+    },
+    "233840f2a8f99138293e35efed0aecf12a11b7228bfccc2917315e6d0c2dc7a4": {
+      "sha256": "233840f2a8f99138293e35efed0aecf12a11b7228bfccc2917315e6d0c2dc7a4",
+      "paths": [
+        "foundations/Church_1940_AFormulationOfTheSimple.pdf"
+      ],
+      "manifests": []
+    },
+    "236878133913097892e3500f4435139c6e100b22f23744491677a0ce6e75dfb8": {
+      "sha256": "236878133913097892e3500f4435139c6e100b22f23744491677a0ce6e75dfb8",
+      "paths": [
+        "foundations/Bekki_Asher_2013_LogicalPolysemyAndSubtyping.pdf"
+      ],
+      "manifests": []
+    },
+    "290f4f73b2fc45be4ce9af9d11e6238a650f2260cd843233f72f7f5584544fdc": {
+      "sha256": "290f4f73b2fc45be4ce9af9d11e6238a650f2260cd843233f72f7f5584544fdc",
+      "paths": [
+        "foundations/Zeevat_2000_TheAsymmetryOfOptimalityTheoretic.pdf"
+      ],
+      "manifests": []
+    },
+    "296915cc7e0b3eef4f97980033da6ba6d4d53e214cd04c8b2b14674ce3b2b92e": {
+      "sha256": "296915cc7e0b3eef4f97980033da6ba6d4d53e214cd04c8b2b14674ce3b2b92e",
+      "paths": [
+        "foundations/Krifka_1993_FocusAndPresuppositionInDynamic.pdf"
+      ],
+      "manifests": []
+    },
+    "2bbef155f973e1a9faf601d4d3d8c7f7770877fa0a468fdb0b2ceab23297b2e6": {
+      "sha256": "2bbef155f973e1a9faf601d4d3d8c7f7770877fa0a468fdb0b2ceab23297b2e6",
+      "paths": [
+        "foundations/Kennedy_Levin_2008_MeasureOfChangeTheAdjectival.pdf"
+      ],
+      "manifests": []
+    },
+    "2bdd22f4679144aad9e8e28f9dbc37cbb2ce569fb2c144c8c5c595370233954c": {
+      "sha256": "2bdd22f4679144aad9e8e28f9dbc37cbb2ce569fb2c144c8c5c595370233954c",
+      "paths": [
+        "foundations/Ranta_1995_TypeTheoreticalGrammar.djvu"
+      ],
+      "manifests": [
+        {
+          "path": "atlas_data/audits/revision_2026_09_13_manifest.json",
+          "sha256": "44d4522dc31d0f75d61f87b1ae05b4ea3b4aaa2bd45b288321a69205e3d021bf"
+        }
+      ]
+    },
+    "2c178e7e5e27ced968f780535c24f7678da2395a92089340a5e57f946444badc": {
+      "sha256": "2c178e7e5e27ced968f780535c24f7678da2395a92089340a5e57f946444badc",
+      "paths": [
+        "foundations/Kratzer_2002_FactsParticularsOrInformationUnits.pdf"
+      ],
+      "manifests": []
+    },
+    "2d07c42bc91313b233d48acb2ef54ea3f476242d5eb8832b4d2a1991e4283098": {
+      "sha256": "2d07c42bc91313b233d48acb2ef54ea3f476242d5eb8832b4d2a1991e4283098",
+      "paths": [
+        "foundations/Matthewson_2004_OnTheMethodologyOfSemantic.pdf"
+      ],
+      "manifests": []
+    },
+    "2e38caf5bba4f70188b2eb0ba2a457d9770dd34d7c4a844c7a9a4275134b14c6": {
+      "sha256": "2e38caf5bba4f70188b2eb0ba2a457d9770dd34d7c4a844c7a9a4275134b14c6",
+      "paths": [
+        "foundations/Carlson_1977_ReferenceToKindsInEnglish.pdf"
+      ],
+      "manifests": []
+    },
+    "3176917fad74d4b079e7f34a5b5bb9dd45497edffe06c674735c171ccd735b14": {
+      "sha256": "3176917fad74d4b079e7f34a5b5bb9dd45497edffe06c674735c171ccd735b14",
+      "paths": [
+        "foundations/Goodwin_2000_ActionAndEmbodimentWithinSituated.pdf"
+      ],
+      "manifests": []
+    },
+    "3794e59933737d98c69eecde98e12db6bad2e1b450b220e3c81a6273a5471fb7": {
+      "sha256": "3794e59933737d98c69eecde98e12db6bad2e1b450b220e3c81a6273a5471fb7",
+      "paths": [
+        "probabilistic/Bergen_Levy_Goodman_2016_PragmaticReasoningSemanticInference.pdf"
+      ],
+      "manifests": []
+    },
+    "37d07c7e803b37000281ffbc2c75e60b97344be3483d12181f2ae0dcbb34da5f": {
+      "sha256": "37d07c7e803b37000281ffbc2c75e60b97344be3483d12181f2ae0dcbb34da5f",
+      "paths": [
+        "dynamic/Veltman_1996_DefaultsUpdateSemantics.pdf"
+      ],
+      "manifests": []
+    },
+    "3a2994ffb13b0173cc5de41fd8698117926be041a11e53ad9dcdf43646394f26": {
+      "sha256": "3a2994ffb13b0173cc5de41fd8698117926be041a11e53ad9dcdf43646394f26",
+      "paths": [
+        "foundations/Ranta_1995_TypetheoreticalGrammar.pdf"
+      ],
+      "manifests": []
+    },
+    "3d3ef7c01846df152f45022581df483f904e3658c32fa04069c3dd34ead0502b": {
+      "sha256": "3d3ef7c01846df152f45022581df483f904e3658c32fa04069c3dd34ead0502b",
+      "paths": [
+        "categorical/Preller_2007_FreeCompact2Categories.pdf"
+      ],
+      "manifests": []
+    },
+    "3d4bfb3ac7de7e837317f31637af342bba36624c0ef09ef3e37b6d769f2feb7c": {
+      "sha256": "3d4bfb3ac7de7e837317f31637af342bba36624c0ef09ef3e37b6d769f2feb7c",
+      "paths": [
+        "foundations/Cooper_2023_FromPerceptionToCommunication.pdf"
+      ],
+      "manifests": [
+        {
+          "path": "atlas_data/audits/revision_2026_09_13_manifest.json",
+          "sha256": "44d4522dc31d0f75d61f87b1ae05b4ea3b4aaa2bd45b288321a69205e3d021bf"
+        }
+      ]
+    },
+    "422ce067714e0865ec63f6b549cf96ac87e809d32fe98a79458bb9e96b618d9a": {
+      "sha256": "422ce067714e0865ec63f6b549cf96ac87e809d32fe98a79458bb9e96b618d9a",
+      "paths": [
+        "dynamic/Hobbs_1985_OnTheCoherenceAndStructure.pdf"
+      ],
+      "manifests": [
+        {
+          "path": "atlas_data/campaigns/cohort2_2026_09_13_manifest.json",
+          "sha256": "f3e46d44eeb59398e1dbe36d63cbe4b022d6ee2035db805367e6af216b93184f"
+        }
+      ]
+    },
+    "4314795a5e9f1b2a683ab022257a4e2ee4a6fb2b9569ee68c6d5457bd17d5c55": {
+      "sha256": "4314795a5e9f1b2a683ab022257a4e2ee4a6fb2b9569ee68c6d5457bd17d5c55",
+      "paths": [
+        "categorical/Baroni_Lenci_2010_DistributionalMemoryAGeneralFramework.pdf"
+      ],
+      "manifests": []
+    },
+    "45e33ffdfe2d79f5c63f1d70b28bcc5c8e6e72f3b761c17930a8af4bc50d8fbe": {
+      "sha256": "45e33ffdfe2d79f5c63f1d70b28bcc5c8e6e72f3b761c17930a8af4bc50d8fbe",
+      "paths": [
+        "foundations/Rosch_1978_PrinciplesOfCategorization.pdf"
+      ],
+      "manifests": []
+    },
+    "45ec6a0fa9bdac5c4fe92baf839aa90f60001a99a769a64fa7fa5c13f290b2e8": {
+      "sha256": "45ec6a0fa9bdac5c4fe92baf839aa90f60001a99a769a64fa7fa5c13f290b2e8",
+      "paths": [
+        "foundations/Montague_1973_TheProperTreatmentOfQuantification.pdf"
+      ],
+      "manifests": []
+    },
+    "4636a2d979e5e4bc94e1e746ed18a5e1ee6746524858dc20fdee1a11206a0d37": {
+      "sha256": "4636a2d979e5e4bc94e1e746ed18a5e1ee6746524858dc20fdee1a11206a0d37",
+      "paths": [
+        "foundations/Asudeh_Giorgolo_2012_FlexibleCompositionForOptionalAnd.pdf"
+      ],
+      "manifests": []
+    },
+    "485c7f925081e0797a35478ebd920b3c52faccb47b0f080a7a3803bdffae4bdd": {
+      "sha256": "485c7f925081e0797a35478ebd920b3c52faccb47b0f080a7a3803bdffae4bdd",
+      "paths": [
+        "foundations/Bakhtin_1981_TheDialogicImagination.pdf"
+      ],
+      "manifests": []
+    },
+    "4ca7741fda116f566dfd3246a278793c35d0c77f42ad9f0e41d7e99a3db768f4": {
+      "sha256": "4ca7741fda116f566dfd3246a278793c35d0c77f42ad9f0e41d7e99a3db768f4",
+      "paths": [
+        "foundations/Rooth_1992_TheoryOfFocusInterpretation.pdf"
+      ],
+      "manifests": []
+    },
+    "4ce2cce1bd803d1abcbe5b1d509233c2c57a6ec89c14bffd361bef1dde96b61b": {
+      "sha256": "4ce2cce1bd803d1abcbe5b1d509233c2c57a6ec89c14bffd361bef1dde96b61b",
+      "paths": [
+        "foundations/Giorgolo_Asudeh_2014_MonadsAsASolutionFor.pdf"
+      ],
+      "manifests": []
+    },
+    "4cff51b8ef817cbdcc42fc2c9ea1ac699b70af5914d8f907514617a977c297f6": {
+      "sha256": "4cff51b8ef817cbdcc42fc2c9ea1ac699b70af5914d8f907514617a977c297f6",
+      "paths": [
+        "foundations/Austin_1950_Truth.pdf"
+      ],
+      "manifests": []
+    },
+    "5259495d447c5fa89836ff3c4b90693b99b66d57623c255918ae5ad9d07dd0f9": {
+      "sha256": "5259495d447c5fa89836ff3c4b90693b99b66d57623c255918ae5ad9d07dd0f9",
+      "paths": [
+        "foundations/Beck_Krasikova_Fleischer_2009_CrosslinguisticVariationInComparisonConstructions.pdf"
+      ],
+      "manifests": []
+    },
+    "53b8791628d014bc29abc63972584af86c93c4975da4cd7ab5a21925a90b3dde": {
+      "sha256": "53b8791628d014bc29abc63972584af86c93c4975da4cd7ab5a21925a90b3dde",
+      "paths": [
+        "foundations/Blutner_2000_SomeAspectsOfOptimalityIn.pdf"
+      ],
+      "manifests": []
+    },
+    "57a68f605dc63369c6904d3b212aad4377ec755ba03dcbeadd7c17f1b52fdbf1": {
+      "sha256": "57a68f605dc63369c6904d3b212aad4377ec755ba03dcbeadd7c17f1b52fdbf1",
+      "paths": [
+        "foundations/Beaver_Clark_2008_SenseAndSensitivity.pdf"
+      ],
+      "manifests": []
+    },
+    "57f8f4345076fc2fe632cef072e1a87b8c4d7dd4a9d64de82c60fa5f651b2b4f": {
+      "sha256": "57f8f4345076fc2fe632cef072e1a87b8c4d7dd4a9d64de82c60fa5f651b2b4f",
+      "paths": [
+        "foundations/Degen_Tanenhaus_2015_ProcessingScalarImplicatureAConstraintbased.pdf"
+      ],
+      "manifests": []
+    },
+    "59d1befaf3e2c09579bbd8583f704edfffabeb33bbb4d23da0a61973846a4293": {
+      "sha256": "59d1befaf3e2c09579bbd8583f704edfffabeb33bbb4d23da0a61973846a4293",
+      "paths": [
+        "foundations/Bekki_Mineshima_2017_CalculatingProjectionsViaTypeChecking.pdf"
+      ],
+      "manifests": [
+        {
+          "path": "atlas_data/audits/revision_2026_09_13_manifest.json",
+          "sha256": "44d4522dc31d0f75d61f87b1ae05b4ea3b4aaa2bd45b288321a69205e3d021bf"
+        }
+      ]
+    },
+    "5a2b38f54774cfa1218fe4f4163d36fd9652e01cbb6e168d9f49d3db7d15ff2a": {
+      "sha256": "5a2b38f54774cfa1218fe4f4163d36fd9652e01cbb6e168d9f49d3db7d15ff2a",
+      "paths": [
+        "foundations/Schwarzschild_1996_Pluralities.pdf"
+      ],
+      "manifests": []
+    },
+    "5b720cea87858e92851929799ffbe706e8827e24c7187a25d699bdd56a63377a": {
+      "sha256": "5b720cea87858e92851929799ffbe706e8827e24c7187a25d699bdd56a63377a",
+      "paths": [
+        "foundations/Chatzikyriakidis_Luo_2017_ModernPerspectivesInTypetheoreticalSemantics.pdf"
+      ],
+      "manifests": []
+    },
+    "5dc084ce009b216b72d6486f86176ce2b8dab4dc5ec0cf61ce25882cdfd3a0f9": {
+      "sha256": "5dc084ce009b216b72d6486f86176ce2b8dab4dc5ec0cf61ce25882cdfd3a0f9",
+      "paths": [
+        "foundations/Chatzikyriakidis_Luo_2013_AdjectivesMTT.pdf"
+      ],
+      "manifests": []
+    },
+    "60ac12e195d629b98e63bfb55fa8b487ae783c7866e62166cd230afe94c6395c": {
+      "sha256": "60ac12e195d629b98e63bfb55fa8b487ae783c7866e62166cd230afe94c6395c",
+      "paths": [
+        "foundations/Sweetser_1988_GrammaticalizationAndSemanticBleaching.pdf"
+      ],
+      "manifests": []
+    },
+    "61c2dd8e14b4c88b00bc5609853d53446279b344b8a6c2a36ae427a660798728": {
+      "sha256": "61c2dd8e14b4c88b00bc5609853d53446279b344b8a6c2a36ae427a660798728",
+      "paths": [
+        "dynamic/Schlenker_2009_LocalContexts.pdf"
+      ],
+      "manifests": []
+    },
+    "637e66cf8610f92a2e45e4fb9dca04d6c029b66e5315cc5f1a4a3879bd5d69b2": {
+      "sha256": "637e66cf8610f92a2e45e4fb9dca04d6c029b66e5315cc5f1a4a3879bd5d69b2",
+      "paths": [
+        "foundations/Whorf_1956_LanguageThoughtAndReality.pdf"
+      ],
+      "manifests": []
+    },
+    "642e5e8682ce083e31e22b3445dc8a86d04d448ce66238d4506225539e1fe29f": {
+      "sha256": "642e5e8682ce083e31e22b3445dc8a86d04d448ce66238d4506225539e1fe29f",
+      "paths": [
+        "foundations/Eco_1962_TheOpenWork.pdf"
+      ],
+      "manifests": []
+    },
+    "64eb6b156ca1efde6de1a15128c718bd58becb4c78830475c1f2c6c604bafa80": {
+      "sha256": "64eb6b156ca1efde6de1a15128c718bd58becb4c78830475c1f2c6c604bafa80",
+      "paths": [
+        "foundations/Syrett_Lidz_2009_30montholdsUseTheDistributionAnd.pdf"
+      ],
+      "manifests": []
+    },
+    "668827b1c2a9e287024098737c0832299eac2d58ba2525c95ca6855e6d8fc9c3": {
+      "sha256": "668827b1c2a9e287024098737c0832299eac2d58ba2525c95ca6855e6d8fc9c3",
+      "paths": [
+        "foundations/Deacon_1997_TheSymbolicSpecies.pdf"
+      ],
+      "manifests": []
+    },
+    "67ce3e319d3a877be378f935348c66bef2e69f829636e84f4f932578b7cc2ecd": {
+      "sha256": "67ce3e319d3a877be378f935348c66bef2e69f829636e84f4f932578b7cc2ecd",
+      "paths": [
+        "categorical/Landauer_Dumais_1997_ASolutionToPlatosProblem.pdf"
+      ],
+      "manifests": []
+    },
+    "69c1ea009e1341c40ff74393fb7c03f77b808780ff2d02e2e35a337f08a7dc62": {
+      "sha256": "69c1ea009e1341c40ff74393fb7c03f77b808780ff2d02e2e35a337f08a7dc62",
+      "paths": [
+        "foundations/Massumi_2002_ParablesForTheVirtualMovement.pdf"
+      ],
+      "manifests": []
+    },
+    "6cfc770ca68e50d885f3feed7ab519218d11ef020804d8a96e68d3a242a90bbe": {
+      "sha256": "6cfc770ca68e50d885f3feed7ab519218d11ef020804d8a96e68d3a242a90bbe",
+      "paths": [
+        "foundations/Fara_2000_ShiftingSandsAnInterestrelativeTheory.pdf"
+      ],
+      "manifests": []
+    },
+    "6e03564d933b570c7b23af201de1004e069df6ee7c4ff4c913b42fb852f8cfaa": {
+      "sha256": "6e03564d933b570c7b23af201de1004e069df6ee7c4ff4c913b42fb852f8cfaa",
+      "paths": [
+        "foundations/Horn_1984_TowardANewTaxonomyFor.pdf"
+      ],
+      "manifests": [
+        {
+          "path": "atlas_data/campaigns/tiers_2026_09_13_manifest.json",
+          "sha256": "d8c6700cb94695ae007c49f89d88ec9c6de618f370f5911182930d9cb84656cf"
+        }
+      ]
+    },
+    "74b4e049de0c17bc93cfb847883818eb0a54d712660e44f63d5ca698c83fdd2a": {
+      "sha256": "74b4e049de0c17bc93cfb847883818eb0a54d712660e44f63d5ca698c83fdd2a",
+      "paths": [
+        "foundations/Derrida_1972_SignatureEventContext.pdf"
+      ],
+      "manifests": [
+        {
+          "path": "atlas_data/campaigns/tiers_2026_09_13_manifest.json",
+          "sha256": "d8c6700cb94695ae007c49f89d88ec9c6de618f370f5911182930d9cb84656cf"
+        }
+      ]
+    },
+    "775b994c87a7311196aadf451fb1eb9ca0d4d4ed9d1ec211b8d0a495ddb9a21a": {
+      "sha256": "775b994c87a7311196aadf451fb1eb9ca0d4d4ed9d1ec211b8d0a495ddb9a21a",
+      "paths": [
+        "foundations/Henderson_2014_DependentIndefinitesAndTheirPostsuppositions.pdf"
+      ],
+      "manifests": []
+    },
+    "78cb6a789c98e4edd6474614bf8c8d9138bf30ef3368a61bb86beeaf567a3e7a": {
+      "sha256": "78cb6a789c98e4edd6474614bf8c8d9138bf30ef3368a61bb86beeaf567a3e7a",
+      "paths": [
+        "foundations/Brennan_2004_TheTransmissionOfAffect.pdf"
+      ],
+      "manifests": []
+    },
+    "79b6720f11eaf55a8926a3a505d399a8e845ec2ee78f5094603a7e047cab248b": {
+      "sha256": "79b6720f11eaf55a8926a3a505d399a8e845ec2ee78f5094603a7e047cab248b",
+      "paths": [
+        "type_logical/Morrill_2011_CategorialGrammar.pdf"
+      ],
+      "manifests": []
+    },
+    "7a0842a961f2ad5748d54eeff980ab9b66be28f8a6b9d0c4a6c81b97be39d9c6": {
+      "sha256": "7a0842a961f2ad5748d54eeff980ab9b66be28f8a6b9d0c4a6c81b97be39d9c6",
+      "paths": [
+        "dynamic/Webber_Stone_Joshi_2003_AnaphoraAndDiscourseStructure.pdf"
+      ],
+      "manifests": []
+    },
+    "7a88d807aea67371baf34b7794b0a45e87f81ad4f2dc529d9e3ed328f0440ff9": {
+      "sha256": "7a88d807aea67371baf34b7794b0a45e87f81ad4f2dc529d9e3ed328f0440ff9",
+      "paths": [
+        "probabilistic/Das_Chen_Martins_2014_FramesemanticParsing.pdf"
+      ],
+      "manifests": []
+    },
+    "7b856901473bcca85ae4b29b54ac3b05a5f7d5be0906b269dd27b9bed5dd69fb": {
+      "sha256": "7b856901473bcca85ae4b29b54ac3b05a5f7d5be0906b269dd27b9bed5dd69fb",
+      "paths": [
+        "categorical/Turney_Pantel_2010_FromFrequencyToMeaningVector.pdf"
+      ],
+      "manifests": []
+    },
+    "7becf86fe94532f5979603394274a041bf44b15d63989367ef831a1d87b9b52e": {
+      "sha256": "7becf86fe94532f5979603394274a041bf44b15d63989367ef831a1d87b9b52e",
+      "paths": [
+        "foundations/Sauerland_2004_ScalarImplicaturesInComplexSentences.pdf"
+      ],
+      "manifests": []
+    },
+    "7e3494bc7b4003f0ebae0f301d6466ce6037b80f589dab742b5f77874e8a30a2": {
+      "sha256": "7e3494bc7b4003f0ebae0f301d6466ce6037b80f589dab742b5f77874e8a30a2",
+      "paths": [
+        "foundations/Klein_1980_ASemanticsForPositiveAnd.pdf"
+      ],
+      "manifests": []
+    },
+    "80a234a4950e44a2c0ee5127f1ccf5b1dacb2f1f586678d4c34e4f96d4e45c19": {
+      "sha256": "80a234a4950e44a2c0ee5127f1ccf5b1dacb2f1f586678d4c34e4f96d4e45c19",
+      "paths": [
+        "foundations/Chatzikyriakidis_Luo_2014_NLI_in_Coq.pdf"
+      ],
+      "manifests": []
+    },
+    "820c20326c0e6e13ec81b1ce6d38babf82ba43682399eab47aade39489014cf6": {
+      "sha256": "820c20326c0e6e13ec81b1ce6d38babf82ba43682399eab47aade39489014cf6",
+      "paths": [
+        "type_logical/Lambek_1958_MathematicsOfSentenceStructure.pdf"
+      ],
+      "manifests": []
+    },
+    "853c6c4163d9599df985b2bf1a9cfb33857365e8252e34d983f26e152a46f179": {
+      "sha256": "853c6c4163d9599df985b2bf1a9cfb33857365e8252e34d983f26e152a46f179",
+      "paths": [
+        "foundations/Champollion_2017_PartsOfAWhole_Excerpts.pdf"
+      ],
+      "manifests": []
+    },
+    "862367c73a408a737a16e5ca0bb70b39432e2f734151331bb33ef1eb1d19ae8d": {
+      "sha256": "862367c73a408a737a16e5ca0bb70b39432e2f734151331bb33ef1eb1d19ae8d",
+      "paths": [
+        "foundations/Merleau-Ponty_1945_PhenomenologyOfPerception.pdf"
+      ],
+      "manifests": []
+    },
+    "86aff9cb909561ccd4521387008b8d73534bb3af3aef74c61703aa49159ffb4a": {
+      "sha256": "86aff9cb909561ccd4521387008b8d73534bb3af3aef74c61703aa49159ffb4a",
+      "paths": [
+        "inquisitive/Karttunen_1977_SyntaxSemanticsQuestions.pdf"
+      ],
+      "manifests": []
+    },
+    "86b284b404e8224fcfa3eead4becb896800996b4425a1e6ca9a6860eb8f297a6": {
+      "sha256": "86b284b404e8224fcfa3eead4becb896800996b4425a1e6ca9a6860eb8f297a6",
+      "paths": [
+        "foundations/Barsalou_1999_PerceptualSymbolSystems.pdf"
+      ],
+      "manifests": []
+    },
+    "89792ac5b6dd42a063ccc2287d2105efb259e7a8f2ece0740fd37c040d650141": {
+      "sha256": "89792ac5b6dd42a063ccc2287d2105efb259e7a8f2ece0740fd37c040d650141",
+      "paths": [
+        "probabilistic/Lassiter_2017_GradedModality.pdf"
+      ],
+      "manifests": []
+    },
+    "8bfcbd7ecbb3b54a2ba51b207af8a57dd15953e632a2bb4c03a9b2b8429214ef": {
+      "sha256": "8bfcbd7ecbb3b54a2ba51b207af8a57dd15953e632a2bb4c03a9b2b8429214ef",
+      "paths": [
+        "foundations/Chung_Ladusaw_2004_RestrictionAndSaturation.pdf"
+      ],
+      "manifests": []
+    },
+    "8e1677ff9e0a74f78fa1ad8c2e763c723918dee2e18262a303bd0a0412f378f9": {
+      "sha256": "8e1677ff9e0a74f78fa1ad8c2e763c723918dee2e18262a303bd0a0412f378f9",
+      "paths": [
+        "foundations/Charlow_2014_OnTheSemanticsOfExceptional.pdf"
+      ],
+      "manifests": []
+    },
+    "93daeafb2bf0d75720ca8856bc310a3b9e4de6acadde90698ddf19b8718d354b": {
+      "sha256": "93daeafb2bf0d75720ca8856bc310a3b9e4de6acadde90698ddf19b8718d354b",
+      "paths": [
+        "foundations/Thiong'o_1986_DecolonisingTheMind.pdf"
+      ],
+      "manifests": []
+    },
+    "95f5f2416386b8163a4ddfd56ef9df50a4ae6401c8fcbbe0772af4fad37dfe61": {
+      "sha256": "95f5f2416386b8163a4ddfd56ef9df50a4ae6401c8fcbbe0772af4fad37dfe61",
+      "paths": [
+        "foundations/Muskens_2005_SenseAndTheComputationOf.pdf"
+      ],
+      "manifests": []
+    },
+    "96aef1b47c30e7070f420fa62f90d89e1ed00ba0d8f09683768f7d4b3cbd7e12": {
+      "sha256": "96aef1b47c30e7070f420fa62f90d89e1ed00ba0d8f09683768f7d4b3cbd7e12",
+      "paths": [
+        "foundations/Spivak_1988_CanTheSubalternSpeak.pdf"
+      ],
+      "manifests": []
+    },
+    "99dff78e5f7d93b3931d2f58d1abf3a165ff4b15ba3aec1f556f791580b3642a": {
+      "sha256": "99dff78e5f7d93b3931d2f58d1abf3a165ff4b15ba3aec1f556f791580b3642a",
+      "paths": [
+        "foundations/Retoré_2013_SemanticTypesForLanguageMontagues.pdf"
+      ],
+      "manifests": []
+    },
+    "9daaa06b64d2489d0423bf640b1a1887177071b422e6d9cde055576bf3ccb02c": {
+      "sha256": "9daaa06b64d2489d0423bf640b1a1887177071b422e6d9cde055576bf3ccb02c",
+      "paths": [
+        "foundations/Lewis_1970_GeneralSemantics.pdf"
+      ],
+      "manifests": []
+    },
+    "9ee0bc432ab6d4de0357fe953929df05bc0df7616fd5ad2145d3ac017dafc20b": {
+      "sha256": "9ee0bc432ab6d4de0357fe953929df05bc0df7616fd5ad2145d3ac017dafc20b",
+      "paths": [
+        "foundations/Retoré_2014_TheMontagovianGenerativeLexiconFrom.pdf"
+      ],
+      "manifests": []
+    },
+    "9f77ae0259bdc3dd892dd8f0a92f142cf33dd64aaba01f58f49cb12dd43f96ba": {
+      "sha256": "9f77ae0259bdc3dd892dd8f0a92f142cf33dd64aaba01f58f49cb12dd43f96ba",
+      "paths": [
+        "foundations/Evans_Levinson_2009_TheMythOfLanguageUniversals.pdf"
+      ],
+      "manifests": []
+    },
+    "a12adc9b35bc98f51cf33aa796f083e5a2c328977a83aae7c22fecc2c4dd756f": {
+      "sha256": "a12adc9b35bc98f51cf33aa796f083e5a2c328977a83aae7c22fecc2c4dd756f",
+      "paths": [
+        "foundations/Pothos_Busemeyer_2013_CanQuantumProbabilityProvideA.pdf"
+      ],
+      "manifests": []
+    },
+    "a68c480c31ab7b9bd4b737ff4c6ed02afd03920cfbc0398092710f8ce18e2e68": {
+      "sha256": "a68c480c31ab7b9bd4b737ff4c6ed02afd03920cfbc0398092710f8ce18e2e68",
+      "paths": [
+        "foundations/Davidson_1967_TheLogicalFormOfAction.pdf"
+      ],
+      "manifests": []
+    },
+    "a85cedebda3825f44500259fdbd47d6d482a0e3ef277e5b4890fa1bb12e3576c": {
+      "sha256": "a85cedebda3825f44500259fdbd47d6d482a0e3ef277e5b4890fa1bb12e3576c",
+      "paths": [
+        "dynamic/Groenendijk_Stokhof_1991_DPL_preprint.pdf"
+      ],
+      "manifests": []
+    },
+    "a8e25eb8aa17ad7e9019b66ba440e749550ee232b8e5fdd8346c288a530f42c2": {
+      "sha256": "a8e25eb8aa17ad7e9019b66ba440e749550ee232b8e5fdd8346c288a530f42c2",
+      "paths": [
+        "foundations/Wittgenstein_1953_PhilosophicalInvestigations.pdf"
+      ],
+      "manifests": []
+    },
+    "a95604eedb0a63a4cfe5ef8da78b0c7c67158362b3f796c4ced01d0220fe749e": {
+      "sha256": "a95604eedb0a63a4cfe5ef8da78b0c7c67158362b3f796c4ced01d0220fe749e",
+      "paths": [
+        "foundations/Kennedy_McNally_2005_ScaleStructureAndTheSemantic.pdf"
+      ],
+      "manifests": []
+    },
+    "a9a047d80d15e27fe5b8b8a9917959fba85ec114cf526a77a687bd00b1b43bc8": {
+      "sha256": "a9a047d80d15e27fe5b8b8a9917959fba85ec114cf526a77a687bd00b1b43bc8",
+      "paths": [
+        "inquisitive/Ciardelli_Groenendijk_Roelofsen_2013_NewNotionOfMeaning.pdf"
+      ],
+      "manifests": []
+    },
+    "aaa42a418150b97f188bfdfec7366c5bbebcfe634aacaa7b63f99ef739093b30": {
+      "sha256": "aaa42a418150b97f188bfdfec7366c5bbebcfe634aacaa7b63f99ef739093b30",
+      "paths": [
+        "foundations/Barwise_Cooper_1981_GeneralizedQuantifiers.pdf"
+      ],
+      "manifests": []
+    },
+    "af71788e8a042e3113ae077b59559ea6f019d2b4d686102c77e2b2d1ce691037": {
+      "sha256": "af71788e8a042e3113ae077b59559ea6f019d2b4d686102c77e2b2d1ce691037",
+      "paths": [
+        "foundations/Bréal_1897_SemanticsStudiesInTheScience.pdf"
+      ],
+      "manifests": []
+    },
+    "afa1e10414a6fe513e021979bcb8a92d5a009bb663bc4527caa76d8f9f9ae6e8": {
+      "sha256": "afa1e10414a6fe513e021979bcb8a92d5a009bb663bc4527caa76d8f9f9ae6e8",
+      "paths": [
+        "foundations/Gadamer_1975_TruthAndMethod.pdf"
+      ],
+      "manifests": []
+    },
+    "b1fce3472d246c5393a51081acd381388942c817b1ebe021a076649026db697a": {
+      "sha256": "b1fce3472d246c5393a51081acd381388942c817b1ebe021a076649026db697a",
+      "paths": [
+        "foundations/Dowty_Wall_Peters_1981_IntroductionToMontagueSemantics.djvu"
+      ],
+      "manifests": []
+    },
+    "b3f8908ca2a32954c4a3228ddc22e3785c1e5e734836c80057b54f4a308caa57": {
+      "sha256": "b3f8908ca2a32954c4a3228ddc22e3785c1e5e734836c80057b54f4a308caa57",
+      "paths": [
+        "dynamic/Muskens_1996_CombiningMontagueDRT.pdf"
+      ],
+      "manifests": []
+    },
+    "b65feea55c194b4be285b12b0db1f4010d223db3ca87f31dfba06325d3196132": {
+      "sha256": "b65feea55c194b4be285b12b0db1f4010d223db3ca87f31dfba06325d3196132",
+      "paths": [
+        "dynamic/Wolf_Gibson_2005_RepresentingDiscourseCoherenceACorpusbased.pdf"
+      ],
+      "manifests": []
+    },
+    "bbfbf310d84618b1a8a68b6bc00e6185fc97bdcb3f2e2f0042aa663a575ae819": {
+      "sha256": "bbfbf310d84618b1a8a68b6bc00e6185fc97bdcb3f2e2f0042aa663a575ae819",
+      "paths": [
+        "dynamic/Heim_1982_DefiniteIndefiniteNPs.pdf"
+      ],
+      "manifests": [
+        {
+          "path": "atlas_data/audits/source_reviews_2026_09_15/manifest.json",
+          "sha256": "d707c1ed09a39160d6c31b8f1a5fd874d787d01fba9349bf0c5cf77b4a4248b3"
+        }
+      ]
+    },
+    "bfc956e7c6b52b0e3c08493d196319d65f1af9c43f23aa764a85e4a165387fe6": {
+      "sha256": "bfc956e7c6b52b0e3c08493d196319d65f1af9c43f23aa764a85e4a165387fe6",
+      "paths": [
+        "foundations/Link_1983_LogicalAnalysisPluralsMassTerms.pdf"
+      ],
+      "manifests": []
+    },
+    "c01dfdf21bfbdcc19bdf4ea7092f88795a85ac9eea04627e86bc24a5277f1dc5": {
+      "sha256": "c01dfdf21bfbdcc19bdf4ea7092f88795a85ac9eea04627e86bc24a5277f1dc5",
+      "paths": [
+        "foundations/Austin_1962_HowToDoThingsWith.pdf"
+      ],
+      "manifests": [
+        {
+          "path": "atlas_data/campaigns/tiers_2026_09_13_manifest.json",
+          "sha256": "d8c6700cb94695ae007c49f89d88ec9c6de618f370f5911182930d9cb84656cf"
+        }
+      ]
+    },
+    "c184243d6eb15aa66a634625a7cd4b807c9fd74969a46f7da9511e0fe52d7de3": {
+      "sha256": "c184243d6eb15aa66a634625a7cd4b807c9fd74969a46f7da9511e0fe52d7de3",
+      "paths": [
+        "probabilistic/Bisk_Holtzman_Thomason_2020_ExperienceGroundsLanguage.pdf"
+      ],
+      "manifests": []
+    },
+    "c1d93cbd6119dc08d83c5dc148b3e154be77f3b60b0282c6b19d826a7985bd8f": {
+      "sha256": "c1d93cbd6119dc08d83c5dc148b3e154be77f3b60b0282c6b19d826a7985bd8f",
+      "paths": [
+        "probabilistic/Goodman_Lassiter_2015_ProbabilisticSemanticsPragmatics.pdf"
+      ],
+      "manifests": []
+    },
+    "c23189b23a38330cea13332dcc9b65e1bb0d1eef2f33fc62750c372afcae4bc2": {
+      "sha256": "c23189b23a38330cea13332dcc9b65e1bb0d1eef2f33fc62750c372afcae4bc2",
+      "paths": [
+        "dynamic/Dekker_1993_TranssententialMeditations.pdf"
+      ],
+      "manifests": []
+    },
+    "cdbdfa698a107f69c8e841f12637639644c6f4a6dc44d47bd9f2c0c885e27966": {
+      "sha256": "cdbdfa698a107f69c8e841f12637639644c6f4a6dc44d47bd9f2c0c885e27966",
+      "paths": [
+        "foundations/Franke_2009_SignalToActGameTheory.pdf"
+      ],
+      "manifests": []
+    },
+    "cf4d492d4a28e15f68b8a97bcfa4a1cd0d773cda3de74307e2086690b77bdea7": {
+      "sha256": "cf4d492d4a28e15f68b8a97bcfa4a1cd0d773cda3de74307e2086690b77bdea7",
+      "paths": [
+        "probabilistic/Frank_Goodman_2012_PredictingPragmaticReasoning.pdf"
+      ],
+      "manifests": []
+    },
+    "d09fe3910889b683152f1b9c5002dfda9296fc4eddecc0576fd1286b266a6dc9": {
+      "sha256": "d09fe3910889b683152f1b9c5002dfda9296fc4eddecc0576fd1286b266a6dc9",
+      "paths": [
+        "dynamic/Kamp_1981_ATheoryOfTruthAnd.pdf"
+      ],
+      "manifests": []
+    },
+    "d0b0e67d6c37faf799f653f857a1948dbb987c9e5c3cf0e24d0b859368a36215": {
+      "sha256": "d0b0e67d6c37faf799f653f857a1948dbb987c9e5c3cf0e24d0b859368a36215",
+      "paths": [
+        "foundations/Lakoff_Johnson_1980_MetaphorsWeLiveBy.pdf"
+      ],
+      "manifests": []
+    },
+    "d0dff1fca51d4cfa0fdea6fc784e638e00a6821bcf26fa36f79750187a6b0a4d": {
+      "sha256": "d0dff1fca51d4cfa0fdea6fc784e638e00a6821bcf26fa36f79750187a6b0a4d",
+      "paths": [
+        "foundations/Deal_2011_ModalsWithoutScales.pdf"
+      ],
+      "manifests": []
+    },
+    "d558cc2ff0a980e358de5b78026ea97704e71ab9096f943a27fb0723257fc00c": {
+      "sha256": "d558cc2ff0a980e358de5b78026ea97704e71ab9096f943a27fb0723257fc00c",
+      "paths": [
+        "categorical/Coecke_2010_MathFoundationsCompositionalDistributional.pdf"
+      ],
+      "manifests": [
+        {
+          "path": "atlas_data/audits/source_reviews_2026_09_15/manifest.json",
+          "sha256": "d707c1ed09a39160d6c31b8f1a5fd874d787d01fba9349bf0c5cf77b4a4248b3"
+        }
+      ]
+    },
+    "daf772b4e7bedf2f518d098821817f5fcb5351bd2d95ce1cc914edc54ca6e81f": {
+      "sha256": "daf772b4e7bedf2f518d098821817f5fcb5351bd2d95ce1cc914edc54ca6e81f",
+      "paths": [
+        "foundations/Copestake_Briscoe_1995_SemiproductivePolysemyAndSenseExtension.pdf"
+      ],
+      "manifests": []
+    },
+    "dcc43d2979742e1b8fafaf209a21ac693036dc274771002092c1dfd5d1f5d1c9": {
+      "sha256": "dcc43d2979742e1b8fafaf209a21ac693036dc274771002092c1dfd5d1f5d1c9",
+      "paths": [
+        "foundations/Derrida_1967_OfGrammatology.pdf"
+      ],
+      "manifests": []
+    },
+    "df50c4eedbd934485ca4bbe0b6959a67133b96e4469f3ef721a5a532f08ff82c": {
+      "sha256": "df50c4eedbd934485ca4bbe0b6959a67133b96e4469f3ef721a5a532f08ff82c",
+      "paths": [
+        "foundations/Lakoff_1987_WomenFireDangerousThings.pdf"
+      ],
+      "manifests": []
+    },
+    "dfca628c57de221aa37831ebbd6cb7d936274029e1d9880d813d08419b4f6619": {
+      "sha256": "dfca628c57de221aa37831ebbd6cb7d936274029e1d9880d813d08419b4f6619",
+      "paths": [
+        "foundations/Champollion_2017_PartsOfAWhole.pdf"
+      ],
+      "manifests": []
+    },
+    "e0364978bee6ce3c8000a5c1ca146e48310d66d0ed5ba2b5c75ce1d0e7ce541f": {
+      "sha256": "e0364978bee6ce3c8000a5c1ca146e48310d66d0ed5ba2b5c75ce1d0e7ce541f",
+      "paths": [
+        "foundations/Chemla_Spector_2011_ExperimentalEvidenceForEmbeddedScalar.pdf"
+      ],
+      "manifests": []
+    },
+    "e03c1cfd734028fca40513ccb05435e3e6bdec99b389ddcac6f44afe1d89ec0d": {
+      "sha256": "e03c1cfd734028fca40513ccb05435e3e6bdec99b389ddcac6f44afe1d89ec0d",
+      "paths": [
+        "foundations/Heidegger_1927_BeingAndTime.pdf"
+      ],
+      "manifests": []
+    },
+    "e0e13289ec6ce41e6c60d67df71e1c30f029e0e4e85f6cd7b11a9a8281b01097": {
+      "sha256": "e0e13289ec6ce41e6c60d67df71e1c30f029e0e4e85f6cd7b11a9a8281b01097",
+      "paths": [
+        "foundations/Chierchia_2004_ScalarImplicaturesPolarityPhenomenaAnd.pdf"
+      ],
+      "manifests": []
+    },
+    "e786d3446e3d4c813bfa8e9cd2cf5248349001e7dc6a62a9867fbd31c1b701fd": {
+      "sha256": "e786d3446e3d4c813bfa8e9cd2cf5248349001e7dc6a62a9867fbd31c1b701fd",
+      "paths": [
+        "foundations/Grice_1975_LogicAndConversation.pdf"
+      ],
+      "manifests": []
+    },
+    "e7f20ac508075355fd1b250911113b7a4a7c6b02576c857976220498439049ea": {
+      "sha256": "e7f20ac508075355fd1b250911113b7a4a7c6b02576c857976220498439049ea",
+      "paths": [
+        "foundations/Dowty_1979_WordMeaningMontagueGrammar_FrontMatterOnly.pdf"
+      ],
+      "manifests": []
+    },
+    "ede6e3712eb84ca567bb54cff90f0c4a81dea2da3cdad12f43faef94dabdb1b5": {
+      "sha256": "ede6e3712eb84ca567bb54cff90f0c4a81dea2da3cdad12f43faef94dabdb1b5",
+      "paths": [
+        "inquisitive/Groenendijk_Stokhof_1984_StudiesSemanticsQuestions.pdf"
+      ],
+      "manifests": []
+    },
+    "ef3e78710a82248e1e1244cec373df59fb33defbc7f173ec4dddc09418c46720": {
+      "sha256": "ef3e78710a82248e1e1244cec373df59fb33defbc7f173ec4dddc09418c46720",
+      "paths": [
+        "foundations/Tarski_1944_TheSemanticConceptionOfTruth.pdf"
+      ],
+      "manifests": []
+    },
+    "f1c0cf2bbe636343918f63ff9b1a279a67107d392e3e7728159421b46684df13": {
+      "sha256": "f1c0cf2bbe636343918f63ff9b1a279a67107d392e3e7728159421b46684df13",
+      "paths": [
+        "categorical/Sadrzadeh_2013_FrobeniusAnatomyI.pdf"
+      ],
+      "manifests": []
+    },
+    "f816130590db4b732e7d18edbe107e25a0574603ce708f753a15a6a3525c61b7": {
+      "sha256": "f816130590db4b732e7d18edbe107e25a0574603ce708f753a15a6a3525c61b7",
+      "paths": [
+        "foundations/Wagner_2006_AssociationByMovement.pdf"
+      ],
+      "manifests": []
+    },
+    "f8ff5303242986a86552e570fbd7fa446505415914d513cfb78ea0c20490597a": {
+      "sha256": "f8ff5303242986a86552e570fbd7fa446505415914d513cfb78ea0c20490597a",
+      "paths": [
+        "foundations/Kratzer_2007_OnThePluralityOfVerbs.pdf"
+      ],
+      "manifests": []
+    },
+    "faa1f0ae63dcb0d9a53606efa9d02b9c1aa665954837ec30631b5ab0f71bb363": {
+      "sha256": "faa1f0ae63dcb0d9a53606efa9d02b9c1aa665954837ec30631b5ab0f71bb363",
+      "paths": [
+        "foundations/Büring_2003_OnDtreesBeansAndBaccents.pdf"
+      ],
+      "manifests": []
+    },
+    "fb9f8b38ae945b7cff7a4aa6feaaaadd55a6990af08c0ba43eb1e6ffbdffba13": {
+      "sha256": "fb9f8b38ae945b7cff7a4aa6feaaaadd55a6990af08c0ba43eb1e6ffbdffba13",
+      "paths": [
+        "foundations/Luo_2012_CommonNounsAsTypes.pdf"
+      ],
+      "manifests": []
+    },
+    "febd19240041aee149fb6bf496fedeef4d83a9e900743e8e7d76b68c643340a9": {
+      "sha256": "febd19240041aee149fb6bf496fedeef4d83a9e900743e8e7d76b68c643340a9",
+      "paths": [
+        "foundations/Hovav_Levin_2010_ReflectionsOnMannerresultComplementarity.pdf"
+      ],
+      "manifests": []
+    },
+    "fee4954fca6cb1b0d353a1649f06c29d89b0d774386963e1fd99abf20795a8af": {
+      "sha256": "fee4954fca6cb1b0d353a1649f06c29d89b0d774386963e1fd99abf20795a8af",
+      "paths": [
+        "inquisitive/Ciardelli_Groenendijk_Roelofsen_2018_InquisitiveSemantics.pdf"
+      ],
+      "manifests": []
+    },
+    "ff1729f316e0b9ff1ba626477e3d7c2fa0d01345690ef61c9afb4d86b4816c7c": {
+      "sha256": "ff1729f316e0b9ff1ba626477e3d7c2fa0d01345690ef61c9afb4d86b4816c7c",
+      "paths": [
+        "inquisitive/Ciardelli_Roelofsen_2011_InquisitiveLogic.pdf"
+      ],
+      "manifests": []
+    },
+    "ffd8e8c19a14abe552afd4c41c7a3365d7af5872e016572362782f7e0399d402": {
+      "sha256": "ffd8e8c19a14abe552afd4c41c7a3365d7af5872e016572362782f7e0399d402",
+      "paths": [
+        "foundations/Retoré_Mery_2017_ClassifiersSortsAndBaseTypes.pdf"
+      ],
+      "manifests": []
+    }
+  },
+  "sources": [
+    {
+      "paper_id": 1,
+      "citation": "Tarski, A. (1944) - \"The Semantic Conception of Truth\"",
+      "published_level": "F3",
+      "artifact_links": [
+        {
+          "artifact": "ef3e78710a82248e1e1244cec373df59fb33defbc7f173ec4dddc09418c46720",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 2,
+      "citation": "Church, A. (1940) - \"A Formulation of the Simple Theory of Types\"",
+      "published_level": "F2",
+      "artifact_links": [
+        {
+          "artifact": "233840f2a8f99138293e35efed0aecf12a11b7228bfccc2917315e6d0c2dc7a4",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/lambek.md",
+          "sha256": "8216ac56d30a06a8281713e4acb50f54a722025213c28484286be09d41c29bc6",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        },
+        {
+          "path": "atlas_data/designs/rsa.md",
+          "sha256": "2a00c67f5e599c16c8ef194f1118780e7873fd8f4be9df871e670cac52664d2a",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 3,
+      "citation": "Montague, R. (1973) - \"The Proper Treatment of Quantification in Ordinary English\" (PTQ)",
+      "published_level": "F5",
+      "artifact_links": [
+        {
+          "artifact": "45ec6a0fa9bdac5c4fe92baf839aa90f60001a99a769a64fa7fa5c13f290b2e8",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/lambek.md",
+          "sha256": "8216ac56d30a06a8281713e4acb50f54a722025213c28484286be09d41c29bc6",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        },
+        {
+          "path": "atlas_data/designs/montague_lineage.md",
+          "sha256": "85b9ef1079f4c6e6b657771be16507a947c5016f073f86e2603afd5ba77b9fc9",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 4,
+      "citation": "Davidson, D. (1967) - \"The Logical Form of Action Sentences\"",
+      "published_level": "F3",
+      "artifact_links": [
+        {
+          "artifact": "a68c480c31ab7b9bd4b737ff4c6ed02afd03920cfbc0398092710f8ce18e2e68",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 5,
+      "citation": "Lewis, D. (1970) - \"General Semantics\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "9daaa06b64d2489d0423bf640b1a1887177071b422e6d9cde055576bf3ccb02c",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 6,
+      "citation": "Kamp, H. (1981) - \"A Theory of Truth and Semantic Representation\" (DRT)",
+      "published_level": "F3",
+      "artifact_links": [
+        {
+          "artifact": "d09fe3910889b683152f1b9c5002dfda9296fc4eddecc0576fd1286b266a6dc9",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/drt_dpl.md",
+          "sha256": "e665ba8b239e4a1b48884c43b014a9dcc1f3ebb40d7d4f21e24d266a653fef30",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 7,
+      "citation": "Heim, I. (1982) - \"The Semantics of Definite and Indefinite Noun Phrases\"",
+      "published_level": "F3",
+      "artifact_links": [
+        {
+          "artifact": "bbfbf310d84618b1a8a68b6bc00e6185fc97bdcb3f2e2f0042aa663a575ae819",
+          "status": "documented",
+          "edition": "Schoubye–Glick 2011 retypesetting of the 1982 dissertation; 263 PDF pages",
+          "identity_reference": {
+            "path": "atlas_data/audits/source_reviews_2026_09_15/heim_1982.md",
+            "sha256": "8f741538be1e15194445d7bb3d3059d2d57255cd307a26f593ee2c27d9a784c5"
+          },
+          "identity_note": "The audit explicitly identifies the source, retypesetting and different pagination. Not the separately cited Heim 1983 article.",
+          "identifiers": []
+        }
+      ],
+      "consultations": [
+        {
+          "artifact": "bbfbf310d84618b1a8a68b6bc00e6185fc97bdcb3f2e2f0042aa663a575ae819",
+          "report": {
+            "path": "atlas_data/audits/source_reviews_2026_09_15/heim_1982.md",
+            "sha256": "8f741538be1e15194445d7bb3d3059d2d57255cd307a26f593ee2c27d9a784c5"
+          },
+          "passages": [
+            "Edition note and abstract",
+            "Chapter III, printed pp.182–206, 212–216, 226–231, 238–241"
+          ],
+          "reviewer": "Codex; imported single-assistant source-review draft, not independent human review",
+          "independent_review": false
+        }
+      ],
+      "designs": [
+        {
+          "path": "atlas_data/designs/montague_lineage.md",
+          "sha256": "85b9ef1079f4c6e6b657771be16507a947c5016f073f86e2603afd5ba77b9fc9",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        },
+        {
+          "path": "atlas_data/campaigns/heim_1982_design.md",
+          "sha256": "c822679c96a958092649846c71dce4a56696f43e3327f526a44adfb669cbea49",
+          "status": "documented",
+          "scope": "Heim 1982 final file-change rules and the explicit H01–H19 requirements inventory."
+        }
+      ]
+    },
+    {
+      "paper_id": 8,
+      "citation": "Groenendijk, J. & Stokhof, M. (1991) - \"Dynamic Predicate Logic\"",
+      "published_level": "F4",
+      "artifact_links": [
+        {
+          "artifact": "0eee8132d263f1c2c7c50a9c27d28d978dcedcac955cf4fefadc4262656c4894",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        },
+        {
+          "artifact": "a85cedebda3825f44500259fdbd47d6d482a0e3ef277e5b4890fa1bb12e3576c",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/dpl.md",
+          "sha256": "a673df2b03f41abc389221470d03755a061d65aace683e7c4277d554cfd7a58e",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        },
+        {
+          "path": "atlas_data/designs/drt_dpl.md",
+          "sha256": "e665ba8b239e4a1b48884c43b014a9dcc1f3ebb40d7d4f21e24d266a653fef30",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        },
+        {
+          "path": "atlas_data/designs/inqb.md",
+          "sha256": "68d08a775c68f429fa2d35fa7ced7ab3689dd0b0550f01663862d7ee10893584",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 9,
+      "citation": "Muskens, R. (1996) - \"Combining Montague Semantics and Discourse Representation\"",
+      "published_level": "F2",
+      "artifact_links": [
+        {
+          "artifact": "b3f8908ca2a32954c4a3228ddc22e3785c1e5e734836c80057b54f4a308caa57",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/drt_dpl.md",
+          "sha256": "e665ba8b239e4a1b48884c43b014a9dcc1f3ebb40d7d4f21e24d266a653fef30",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 10,
+      "citation": "Dekker, P. (1993) - \"Transsentential Meditations\"",
+      "published_level": "F2",
+      "artifact_links": [
+        {
+          "artifact": "c23189b23a38330cea13332dcc9b65e1bb0d1eef2f33fc62750c372afcae4bc2",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/dpl.md",
+          "sha256": "a673df2b03f41abc389221470d03755a061d65aace683e7c4277d554cfd7a58e",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 11,
+      "citation": "Barwise, J. & Cooper, R. (1981) - \"Generalized Quantifiers and Natural Language\"",
+      "published_level": "F3",
+      "artifact_links": [
+        {
+          "artifact": "aaa42a418150b97f188bfdfec7366c5bbebcfe634aacaa7b63f99ef739093b30",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/montague_lineage.md",
+          "sha256": "85b9ef1079f4c6e6b657771be16507a947c5016f073f86e2603afd5ba77b9fc9",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 12,
+      "citation": "Keenan, E. & Stavi, J. (1986) - \"A Semantic Characterization of Natural Language Determiners\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 13,
+      "citation": "van Benthem, J. (1986) - \"Essays in Logical Semantics\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 14,
+      "citation": "Partee, B. (1995) - \"Quantificational Structures and Compositionality\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "0afeaad7ce567c37f746d5a2206d92eef127664210b8d67354d49d5813dc2699",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 15,
+      "citation": "Winter, Y. (2001) - \"Flexibility Principles in Boolean Semantics\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 16,
+      "citation": "Link, G. (1983) - \"The Logical Analysis of Plurals and Mass Terms\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "bfc956e7c6b52b0e3c08493d196319d65f1af9c43f23aa764a85e4a165387fe6",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 17,
+      "citation": "Schwarzschild, R. (1996) - \"Pluralities\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "5a2b38f54774cfa1218fe4f4163d36fd9652e01cbb6e168d9f49d3db7d15ff2a",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 18,
+      "citation": "Landman, F. (2000) - \"Events and Plurality\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 19,
+      "citation": "Champollion, L. (2017) - \"Parts of a Whole: Distributivity as a Bridge\"",
+      "published_level": "F3",
+      "artifact_links": [
+        {
+          "artifact": "853c6c4163d9599df985b2bf1a9cfb33857365e8252e34d983f26e152a46f179",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        },
+        {
+          "artifact": "dfca628c57de221aa37831ebbd6cb7d936274029e1d9880d813d08419b4f6619",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 20,
+      "citation": "Kratzer, A. (2007) - \"On the Plurality of Verbs\"",
+      "published_level": "F2",
+      "artifact_links": [
+        {
+          "artifact": "f8ff5303242986a86552e570fbd7fa446505415914d513cfb78ea0c20490597a",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/montague_lineage.md",
+          "sha256": "85b9ef1079f4c6e6b657771be16507a947c5016f073f86e2603afd5ba77b9fc9",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 21,
+      "citation": "Kratzer, A. (1991) - \"Modality\"",
+      "published_level": "F3",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/montague_lineage.md",
+          "sha256": "85b9ef1079f4c6e6b657771be16507a947c5016f073f86e2603afd5ba77b9fc9",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 22,
+      "citation": "Lewis, D. (1973) - \"Counterfactuals\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "19128baebb097a6f93a3b818088d34c243516816f7c29968259b673e5c65b24f",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 23,
+      "citation": "Stalnaker, R. (1968) - \"A Theory of Conditionals\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 24,
+      "citation": "von Fintel, K. (2001) - \"Counterfactuals in a Dynamic Context\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "1223f3f7a28ee9996c3522dedac59cd102fec4aacae96b2f168dd4923b830766",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 25,
+      "citation": "Gillies, A. (2007) - \"Counterfactual Scorekeeping\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "1a6dfa26c8375e4be4f35f9259f23c738376f6c6f20176a9a961686b91a9c24c",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 26,
+      "citation": "Rooth, M. (1992) - \"A Theory of Focus Interpretation\"",
+      "published_level": "F3",
+      "artifact_links": [
+        {
+          "artifact": "4ca7741fda116f566dfd3246a278793c35d0c77f42ad9f0e41d7e99a3db768f4",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 27,
+      "citation": "Krifka, M. (1993) - \"Focus and Presupposition in Dynamic Interpretation\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "296915cc7e0b3eef4f97980033da6ba6d4d53e214cd04c8b2b14674ce3b2b92e",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 28,
+      "citation": "Beck, S. (2006) - \"Intervention Effects Follow from Focus Interpretation\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 29,
+      "citation": "Wagner, M. (2006) - \"Association by Movement\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "f816130590db4b732e7d18edbe107e25a0574603ce708f753a15a6a3525c61b7",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 30,
+      "citation": "Beaver, D. & Clark, B. (2008) - \"Sense and Sensitivity\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "57a68f605dc63369c6904d3b212aad4377ec755ba03dcbeadd7c17f1b52fdbf1",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 31,
+      "citation": "Chatzikyriakidis, S. & Luo, Z. (2013) - \"Natural Language Inference in Coq\"",
+      "published_level": "F3",
+      "artifact_links": [
+        {
+          "artifact": "5dc084ce009b216b72d6486f86176ce2b8dab4dc5ec0cf61ce25882cdfd3a0f9",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/mtt_ranta.md",
+          "sha256": "b4e0b97cef5fd8306e89265524b067214ff9db70c771105b577687d5001467c1",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 32,
+      "citation": "Luo, Z. (2012) - \"Common Nouns as Types\"",
+      "published_level": "F3",
+      "artifact_links": [
+        {
+          "artifact": "fb9f8b38ae945b7cff7a4aa6feaaaadd55a6990af08c0ba43eb1e6ffbdffba13",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/mtt_ranta.md",
+          "sha256": "b4e0b97cef5fd8306e89265524b067214ff9db70c771105b577687d5001467c1",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 33,
+      "citation": "Chatzikyriakidis, S. & Luo, Z. (2014) - \"Adjectival and Adverbial Modification in Modern Type Theoretical Semantics\"",
+      "published_level": "F3",
+      "artifact_links": [
+        {
+          "artifact": "80a234a4950e44a2c0ee5127f1ccf5b1dacb2f1f586678d4c34e4f96d4e45c19",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/mtt_ranta.md",
+          "sha256": "b4e0b97cef5fd8306e89265524b067214ff9db70c771105b577687d5001467c1",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 34,
+      "citation": "Luo, Z. (2011) - \"Contextual Analysis of Word Meanings in Type-Theoretical Semantics\"",
+      "published_level": "F2",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/mtt_ranta.md",
+          "sha256": "b4e0b97cef5fd8306e89265524b067214ff9db70c771105b577687d5001467c1",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 35,
+      "citation": "Bekki, D. (2014) - \"Representing Anaphora with Dependent Types\"",
+      "published_level": "F3",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 36,
+      "citation": "Chatzikyriakidis, S. & Luo, Z. (2017) - \"Modern Perspectives in Type-Theoretical Semantics\"",
+      "published_level": "F3",
+      "artifact_links": [
+        {
+          "artifact": "5b720cea87858e92851929799ffbe706e8827e24c7187a25d699bdd56a63377a",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/mtt_ranta.md",
+          "sha256": "b4e0b97cef5fd8306e89265524b067214ff9db70c771105b577687d5001467c1",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 37,
+      "citation": "Luo, Z. (2010) - \"Type-Theoretical Semantics with Coercive Subtyping\"",
+      "published_level": "F3",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/mtt_ranta.md",
+          "sha256": "b4e0b97cef5fd8306e89265524b067214ff9db70c771105b577687d5001467c1",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 38,
+      "citation": "Bekki, D. & Mineshima, K. (2017) - \"Context-Passing and Underspecification in Dependent Type Semantics\"",
+      "published_level": "F3",
+      "artifact_links": [
+        {
+          "artifact": "59d1befaf3e2c09579bbd8583f704edfffabeb33bbb4d23da0a61973846a4293",
+          "status": "documented",
+          "edition": "2017 Context-Passing and Underspecification chapter, as identified in the comparison audit",
+          "identity_reference": {
+            "path": "atlas_data/audits/ttr_comparison.md",
+            "sha256": "674f5784e12b799fc5ebe85a756db6a308af836a642948e0156a4444dcc2691a"
+          },
+          "identity_note": "The audit corrects the misleading CalculatingProjectionsViaTypeChecking filename. It does not identify this artifact with Bekki 2014.",
+          "identifiers": []
+        }
+      ],
+      "consultations": [
+        {
+          "artifact": "59d1befaf3e2c09579bbd8583f704edfffabeb33bbb4d23da0a61973846a4293",
+          "report": {
+            "path": "atlas_data/audits/ttr_comparison.md",
+            "sha256": "674f5784e12b799fc5ebe85a756db6a308af836a642948e0156a4444dcc2691a"
+          },
+          "passages": [
+            "§§1.1–1.4 pp.11–19",
+            "§2 inference tests",
+            "§§3.1–3.3 pp.23–27"
+          ],
+          "reviewer": "Imported implementation/source audit; individual reader identity not authenticated, no independent review claimed",
+          "independent_review": false
+        }
+      ],
+      "designs": []
+    },
+    {
+      "paper_id": 39,
+      "citation": "Bekki, D. & Asher, N. (2013) - \"Logical Polysemy and Subtyping\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "236878133913097892e3500f4435139c6e100b22f23744491677a0ce6e75dfb8",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 40,
+      "citation": "Chatzikyriakidis, S. & Luo, Z. (2020) - \"Formal Semantics in Modern Type Theories\"",
+      "published_level": "F5",
+      "artifact_links": [
+        {
+          "artifact": "1466b40473900de40b3f60ef69bcf1415fa8d3b7f5f84138a8de70a7b36064d3",
+          "status": "documented",
+          "edition": "2020 volume as identified in the comparison audit; ISBN not yet transcribed",
+          "identity_reference": {
+            "path": "atlas_data/audits/ttr_comparison.md",
+            "sha256": "674f5784e12b799fc5ebe85a756db6a308af836a642948e0156a4444dcc2691a"
+          },
+          "identity_note": "Explicit CL20 source mapping in the audit; passages concern MTT architecture, quantification and common nouns.",
+          "identifiers": []
+        }
+      ],
+      "consultations": [
+        {
+          "artifact": "1466b40473900de40b3f60ef69bcf1415fa8d3b7f5f84138a8de70a7b36064d3",
+          "report": {
+            "path": "atlas_data/audits/ttr_comparison.md",
+            "sha256": "674f5784e12b799fc5ebe85a756db6a308af836a642948e0156a4444dcc2691a"
+          },
+          "passages": [
+            "§§1.2, 1.4.2–1.4.3, pp.5, 15–20",
+            "§2.3.1 pp.33–34",
+            "§3.2.3 pp.60–64"
+          ],
+          "reviewer": "Imported implementation/source audit; individual reader identity not authenticated, no independent review claimed",
+          "independent_review": false
+        }
+      ],
+      "designs": [
+        {
+          "path": "atlas_data/designs/mtt_ranta.md",
+          "sha256": "b4e0b97cef5fd8306e89265524b067214ff9db70c771105b577687d5001467c1",
+          "status": "documented",
+          "scope": "Explicit CL20 target, named MTT.v implementation and MTT/Ranta bridge; not every publication by these authors."
+        }
+      ]
+    },
+    {
+      "paper_id": 41,
+      "citation": "Retoré, C. (2014) - \"The Montagovian Generative Lexicon: From Formal Semantics to Compositional Lexical Semantics\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "9ee0bc432ab6d4de0357fe953929df05bc0df7616fd5ad2145d3ac017dafc20b",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 42,
+      "citation": "Retoré, C. & Mery, B. (2017) - \"Classifiers, Sorts, and Base Types in Montagovian Generative Lexicon and Related Type Theoretical Frameworks\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "ffd8e8c19a14abe552afd4c41c7a3365d7af5872e016572362782f7e0399d402",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 43,
+      "citation": "Retoré, C. (2013) - \"Semantic Types for Language: Montague's Framework Revisited\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "99dff78e5f7d93b3931d2f58d1abf3a165ff4b15ba3aec1f556f791580b3642a",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 44,
+      "citation": "Bassac, C., Mery, B. & Retoré, C. (2010) - \"Towards a Type-Theoretical Account of Lexical Semantics\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 45,
+      "citation": "Asudeh, A. & Giorgolo, G. (2012) - \"Flexible Composition for Optional and Derived Arguments\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "4636a2d979e5e4bc94e1e746ed18a5e1ee6746524858dc20fdee1a11206a0d37",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 46,
+      "citation": "Giorgolo, G. & Asudeh, A. (2014) - \"Monads as a Solution for Generalized Opacity\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "4ce2cce1bd803d1abcbe5b1d509233c2c57a6ec89c14bffd361bef1dde96b61b",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 47,
+      "citation": "Shan, C. (2001) - \"Monads for Natural Language Semantics\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "21f5ba608f51b8ab159d1bb8be134974bef6934a5e4c613e7ab9147cf0d8d466",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 48,
+      "citation": "Charlow, S. (2014) - \"On the Semantics of Exceptional Scope\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "8e1677ff9e0a74f78fa1ad8c2e763c723918dee2e18262a303bd0a0412f378f9",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 49,
+      "citation": "Maskharashvili, A., Bernardy, J.-P. & Chatzikyriakidis, S. (2018) - \"A Computational Treatment of Anaphora and Its Algorithmic Implementation\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "07eb12fc87f3e422e488d9ca88d5f38aaf0e3031df91bd39df0b2e85580d3eba",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 50,
+      "citation": "Cooper, R. (2005) - \"Records and Record Types in Semantic Theory\"",
+      "published_level": "F3",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/montague_lineage.md",
+          "sha256": "85b9ef1079f4c6e6b657771be16507a947c5016f073f86e2603afd5ba77b9fc9",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        },
+        {
+          "path": "atlas_data/designs/ttr.md",
+          "sha256": "4001b7b63ea7c9ef1c7cf3135646fe9aa9ecd7c48d8324b362d5efccbb7a8ef6",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 51,
+      "citation": "Hamblin, C. (1973) - \"Questions in Montague English\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 52,
+      "citation": "Karttunen, L. (1977) - \"Syntax and Semantics of Questions\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "86aff9cb909561ccd4521387008b8d73534bb3af3aef74c61703aa49159ffb4a",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 53,
+      "citation": "Groenendijk, J. & Stokhof, M. (1984) - \"Studies on the Semantics of Questions and the Pragmatics of Answers\"",
+      "published_level": "F2",
+      "artifact_links": [
+        {
+          "artifact": "ede6e3712eb84ca567bb54cff90f0c4a81dea2da3cdad12f43faef94dabdb1b5",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/dpl.md",
+          "sha256": "a673df2b03f41abc389221470d03755a061d65aace683e7c4277d554cfd7a58e",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        },
+        {
+          "path": "atlas_data/designs/drt_dpl.md",
+          "sha256": "e665ba8b239e4a1b48884c43b014a9dcc1f3ebb40d7d4f21e24d266a653fef30",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        },
+        {
+          "path": "atlas_data/designs/inqb.md",
+          "sha256": "68d08a775c68f429fa2d35fa7ced7ab3689dd0b0550f01663862d7ee10893584",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 54,
+      "citation": "Ciardelli, I., Groenendijk, J. & Roelofsen, F. (2018) - \"Inquisitive Semantics\"",
+      "published_level": "F4",
+      "artifact_links": [
+        {
+          "artifact": "fee4954fca6cb1b0d353a1649f06c29d89b0d774386963e1fd99abf20795a8af",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/inqb.md",
+          "sha256": "68d08a775c68f429fa2d35fa7ced7ab3689dd0b0550f01663862d7ee10893584",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 55,
+      "citation": "Roelofsen, F. (2013) - \"Algebraic Foundations for the Semantic Treatment of Inquisitive Content\"",
+      "published_level": "F4",
+      "artifact_links": [
+        {
+          "artifact": "1105f23c267d21b781b3ac9cddf8039f31712cd3ccb7ae0c2e5645cd8a898143",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        },
+        {
+          "artifact": "a9a047d80d15e27fe5b8b8a9917959fba85ec114cf526a77a687bd00b1b43bc8",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/inqb.md",
+          "sha256": "68d08a775c68f429fa2d35fa7ced7ab3689dd0b0550f01663862d7ee10893584",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 56,
+      "citation": "Goodman, N. & Lassiter, D. (2015) - \"Probabilistic Semantics and Pragmatics\"",
+      "published_level": "F4",
+      "artifact_links": [
+        {
+          "artifact": "c1d93cbd6119dc08d83c5dc148b3e154be77f3b60b0282c6b19d826a7985bd8f",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/rsa.md",
+          "sha256": "2a00c67f5e599c16c8ef194f1118780e7873fd8f4be9df871e670cac52664d2a",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 57,
+      "citation": "Bergen, L., Levy, R. & Goodman, N. (2016) - \"Pragmatic Reasoning through Semantic Inference\"",
+      "published_level": "F4",
+      "artifact_links": [
+        {
+          "artifact": "3794e59933737d98c69eecde98e12db6bad2e1b450b220e3c81a6273a5471fb7",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/rsa.md",
+          "sha256": "2a00c67f5e599c16c8ef194f1118780e7873fd8f4be9df871e670cac52664d2a",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 58,
+      "citation": "Potts, C. (2012) - \"Goal-Driven Answers in the Cards Dialogue Corpus\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "0f29f5ce6101501f1b0a5c8d633593cbec90d2ff8a03d4e1c39156dbe5c14c80",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 59,
+      "citation": "Das, D., Chen, D., Martins, A., Schneider, N. & Smith, N. (2014) - \"Frame-Semantic Parsing\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "7a88d807aea67371baf34b7794b0a45e87f81ad4f2dc529d9e3ed328f0440ff9",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 60,
+      "citation": "Bisk, Y., Holtzman, A., Thomason, J., Andreas, J., Bengio, Y., Chai, J., ... & Zhang, Y. (2020) - \"Experience Grounds Language\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "c184243d6eb15aa66a634625a7cd4b807c9fd74969a46f7da9511e0fe52d7de3",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 61,
+      "citation": "Kennedy, C. & McNally, L. (2005) - \"Scale Structure and the Semantic Typology of Gradable Predicates\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "a95604eedb0a63a4cfe5ef8da78b0c7c67158362b3f796c4ced01d0220fe749e",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 62,
+      "citation": "Beck, S., Krasikova, S., Fleischer, D., Gergel, R., Hofstetter, S., Savelsberg, C., ... & Villalta, E. (2009) - \"Crosslinguistic Variation in Comparison Constructions\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "5259495d447c5fa89836ff3c4b90693b99b66d57623c255918ae5ad9d07dd0f9",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 63,
+      "citation": "Rett, J. (2015) - \"The Semantics of Evaluativity\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 64,
+      "citation": "Lassiter, D. (2017) - \"Graded Modality: Qualitative and Quantitative Perspectives\"",
+      "published_level": "F2",
+      "artifact_links": [
+        {
+          "artifact": "20a9131103c666a9c33ed175d70c3b7730a1622866e8ed99e4ee8b8297e89a82",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        },
+        {
+          "artifact": "89792ac5b6dd42a063ccc2287d2105efb259e7a8f2ece0740fd37c040d650141",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/rsa.md",
+          "sha256": "2a00c67f5e599c16c8ef194f1118780e7873fd8f4be9df871e670cac52664d2a",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 65,
+      "citation": "Sudo, Y. (2012) - \"On the Semantics of Phi Features on Pronouns\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 66,
+      "citation": "Grice, H. P. (1975) - \"Logic and Conversation\"",
+      "published_level": "F3",
+      "artifact_links": [
+        {
+          "artifact": "e786d3446e3d4c813bfa8e9cd2cf5248349001e7dc6a62a9867fbd31c1b701fd",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 67,
+      "citation": "Horn, L. (1984) - \"Toward a New Taxonomy for Pragmatic Inference\"",
+      "published_level": "F3",
+      "artifact_links": [
+        {
+          "artifact": "6e03564d933b570c7b23af201de1004e069df6ee7c4ff4c913b42fb852f8cfaa",
+          "status": "documented",
+          "edition": "Scanned local chapter, printed pp.11–31, as identified by the campaign inventory",
+          "identity_reference": {
+            "path": "atlas_data/campaigns/tiers_2026_09_13_inventory.md",
+            "sha256": "c6018c11059aa952e3864d1ef919169145696eb3e6fc4c8532f7db1166c78ba5"
+          },
+          "identity_note": "Inventory explicitly names the source, ID67 and Q/R sections; exact publisher identifiers remain unfilled.",
+          "identifiers": []
+        }
+      ],
+      "consultations": [
+        {
+          "artifact": "6e03564d933b570c7b23af201de1004e069df6ee7c4ff4c913b42fb852f8cfaa",
+          "report": {
+            "path": "atlas_data/campaigns/tiers_2026_09_13_inventory.md",
+            "sha256": "c6018c11059aa952e3864d1ef919169145696eb3e6fc4c8532f7db1166c78ba5"
+          },
+          "passages": [
+            "§§1–11 pp.11–31; especially §3 p.13, §7 pp.20–21, §8 pp.22–23, §10 pp.26–29"
+          ],
+          "reviewer": "Imported campaign reading inventory; individual reader identity not authenticated, no independent review claimed",
+          "independent_review": false
+        }
+      ],
+      "designs": [
+        {
+          "path": "atlas_data/designs/rsa.md",
+          "sha256": "2a00c67f5e599c16c8ef194f1118780e7873fd8f4be9df871e670cac52664d2a",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        },
+        {
+          "path": "atlas_data/campaigns/tiers_2026_09_13_inventory.md",
+          "sha256": "c6018c11059aa952e3864d1ef919169145696eb3e6fc4c8532f7db1166c78ba5",
+          "status": "documented",
+          "scope": "Horn H1–H6 Q/R fragments, supplied pragmatic inputs and excluded generalizations."
+        }
+      ]
+    },
+    {
+      "paper_id": 68,
+      "citation": "Levinson, S. (2000) - \"Presumptive Meanings\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 69,
+      "citation": "Chierchia, G. (2004) - \"Scalar Implicatures, Polarity Phenomena, and the Syntax/Pragmatics Interface\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "e0e13289ec6ce41e6c60d67df71e1c30f029e0e4e85f6cd7b11a9a8281b01097",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 70,
+      "citation": "Sauerland, U. (2004) - \"Scalar Implicatures in Complex Sentences\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "7becf86fe94532f5979603394274a041bf44b15d63989367ef831a1d87b9b52e",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 71,
+      "citation": "Stalnaker, R. (1974) - \"Pragmatic Presuppositions\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 72,
+      "citation": "van der Sandt, R. (1992) - \"Presupposition Projection as Anaphora Resolution\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 73,
+      "citation": "Geurts, B. (1999) - \"Presuppositions and Pronouns\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 74,
+      "citation": "Beaver, D. (2001) - \"Presupposition and Assertion in Dynamic Semantics\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "041cd4c601f60c0be7839c1888ae70c86f12be1d1282072461253b6f80a21b40",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 75,
+      "citation": "Schlenker, P. (2009) - \"Local Contexts\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "61c2dd8e14b4c88b00bc5609853d53446279b344b8a6c2a36ae427a660798728",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 76,
+      "citation": "Reichenbach, H. (1947) - \"Elements of Symbolic Logic\" (tense theory)",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 77,
+      "citation": "Klein, W. (1994) - \"Time in Language\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 78,
+      "citation": "Parsons, T. (1990) - \"Events in the Semantics of English\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 79,
+      "citation": "Kratzer, A. (1998) - \"More Structural Analogies Between Pronouns and Tenses\"",
+      "published_level": "F2",
+      "artifact_links": [
+        {
+          "artifact": "1e1a0c713d7344b8f73eaf648ce70a52deab8c8e227f05cdc22dc03fd368d376",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/montague_lineage.md",
+          "sha256": "85b9ef1079f4c6e6b657771be16507a947c5016f073f86e2603afd5ba77b9fc9",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 80,
+      "citation": "von Stechow, A. (1995) - \"On the Proper Treatment of Tense\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 81,
+      "citation": "Halliday, M. A. K. (1967) - \"Notes on Transitivity and Theme in English\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 82,
+      "citation": "Vallduví, E. (1992) - \"The Informational Component\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 83,
+      "citation": "Roberts, C. (2012) - \"Information Structure: Towards an Integrated Formal Theory\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "0fad27d7073e02ca5e202b831cc83b825898715b1dc9e6269d8225e83e370358",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 84,
+      "citation": "Büring, D. (2003) - \"On D-Trees, Beans, and B-Accents\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "faa1f0ae63dcb0d9a53606efa9d02b9c1aa665954837ec30631b5ab0f71bb363",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 85,
+      "citation": "Beaver, D. & Velleman, D. (2011) - \"The Communicative Significance of Primary and Secondary Accents\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "17b91367d4da981567d8eecf1583c5d320d537918406b93113e5ae13c8bad045",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 86,
+      "citation": "Matthewson, L. (2004) - \"On the Methodology of Semantic Fieldwork\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "2d07c42bc91313b233d48acb2ef54ea3f476242d5eb8832b4d2a1991e4283098",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 87,
+      "citation": "Chemla, E. & Spector, B. (2011) - \"Experimental Evidence for Embedded Scalar Implicatures\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "e0364978bee6ce3c8000a5c1ca146e48310d66d0ed5ba2b5c75ce1d0e7ce541f",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 88,
+      "citation": "Schwarz, F. (2009) - \"Two Types of Definites in Natural Language\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "08bf2a14a29db44af91b60419e75cad8f886927d70db201d96772a7c120c8f5b",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 89,
+      "citation": "Syrett, K. & Lidz, J. (2009) - \"30-Month-Olds Use the Distribution and Meaning of Adverbs to Interpret Novel Adjectives\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "64eb6b156ca1efde6de1a15128c718bd58becb4c78830475c1f2c6c604bafa80",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 90,
+      "citation": "Degen, J. & Tanenhaus, M. (2015) - \"Processing Scalar Implicature: A Constraint-Based Approach\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "57f8f4345076fc2fe632cef072e1a87b8c4d7dd4a9d64de82c60fa5f651b2b4f",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 91,
+      "citation": "Carlson, G. (1977) - \"Reference to Kinds in English\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "2e38caf5bba4f70188b2eb0ba2a457d9770dd34d7c4a844c7a9a4275134b14c6",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 92,
+      "citation": "Chierchia, G. (1998) - \"Reference to Kinds across Languages\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 93,
+      "citation": "Kratzer, A. (1996) - \"Severing the External Argument from its Verb\"",
+      "published_level": "F2",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/montague_lineage.md",
+          "sha256": "85b9ef1079f4c6e6b657771be16507a947c5016f073f86e2603afd5ba77b9fc9",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 94,
+      "citation": "Marantz, A. (1984) - \"On the Nature of Grammatical Relations\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 95,
+      "citation": "Williams, A. (2015) - \"Arguments in Syntax and Semantics\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 96,
+      "citation": "Chung, S. & Ladusaw, W. (2004) - \"Restriction and Saturation\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "8bfcbd7ecbb3b54a2ba51b207af8a57dd15953e632a2bb4c03a9b2b8429214ef",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 97,
+      "citation": "Matthewson, L. (2001) - \"Quantification and the Nature of Crosslinguistic Variation\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 98,
+      "citation": "Deal, A. R. (2011) - \"Modals without Scales\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "d0dff1fca51d4cfa0fdea6fc784e638e00a6821bcf26fa36f79750187a6b0a4d",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 99,
+      "citation": "Cable, S. (2010) - \"The Grammar of Q: Q-Particles, Wh-Movement, and Pied-Piping\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 100,
+      "citation": "Henderson, R. (2014) - \"Dependent Indefinites and their Post-Suppositions\" Cross-linguistic indefinites Formalization: Dependent indefinite interpretation Gap: Systematic dependency constraints",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "775b994c87a7311196aadf451fb1eb9ca0d4d4ed9d1ec211b8d0a495ddb9a21a",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 101,
+      "citation": "Hobbs, J. (1985) - \"On the Coherence and Structure of Discourse\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "422ce067714e0865ec63f6b549cf96ac87e809d32fe98a79458bb9e96b618d9a",
+          "status": "candidate",
+          "edition": "Unresolved: survey 1985, local text cites Hovy 1988 and forthcoming Linde 1989",
+          "identity_reference": {
+            "path": "atlas_data/campaigns/cohort2_2026_09_13.md",
+            "sha256": "28537841c91c5b3d8e98aa900b4d882dbae5b6490e9f14ecca4ef4cf245502a5"
+          },
+          "identity_note": "The cohort explicitly requires version identification before implementation. A matching filename is not enough.",
+          "identifiers": []
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 102,
+      "citation": "Kehler, A. (2002) - \"Coherence, Reference, and the Theory of Grammar\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 103,
+      "citation": "Asher, N. & Lascarides, A. (2003) - \"Logics of Conversation\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 104,
+      "citation": "Wolf, F. & Gibson, E. (2005) - \"Representing Discourse Coherence: A Corpus-Based Study\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "b65feea55c194b4be285b12b0db1f4010d223db3ca87f31dfba06325d3196132",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 105,
+      "citation": "Webber, B., Stone, M., Joshi, A. & Knott, A. (2003) - \"Anaphora and Discourse Structure\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "7a0842a961f2ad5748d54eeff980ab9b66be28f8a6b9d0c4a6c81b97be39d9c6",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 106,
+      "citation": "Pustejovsky, J. (1995) - \"The Generative Lexicon\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 107,
+      "citation": "Copestake, A. & Briscoe, T. (1995) - \"Semi-Productive Polysemy and Sense Extension\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "daf772b4e7bedf2f518d098821817f5fcb5351bd2d95ce1cc914edc54ca6e81f",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 108,
+      "citation": "Asher, N. (2011) - \"Lexical Meaning in Context\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 109,
+      "citation": "Kennedy, C. & Levin, B. (2008) - \"Measure of Change: The Adjectival Core of Degree Achievements\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "2bbef155f973e1a9faf601d4d3d8c7f7770877fa0a468fdb0b2ceab23297b2e6",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 110,
+      "citation": "Rappaport Hovav, M. & Levin, B. (2010) - \"Reflections on Manner/Result Complementarity\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "febd19240041aee149fb6bf496fedeef4d83a9e900743e8e7d76b68c643340a9",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 111,
+      "citation": "Klein, E. (1980) - \"A Semantics for Positive and Comparative Adjectives\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "7e3494bc7b4003f0ebae0f301d6466ce6037b80f589dab742b5f77874e8a30a2",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 112,
+      "citation": "Kamp, H. (1975) - \"Two Theories about Adjectives\"",
+      "published_level": "F2",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/drt_dpl.md",
+          "sha256": "e665ba8b239e4a1b48884c43b014a9dcc1f3ebb40d7d4f21e24d266a653fef30",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 113,
+      "citation": "Kennedy, C. (2007) - \"Vagueness and Grammar: The Semantics of Relative and Absolute Gradable Adjectives\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "1d776af7acbccbe71ccff613abf5b2753b683dc4ec0ce538222fd9acf2985fb8",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 114,
+      "citation": "Fara, D. G. (2000) - \"Shifting Sands: An Interest-Relative Theory of Vagueness\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "6cfc770ca68e50d885f3feed7ab519218d11ef020804d8a96e68d3a242a90bbe",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 115,
+      "citation": "Barker, C. (2002) - \"The Dynamics of Vagueness\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 116,
+      "citation": "Barwise, J. & Perry, J. (1983) - \"Situations and Attitudes\"",
+      "published_level": "F2",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/montague_lineage.md",
+          "sha256": "85b9ef1079f4c6e6b657771be16507a947c5016f073f86e2603afd5ba77b9fc9",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 117,
+      "citation": "Devlin, K. (1991) - \"Logic and Information\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 118,
+      "citation": "Kratzer, A. (2002) - \"Facts: Particulars or Information Units?\"",
+      "published_level": "F2",
+      "artifact_links": [
+        {
+          "artifact": "2c178e7e5e27ced968f780535c24f7678da2395a92089340a5e57f946444badc",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/montague_lineage.md",
+          "sha256": "85b9ef1079f4c6e6b657771be16507a947c5016f073f86e2603afd5ba77b9fc9",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 119,
+      "citation": "Austin, J. L. (1950) - \"Truth\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "4cff51b8ef817cbdcc42fc2c9ea1ac699b70af5914d8f907514617a977c297f6",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 120,
+      "citation": "Recanati, F. (2004) - \"Literal Meaning\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 121,
+      "citation": "Lakoff, G. (1987) - \"Women, Fire, and Dangerous Things\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "df50c4eedbd934485ca4bbe0b6959a67133b96e4469f3ef721a5a532f08ff82c",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 122,
+      "citation": "Rosch, E. (1978) - \"Principles of Categorization\"",
+      "published_level": "F3",
+      "artifact_links": [
+        {
+          "artifact": "45e33ffdfe2d79f5c63f1d70b28bcc5c8e6e72f3b761c17930a8af4bc50d8fbe",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 123,
+      "citation": "Fillmore, C. (1976) - \"Frame Semantics and the Nature of Language\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 124,
+      "citation": "Talmy, L. (2000) - \"Toward a Cognitive Semantics\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 125,
+      "citation": "Jackendoff, R. (1983) - \"Semantics and Cognition\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 126,
+      "citation": "Fauconnier, G. (1994) - \"Mental Spaces\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 127,
+      "citation": "Fauconnier, G. & Turner, M. (2002) - \"The Way We Think: Conceptual Blending\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 128,
+      "citation": "Sweetser, E. (1990) - \"From Etymology to Pragmatics\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 129,
+      "citation": "Lakoff, G. & Johnson, M. (1980) - \"Metaphors We Live By\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "d0b0e67d6c37faf799f653f857a1948dbb987c9e5c3cf0e24d0b859368a36215",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 130,
+      "citation": "Grady, J. (1997) - \"Foundations of Meaning: Primary Metaphors and Primary Scenes\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 131,
+      "citation": "Goldberg, A. (1995) - \"Constructions: A Construction Grammar Approach\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 132,
+      "citation": "Fillmore, C., Kay, P. & O'Connor, M. C. (1988) - \"Regularity and Idiomaticity in Grammatical Constructions\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 133,
+      "citation": "Croft, W. (2001) - \"Radical Construction Grammar\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 134,
+      "citation": "Tomasello, M. (2003) - \"Constructing a Language: A Usage-Based Theory\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 135,
+      "citation": "Langacker, R. (1987) - \"Foundations of Cognitive Grammar\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 136,
+      "citation": "Croft, W. (2003) - \"Typology and Universals\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 137,
+      "citation": "Haspelmath, M. (2003) - \"The Geometry of Grammatical Meaning\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 138,
+      "citation": "van der Auwera, J. & Plungian, V. (1998) - \"Modality's Semantic Map\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 139,
+      "citation": "Bybee, J., Perkins, R. & Pagliuca, W. (1994) - \"The Evolution of Grammar: Tense, Aspect, and Modality\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 140,
+      "citation": "Aikhenvald, A. (2004) - \"Evidentiality\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 141,
+      "citation": "Traugott, E. & Dasher, R. (2001) - \"Regularity in Semantic Change\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 142,
+      "citation": "Sweetser, E. (1988) - \"Grammaticalization and Semantic Bleaching\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "60ac12e195d629b98e63bfb55fa8b487ae783c7866e62166cd230afe94c6395c",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 143,
+      "citation": "Hopper, P. & Traugott, E. (2003) - \"Grammaticalization\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 144,
+      "citation": "Bréal, M. (1897/1964) - \"Semantics: Studies in the Science of Meaning\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "af71788e8a042e3113ae077b59559ea6f019d2b4d686102c77e2b2d1ce691037",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 145,
+      "citation": "Blank, A. (1999) - \"Co-Presence and Succession: A Cognitive Typology of Metonymy\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 146,
+      "citation": "Parikh, P. (2001) - \"The Use of Language\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 147,
+      "citation": "Franke, M. (2009) - \"Signal to Act: Game Theory in Pragmatics\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "cdbdfa698a107f69c8e841f12637639644c6f4a6dc44d47bd9f2c0c885e27966",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 148,
+      "citation": "Jäger, G. (2007) - \"The Evolution of Convex Categories\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 149,
+      "citation": "Blutner, R. (2000) - \"Some Aspects of Optimality in Natural Language Interpretation\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "53b8791628d014bc29abc63972584af86c93c4975da4cd7ab5a21925a90b3dde",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 150,
+      "citation": "Zeevat, H. (2000) - \"The Asymmetry of Optimality Theoretic Syntax and Semantics\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "290f4f73b2fc45be4ce9af9d11e6238a650f2260cd843233f72f7f5584544fdc",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 151,
+      "citation": "Barsalou, L. (1999) - \"Perceptual Symbol Systems\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "86b284b404e8224fcfa3eead4becb896800996b4425a1e6ca9a6860eb8f297a6",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 152,
+      "citation": "Bergen, B. (2012) - \"Louder than Words: The New Science of How the Mind Makes Meaning\"",
+      "published_level": "F2",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/rsa.md",
+          "sha256": "2a00c67f5e599c16c8ef194f1118780e7873fd8f4be9df871e670cac52664d2a",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 153,
+      "citation": "Gallese, V. & Lakoff, G. (2005) - \"The Brain's Concepts: The Role of the Sensory-Motor System\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 154,
+      "citation": "Zwaan, R. & Taylor, L. (2006) - \"Seeing, Acting, Understanding: Motor Resonance in Language Comprehension\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "135cccfdb232b529c96593ce0fe40553e734cb0e38e876d37e9b0918e09de08b",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 155,
+      "citation": "Pecher, D. & Zwaan, R. (2005) - \"Grounding Cognition: The Role of Perception and Action\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 156,
+      "citation": "Landauer, T. & Dumais, S. (1997) - \"A Solution to Plato's Problem: The Latent Semantic Analysis Theory\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "67ce3e319d3a877be378f935348c66bef2e69f829636e84f4f932578b7cc2ecd",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 157,
+      "citation": "Turney, P. & Pantel, P. (2010) - \"From Frequency to Meaning: Vector Space Models of Semantics\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "7b856901473bcca85ae4b29b54ac3b05a5f7d5be0906b269dd27b9bed5dd69fb",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 158,
+      "citation": "Baroni, M. & Lenci, A. (2010) - \"Distributional Memory: A General Framework for Corpus-Based Semantics\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "4314795a5e9f1b2a683ab022257a4e2ee4a6fb2b9569ee68c6d5457bd17d5c55",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 159,
+      "citation": "Coecke, B., Sadrzadeh, M. & Clark, S. (2010) - \"Mathematical Foundations for a Compositional Distributional Model of Meaning\"",
+      "published_level": "F5",
+      "artifact_links": [
+        {
+          "artifact": "d558cc2ff0a980e358de5b78026ea97704e71ab9096f943a27fb0723257fc00c",
+          "status": "documented",
+          "edition": "arXiv:1003.4394v1, 23 March 2010, 34 pages",
+          "identity_reference": {
+            "path": "atlas_data/audits/source_reviews_2026_09_15/discocat_2010.md",
+            "sha256": "6f028e389de9f2a3605b73a8b3175141e179dd49aab2b2e33a1673b09a8dd216"
+          },
+          "identity_note": "The audit identifies the arXiv v1; journal and later versions are not silently substituted.",
+          "identifiers": [
+            {
+              "kind": "arxiv",
+              "value": "1003.4394v1",
+              "reference": {
+                "path": "atlas_data/audits/source_reviews_2026_09_15/discocat_2010.md",
+                "sha256": "6f028e389de9f2a3605b73a8b3175141e179dd49aab2b2e33a1673b09a8dd216"
+              }
+            }
+          ]
+        }
+      ],
+      "consultations": [
+        {
+          "artifact": "d558cc2ff0a980e358de5b78026ea97704e71ab9096f943a27fb0723257fc00c",
+          "report": {
+            "path": "atlas_data/audits/source_reviews_2026_09_15/discocat_2010.md",
+            "sha256": "6f028e389de9f2a3605b73a8b3175141e179dd49aab2b2e33a1673b09a8dd216"
+          },
+          "passages": [
+            "§2.2 pp.4–7",
+            "§§3.1–3.5 pp.8–16",
+            "§§4.1–4.2 pp.17–24",
+            "§5 pp.24–27",
+            "§6 pp.28–29"
+          ],
+          "reviewer": "Codex; imported single-assistant source-review draft, not independent human review",
+          "independent_review": false
+        }
+      ],
+      "designs": [
+        {
+          "path": "atlas_data/designs/discocat.md",
+          "sha256": "ca4042e38686c1ea2f40caaf111e7a626fdc3f76102d0abdf17ad3477eefd371",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 160,
+      "citation": "Boleda, G. & Herbelot, A. (2016) - \"Formal Distributional Semantics: Introduction to the Special Issue\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "20ae854db413d35a9eebdcfb8241605a0bbe19f3a2a519c87ae38aff17a0a866",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 161,
+      "citation": "Cresswell, M. (1985) - \"Structured Meanings: The Semantics of Propositional Attitudes\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 162,
+      "citation": "Soames, S. (1987) - \"Direct Reference, Propositional Attitudes, and Semantic Content\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 163,
+      "citation": "Jespersen, B. (2012) - \"Recent Work on Structured Meaning and Propositional Unity\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 164,
+      "citation": "Fox, C. & Lappin, S. (2005) - \"Foundations of Intensional Semantics\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 165,
+      "citation": "Muskens, R. (2005) - \"Sense and the Computation of Reference\"",
+      "published_level": "F2",
+      "artifact_links": [
+        {
+          "artifact": "95f5f2416386b8163a4ddfd56ef9df50a4ae6401c8fcbbe0772af4fad37dfe61",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/drt_dpl.md",
+          "sha256": "e665ba8b239e4a1b48884c43b014a9dcc1f3ebb40d7d4f21e24d266a653fef30",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 166,
+      "citation": "Heidegger, M. (1927/1962) - \"Being and Time\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "e03c1cfd734028fca40513ccb05435e3e6bdec99b389ddcac6f44afe1d89ec0d",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 167,
+      "citation": "Gadamer, H.-G. (1975) - \"Truth and Method\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "afa1e10414a6fe513e021979bcb8a92d5a009bb663bc4527caa76d8f9f9ae6e8",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 168,
+      "citation": "Merleau-Ponty, M. (1945) - \"Phenomenology of Perception\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "862367c73a408a737a16e5ca0bb70b39432e2f734151331bb33ef1eb1d19ae8d",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 169,
+      "citation": "Ricoeur, P. (1976) - \"Interpretation Theory\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 170,
+      "citation": "Husserl, E. (1913) - \"Ideas Pertaining to a Pure Phenomenology\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 171,
+      "citation": "Derrida, J. (1967) - \"Of Grammatology\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "dcc43d2979742e1b8fafaf209a21ac693036dc274771002092c1dfd5d1f5d1c9",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 172,
+      "citation": "Derrida, J. (1972) - \"Signature Event Context\"",
+      "published_level": "F3",
+      "artifact_links": [
+        {
+          "artifact": "74b4e049de0c17bc93cfb847883818eb0a54d712660e44f63d5ca698c83fdd2a",
+          "status": "documented",
+          "edition": "Local English text in Limited Inc, pp.1–23; edition identifiers not yet transcribed",
+          "identity_reference": {
+            "path": "atlas_data/campaigns/tiers_2026_09_13_inventory.md",
+            "sha256": "c6018c11059aa952e3864d1ef919169145696eb3e6fc4c8532f7db1166c78ba5"
+          },
+          "identity_note": "Inventory explicitly names this essay, ID172 and the consulted English text; not Of Grammatology.",
+          "identifiers": []
+        }
+      ],
+      "consultations": [
+        {
+          "artifact": "74b4e049de0c17bc93cfb847883818eb0a54d712660e44f63d5ca698c83fdd2a",
+          "report": {
+            "path": "atlas_data/campaigns/tiers_2026_09_13_inventory.md",
+            "sha256": "c6018c11059aa952e3864d1ef919169145696eb3e6fc4c8532f7db1166c78ba5"
+          },
+          "passages": [
+            "Full local English essay, printed pp.1–23 including notes"
+          ],
+          "reviewer": "Imported campaign reading inventory; individual reader identity not authenticated, no independent review claimed",
+          "independent_review": false
+        }
+      ],
+      "designs": [
+        {
+          "path": "atlas_data/campaigns/tiers_2026_09_13_inventory.md",
+          "sha256": "c6018c11059aa952e3864d1ef919169145696eb3e6fc4c8532f7db1166c78ba5",
+          "status": "documented",
+          "scope": "Derrida D1–D6 bounded targets and uncovered philosophical claims."
+        }
+      ]
+    },
+    {
+      "paper_id": 173,
+      "citation": "de Man, P. (1979) - \"Allegories of Reading\"",
+      "published_level": "F2",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/dpl.md",
+          "sha256": "a673df2b03f41abc389221470d03755a061d65aace683e7c4277d554cfd7a58e",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        },
+        {
+          "path": "atlas_data/designs/lambek.md",
+          "sha256": "8216ac56d30a06a8281713e4acb50f54a722025213c28484286be09d41c29bc6",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        },
+        {
+          "path": "atlas_data/designs/montague_lineage.md",
+          "sha256": "85b9ef1079f4c6e6b657771be16507a947c5016f073f86e2603afd5ba77b9fc9",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        },
+        {
+          "path": "atlas_data/designs/mtt_ranta.md",
+          "sha256": "b4e0b97cef5fd8306e89265524b067214ff9db70c771105b577687d5001467c1",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        },
+        {
+          "path": "atlas_data/designs/ttr.md",
+          "sha256": "4001b7b63ea7c9ef1c7cf3135646fe9aa9ecd7c48d8324b362d5efccbb7a8ef6",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 174,
+      "citation": "Barthes, R. (1977) - \"The Death of the Author\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 175,
+      "citation": "Kristeva, J. (1980) - \"Desire in Language\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 176,
+      "citation": "Wittgenstein, L. (1953) - \"Philosophical Investigations\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "a8e25eb8aa17ad7e9019b66ba440e749550ee232b8e5fdd8346c288a530f42c2",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 177,
+      "citation": "Austin, J. L. (1962) - \"How to Do Things with Words\"",
+      "published_level": "F3",
+      "artifact_links": [
+        {
+          "artifact": "c01dfdf21bfbdcc19bdf4ea7092f88795a85ac9eea04627e86bc24a5277f1dc5",
+          "status": "documented",
+          "edition": "Local text identified as How to Do Things with Words; edition identifiers not yet transcribed",
+          "identity_reference": {
+            "path": "atlas_data/campaigns/tiers_2026_09_13_inventory.md",
+            "sha256": "c6018c11059aa952e3864d1ef919169145696eb3e6fc4c8532f7db1166c78ba5"
+          },
+          "identity_note": "Inventory explicitly names the book and ID177; not Austin 1950 Truth.",
+          "identifiers": []
+        }
+      ],
+      "consultations": [
+        {
+          "artifact": "c01dfdf21bfbdcc19bdf4ea7092f88795a85ac9eea04627e86bc24a5277f1dc5",
+          "report": {
+            "path": "atlas_data/campaigns/tiers_2026_09_13_inventory.md",
+            "sha256": "c6018c11059aa952e3864d1ef919169145696eb3e6fc4c8532f7db1166c78ba5"
+          },
+          "passages": [
+            "Printed pp.5–11 and Lectures II–IV pp.12–52"
+          ],
+          "reviewer": "Imported campaign reading inventory; individual reader identity not authenticated, no independent review claimed",
+          "independent_review": false
+        }
+      ],
+      "designs": [
+        {
+          "path": "atlas_data/campaigns/tiers_2026_09_13_inventory.md",
+          "sha256": "c6018c11059aa952e3864d1ef919169145696eb3e6fc4c8532f7db1166c78ba5",
+          "status": "documented",
+          "scope": "Austin A1–A7 infelicity, performance and sincerity diagnostics."
+        }
+      ]
+    },
+    {
+      "paper_id": 178,
+      "citation": "Searle, J. (1969) - \"Speech Acts\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 179,
+      "citation": "Ryle, G. (1949) - \"The Concept of Mind\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "13bb034672d8130c8b3401382827d0ff455e8cfb0c5636dd3bd60ab05a3fc85f",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 180,
+      "citation": "Strawson, P. F. (1959) - \"Individuals: An Essay in Descriptive Metaphysics\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 181,
+      "citation": "Bakhtin, M. (1981) - \"The Dialogic Imagination\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "485c7f925081e0797a35478ebd920b3c52faccb47b0f080a7a3803bdffae4bdd",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 182,
+      "citation": "Clark, H. (1996) - \"Using Language\"",
+      "published_level": "F2",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/discocat.md",
+          "sha256": "ca4042e38686c1ea2f40caaf111e7a626fdc3f76102d0abdf17ad3477eefd371",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": 183,
+      "citation": "Schegloff, E., Jefferson, G. & Sacks, H. (1977) - \"The Preference for Self-Correction in the Organization of Repair\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "1b47b61dcee2154192b1935960b124105d9ac4f266b7858528d118a8541b93c8",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 184,
+      "citation": "Goodwin, C. (2000) - \"Action and Embodiment within Situated Human Interaction\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "3176917fad74d4b079e7f34a5b5bb9dd45497edffe06c674735c171ccd735b14",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 185,
+      "citation": "Enfield, N. (2013) - \"Relationship Thinking: Agency, Enchrony, and Human Sociality\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 186,
+      "citation": "Tomasello, M. (2008) - \"Origins of Human Communication\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 187,
+      "citation": "Steels, L. (2012) - \"Experiments in Cultural Language Evolution\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 188,
+      "citation": "Kirby, S., Cornish, H. & Smith, K. (2008) - \"Cumulative Cultural Evolution in the Laboratory\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 189,
+      "citation": "Christiansen, M. & Chater, N. (2008) - \"Language as Shaped by the Brain\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "21cf078b427c3a4e671238b95f280d0671762e0fa3ce4e170150528dbcc58092",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 190,
+      "citation": "Deacon, T. (1997) - \"The Symbolic Species\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "668827b1c2a9e287024098737c0832299eac2d58ba2525c95ca6855e6d8fc9c3",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 191,
+      "citation": "Whorf, B. L. (1956) - \"Language, Thought, and Reality\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "637e66cf8610f92a2e45e4fb9dca04d6c029b66e5315cc5f1a4a3879bd5d69b2",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 192,
+      "citation": "Evans, N. & Levinson, S. (2009) - \"The Myth of Language Universals\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "9f77ae0259bdc3dd892dd8f0a92f142cf33dd64aaba01f58f49cb12dd43f96ba",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 193,
+      "citation": "Everett, D. (2005) - \"Cultural Constraints on Grammar and Cognition in Pirahã\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 194,
+      "citation": "Basso, K. (1996) - \"Wisdom Sits in Places: Landscape and Language among the Western Apache\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 195,
+      "citation": "Cruikshank, J. (2005) - \"Do Glaciers Listen? Local Knowledge, Colonial Encounters, and Social Imagination\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 196,
+      "citation": "Spivak, G. (1988) - \"Can the Subaltern Speak?\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "96aef1b47c30e7070f420fa62f90d89e1ed00ba0d8f09683768f7d4b3cbd7e12",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 197,
+      "citation": "Ngũgĩ wa Thiong'o (1986) - \"Decolonising the Mind\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "93daeafb2bf0d75720ca8856bc310a3b9e4de6acadde90698ddf19b8718d354b",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 198,
+      "citation": "Mignolo, W. (2000) - \"Local Histories/Global Designs\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 199,
+      "citation": "Santos, B. (2014) - \"Epistemologies of the South\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 200,
+      "citation": "Smith, L. T. (1999) - \"Decolonizing Methodologies\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 201,
+      "citation": "Ahmed, S. (2004) - \"The Cultural Politics of Emotion\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 202,
+      "citation": "Massumi, B. (2002) - \"Parables for the Virtual: Movement, Affect, Sensation\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "69c1ea009e1341c40ff74393fb7c03f77b808780ff2d02e2e35a337f08a7dc62",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 203,
+      "citation": "Brennan, T. (2004) - \"The Transmission of Affect\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "78cb6a789c98e4edd6474614bf8c8d9138bf30ef3368a61bb86beeaf567a3e7a",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 204,
+      "citation": "Colombetti, G. (2014) - \"The Feeling Body: Affective Science Meets the Enactive Mind\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 205,
+      "citation": "Sheets-Johnstone, M. (2009) - \"The Corporeal Turn\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 206,
+      "citation": "Eco, U. (1962) - \"The Open Work\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "642e5e8682ce083e31e22b3445dc8a86d04d448ce66238d4506225539e1fe29f",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 207,
+      "citation": "Iser, W. (1978) - \"The Act of Reading\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 208,
+      "citation": "Fish, S. (1980) - \"Is There a Text in This Class?\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 209,
+      "citation": "Barthes, R. (1970) - \"S/Z\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "162e1c6725f8d1d838bcea6f528a395b704f08e0afa5683a8f9c02b277bf59c1",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 210,
+      "citation": "Kristeva, J. (1974) - \"Revolution in Poetic Language\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 211,
+      "citation": "Aerts, D. & Gabora, L. (2005) - \"A Theory of Concepts and Their Combinations\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 212,
+      "citation": "Bruza, P., Kitto, K., Nelson, D. & McEvoy, C. (2009) - \"Is There Something Quantum-Like About the Human Mental Lexicon?\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 213,
+      "citation": "Busemeyer, J. & Bruza, P. (2012) - \"Quantum Models of Cognition and Decision\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 214,
+      "citation": "Pothos, E. & Busemeyer, J. (2013) - \"Can Quantum Probability Provide a New Direction for Cognitive Modeling?\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "a12adc9b35bc98f51cf33aa796f083e5a2c328977a83aae7c22fecc2c4dd756f",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": 215,
+      "citation": "Wang, Z., Busemeyer, J., Atmanspacher, H. & Pothos, E. (2013) - \"The Potential of Using Quantum Theory to Build Models of Cognition\"",
+      "published_level": "F0",
+      "artifact_links": [],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": "x215",
+      "citation": "Lambek, J. (1958) - \"The Mathematics of Sentence Structure\"",
+      "published_level": "F5",
+      "artifact_links": [
+        {
+          "artifact": "820c20326c0e6e13ec81b1ce6d38babf82ba43682399eab47aade39489014cf6",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/discocat.md",
+          "sha256": "ca4042e38686c1ea2f40caaf111e7a626fdc3f76102d0abdf17ad3477eefd371",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        },
+        {
+          "path": "atlas_data/designs/lambek.md",
+          "sha256": "8216ac56d30a06a8281713e4acb50f54a722025213c28484286be09d41c29bc6",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        },
+        {
+          "path": "atlas_data/designs/montague_lineage.md",
+          "sha256": "85b9ef1079f4c6e6b657771be16507a947c5016f073f86e2603afd5ba77b9fc9",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        },
+        {
+          "path": "atlas_data/designs/mtt_ranta.md",
+          "sha256": "b4e0b97cef5fd8306e89265524b067214ff9db70c771105b577687d5001467c1",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": "x216",
+      "citation": "Ranta, A. (1995) - \"Type-Theoretical Grammar\"",
+      "published_level": "F5",
+      "artifact_links": [
+        {
+          "artifact": "3a2994ffb13b0173cc5de41fd8698117926be041a11e53ad9dcdf43646394f26",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        },
+        {
+          "artifact": "2bdd22f4679144aad9e8e28f9dbc37cbb2ce569fb2c144c8c5c595370233954c",
+          "status": "candidate",
+          "edition": "Date unresolved: filename/survey 1995; cited as 1994 in CL20/BM17",
+          "identity_reference": {
+            "path": "atlas_data/audits/ttr_comparison.md",
+            "sha256": "674f5784e12b799fc5ebe85a756db6a308af836a642948e0156a4444dcc2691a"
+          },
+          "identity_note": "Exact bytes pinned, but the audit leaves the edition/year discrepancy unresolved. Consultation passages remain in the original audit, not certified here.",
+          "identifiers": []
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/montague_lineage.md",
+          "sha256": "85b9ef1079f4c6e6b657771be16507a947c5016f073f86e2603afd5ba77b9fc9",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        },
+        {
+          "path": "atlas_data/designs/ttr.md",
+          "sha256": "4001b7b63ea7c9ef1c7cf3135646fe9aa9ecd7c48d8324b362d5efccbb7a8ef6",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        },
+        {
+          "path": "atlas_data/designs/mtt_ranta.md",
+          "sha256": "b4e0b97cef5fd8306e89265524b067214ff9db70c771105b577687d5001467c1",
+          "status": "documented",
+          "scope": "Explicit Ranta Type-Theoretical Grammar target; design binding does not resolve the edition/date discrepancy."
+        }
+      ]
+    },
+    {
+      "paper_id": "x217",
+      "citation": "Frank, M. & Goodman, N. (2012) - \"Predicting Pragmatic Reasoning in Language Games\"",
+      "published_level": "F4",
+      "artifact_links": [
+        {
+          "artifact": "cf4d492d4a28e15f68b8a97bcfa4a1cd0d773cda3de74307e2086690b77bdea7",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/rsa.md",
+          "sha256": "2a00c67f5e599c16c8ef194f1118780e7873fd8f4be9df871e670cac52664d2a",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": "x218",
+      "citation": "Lassiter, D. & Goodman, N. (2017) - \"Adjectival Vagueness in a Bayesian Model of Interpretation\"",
+      "published_level": "F4",
+      "artifact_links": [
+        {
+          "artifact": "20a9131103c666a9c33ed175d70c3b7730a1622866e8ed99e4ee8b8297e89a82",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        },
+        {
+          "artifact": "89792ac5b6dd42a063ccc2287d2105efb259e7a8f2ece0740fd37c040d650141",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/rsa.md",
+          "sha256": "2a00c67f5e599c16c8ef194f1118780e7873fd8f4be9df871e670cac52664d2a",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": "x219",
+      "citation": "Bergen, L., Levy, R. & Goodman, N. (2016) - \"Pragmatic Reasoning through Semantic Inference\"",
+      "published_level": "F4",
+      "artifact_links": [
+        {
+          "artifact": "3794e59933737d98c69eecde98e12db6bad2e1b450b220e3c81a6273a5471fb7",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/rsa.md",
+          "sha256": "2a00c67f5e599c16c8ef194f1118780e7873fd8f4be9df871e670cac52664d2a",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": "x220",
+      "citation": "Preller, A. & Lambek, J. (2007) - \"Free Compact 2-Categories\"",
+      "published_level": "F5",
+      "artifact_links": [
+        {
+          "artifact": "3d3ef7c01846df152f45022581df483f904e3658c32fa04069c3dd34ead0502b",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/discocat.md",
+          "sha256": "ca4042e38686c1ea2f40caaf111e7a626fdc3f76102d0abdf17ad3477eefd371",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": "x221",
+      "citation": "Sadrzadeh, M., Clark, S. & Coecke, B. (2013) - \"The Frobenius Anatomy of Word Meanings I\"",
+      "published_level": "F2",
+      "artifact_links": [
+        {
+          "artifact": "f1c0cf2bbe636343918f63ff9b1a279a67107d392e3e7728159421b46684df13",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/discocat.md",
+          "sha256": "ca4042e38686c1ea2f40caaf111e7a626fdc3f76102d0abdf17ad3477eefd371",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": "x222",
+      "citation": "Veltman, F. (1996) - \"Defaults in Update Semantics\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "37d07c7e803b37000281ffbc2c75e60b97344be3483d12181f2ae0dcbb34da5f",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": "x223",
+      "citation": "Ciardelli, I. & Roelofsen, F. (2011) - \"Inquisitive Logic\"",
+      "published_level": "F4",
+      "artifact_links": [
+        {
+          "artifact": "ff1729f316e0b9ff1ba626477e3d7c2fa0d01345690ef61c9afb4d86b4816c7c",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/inqb.md",
+          "sha256": "68d08a775c68f429fa2d35fa7ced7ab3689dd0b0550f01663862d7ee10893584",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": "x224",
+      "citation": "Steedman, M. (2000) - \"The Syntactic Process\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "1e0e484165015773807e814e3ed73347a124266360b5d032e9a072cae813e125",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": "x225",
+      "citation": "Kratzer, A. (1977) - \"What 'Must' and 'Can' Must and Can Mean\"",
+      "published_level": "F3",
+      "artifact_links": [
+        {
+          "artifact": "13b324d051a303eb1a4d1c5f75e26632f89e3d3d79f1dff1a60e57fe3bfa72d8",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/montague_lineage.md",
+          "sha256": "85b9ef1079f4c6e6b657771be16507a947c5016f073f86e2603afd5ba77b9fc9",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    },
+    {
+      "paper_id": "x226",
+      "citation": "Dowty, D. (1979) - \"Word Meaning and Montague Grammar\"",
+      "published_level": "F1",
+      "artifact_links": [
+        {
+          "artifact": "e7f20ac508075355fd1b250911113b7a4a7c6b02576c857976220498439049ea",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": "x227",
+      "citation": "Dowty, D., Wall, R. & Peters, S. (1981) - \"Introduction to Montague Semantics\"",
+      "published_level": "F5",
+      "artifact_links": [
+        {
+          "artifact": "1554c9a66a8e6664c290de9f06a455973a0ea2ed5dc1deeb9ce4e2ee7fbca969",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        },
+        {
+          "artifact": "b1fce3472d246c5393a51081acd381388942c817b1ebe021a076649026db697a",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": "x228",
+      "citation": "Morrill, G. (2011) - \"Categorial Grammar: Logical Syntax, Semantics, and Processing\"",
+      "published_level": "F5",
+      "artifact_links": [
+        {
+          "artifact": "79b6720f11eaf55a8926a3a505d399a8e845ec2ee78f5094603a7e047cab248b",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": []
+    },
+    {
+      "paper_id": "x229",
+      "citation": "Moot, R. & Retoré, C. (2012) - \"The Logic of Categorial Grammars\"",
+      "published_level": "F5",
+      "artifact_links": [
+        {
+          "artifact": "091c29a100c29805559e388b62132af6dd4e2bb5d01ca892a00dd923e873b275",
+          "status": "candidate",
+          "edition": null,
+          "identifiers": [],
+          "identity_note": "Legacy surname/year filename match; identity unverified."
+        }
+      ],
+      "consultations": [],
+      "designs": [
+        {
+          "path": "atlas_data/designs/lambek.md",
+          "sha256": "8216ac56d30a06a8281713e4acb50f54a722025213c28484286be09d41c29bc6",
+          "status": "candidate",
+          "scope": "Legacy surname token; not an exact source binding."
+        }
+      ]
+    }
+  ],
+  "supplementary_sources": [
+    {
+      "paper_id": null,
+      "supplement_id": "cooper-2023",
+      "citation": "Cooper, R. (2023), From Perception to Communication",
+      "artifact_links": [
+        {
+          "artifact": "3d4bfb3ac7de7e837317f31637af342bba36624c0ef09ef3e37b6d769f2feb7c",
+          "status": "documented",
+          "edition": "2023 volume as identified in the comparison audit",
+          "identity_reference": {
+            "path": "atlas_data/audits/ttr_comparison.md",
+            "sha256": "674f5784e12b799fc5ebe85a756db6a308af836a642948e0156a4444dcc2691a"
+          },
+          "identity_note": "Supplementary source, NOT survey ID 50 (Cooper 2005). No P grade or survey ID is minted.",
+          "identifiers": []
+        }
+      ],
+      "consultations": [
+        {
+          "artifact": "3d4bfb3ac7de7e837317f31637af342bba36624c0ef09ef3e37b6d769f2feb7c",
+          "report": {
+            "path": "atlas_data/audits/ttr_comparison.md",
+            "sha256": "674f5784e12b799fc5ebe85a756db6a308af836a642948e0156a4444dcc2691a"
+          },
+          "passages": [
+            "§1.3 pp.11–14",
+            "§1.4.1 pp.18–19",
+            "A2–A3 pp.400–401",
+            "A8–A9 pp.404–406",
+            "A11.1–A11.3 pp.407–411"
+          ],
+          "reviewer": "Imported implementation/source audit; individual reader identity not authenticated, no independent review claimed",
+          "independent_review": false
+        }
+      ],
+      "designs": [
+        {
+          "path": "atlas_data/designs/ttr.md",
+          "sha256": "4001b7b63ea7c9ef1c7cf3135646fe9aa9ecd7c48d8324b362d5efccbb7a8ef6",
+          "status": "documented",
+          "scope": "Explicit Cooper 2023 formal-appendix target, with the subsequent source-audit correction retained."
+        }
+      ]
+    }
+  ]
+}

@@ -11,6 +11,7 @@ from pathlib import Path
 from claim_comparison import load_comparison
 from outcome_policy import apply_outcome, load_reviews
 from source_registry import load_registry, low_levels
+from edge_profiles import attach_profiles, load_profiles
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REC = os.path.join(HERE, "records")
@@ -98,10 +99,11 @@ def merge_records():
 
 
 def merge_edges():
-    """Load atlas/edges/*.json (framework-comparison edges) and compute the
-    two aggregates: similarity = mean grade over jointly attempted phenomena
-    (grades 0-5, from bridge theorems); overlap = Jaccard of the phenomenon
-    sets each side attempts ("are they looking for the same things")."""
+    """Load scoped profiles, retaining retired scores only for historical audit.
+
+    Grades are editorial annotations, not Coq-derived theoretical similarity.
+    No active scalar or metric is inferred from them.
+    """
     out = []
     for path in sorted(glob.glob(os.path.join(EDGES, "*.json"))):
         e = load(path)
@@ -114,7 +116,7 @@ def merge_edges():
                  and isinstance(p.get("grade"), (int, float))]
         a_set = {p["name"] for p in phen if "a" in (p.get("attempted_by") or [])}
         b_set = {p["name"] for p in phen if "b" in (p.get("attempted_by") or [])}
-        e["_computed"] = {
+        e["_legacy_scores"] = {
             "similarity": round(sum(p["grade"] for p in joint) / len(joint), 2) if joint else None,
             "overlap": round(len(a_set & b_set) / len(a_set | b_set), 2) if (a_set | b_set) else None,
             "joint_phenomena": len(joint),
@@ -122,7 +124,7 @@ def merge_edges():
             "b_only": sorted(b_set - a_set),
         }
         out.append(e)
-    return out
+    return attach_profiles(out, load_profiles(out))
 
 
 def md_table(rows, header):
@@ -294,18 +296,17 @@ def main():
                          r.get("duplicate_of") or "—"])
         md += [f"## {region}", "", md_table(rows, ["File", "Source", "Proved/Total", "Faithful", "Determination", "Artifacts", "Dup of"]), ""]
     if edges:
-        md += ["## Framework-comparison edges", "",
-               "Grades per phenomenon, from bridge theorems: 5 definitional / 4 equivalence / "
-               "3 one-way or mediated / 2 divergent (countermodel) / 1 after re-encoding. "
-               "Similarity = mean grade over jointly attempted phenomena; "
-               "overlap = Jaccard of attempted phenomenon sets.", "",
-               md_table([[e["_key"], e.get("level", "?"), e.get("bridge_file") or "—",
-                          e["_computed"]["similarity"] if e["_computed"]["similarity"] is not None else "—",
-                          e["_computed"]["overlap"] if e["_computed"]["overlap"] is not None else "—",
-                          e["_computed"]["joint_phenomena"],
-                          len(e["_computed"]["a_only"]), len(e["_computed"]["b_only"])]
-                         for e in edges],
-                        ["Edge", "Level", "Bridge", "Similarity", "Overlap", "Joint", "A-only", "B-only"]), ""]
+        md += ["## Scoped comparison profiles", "",
+               "No theoretical similarity or distance is calculated. The old ordinal means and "
+               "Jaccard ratios are retained only in `_legacy_scores` for historical audit. "
+               "Counts below describe pair-specific recorded checklists, not theory coverage. "
+               "A listed Coq file is not itself a verified translation. "
+               "[Method and migration](COMPARISON_METHOD.md).", "",
+               md_table([[e["_key"], e["_profile"]["scope"],
+                          str(e["_profile"]["coverage"]["shared"]) + "/" + str(e["_profile"]["coverage"]["listed"]),
+                          e.get("bridge_file") or "No Coq bridge yet",
+                          e["_profile"]["theory_relation"]] for e in edges],
+                        ["Comparison", "Declared fragment", "Shared/listed entries", "Listed comparison file", "Theory-level relation"]), ""]
     if disputed:
         md += ["## Verifier disputes", ""]
         for r in files:

@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "assessment_basis": "editorial_restatement_of_existing_artifacts",
+  "profiles": {
+    "ttr__mtt": {
+      "scope": "The man-runs construction, interpreted pointwise at a fixed TTR model; not the full TTR or MTT framework.",
+      "observations": "Record-type inhabitation versus the translated MTT existential; distinguishability of record witnesses under subject projection.",
+      "representation_choices": "A basic extension becomes a noun subtype. Predicate witnesses are existentially erased. The external TTR assignment layer is not identified with MTT judgments.",
+      "direction": "TTR records imply the translated existential; the reverse result establishes record inhabitation, not an inverse preserving record identity.",
+      "limitations": "The counterexample rules out an inverse of this subject projection only. It does not rule out richer translations. Preservation of model variation and full satisfaction structure remains unassessed.",
+      "support": [
+        {
+          "record_key": "atlas__ttr_vs_mtt",
+          "source_sha256": "696836a1061f85fe5696e45da9cbe05d9c349a8570baf2067aacf289c14ae695",
+          "theorems": {
+            "ttr.TTR_vs_MTT.fixed_model_inhabitation": "85804117bea72824",
+            "ttr.TTR_vs_MTT.LossOfInformation.subject_projection_loses_witnesses": "9176806351358381",
+            "ttr.TTR_vs_MTT.LossOfInformation.no_inverse_from_subject": "318719eedf0e1ecb"
+          }
+        }
+      ],
+      "theory_relation": "unassessed"
+    },
+    "mtt__ranta": {
+      "scope": "Selected noun types, quantifiers, intersective adjectives and donkey constructions in the two encodings.",
+      "observations": "Specified sentence meanings and witness-bearing versus proposition-valued existential constructions.",
+      "representation_choices": "Both encodings provide strong Sigma witnesses. The weak existential comparison uses inhabitation; explicit lifts and subset representations remain relevant.",
+      "direction": "Some constructions agree directly; others have named directional maps. No translation of the entire theories is specified.",
+      "limitations": "Agreement of selected constructors does not settle coercive subtyping, generation, discourse progression or the full source theories.",
+      "support": [
+        {
+          "record_key": "atlas__mtt_vs_ranta",
+          "source_sha256": "cf778bd356b205c78bff107ff355a53335734bccb1c3919803361b07e24c8171",
+          "theorems": {
+            "mtt_ranta.MTT_vs_Ranta.cn_agree": "5472ceb490e71a6d",
+            "mtt_ranta.MTT_vs_Ranta.some_agree_fwd": "37191413ba757cfc",
+            "mtt_ranta.MTT_vs_Ranta.some_agree_bwd_inhabited": "0e6a4eca61e88928",
+            "mtt_ranta.MTT_vs_Ranta.strong_witness_agree": "6fb30515a9d628c9",
+            "mtt_ranta.MTT_vs_Ranta.donkey_agree": "3e21533fdb42dbac"
+          }
+        }
+      ],
+      "theory_relation": "unassessed"
+    },
+    "mtt__dts": {
+      "scope": "Quantifiers over induced image predicates, negative predication and a Prop-valued donkey fragment.",
+      "observations": "The stated quantified propositions and translated donkey reading.",
+      "representation_choices": "Noun types and entity predicates are connected by explicit image and Sigma constructions; they are not assumed identical.",
+      "direction": "Selected equivalences use the specified lifting or noun/context translation; no unrestricted calculus inclusion is claimed.",
+      "limitations": "The results do not cover arbitrary Type-valued DTS predicates, the full heterogeneous IS calculus or general dependent proof search.",
+      "support": [
+        {
+          "record_key": "atlas__mtt_vs_dts",
+          "source_sha256": "8834967dfffe2e11d3a560b5c7b15e00151f5c2ae8fa31df0c53164d89548d8a",
+          "theorems": {
+            "mtt_ranta.MTT_vs_DTS.existential_image": "eb8b8f1b89336bbb",
+            "mtt_ranta.MTT_vs_DTS.universal_image": "d3e2c1b32daa39d4",
+            "mtt_ranta.MTT_vs_DTS.negative_predication": "e1a6eeb6b601cbb4",
+            "mtt_ranta.MTT_vs_DTS.donkey_after_noun_translation": "0235beb077edc654"
+          }
+        }
+      ],
+      "theory_relation": "unassessed"
+    },
+    "ranta__dts": {
+      "scope": "Predicate-based noun/context representations, the canonical donkey reading and selected discourse constructions.",
+      "observations": "Canonical and strong donkey readings; round trips of the explicitly represented contexts.",
+      "representation_choices": "DTS entity predicates become evidence-bearing Sigma noun types. Context reassociation and projection search are explicit.",
+      "direction": "There are maps between the selected context representations; their round trips do not constitute an equivalence of whole calculi.",
+      "limitations": "The source-specific resolution comparison is bounded. General proof search, model correspondence and theory-wide conservativity remain unassessed.",
+      "support": [
+        {
+          "record_key": "atlas__dts",
+          "source_sha256": "86b2d8d21d7a36a28703c74e9fe4b2d57bf5dffeee69145f1b0a50393a3920c8",
+          "theorems": {
+            "mtt_ranta.DTS.PredicateDTS.context_roundtrip": "29efac9a80e7ba0c",
+            "mtt_ranta.DTS.PredicateDTS.sorted_roundtrip": "c76b454b82f2ff85",
+            "mtt_ranta.DTS.PredicateDTS.canonical_ranta_translation": "ada3b7395e06f65e"
+          }
+        }
+      ],
+      "theory_relation": "unassessed"
+    },
+    "ptq__lambek": {
+      "scope": "Four selected proper-name, quantifier and type-raising constructions.",
+      "observations": "Equality of the computed denotations in the specified fragment.",
+      "representation_choices": "Compare Lambek derivations under the chosen semantic interpretation with the corresponding PTQ meanings.",
+      "direction": "The selected Lambek derivations compute the displayed PTQ meanings; this is not a bidirectional translation of grammars.",
+      "limitations": "These equalities do not identify grammatical architecture, derivation structure, scope mechanisms or intensional semantics.",
+      "support": [
+        {
+          "record_key": "atlas__ptq_vs_lambek",
+          "source_sha256": "7af489f7ee9f580b8f8a3fbdea92cb7b0354cb8d8acbd6fa64ac8d13bedcdb7b",
+          "theorems": {
+            "montague.PTQ_vs_Lambek.lambek_computes_ptq_john": "a350f4adb8d58c00",
+            "montague.PTQ_vs_Lambek.lambek_computes_ptq_every": "7700f02657ea2023",
+            "montague.PTQ_vs_Lambek.lambek_computes_ptq_some": "a7f3398e8189ee6c",
+            "montague.PTQ_vs_Lambek.lambek_typeraise_is_star": "24ce8d83b1faa3f0"
+          }
+        }
+      ],
+      "theory_relation": "unassessed"
+    },
+    "ptq__mtt": {
+      "scope": "Selected quantifiers and generalized-quantifier conservativity after noun re-encoding.",
+      "observations": "Truth conditions of the translated quantified propositions.",
+      "representation_choices": "Predicates over an entity domain are re-encoded as noun types. The comparison depends on this chosen representation.",
+      "direction": "The named quantifier results are equivalences for translated inputs, not a general preservation-and-reflection theorem for both theories.",
+      "limitations": "The old selection-restriction grade is a prose annotation, not a mechanized impossibility result. GQ conservativity is not conservative interpretation of an entire theory.",
+      "support": [
+        {
+          "record_key": "atlas__ptq_vs_mtt",
+          "source_sha256": "c1e7cfd71e51d99f8152b2b361b526ddcb7744c1726141be37600fb01d99d555",
+          "theorems": {
+            "montague.PTQ_vs_MTT.mtt_ptq_every": "b061d3866d822871",
+            "montague.PTQ_vs_MTT.mtt_ptq_some": "9cd7197eeefbef39",
+            "montague.PTQ_vs_MTT.mtt_ptq_no": "0664acb964643765",
+            "montague.PTQ_vs_MTT.conservativity_transfers": "0b3632a50a1353a6"
+          }
+        }
+      ],
+      "theory_relation": "unassessed"
+    },
+    "ptq__kratzer": {
+      "scope": "The displayed modal clauses, including the empty-background case and selected modal laws.",
+      "observations": "Necessity, possibility and their relationships under the stated background conditions.",
+      "representation_choices": "Kratzer's conversational-background parameter is explicit. Empty-background agreement does not erase context-dependent distinctions.",
+      "direction": "A special-case relationship and selected laws are recorded; no whole-framework translation is assessed.",
+      "limitations": "The legacy file carries its own assumptions. Ordering sources and the full intensional systems are not covered by the special-case result.",
+      "support": [
+        {
+          "record_key": "shallow__kratzer2",
+          "source_sha256": "5a75ac0b3118aeff0df459b0e1709213b79141f7e9eb942c73b377d8aa851aab",
+          "theorems": {
+            "kratzer2.KratzerClean.kratzer_equals_montague": "e6ba6392ef2a752b",
+            "kratzer2.KratzerClean.empty_base_characterization": "732224c3c54ec97a",
+            "kratzer2.KratzerClean.readings_are_different": "96a598c4eee443c7"
+          }
+        }
+      ],
+      "theory_relation": "unassessed"
+    },
+    "ptq__barwise_cooper": {
+      "scope": "Selected generalized-quantifier definitions and conservativity/monotonicity instances.",
+      "observations": "The displayed quantifier propositions and their algebraic properties.",
+      "representation_choices": "Compare the specified extensional generalized-quantifier forms. The listed supporting file is not by itself a cross-theory translation.",
+      "direction": "Matching definitions and separate instances are recorded; no general translation between the complete accounts is specified.",
+      "limitations": "Witness-set/definability results are not formalized in this comparison. The legacy Barwise-Cooper record retains parameters and classical assumptions.",
+      "support": [
+        {
+          "record_key": "atlas__ptq",
+          "source_sha256": "d7934a4b60abd79c1ca3af985a3786336810520c1242ce59dc1896740f1180a2",
+          "theorems": {
+            "montague.PTQ.every_conservative": "781af7d2edc589dc",
+            "montague.PTQ.a_conservative": "d764c05d0f6b0350",
+            "montague.PTQ.no_conservative": "7aac869f98aff347",
+            "montague.PTQ.every_mon_up": "8e0c7d1e5c987f93"
+          }
+        }
+      ],
+      "theory_relation": "unassessed"
+    },
+    "lambek__discocat": {
+      "scope": "Selected sentence derivations and their interpretations in Lambek and pregroup encodings.",
+      "observations": "The examples named in the historical record; no mechanized cross-framework preservation theorem is supplied.",
+      "representation_choices": "Sequent derivations and pregroup reductions use different proof structures; proposition-valued and vector-valued interpretations require an explicit comparison.",
+      "direction": "No Coq bridge yet. The Lambek-to-pregroup translation is proposed work, not a verified edge.",
+      "limitations": "The old grade 3 annotations are not evidence of a proved mediated translation. Implementing a bridge would not automatically establish equivalence or justify a higher score.",
+      "support": [],
+      "theory_relation": "unassessed"
+    }
+  }
+}

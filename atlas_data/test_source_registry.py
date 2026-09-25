@@ -1,6 +1,7 @@
 """Provenance structure and offline reproducibility, not semantic review."""
 import copy
 import json
+import hashlib
 from pathlib import Path
 import tempfile
 import unittest
@@ -8,6 +9,7 @@ from unittest.mock import patch
 
 import consolidate
 import source_registry as registry
+from edge_profiles import legacy_atlas_view
 
 HERE, ROOT = registry.HERE, registry.ROOT
 
@@ -30,9 +32,12 @@ class SourceRegistryTests(unittest.TestCase):
         self.assertNotIn(cooper["artifact_links"][0]["artifact"],
                          [a["artifact"] for a in old_cooper["artifact_links"]])
 
-    def test_published_atlas_is_byte_identical_to_pre_migration(self):
+    def test_research_and_historical_edges_are_byte_identical_to_pre_migration(self):
         baseline = json.loads((HERE / "source_registry_baseline.json").read_text())
-        self.assertEqual(registry.digest(HERE / "atlas.json"), baseline["atlas_sha256"])
+        # Only the explicit comparison-schema migration is reversed. This
+        # still checks every original paper, record, grade, edge and statistic.
+        historical = json.dumps(legacy_atlas_view(self.atlas), indent=1, ensure_ascii=False).encode()
+        self.assertEqual(hashlib.sha256(historical).hexdigest(), baseline["atlas_sha256"])
         self.assertEqual(baseline["git_commit"], "91983bc561226f90f7b306620f7d4fe8fd07ed86")
 
     def test_offline_levels_and_outcomes_match_without_filesystem_search(self):

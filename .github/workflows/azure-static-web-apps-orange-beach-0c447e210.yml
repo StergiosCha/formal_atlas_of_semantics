@@ -45,6 +45,7 @@ jobs:
           node atlas_data/site/test_rosch_campaign.cjs
           node atlas_data/site/test_outcomes.cjs
           node atlas_data/site/test_proofs.cjs
+          node atlas_data/site/test_edge_profiles.cjs
 
   build_and_deploy_job:
     needs: [verify, reporting]

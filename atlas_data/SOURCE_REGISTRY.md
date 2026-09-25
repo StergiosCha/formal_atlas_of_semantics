@@ -98,6 +98,11 @@ infrastructure; no proof, record, survey or source-audit hash was exempted.
 New migration tests check byte-identical consolidated evidence at this checkpoint,
 offline levels, source identity boundaries and rejected metadata mutations.
 
+The subsequent [comparison-profile migration](COMPARISON_METHOD.md) changes
+only the edge reporting schema. Its preservation test reverses that explicit
+schema change before checking the complete historical atlas hash; it does not
+exempt any paper, grade, proof record, original edge annotation or statistic.
+
 Deployment now calls reusable Coq verification and requires both that job and
 reporting/provenance checks. Uploads are serialized per production/preview target;
 active uploads are not canceled. Stale production commits are skipped, fork

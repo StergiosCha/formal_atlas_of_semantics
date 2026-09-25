@@ -44,6 +44,21 @@ In particular:
 - Derrida, Austin, Horn and Rosch pilots encode bounded fragments and diagnostics.
   Their checked examples do not amount to whole-book formalizations.
 
+## Comparison profiles, not theoretical similarity
+
+The nine pairwise comparisons now state their fragments, observations,
+representation choices, named Coq evidence and limitations. Compositionality,
+preservation, reflection, model coverage and recoverability remain explicit,
+unassessed theory-level obligations. Relevant fragment lemmas do not automatically
+establish a general relationship between the source theories.
+
+The former ordinal means and Jaccard ratios are retained only in annotation
+history. Graph positions are editorial; line width and opacity no longer encode
+scores. Shared/listed counts describe pair-specific checklists, not theoretical
+coverage. A listed comparison file is not itself a verified translation, and
+Lambek–DisCoCat still has no Coq bridge. See the
+[comparison method and preservation policy](COMPARISON_METHOD.md).
+
 ## File assessments and source outcomes
 
 A file assessment describes an implementation attempt. Several files linked to

@@ -26232,7 +26232,7 @@
    ],
    "notes": "The two categorial cousins. The natural upgrade is a Coq bridge formalizing CGS13's Lambek-to-pregroup translation, which would raise the joint grades to 4-5; recorded as future work in NEXT.md.",
    "_key": "lambek__discocat",
-   "_computed": {
+   "_legacy_scores": {
     "similarity": 3.0,
     "overlap": 0.33,
     "joint_phenomena": 2,
@@ -26243,6 +26243,54 @@
     "b_only": [
      "equational-theory-of-derivations",
      "graded-distributional-meanings"
+    ]
+   },
+   "_profile": {
+    "scope": "Selected sentence derivations and their interpretations in Lambek and pregroup encodings.",
+    "observations": "The examples named in the historical record; no mechanized cross-framework preservation theorem is supplied.",
+    "representation_choices": "Sequent derivations and pregroup reductions use different proof structures; proposition-valued and vector-valued interpretations require an explicit comparison.",
+    "direction": "No Coq bridge yet. The Lambek-to-pregroup translation is proposed work, not a verified edge.",
+    "limitations": "The old grade 3 annotations are not evidence of a proved mediated translation. Implementing a bridge would not automatically establish equivalence or justify a higher score.",
+    "support": [],
+    "theory_relation": "unassessed",
+    "coverage": {
+     "listed": 6,
+     "shared": 2,
+     "a_only": [
+      "cut-elimination-proof-theory",
+      "type-raising"
+     ],
+     "b_only": [
+      "equational-theory-of-derivations",
+      "graded-distributional-meanings"
+     ]
+    },
+    "obligations": [
+     {
+      "id": "compositionality",
+      "question": "Does a specified translation respect all constructors and contexts in its declared fragment?",
+      "status": "unassessed"
+     },
+     {
+      "id": "preservation",
+      "question": "Which judgments or observations are preserved, in which direction and under which assumptions?",
+      "status": "unassessed"
+     },
+     {
+      "id": "reflection",
+      "question": "Does the translation introduce additional consequences for the source fragment?",
+      "status": "unassessed"
+     },
+     {
+      "id": "model_coverage",
+      "question": "Which admissible models are covered, and how does the translation handle changes of model?",
+      "status": "unassessed"
+     },
+     {
+      "id": "recoverability",
+      "question": "What survives a round trip, up to which explicitly specified equivalence?",
+      "status": "unassessed"
+     }
     ]
    }
   },
@@ -26314,7 +26362,7 @@
    ],
    "notes": "BM17 section 1.4, especially p. 19, acknowledges the C&L account of negative and hypothetical predication. These translations avoid treating raw judgement formation as an impossibility result.",
    "_key": "mtt__dts",
-   "_computed": {
+   "_legacy_scores": {
     "similarity": 3.0,
     "overlap": 0.67,
     "joint_phenomena": 4,
@@ -26323,6 +26371,63 @@
     ],
     "b_only": [
      "anaphora-resolution-mechanism"
+    ]
+   },
+   "_profile": {
+    "scope": "Quantifiers over induced image predicates, negative predication and a Prop-valued donkey fragment.",
+    "observations": "The stated quantified propositions and translated donkey reading.",
+    "representation_choices": "Noun types and entity predicates are connected by explicit image and Sigma constructions; they are not assumed identical.",
+    "direction": "Selected equivalences use the specified lifting or noun/context translation; no unrestricted calculus inclusion is claimed.",
+    "limitations": "The results do not cover arbitrary Type-valued DTS predicates, the full heterogeneous IS calculus or general dependent proof search.",
+    "support": [
+     {
+      "record_key": "atlas__mtt_vs_dts",
+      "source_sha256": "8834967dfffe2e11d3a560b5c7b15e00151f5c2ae8fa31df0c53164d89548d8a",
+      "theorems": {
+       "mtt_ranta.MTT_vs_DTS.existential_image": "eb8b8f1b89336bbb",
+       "mtt_ranta.MTT_vs_DTS.universal_image": "d3e2c1b32daa39d4",
+       "mtt_ranta.MTT_vs_DTS.negative_predication": "e1a6eeb6b601cbb4",
+       "mtt_ranta.MTT_vs_DTS.donkey_after_noun_translation": "0235beb077edc654"
+      }
+     }
+    ],
+    "theory_relation": "unassessed",
+    "coverage": {
+     "listed": 6,
+     "shared": 4,
+     "a_only": [
+      "coercive-subtyping-mechanism"
+     ],
+     "b_only": [
+      "anaphora-resolution-mechanism"
+     ]
+    },
+    "obligations": [
+     {
+      "id": "compositionality",
+      "question": "Does a specified translation respect all constructors and contexts in its declared fragment?",
+      "status": "unassessed"
+     },
+     {
+      "id": "preservation",
+      "question": "Which judgments or observations are preserved, in which direction and under which assumptions?",
+      "status": "unassessed"
+     },
+     {
+      "id": "reflection",
+      "question": "Does the translation introduce additional consequences for the source fragment?",
+      "status": "unassessed"
+     },
+     {
+      "id": "model_coverage",
+      "question": "Which admissible models are covered, and how does the translation handle changes of model?",
+      "status": "unassessed"
+     },
+     {
+      "id": "recoverability",
+      "question": "What survives a round trip, up to which explicitly specified equivalence?",
+      "status": "unassessed"
+     }
     ]
    }
   },
@@ -26500,7 +26605,7 @@
    ],
    "notes": "Corrected 2026-09-12 after reading CL20 pp. 15-16: grades concern specified constructions, not equivalence of the frameworks. Witness-bearing Sigma is available in both.",
    "_key": "mtt__ranta",
-   "_computed": {
+   "_legacy_scores": {
     "similarity": 4.4,
     "overlap": 0.56,
     "joint_phenomena": 10,
@@ -26515,6 +26620,70 @@
      "choice-reference-to-proofs",
      "generation-sugaring",
      "text-discourse-progression"
+    ]
+   },
+   "_profile": {
+    "scope": "Selected noun types, quantifiers, intersective adjectives and donkey constructions in the two encodings.",
+    "observations": "Specified sentence meanings and witness-bearing versus proposition-valued existential constructions.",
+    "representation_choices": "Both encodings provide strong Sigma witnesses. The weak existential comparison uses inhabitation; explicit lifts and subset representations remain relevant.",
+    "direction": "Some constructions agree directly; others have named directional maps. No translation of the entire theories is specified.",
+    "limitations": "Agreement of selected constructors does not settle coercive subtyping, generation, discourse progression or the full source theories.",
+    "support": [
+     {
+      "record_key": "atlas__mtt_vs_ranta",
+      "source_sha256": "cf778bd356b205c78bff107ff355a53335734bccb1c3919803361b07e24c8171",
+      "theorems": {
+       "mtt_ranta.MTT_vs_Ranta.cn_agree": "5472ceb490e71a6d",
+       "mtt_ranta.MTT_vs_Ranta.some_agree_fwd": "37191413ba757cfc",
+       "mtt_ranta.MTT_vs_Ranta.some_agree_bwd_inhabited": "0e6a4eca61e88928",
+       "mtt_ranta.MTT_vs_Ranta.strong_witness_agree": "6fb30515a9d628c9",
+       "mtt_ranta.MTT_vs_Ranta.donkey_agree": "3e21533fdb42dbac"
+      }
+     }
+    ],
+    "theory_relation": "unassessed",
+    "coverage": {
+     "listed": 18,
+     "shared": 10,
+     "a_only": [
+      "adjectives-subsective-privative",
+      "adverbs-veridicality",
+      "copredication-dot-types",
+      "individuation-counting",
+      "subtyping-mechanism"
+     ],
+     "b_only": [
+      "choice-reference-to-proofs",
+      "generation-sugaring",
+      "text-discourse-progression"
+     ]
+    },
+    "obligations": [
+     {
+      "id": "compositionality",
+      "question": "Does a specified translation respect all constructors and contexts in its declared fragment?",
+      "status": "unassessed"
+     },
+     {
+      "id": "preservation",
+      "question": "Which judgments or observations are preserved, in which direction and under which assumptions?",
+      "status": "unassessed"
+     },
+     {
+      "id": "reflection",
+      "question": "Does the translation introduce additional consequences for the source fragment?",
+      "status": "unassessed"
+     },
+     {
+      "id": "model_coverage",
+      "question": "Which admissible models are covered, and how does the translation handle changes of model?",
+      "status": "unassessed"
+     },
+     {
+      "id": "recoverability",
+      "question": "What survives a round trip, up to which explicitly specified equivalence?",
+      "status": "unassessed"
+     }
     ]
    }
   },
@@ -26591,7 +26760,7 @@
    ],
    "notes": "B&C descend from PTQ by systematizing NP denotations and adding the universals; the shared inventory coincides definitionally, the universals hold of PTQ's determiners by the PTQ.v Part 5 theorems. Caveat: extras/BarwiseCooper.v predates the atlas discipline (Parameters + Classical import); re-audit when promoted.",
    "_key": "ptq__barwise_cooper",
-   "_computed": {
+   "_legacy_scores": {
     "similarity": 4.33,
     "overlap": 0.43,
     "joint_phenomena": 3,
@@ -26602,6 +26771,65 @@
     "b_only": [
      "cardinal-quantifiers",
      "witness-sets-definability"
+    ]
+   },
+   "_profile": {
+    "scope": "Selected generalized-quantifier definitions and conservativity/monotonicity instances.",
+    "observations": "The displayed quantifier propositions and their algebraic properties.",
+    "representation_choices": "Compare the specified extensional generalized-quantifier forms. The listed supporting file is not by itself a cross-theory translation.",
+    "direction": "Matching definitions and separate instances are recorded; no general translation between the complete accounts is specified.",
+    "limitations": "Witness-set/definability results are not formalized in this comparison. The legacy Barwise-Cooper record retains parameters and classical assumptions.",
+    "support": [
+     {
+      "record_key": "atlas__ptq",
+      "source_sha256": "d7934a4b60abd79c1ca3af985a3786336810520c1242ce59dc1896740f1180a2",
+      "theorems": {
+       "montague.PTQ.every_conservative": "781af7d2edc589dc",
+       "montague.PTQ.a_conservative": "d764c05d0f6b0350",
+       "montague.PTQ.no_conservative": "7aac869f98aff347",
+       "montague.PTQ.every_mon_up": "8e0c7d1e5c987f93"
+      }
+     }
+    ],
+    "theory_relation": "unassessed",
+    "coverage": {
+     "listed": 7,
+     "shared": 3,
+     "a_only": [
+      "intensionality-seek-find",
+      "scope-ambiguity"
+     ],
+     "b_only": [
+      "cardinal-quantifiers",
+      "witness-sets-definability"
+     ]
+    },
+    "obligations": [
+     {
+      "id": "compositionality",
+      "question": "Does a specified translation respect all constructors and contexts in its declared fragment?",
+      "status": "unassessed"
+     },
+     {
+      "id": "preservation",
+      "question": "Which judgments or observations are preserved, in which direction and under which assumptions?",
+      "status": "unassessed"
+     },
+     {
+      "id": "reflection",
+      "question": "Does the translation introduce additional consequences for the source fragment?",
+      "status": "unassessed"
+     },
+     {
+      "id": "model_coverage",
+      "question": "Which admissible models are covered, and how does the translation handle changes of model?",
+      "status": "unassessed"
+     },
+     {
+      "id": "recoverability",
+      "question": "What survives a round trip, up to which explicitly specified equivalence?",
+      "status": "unassessed"
+     }
     ]
    }
   },
@@ -26678,7 +26906,7 @@
    ],
    "notes": "Kratzer BUILDS on the Montagovian modal base: the degenerate-background theorem (proved in shallow/kratzer2.v) is the formal content of 'Kratzer generalizes Montague's box'; the divergence is the context parameter itself. Caveat: shallow/kratzer2.v predates the atlas discipline (uses Parameters for its examples); the cited core theorems should be re-audited when kratzer2 gets its own atlas file.",
    "_key": "ptq__kratzer",
-   "_computed": {
+   "_legacy_scores": {
     "similarity": 4.0,
     "overlap": 0.43,
     "joint_phenomena": 3,
@@ -26689,6 +26917,64 @@
     "b_only": [
      "context-dependent-modality",
      "ordering-sources-graded-modality"
+    ]
+   },
+   "_profile": {
+    "scope": "The displayed modal clauses, including the empty-background case and selected modal laws.",
+    "observations": "Necessity, possibility and their relationships under the stated background conditions.",
+    "representation_choices": "Kratzer's conversational-background parameter is explicit. Empty-background agreement does not erase context-dependent distinctions.",
+    "direction": "A special-case relationship and selected laws are recorded; no whole-framework translation is assessed.",
+    "limitations": "The legacy file carries its own assumptions. Ordering sources and the full intensional systems are not covered by the special-case result.",
+    "support": [
+     {
+      "record_key": "shallow__kratzer2",
+      "source_sha256": "5a75ac0b3118aeff0df459b0e1709213b79141f7e9eb942c73b377d8aa851aab",
+      "theorems": {
+       "kratzer2.KratzerClean.kratzer_equals_montague": "e6ba6392ef2a752b",
+       "kratzer2.KratzerClean.empty_base_characterization": "732224c3c54ec97a",
+       "kratzer2.KratzerClean.readings_are_different": "96a598c4eee443c7"
+      }
+     }
+    ],
+    "theory_relation": "unassessed",
+    "coverage": {
+     "listed": 7,
+     "shared": 3,
+     "a_only": [
+      "intensionality-seek-find",
+      "quantification-gq"
+     ],
+     "b_only": [
+      "context-dependent-modality",
+      "ordering-sources-graded-modality"
+     ]
+    },
+    "obligations": [
+     {
+      "id": "compositionality",
+      "question": "Does a specified translation respect all constructors and contexts in its declared fragment?",
+      "status": "unassessed"
+     },
+     {
+      "id": "preservation",
+      "question": "Which judgments or observations are preserved, in which direction and under which assumptions?",
+      "status": "unassessed"
+     },
+     {
+      "id": "reflection",
+      "question": "Does the translation introduce additional consequences for the source fragment?",
+      "status": "unassessed"
+     },
+     {
+      "id": "model_coverage",
+      "question": "Which admissible models are covered, and how does the translation handle changes of model?",
+      "status": "unassessed"
+     },
+     {
+      "id": "recoverability",
+      "question": "What survives a round trip, up to which explicitly specified equivalence?",
+      "status": "unassessed"
+     }
     ]
    }
   },
@@ -26774,7 +27060,7 @@
    ],
    "notes": "The categorial route COMPUTES the Montague meanings on the shared fragment (all joint grades definitional); the frameworks diverge in what else they carry (proof theory vs intensionality/scope machinery).",
    "_key": "ptq__lambek",
-   "_computed": {
+   "_legacy_scores": {
     "similarity": 5.0,
     "overlap": 0.5,
     "joint_phenomena": 4,
@@ -26785,6 +27071,65 @@
     "b_only": [
      "decidability-of-grammaticality",
      "proof-theory-cut-elimination"
+    ]
+   },
+   "_profile": {
+    "scope": "Four selected proper-name, quantifier and type-raising constructions.",
+    "observations": "Equality of the computed denotations in the specified fragment.",
+    "representation_choices": "Compare Lambek derivations under the chosen semantic interpretation with the corresponding PTQ meanings.",
+    "direction": "The selected Lambek derivations compute the displayed PTQ meanings; this is not a bidirectional translation of grammars.",
+    "limitations": "These equalities do not identify grammatical architecture, derivation structure, scope mechanisms or intensional semantics.",
+    "support": [
+     {
+      "record_key": "atlas__ptq_vs_lambek",
+      "source_sha256": "7af489f7ee9f580b8f8a3fbdea92cb7b0354cb8d8acbd6fa64ac8d13bedcdb7b",
+      "theorems": {
+       "montague.PTQ_vs_Lambek.lambek_computes_ptq_john": "a350f4adb8d58c00",
+       "montague.PTQ_vs_Lambek.lambek_computes_ptq_every": "7700f02657ea2023",
+       "montague.PTQ_vs_Lambek.lambek_computes_ptq_some": "a7f3398e8189ee6c",
+       "montague.PTQ_vs_Lambek.lambek_typeraise_is_star": "24ce8d83b1faa3f0"
+      }
+     }
+    ],
+    "theory_relation": "unassessed",
+    "coverage": {
+     "listed": 8,
+     "shared": 4,
+     "a_only": [
+      "intensionality-seek-find",
+      "scope-ambiguity"
+     ],
+     "b_only": [
+      "decidability-of-grammaticality",
+      "proof-theory-cut-elimination"
+     ]
+    },
+    "obligations": [
+     {
+      "id": "compositionality",
+      "question": "Does a specified translation respect all constructors and contexts in its declared fragment?",
+      "status": "unassessed"
+     },
+     {
+      "id": "preservation",
+      "question": "Which judgments or observations are preserved, in which direction and under which assumptions?",
+      "status": "unassessed"
+     },
+     {
+      "id": "reflection",
+      "question": "Does the translation introduce additional consequences for the source fragment?",
+      "status": "unassessed"
+     },
+     {
+      "id": "model_coverage",
+      "question": "Which admissible models are covered, and how does the translation handle changes of model?",
+      "status": "unassessed"
+     },
+     {
+      "id": "recoverability",
+      "question": "What survives a round trip, up to which explicitly specified equivalence?",
+      "status": "unassessed"
+     }
     ]
    }
   },
@@ -26895,7 +27240,7 @@
    ],
    "notes": "Truth conditions agree wherever both can speak (grade 4 across the quantifiers), but the CN ontology needs re-encoding (grade 1) and the selection-restriction phenomenon splits the frameworks at the meta-level (grade 0) — a textbook case of high similarity-on-shared-core with moderate overlap.",
    "_key": "ptq__mtt",
-   "_computed": {
+   "_legacy_scores": {
     "similarity": 2.83,
     "overlap": 0.55,
     "joint_phenomena": 6,
@@ -26907,6 +27252,66 @@
      "adjective-classes",
      "copredication-dot-types",
      "subtyping-mechanism"
+    ]
+   },
+   "_profile": {
+    "scope": "Selected quantifiers and generalized-quantifier conservativity after noun re-encoding.",
+    "observations": "Truth conditions of the translated quantified propositions.",
+    "representation_choices": "Predicates over an entity domain are re-encoded as noun types. The comparison depends on this chosen representation.",
+    "direction": "The named quantifier results are equivalences for translated inputs, not a general preservation-and-reflection theorem for both theories.",
+    "limitations": "The old selection-restriction grade is a prose annotation, not a mechanized impossibility result. GQ conservativity is not conservative interpretation of an entire theory.",
+    "support": [
+     {
+      "record_key": "atlas__ptq_vs_mtt",
+      "source_sha256": "c1e7cfd71e51d99f8152b2b361b526ddcb7744c1726141be37600fb01d99d555",
+      "theorems": {
+       "montague.PTQ_vs_MTT.mtt_ptq_every": "b061d3866d822871",
+       "montague.PTQ_vs_MTT.mtt_ptq_some": "9cd7197eeefbef39",
+       "montague.PTQ_vs_MTT.mtt_ptq_no": "0664acb964643765",
+       "montague.PTQ_vs_MTT.conservativity_transfers": "0b3632a50a1353a6"
+      }
+     }
+    ],
+    "theory_relation": "unassessed",
+    "coverage": {
+     "listed": 11,
+     "shared": 6,
+     "a_only": [
+      "intensionality-seek-find",
+      "scope-ambiguity"
+     ],
+     "b_only": [
+      "adjective-classes",
+      "copredication-dot-types",
+      "subtyping-mechanism"
+     ]
+    },
+    "obligations": [
+     {
+      "id": "compositionality",
+      "question": "Does a specified translation respect all constructors and contexts in its declared fragment?",
+      "status": "unassessed"
+     },
+     {
+      "id": "preservation",
+      "question": "Which judgments or observations are preserved, in which direction and under which assumptions?",
+      "status": "unassessed"
+     },
+     {
+      "id": "reflection",
+      "question": "Does the translation introduce additional consequences for the source fragment?",
+      "status": "unassessed"
+     },
+     {
+      "id": "model_coverage",
+      "question": "Which admissible models are covered, and how does the translation handle changes of model?",
+      "status": "unassessed"
+     },
+     {
+      "id": "recoverability",
+      "question": "What survives a round trip, up to which explicitly specified equivalence?",
+      "status": "unassessed"
+     }
     ]
    }
   },
@@ -27002,7 +27407,7 @@
    ],
    "notes": "Source-corrected 2026-09-13: BM17 section 1.4 separates the noun ontologies. Shared readings require re-encoding. DTS_Resolution.v adds typed entity-projection search, not a complete dependent checker or general proof search. Ranta sections 6.1-6.2 distinguish assertions/contexts from their Sigma representation.",
    "_key": "ranta__dts",
-   "_computed": {
+   "_legacy_scores": {
     "similarity": 3.0,
     "overlap": 0.67,
     "joint_phenomena": 6,
@@ -27012,6 +27417,63 @@
     "b_only": [
      "anaphoric-ambiguity",
      "presupposition-projection"
+    ]
+   },
+   "_profile": {
+    "scope": "Predicate-based noun/context representations, the canonical donkey reading and selected discourse constructions.",
+    "observations": "Canonical and strong donkey readings; round trips of the explicitly represented contexts.",
+    "representation_choices": "DTS entity predicates become evidence-bearing Sigma noun types. Context reassociation and projection search are explicit.",
+    "direction": "There are maps between the selected context representations; their round trips do not constitute an equivalence of whole calculi.",
+    "limitations": "The source-specific resolution comparison is bounded. General proof search, model correspondence and theory-wide conservativity remain unassessed.",
+    "support": [
+     {
+      "record_key": "atlas__dts",
+      "source_sha256": "86b2d8d21d7a36a28703c74e9fe4b2d57bf5dffeee69145f1b0a50393a3920c8",
+      "theorems": {
+       "mtt_ranta.DTS.PredicateDTS.context_roundtrip": "29efac9a80e7ba0c",
+       "mtt_ranta.DTS.PredicateDTS.sorted_roundtrip": "c76b454b82f2ff85",
+       "mtt_ranta.DTS.PredicateDTS.canonical_ranta_translation": "ada3b7395e06f65e"
+      }
+     }
+    ],
+    "theory_relation": "unassessed",
+    "coverage": {
+     "listed": 9,
+     "shared": 6,
+     "a_only": [
+      "generation-sugaring"
+     ],
+     "b_only": [
+      "anaphoric-ambiguity",
+      "presupposition-projection"
+     ]
+    },
+    "obligations": [
+     {
+      "id": "compositionality",
+      "question": "Does a specified translation respect all constructors and contexts in its declared fragment?",
+      "status": "unassessed"
+     },
+     {
+      "id": "preservation",
+      "question": "Which judgments or observations are preserved, in which direction and under which assumptions?",
+      "status": "unassessed"
+     },
+     {
+      "id": "reflection",
+      "question": "Does the translation introduce additional consequences for the source fragment?",
+      "status": "unassessed"
+     },
+     {
+      "id": "model_coverage",
+      "question": "Which admissible models are covered, and how does the translation handle changes of model?",
+      "status": "unassessed"
+     },
+     {
+      "id": "recoverability",
+      "question": "What survives a round trip, up to which explicitly specified equivalence?",
+      "status": "unassessed"
+     }
     ]
    }
   },
@@ -27065,7 +27527,7 @@
    ],
    "notes": "Cooper 2023 sections 1.3-1.4.1 and A3.2 versus CL20 sections 1.2/1.4.3. A restricted model-indexed erasure is implemented. There is no assertion of full TTR/MTT equivalence.",
    "_key": "ttr__mtt",
-   "_computed": {
+   "_legacy_scores": {
     "similarity": 2.0,
     "overlap": 0.75,
     "joint_phenomena": 3,
@@ -27073,6 +27535,60 @@
      "external-type-assignments"
     ],
     "b_only": []
+   },
+   "_profile": {
+    "scope": "The man-runs construction, interpreted pointwise at a fixed TTR model; not the full TTR or MTT framework.",
+    "observations": "Record-type inhabitation versus the translated MTT existential; distinguishability of record witnesses under subject projection.",
+    "representation_choices": "A basic extension becomes a noun subtype. Predicate witnesses are existentially erased. The external TTR assignment layer is not identified with MTT judgments.",
+    "direction": "TTR records imply the translated existential; the reverse result establishes record inhabitation, not an inverse preserving record identity.",
+    "limitations": "The counterexample rules out an inverse of this subject projection only. It does not rule out richer translations. Preservation of model variation and full satisfaction structure remains unassessed.",
+    "support": [
+     {
+      "record_key": "atlas__ttr_vs_mtt",
+      "source_sha256": "696836a1061f85fe5696e45da9cbe05d9c349a8570baf2067aacf289c14ae695",
+      "theorems": {
+       "ttr.TTR_vs_MTT.fixed_model_inhabitation": "85804117bea72824",
+       "ttr.TTR_vs_MTT.LossOfInformation.subject_projection_loses_witnesses": "9176806351358381",
+       "ttr.TTR_vs_MTT.LossOfInformation.no_inverse_from_subject": "318719eedf0e1ecb"
+      }
+     }
+    ],
+    "theory_relation": "unassessed",
+    "coverage": {
+     "listed": 4,
+     "shared": 3,
+     "a_only": [
+      "external-type-assignments"
+     ],
+     "b_only": []
+    },
+    "obligations": [
+     {
+      "id": "compositionality",
+      "question": "Does a specified translation respect all constructors and contexts in its declared fragment?",
+      "status": "unassessed"
+     },
+     {
+      "id": "preservation",
+      "question": "Which judgments or observations are preserved, in which direction and under which assumptions?",
+      "status": "unassessed"
+     },
+     {
+      "id": "reflection",
+      "question": "Does the translation introduce additional consequences for the source fragment?",
+      "status": "unassessed"
+     },
+     {
+      "id": "model_coverage",
+      "question": "Which admissible models are covered, and how does the translation handle changes of model?",
+      "status": "unassessed"
+     },
+     {
+      "id": "recoverability",
+      "question": "What survives a round trip, up to which explicitly specified equivalence?",
+      "status": "unassessed"
+     }
+    ]
    }
   }
  ],

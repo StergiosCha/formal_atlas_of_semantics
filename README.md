@@ -48,6 +48,11 @@ Named declarations link to the full `.v` source with line navigation, recorded
 assumption audits and a download. This reader works without the LLM backend;
 it displays repository code, not generated proof summaries or live proof states.
 
+Theory comparisons use [scoped evidence profiles](atlas_data/COMPARISON_METHOD.md),
+not a theoretical similarity score. Each states its fragment, observations,
+representation choices, named evidence and outstanding translation obligations.
+The old ordinal means are retained only as history; map spacing is editorial.
+
 ## Development and review
 
 Development is LLM-assisted. Coq checks proof artifacts; source comparisons
@@ -107,6 +112,7 @@ node atlas_data/site/test_claim_comparison.cjs
 node atlas_data/site/test_rosch_campaign.cjs
 node atlas_data/site/test_outcomes.cjs
 node atlas_data/site/test_proofs.cjs
+node atlas_data/site/test_edge_profiles.cjs
 ```
 
 Both the site and consolidated evidence now rebuild without external PDFs.

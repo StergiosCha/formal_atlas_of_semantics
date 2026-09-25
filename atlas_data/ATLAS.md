@@ -345,21 +345,21 @@ All remain F3/unassessed. [Method and limitations](campaigns/claim_comparison_20
 |---|---|---|---|---|---|---|
 | /Users/graogro/Dropbox/revisiting-formal-semantics/extras/mass.v | Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. ISTE/Wiley, 240 pp. The assigned 'mass/count chapter' does not exist: the TOC (chs. 1-7) has no mass/count chapter or section, and the full extracted text contains 'mass' only in 'UMass, Amherst' (Carlson 1977 bibliography entry) and in the bibliography entry for Link 1983; 'count noun', 'measure phrase', 'grinder', 'partitive' never occur. Relevant only as the origin of the framework mass.v inherits through indi.v: ch. 5 s.5.3 'Identity criteria: individuation and CNs as setoids' pp. 108-119 ((5.13)/(5.15) CN = setoid (A, =A) p.109; s.5.3.1 p.110: ICs are needed precisely for numerical quantifiers 'bigger than one', fn 7 IC-respecting predicates; Def 5.3 Three_0 p.112 = indi.v's three_f; Def 5.4 Three p.113; Def 5.6 THREE p.116), s.6.3.2 pp. 146-149 and Appendix A7.9 'Individuation' pp. 200-207 (the Coq code that indi.v transcribes).; Link, G. (1983). The logical analysis of plurals and mass terms: A lattice-theoretical approach. In Baeuerle, Schwarze & von Stechow (eds.), Meaning, Use, and Interpretation of Language, de Gruyter, 302-323; on disk as the reprint in Portner & Partee (eds.) 2002, Formal Semantics: The Essential Readings, ch. 4, pp. 127-146 (complete, 20 pages, image-only scan, read as page images). Mass-term apparatus: cumulative reference (10) p.128; constitution relation \|> and materialization function h p.128; star operator, E a complete atomic Boolean algebra, atoms A, i-sum a (+) b vs material fusion a + b, i-part (15) p.130; sigma (17), mu material fusion (18), m-part T (19), D a complete join-semilattice with (20) p.131; h : E\{0} -> D a semilattice homomorphism (21), <=m (22), mass predicates denote join-closed subsets of D, mass term correspondent mP (23), (24)-(26) p.132; Distr (27) p.133; minimal-parts caveat and (43)-(44) p.134; (45)-(46), LPM syntax with the disjoint predicate classes MT / DP p.135; (D.8)-(D.21) incl. Mpa (D.11), mP (D.13), M(P) (D.20) p.136; boosk (D.22), <=m (D.23), ~m (D.24), model (D.25) pp.137-138; (D.26)-(D.32), (49)-(59) p.138; (60)-(64) and theorems (T.1)-(T.32) incl. (T.12) cumulativity for P in MT, (T.13)-(T.14) p.139; s.3 CN subcategorized into MCN / SCN / PCN p.140; translations 1-11 incl. 'some water' (5), 'all water' (11) and the numerals remark p.141; summary (1)-(4) p.144. (source note) | 3/3 | unfaithful | n/a | ii, iii, iv | — |
 
-## Framework-comparison edges
+## Scoped comparison profiles
 
-Grades per phenomenon, from bridge theorems: 5 definitional / 4 equivalence / 3 one-way or mediated / 2 divergent (countermodel) / 1 after re-encoding. Similarity = mean grade over jointly attempted phenomena; overlap = Jaccard of attempted phenomenon sets.
+No theoretical similarity or distance is calculated. The old ordinal means and Jaccard ratios are retained only in `_legacy_scores` for historical audit. Counts below describe pair-specific recorded checklists, not theory coverage. A listed Coq file is not itself a verified translation. [Method and migration](COMPARISON_METHOD.md).
 
-| Edge | Level | Bridge | Similarity | Overlap | Joint | A-only | B-only |
-|---|---|---|---|---|---|---|---|
-| lambek__discocat | intra-family | — | 3.0 | 0.33 | 2 | 2 | 2 |
-| mtt__dts | intra-family | atlas/mtt_ranta/MTT_vs_DTS.v | 3.0 | 0.67 | 4 | 1 | 1 |
-| mtt__ranta | intra-family | atlas/mtt_ranta/MTT_vs_Ranta.v | 4.4 | 0.56 | 10 | 5 | 3 |
-| ptq__barwise_cooper | intra-family | atlas/montague/PTQ.v | 4.33 | 0.43 | 3 | 2 | 2 |
-| ptq__kratzer | intra-family | shallow/kratzer2.v | 4.0 | 0.43 | 3 | 2 | 2 |
-| ptq__lambek | cross-family | atlas/montague/PTQ_vs_Lambek.v | 5.0 | 0.5 | 4 | 2 | 2 |
-| ptq__mtt | cross-family | atlas/montague/PTQ_vs_MTT.v | 2.83 | 0.55 | 6 | 2 | 3 |
-| ranta__dts | intra-family | atlas/mtt_ranta/DTS.v | 3.0 | 0.67 | 6 | 1 | 2 |
-| ttr__mtt | cross-foundation | atlas/ttr/TTR_vs_MTT.v | 2.0 | 0.75 | 3 | 1 | 0 |
+| Comparison | Declared fragment | Shared/listed entries | Listed comparison file | Theory-level relation |
+|---|---|---|---|---|
+| lambek__discocat | Selected sentence derivations and their interpretations in Lambek and pregroup encodings. | 2/6 | No Coq bridge yet | unassessed |
+| mtt__dts | Quantifiers over induced image predicates, negative predication and a Prop-valued donkey fragment. | 4/6 | atlas/mtt_ranta/MTT_vs_DTS.v | unassessed |
+| mtt__ranta | Selected noun types, quantifiers, intersective adjectives and donkey constructions in the two encodings. | 10/18 | atlas/mtt_ranta/MTT_vs_Ranta.v | unassessed |
+| ptq__barwise_cooper | Selected generalized-quantifier definitions and conservativity/monotonicity instances. | 3/7 | atlas/montague/PTQ.v | unassessed |
+| ptq__kratzer | The displayed modal clauses, including the empty-background case and selected modal laws. | 3/7 | shallow/kratzer2.v | unassessed |
+| ptq__lambek | Four selected proper-name, quantifier and type-raising constructions. | 4/8 | atlas/montague/PTQ_vs_Lambek.v | unassessed |
+| ptq__mtt | Selected quantifiers and generalized-quantifier conservativity after noun re-encoding. | 6/11 | atlas/montague/PTQ_vs_MTT.v | unassessed |
+| ranta__dts | Predicate-based noun/context representations, the canonical donkey reading and selected discourse constructions. | 6/9 | atlas/mtt_ranta/DTS.v | unassessed |
+| ttr__mtt | The man-runs construction, interpreted pointwise at a fixed TTR model; not the full TTR or MTT framework. | 3/4 | atlas/ttr/TTR_vs_MTT.v | unassessed |
 
 ## Survey predictions (including addenda)
 

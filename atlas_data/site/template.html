@@ -316,21 +316,14 @@ function plateSVG(W=1180,H=700){
 
   let e='';
   liveEdges.forEach(ed=>{
-    const a=P[ed.a], b=P[ed.b], c=ed._computed||{};
-    const sim=c.similarity||0, ov=c.overlap||0;
+    const a=P[ed.a], b=P[ed.b];
     const dx=b.x-a.x, dy=b.y-a.y, len=Math.hypot(dx,dy)||1;
     const bow=Math.min(46,len*0.10);                      /* gentle meridian bow */
     const mx=(a.x+b.x)/2 - (dy/len)*bow, my=(a.y+b.y)/2 + (dx/len)*bow;
-    const w=Math.max(1.2,(sim/5)*5.4), op=0.34+ov*0.58;
     e+=`<g><path class="edge" d="M${a.x} ${a.y} Q ${mx} ${my} ${b.x} ${b.y}"
-        stroke-width="${w.toFixed(2)}" stroke-opacity="${op.toFixed(2)}"
-        ${sim<3?'stroke-dasharray="7 5"':''}
-        onclick="go('#/edge/${ed._key}')"><title>${esc(name(ed.a))} ↔ ${esc(name(ed.b))} — similarity ${sim}, overlap ${ov}</title></path>`;
-    const tx=(a.x+b.x)/2-(dy/len)*bow*0.5, ty=(a.y+b.y)/2+(dx/len)*bow*0.5;
-    e+=`<g class="etag" onclick="go('#/edge/${ed._key}')" style="cursor:pointer">
-        <rect x="${(tx-16).toFixed(1)}" y="${(ty-8).toFixed(1)}" width="32" height="16"/>
-        <text x="${tx.toFixed(1)}" y="${(ty+4).toFixed(1)}" text-anchor="middle">${sim.toFixed(1)}</text>
-        <title>similarity ${sim} — mean grade over ${c.joint_phenomena} joint phenomena</title></g></g>`;
+        stroke-width="2.4" stroke-opacity="0.75"
+        ${ed.bridge_file?'':'stroke-dasharray="7 5"'}
+        onclick="go('#/edge/${ed._key}')"><title>${esc(name(ed.a))} ↔ ${esc(name(ed.b))} — ${ed.bridge_file?'comparison file listed':'no Coq bridge yet'}; theory-level relation unassessed</title></path></g>`;
   });
 
   const plateOf = (k,x,y,file) => {
@@ -351,22 +344,21 @@ function plateSVG(W=1180,H=700){
     const gap=(W-64-tot)/(loose.length+1);
     let x=32+gap;
     reg+=`<path d="M0 ${Hg} H${W}" stroke="#1E2B1E" stroke-width="2"/>
-      <text x="16" y="${Hg+26}" style="font:600 11px Archivo;letter-spacing:.08em;fill:#5C6B5A">FORMALIZED · NO GRADED EDGE YET</text>`;
+      <text x="16" y="${Hg+26}" style="font:600 11px Archivo;letter-spacing:.08em;fill:#5C6B5A">IMPLEMENTATION RECORDS · NO COMPARISON PROFILE YET</text>`;
     loose.forEach((n,i)=>{ reg+=plateOf(n.key, x+ws[i]/2, Hg+66, n.file); x+=ws[i]+gap; });
   }
 
   const lg=`<g transform="translate(${(W*0.42).toFixed(0)},${(Hg-108).toFixed(0)})">
     <rect x="0" y="0" width="220" height="100" fill="#FBFAF6" stroke="#1E2B1E" stroke-width="2"/>
     <text x="12" y="21" style="font:600 10px Archivo;letter-spacing:.08em;fill:#5C6B5A">LEGEND</text>
-    <path d="M12 37 H72" stroke="#1E2B1E" stroke-width="5.4" stroke-opacity="0.92"/>
-    <text x="80" y="41" style="font:11px Archivo;fill:#1E2B1E">5·0 definitional</text>
-    <path d="M12 57 H72" stroke="#1E2B1E" stroke-width="3.2" stroke-opacity="0.6"/>
-    <text x="80" y="61" style="font:11px Archivo;fill:#1E2B1E">3·0 one-way / mediated</text>
-    <rect x="12" y="71" width="28" height="14" fill="#4E8C3B"/>
-    <text x="48" y="82" style="font:11px Archivo;fill:#1E2B1E">measured similarity</text></g>`;
+    <path d="M12 37 H60" stroke="#1E2B1E" stroke-width="2.4"/>
+    <text x="70" y="41" style="font:11px Archivo;fill:#1E2B1E">Comparison file listed</text>
+    <path d="M12 57 H60" stroke="#1E2B1E" stroke-width="2.4" stroke-dasharray="7 5"/>
+    <text x="70" y="61" style="font:11px Archivo;fill:#1E2B1E">No bridge file listed</text>
+    <text x="12" y="82" style="font:11px Archivo;fill:#1E2B1E">Layout is not a distance measure</text></g>`;
 
   return `<svg viewBox="0 0 ${W} ${H}" role="img"
-    aria-label="Plate I — ${mapped.length} theories joined by ${liveEdges.length} graded edges">${g}${e}${lg}${nd}${reg}</svg>`;
+    aria-label="Plate I — ${mapped.length} implementation records with ${liveEdges.length} scoped comparison profiles; layout is not a distance measure">${g}${e}${lg}${nd}${reg}</svg>`;
 }
 
 /* ---------- badges ---------- */
@@ -470,7 +462,7 @@ function vHome(){
   <section class="wrap">
     <div class="sechead"><span class="kicker">Plate I</span><h2>${totals.theories} implementation records, mapped.</h2>
       <span class="note">Edges compare selected constructions and encodings.
-      Their grades are not whole-framework equivalence claims.</span></div>
+      Layout is editorial, not theoretical distance. No scalar similarity is inferred.</span></div>
     <div class="plate">${plateSVG()}
       <div class="cap"><span>Formal Atlas — Plate I</span><span>·</span>
         <span>${liveEdges.length} drawn edges · click a plate or a line</span></div></div>
@@ -527,6 +519,12 @@ function vReading(){
       admission-free CI gate applies to the atlas layer. Statement counts include helpers
       and conditional results, not just independent linguistic claims.</p></div>
     <div class="block"><h3>Read comparisons with their boundaries</h3>
+      <p>Comparison profiles state fragments, observations, representation choices and named evidence.
+      Compositionality, preservation, reflection, model coverage and recoverability remain explicit
+      theory-level obligations; none is automatically discharged by an existing score or theorem name.
+      The old ordinal means and checklist Jaccard ratios are retired to annotation history.
+      Graph spacing, thickness and opacity do not encode theoretical similarity or distance.
+      <a class="textlink" href="https://github.com/StergiosCha/formal_atlas_of_semantics/blob/main/atlas_data/COMPARISON_METHOD.md">Comparison method and migration</a>.</p>
       <p>The <a class="textlink" href="#/theory/atlas__ttr_vs_mtt">TTR → MTT translation</a>
       fixes a model and a selected construction; the subject projection loses witness
       information and has no inverse. It is not framework equivalence. The
@@ -648,11 +646,11 @@ function vRegion(r){
   </section>
   ${rel.length?`<section><div class="sechead"><span class="kicker">Edges touching this region</span>
     <h2>${rel.length} relation${rel.length===1?'':'s'}</h2></div>
-    <table><thead><tr><th>Relation</th><th>Level</th><th class="n">Similarity</th></tr></thead><tbody>
-    ${rel.map(e=>{const c=e._computed||{};return `<tr onclick="go('#/edge/${e._key}')" style="cursor:pointer">
+    <table><thead><tr><th>Comparison</th><th>Family grouping</th><th>Theory-level relation</th></tr></thead><tbody>
+    ${rel.map(e=>{return `<tr onclick="go('#/edge/${e._key}')" style="cursor:pointer">
       <td><a href="#/edge/${e._key}"><b>${esc(name(e.a))}</b> <span class="dim">↔</span> <b>${esc(name(e.b))}</b></a></td>
       <td class="small dim">${esc(e.level||'')}</td>
-      <td class="n"><span class="b ${c.similarity>=4?'ok':c.similarity>=3?'mid':'bad'}">${c.similarity}</span></td></tr>`;}).join('')}
+      <td><span class="b q">Unassessed</span></td></tr>`;}).join('')}
     </tbody></table></section>`:''}
   ${pap.length?`<section><div class="sechead"><span class="kicker">Sources</span>
     <h2>${pap.length} paper${pap.length===1?'':'s'} formalized here</h2></div>
@@ -850,13 +848,13 @@ function vTheory(key){
     ${list('Additions beyond the source',fa.additions)}
 
     ${rel.length?`<div class="block"><h3>Edges from here</h3>
-      <table><thead><tr><th>To</th><th>Level</th><th class="n">Similarity</th><th class="n">Overlap</th></tr></thead><tbody>
-      ${rel.map(e=>{const o=e.a===key?e.b:e.a,cc=e._computed||{};
+      <table><thead><tr><th>To</th><th>Family grouping</th><th>Theory-level relation</th><th class="n">Shared/listed entries</th></tr></thead><tbody>
+      ${rel.map(e=>{const o=e.a===key?e.b:e.a,cc=e._profile?.coverage;
         return `<tr onclick="go('#/edge/${e._key}')" style="cursor:pointer">
         <td><a href="#/edge/${e._key}"><b>${esc(name(o))}</b></a></td>
         <td class="small dim">${esc(e.level||'')}</td>
-        <td class="n"><span class="b ${cc.similarity>=4?'ok':cc.similarity>=3?'mid':'bad'}">${cc.similarity}</span></td>
-        <td class="n small">${cc.overlap}</td></tr>`;}).join('')}</tbody></table></div>`:''}
+        <td><span class="b q">Unassessed</span></td>
+        <td class="n small">${cc?cc.shared+'/'+cc.listed:'—'}</td></tr>`;}).join('')}</tbody></table></div>`:''}
 
     ${f.notes?`<div class="block"><h3>Notes</h3><p style="max-width:none">${esc(f.notes)}</p></div>`:''}
   </div>
@@ -910,52 +908,74 @@ function vTheory(key){
 function vEdges(){
   return `<div class="wrap"><div class="crumb"><a href="#/">Atlas</a> / Edges</div>
   <section style="padding-top:24px">
-    <div class="sechead"><h2>${edges.length} graded edges</h2>
-      <span class="note">Grades run 5 definitional · 4 equivalence · 3 one-way or mediated ·
-      2 divergent with countermodel · 1 after re-encoding · 0 not statable.</span></div>
-    <table><thead><tr><th>Relation</th><th>Level</th><th>Bridge in Coq</th>
-      <th class="n">Similarity</th><th class="n">Overlap</th><th class="n">Joint</th></tr></thead><tbody>
-    ${edges.map(e=>{const c=e._computed||{};
+    <div class="sechead"><h2>${edges.length} scoped comparison profiles</h2>
+      <span class="note">Compare explicit fragments, observations, representation choices and evidence.
+      No theoretical similarity score or distance is calculated.</span></div>
+    <p class="small">Shared/listed counts refer to each pair's recorded checklist, not the coverage
+      of either whole theory. A listed file does not by itself establish a translation.
+      <a class="textlink" href="#/reading">Method and limitations</a>.</p>
+    <table><thead><tr><th>Comparison</th><th>Declared fragment</th><th>Listed comparison file</th>
+      <th class="n">Shared/listed entries</th><th>Theory-level relation</th></tr></thead><tbody>
+    ${edges.map(e=>{const p=e._profile, c=p?.coverage;
       return `<tr onclick="go('#/edge/${e._key}')" style="cursor:pointer">
       <td><a href="#/edge/${e._key}"><b>${esc(name(e.a))}</b> <span class="dim">↔</span> <b>${esc(name(e.b))}</b></a></td>
-      <td class="small dim">${esc(e.level||'')}</td>
-      <td class="mono tiny">${e.bridge_file?esc(e.bridge_file.split('/').pop()):'<span class="dim">—</span>'}</td>
-      <td class="n"><span class="b ${c.similarity>=4?'ok':c.similarity>=3?'mid':'bad'}">${c.similarity}</span></td>
-      <td class="n">${c.overlap}</td><td class="n">${c.joint_phenomena}</td></tr>`;}).join('')}
+      <td class="small">${esc(p?.scope||'No profile recorded')}</td>
+      <td class="mono tiny">${e.bridge_file?esc(e.bridge_file.split('/').pop()):'No Coq bridge yet'}</td>
+      <td class="n">${c?c.shared+'/'+c.listed:'—'}</td><td><span class="b q">Unassessed</span></td></tr>`;}).join('')}
     </tbody></table></section></div>`;
 }
 
 function vEdge(key){
   const e=edges.find(x=>x._key===key); if(!e) return notFound();
-  const c=e._computed||{};
-  const GR={5:'definitional',4:'equivalence',3:'one-way or mediated',2:'divergent — countermodel',1:'after re-encoding',0:'not statable'};
+  const p=e._profile, c=p?.coverage, old=e._legacy_scores||e._computed;
+  const GR={5:'definitional agreement',4:'equivalence on selected inputs',3:'one-way or mediated',2:'counterexample / divergence',1:'re-encoding',0:'representation mismatch'};
   return `<div class="wrap"><div class="crumb"><a href="#/">Atlas</a> / <a href="#/edges">Edges</a> / ${esc(name(e.a))} ↔ ${esc(name(e.b))}</div>
   <section style="padding-top:20px">
     <span class="kicker">${esc(e.level||'')}</span>
     <h2 style="margin:12px 0 18px"><a href="#/theory/${e.a}">${esc(name(e.a))}</a>
       <span class="dim">↔</span> <a href="#/theory/${e.b}">${esc(name(e.b))}</a></h2>
-    <div class="stats" style="border-top:var(--rule);margin-top:0">
-      <div class="stat"><b>${c.similarity}</b><span>similarity — mean joint grade</span></div>
-      <div class="stat"><b>${c.overlap}</b><span>overlap — Jaccard on phenomena</span></div>
-      <div class="stat"><b>${c.joint_phenomena}</b><span>phenomena both theories attempt</span></div>
-      <div class="stat"><b>${e.bridge_file?'yes':'no'}</b><span>formal bridge in Coq</span></div>
-    </div>
-    ${e.notes?`<p style="margin-top:26px;font-size:16.5px">${esc(e.notes)}</p>`:''}
-    ${e.bridge_file?Object.entries(D.proof_sources||{}).filter(([k,s])=>s.path===shortPath(e.bridge_file)).map(([k,s])=>`<p style="margin-top:16px"><a class="btn ghost" href="${proofURL(k)}">Read the Coq bridge: ${esc(s.path)}</a></p>`).join(''):''}
-    <div class="block"><h3>Phenomenon by phenomenon</h3>
-      <table><thead><tr><th>Phenomenon</th><th>Evidence</th><th class="n">Grade</th></tr></thead><tbody>
+    <p><span class="b q">Theory-level relation: unassessed</span></p>
+    ${p?`<div class="block"><h3>Declared comparison</h3><dl class="small">
+      <dt>Fragment</dt><dd>${esc(p.scope)}</dd>
+      <dt>Observations</dt><dd>${esc(p.observations)}</dd>
+      <dt>Representation choices</dt><dd>${esc(p.representation_choices)}</dd>
+      <dt>Direction and scope</dt><dd>${esc(p.direction)}</dd>
+      <dt>Limits / information loss</dt><dd>${esc(p.limitations)}</dd></dl>
+      <p class="tiny dim">Editorial restatement of existing artifacts, not a new source-fidelity review or equivalence proof.</p></div>
+    <div class="block"><h3>Named fragment evidence</h3>
+      ${p.support.length?p.support.map(s=>`<div style="margin-top:12px"><a class="textlink" href="${proofURL(s.record_key)}">Read supporting Coq file</a>
+        <ul class="tick mono tiny">${Object.keys(s.theorems).map(n=>`<li>${proofLink(s.record_key,n)}</li>`).join('')}</ul></div>`).join(''):
+        '<p>No cross-framework Coq theorem is supplied in this profile. No Coq bridge yet.</p>'}
+      <p class="tiny dim">Links identify existing statements with pinned source hashes and recorded fingerprints.
+      Inspect their premises and assumption audits; their existence does not discharge the theory-level obligations below.</p></div>
+    <div class="block"><h3>Theory-level comparison obligations</h3>
+      <p class="small">Unassessed means the general obligation has not been adjudicated here, not that related fragment lemmas are absent or the obligation is impossible.</p>
+      <table><thead><tr><th>Obligation</th><th>Question</th><th>Status</th></tr></thead><tbody>
+      ${p.obligations.map(o=>`<tr><td>${esc(o.id.replaceAll('_',' '))}</td><td>${esc(o.question)}</td><td><span class="b q">Unassessed</span></td></tr>`).join('')}
+      </tbody></table></div>`:'<div class="block"><h3>No comparison profile recorded</h3><p>No theory-level relationship is inferred from historical scores.</p></div>'}
+    <p class="small">${c?`${c.shared} shared entries out of ${c.listed} listed for this pair.`:''}
+      These are checklist counts, not theoretical coverage or similarity. One-sided listing does not establish that the other theory cannot express a phenomenon.</p>
+    ${e.bridge_file?Object.entries(D.proof_sources||{}).filter(([k,s])=>s.path===shortPath(e.bridge_file)).map(([k,s])=>`<p style="margin-top:16px"><a class="btn ghost" href="${proofURL(k)}">Open listed comparison file: ${esc(s.path)}</a></p>`).join(''):''}
+    <div class="block"><h3>Recorded phenomenon evidence</h3>
+      <p class="tiny dim">Prior annotations are retained for traceability, not promoted to verified theoretical relationships.</p>
+      <table><thead><tr><th>Phenomenon</th><th>Recorded evidence</th><th>Prior annotation</th></tr></thead><tbody>
       ${(e.phenomena||[]).map(p=>`<tr>
-        <td><b>${esc(p.name)}</b><div class="tiny dim" style="margin-top:5px">attempted by ${
+        <td><b>${esc(p.name)}</b><div class="tiny dim" style="margin-top:5px">listed for ${
           esc((p.attempted_by||[]).map(s=>s==='a'?shortName(e.a):shortName(e.b)).join(' + '))}</div></td>
         <td class="small">${esc(p.evidence||'')}${p.note?`<div class="tiny dim" style="margin-top:5px">${esc(p.note)}</div>`:''}</td>
-        <td class="n"><span class="b ${p.grade>=4?'ok':p.grade>=3?'mid':p.grade==null?'q':'bad'}">${
-          p.grade==null?'one-sided':p.grade+' · '+GR[p.grade]}</span></td></tr>`).join('')}
+        <td><span class="b q">${p.grade==null?'one-sided listing':esc(GR[p.grade]||'unclassified')}</span></td></tr>`).join('')}
       </tbody></table></div>
-    ${(c.a_only||[]).length||(c.b_only||[]).length?`<div class="block"><h3>Attempted by only one side</h3>
+    ${(c?.a_only||[]).length||(c?.b_only||[]).length?`<div class="block"><h3>Listed on only one side</h3>
       <div class="grid g3" style="border-left:var(--rule);border-top:var(--rule)">
       <div class="card"><h3>${esc(name(e.a))} only</h3><ul class="tick">${(c.a_only||[]).map(x=>`<li>${esc(x)}</li>`).join('')||'<li class="dim">—</li>'}</ul></div>
       <div class="card"><h3>${esc(name(e.b))} only</h3><ul class="tick">${(c.b_only||[]).map(x=>`<li>${esc(x)}</li>`).join('')||'<li class="dim">—</li>'}</ul></div>
-      <div class="card"><h3>Grading scale</h3><p>${esc(e.grading||'')}</p></div></div></div>`:''}
+      <div class="card"><h3>Scope reminder</h3><p>Pair-specific lists are incomplete and mix implementation evidence with source descriptions. They are not a universal theory inventory.</p></div></div></div>`:''}
+    <details class="block" data-legacy-scores><summary>Retired scores and original annotation history</summary>
+      <p class="small">These ordinal averages were labelled similarity. They do not measure theoretical similarity or distance and are no longer used for ranking or drawing the graph.</p>
+      ${old?`<p class="tiny">Historical mean: ${esc(old.similarity??'not available')}; historical checklist Jaccard: ${esc(old.overlap??'not available')}.</p>`:''}
+      <p class="tiny">Original grading convention: ${esc(e.grading||'')}</p>
+      <p class="small">${esc(e.notes||'')}</p>
+      <p class="tiny">A missing bridge cannot be assumed to yield any future grade; annotations are not validated by compilation.</p></details>
   </section></div>`;
 }
 

@@ -8,8 +8,8 @@ verifier**, built on the FORMAL-ATLAS Coq library in this repository.
 ```
 ┌───────────────────────────────────────────────────────────────┐
 │ frontend  — the atlas site (atlas.json + edges), grown into:  │
-│   • the MAP: framework graph, edges colored by similarity,    │
-│     click-through to per-phenomenon grades and theorems       │
+│   • the MAP: scoped comparison profiles with evidence,       │
+│     click-through to scoped statements and actual proofs    │
 │   • the PHENOMENON view: one sentence (e.g. the donkey)       │
 │     side-by-side in DPL / Ranta / DTS / MTT / PTQ             │
 │   • the PLAYGROUND: RSA calculator, InqB support checker      │
@@ -26,8 +26,9 @@ verifier**, built on the FORMAL-ATLAS Coq library in this repository.
 └───────────────────────────────────────────────────────────────┘
 ```
 
-**Design rule: the LLM never grades; Coq grades.** Every green check in
-the UI is a `Qed` behind the scenes; the LLM only proposes.
+**Design rule: the LLM proposes; Coq checks the proof artifact.** Theory-level
+relationships and source fidelity need separate assessment. Historical edge
+annotations are not grades computed or certified by Coq.
 
 ## Quick start
 

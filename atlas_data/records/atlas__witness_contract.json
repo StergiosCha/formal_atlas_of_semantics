@@ -1,0 +1,205 @@
+{
+ "file": "atlas/ttr/Witness_Contract.v",
+ "region": "TTR and modern type theories: scoped comparisons",
+ "summary": "Explicit shared-carrier contract for witnesses and model variation. Shared-witness packages are recoverable from independent packages exactly on their aligned image. A zero-arity ptype/meet fragment is realized using the existing TTR, MTT and Ranta encodings; model transport requires explicit preservation/reflection hypotheses. Atomic truth agreement alone does not preserve meet inhabitation.",
+ "sources": [],
+ "source_note": "Comparison infrastructure, not a new formalization or assessment of an entire source. Consulted passages and SHA256 identities are recorded in audits/witness_contract_2026_09_25.md; source-level evidence links and grades are unchanged.",
+ "assessment_status": "incomplete",
+ "definitions_mapped": [
+  {
+   "coq": "Packages.shared / independent / aligned / join_aligned",
+   "source": "Added common-carrier comparison infrastructure",
+   "match": "added",
+   "note": "The shared carrier, equality and alignment criterion are explicit representation choices, not identical native noun ontologies."
+  },
+  {
+   "coq": "Fragment.ttr_code / sat / mtt_realization / ranta_realization",
+   "source": "Cooper A8, CL20 strong Sigma, Ranta propositions as types",
+   "match": "added",
+   "note": "Model-indexed realization of a zero-argument ptype and binary-meet fragment. Object-language codes are not identified with their extensions."
+  },
+  {
+   "coq": "Fragment.preserves / reflects / transport",
+   "source": "Added model-change comparison relation",
+   "match": "added",
+   "note": "Compatibility hypotheses on explicit assignments and a carrier map; not source-authored notions of equivalence or arbitrary model changes."
+  }
+ ],
+ "faithfulness": {
+  "verdict": "not_applicable",
+  "evidence": [
+   "Mechanical contract over specified encodings; no independent source-fidelity verdict or whole-theory equivalence."
+  ],
+  "simplifications": [
+   "Fixed object/type-code domains; zero-arity ptypes and binary meet only; Prop-valued TTR satisfaction."
+  ],
+  "omissions": [
+   "Dependent records, varying Type_M, signatures/coercive subtyping, general translations, counting and DTS resolution."
+  ],
+  "additions": [
+   "Shared-carrier alignment interface, explicit translation maps and model-change conditions."
+  ]
+ },
+ "determination": "not_applicable",
+ "determination_rationale": "Comparison infrastructure is not a source-level determination.",
+ "notes": "See audits/witness_contract_2026_09_25.md and designs/ttr_mtt_ranta_contract_v0.md. The .mech.json sidecar records every named statement, compile check and assumption audit; claims.lock pins their fingerprints. No choice, proof irrelevance, functional extensionality or UIP is assumed.",
+ "compiles": true,
+ "theorems": [
+  {
+   "name": "Packages.split_aligned",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Packages.join_split",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Packages.split_join",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Packages.image_exactly_aligned",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Packages.join_preserves_left_witness",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Packages.join_preserves_right_witness",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Packages.strong_encodings_preserve_witness",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Packages.shared_truth",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Packages.independent_truth",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Packages.Separation.independent_inhabited",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Packages.Separation.shared_empty",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Packages.Separation.no_total_recovery",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Fragment.ttr_adequacy",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Fragment.ttr_mtt_carrier_roundtrips",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Fragment.mtt_ranta_roundtrips",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Fragment.inhabitation_preserved_and_reflected",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Fragment.meet_compositional_at_witness",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Fragment.meet_package_roundtrips",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Fragment.preservation_extends_to_meets",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Fragment.reflection_extends_to_meets",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Fragment.transport_witness",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Fragment.identity_preserves",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Fragment.composition_preserves",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Fragment.transport_split_commutes_on_witnesses",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Fragment.reversible_transport_recovers_witness",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Fragment.whole_carrier_inhabitation",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Fragment.ModelSeparation.separating_models_admissible",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Fragment.ModelSeparation.atomic_truth_agrees",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Fragment.ModelSeparation.atomic_truth_agreement_not_meet_agreement",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  },
+  {
+   "name": "Fragment.ModelSeparation.identity_does_not_preserve_assignment_change",
+   "status": "proved",
+   "source_claim": "Added bounded comparison lemma; see witness_contract_2026_09_25.md for interpretation and limitations."
+  }
+ ],
+ "counts": {
+  "theorems": 30,
+  "proved": 30,
+  "admitted": 0,
+  "propositional_axioms": 0
+ }
+}

@@ -1,6 +1,6 @@
 # Formalizability Atlas of Semantics — current state
 
-Coq files audited: **86** · theorem statements: **1504** (proved 1491, admitted 12) · papers surveyed: **230** · records explicitly disputed by a reviewer: **0**
+Coq files audited: **87** · theorem statements: **1534** (proved 1521, admitted 12) · papers surveyed: **230** · records explicitly disputed by a reviewer: **0**
 
 ## Recorded file assessments (not reviewed paper outcomes)
 
@@ -12,7 +12,7 @@ These preserved file-level opinions do not establish source-wide conclusions. Co
 | 2 slight modification | 23 |
 | 3 major restructuring | 16 |
 | 4 cannot | 0 |
-| n/a | 9 |
+| n/a | 10 |
 | unassessed (incomplete scope) | 17 |
 
 ## Faithfulness verdicts
@@ -23,7 +23,7 @@ These preserved file-level opinions do not establish source-wide conclusions. Co
 | faithful-with-corrections | 1 |
 | partial | 53 |
 | unfaithful | 10 |
-| not_applicable | 2 |
+| not_applicable | 3 |
 
 ## Claim-level comparison beneath the evidence ladder
 
@@ -47,6 +47,7 @@ All remain F3/unassessed. [Method and limitations](campaigns/claim_comparison_20
 | atlas/ttr/TTR.v | Cooper, R. (2023). From Perception to Communication. OUP. | 65/65 | faithful | 2 slight modification | iv | — |
 | atlas/ttr/TTR_Model.v | Cooper, R. (2023). From Perception to Communication. OUP. | 10/10 | faithful | 2 slight modification | iv | — |
 | atlas/ttr/TTR_vs_MTT.v | Cooper, R. (2023). From Perception to Communication. OUP.; Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. | 6/6 | faithful | n/a | iv | — |
+| atlas/ttr/Witness_Contract.v |  | 30/30 | not_applicable | n/a | — | — |
 
 ## boundary (cognitive semantics)
 
@@ -353,13 +354,13 @@ No theoretical similarity or distance is calculated. The old ordinal means and J
 |---|---|---|---|---|
 | lambek__discocat | Selected sentence derivations and their interpretations in Lambek and pregroup encodings. | 2/6 | No Coq bridge yet | unassessed |
 | mtt__dts | Quantifiers over induced image predicates, negative predication and a Prop-valued donkey fragment. | 4/6 | atlas/mtt_ranta/MTT_vs_DTS.v | unassessed |
-| mtt__ranta | Selected noun types, quantifiers, intersective adjectives and donkey constructions in the two encodings. | 10/18 | atlas/mtt_ranta/MTT_vs_Ranta.v | unassessed |
+| mtt__ranta | Selected noun types, quantifiers, intersective adjectives and donkey constructions in the two encodings. A separate shared-carrier contract also compares strong packages with Type-valued fibres. | 10/18 | atlas/mtt_ranta/MTT_vs_Ranta.v | unassessed |
 | ptq__barwise_cooper | Selected generalized-quantifier definitions and conservativity/monotonicity instances. | 3/7 | atlas/montague/PTQ.v | unassessed |
 | ptq__kratzer | The displayed modal clauses, including the empty-background case and selected modal laws. | 3/7 | shallow/kratzer2.v | unassessed |
 | ptq__lambek | Four selected proper-name, quantifier and type-raising constructions. | 4/8 | atlas/montague/PTQ_vs_Lambek.v | unassessed |
 | ptq__mtt | Selected quantifiers and generalized-quantifier conservativity after noun re-encoding. | 6/11 | atlas/montague/PTQ_vs_MTT.v | unassessed |
 | ranta__dts | Predicate-based noun/context representations, the canonical donkey reading and selected discourse constructions. | 6/9 | atlas/mtt_ranta/DTS.v | unassessed |
-| ttr__mtt | The man-runs construction, interpreted pointwise at a fixed TTR model; not the full TTR or MTT framework. | 3/4 | atlas/ttr/TTR_vs_MTT.v | unassessed |
+| ttr__mtt | The original fixed-model man-runs construction, plus a separate zero-arity ptype/binary-meet witness contract; neither is the full TTR or MTT framework. | 3/4 | atlas/ttr/TTR_vs_MTT.v | unassessed |
 
 ## Survey predictions (including addenda)
 

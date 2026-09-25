@@ -61,13 +61,23 @@ contains the scoped presentation and descriptive checklist counts. Consumers
 must not read `_legacy_scores` as an active metric. The site shows them only
 under a collapsed, explicitly retired annotation-history section.
 
-The preservation test reverses just this schema change and checks the complete
-historical atlas hash against the pinned pre-migration baseline. Papers, P/F
-grades, outcomes, proof records and original edge annotations are not exempted.
-Coq sources, assumptions and the claim lock are unchanged. Existing F-tier
-rules are also unchanged; this correction does not introduce a new F policy.
+For the initial presentation correction, the preservation test reversed just
+this schema change and checked the complete historical atlas hash. The
+subsequent witness-contract addition excludes its one explicitly named new
+record, recomputes historical totals from the original 86 records, and still
+checks that full baseline hash. No original paper, grade, outcome, proof
+record or edge annotation is exempted. The new contract adds 30 statements to
+the claim lock without changing old entries. F-tier rules remain unchanged.
 
-## Next research phase
+## First implemented contract and next research phase
+
+[Witness contract v0](audits/witness_contract_2026_09_25.md) now implements
+shared/independent packages and a zero-arity ptype/binary-meet fragment.
+Its 30 statements establish aligned-image recovery, scoped witness and
+inhabitation correspondences, conditional model transport, and a counterexample
+to using atomic truth agreement alone. The shared carrier and predicates are
+explicitly added comparison infrastructure. These fragment results do not
+complete any theory-level obligation or supply a theoretical distance.
 
 Define source-grounded comparison contracts: languages, judgments, admissible
 models and observations; then specify translations and prove the obligations

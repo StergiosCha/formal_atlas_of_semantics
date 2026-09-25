@@ -3,11 +3,11 @@
   "assessment_basis": "editorial_restatement_of_existing_artifacts",
   "profiles": {
     "ttr__mtt": {
-      "scope": "The man-runs construction, interpreted pointwise at a fixed TTR model; not the full TTR or MTT framework.",
-      "observations": "Record-type inhabitation versus the translated MTT existential; distinguishability of record witnesses under subject projection.",
-      "representation_choices": "A basic extension becomes a noun subtype. Predicate witnesses are existentially erased. The external TTR assignment layer is not identified with MTT judgments.",
-      "direction": "TTR records imply the translated existential; the reverse result establishes record inhabitation, not an inverse preserving record identity.",
-      "limitations": "The counterexample rules out an inverse of this subject projection only. It does not rule out richer translations. Preservation of model variation and full satisfaction structure remains unassessed.",
+      "scope": "The original fixed-model man-runs construction, plus a separate zero-arity ptype/binary-meet witness contract; neither is the full TTR or MTT framework.",
+      "observations": "Inhabitation, carrier-witness identity and satisfaction under explicitly compatible changes of assignment. Atomic inhabitation agreement alone can fail at meet.",
+      "representation_choices": "The original bridge existentially erases predicate witnesses. The new contract instead adds a shared carrier and model-indexed predicates, realized with strong Sigma in MTT/Ranta; external TTR codes and assignments are not identified with their extensions or MTT judgments.",
+      "direction": "The original map preserves inhabitation, not record identity. The new fragment maps preserve carrier witnesses; independent packages recover a shared package exactly on the aligned image. Model transport is conditional on explicit preservation/reflection assumptions.",
+      "limitations": "The original counterexample rules out an inverse of this subject projection only. The new contract covers zero-arity ptypes and binary meet on fixed domains, not dependent records, varying Type_M or whole-theory satisfaction. Reflection of target inhabitation additionally requires surjectivity. No theory-level relation is approved.",
       "support": [
         {
           "record_key": "atlas__ttr_vs_mtt",
@@ -17,16 +17,31 @@
             "ttr.TTR_vs_MTT.LossOfInformation.subject_projection_loses_witnesses": "9176806351358381",
             "ttr.TTR_vs_MTT.LossOfInformation.no_inverse_from_subject": "318719eedf0e1ecb"
           }
+        },
+        {
+          "record_key": "atlas__witness_contract",
+          "source_sha256": "4eb1ca9ede21eb113c4b80c07a6c6dbc9b5510baf2cda9596d4f35288aee38db",
+          "theorems": {
+            "ttr.Witness_Contract.Packages.image_exactly_aligned": "53c32bc051871a12",
+            "ttr.Witness_Contract.Packages.Separation.no_total_recovery": "8e7f99b83723caba",
+            "ttr.Witness_Contract.Fragment.ttr_adequacy": "19e164145fd02e83",
+            "ttr.Witness_Contract.Fragment.ttr_mtt_carrier_roundtrips": "029fdce180d7c074",
+            "ttr.Witness_Contract.Fragment.preservation_extends_to_meets": "8b55a9467bc42f50",
+            "ttr.Witness_Contract.Fragment.reflection_extends_to_meets": "968aba3839e8ab2d",
+            "ttr.Witness_Contract.Fragment.transport_split_commutes_on_witnesses": "f05c3b826338f4f4",
+            "ttr.Witness_Contract.Fragment.whole_carrier_inhabitation": "f87fa7afd9f67a93",
+            "ttr.Witness_Contract.Fragment.ModelSeparation.atomic_truth_agreement_not_meet_agreement": "b49ff9d6bc368b1c"
+          }
         }
       ],
       "theory_relation": "unassessed"
     },
     "mtt__ranta": {
-      "scope": "Selected noun types, quantifiers, intersective adjectives and donkey constructions in the two encodings.",
+      "scope": "Selected noun types, quantifiers, intersective adjectives and donkey constructions in the two encodings. A separate shared-carrier contract also compares strong packages with Type-valued fibres.",
       "observations": "Specified sentence meanings and witness-bearing versus proposition-valued existential constructions.",
       "representation_choices": "Both encodings provide strong Sigma witnesses. The weak existential comparison uses inhabitation; explicit lifts and subset representations remain relevant.",
       "direction": "Some constructions agree directly; others have named directional maps. No translation of the entire theories is specified.",
-      "limitations": "Agreement of selected constructors does not settle coercive subtyping, generation, discourse progression or the full source theories.",
+      "limitations": "Agreement of selected constructors does not settle coercive subtyping, generation, discourse progression or the full source theories. The added witness contract deliberately supplies a common carrier and predicates; agreement under that re-encoding is not native architectural equivalence.",
       "support": [
         {
           "record_key": "atlas__mtt_vs_ranta",
@@ -37,6 +52,16 @@
             "mtt_ranta.MTT_vs_Ranta.some_agree_bwd_inhabited": "0e6a4eca61e88928",
             "mtt_ranta.MTT_vs_Ranta.strong_witness_agree": "6fb30515a9d628c9",
             "mtt_ranta.MTT_vs_Ranta.donkey_agree": "3e21533fdb42dbac"
+          }
+        },
+        {
+          "record_key": "atlas__witness_contract",
+          "source_sha256": "4eb1ca9ede21eb113c4b80c07a6c6dbc9b5510baf2cda9596d4f35288aee38db",
+          "theorems": {
+            "ttr.Witness_Contract.Packages.strong_encodings_preserve_witness": "e9c4f6ab33b78272",
+            "ttr.Witness_Contract.Packages.join_split": "bb7f51e1ff5f4a85",
+            "ttr.Witness_Contract.Packages.split_join": "875130022a7c925d",
+            "ttr.Witness_Contract.Fragment.mtt_ranta_roundtrips": "ac2cfa4f4883ccdb"
           }
         }
       ],

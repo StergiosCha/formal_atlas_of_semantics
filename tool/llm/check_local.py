@@ -44,6 +44,19 @@ def check(code: str, imports: list[str] | None = None,
         vname = os.path.join(tmp, "Check_" + uuid.uuid4().hex[:8] + ".v")
         with open(vname, "w") as f:
             f.write(body)
+        if os.environ.get("ATLAS_REQUIRE_SANDBOX") == "1":
+            import isolation
+            cap = isolation.capability(REPO)
+            if not cap["available"]:
+                return {"ok": False, "output": cap["error"], "audit": {}}
+            result = isolation.run(REPO, tmp, "coqc", [*COQ_FLAGS, "-R", tmp, "", vname],
+                                   timeout=TIMEOUT_S)
+            ok = result["returncode"] == 0 and not result["timeout"] and os.path.isfile(vname[:-2] + ".vo")
+            output = result["output"]
+            if result["timeout"]:
+                output += f"\ntimeout after {TIMEOUT_S}s"
+            return {"ok": ok, "output": output[-20_000:],
+                    "audit": parse_audit(output, audit) if ok else {}}
         try:
             proc = subprocess.run(
                 ["coqc", *COQ_FLAGS, "-R", tmp, "", vname],

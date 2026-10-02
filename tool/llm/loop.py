@@ -11,7 +11,7 @@ Feedback arms (experiment E2 in A3_PLAN — pick with --feedback):
   typed  A2  feedback.py's structured signals (default)
 
 Usage:
-  export AZURE_AI_KEY=...            # never stored in the repo
+  export OPENROUTER_API_KEY=...      # never stored in the repo
   python3 loop.py "claim in English" --imports probabilistic.RSA
   python3 loop.py "claim" --model gpt-6-astra --feedback raw
   python3 loop.py "claim" --compare  # whole roster, one table
@@ -132,7 +132,7 @@ def run_checker(url: str | None, draft: dict) -> dict:
 
 def one_run(task: str, model: str, arm: str, rounds: int,
             imports_hint: list[str], checker_url: str | None,
-            log) -> dict:
+            log, *, api_key: str | None = None) -> dict:
     """One claim x one model -> final state dict (also fully logged)."""
     fb_text = ""
     state = {"model": model, "arm": arm, "rounds": 0, "bucket": None,
@@ -144,7 +144,7 @@ def one_run(task: str, model: str, arm: str, rounds: int,
                 "role": "user",
                 "content": DRAFT_PROMPT.format(
                     policy=POLICY, task=task, feedback=fb_text,
-                    vocabulary=vocabulary(imports_hint) or "(no hint)")}])
+                    vocabulary=vocabulary(imports_hint) or "(no hint)")}], api_key=api_key)
         except providers.ModelError as e:
             state["bucket"] = "MODEL_ERROR"
             state["error"] = str(e)[:300]

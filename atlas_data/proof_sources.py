@@ -11,6 +11,12 @@ from pathlib import Path
 from verify import ROOTS, parse
 
 
+def library_fingerprint(sources):
+    manifest = {source["path"]: source["sha256"] for source in sources.values()}
+    return hashlib.sha256(json.dumps(manifest, sort_keys=True,
+                                     separators=(",", ":")).encode()).hexdigest()
+
+
 def bundle_sources(records, repo):
     repo = Path(repo).resolve()
     sources = {}

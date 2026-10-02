@@ -8,6 +8,5 @@ services:
     environment:
       ATLAS_REPO: /atlas
       CHECK_TIMEOUT: "30"
-      AZURE_AI_KEY: ${AZURE_AI_KEY}   # export before `docker compose up`
     volumes:
       - ../atlas_data/atlas.json:/atlas/atlas.json:ro

@@ -1,7 +1,9 @@
 # Propose changes for review
 
-The atlas site is a generated, read-only presentation. It is not a shared Coq
-editor and does not currently have a submission inbox. GitHub provides the
+The published atlas and its recorded proofs remain read-only. The new
+[live workspace](tool/WORKSPACE.md) edits a private copy and can download a review
+patch; it does not provide a submission inbox or change the published library.
+GitHub provides the
 browser-editing and pull-request workflow for proposing changes to the maintainer.
 
 ## Browser workflow
@@ -58,6 +60,7 @@ node atlas_data/site/test_source_registry.cjs
 node atlas_data/site/test_claim_comparison.cjs
 node atlas_data/site/test_rosch_campaign.cjs
 node atlas_data/site/test_outcomes.cjs
+node atlas_data/site/test_workspace.cjs
 git diff --check
 ```
 

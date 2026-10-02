@@ -1,7 +1,7 @@
 FROM coqorg/coq:8.20.1
 
 USER root
-RUN apt-get update && apt-get install -y python3 python3-pip \
+RUN apt-get update && apt-get install -y python3 python3-pip bubblewrap \
     && pip3 install --break-system-packages fastapi uvicorn pydantic \
     && rm -rf /var/lib/apt/lists/*
 
@@ -18,9 +18,9 @@ RUN find . \( -name '*.vo' -o -name '*.vos' -o -name '*.vok' \
     && coq_makefile -f _CoqProject -o Makefile && make -j4
 
 USER root
-COPY tool/checker/server.py /srv/server.py
-# The draft-and-check loop (providers.py needs AZURE_AI_KEY at runtime —
-# an ACA secret, never baked into the image).
+COPY tool/checker/*.py /srv/
+# The draft-and-check loop uses visitors' request-scoped OpenRouter keys.
+# No model credentials are baked into the image or required at boot.
 COPY tool/llm /srv/llm
 
 # The coqorg base wraps every command in `opam exec --` (its ENTRYPOINT), and

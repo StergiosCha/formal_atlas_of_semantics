@@ -22,7 +22,8 @@ import tempfile
 import time
 import uuid
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, HTTPException, Request
+import isolation
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
@@ -36,7 +37,9 @@ for _cand in ("/srv/llm", os.path.abspath(_LLM)):
 
 REPO = os.environ.get("ATLAS_REPO", "/atlas")
 ATLAS_JSON = os.environ.get(
-    "ATLAS_JSON", os.path.join(REPO, "atlas.json"))
+    "ATLAS_JSON", os.path.join(REPO, "atlas_data", "atlas.json"))
+os.environ.setdefault("ATLAS_REPO", REPO)
+os.environ.setdefault("ATLAS_JSON", ATLAS_JSON)
 COQ_FLAGS = ["-R", f"{REPO}/shallow", "", "-R", f"{REPO}/deep", "",
              "-R", f"{REPO}/extras", "", "-R", f"{REPO}/ttr_mtt", "",
              "-R", f"{REPO}/atlas", ""]
@@ -47,9 +50,14 @@ app = FastAPI(title="Formalizing Formal Semantics — checker")
 app.add_middleware(CORSMiddleware, allow_origins=["*"],
                    allow_methods=["*"], allow_headers=["*"])
 
-# The LLM is the budget line (HOSTING.md): cache identical requests, cap
-# per-IP fan-out. In-memory is fine for a single scale-to-zero replica.
-_VERIFY_CACHE: dict[str, dict] = {}
+from workspace import router as workspace_router, guard as workspace_guard, user_model_key, SLOTS
+app.include_router(workspace_router)
+# Both legacy public entry points also execute untrusted/model-proposed Coq.
+# They must not bypass the sandbox used by the new editor. The separate CLI
+# remains available for trusted local research runs.
+os.environ["ATLAS_REQUIRE_SANDBOX"] = "1"
+
+# User-funded model calls are request-scoped, never cached across visitors.
 _IP_HITS: dict[str, list[float]] = {}
 VERIFY_LIMIT_PER_HOUR = int(os.environ.get("VERIFY_LIMIT", "20"))
 
@@ -76,39 +84,15 @@ def atlas():
 
 
 @app.post("/check")
-def check(req: CheckRequest):
-    if len(req.code) > MAX_CODE:
-        return {"ok": False, "output": "snippet too large", "audit": {}}
-    for imp in req.imports:
-        if not IMPORT_RE.match(imp):
-            return {"ok": False, "output": f"bad import: {imp}", "audit": {}}
-    for name in req.audit:
-        if not NAME_RE.match(name):
-            return {"ok": False, "output": f"bad name: {name}", "audit": {}}
-
-    header = "".join(f"Require Import {imp}.\n" for imp in req.imports)
-    footer = "".join(f"Print Assumptions {n}.\n" for n in req.audit)
-    body = header + req.code + "\n" + footer
-
-    with tempfile.TemporaryDirectory() as tmp:
-        # coqc requires a valid module name
-        vname = os.path.join(tmp, "Check_" + uuid.uuid4().hex[:8] + ".v")
-        with open(vname, "w") as f:
-            f.write(body)
-        try:
-            proc = subprocess.run(
-                ["coqc", *COQ_FLAGS, "-R", tmp, "", vname],
-                capture_output=True, text=True, timeout=TIMEOUT_S,
-                cwd=tmp)
-        except subprocess.TimeoutExpired:
-            return {"ok": False, "output": f"timeout after {TIMEOUT_S}s",
-                    "audit": {}}
-
-    ok = proc.returncode == 0
-    output = (proc.stdout or "") + (proc.stderr or "")
+def check(req: CheckRequest, request: Request):
+    workspace_guard(request, "check")
     import check_local
-    audit = check_local.parse_audit(output, req.audit) if ok else {}
-    return {"ok": ok, "output": output[-20_000:], "audit": audit}
+    if not SLOTS.acquire(blocking=False):
+        return {"ok": False, "output": "Coq workers are busy; try again shortly", "audit": {}}
+    try:
+        return check_local.check(req.code, req.imports, req.audit)
+    finally:
+        SLOTS.release()
 
 
 class VerifyRequest(BaseModel):
@@ -124,7 +108,8 @@ def models():
     """The roster the frontend's model picker renders. Only deployments in
     tool/llm/models.json are callable — the list is the allowlist."""
     import providers
-    return {"models": [{"deployment": m["deployment"], "family": m["family"],
+    return {"provider": providers.CFG["provider"],
+            "models": [{"deployment": m["deployment"], "model": m["model"], "family": m["family"],
                         "role": m["role"]} for m in providers.CFG["roster"]],
             "default": providers.POLICY["first_draft"],
             "max_rounds": providers.POLICY["max_rounds"]}
@@ -132,6 +117,19 @@ def models():
 
 @app.post("/verify")
 def verify(req: VerifyRequest, request: Request):
+    workspace_guard(request, "explain")
+    api_key = user_model_key(request)
+    if not isolation.capability(REPO)["available"]:
+        raise HTTPException(503, "Live Coq is unavailable on this host. No model call was made. Selected-code explanations remain available.")
+    if not SLOTS.acquire(blocking=False):
+        return {"error": "Workspace is busy; try again shortly", "bucket": None}
+    try:
+        return _verify(req, request, api_key=api_key)
+    finally:
+        SLOTS.release()
+
+
+def _verify(req: VerifyRequest, request: Request, *, api_key: str):
     """The full neurosymbolic loop, server-side: the chosen model drafts,
     coqc disposes, typed feedback drives repair. The reply carries the
     compiler's verdict; any model-only claim is labeled *_MODEL_CLAIMED_
@@ -155,12 +153,6 @@ def verify(req: VerifyRequest, request: Request):
     arm = req.feedback if req.feedback in ("none", "raw", "typed") else "typed"
     rounds = max(1, min(req.rounds, 6))
 
-    ck = hashlib.sha256(
-        f"{req.claim}|{model}|{sorted(req.imports)}|{arm}|{rounds}".encode()
-    ).hexdigest()
-    if ck in _VERIFY_CACHE:
-        return {**_VERIFY_CACHE[ck], "cached": True}
-
     turns = []
     def log(rnd, draft, check_res, state):
         turns.append({"round": rnd,
@@ -168,13 +160,11 @@ def verify(req: VerifyRequest, request: Request):
                       "ok": (check_res or {}).get("ok")})
     try:
         state = loop.one_run(req.claim, model, arm, rounds,
-                             req.imports, None, log)
+                             req.imports, None, log, api_key=api_key)
     except Exception as e:  # a dead model must not 500 the service
-        return {"error": f"loop failed: {type(e).__name__}: {e}", "bucket": None}
+        return {"error": f"loop failed: {type(e).__name__}; no verified result", "bucket": None}
     out = {"bucket": state.get("bucket"), "model": model, "arm": arm,
            "rounds": state.get("rounds"), "audit": state.get("audit", {}),
            "code": state.get("code"), "notes": state.get("notes"),
            "error": state.get("error"), "turns": turns}
-    if out["bucket"] and not out.get("error"):
-        _VERIFY_CACHE[ck] = out
     return out

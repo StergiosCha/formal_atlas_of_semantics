@@ -7,7 +7,7 @@ brand handoff folder is present alongside, it is re-synced first so a re-theme
 propagates without a manual copy."""
 import json, os, re, sys, shutil, datetime
 from source_registry import load_registry, report as registry_report
-from proof_sources import bundle_sources
+from proof_sources import bundle_sources, library_fingerprint
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.join(HERE, "site")
@@ -110,6 +110,7 @@ def main():
     revision = revision if re.fullmatch(r"[a-f0-9]{40}", revision) else "working copy"
     data["revision"] = revision
     data["proof_sources"] = bundle_sources(slim_files, os.path.dirname(HERE))
+    data["workspace_library_sha256"] = library_fingerprint(data["proof_sources"])
     blob = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
     html = tpl.replace("__ATLAS_DATA__", blob).replace("__GENERATED__", data["generated"]).replace("__REVISION__", revision)
     out = os.path.join(SITE, "index.html")

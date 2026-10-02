@@ -85,6 +85,12 @@ they vary by region.
 
 ### Deployment recipe
 
+Status on 2026-10-02: the current Container Apps host denies the namespaces
+required by the new live workspace. The recipe below records the original
+hosting setup, not an approved deployment target for arbitrary visitor code.
+See [workspace preflight](../tool/WORKSPACE.md#hosted-preflight-2026-10-02).
+LLM routing is now OpenRouter, independent of where the Coq worker is hosted.
+
 ```bash
 az extension add --name containerapp --upgrade
 az provider register -n Microsoft.App
@@ -98,11 +104,8 @@ az containerapp up -n atlas-checker -g formal-atlas \
   --environment atlas-env --source ./tool \
   --ingress external --target-port 8080
 
-# the LLM key never touches the image or the repo
-az containerapp secret set -n atlas-checker -g formal-atlas \
-  --secrets llm-key=<KEY>
-az containerapp update -n atlas-checker -g formal-atlas \
-  --set-env-vars LLM_API_KEY=secretref:llm-key
+# No shared model secret: visitors enter their own OpenRouter key in the UI.
+# The backend handles it only for the individual model request.
 
 # scale-to-zero, capped fan-out, one of the allowed cpu/memory pairs
 az containerapp update -n atlas-checker -g formal-atlas \
@@ -134,25 +137,22 @@ one only on retry after a compile failure.
 
 ## Sandboxing user Coq (non-negotiable)
 
-`coqc` has no shell escape in a plain run, so the threat is not code execution
-but **resource exhaustion**, which is one line away (`Eval compute in 2^100000`).
-Required either way:
+Do not treat Coq as a safe text evaluator. File access, loaded native plugins,
+process behavior and resource exhaustion all matter for visitor-supplied code.
+A timeout, a scratch directory or an empty child environment alone does not
+isolate it from the service's credentials or other requests.
 
-- wall-clock timeout (~20 s), enforced by the supervisor, not by Coq
-- `rlimit` on address space and CPU for the `coqc` child process
-- `Require` restricted to the prebuilt atlas `.vo` set — no `-I` plugin
-  loading, no `Declare ML Module`, no `Extraction` to disk
-- scratch files in a tmpfs, wiped per request
-- rate limit per IP
+The [live workspace](../tool/WORKSPACE.md) requires an OS-isolated child with
+read-only library/runtime mounts, a writable per-request scratch directory,
+no provider credentials, no network, process cleanup and resource limits.
+The legacy public checker and draft loop use the same isolation requirement.
 
-**Platform caveat.** On Vercel and Azure Container Apps you get one container
-and cannot spawn a throwaway container per request — isolation comes from the
-platform's own invocation sandbox, and concurrent requests may share an
-instance. That is acceptable for Coq specifically, because the rlimit +
-timeout pair addresses the only realistic attack. If you later want true
-per-request container isolation (say, to allow user-supplied `Require`), that
-needs a VM with Docker — Hetzner — and is the one scenario that changes the
-recommendation.
+Linux uses bubblewrap. Confirm usable user, PID and network namespaces on the
+actual deployment platform. Installing bubblewrap in an Azure Container Apps
+image does not establish that the platform permits it. If the probe fails,
+the new service refuses execution. Use a suitable worker deployment; never
+substitute an unrestricted subprocess to make a deployment appear functional.
+Local macOS tests use sandbox-exec and do not certify Linux compatibility.
 
 ---
 

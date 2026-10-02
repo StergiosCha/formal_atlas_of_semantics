@@ -33,9 +33,11 @@ jobs:
           node-version: '22'
       - name: Validate provenance and reporting
         run: |
+          python3 -m pip install fastapi uvicorn
           python3 atlas_data/source_registry.py
           python3 -m unittest discover -s atlas_data -p 'test_*.py'
           python3 -m unittest discover -s tool/llm -p 'test_*.py'
+          python3 tool/checker/test_workspace.py -v
           python3 atlas_data/consolidate.py
           git diff --exit-code -- atlas_data/atlas.json atlas_data/ATLAS.md
           python3 atlas_data/build_site.py
@@ -46,6 +48,7 @@ jobs:
           node atlas_data/site/test_outcomes.cjs
           node atlas_data/site/test_proofs.cjs
           node atlas_data/site/test_edge_profiles.cjs
+          node atlas_data/site/test_workspace.cjs
 
   build_and_deploy_job:
     needs: [verify, reporting]

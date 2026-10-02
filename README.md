@@ -47,7 +47,14 @@ the [reading guide](atlas_data/READING_THE_ATLAS.md#campaigns-and-correction-his
 Each proof record on the site includes **Read the actual Coq source and proofs**.
 Named declarations link to the full `.v` source with line navigation, recorded
 assumption audits and a download. This reader works without the LLM backend;
-it displays repository code, not generated proof summaries or live proof states.
+it displays repository code, not generated proof summaries.
+Choose **Edit and run in Coq** to open a private editable copy, download a review
+patch, or ask an unverified explanation of selected code. Users enter their own
+OpenRouter key in the page; the app does not save it. No shared LLM key is needed.
+Live proof execution requires a matching sandbox-enabled checker. The current
+Azure container host denies that isolation, so execution stays unavailable there;
+the editor and explanations do not require the Coq sandbox.
+See [workspace setup and deployment limits](tool/WORKSPACE.md).
 
 Theory comparisons use [scoped evidence profiles](atlas_data/COMPARISON_METHOD.md),
 not a theoretical similarity score. Each states its fragment, observations,

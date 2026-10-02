@@ -171,13 +171,15 @@ footer .r{margin-left:auto}
 }
 @media(max-width:640px){
   .wrap{padding:0 18px}.g3,.g4,.embs{grid-template-columns:1fr}
-  nav{gap:14px}nav a{font-size:13px}.hd{height:auto;padding:10px 0;flex-wrap:wrap}
+  nav{gap:14px;flex-wrap:wrap;max-width:100%;margin-left:0}nav a{font-size:13px}.hd{height:auto;padding:10px 0;flex-wrap:wrap}
 }
 .proof-code{overflow:auto;max-height:65vh;border:2px solid var(--ink);padding:12px 0;tab-size:2}
 .proof-line{display:block;min-height:1.5em;padding:0 14px;white-space:pre}
 .proof-line.selected{background:#fff0bd;color:#111}
 .proof-line .line-no{display:inline-block;width:5em;color:#666;text-decoration:none;user-select:none}
 </style>
+<link rel="stylesheet" href="workspace.css">
+<script src="workspace.js"></script>
 </head>
 <body>
 <header><div class="wrap hd">
@@ -734,10 +736,11 @@ function vProof(key,requestedLine){
   return `<div class="wrap"><div class="crumb"><a href="#/theory/${encodeURIComponent(key)}">Proof record</a> / Coq source</div>
     <section style="padding-top:24px"><h2>Coq source: ${esc(source.path)}</h2>
       <p style="margin-top:14px">Full repository source, including declarations, proof scripts and context.
-      This is a source reader, not a live Coq session or a generated proof summary.</p>
+      This read-only view preserves the original. Open an editable copy to work with live Coq and ask about selected code.</p>
       <p class="tiny dim">Revision: ${esc(D.revision||'working copy')}. Source SHA256: <span class="mono" style="overflow-wrap:anywhere">${esc(source.sha256)}</span>.</p>
       <div class="controls" style="margin:16px 0;gap:14px"><a class="btn ghost" href="${esc(github)}">${revision==='main'?'GitHub main (may differ)':'GitHub at this revision'}</a>
         <button class="btn" onclick="downloadCoq()">Download .v</button>
+        <a class="btn" href="#/edit/${encodeURIComponent(key)}?line=${line}">Edit and run in Coq</a>
         <label class="tiny">Jump to declaration <select aria-label="Coq declaration" onchange="location.hash=this.value" style="max-width:100%">
           <option value="${proofURL(key,1)}">Full file</option>${source.declarations.map(d=>`<option value="${proofURL(key,d.line)}"${d===decl?' selected':''}>${esc(d.name)} · L${d.line}</option>`).join('')}</select></label></div>
       <div class="block"><h3>${decl?esc(decl.qualified):'Recorded Coq audit'}</h3>
@@ -1073,10 +1076,14 @@ function vCheck(){
               <option value="NOT_STATABLE">not statable</option></select></label>
           <button class="btn" id="ck-go" onclick="runCheck()">Draft &amp; check</button>
         </div>
+        <p class="tiny"><label for="ck-key">Your OpenRouter API key</label><br>
+          <input id="ck-key" type="password" autocomplete="off" spellcheck="false" autocapitalize="off" maxlength="512" placeholder="sk-or-...">
+          <button class="btn ghost" type="button" onclick="document.getElementById('ck-key').value=''">Clear key</button></p>
+        <p class="tiny dim">Your OpenRouter account pays for model calls. Draft &amp; check sends the key to the displayed backend for this request, then to OpenRouter. The app does not save it; reload or navigate away to clear it. Only use a backend you trust. The Coq process does not receive the key.</p>
         <p class="tiny dim" style="margin-top:10px">Backend
           <input id="ck-api" value="${esc(api())}" style="width:280px;border:0;border-bottom:2px solid var(--n400);
             background:transparent;font:12px ui-monospace,monospace"
-          onchange="localStorage.setItem('atlas_api',this.value);loadModels()"> · rate-limited · identical requests are cached</p>
+          onchange="localStorage.setItem('atlas_api',this.value);loadModels()"> · rate-limited · model requests are not cached</p>
       </div>
       <div id="ck-out"><span class="kicker">Verdict</span>
         <p class="tiny dim" style="margin-top:10px">Nothing checked yet. The four buckets:
@@ -1094,7 +1101,7 @@ async function loadModels(attempt=1){
     const r=await fetch(api()+'/models'); if(!r.ok) throw new Error(r.status);
     const j=await r.json();
     sel.innerHTML=j.models.map(m=>`<option value="${m.deployment}"${m.deployment===j.default?' selected':''}>
-      ${m.deployment} (${m.family})</option>`).join('');
+      ${m.model||m.deployment} (${j.provider||m.family})</option>`).join('');
   }catch(e){
     if(attempt<8 && document.getElementById('ck-model')===sel){
       sel.innerHTML=`<option value="">waking backend… (try ${attempt}/8)</option>`;
@@ -1109,11 +1116,14 @@ async function runCheck(){
   btn.disabled=true;
   out.innerHTML='<span class="kicker">Verdict</span><p class="tiny dim" style="margin-top:10px">Drafting and compiling — up to a few minutes for reasoning models…</p>';
   try{
-    const r=await fetch(api()+'/verify',{method:'POST',headers:{'content-type':'application/json'},
+    const backend=window.AtlasWorkspace.endpoint(api());
+    const headers=window.AtlasWorkspace.keyHeaders(document.getElementById('ck-key').value);
+    const r=await fetch(backend+'/verify',{method:'POST',credentials:'omit',redirect:'error',headers:{'content-type':'application/json',...headers},
       body:JSON.stringify({claim, model:document.getElementById('ck-model').value,
         imports:[document.getElementById('ck-theory').value],
         feedback:document.getElementById('ck-arm').value})});
     const j=await r.json();
+    if(!r.ok) throw new Error(typeof j.detail==='string'?j.detail:`Backend HTTP ${r.status}`);
     if(j.error&&!j.bucket){out.innerHTML=`<span class="kicker" style="color:var(--rust)">Verdict</span>
       <p class="tiny" style="margin-top:10px">${esc(j.error)}</p>`;return;}
     window._ck={j,claim,theory:document.getElementById('ck-theory').value};
@@ -1151,8 +1161,8 @@ async function runCheck(){
       <div style="margin-top:14px"><button class="btn" onclick="exportLatex()">Export LaTeX</button>
         <span class="tiny dim"> — a self-contained .tex: claim, verdict, assumption audit, the compiled Coq</span></div>`;
   }catch(e){out.innerHTML=`<span class="kicker" style="color:var(--rust)">Verdict</span>
-    <p class="tiny" style="margin-top:10px">Backend unreachable at <span class="mono">${esc(api())}</span>.
-    Start it: <span class="mono">docker compose -f tool/docker-compose.yml up</span>, or point the field above at the deployed URL.</p>`;}
+    <p class="tiny" style="margin-top:10px">${esc(e.message||'Request failed. No result was produced.')}</p>
+    <p class="tiny dim">Backend: <span class="mono">${esc(api())}</span>. Check your key and the selected backend.</p>`;}
   finally{btn.disabled=false;}
 }
 
@@ -1315,6 +1325,7 @@ function vExhibits(){
 }
 
 function route(){
+  window.AtlasWorkspace?.dispose();
   const raw=(location.hash||'#/').slice(1);
   const [path,qs]=raw.split('?');
   const q={}; (qs||'').split('&').filter(Boolean).forEach(kv=>{const [k,v]=kv.split('=');q[k]=decodeURIComponent(v||'');});
@@ -1327,6 +1338,10 @@ function route(){
   else if(seg[0]==='theories') html=vTheories();
   else if(seg[0]==='theory') {html=vTheory(seg[1]); tab='theories';}
   else if(seg[0]==='proof') {html=vProof(decodeURIComponent(seg[1]||''),q.line); tab='theories';}
+  else if(seg[0]==='edit') {
+    const key=decodeURIComponent(seg[1]||''), source=(D.proof_sources||{})[key];
+    html=source&&window.AtlasWorkspace?window.AtlasWorkspace.render(source,key):notFound(); tab='theories';
+  }
   else if(seg[0]==='edges') html=vEdges();
   else if(seg[0]==='edge') {html=vEdge(seg[1]); tab='edges';}
   else if(seg[0]==='region') {html=vRegion(seg[1]); tab='';}
@@ -1337,6 +1352,10 @@ function route(){
   else html=notFound();
   $('#app').innerHTML=html;
   if(seg[0]==='check') loadModels();
+  if(seg[0]==='edit') {
+    const key=decodeURIComponent(seg[1]||''), source=(D.proof_sources||{})[key];
+    if(source)window.AtlasWorkspace?.mount(source,key,D,q.line);
+  }
   document.querySelectorAll('#nav a[data-r]').forEach(a=>a.classList.toggle('on',a.dataset.r===tab));
   window.scrollTo(0,0);
   if(seg[0]==='proof'&&/^\d+$/.test(q.line||'')) document.getElementById('coq-L'+q.line)?.scrollIntoView?.({block:'center'});

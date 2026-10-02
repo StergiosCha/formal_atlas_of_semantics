@@ -1,6 +1,30 @@
-.git
-__pycache__
-*.pyc
-.claude
-.build
-runs
+# Only public Coq sources and runtime code enter the checker image.
+# Do not send private corpora, .env files, credentials, runs or sibling projects.
+**
+!_CoqProject
+!shallow/
+!shallow/**/
+!shallow/**/*.v
+!deep/
+!deep/**/
+!deep/**/*.v
+!extras/
+!extras/**/
+!extras/**/*.v
+!ttr_mtt/
+!ttr_mtt/**/
+!ttr_mtt/**/*.v
+!atlas/
+!atlas/**/
+!atlas/**/*.v
+!atlas_data/
+!atlas_data/atlas.json
+!tool/
+!tool/checker/
+!tool/checker/*.py
+!tool/checker/Dockerfile
+!tool/llm/
+!tool/llm/*.py
+!tool/llm/models.json
+!tool/llm/signatures.json
+!tool/llm/policy.md

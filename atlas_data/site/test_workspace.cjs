@@ -1,0 +1,43 @@
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const vm=require('node:vm');
+const crypto=require('node:crypto');
+const workspace=require('./workspace.js');
+const nested='Check Nat.add. (* . (* . *) *) Check "a. b".';
+assert.deepEqual(workspace.sentenceEnds(nested),[14,nested.length]);
+const quoted='Check "a"".b". Check Nat.add.';
+assert.deepEqual(workspace.sentenceEnds(quoted),[quoted.indexOf('. Check')+1,quoted.length]);
+assert.equal(workspace.codepoints('a😀b',3),2);
+assert.equal(workspace.lineOffset('a\nb\nc',3),4);
+assert.equal(workspace.endpoint('https://example.com/'),'https://example.com');
+assert.equal(workspace.endpoint('http://127.0.0.1:8477/'),'http://127.0.0.1:8477');
+assert.deepEqual(workspace.keyHeaders(' sk-or-user-key '),{'X-OpenRouter-Key':'sk-or-user-key'});
+for(const key of ['', 'bad-key', 'sk-or-bad\nkey', 'sk-or-'+ 'x'.repeat(513)])assert.throws(()=>workspace.keyHeaders(key));
+for(const url of ['javascript:alert(1)','http://example.com','https://key@example.com','https://example.com?key=secret'])assert.throws(()=>workspace.endpoint(url));
+assert.equal(workspace.patch('atlas/Test.v','a\n','b\n'),'--- a/atlas/Test.v\n+++ b/atlas/Test.v\n@@ -1,1 +1,1 @@\n-a\n+b\n');
+assert(workspace.patch('atlas/Test.v','a','b').includes('\\ No newline at end of file'));
+assert.equal(workspace.patch('atlas/Test.v','a','a'),'');
+const html=fs.readFileSync(__dirname+'/index.html','utf8');
+const blocks=[...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)];
+const data=JSON.parse(blocks.find(m=>/application\/json/.test(m[1]))[2]);
+const manifest=Object.fromEntries(Object.values(data.proof_sources).map(s=>[s.path,s.sha256]).sort(([a],[b])=>a<b?-1:a>b?1:0));
+assert.equal(data.workspace_library_sha256,crypto.createHash('sha256').update(JSON.stringify(manifest)).digest('hex'));
+const app={innerHTML:''};
+const context=vm.createContext({document:{getElementById:()=>({textContent:JSON.stringify(data)}),querySelector:()=>app,querySelectorAll:()=>[]},
+  location:{hash:'#/'},window:{scrollTo(){},AtlasWorkspace:{...workspace,mount(){},dispose(){}}},addEventListener(){},localStorage:{getItem(){return null;}}});
+vm.runInContext(blocks.find(m=>!/application\/json/.test(m[1])&&m[2].trim())[2],context);
+for(const [key,source] of Object.entries(data.proof_sources)) {
+  const view=vm.runInContext(`vProof(${JSON.stringify(key)},1)`,context);
+  assert(view.includes(`#/edit/${key}?line=1`));
+  vm.runInContext(`location.hash=${JSON.stringify('#/edit/'+key)}; route();`,context);
+  assert(app.innerHTML.includes('Editable Coq source'));
+  assert(app.innerHTML.includes('Explain selection'));
+  assert(app.innerHTML.includes('id="live-key" type="password"'));
+  assert(app.innerHTML.includes('Original audits')||app.innerHTML.includes('original audit')||app.innerHTML.includes('source-fidelity'));
+}
+const attack=workspace.render({path:'<img src=x>',text:'</textarea><script>alert(1)</script>'},'key');
+assert(!attack.includes('<img src=x>'));
+assert(!attack.includes('<script>alert'));
+assert(attack.includes('&lt;/textarea&gt;'));
+assert(!html.includes('workspace.js" defer'));
+console.log('Workspace routes, library fingerprint, navigation, Unicode, escaping and review-patch helpers passed.');

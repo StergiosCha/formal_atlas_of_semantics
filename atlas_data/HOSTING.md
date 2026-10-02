@@ -1,5 +1,11 @@
 # FORMAL ATLAS — hosting architecture
 
+Current deployment: the site remains on Azure Static Web Apps; live Coq uses
+the [dedicated Linux VM](../tool/deploy/README.md), approved on 2026-10-02.
+The editor's OpenRouter assistant uses each visitor's request-scoped key.
+The Container Apps design below is historical: its namespace policy rejected
+the live workspace sandbox, so it is no longer the default execution host.
+
 The instinct "we need an LLM and Coq, so we need a real server" is half wrong.
 Three surfaces, and only one of them genuinely needs a running process.
 

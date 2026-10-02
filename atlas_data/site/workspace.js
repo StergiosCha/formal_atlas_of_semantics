@@ -2,7 +2,8 @@
 (function (root) {
   'use strict';
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const DEFAULT_API = 'https://atlas-checker.greenrock-e642001f.westus2.azurecontainerapps.io';
+  const DEFAULT_API = 'https://formal-atlas-coq-crete.westus2.cloudapp.azure.com';
+  const LEGACY_API = 'https://atlas-checker.greenrock-e642001f.westus2.azurecontainerapps.io';
   let active = null;
   const storage = {
     get(k) {try {return root.localStorage.getItem(k);} catch (_) {return null;}},
@@ -21,6 +22,10 @@
     if(!key) throw new Error('Enter your OpenRouter API key in the key field.');
     if(key.length>512 || !/^sk-or-[A-Za-z0-9_-]+$/.test(key)) throw new Error('Invalid OpenRouter API key format.');
     return {'X-OpenRouter-Key':key};
+  }
+  function defaultBackend() {
+    const saved=storage.get('atlas_api');
+    return !saved || saved.replace(/\/$/,'')===LEGACY_API ? DEFAULT_API : saved;
   }
   function sentenceEnds(code) {
     // Navigation only. Coq itself parses and validates the resulting prefix.
@@ -57,7 +62,7 @@
       This is your copy, not a change to the published library.</p>
       <p class="tiny dim">Drafts are saved in this browser for this source version. Check sends your code to the displayed backend.
       Explain sends the current file and question to that backend; only your selection and nearby context go to the model.</p>
-      <div class="controls live-connect"><label>Checker backend <input id="live-api" type="url" value="${esc(storage.get('atlas_api')||DEFAULT_API)}"></label>
+      <div class="controls live-connect"><label>Checker backend <input id="live-api" type="url" value="${esc(defaultBackend())}"></label>
         <button class="btn ghost" id="live-connect">Connect</button><span id="live-connection" role="status">Not connected. No code or question has been sent.</span></div>
       <div class="live-grid"><div class="live-editor-pane">
         <div class="controls live-toolbar"><button class="btn ghost" id="live-back">Previous</button><button class="btn ghost" id="live-next">Next command</button>
@@ -206,7 +211,7 @@
     if(draft!==null) status('copy-status','Restored your browser draft for this source version. Not checked in this session.');
     const pos=lineOffset(editor.value,Math.max(1,Number(line)||1));editor.setSelectionRange(pos,pos);
   }
-  const api={render,mount,dispose,endpoint,keyHeaders,sentenceEnds,lineOffset,codepoints,patch};
+  const api={render,mount,dispose,endpoint,keyHeaders,defaultBackend,sentenceEnds,lineOffset,codepoints,patch};
   root.AtlasWorkspace=api;
   if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

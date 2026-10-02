@@ -163,8 +163,9 @@ browser tests using dummy credentials. The missing server environment key is
 not a deployment blocker. A real provider test still requires a user-supplied
 key; no paid call is claimed from a mock.
 
-Rollout is blocked pending a suitable isolated Linux worker. Foundry
-authorization and a shared OpenRouter key are not prerequisites.
-Creating another hosting resource requires the owner's approval. Do not deploy
-the fail-closed worker on the current host and describe it as working, or
-disable isolation to bypass the failed probe.
+The owner approved a dedicated Azure Linux VM for live Coq. It uses the
+[dedicated worker deployment](deploy/README.md), with a non-root read-only
+container, request isolation and HTTPS. Foundry authorization and a shared
+OpenRouter key are not prerequisites. The old Container Apps endpoint is not
+the default. Publication requires the deployed proof and isolation checks;
+never disable isolation to bypass a failed probe.

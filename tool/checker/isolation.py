@@ -39,7 +39,9 @@ def command(repo, scratch, executable, args):
         cmd = [shutil.which("bwrap"), "--die-with-parent", "--new-session",
                "--unshare-all", "--clearenv", "--setenv", "PATH", clean_env()["PATH"],
                "--setenv", "HOME", "/tmp", "--setenv", "LANG", "C.UTF-8",
-               "--proc", "/proc", "--dev", "/dev", "--tmpfs", "/tmp"]
+               "--dev", "/dev", "--tmpfs", "/tmp"]
+        # Coq does not need procfs. Omitting it also avoids Docker's nested
+        # proc-mount restrictions without exposing the parent process tree.
         # Only runtime libraries and public Coq roots are visible. In particular,
         # /srv, API credentials, the host home, and the parent /proc are absent.
         paths = ["/usr", "/bin", "/lib", "/lib64", "/etc/ld.so.cache"]

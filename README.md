@@ -51,9 +51,9 @@ it displays repository code, not generated proof summaries.
 Choose **Edit and run in Coq** to open a private editable copy, download a review
 patch, or ask an unverified explanation of selected code. Users enter their own
 OpenRouter key in the page; the app does not save it. No shared LLM key is needed.
-Live proof execution requires a matching sandbox-enabled checker. The current
-Azure container host denies that isolation, so execution stays unavailable there;
-the editor and explanations do not require the Coq sandbox.
+Live proof execution uses the dedicated Linux worker with a matching library
+and per-request isolation. Coq needs no API key. The old Container Apps host
+cannot provide the required isolation and is no longer the default backend.
 See [workspace setup and deployment limits](tool/WORKSPACE.md).
 
 Theory comparisons use [scoped evidence profiles](atlas_data/COMPARISON_METHOD.md),

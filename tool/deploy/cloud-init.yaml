@@ -1,0 +1,87 @@
+#cloud-config
+# Dedicated worker. No visitor API key or registry password is stored here.
+package_update: true
+packages:
+  - docker.io
+  - python3
+write_files:
+  - path: /usr/local/sbin/atlas-pull
+    owner: root:root
+    permissions: '0700'
+    content: |
+      #!/usr/bin/python3
+      import json, subprocess, tempfile, urllib.parse, urllib.request
+      from pathlib import Path
+      registry = 'formalatlasacr.azurecr.io'
+      image = 'formalatlasacr.azurecr.io/atlas-checker@sha256:92af29f43f427775b139746f1a7cb56596cd38fc21a6981efdc58b536b5d74eb'
+      try:
+          query = urllib.parse.urlencode({'api-version':'2018-02-01','resource':'https://management.azure.com/'})
+          req = urllib.request.Request('http://169.254.169.254/metadata/identity/oauth2/token?'+query, headers={'Metadata':'true'})
+          with urllib.request.urlopen(req,timeout=20) as r:
+              access = json.load(r)['access_token']
+          data = urllib.parse.urlencode({'grant_type':'access_token','service':registry,'access_token':access}).encode()
+          req = urllib.request.Request('https://'+registry+'/oauth2/exchange',data=data)
+          with urllib.request.urlopen(req,timeout=20) as r:
+              token = json.load(r)['refresh_token']
+          with tempfile.TemporaryDirectory(prefix='atlas-pull-',dir='/run') as config:
+              subprocess.run(['docker','--config',config,'login',registry,'--username','00000000-0000-0000-0000-000000000000','--password-stdin'],input=token.encode(),stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,check=True)
+              subprocess.run(['docker','--config',config,'pull',image],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,check=True)
+          print('Atlas release image pulled with the VM managed identity')
+      except Exception as error:
+          print('Atlas image pull failed: '+type(error).__name__)
+          raise SystemExit(1)
+  - path: /etc/systemd/system/atlas-coq.service
+    owner: root:root
+    permissions: '0644'
+    content: |
+      [Unit]
+      Description=Formal Atlas isolated Coq worker
+      Requires=docker.service atlas-metadata-guard.service
+      After=docker.service network-online.target atlas-metadata-guard.service
+      PartOf=docker.service
+      Wants=network-online.target
+      StartLimitIntervalSec=0
+      [Service]
+      Type=simple
+      ExecStartPre=/usr/local/sbin/atlas-pull
+      ExecStart=/usr/bin/docker run --rm --name atlas-coq-worker --cap-drop ALL --security-opt no-new-privileges:true --security-opt seccomp=unconfined --security-opt apparmor=unconfined --read-only --tmpfs /tmp:rw,nosuid,nodev,size=256m --pids-limit 256 --memory 3g --cpus 2 --log-opt max-size=10m --log-opt max-file=3 -p 127.0.0.1:8477:8477 formalatlasacr.azurecr.io/atlas-checker@sha256:92af29f43f427775b139746f1a7cb56596cd38fc21a6981efdc58b536b5d74eb uvicorn server:app --app-dir /srv --host 0.0.0.0 --port 8477 --proxy-headers --forwarded-allow-ips 172.17.0.1
+      ExecStop=/usr/bin/docker stop -t 10 atlas-coq-worker
+      Restart=always
+      RestartSec=30
+      TimeoutStartSec=600
+      TimeoutStopSec=30
+      [Install]
+      WantedBy=multi-user.target
+  - path: /etc/caddy/Caddyfile
+    owner: root:root
+    permissions: '0644'
+    content: |
+      formal-atlas-coq-crete.westus2.cloudapp.azure.com {
+          request_body {
+              max_size 1MB
+          }
+          reverse_proxy 127.0.0.1:8477
+      }
+  - path: /etc/systemd/system/atlas-metadata-guard.service
+    owner: root:root
+    permissions: '0644'
+    content: |
+      [Unit]
+      Description=Block container access to Azure instance credentials
+      After=docker.service
+      Requires=docker.service
+      PartOf=docker.service
+      Before=atlas-coq.service
+      [Service]
+      Type=oneshot
+      ExecStart=/usr/sbin/iptables -I DOCKER-USER -d 169.254.169.254/32 -j REJECT
+      RemainAfterExit=yes
+      [Install]
+      WantedBy=multi-user.target
+runcmd:
+  - systemctl enable --now docker
+  - systemctl daemon-reload
+  - systemctl enable --now atlas-metadata-guard
+  - systemctl enable --now --no-block atlas-coq
+# Follow with setup-worker.sh to install Caddy from its signed upstream
+# repository, validate TLS configuration, and activate the HTTPS service.

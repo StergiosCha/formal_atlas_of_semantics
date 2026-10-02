@@ -159,6 +159,14 @@ class WorkspaceTests(unittest.TestCase):
             self.assertNotIn("AZURE_AI_KEY", isolation.clean_env())
             self.assertNotIn("OPENROUTER_API_KEY", isolation.clean_env())
 
+    def test_linux_sandbox_has_no_procfs_and_keeps_namespaces(self):
+        with patch.object(isolation.platform,"system",return_value="Linux"), patch.object(isolation.shutil,"which",side_effect=lambda name:"/usr/bin/"+name):
+            command=isolation.command(w.REPO,"/tmp/atlas-fixture","coqtop",["--version"])
+        self.assertIn("--unshare-all",command)
+        self.assertNotIn("--proc",command)
+        self.assertNotIn("/proc",command)
+        self.assertNotIn("/srv",command)
+
     def test_exit_scan_ignores_nested_comments_and_strings(self):
         self.assertNotIn("Quit",w.visible_commands('(* outer (* Quit. *) *) Check "Quit.".'))
         self.assertIn("Quit",w.visible_commands('(* comment *) Quit.'))

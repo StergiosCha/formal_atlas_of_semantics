@@ -178,8 +178,8 @@ footer .r{margin-left:auto}
 .proof-line.selected{background:#fff0bd;color:#111}
 .proof-line .line-no{display:inline-block;width:5em;color:#666;text-decoration:none;user-select:none}
 </style>
-<link rel="stylesheet" href="workspace.css">
-<script src="workspace.js"></script>
+<link rel="stylesheet" href="workspace.css?v=__REVISION__">
+<script src="workspace.js?v=__REVISION__"></script>
 </head>
 <body>
 <header><div class="wrap hd">
@@ -1043,7 +1043,7 @@ const CHECK_THEORIES=[
   ['probabilistic.RSA','RSA'],['categorical.DisCoCat','DisCoCat'],
   ['type_logical.Lambek','Lambek'],
 ];
-const api=()=>localStorage.getItem('atlas_api')||'https://atlas-checker.greenrock-e642001f.westus2.azurecontainerapps.io';
+const api=()=>window.AtlasWorkspace.defaultBackend();
 function vCheck(){
   return `<div class="wrap"><div class="crumb"><a href="#/">Atlas</a> / Verifier</div>
   <section style="padding-top:24px">
@@ -1100,8 +1100,8 @@ async function loadModels(attempt=1){
   try{
     const r=await fetch(api()+'/models'); if(!r.ok) throw new Error(r.status);
     const j=await r.json();
-    sel.innerHTML=j.models.map(m=>`<option value="${m.deployment}"${m.deployment===j.default?' selected':''}>
-      ${m.model||m.deployment} (${j.provider||m.family})</option>`).join('');
+    sel.innerHTML=j.models.map(m=>`<option value="${esc(m.deployment)}"${m.deployment===j.default?' selected':''}>
+      ${esc(m.model||m.deployment)} (${esc(j.provider||m.family)})</option>`).join('');
   }catch(e){
     if(attempt<8 && document.getElementById('ck-model')===sel){
       sel.innerHTML=`<option value="">waking backend… (try ${attempt}/8)</option>`;

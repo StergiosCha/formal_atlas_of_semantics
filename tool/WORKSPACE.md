@@ -121,11 +121,13 @@ go to a temporary directory. The real-Coq tests include a forbidden-file canary.
    (comma-separated exact origins), if needed. Do not configure a shared model
    secret for the website; visitors supply request-scoped keys.
 4. Verify real goals, an invalid proof, forbidden-file access, version/snapshot
-   mismatch, and a real explanation on the target runtime before publishing.
+   mismatch, and missing-key rejection on the target runtime before publishing.
+   Test a real explanation separately when a visitor supplies a valid key;
+   do not treat mocked model output as a successful provider call.
 5. Deploy the frontend and check the end-to-end public route.
 
-Local macOS tests do not establish Linux/Container Apps compatibility. This
-implementation does not itself update the existing deployed checker or site.
+Local macOS tests do not establish Linux/Container Apps compatibility. Publishing
+the static site does not itself update the worker image or its source library.
 
 ### Hosted preflight, 2026-10-02
 
@@ -151,11 +153,10 @@ The local environment also has no OpenRouter key. Only presence/prefix booleans
 were inspected; no secret was displayed or copied. No paid OpenRouter call has
 been made during this provider correction.
 
-`probe_hosted_explanation.py --revision <revision>` now refuses the legacy
-adapter, rather than making another Foundry call. Once the new backend and its
-secret are configured, it tests one short real-code explanation through
-OpenRouter. `--local` tests this checkout with its environment key. Neither
-variant exercises the new HTTP route, which needs an end-to-end test too.
+`probe_hosted_explanation.py` is a historical CLI preflight tool, not the
+production BYOK test. It refuses the legacy adapter. Do not configure a server
+model secret to use it. Test the web explanation route using the page's key
+field; the production backend requires a request-scoped visitor key.
 
 The owner then clarified the intended bring-your-own-key UI. That is now
 implemented for both web model actions and covered by request-isolation and

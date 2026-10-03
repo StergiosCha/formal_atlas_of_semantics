@@ -78,8 +78,10 @@ Run `probe-sandbox.sh` through Azure Run Command to check filesystem isolation.
 It creates a temporary Coq fixture outside the sandbox, first proves the exact
 `Load` command succeeds in the outer container, then checks that the running
 API rejects that command. The temporary fixture is removed afterwards.
-Run `smoke_public.py --backend <endpoint> --site <site-url>` to test the deployed
-editor in a browser with real Coq and mocked model output.
+Run `smoke_public.py --backend <endpoint> --site <site-url> --require-sessions`
+to test the deployed editor in a browser with real persistent Coq and mocked
+model output. It releases its own test sessions even when a check fails. Run
+public API and browser tests sequentially to respect the two-slot capacity.
 
 Inspect services using Azure Run Command; no SSH opening is necessary. Use
 `systemctl status atlas-coq caddy atlas-metadata-guard` and
@@ -117,5 +119,6 @@ site's unchanged library fingerprint, including session closure, original-file
 compilation, source mismatch, origin restrictions and missing-key rejection.
 The previous image is retained. The activation backup is
 `/var/lib/atlas-deployments/persistent-20261003-51bcl55r` on the VM.
-The matching frontend must still pass CI and the public-browser rollout gate;
-the worker checks alone do not establish that the new frontend is published.
+This section records worker activation only. Confirm frontend publication from
+the deployed site's revision, a successful CI run for that revision, and the
+public-browser smoke test. Worker checks alone do not establish publication.

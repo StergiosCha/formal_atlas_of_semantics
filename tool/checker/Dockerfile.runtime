@@ -1,0 +1,8 @@
+# Runtime-only test overlay. BASE_IMAGE must name an already compiled image
+# with the exact public library and pinned Coq/coq-lsp toolchain being tested.
+# Use the main Dockerfile whenever the Coq library or toolchain changes.
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE}
+USER root
+COPY tool/checker/*.py /srv/
+USER coq

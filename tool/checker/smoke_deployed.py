@@ -14,9 +14,10 @@ def main():
     parser.add_argument('--site',help='Check the published site, otherwise use this release bundle')
     args=parser.parse_args()
     repo=Path(__file__).resolve().parents[2]
-    def call(path,body=None,expected=200,origin=None):
+    def call(path,body=None,expected=200,origin=None,token=None):
         headers={'Content-Type':'application/json'}
         if origin: headers['Origin']=origin
+        if token: headers['X-Coq-Session']=token
         request=urllib.request.Request(args.backend.rstrip('/')+path,
             data=None if body is None else json.dumps(body).encode(),headers=headers)
         try:
@@ -55,11 +56,27 @@ def main():
     call('/workspace/check',{**base,'code':prefix,'mode':'file','cursor':0},expected=403,origin='https://untrusted.invalid')
     call('/workspace/explain',{**base,'code':prefix,'start':0,'end':10,'question':'Explain'},expected=401)
     call('/verify',{'claim':'No key, no model call'},expected=401)
+    if cap.get('session_available'):
+        opened=call('/workspace/session/open',{**base,'code':''})
+        token=opened['session_token']
+        try:
+            for sequence,code,expected_ok in [(1,prefix,True),(2,prefix+' exact HP.',True),
+                    (3,prefix,True),(4,'Goal False. Qed. Goal True.',False),
+                    (5,'Goal True. exact I. Qed.',True)]:
+                result=call('/workspace/session/check',{**base,'code':code,'cursor':len(code),'sequence':sequence},token=token)
+                assert result['ok']==expected_ok,result
+                assert result['code_sha256']==hashlib.sha256(code.encode()).hexdigest()
+                assert result['sequence']==sequence
+                if sequence in (1,3):assert result['goals']['goals'][0]['ty']=='P',result
+        finally:
+            call('/workspace/session/close',{},token=token)
+        call('/workspace/session/check',{**base,'code':'','cursor':0,'sequence':6},token=token,expected=410)
     # Isolation needs a known existing Coq fixture outside the sandbox.
     # Run tool/deploy/probe-sandbox.sh on the host for that test.
     print(json.dumps({'passed':True,'real_coq':True,'sandbox':cap['sandbox'],
         'model_provider':'openrouter','paid_model_calls':0,'library_sha256':cap['library_sha256'],
-        'site_revision':data.get('revision'),'source_count':len(data['proof_sources'])}))
+        'site_revision':data.get('revision'),'source_count':len(data['proof_sources']),
+        'persistent_sessions_tested':bool(cap.get('session_available'))}))
 
 
 if __name__=='__main__':

@@ -52,6 +52,14 @@ app.add_middleware(CORSMiddleware, allow_origins=["*"],
 
 from workspace import router as workspace_router, guard as workspace_guard, user_model_key, SLOTS
 app.include_router(workspace_router)
+
+
+@app.middleware("http")
+async def private_workspace_responses(request: Request, call_next):
+    response = await call_next(request)
+    if request.url.path.startswith("/workspace/"):
+        response.headers["Cache-Control"] = "no-store"
+    return response
 # Both legacy public entry points also execute untrusted/model-proposed Coq.
 # They must not bypass the sandbox used by the new editor. The separate CLI
 # remains available for trusted local research runs.

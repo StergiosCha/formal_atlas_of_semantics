@@ -29,7 +29,8 @@ def request(api_key="sk-or-test-user"):
 class WorkspaceTests(unittest.TestCase):
     def test_route_paths(self):
         self.assertEqual({r.path for r in w.router.routes},
-                         {"/workspace/capabilities", "/workspace/check", "/workspace/explain"})
+                         {"/workspace/capabilities", "/workspace/check", "/workspace/explain",
+                          "/workspace/session/open", "/workspace/session/check", "/workspace/session/close"})
 
     def setUp(self):
         w.HITS.clear()
@@ -92,6 +93,17 @@ class WorkspaceTests(unittest.TestCase):
             with self.assertRaises(HTTPException) as e:
                 w.explain(w.ExplainRequest(**self.base, start=0, end=10, question="Explain"),request())
             self.assertNotIn("SECRET", e.exception.detail)
+
+    def test_explanations_work_when_coq_sessions_reserve_both_slots(self):
+        w.SLOTS.acquire()
+        w.SLOTS.acquire()
+        try:
+            with patch.object(providers,"chat",return_value="Unverified explanation"):
+                result=w.explain(w.ExplainRequest(**self.base,start=0,end=10,question="Explain"),request())
+            self.assertFalse(result["verified"])
+        finally:
+            w.SLOTS.release()
+            w.SLOTS.release()
 
     def test_explanation_uses_openrouter_transport(self):
         reply={"choices":[{"finish_reason":"stop","message":{"role":"assistant","content":"Explanation fixture"}}]}

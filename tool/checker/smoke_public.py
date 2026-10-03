@@ -51,19 +51,21 @@ def run(site, backend, artifacts):
             page.wait_for_function("document.getElementById('live-connection').textContent.includes('Library snapshot matches')")
             assert 'bubblewrap' in page.locator('#live-connection').text_content()
             page.wait_for_function("document.querySelector('#live-model option:checked').textContent === 'openai/gpt-6-astra'")
+            persistent=page.locator('#live-session-status').count()>0 and 'Persistent Coq is available' in page.locator('#live-session-status').inner_text()
+            prefix_status='Session prefix accepted' if persistent else 'accepted the prefix'
             prefix='Lemma public_browser : forall P : Prop, P -> P.\nProof.\n  intros P HP.'
             code=prefix+'\n  exact HP.\nQed.\n'
             edit(code);select(len(prefix))
             page.keyboard.press('ControlOrMeta+Enter')
-            status('accepted the prefix')
+            status(prefix_status)
             assert 'HP : P' in page.locator('.live-hypotheses').inner_text()
             assert page.locator('#live-goal-count').inner_text()=='1'
             assert page.locator('.cm-coq-accepted').count()>0
             assert page.locator('.cm-coq-current').count()>0
             assert page.locator('.cm-line span').count()>0,'Syntax-highlighted tokens expected'
             page.screenshot(path=str(artifacts/'live-goal.png'),full_page=True)
-            page.keyboard.press('Alt+ArrowDown');status('accepted the prefix through line 4')
-            page.keyboard.press('Alt+ArrowUp');status('accepted the prefix through line 3')
+            page.keyboard.press('Alt+ArrowDown');status(prefix_status+' through line 4')
+            page.keyboard.press('Alt+ArrowUp');status(prefix_status+' through line 3')
             assert 'HP : P' in page.locator('.live-hypotheses').inner_text()
             page.keyboard.press('ControlOrMeta+Shift+Enter');status('This copy compiled')
             assert page.locator('#live-progress').inner_text()=='Full copy compiled'

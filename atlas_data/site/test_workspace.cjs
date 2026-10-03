@@ -49,5 +49,12 @@ assert.equal(workspace.diagnostic('File "/atlas/Other.v", line 1, characters 0-1
 assert.deepEqual(workspace.goals('Welcome to Coq\n1 goal (ID 3)\n P : Prop\n HP : P\n ============================\n P'),{count:1,hypotheses:'P : Prop\n HP : P',conclusions:['P']});
 assert.deepEqual(workspace.goals('2 goals\n H : True\n ========\n True\ngoal 2 is:\n False').conclusions,['True','False']);
 assert.equal(workspace.goals('No more goals.'),null);
+assert.deepEqual(workspace.sessionDiagnostic([{severity:1,range:{start:{line:1,character:1},end:{line:1,character:3}}}], 'a\nα😀x'),{line:2,from:3,to:5});
+assert.equal(workspace.sessionDiagnostic([{severity:2,range:{start:{line:0,character:0},end:{line:0,character:1}}}], 'abc'),null);
+const structured=workspace.sessionGoals({goals:[{hyps:[{names:['<H>'],ty:'P',def:'<script>'}],ty:'P'}],shelf:[{hyps:[],ty:'S'}],stack:[[[{hyps:[],ty:'U'}],[]]],given_up:[{hyps:[],ty:'G'}]});
+assert(structured.includes('Shelved')&&structured.includes('Unfocused')&&structured.includes('Given up'));
+assert(!structured.includes('<script>')&&!structured.includes('<H>'));
+assert(structured.includes('&lt;H&gt;'));
+assert(workspace.sessionGoals(null).includes('No proof is currently open'));
 assert(!html.includes('workspace.js" defer'));
 console.log('Workspace routes, library fingerprint, navigation, Unicode, escaping and review-patch helpers passed.');

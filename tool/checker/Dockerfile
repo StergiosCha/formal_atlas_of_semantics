@@ -5,6 +5,15 @@ RUN apt-get update && apt-get install -y python3 python3-pip bubblewrap \
     && pip3 install --break-system-packages fastapi uvicorn pydantic \
     && rm -rf /var/lib/apt/lists/*
 
+# Structured, per-visitor incremental sessions. Keep the atlas Coq version;
+# install the matching LSP release before building all .vo files in this image.
+USER coq
+RUN opam update \
+    && opam pin remove --no-action ocamlfind \
+    && opam install -y ocamlfind.1.9.8 coq.8.20.1 coq-lsp.0.2.5+8.20 \
+    && coqc --version && coq-lsp --version
+USER root
+
 # Bake the atlas library into the image and precompile it once.
 COPY --chown=coq . /atlas
 WORKDIR /atlas

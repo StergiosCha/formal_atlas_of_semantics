@@ -23,6 +23,7 @@
 !tool/checker/
 !tool/checker/*.py
 !tool/checker/Dockerfile
+!tool/checker/Dockerfile.runtime
 !tool/llm/
 !tool/llm/*.py
 !tool/llm/models.json

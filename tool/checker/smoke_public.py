@@ -16,7 +16,9 @@ def main():
         browser=p.chromium.launch()
         page=browser.new_page(viewport={'width':1440,'height':1000})
         errors=[]
+        console_errors=[]
         page.on('pageerror',lambda error:errors.append(str(error)))
+        page.on('console',lambda message:console_errors.append(message.text) if message.type=='error' else None)
         page.goto(args.site.rstrip('/')+'/#/edit/atlas__ptq')
         page.wait_for_selector('#live-code')
         assert page.locator('#live-api').input_value()==args.backend
@@ -47,8 +49,16 @@ def main():
             route.fulfill(json={'text':'Unverified fixture <script>not executable</script>','model':'gpt-6-astra','model_id':'openai/gpt-6-astra','provider':'openrouter','verified':False})
         page.route('**/workspace/explain',explain)
         page.locator('#live-key').fill('sk-or-public-fixture')
+        # Filling another field may collapse the textarea selection in Chromium.
+        # Follow the user flow: enter the key, then select the code to explain.
+        page.locator('#live-code').evaluate('el=>{el.focus();el.setSelectionRange(0,10)}')
         page.locator('#live-explain').click()
-        page.wait_for_function("document.getElementById('live-explanation').textContent.includes('Unverified fixture')")
+        try:
+            page.wait_for_function("document.getElementById('live-explanation').textContent.includes('Unverified fixture')")
+        except Exception:
+            print(json.dumps({'explanation_status':page.locator('#live-explain-status').inner_text(),
+                              'console_errors':console_errors}))
+            raise
         assert page.locator('#live-explanation script').count()==0
         assert page.evaluate("!JSON.stringify(localStorage).includes('sk-or-public-fixture') && !JSON.stringify(sessionStorage).includes('sk-or-public-fixture')")
         page.reload(); page.wait_for_selector('#live-key')

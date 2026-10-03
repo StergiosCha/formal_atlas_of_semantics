@@ -77,3 +77,12 @@ source-mismatch, origin and missing-key checks against the 87-file snapshot.
 The controlled filesystem canary also passed: the same existing `.v` loaded
 outside the sandbox but was inaccessible through the running API. The test
 removed its temporary fixture. These checks made no paid model calls.
+
+GitHub run `37110601530` passed compilation, independent kernel checking,
+mechanical audits and deployment for revision `d2f9553`. The published site's
+source fingerprint matched the worker. The public-browser smoke test passed
+real goals, valid and invalid proof checks, missing-key rejection, inert model
+text rendering, no browser key storage, key clearing on reload, and mobile
+layout. Only the model response was mocked. The browser test explicitly selects
+code after filling the dummy key field, because filling another field can
+collapse the textarea selection. No paid OpenRouter response is claimed.

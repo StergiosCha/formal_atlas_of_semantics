@@ -15,18 +15,31 @@ Deployment target, approved 2026-10-02:
 `cloud-init.yaml` installs Docker and defines the worker services. Run
 `setup-worker.sh` through Azure Run Command after provisioning to install
 Caddy from its signed upstream repository and enable automatic HTTPS.
-`activate-worker.py` migrates the first image to the final digest and checks
-proxy error-path privacy using a dummy key. Caddy's runtime-log filter removes
+`activate-worker.py` is the historical initial-release migration and privacy
+test. Do not run it on the persistent-session release. `activate-sessions.py`
+migrates the replay-only worker to the tested persistent-session image, retains
+a root-only configuration backup, and restores the previous worker if its live
+checks fail. Caddy's runtime-log filter removes
 request headers and response headers; access logging is not enabled.
 The VM's system-assigned identity has `AcrPull` on `formalatlasacr` only.
 Registry login material is confined to a temporary root-only directory under
 `/run` and removed after the pull. No visitor OpenRouter keys are configured
 as VM secrets or stored in the service environment.
 
-Image: `formalatlasacr.azurecr.io/atlas-checker@sha256:31a276f63ef8bb9c21d9d739632e38559a64a379f2960bcf7606b20301ddf8b6`.
-Built by ACR run `ca8` from application commit `6ca7387`, compiling the unchanged
-published 87-file library. Unpublished theory additions in the research checkout
-are not part of this release.
+Persistent-session image: `formalatlasacr.azurecr.io/atlas-checker@sha256:24f488c892065bfaab0b49ffd79d8e17a085cda5a7432cb49b38e7328da35495`.
+Built by ACR run `cac`, with the runtime implementation in commit `a5bd0ed`,
+on the fully compiled toolchain/library base from run `caa`. It contains Coq
+8.20.1 and coq-lsp package `0.2.5+8.20` (runtime version `0.2.5`). The published
+87-file library is unchanged. Unpublished theory additions in the research
+checkout are not part of this release. See `../SESSION_VALIDATION.md` for the
+candidate tests and the distinction between runtime and test-harness revisions.
+
+Rollback image, retained on the VM:
+`formalatlasacr.azurecr.io/atlas-checker@sha256:31a276f63ef8bb9c21d9d739632e38559a64a379f2960bcf7606b20301ddf8b6`.
+The activator prints its root-only backup directory. To roll back, restore
+`atlas-pull` and `atlas-coq.service` from that exact directory to their original
+paths, run `systemctl daemon-reload`, and restart `atlas-coq`. The frontend
+falls back to isolated replay when the worker does not advertise sessions.
 
 ## Isolation
 
@@ -44,6 +57,14 @@ mounts, a per-request scratch directory and resource limits. There is no
 mounting a nested proc filesystem from this unprivileged user namespace.
 There is no unrestricted execution fallback. A host firewall rule also blocks containers
 from Azure's instance-identity endpoint.
+
+Keep a single Uvicorn API worker: the private session registry is in memory.
+Two Coq slots are available, and an open session reserves one until closed or
+expired. Sessions expire after five idle minutes or thirty minutes total and
+do not survive a worker restart. Full-file compilation remains a separate,
+fresh `coqc` process. Visitor tokens are kept in tab memory only. See
+`../WORKSPACE.md` for limits and the distinction between a checked prefix and
+a compiled file.
 
 ## Checks and updates
 
@@ -86,3 +107,15 @@ text rendering, no browser key storage, key clearing on reload, and mobile
 layout. Only the model response was mocked. The browser test explicitly selects
 code after filling the dummy key field, because filling another field can
 collapse the textarea selection. No paid OpenRouter response is claimed.
+
+## Persistent worker rollout, 2026-10-03
+
+The persistent-session image above is active on the dedicated VM. Activation
+passed live forward/back steps, invalid `Qed` rejection, Unicode and independent
+full-file compilation. Public HTTPS API checks also passed against the existing
+site's unchanged library fingerprint, including session closure, original-file
+compilation, source mismatch, origin restrictions and missing-key rejection.
+The previous image is retained. The activation backup is
+`/var/lib/atlas-deployments/persistent-20261003-51bcl55r` on the VM.
+The matching frontend must still pass CI and the public-browser rollout gate;
+the worker checks alone do not establish that the new frontend is published.

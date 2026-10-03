@@ -19,13 +19,18 @@ class QuietHandler(SimpleHTTPRequestHandler):
         pass
 
 
-def run(site, backend, artifacts):
+def run(site, backend, artifacts, require_sessions=False):
     with sync_playwright() as p:
         browser=p.chromium.launch()
         context=browser.new_context(viewport={'width':1440,'height':1000},accept_downloads=True)
         page=context.new_page()
         errors=[]
         calls=[]
+        session_tokens=[]
+        def remember_session(response):
+            if response.url==backend+'/workspace/session/open' and response.status==200:
+                session_tokens.append(response.json()['session_token'])
+        page.on('response',remember_session)
         page.on('pageerror',lambda error:errors.append(str(error)))
         page.on('request',lambda request:calls.append(request.url))
         def key_destination(request):
@@ -51,7 +56,10 @@ def run(site, backend, artifacts):
             page.wait_for_function("document.getElementById('live-connection').textContent.includes('Library snapshot matches')")
             assert 'bubblewrap' in page.locator('#live-connection').text_content()
             page.wait_for_function("document.querySelector('#live-model option:checked').textContent === 'openai/gpt-6-astra'")
-            persistent=page.locator('#live-session-status').count()>0 and 'Persistent Coq is available' in page.locator('#live-session-status').inner_text()
+            # Connection collapses Settings. Read DOM text, not rendered text
+            # inside the closed details element, to detect the advertised mode.
+            persistent=page.locator('#live-session-status').count()>0 and 'Persistent Coq is available' in page.locator('#live-session-status').text_content()
+            assert not require_sessions or persistent,'Persistent-session UI was required but not available'
             prefix_status='Session prefix accepted' if persistent else 'accepted the prefix'
             prefix='Lemma public_browser : forall P : Prop, P -> P.\nProof.\n  intros P HP.'
             code=prefix+'\n  exact HP.\nQed.\n'
@@ -67,6 +75,15 @@ def run(site, backend, artifacts):
             page.keyboard.press('Alt+ArrowDown');status(prefix_status+' through line 4')
             page.keyboard.press('Alt+ArrowUp');status(prefix_status+' through line 3')
             assert 'HP : P' in page.locator('.live-hypotheses').inner_text()
+            if persistent:
+                # Release our reserved slot before compiling. This remains
+                # usable when the other Coq slot belongs to another visitor.
+                page.locator('#live-settings summary').click()
+                with page.expect_response(lambda r:r.url==backend+'/workspace/session/close') as closed:
+                    page.locator('#live-session-close').click()
+                assert closed.value.status==200
+                page.locator('#live-settings summary').click()
+                select(len(prefix))
             page.keyboard.press('ControlOrMeta+Shift+Enter');status('This copy compiled')
             assert page.locator('#live-progress').inner_text()=='Full copy compiled'
             # Search, real typing and undo work inside CodeMirror.
@@ -148,14 +165,22 @@ def run(site, backend, artifacts):
                 'status':page.locator('#live-check-status').text_content() if page.locator('#live-check-status').count() else 'not in editor'}),flush=True)
             raise
         finally:
+            # Browser.close() need not fire pagehide. Always release our own
+            # tokens, even if an assertion fails, without logging credentials.
+            for token in session_tokens:
+                try:
+                    context.request.post(backend+'/workspace/session/close',data={},headers={'X-Coq-Session':token},timeout=10000)
+                except Exception:
+                    pass
             browser.close()
-    print(json.dumps({'passed':True,'browser':True,'real_coq':True,'model_output':'mocked','artifacts':str(artifacts)}))
+    print(json.dumps({'passed':True,'browser':True,'real_coq':True,'persistent_sessions_tested':persistent,'model_output':'mocked','artifacts':str(artifacts)}))
 
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--site')
     parser.add_argument('--backend',required=True)
+    parser.add_argument('--require-sessions',action='store_true',help='Fail if the frontend does not offer persistent Coq')
     args=parser.parse_args()
     artifacts=Path(tempfile.mkdtemp(prefix='atlas-public-browser-'))
     server=None
@@ -165,7 +190,7 @@ def main():
         threading.Thread(target=server.serve_forever,daemon=True).start()
         args.site=f'http://127.0.0.1:{server.server_port}'
     try:
-        run(args.site,args.backend.rstrip('/'),artifacts)
+        run(args.site,args.backend.rstrip('/'),artifacts,args.require_sessions)
     finally:
         if server:server.shutdown();server.server_close()
 

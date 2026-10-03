@@ -68,6 +68,33 @@
     const parts=tail.split(/\n\s*goal \d+(?: \(ID [^)]+\))? is:\s*\n/i);
     return {count:Number(m[1]),hypotheses:body.slice(0,divider.index).trim(),conclusions:parts.map(s=>s.trim())};
   }
+  function sessionDiagnostic(items,code) {
+    const item=(items||[]).find(d=>d.severity===1&&d.range);
+    if(!item)return null;
+    const start=item.range.start,end=item.range.end;
+    if(!Number.isInteger(start?.line)||!Number.isInteger(start?.character)||start.line<0||start.character<0)return null;
+    const from=lineOffset(code,start.line+1)+start.character;
+    const to=lineOffset(code,(end?.line??start.line)+1)+(end?.character??start.character+1);
+    if(from>code.length)return null;
+    return {line:start.line+1,from,to:Math.min(code.length,Math.max(from+1,to))};
+  }
+  function sessionGoals(value) {
+    if(!value)return '<div class="live-empty"><span class="live-empty-symbol">⊢</span><h2>No proof is currently open.</h2><p>Language-server state only. Compile the full copy separately.</p></div>';
+    const groups=[['Current',value.goals||[]],['Shelved',value.shelf||[]],['Given up',value.given_up||[]]];
+    for(const frame of value.stack||[])groups.push(['Unfocused',(frame[0]||[]).concat(frame[1]||[])]);
+    let html='';
+    for(const [label,items] of groups)for(const [i,goal] of items.entries()) {
+      const hyps=(goal.hyps||[]).map(h=>`${(h.names||[]).join(', ')}${h.def!=null?' := '+h.def:''} : ${h.ty}`).join('\n');
+      html+=`<div class="live-goal-card"><div class="live-panel-title">${esc(label)} goal ${i+1}</div><pre class="live-hypotheses">${esc(hyps||'No local hypotheses.')}</pre><pre>⊢ ${esc(goal.ty)}</pre></div>`;
+    }
+    return html||'<div class="live-empty"><span class="live-empty-symbol">⊢</span><h2>No goals in this proof state.</h2><p>Close the proof and compile the full copy to check it independently.</p></div>';
+  }
+  function closeRemote(session) {
+    if(!session)return;
+    // Best effort on navigation. Server expiry also cleans abandoned tabs.
+    fetch(session.api+'/workspace/session/close',{method:'POST',credentials:'omit',redirect:'error',keepalive:true,
+      headers:{'X-Coq-Session':session.token}}).catch(()=>{});
+  }
   function render(source,key) {
     return `<div class="live-workspace">
       <div class="live-heading"><div><a class="live-backlink" href="#/proof/${encodeURIComponent(key)}">← Original proof & audit</a>
@@ -76,7 +103,10 @@
         <details class="live-settings" id="live-settings"><summary>Settings & help</summary><div class="live-settings-card">
           <label for="live-api">Checker backend</label><input id="live-api" type="url" value="${esc(defaultBackend())}">
           <p id="live-connection" role="status">Not connected. No code or question has been sent.</p>
-          <p>Coq 8.20.1. Each step replays in a fresh isolated process. Imports use the precompiled atlas; edited dependents are not rebuilt.</p>
+          <label for="live-execution">Proof execution</label><select id="live-execution"><option value="persistent">Persistent session when available</option><option value="replay">Fresh isolated replay</option></select>
+          <p id="live-session-status">No persistent session. A session starts only when you run a prefix.</p>
+          <button id="live-session-close" class="live-button">End private Coq session</button>
+          <p>Coq 8.20.1. Persistent steps reuse private language-server state. Full compilation always uses a fresh process. Imports use the precompiled atlas; edited dependents are not rebuilt. Sessions expire after 5 idle minutes or 30 minutes total.</p>
           <p>Check sends this file to the displayed backend. Explain sends your file and question there; only the selection and nearby context go to OpenRouter. Use a backend you trust.</p>
           <dl><dt>Next / previous</dt><dd>Alt + ↓ / ↑</dd><dt>Check to cursor</dt><dd>Ctrl / ⌘ + Enter</dd><dt>Compile file</dt><dd>Ctrl / ⌘ + Shift + Enter</dd><dt>Assistant</dt><dd>Alt + E</dd><dt>Search</dt><dd>Ctrl / ⌘ + F</dd></dl>
           <p>Tab indents. Escape then Tab moves focus out of the editor. <a href="https://github.com/StergiosCha/formal_atlas_of_semantics/pulls" target="_blank" rel="noopener noreferrer">Submit a review patch via pull request.</a> Nothing is submitted automatically.</p>
@@ -126,14 +156,14 @@
     </div>`;
   }
   function dispose() {
-    if(active){active.requests.forEach(c=>c.abort());active.events.abort();active.editor?.destroy();active=null;}
+    if(active){closeRemote(active.session);active.session=null;active.requests.forEach(c=>c.abort());active.events.abort();active.editor?.destroy();active=null;}
     root.document?.body?.classList.remove('atlas-editing');
   }
   function mount(source,key,data,line) {
     dispose();const el=id=>root.document.getElementById('live-'+id);
     if(!el('code'))return;
     root.document.body.classList.add('atlas-editing');
-    const state={requests:new Set(),events:new AbortController(),generation:0,processed:0,ready:false,busy:false,error:null,connectSeq:0,tab:'goals'};active=state;
+    const state={requests:new Set(),events:new AbortController(),generation:0,processed:0,ready:false,busy:false,error:null,connectSeq:0,tab:'goals',session:null,sessionAvailable:false};active=state;
     const valid=()=>active===state,status=(id,text)=>{if(valid())el(id).textContent=text;};
     if(!root.AtlasCodeEditor){status('check-status','Editor bundle unavailable. Reload the page.');return;}
     const draftKey='atlas-edit-v1:'+key+':'+source.sha256,draft=storage.get(draftKey);
@@ -173,20 +203,28 @@
         const response=await fetch(currentAPI()+path,{method:body?'POST':'GET',credentials:'omit',redirect:'error',signal:controller.signal,
           ...(body?{headers:{'content-type':'application/json',...headers},body:JSON.stringify(body)}:{})});
         let value;try{value=await response.json();}catch(_){throw new Error('Backend did not return workspace JSON. It may need updating.');}
-        if(!response.ok)throw new Error(typeof value.detail==='string'?value.detail:`Backend HTTP ${response.status}`);
+        if(!response.ok){const error=new Error(typeof value.detail==='string'?value.detail:`Backend HTTP ${response.status}`);error.httpStatus=response.status;throw error;}
         return value;
       }finally{clearTimeout(timer);state.requests.delete(controller);}
     }
-    el('api').addEventListener('input',()=>{state.ready=false;state.connectSeq++;state.generation++;state.processed=0;state.error=null;progress();
+    function endSession(){closeRemote(state.session);state.session=null;status('session-status','No persistent session. The next prefix run starts a new one.');}
+    el('session-close').onclick=()=>{if(state.busy){status('session-status','Wait for the current operation, then end the session.');return;}endSession();};
+    el('execution').onchange=()=>{endSession();state.generation++;state.processed=0;progress();el('goals').classList.add('is-stale');status('progress','Not checked');status('check-status','Execution mode changed. Run a new check.');};
+    root.addEventListener('pagehide',endSession,{signal:state.events.signal});
+    el('api').addEventListener('input',()=>{endSession();state.sessionAvailable=false;state.ready=false;state.connectSeq++;state.generation++;state.processed=0;state.error=null;progress();
       el('key').value='';el('badge').classList.remove('is-ready');status('explain-status','Backend changed. Key cleared; only enter it for a backend you trust.');
       el('error-jump').hidden=true;status('badge','Not connected');status('progress','Not checked');el('goals').classList.add('is-stale');
       status('check-status','Backend changed. Connect before checking.');status('connection','Backend changed. Connect before checking.');});
     el('connect').onclick=async()=>{
+      if(state.busy){status('connection','Wait for the current check before reconnecting.');return;}
+      endSession();
       const seq=++state.connectSeq;state.ready=false;status('badge','Connecting…');status('connection','Checking sandbox, compiler version and library snapshot...');
       try {
         const cap=await request('/workspace/capabilities');if(!valid()||seq!==state.connectSeq)return;
         if(cap.library_sha256!==data.workspace_library_sha256)throw new Error('Checker and site library snapshots differ. Backend update required.');
         state.ready=cap.available===true&&cap.coq_version==='8.20.1';
+        state.sessionAvailable=cap.session_available===true;
+        status('session-status',state.sessionAvailable?'Persistent Coq is available. Run a prefix to start a private session.':'This backend offers fresh isolated replay only.');
         storage.set('atlas_api',currentAPI());status('badge',state.ready?'● Coq 8.20.1':'Unavailable');el('badge').classList.toggle('is-ready',state.ready);
         status('connection',state.ready?`Connected: Coq ${cap.coq_version}, ${cap.sandbox}. Library snapshot matches.`:`Live checking unavailable: ${cap.error||'Coq 8.20.1 sandbox required'}.`);
         if(state.ready){el('settings').open=false;status('connect','Reconnect');}
@@ -205,27 +243,50 @@
       if(state.busy)return;
       if(!state.ready){status('check-status','Connect to a matching, sandbox-enabled checker first.');return;}
       const code=editor.getValue(),generation=state.generation;state.busy=true;state.error=null;el('error-jump').hidden=true;
-      ['back','next','cursor','file'].forEach(id=>el(id).disabled=true);progress({from:Math.min(state.processed,cursor),to:cursor});
-      status('check-status',mode==='file'?'Compiling this copy...':'Replaying the selected prefix...');
+      ['back','next','cursor','file','execution','session-close'].forEach(id=>el(id).disabled=true);progress({from:Math.min(state.processed,cursor),to:cursor});
+      const persistent=mode==='prefix'&&state.sessionAvailable&&el('execution').value==='persistent';
+      status('check-status',mode==='file'?'Compiling this copy...':persistent?'Checking in your private Coq session...':'Replaying the selected prefix...');
       try {
-        const result=await request('/workspace/check',{...sourceRequest(code),mode,cursor:codepoints(code,cursor)});
+        let result,sequence;
+        if(persistent) {
+          if(!state.session) {
+            const api=currentAPI(),opened=await request('/workspace/session/open',sourceRequest(''));
+            const session={api,token:opened.session_token,sequence:0};
+            if(!valid()||state.generation!==generation||currentAPI()!==api){closeRemote(session);return;}
+            if(!/^[A-Za-z0-9_-]{43}$/.test(session.token)||opened.library_sha256!==data.workspace_library_sha256){closeRemote(session);throw new Error('Invalid session response. No code was sent.');}
+            state.session=session;
+          }
+          const session=state.session;sequence=++session.sequence;
+          result=await request('/workspace/session/check',{...sourceRequest(code),cursor:codepoints(code,cursor),sequence},35000,{'X-Coq-Session':session.token});
+          if(result.sequence!==sequence)throw new Error('Out-of-order session response. No check attributed to this copy.');
+          status('session-status',`Private Coq session active. Document version ${result.document_version}. No model key is involved.`);
+        } else result=await request('/workspace/check',{...sourceRequest(code),mode,cursor:codepoints(code,cursor)});
         if(!valid())return;status('output',result.output||'(Coq returned no diagnostics.)');
         if(state.generation!==generation||editor.getValue()!==code){status('check-status','Result is stale: you edited while Coq was running. Current copy is not checked.');return;}
         const hash=Array.from(new Uint8Array(await root.crypto.subtle.digest('SHA-256',new TextEncoder().encode(code)))).map(x=>x.toString(16).padStart(2,'0')).join('');
         if(!valid())return;
         if(state.generation!==generation||result.code_sha256!==hash||result.library_sha256!==data.workspace_library_sha256){status('check-status','Snapshot mismatch. No check is attributed to the current copy.');return;}
+        if(result.mode!==mode||result.checked_characters!==codepoints(code,cursor))throw new Error('Checked range mismatch. No check attributed to this copy.');
         if(result.ok===true) {
           state.processed=cursor;status('progress',mode==='file'?'Full copy compiled':`Accepted through line ${code.slice(0,cursor).split('\n').length}`);
-          status('check-status',mode==='file'?'This copy compiled in Coq 8.20.1. Original audits and source approval do not transfer.':`Coq accepted the prefix through line ${code.slice(0,cursor).split('\n').length}. Open goals may remain.`);
-          renderGoals(result.output||'',mode);selectTab('goals');editor.select(cursor);
+          status('check-status',mode==='file'?'This copy compiled in Coq 8.20.1. Original audits and source approval do not transfer.':persistent?`Session prefix accepted through line ${code.slice(0,cursor).split('\n').length}. Open goals may remain. Compile separately.`:`Coq accepted the prefix through line ${code.slice(0,cursor).split('\n').length}. Open goals may remain.`);
+          if(persistent){
+            el('goals').innerHTML=sessionGoals(result.goals);el('goals').classList.remove('is-stale');
+            const g=result.goals,count=(g?.goals?.length??0)+(g?.shelf?.length??0)+(g?.given_up?.length??0)+
+              (g?.stack||[]).reduce((n,frame)=>n+(frame[0]?.length??0)+(frame[1]?.length??0),0);
+            status('goal-count',String(count));
+          }
+          else renderGoals(result.output||'',mode);
+          selectTab('goals');editor.select(cursor);
         }else {
-          state.error=diagnostic(result.output||'',code,source.path);el('error-jump').hidden=!state.error;
+          state.processed=0;status('progress','Not checked');el('goals').classList.add('is-stale');status('goal-count','');
+          state.error=persistent?sessionDiagnostic(result.diagnostics,code):diagnostic(result.output||'',code,source.path);el('error-jump').hidden=!state.error;
           if(state.error)status('error-jump',`Jump to line ${state.error.line}`);
           status('check-status',result.timeout?'Coq timed out. This copy is not checked.':'Coq reported an error. This copy is not checked.');selectTab('diagnostics');
         }
         if(result.truncated)status('output','[Earlier output truncated]\n'+result.output);
-      }catch(error){status('check-status',error.name==='AbortError'?'Timed out waiting for Coq. No successful check claimed.':error.message);}
-      finally{state.busy=false;if(valid()){progress();['back','next','cursor','file'].forEach(id=>el(id).disabled=false);}}
+      }catch(error){if(persistent){endSession();status('session-status','Session ended. Retry to start a new one, or select fresh replay.');}status('check-status',error.name==='AbortError'?'Timed out waiting for Coq. No successful check claimed.':error.message);}
+      finally{state.busy=false;if(valid()){progress();['back','next','cursor','file','execution','session-close'].forEach(id=>el(id).disabled=false);}}
     }
     el('next').onclick=()=>check('prefix',currentRange().to);
     el('back').onclick=()=>check('prefix',sentenceEnds(editor.getValue()).filter(n=>n<state.processed).pop()??0);
@@ -267,6 +328,6 @@
     if(draft!==null)status('copy-status','Restored your browser draft for this source version. Not checked in this session.');
     editor.select(lineOffset(editor.getValue(),Math.max(1,Number(line)||1)),undefined,false);selection();progress();
   }
-  const api={render,mount,dispose,endpoint,keyHeaders,defaultBackend,sentenceEnds,lineOffset,codepoints,patch,diagnostic,goals,byteOffset};
+  const api={render,mount,dispose,endpoint,keyHeaders,defaultBackend,sentenceEnds,lineOffset,codepoints,patch,diagnostic,goals,byteOffset,sessionDiagnostic,sessionGoals};
   root.AtlasWorkspace=api;if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

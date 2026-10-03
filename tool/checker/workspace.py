@@ -13,12 +13,15 @@ from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel, Field
 
 import isolation
+import sessions
 
 router = APIRouter(prefix="/workspace")
 _PARENTS = Path(__file__).resolve().parents
 REPO = Path(os.environ.get("ATLAS_REPO", _PARENTS[2] if len(_PARENTS) > 2 else "/atlas")).resolve()
 CATALOG = Path(os.environ.get("ATLAS_JSON", REPO / "atlas_data/atlas.json"))
 SLOTS = threading.BoundedSemaphore(2)
+EXPLANATION_SLOTS = threading.BoundedSemaphore(2)
+SESSIONS = sessions.Pool(SLOTS)
 RATE_LOCK = threading.Lock()
 HITS = defaultdict(deque)
 GLOBAL_HITS = deque()
@@ -127,7 +130,93 @@ class CheckRequest(SourceRequest):
 def capabilities():
     _, fingerprint = library()
     return {**isolation.capability(str(REPO)), "library_sha256": fingerprint,
-            "max_code": 200_000, "execution": "fresh isolated replay, not a shared session"}
+            "max_code": 200_000, "execution": "fresh isolated replay, not a shared session",
+            "session_available": sessions.capability(str(REPO)),
+            "session_lsp_version": sessions.LSP_VERSION,
+            "session_lsp_package": sessions.LSP_PACKAGE,
+            "session_idle_seconds": sessions.IDLE_SECONDS,
+            "session_lifetime_seconds": sessions.LIFETIME_SECONDS}
+
+
+def session_token(request):
+    token = request.headers.get("x-coq-session", "")
+    if not re.fullmatch(r"[A-Za-z0-9_-]{43}", token):
+        raise HTTPException(401, "A valid private Coq session token is required")
+    return token
+
+
+@router.post("/session/open")
+def open_session(req: SourceRequest, request: Request):
+    guard(request, "session_open")
+    validate_source(req)
+    if not sessions.capability(str(REPO)):
+        raise HTTPException(503, "Persistent Coq is unavailable. Use isolated replay.")
+    try:
+        token, session = SESSIONS.open(str(REPO), req.path, req.source_sha256, req.library_sha256)
+    except sessions.SessionError as error:
+        raise HTTPException(429, str(error))
+    except Exception:
+        raise HTTPException(503, "Coq session could not start. No code was checked.")
+    return {"session_token": token, "execution": "persistent", "coq_version": isolation.COQ_VERSION,
+            "lsp_version": sessions.LSP_VERSION, "library_sha256": session.library_hash,
+            "idle_seconds": sessions.IDLE_SECONDS, "lifetime_seconds": sessions.LIFETIME_SECONDS}
+
+
+class SessionCheckRequest(SourceRequest):
+    cursor: int = Field(ge=0, le=200_000)
+    sequence: int = Field(ge=1, le=1_000_000_000)
+
+
+@router.post("/session/check")
+def session_check(req: SessionCheckRequest, request: Request):
+    guard(request, "check")
+    token = session_token(request)
+    validate_source(req)
+    if req.cursor > len(req.code):
+        raise HTTPException(422, "Cursor lies outside the file")
+    checked = req.code[:req.cursor]
+    if re.search(r"\b(?:Quit|Drop)\s*\.", visible_commands(checked)):
+        raise HTTPException(422, "Session-exit commands are not allowed in a checked copy")
+    try:
+        session = SESSIONS.get(token)
+    except sessions.SessionExpired as error:
+        raise HTTPException(410, str(error))
+    if not session.lock.acquire(blocking=False):
+        raise HTTPException(409, "This Coq session is processing another request")
+    broken = False
+    try:
+        if session.expired(time.monotonic()):
+            raise HTTPException(410, "Coq session expired. Start a new session.")
+        if (req.path, req.source_sha256, req.library_sha256) != (
+                session.path, session.source_hash, session.library_hash):
+            raise HTTPException(409, "Session belongs to a different source or library snapshot")
+        if req.sequence <= session.sequence:
+            raise HTTPException(409, "Out-of-order Coq session request")
+        session.sequence = req.sequence
+        try:
+            result = session.prefix(checked)
+        except Exception:
+            broken = True
+            raise HTTPException(503, "Coq session stopped or exceeded its limits. Start a new session; no successful check is claimed.")
+        session.used = time.monotonic()
+    finally:
+        session.lock.release()
+        if broken:
+            SESSIONS.close(token)
+    return {**result, "mode": "prefix", "sequence": req.sequence,
+            "coq_version": isolation.COQ_VERSION, "sandbox": isolation.capability(str(REPO)).get("sandbox"),
+            "code_sha256": digest(req.code), "checked_sha256": digest(checked),
+            "checked_characters": len(checked), "library_sha256": req.library_sha256,
+            "status": "session_prefix" if result["ok"] else "failed",
+            "notice": "Language-server prefix state, not full-file verification. Compile separately. Open goals, admissions and assumptions may remain; source fidelity is not verified."}
+
+
+@router.post("/session/close")
+def close_session(request: Request):
+    guard(request, "session_close")
+    if not SESSIONS.close(session_token(request)):
+        raise HTTPException(409, "Session is busy. Retry close after the current operation.")
+    return {"closed": True}
 
 
 @router.post("/check")
@@ -225,8 +314,8 @@ def explain(req: ExplainRequest, request: Request):
     if req.model not in providers.ROSTER:
         raise HTTPException(422, "Model is not in the configured roster")
     context = explanation_context(req)
-    if not SLOTS.acquire(blocking=False):
-        raise HTTPException(429, "Workspace is busy; try again shortly")
+    if not EXPLANATION_SLOTS.acquire(blocking=False):
+        raise HTTPException(429, "Explanation capacity is busy; try again shortly")
     try:
         text = providers.chat(req.model, [{"role": "system", "content": EXPLAIN_POLICY},
                                          {"role": "user", "content": json.dumps(context)}],
@@ -235,7 +324,7 @@ def explain(req: ExplainRequest, request: Request):
         # Provider errors can echo request/credential details. Do not relay them.
         raise HTTPException(502, "Explanation provider unavailable. No explanation was produced.")
     finally:
-        SLOTS.release()
+        EXPLANATION_SLOTS.release()
     return {"text": text, "model": req.model, "provider": providers.CFG["provider"],
             "model_id": providers.ROSTER[req.model]["model"], "verified": False,
             "code_sha256": context["current_sha256"], "start": req.start, "end": req.end,

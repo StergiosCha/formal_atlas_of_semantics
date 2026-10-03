@@ -41,6 +41,7 @@ jobs:
           python3 -m unittest discover -s atlas_data -p 'test_*.py'
           python3 -m unittest discover -s tool/llm -p 'test_*.py'
           python3 tool/checker/test_workspace.py -v
+          python3 tool/checker/test_sessions.py -v
           python3 atlas_data/consolidate.py
           git diff --exit-code -- atlas_data/atlas.json atlas_data/ATLAS.md
           python3 atlas_data/build_site.py

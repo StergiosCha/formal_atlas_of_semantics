@@ -29,9 +29,16 @@ Unrecognized layouts are not reconstructed by an LLM. The assistant occupies its
 own tab and keeps the editor selection when you enter a question or key.
 Backend settings and shortcuts are in Settings & help.
 
-The runtime remains fresh isolated replay, not a persistent Coq session. There
-is no automatic tactic completion, language-server integration or multi-file
-dependency rebuilding in this release.
+The editor can use private persistent **coq-lsp 0.2.5+8.20** sessions when the
+backend advertises support. Older backends retain fresh isolated replay, and
+Settings & help lets visitors select replay explicitly. Merely opening or
+connecting the editor does not start a session or send its source.
+
+Prefix checks send successive prefixes to the same private language-server
+process. Its document cache can reuse the unchanged portion; edits and backward
+steps update that document. Structured goals include unfocused, shelved and
+given-up goals. Full-file compilation always uses a separate fresh `coqc`.
+There is no automatic tactic completion or multi-file dependency rebuilding.
 
 Pinned dependencies, the lockfile and bundle source live in `tool/editor/`.
 Rebuild with `npm ci --prefix tool/editor --ignore-scripts` followed by
@@ -51,8 +58,9 @@ committed bundle and license notices.
 
 This is single-file editing against the backend's precompiled imports. It is
 not yet a multi-file project IDE. Editing an imported file does not rebuild its
-dependents. Each prefix check replays in a fresh process, rather than keeping
-a long-lived shared session. Large files may hit the 25-second limit.
+dependents. Persistent sessions are private to the current tab and source
+snapshot, never shared between visitors. Large checks may hit the 25-second
+per-operation limit.
 
 Original assumptions audits stay in the read-only reader. The editable copy
 never inherits its verified status. A prefix can have open goals, and full
@@ -96,6 +104,41 @@ execution or editing capabilities.
 
 ## Runtime isolation
 
+### Persistent-session boundary
+
+A session is addressed by an unpredictable bearer token in `X-Coq-Session`,
+never a URL, cookie, local storage entry, or model prompt. The page retains it
+only in memory. Navigation requests cleanup on a best-effort basis; the server
+also reaps abandoned sessions. **End private Coq session** releases capacity.
+The server expires sessions after five idle minutes or thirty minutes total,
+and imposes a 120-second cumulative CPU limit, 1 GiB address-space limit on
+Linux, and a 25-second wall deadline per operation. A timeout or transport
+failure closes the process group. There is no unrestricted fallback.
+
+Sessions reserve one of the existing two worker slots for their entire life.
+Thus two idle sessions can occupy capacity needed by compilation or proof
+generation. Close an idle session before retrying a busy request. Text-only
+explanations have a separate two-request limit and do not occupy Coq slots. This bounded
+pilot is not a promise of arbitrary concurrent visitors or durable projects.
+The HTTP service must run as one worker process while its session registry is
+in memory. A service restart loses sessions, not browser-saved source drafts.
+
+The backend fixes the LSP methods, document URI, library and compiler version;
+visitors cannot submit arbitrary JSON-RPC or server configuration. It checks
+versioned diagnostics for the whole requested prefix before showing success.
+`admit_on_bad_qed` is disabled and processing stops at the first error. Other
+upstream recovery paths still exist, so an error is never accepted merely
+because a later goal query succeeds. A language-server state is not independent
+kernel verification. Full compilation remains a separate fresh-process action.
+
+The pinned protocol and recovery behavior were checked against the upstream
+[coq-lsp 0.2.5+8.20 source](https://github.com/ejgallego/coq-lsp/releases/tag/0.2.5%2B8.20).
+Position columns in its structured diagnostics use UTF-16, unlike legacy
+`coqc` diagnostic byte columns. The frontend handles these separately.
+
+See the [candidate validation record](SESSION_VALIDATION.md) for the tested
+image, actual Linux checks, corrections and remaining production-rollout gates.
+
 Linux requires **usable bubblewrap namespaces**, not merely an installed binary.
 The Coq child receives no API credentials, no network, a private process namespace,
 read-only Coq/runtime libraries and a writable per-request scratch directory.
@@ -136,6 +179,8 @@ required for Coq.
 ```sh
 python3 tool/checker/test_workspace.py -v
 python3 tool/checker/test_workspace.py --live -v
+python3 tool/checker/test_sessions.py -v
+python3 tool/checker/test_sessions.py --live -v
 node atlas_data/site/test_workspace.cjs
 python3 tool/checker/smoke_workspace.py
 ```

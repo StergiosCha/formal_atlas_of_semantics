@@ -100,6 +100,20 @@ def run(repo, scratch, executable, args, *, stdin="", timeout=25):
             "timeout": timed_out, "truncated": size > 60000}
 
 
+def start_session(repo, scratch, executable, args, stderr):
+    """Persistent stdio transport, with the same fail-closed OS boundary.
+
+    The caller enforces a per-operation wall deadline and kills the process
+    group at close/expiry. CPU is a cumulative lifetime budget, not a timer
+    reset by each HTTP request. No visitor credentials enter this environment.
+    """
+    cmd = command(repo, scratch, executable, args)
+    return subprocess.Popen([sys.executable, str(Path(__file__).resolve()),
+                             "--session-limited", "120", *cmd],
+                            stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=stderr,
+                            cwd=scratch, env=clean_env(), start_new_session=True, bufsize=0)
+
+
 @functools.lru_cache(maxsize=4)
 def capability(repo):
     try:
@@ -113,12 +127,13 @@ def capability(repo):
         return {"available": False, "coq_version": COQ_VERSION, "error": str(error)}
 
 
-if __name__ == "__main__" and sys.argv[1:2] == ["--limited"]:
+if __name__ == "__main__" and sys.argv[1:2] in (["--limited"], ["--session-limited"]):
     seconds = int(sys.argv[2])
     resource.setrlimit(resource.RLIMIT_CPU, (seconds, seconds + 1))
     resource.setrlimit(resource.RLIMIT_FSIZE, (2_000_000, 2_000_000))
     resource.setrlimit(resource.RLIMIT_NOFILE, (128, 128))
     resource.setrlimit(resource.RLIMIT_CORE, (0, 0))
     if platform.system() == "Linux":
-        resource.setrlimit(resource.RLIMIT_AS, (1536 * 1024**2, 1536 * 1024**2))
+        memory = (1024 if sys.argv[1] == "--session-limited" else 1536) * 1024**2
+        resource.setrlimit(resource.RLIMIT_AS, (memory, memory))
     os.execv(sys.argv[3], sys.argv[3:])

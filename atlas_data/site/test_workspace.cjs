@@ -38,6 +38,16 @@ for(const [key,source] of Object.entries(data.proof_sources)) {
 const attack=workspace.render({path:'<img src=x>',text:'</textarea><script>alert(1)</script>'},'key');
 assert(!attack.includes('<img src=x>'));
 assert(!attack.includes('<script>alert'));
-assert(attack.includes('&lt;/textarea&gt;'));
+// Source enters CodeMirror as a document, never as interpolated HTML.
+assert(!attack.includes('</textarea><script>'));
+assert(!attack.includes('alert(1)'));
+assert(attack.includes('id="live-code"'));
+assert(html.includes('vendor/coq-editor.js?v='));
+assert.equal(workspace.byteOffset('α😀x',6),3);
+assert.deepEqual(workspace.diagnostic('File "/tmp/PTQ.v", line 2, characters 2-6:\nError: bad','a\nα😀x','atlas/montague/PTQ.v'),{line:2,from:3,to:5});
+assert.equal(workspace.diagnostic('File "/atlas/Other.v", line 1, characters 0-1:','abc','atlas/PTQ.v'),null);
+assert.deepEqual(workspace.goals('Welcome to Coq\n1 goal (ID 3)\n P : Prop\n HP : P\n ============================\n P'),{count:1,hypotheses:'P : Prop\n HP : P',conclusions:['P']});
+assert.deepEqual(workspace.goals('2 goals\n H : True\n ========\n True\ngoal 2 is:\n False').conclusions,['True','False']);
+assert.equal(workspace.goals('No more goals.'),null);
 assert(!html.includes('workspace.js" defer'));
 console.log('Workspace routes, library fingerprint, navigation, Unicode, escaping and review-patch helpers passed.');

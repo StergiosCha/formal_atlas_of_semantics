@@ -1,18 +1,102 @@
-.live-workspace{max-width:1600px}
-.live-workspace section{padding-top:24px}
-.live-connect{margin:18px 0;gap:12px;align-items:center;flex-wrap:wrap}
-.live-connect input{display:block;width:min(560px,75vw);font:12px ui-monospace,monospace;padding:8px}
-.live-connect [role=status]{font-size:12px;max-width:440px;overflow-wrap:anywhere}
-.live-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(310px,1fr);gap:24px;align-items:start}
-.live-toolbar{gap:8px;flex-wrap:wrap;margin-bottom:12px}
-.live-code{width:100%;height:65vh;min-height:360px;resize:vertical;tab-size:2;white-space:pre;overflow:auto;
-  background:var(--bg);color:var(--ink);border:2px solid var(--ink);padding:12px;font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace}
-.live-panels .block{margin-top:0;margin-bottom:20px}
-.live-output,.live-explanation{white-space:pre-wrap;overflow-wrap:anywhere;overflow:auto;max-height:420px;font:12px/1.6 ui-monospace,monospace;margin:12px 0}
-.live-explanation{font:14px/1.6 Archivo,sans-serif}
-.live-workspace #live-question{width:100%;display:block;margin:8px 0 12px;padding:8px;background:var(--bg);color:var(--ink);font:14px/1.5 Archivo,sans-serif}
-.live-workspace select{max-width:100%}
-.live-workspace #live-key{display:block;width:100%;margin:8px 0;padding:8px;background:var(--bg);color:var(--ink);font:14px ui-monospace,monospace}
+/* Proof workspace. Scoped so the atlas's reading pages keep their own layout. */
+body.atlas-editing{background:#f1f3ec}
+body.atlas-editing>footer{display:none}
+body.atlas-editing>header .hd{height:52px;max-width:none;width:auto;margin:0 24px}
+body.atlas-editing>header nav{gap:20px}
+body.atlas-editing>header nav a{font-size:12px}
+body.atlas-editing>header .brand{font-size:14px}
+body.atlas-editing>header .btn{padding:8px 12px;font-size:12px}
+.live-workspace{height:calc(100dvh - 52px);min-height:500px;padding:18px 24px 10px;display:flex;flex-direction:column;gap:12px;color:#243329;font:13px/1.5 var(--sans,Arial,sans-serif)}
+.live-workspace *{box-sizing:border-box}
+.live-workspace [hidden]{display:none!important}
+.live-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-shrink:0}
+.live-backlink{font-size:11px;color:#63715f;text-decoration:none}
+.live-backlink:hover{text-decoration:underline}
+.live-heading h1{font:650 23px/1.35 var(--sans,Arial,sans-serif);letter-spacing:-.04em;margin:2px 0 0}
+.live-heading h1 span{font-size:12px;font-weight:400;letter-spacing:0;color:#7b8578;margin-left:10px}
+.live-heading-actions{display:flex;align-items:center;gap:12px}
+.live-badge{font-size:11px;color:#77806f;white-space:nowrap}
+.live-badge.is-ready{color:#41713a}
+.live-workspace button,.live-workspace summary{cursor:pointer}
+.live-button{border:1px solid #ccd3c4;border-radius:5px;padding:7px 11px;background:#fafbf7;color:#33412e;font:600 12px/1.3 var(--sans,Arial,sans-serif);white-space:nowrap}
+.live-button:hover{background:#e6eddd;border-color:#9dae90}
+.live-button.primary{background:#416d37;border-color:#416d37;color:white}
+.live-button.primary:hover{background:#34582c}
+.live-button.quiet{background:transparent;border-color:transparent;color:#617059}
+.live-button.quiet:hover{background:#e6ebdf}
 .live-workspace button:disabled{opacity:.5;cursor:wait}
-.live-workspace label{font-size:12px}
-@media(max-width:850px){.live-grid{grid-template-columns:1fr}.live-code{height:50vh}.live-toolbar .btn{font-size:12px;padding:8px}}
+.live-workspace button:focus-visible,.live-workspace summary:focus-visible,.live-divider:focus-visible{outline:2px solid #679657;outline-offset:2px}
+.live-settings{position:relative;font-size:12px}
+.live-settings summary{list-style:none;padding:7px 0;color:#596a4f}
+.live-settings summary::-webkit-details-marker{display:none}
+.live-settings-card{position:absolute;right:0;top:34px;width:min(440px,calc(100vw - 32px));max-height:70vh;overflow:auto;z-index:60;background:#fff;border:1px solid #d4dccd;border-radius:8px;box-shadow:0 8px 30px #24332920;padding:20px}
+.live-settings-card p{margin:10px 0;font-size:12px;line-height:1.65;color:#5d6b56}
+.live-settings-card a{text-decoration:underline}
+.live-settings-card dl{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:12px 0;border-top:1px solid #e1e5db;border-bottom:1px solid #e1e5db}
+.live-settings-card dd{margin:0;font:11px/1.7 ui-monospace,monospace}
+.live-toolbar{display:flex;align-items:center;gap:6px;flex-shrink:0;flex-wrap:wrap}
+.live-toolbar-spacer{flex:1}
+.live-grid{--code-share:62%;display:grid;grid-template-columns:minmax(0,var(--code-share)) 9px minmax(0,1fr);flex:1;min-height:0;border:1px solid #cdd5c5;border-radius:8px;overflow:hidden;background:#fcfcf9;box-shadow:0 2px 5px #2c3b2310}
+.live-editor-pane{min-width:0;min-height:0;display:flex;flex-direction:column}
+.live-filebar{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#f8f9f4;padding:10px 14px;border-bottom:1px solid #e0e5d9;min-height:42px;font:11px/1.5 ui-monospace,monospace;color:#64705d}
+.live-filebar>span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.live-private{font:600 9px/1.5 var(--sans,Arial,sans-serif);letter-spacing:.07em;color:#809075;white-space:nowrap}
+#live-code{flex:1;min-height:0;overflow:hidden}
+.live-editor-footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;background:#f8f9f4;border-top:1px solid #e1e6d9;padding:7px 12px;color:#72806a;font:10px/1.5 ui-monospace,monospace;min-height:30px}
+.live-legend i{display:inline-block;width:8px;height:8px;background:#d1e7ce;border:1px solid #a3c49d;margin-right:4px}
+.live-divider{cursor:col-resize;touch-action:none;background:#f0f3e9;border-left:1px solid #e1e6d8;border-right:1px solid #e1e6d8;position:relative}
+.live-divider:after{content:'';position:absolute;top:45%;left:3px;width:2px;height:34px;border-radius:2px;background:#bac6b0}
+.live-divider:hover{background:#dfe9d5}
+.live-panels{min-width:0;min-height:0;display:flex;flex-direction:column;background:#fff}
+.live-tabs{display:flex;gap:0;border-bottom:1px solid #e0e5d9;min-height:42px;flex-shrink:0;background:#f8f9f4}
+.live-tabs button{font:600 12px/1.5 var(--sans,Arial,sans-serif);border:0;border-bottom:2px solid transparent;background:transparent;padding:11px 16px 9px;color:#77816f}
+.live-tabs button[aria-selected=true]{border-bottom-color:#4b783e;color:#365b2d;background:#fff}
+.live-tabs button:hover{color:#365b2d}
+#live-goal-count:not(:empty){background:#e6efdf;border-radius:8px;font-size:10px;padding:1px 5px;margin-left:3px}
+.live-ai-tag{font-size:8px;font-weight:500;background:#eeeaf6;color:#8a719e;border-radius:3px;padding:2px 3px;margin-left:3px}
+.live-panel{min-height:0;overflow:auto;flex:1;padding:18px}
+.live-panel-title{font-size:10px;font-weight:650;text-transform:uppercase;letter-spacing:.09em;color:#7f8b76;display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
+.live-panel-title span{font-size:10px;letter-spacing:0;color:#92a18a}
+.live-hypotheses,.live-goal-card pre,.live-output{font:13px/1.75 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;margin:0}
+.live-hypotheses{padding:0 0 22px;color:#65715d}
+.live-goal-card{border-top:1px solid #d6e1cc;padding:18px 0}
+.live-goal-card pre{color:#263e27;font-weight:500}
+.live-empty{padding:45px 14px;text-align:center;max-width:350px;margin:0 auto;color:#7b8772}
+.live-empty-symbol{font:36px/1.5 ui-monospace,monospace;color:#aac29a;display:block;margin-bottom:12px}
+.live-empty h2{font:600 17px/1.4 var(--sans,Arial,sans-serif);margin:0 0 10px;color:#4a5e3e}
+.live-empty p{font-size:12px;line-height:1.8;margin:0 0 20px}
+.live-empty kbd{font:10px/1.5 ui-monospace,monospace;border:1px solid #d8dfd0;border-radius:4px;padding:3px 6px;background:#f6f8f1}
+.live-empty>span:last-child{font-size:11px}
+#live-goals.is-stale:before{content:'Earlier snapshot. Recheck to update these goals.';display:block;margin-bottom:18px;padding:8px 10px;background:#faf1d8;color:#8d733c;font-size:11px;border-radius:4px}
+#live-goals.is-stale .live-goal-card,#live-goals.is-stale .live-hypotheses{opacity:.5}
+.live-check-footer{border-top:1px solid #e0e5d9;background:#f8f9f4;padding:10px 14px;font-size:11px;color:#5c6c51;line-height:1.65;min-height:48px;flex-shrink:0}
+.live-bottom{display:flex;justify-content:space-between;gap:16px;flex-shrink:0;font-size:10px;line-height:1.4;color:#7d8874}
+.live-bottom>span:last-child{text-align:right}
+.live-assistant-intro h2{font-size:16px;margin:0 0 7px}
+.live-assistant-intro p{font-size:12px;line-height:1.7;color:#6b7760;margin:0 0 20px}
+.live-workspace label{display:block;font-size:11px;font-weight:600;margin:10px 0 5px;color:#647457}
+.live-workspace input,.live-workspace select,.live-workspace textarea{width:100%;max-width:100%;font:12px/1.5 var(--sans,Arial,sans-serif);color:#34452c;background:#fafbf7;border:1px solid #d1dbc6;border-radius:4px;padding:8px}
+.live-workspace textarea{resize:vertical;min-height:70px;display:block;margin-bottom:10px}
+.live-key-row{display:flex;align-items:end;gap:7px}
+.live-key-row>div{flex:1;min-width:0}
+.live-key-row .live-button{margin-bottom:1px}
+.live-note{font-size:10px;line-height:1.7;color:#859078;margin:8px 0 15px}
+.live-selection-head{display:flex;align-items:center;justify-content:space-between;gap:6px;border-top:1px solid #e0e5d9;padding-top:12px;font-size:10px;color:#6d7b61}
+.live-selection-head button{font-size:10px;white-space:normal}
+.live-excerpt{background:#f4f7ed;border-left:2px solid #bdcdae;border-radius:3px;padding:9px;font:11px/1.7 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere;max-height:120px;overflow:auto;margin:6px 0 12px}
+.live-explanation{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.8 var(--sans,Arial,sans-serif);margin:14px 0;color:#425039}
+.live-output{color:#725449}
+@media(max-width:1100px){.live-toolbar .live-button{font-size:11px;padding:7px 9px}.live-heading h1{font-size:20px}.live-legend{display:none}.live-heading-actions{gap:8px}.live-tabs button{padding-left:11px;padding-right:11px}body.atlas-editing>header nav{gap:12px}}
+@media(max-width:800px){
+  body.atlas-editing>header .hd{height:auto;min-height:52px;margin:0 14px;padding:8px 0}
+  body.atlas-editing>header nav{gap:8px 14px}body.atlas-editing>header nav a{font-size:11px}
+  .live-workspace{height:auto;min-height:calc(100dvh - 100px);padding:14px 12px;gap:10px}
+  .live-heading{align-items:flex-start;flex-wrap:wrap;gap:10px}.live-heading h1 span{display:none}
+  .live-heading-actions{width:100%;justify-content:space-between}.live-settings-card{right:0}
+  .live-toolbar{gap:5px}.live-toolbar-spacer{display:none}.live-toolbar .quiet{font-size:10px}
+  .live-grid{display:flex;flex-direction:column;overflow:visible;flex:none}
+  .live-editor-pane{height:52dvh;min-height:300px}.live-divider{display:none}
+  .live-panels{border-top:1px solid #cdd5c5;height:55dvh;min-height:320px;border-radius:0 0 8px 8px;overflow:hidden}
+  .live-editor-footer{font-size:9px}.live-bottom{display:block}.live-bottom>span{display:block;margin-bottom:4px}.live-bottom>span:last-child{text-align:left}
+  .live-empty{padding:18px 8px}.live-panel{padding:14px}.live-tabs button{flex:1}
+}

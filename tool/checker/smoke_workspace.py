@@ -56,34 +56,39 @@ def main():
                 page.on("request",check_key_destination)
                 url=f"http://127.0.0.1:{site.server_port}/#/edit/atlas__ptq"
                 page.goto(url)
-                page.wait_for_selector("#live-code")
-                original=page.locator("#live-code").input_value()
+                page.wait_for_selector("#live-code .cm-editor")
+                def value():
+                    return page.locator("#live-code").evaluate("el=>el.coqEditor.getValue()")
+                def edit(code):
+                    page.locator("#live-code").evaluate("(el,code)=>el.coqEditor.setValue(code)",code)
+                original=value()
                 assert "Lemma" in original or "Theorem" in original
                 assert not any("/workspace/" in c for c in calls),"Opening a draft must not send code"
+                page.locator("#live-settings summary").click()
                 page.locator("#live-api").fill(api)
                 page.locator("#live-connect").click()
                 page.wait_for_function("!document.getElementById('live-connection').textContent.startsWith('Checking sandbox')")
-                print("Connection:",page.locator("#live-connection").inner_text(),flush=True)
-                assert "Library snapshot matches" in page.locator("#live-connection").inner_text(), errors
+                print("Connection:",page.locator("#live-connection").text_content(),flush=True)
+                assert "Library snapshot matches" in page.locator("#live-connection").text_content(), errors
                 page.wait_for_function("document.getElementById('live-connection').textContent.includes('Library snapshot matches')")
                 page.wait_for_function("document.querySelector('#live-model option:checked').textContent === 'openai/gpt-6-astra'")
                 assert page.locator("#live-model").input_value()=="gpt-6-astra"
                 page.locator("#live-file").click()
                 page.wait_for_function("document.getElementById('live-check-status').textContent.startsWith('This copy compiled')")
                 prefix="Lemma browser_demo : forall P : Prop, P -> P.\nProof.\nintros P HP."
-                page.locator("#live-code").fill(prefix)
-                page.locator("#live-code").evaluate("el=>el.setSelectionRange(el.value.length,el.value.length)")
+                edit(prefix)
+                page.locator("#live-code").evaluate("el=>el.coqEditor.select(el.coqEditor.getValue().length)")
                 page.locator("#live-cursor").click()
                 page.wait_for_function("document.getElementById('live-check-status').textContent.includes('accepted the prefix')")
-                assert "HP : P" in page.locator("#live-output").inner_text()
+                assert "HP : P" in page.locator("#live-output").text_content()
                 page.locator("#live-file").click()
                 page.wait_for_function("document.getElementById('live-check-status').textContent.includes('reported an error')")
-                page.locator("#live-code").fill(prefix+"\nexact HP. Qed.\n")
+                edit(prefix+"\nexact HP. Qed.\n")
                 page.locator("#live-file").click()
                 page.wait_for_function("document.getElementById('live-check-status').textContent.startsWith('This copy compiled')")
-                edited=page.locator("#live-code").input_value()
-                page.reload();page.wait_for_selector("#live-code")
-                assert page.locator("#live-code").input_value()==edited
+                edited=value()
+                page.reload();page.wait_for_selector("#live-code .cm-editor")
+                assert value()==edited
                 assert "Not checked" in page.locator("#live-copy-status").inner_text()
                 with page.expect_download() as download:
                     page.locator("#live-patch").click()
@@ -102,7 +107,8 @@ def main():
                                         "model":"gpt-6-astra","model_id":"openai/gpt-6-astra",
                                         "provider":"openrouter","verified":False})
                 page.route("**/workspace/explain",explanation)
-                page.locator("#live-code").evaluate("el=>el.setSelectionRange(0,44)")
+                page.locator("#live-code").evaluate("el=>el.coqEditor.select(0,44)")
+                page.locator("#live-tab-assistant").click()
                 page.locator("#live-explain").click()
                 page.wait_for_function("document.getElementById('live-explain-status').textContent.includes('Enter your OpenRouter')")
                 page.locator("#live-key").fill("sk-or-browser-fixture")
@@ -111,12 +117,12 @@ def main():
                 assert page.locator("#live-explanation img").count()==0
                 assert "unverified" in page.locator("#live-explain-status").inner_text()
                 assert "openai/gpt-6-astra via openrouter" in page.locator("#live-explain-status").inner_text()
-                assert page.locator("#live-code").input_value()==edited
+                assert value()==edited
                 assert page.evaluate("!JSON.stringify(localStorage).includes('sk-or-browser-fixture') && !JSON.stringify(sessionStorage).includes('sk-or-browser-fixture')")
                 page.locator("#live-clear-key").click()
                 assert page.locator("#live-key").input_value()==""
                 page.locator("#live-key").fill("sk-or-browser-fixture")
-                page.reload();page.wait_for_selector("#live-code")
+                page.reload();page.wait_for_selector("#live-code .cm-editor")
                 assert page.locator("#live-key").input_value()==""
                 # A delayed successful response must not label a newer edit.
                 page.locator("#live-connect").click()
@@ -129,9 +135,8 @@ def main():
                 page.route("**/workspace/check",stale_check)
                 page.evaluate("""() => {
                     document.getElementById('live-file').click();
-                    const editor=document.getElementById('live-code');
-                    editor.value+='(* changed while checking *)';
-                    editor.dispatchEvent(new Event('input',{bubbles:true}));
+                    const editor=document.getElementById('live-code').coqEditor;
+                    editor.setValue(editor.getValue()+'(* changed while checking *)');
                 }""")
                 page.wait_for_function("document.getElementById('live-check-status').textContent.includes('Result is stale')")
                 assert "compiled" not in page.locator("#live-check-status").inner_text()

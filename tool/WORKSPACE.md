@@ -3,6 +3,41 @@
 From an atlas proof reader, choose **Edit and run in Coq**. The new route is
 `#/edit/<record-key>`, optionally with `?line=<number>`.
 
+## Proof editor
+
+The workspace uses a self-hosted CodeMirror 6 bundle with Coq lexical highlighting,
+line numbers, bracket matching, indentation, search and undo. It makes no editor
+CDN request. The code and proof panels are resizable with the mouse or the
+separator's arrow keys. On narrow screens they stack vertically.
+
+- `Alt+Down` / `Alt+Up`: next / previous command.
+- `Ctrl/Cmd+Enter`: check to cursor.
+- `Ctrl/Cmd+Shift+Enter`: compile the full copy.
+- `Alt+E`: open the assistant tab; this makes no model call.
+- `Ctrl/Cmd+F`: search the file. Escape then Tab leaves the editor.
+
+Green marks mean Coq accepted that prefix, not that the source is faithful or
+all proofs are closed. An underline marks the next command. Compiler errors in
+the edited file have a red marker and a jump-to-line button; UTF-8 byte columns
+are converted to editor offsets. Any edit clears accepted markers immediately.
+Late results cannot restore them onto a changed snapshot. Earlier goals remain
+explicitly labelled stale until a fresh check succeeds.
+
+The Goals tab separates hypotheses and conclusions when the Coq output has a
+recognized goal layout. The Diagnostics tab always retains raw compiler output.
+Unrecognized layouts are not reconstructed by an LLM. The assistant occupies its
+own tab and keeps the editor selection when you enter a question or key.
+Backend settings and shortcuts are in Settings & help.
+
+The runtime remains fresh isolated replay, not a persistent Coq session. There
+is no automatic tactic completion, language-server integration or multi-file
+dependency rebuilding in this release.
+
+Pinned dependencies, the lockfile and bundle source live in `tool/editor/`.
+Rebuild with `npm ci --prefix tool/editor --ignore-scripts` followed by
+`npm --prefix tool/editor run build`. CI checks that this reproduces the
+committed bundle and license notices.
+
 ## What visitors can do
 
 - Edit the actual bundled `.v`, including existing definitions and proofs.

@@ -1,9 +1,11 @@
 # Persistent Coq candidate validation, 2026-10-03
 
-Status: tested candidate, not a production-deployment record.
+Status: historical candidate validation, before production activation. See
+`deploy/README.md` for the worker release and use CI plus the public-browser
+smoke test to confirm frontend publication.
 
 The public site/worker were not replaced or restarted during this work. The
-existing deployment remains at site commit `14b28d9` and worker image
+deployment at the time was site commit `14b28d9` and worker image
 `sha256:31a276f63ef8bb9c21d9d739632e38559a64a379f2960bcf7606b20301ddf8b6`.
 
 ## Candidate artifacts
@@ -48,7 +50,7 @@ The updated local editor passed a real-Coq replay browser regression against
 the unchanged public worker. Separate browser tests exercised persistent
 session lifecycle, expiry, stale results, escaped structured goals and cleanup
 with mocked Coq responses. **A real browser-to-persistent-worker deployment
-test remains a rollout gate.** No paid model call was made; explanation output
+test was reserved as a rollout gate.** No paid model call was made; explanation output
 in browser tests was mocked.
 
 ## Corrections caught during validation

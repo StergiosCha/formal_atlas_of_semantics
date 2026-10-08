@@ -179,26 +179,24 @@ footer .r{margin-left:auto}
 .proof-line .line-no{display:inline-block;width:5em;color:#666;text-decoration:none;user-select:none}
 </style>
 <link rel="stylesheet" href="workspace.css?v=__REVISION__">
+<link rel="stylesheet" href="reading.css?v=__REVISION__">
 <script src="vendor/coq-editor.js?v=__REVISION__"></script>
 <script src="workspace.js?v=__REVISION__"></script>
 </head>
 <body>
+<a class="skip-link" href="#app" onclick="document.getElementById('app').focus();return false">Skip to content</a>
 <header><div class="wrap hd">
   <a class="brand" href="#/">
     <img src="assets/svg/mark-a-meridian.svg" alt="" width="26" height="26">Formal Atlas</a>
-  <nav id="nav">
-    <a href="#/plate" data-r="plate">Plate</a>
-    <a href="#/theories" data-r="theories">Theories</a>
-    <a href="#/edges" data-r="edges">Edges</a>
-    <a href="#/papers" data-r="papers">Papers</a>
-    <a href="#/comparison" data-r="comparison">Claim comparison</a>
-    <a href="#/check" data-r="check">Verifier</a>
-    <a href="#/exhibits" data-r="exhibits">Countermodels</a>
-    <a class="btn" href="#/plate">Open the atlas</a>
+  <nav id="nav" aria-label="Main navigation">
+    <a href="#/explore" data-r="explore">Explore</a>
+    <a href="#/comparison" data-r="compare">Compare</a>
+    <a href="#/experiment" data-r="experiment">Experiment</a>
+    <a href="#/reading" data-r="about">About &amp; methods</a>
   </nav>
 </div></header>
 
-<main id="app"></main>
+<main id="app" tabindex="-1"></main>
 <noscript><div class="wrap" style="padding:64px 0">
   <h2>The atlas needs JavaScript.</h2>
   <p style="margin-top:14px">Every page here is rendered from the audit records in
@@ -425,8 +423,8 @@ function vHome(){
       <p class="status">Checked proofs concern explicitly scoped encodings; whole-source
       fidelity needs separate review. ${totals.sourceReviews} accepted source-level reviews recorded.
       <a class="textlink" href="#/reading">Reading the atlas responsibly</a>.</p>
-      <div class="cta"><a class="btn" href="#/papers">Explore the source survey</a>
-        <a class="btn ghost" href="#/theories">Read the proof records</a></div>
+      <div class="cta"><a class="btn" href="#/explore">Explore the atlas</a>
+        <a class="btn ghost" href="#/result/witnesses">Start with a concrete result →</a></div>
     </div>
     <img class="heromark" src="assets/svg/mark-a-meridian.svg" alt="Formal Atlas mark: a lambda drawn as a meridian, with the proof-locked wedge">
     </div>
@@ -502,6 +500,9 @@ function vHome(){
 
 function vReading(){
   return `<div class="wrap"><div class="crumb"><a href="#/">Atlas</a> / Reading guide</div>
+    <div class="discovery-links" style="margin-top:24px"><a class="textlink" href="#/sources">Source registry</a>
+      <a class="textlink" href="${repoFileURL('CONTRIBUTING.md')}">Contribute or request review</a>
+      <a class="textlink" href="${repoFileURL('README.md')}">Build and reproduce</a></div>
   <section style="padding-top:24px">
     <div class="sechead"><h2>Reading the atlas responsibly</h2></div>
     <p>The atlas connects sources, encodings, proofs and comparisons. They are different
@@ -549,6 +550,104 @@ function vReading(){
       Copyrighted PDFs are not redistributed.</p></div>
     <a class="btn ghost" href="https://github.com/StergiosCha/formal_atlas_of_semantics/blob/main/atlas_data/READING_THE_ATLAS.md">Read the detailed guide and correction history</a>
   </section></div>`;
+}
+
+function journeyNav(active){
+  return `<nav class="journey-nav" aria-label="Explore the atlas">${[
+    ['explore','Overview'],['papers','Papers'],['theories','Proof records'],['plate','Theory map'],['sources','Source registry']
+  ].map(([route,label])=>`<a href="#/${route}"${route===active?' aria-current="page"':''}>${label}</a>`).join('')}</nav>`;
+}
+function vExplore(){
+  return `<div class="wrap discovery"><section>
+    <span class="kicker">Explore</span><h1>A way into the evidence.</h1>
+    <p class="discovery-lead">Start with a source, an implementation, or a question about how theories connect.
+    Every route leads back to the recorded evidence and its limits.</p>
+    ${journeyNav('explore')}
+    <div class="entry-grid">
+      <a class="entry-card" href="#/papers"><span class="kicker">01 / Sources</span><h2>Find a paper</h2>
+        <p>Browse ${totals.papers} sources by author, topic, intrinsic formality and pipeline evidence.</p><span class="entry-action">Browse papers →</span></a>
+      <a class="entry-card" href="#/theories"><span class="kicker">02 / Implementations</span><h2>Inspect a proof record</h2>
+        <p>See what was encoded, what was proved, and which choices were added along the way.</p><span class="entry-action">Read proof records →</span></a>
+      <a class="entry-card" href="#/plate"><span class="kicker">03 / Connections</span><h2>Explore the map</h2>
+        <p>Find related constructions and recorded comparisons. Map positions are editorial, not theoretical distances.</p><span class="entry-action">Open the map →</span></a>
+    </div>
+    <div class="result-invitation"><div><span class="kicker">New to the atlas?</span><h2>Start with witnesses.</h2>
+      <p>Two things can exist separately without one thing satisfying both conditions. See why this matters for a formal encoding.</p></div>
+      <a class="btn" href="#/result/witnesses">Walk through the result →</a></div>
+    <div class="discovery-links"><a class="textlink" href="#/comparison">Compare source-claim profiles</a>
+      <a class="textlink" href="#/edges">Browse recorded connections</a><a class="textlink" href="#/reading">How to read the evidence</a></div>
+  </section></div>`;
+}
+function declarationURL(key,name,edit=false){
+  const decl=(D.proof_sources?.[key]?.declarations||[]).find(d=>d.name===name||d.qualified===name);
+  return decl?(edit?'#/edit/'+encodeURIComponent(key)+'?line='+decl.line:proofURL(key,decl.line)):null;
+}
+function vExperiment(){
+  return `<div class="wrap discovery"><section><span class="kicker">Experiment</span><h1>From a claim to a proof.</h1>
+    <p class="discovery-lead">Understand a small example, inspect its actual Coq source, then open a private copy and try a change.</p>
+    <div class="entry-grid">
+      <a class="entry-card featured" href="#/result/witnesses"><span class="kicker">Guided / No API key needed</span>
+        <h2>Witnesses matter</h2><p>Predict whether separate witnesses guarantee a shared one. Follow the counterexample into Coq.</p><span class="entry-action">Start here →</span></a>
+      <a class="entry-card" href="#/exhibits"><span class="kicker">Explore / Countermodels</span><h2>Find the boundary</h2>
+        <p>Inspect examples where a tempting inference fails, with links to their supporting Coq declarations.</p><span class="entry-action">Browse countermodels →</span></a>
+      <a class="entry-card" href="#/check"><span class="kicker">Advanced / Optional LLM</span><h2>Draft and check</h2>
+        <p>Try the existing proof-drafting workflow. Model calls use your OpenRouter key; an AI draft is not a source-fidelity verdict.</p><span class="entry-action">Open the proof lab →</span></a>
+    </div>
+    <div class="result-invitation"><div><h2>Already know the theorem?</h2><p>Open its proof record, select a declaration, then choose “Edit and run in Coq”. Reading never starts a worker or makes a model call.</p></div>
+      <a class="btn ghost" href="#/theories">Find a proof record →</a></div>
+    <p class="small dim">Live execution is single-file Coq against the atlas's precompiled imports. Guided explanations are curated text, not model output.</p>
+  </section></div>`;
+}
+function vWitnessResult(){
+  const key='atlas__witness_contract', names=['Packages.Separation.independent_inhabited','Packages.Separation.shared_empty','Packages.Separation.no_total_recovery'];
+  const links=names.map(n=>declarationURL(key,n)), edit=declarationURL(key,names[1],true);
+  if(links.some(u=>!u)||!edit)return notFound();
+  return `<div class="wrap discovery result-page"><div class="crumb"><a href="#/experiment">Experiment</a> / Guided result</div>
+    <section class="result-intro"><span class="kicker">A bounded witness comparison</span><h1>Witnesses matter.</h1>
+      <p class="discovery-lead">“Something satisfies P” and “something satisfies Q” do not guarantee that <em>the same thing</em> satisfies both.</p>
+      <div class="result-trail" aria-label="Reading path"><a href="#witness-question" onclick="document.getElementById('witness-question').scrollIntoView();return false">1. The question</a>
+        <a href="#witness-evidence" onclick="document.getElementById('witness-evidence').scrollIntoView();return false">2. The evidence</a><a href="${edit}">3. Try the proof →</a></div>
+    </section>
+    <section class="result-question" id="witness-question"><div><span class="kicker">01 / Predict</span><h2>Can the witnesses be joined?</h2>
+      <p>Use a domain with exactly two values: <code>true</code> and <code>false</code>.
+      Define <code>P(w)</code> as <code>w = true</code>, and <code>Q(w)</code> as <code>w = false</code>.</p>
+      <p>There is a witness for P, and a witness for Q. Does a shared witness exist?</p>
+      <button class="btn" id="witness-reveal" aria-expanded="false" aria-controls="witness-answer" onclick="revealWitness(this)">Explain the counterexample</button>
+      <div id="witness-answer" class="witness-answer" hidden><h3>No. Neither value satisfies both.</h3>
+        <p>The independent package keeps <code>true</code> for P and <code>false</code> for Q. A shared package would require one Boolean to equal both values.</p>
+        <p>This is a finite illustration of the recorded theorem, not a new Coq run in your browser.</p></div></div>
+      <figure class="witness-table"><figcaption>The complete two-value domain</figcaption><table><thead><tr><th>Witness w</th><th>P(w)</th><th>Q(w)</th><th>Both</th></tr></thead>
+        <tbody><tr><th scope="row"><code>true</code></th><td>Yes</td><td>No</td><td>No</td></tr><tr><th scope="row"><code>false</code></th><td>No</td><td>Yes</td><td>No</td></tr></tbody></table>
+        <p>Separate existence: yes.<br>Shared existence: no.</p></figure></section>
+    <section id="witness-evidence"><div class="sechead"><span class="kicker">02 / Inspect</span><h2>Three precise claims.</h2></div>
+      <div class="entry-grid result-evidence">
+        <a class="entry-card" href="${links[0]}"><span class="kicker">Existence</span><h3>The independent package exists</h3><p>One witness satisfies P; another satisfies Q.</p><code>independent_inhabited</code><span class="entry-action">Read the proof →</span></a>
+        <a class="entry-card" href="${links[1]}"><span class="kicker">Separation</span><h3>The shared package is empty</h3><p>No Boolean witnesses both predicates.</p><code>shared_empty</code><span class="entry-action">Read the proof →</span></a>
+        <a class="entry-card" href="${links[2]}"><span class="kicker">Consequence</span><h3>No total recovery in this example</h3><p>A total function from the inhabited independent package to the empty shared package cannot exist.</p><code>no_total_recovery</code><span class="entry-action">Read the proof →</span></a>
+      </div>
+      <div class="result-scope"><h3>What this says about semantic theories</h3>
+        <p>In the model-indexed TTR encoding, meet checks both component types against the same candidate witness. Replacing that with two independent existence claims loses a constraint.</p>
+        <p>Strong witness-bearing packages are also available in the MTT and Ranta encodings. This example does <strong>not</strong> show that TTR and MTT are equivalent, or that MTT cannot retain witnesses.</p>
+        <p>The shared carrier and package maps are project-added comparison infrastructure. Full dependent records, native noun ontologies and unrestricted translations are outside this example.</p>
+        <a class="textlink" href="#/theory/atlas__witness_contract">Read the complete comparison record</a>
+        <span aria-hidden="true"> · </span><a class="textlink" href="#/theory/atlas__ttr_model">Inspect the TTR model counterexample</a>
+      </div>
+      <details class="result-sources"><summary>Source passages and review boundary</summary><p>The consultation record lists Cooper (2023), pp. 11–14 and A8–A9, pp. 404–406; Chatzikyriakidis and Luo (2020), pp. 15–16 and 19–21; and Ranta, §§2.11–2.12 and 2.16. The recorded Ranta edition discrepancy remains unresolved.</p>
+        <p>This is an LLM-assisted consultation record, not an independent human review. The page is a curated explanation of the bounded implementation, not a new paper-level assessment.</p>
+        <a class="textlink" href="${repoFileURL('atlas_data/audits/witness_contract_2026_09_25.md')}">Read source identities, pages and limitations</a></details>
+    </section>
+    <section class="result-invitation"><div><span class="kicker">03 / Experiment</span><h2>Make Coq reject a bad step.</h2>
+      <p>Open <code>shared_empty</code> in a private copy. Connect Coq, then run to the theorem. Replace <code>congruence</code> with <code>exact I</code> and compile: that term does not prove the contradiction. Undo the edit to restore the original.</p>
+      <p class="small dim">Only Check sends code to the worker. No API key is needed. Original audits never transfer to edited copies.</p></div><a class="btn" href="${edit}">Edit and run in Coq →</a></section>
+  </div>`;
+}
+function revealWitness(button){
+  const answer=document.getElementById('witness-answer'), open=button.getAttribute('aria-expanded')!=='true';
+  answer.hidden=!open;button.setAttribute('aria-expanded',String(open));button.textContent=open?'Hide the explanation':'Explain the counterexample';
+}
+function repoFileURL(path){
+  const revision=/^[a-f0-9]{40}$/.test(D.revision||'')?D.revision:'main';
+  return 'https://github.com/StergiosCha/formal_atlas_of_semantics/blob/'+revision+'/'+path.split('/').map(encodeURIComponent).join('/');
 }
 
 function vSources(){
@@ -732,27 +831,73 @@ function vProof(key,requestedLine){
   const parsed=Number(requestedLine);
   const line=Number.isInteger(parsed)&&parsed>0&&parsed<=lines.length?parsed:1;
   const decl=source.declarations.find(d=>d.line===line);
+  const record=byKey[key]||{}, theorem=(record.theorems||[]).find(t=>t.name===decl?.name||t.name===decl?.qualified);
   const revision=/^[a-f0-9]{40}$/.test(D.revision||'')?D.revision:'main';
-  const github='https://github.com/StergiosCha/formal_atlas_of_semantics/blob/'+revision+'/'+source.path.split('/').map(encodeURIComponent).join('/')+'#L'+line;
-  return `<div class="wrap"><div class="crumb"><a href="#/theory/${encodeURIComponent(key)}">Proof record</a> / Coq source</div>
-    <section style="padding-top:24px"><h2>Coq source: ${esc(source.path)}</h2>
-      <p style="margin-top:14px">Full repository source, including declarations, proof scripts and context.
-      This read-only view preserves the original. Open an editable copy to work with live Coq and ask about selected code.</p>
-      <p class="tiny dim">Revision: ${esc(D.revision||'working copy')}. Source SHA256: <span class="mono" style="overflow-wrap:anywhere">${esc(source.sha256)}</span>.</p>
-      <div class="controls" style="margin:16px 0;gap:14px"><a class="btn ghost" href="${esc(github)}">${revision==='main'?'GitHub main (may differ)':'GitHub at this revision'}</a>
-        <button class="btn" onclick="downloadCoq()">Download .v</button>
-        <a class="btn" href="#/edit/${encodeURIComponent(key)}?line=${line}">Edit and run in Coq</a>
-        <label class="tiny">Jump to declaration <select aria-label="Coq declaration" onchange="location.hash=this.value" style="max-width:100%">
-          <option value="${proofURL(key,1)}">Full file</option>${source.declarations.map(d=>`<option value="${proofURL(key,d.line)}"${d===decl?' selected':''}>${esc(d.name)} · L${d.line}</option>`).join('')}</select></label></div>
-      <div class="block"><h3>${decl?esc(decl.qualified):'Recorded Coq audit'}</h3>
-        <div class="small">${decl?`${esc(decl.keyword)} · source-index status: ${esc(decl.status||decl.kind)}. `:''}${proofAudit(source,decl)}</div>
-        <p class="tiny dim">${source.audit?`Recorded compiler: Coq ${esc(source.audit.coq_version)}; compile ${source.audit.compile?.ok?'passed':'failed'}.`:'No mechanical audit sidecar.'}
-          Audit records are not rerun by opening this page. Source bytes alone do not establish source fidelity or fresh verification.</p>
-        ${source.audit?.compile?.unsafe_flags?.length?`<p>Unsafe flags: ${source.audit.compile.unsafe_flags.map(esc).join(', ')}</p>`:''}
-        ${source.index_warnings.length?`<p>Navigation-index warnings: ${source.index_warnings.map(esc).join('; ')}. Inspect the full file.</p>`:''}</div>
-      <pre class="proof-code mono tiny" aria-label="Full Coq source">${lines.map((text,i)=>`<span id="coq-L${i+1}" class="proof-line${i+1===line?' selected':''}"><a class="line-no" href="${proofURL(key,i+1)}" aria-label="Line ${i+1}">${i+1}</a>${esc(text)}</span>`).join('')}</pre>
-      <p class="tiny dim">To check this file with its imports, use the <a href="https://github.com/StergiosCha/formal_atlas_of_semantics">repository build instructions</a>. A downloaded .v is not necessarily standalone.</p>
-    </section></div>`;
+  const github=repoFileURL(source.path)+'#L'+line;
+  return `<div class="reader-wrap"><div class="crumb"><a href="#/explore">Explore</a> / <a href="#/theory/${encodeURIComponent(key)}">Proof record</a> / Coq source</div>
+    <section class="proof-reader"><div class="reader-heading"><div><span class="kicker">Read the evidence</span>
+      <h1>${esc(source.path.split('/').pop())}</h1><p>Full repository source, including declarations, proof scripts and context.</p></div>
+      <a class="btn" href="#/edit/${encodeURIComponent(key)}?line=${line}">Edit and run in Coq →</a></div>
+    <div class="reader-layout"><aside class="reader-sidebar" aria-label="Claim and declarations">
+      ${key==='atlas__witness_contract'||key==='atlas__ttr_model'?'<a class="reader-guided" href="#/result/witnesses">New here? Walk through “Witnesses matter” →</a>':''}
+      <details class="reader-context" open><summary>What is being encoded?</summary><p>${esc(record.summary||'No summary recorded. Inspect the full source and its proof record.')}</p>
+        ${theorem?`<h3>Claim in the record</h3><p>${esc(theorem.source_claim||'No source claim recorded for this theorem.')}</p>${theorem.note?`<p>${esc(theorem.note)}</p>`:''}`:''}
+        <a class="textlink" href="#/theory/${encodeURIComponent(key)}">Source mapping, additions and limits →</a>
+        <p class="reader-disclaimer">Record descriptions are not independent source-fidelity approval.</p></details>
+      <details class="reader-outline" open><summary>Find a declaration <span>${source.declarations.length}</span></summary>
+        <label for="proof-search">Search names</label><input type="search" id="proof-search" placeholder="e.g. shared_empty" oninput="filterProofOutline(this.value)">
+        <nav aria-label="Coq declarations" id="proof-outline">${source.declarations.map(d=>`<a href="${proofURL(key,d.line)}" data-name="${esc(d.name.toLowerCase())}"${d===decl?' aria-current="location"':''}><span>${esc(d.name)}</span><small>${esc(d.keyword)} · L${d.line}</small></a>`).join('')}</nav>
+        <p id="proof-no-match" hidden role="status">No matching declarations.</p></details>
+    </aside><div class="reader-main">
+      <div class="reader-selection"><span class="kicker">${decl?esc(decl.keyword):'Full file'} / ${decl?esc(decl.status||decl.kind):'select a declaration'}</span>
+        <h2>${decl?esc(decl.name):'Definitions, statements and proof scripts'}</h2>
+        <p class="tiny dim">${decl?esc(decl.qualified):'The index helps navigation; Coq remains the parser and proof checker.'}</p></div>
+      <div class="evidence-strip">
+        <details><summary>Compilation <span>${source.audit?.compile?source.audit.compile.ok?'Recorded pass':'Recorded failure':'Not recorded'}</span></summary>
+          <p>${source.audit?`Recorded compiler: Coq ${esc(source.audit.coq_version)}; compile ${source.audit.compile?.ok?'passed':'failed'}.`:'No mechanical audit sidecar.'} This page does not rerun the compiler.</p>
+          ${source.audit?.compile?.unsafe_flags?.length?`<p>Unsafe flags: ${source.audit.compile.unsafe_flags.map(esc).join(', ')}</p>`:''}</details>
+        <details open><summary>Assumptions <span>${decl?'Selected declaration':'Choose a declaration'}</span></summary><div>${proofAudit(source,decl)}</div></details>
+        <details><summary>Source correspondence <span>Separate review required</span></summary><p>Compilation and an assumptions audit do not establish faithfulness to a paper. Consult the source-specific review records; no whole-source approval is inferred here.</p></details>
+      </div>
+      <div class="reader-codebar"><span>${esc(source.path)} · read-only</span><button class="reader-action" onclick="copyProofLink()">Copy link to this view</button><span id="proof-copy-status" role="status"></span></div>
+      <div id="proof-editor" hidden></div>
+      <pre id="proof-fallback" class="proof-code mono tiny" aria-label="Full Coq source">${lines.map((text,i)=>`<span id="coq-L${i+1}" class="proof-line${i+1===line?' selected':''}"><a class="line-no" href="${proofURL(key,i+1)}" aria-label="Line ${i+1}">${i+1}</a>${esc(text)}</span>`).join('')}</pre>
+      <div class="reader-tools"><button class="reader-action" onclick="downloadCoq()">Download .v</button>
+        <a class="textlink" href="${esc(github)}">${revision==='main'?'GitHub main (may differ)':'GitHub at this revision'}</a>
+        <button class="reader-action" id="proof-view-toggle" hidden aria-pressed="false" onclick="toggleProofView()">Plain text &amp; line links</button>
+        <span class="tiny dim">Ctrl / ⌘ + F to search focused code</span></div>
+      <details class="reader-provenance"><summary>Source identity and recorded audit details</summary>
+        <p>Revision: ${esc(D.revision||'working copy')}. Source SHA256: <code>${esc(source.sha256)}</code>.</p>
+        <p>Audit records are not rerun by opening this page. Source bytes alone do not establish source fidelity or fresh verification. Original audits never transfer to edited copies.</p>
+        ${source.index_warnings.length?`<p>Navigation-index warnings: ${source.index_warnings.map(esc).join('; ')}. Inspect the full file.</p>`:''}
+        <p>A downloaded .v is not necessarily standalone. Use the <a class="textlink" href="https://github.com/StergiosCha/formal_atlas_of_semantics">repository build instructions</a> for its imports.</p></details>
+    </div></div></section></div>`;
+}
+let proofReader=null;
+function mountProofReader(key,line){
+  const source=D.proof_sources?.[key], el=document.getElementById('proof-editor');
+  if(window.matchMedia?.('(max-width:750px)').matches)
+    document.querySelectorAll('.reader-sidebar details').forEach(detail=>detail.open=false);
+  if(!source||!el||!window.AtlasCodeEditor?.read)return;
+  el.hidden=false;
+  try{proofReader=window.AtlasCodeEditor.read(el,source.text,line);}
+  catch(_){el.hidden=true;el.textContent='';return;}
+  document.getElementById('proof-fallback').hidden=true;
+  document.getElementById('proof-view-toggle').hidden=false;
+}
+function filterProofOutline(value){
+  let visible=0;document.querySelectorAll('#proof-outline a').forEach(a=>{a.hidden=!a.dataset.name.includes(value.toLowerCase());if(!a.hidden)visible++;});
+  document.getElementById('proof-no-match').hidden=visible>0;
+}
+function toggleProofView(){
+  const code=document.getElementById('proof-editor'), plain=document.getElementById('proof-fallback'), button=document.getElementById('proof-view-toggle');
+  plain.hidden=!plain.hidden;code.hidden=!plain.hidden;button.setAttribute('aria-pressed',String(!plain.hidden));
+  button.textContent=plain.hidden?'Plain text & line links':'Highlighted source';
+}
+async function copyProofLink(){
+  const status=document.getElementById('proof-copy-status');
+  try{await navigator.clipboard.writeText(location.href);status.textContent='Link copied.';}
+  catch(_){status.textContent='Copy the page address from your browser.';}
 }
 function downloadCoq(){
   const key=decodeURIComponent((location.hash.split('?')[0].split('/')[2])||'');
@@ -825,6 +970,7 @@ function vTheory(key){
     <div class="mono small dim" style="margin-bottom:20px">${esc(shortPath(f.file))}</div>
     ${(D.proof_sources||{})[key]?`<p style="margin-bottom:20px"><a class="btn ghost" href="${proofURL(key)}">Read the actual Coq source and proofs</a></p>`:''}
     <p style="font-size:16.5px">${esc(f.summary||'')}</p>
+    ${key==='atlas__ttr_model'||key==='atlas__witness_contract'?'<p class="record-guided-link"><a class="textlink" href="#/result/witnesses">Walk through “Witnesses matter”: the question, the counterexample and the real proofs →</a></p>':''}
 
     ${f.source_gap?`<div class="block gap"><span class="kicker">Recorded source note — not independently confirmed here</span>
       <h3 style="margin:8px 0 8px;border:0;padding:0">${esc(typeof f.source_gap==='object'?f.source_gap.kind||'':'')}</h3>
@@ -1327,12 +1473,16 @@ function vExhibits(){
 
 function route(){
   window.AtlasWorkspace?.dispose();
+  proofReader?.destroy();proofReader=null;
   const raw=(location.hash||'#/').slice(1);
   const [path,qs]=raw.split('?');
   const q={}; (qs||'').split('&').filter(Boolean).forEach(kv=>{const [k,v]=kv.split('=');q[k]=decodeURIComponent(v||'');});
   const seg=path.split('/').filter(Boolean);
   let html, tab=seg[0]||'';
   if(!seg.length) html=vHome();
+  else if(seg[0]==='explore') html=vExplore();
+  else if(seg[0]==='experiment') html=vExperiment();
+  else if(seg[0]==='result'&&seg[1]==='witnesses') html=vWitnessResult();
   else if(seg[0]==='reading') html=vReading();
   else if(seg[0]==='sources') html=vSources();
   else if(seg[0]==='plate') html=vPlate();
@@ -1351,15 +1501,26 @@ function route(){
   else if(seg[0]==='check') html=vCheck();
   else if(seg[0]==='exhibits') html=vExhibits();
   else html=notFound();
+  if(['papers','theories','plate','sources'].includes(seg[0]))html=`<div class="wrap">${journeyNav(seg[0])}</div>`+html;
+  if(['reading','sources'].includes(seg[0]))tab='about';
+  else if(['comparison','edges','edge'].includes(seg[0]))tab='compare';
+  else if(['experiment','result','exhibits','check','edit'].includes(seg[0]))tab='experiment';
+  else if(seg.length)tab='explore';
   $('#app').innerHTML=html;
   if(seg[0]==='check') loadModels();
   if(seg[0]==='edit') {
     const key=decodeURIComponent(seg[1]||''), source=(D.proof_sources||{})[key];
     if(source)window.AtlasWorkspace?.mount(source,key,D,q.line);
   }
-  document.querySelectorAll('#nav a[data-r]').forEach(a=>a.classList.toggle('on',a.dataset.r===tab));
+  document.querySelectorAll('#nav a[data-r]').forEach(a=>{
+    const current=a.dataset.r===tab;a.classList.toggle('on',current);
+    if(current)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
+  });
   window.scrollTo(0,0);
-  if(seg[0]==='proof'&&/^\d+$/.test(q.line||'')) document.getElementById('coq-L'+q.line)?.scrollIntoView?.({block:'center'});
+  if(seg[0]==='proof'){
+    mountProofReader(decodeURIComponent(seg[1]||''),q.line);
+    if(!proofReader&&/^\d+$/.test(q.line||''))document.getElementById('coq-L'+q.line)?.scrollIntoView?.({block:'center'});
+  }
 }
 addEventListener('hashchange',route); route();
 </script>

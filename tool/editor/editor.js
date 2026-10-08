@@ -122,4 +122,30 @@ function create(parent,doc,callbacks) {
     focus:()=>view.focus(),destroy:()=>view.destroy()
   };
 }
-window.AtlasCodeEditor={create};
+// The reader uses the same pinned lexical mode but never opens a Coq session.
+function read(parent,doc,line=1) {
+  const count=doc.split('\n').length, requested=Number(line);
+  const selected=Number.isInteger(requested)&&requested>0&&requested<=count?requested:1;
+  const view=new EditorView({parent,state:EditorState.create({doc,extensions:[
+    EditorState.readOnly.of(true),EditorView.editable.of(false),
+    EditorView.contentAttributes.of({'aria-label':'Read-only full Coq source','tabindex':'0'}),
+    lineNumbers(),drawSelection(),bracketMatching(),highlightSelectionMatches(),
+    coq,syntaxHighlighting(colors),keymap.of(searchKeymap),
+    EditorView.decorations.of(Decoration.set([
+      Decoration.line({class:'cm-reader-selected'}).range(EditorState.create({doc}).doc.line(selected).from)
+    ])),
+    EditorView.theme({
+      '&':{height:'100%',fontSize:'14px',backgroundColor:'#fcfcf9'},
+      '.cm-scroller':{overflow:'auto',fontFamily:'"SFMono-Regular", Consolas, monospace',lineHeight:'1.75'},
+      '.cm-content':{padding:'14px 0'},'.cm-line':{padding:'0 16px'},
+      '.cm-gutters':{backgroundColor:'#f3f5ee',color:'#5c6b5a',borderRight:'1px solid #d9dfd1'},
+      '.cm-reader-selected':{backgroundColor:'#fff0bd'},
+      '.cm-selectionBackground':{backgroundColor:'#d4e0cb !important'},
+      '.cm-searchMatch':{backgroundColor:'#fae5aa'},
+      '&.cm-focused':{outline:'2px solid #4e8c3b',outlineOffset:'-2px'}
+    })
+  ]})});
+  view.dispatch({effects:EditorView.scrollIntoView(view.state.doc.line(selected).from,{y:'center'})});
+  return {destroy:()=>view.destroy()};
+}
+window.AtlasCodeEditor={create,read};

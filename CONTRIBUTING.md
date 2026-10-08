@@ -56,6 +56,7 @@ For reporting/UI changes:
 python3 -m unittest discover -s atlas_data -p 'test_*.py'
 python3 atlas_data/build_site.py
 node atlas_data/site/test_landing.cjs
+node atlas_data/site/test_reading.cjs
 node atlas_data/site/test_source_registry.cjs
 node atlas_data/site/test_claim_comparison.cjs
 node atlas_data/site/test_rosch_campaign.cjs

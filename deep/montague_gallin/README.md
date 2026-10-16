@@ -36,8 +36,14 @@ trees and standard-model soundness. A proof of a translated IL formula
 now implies its IL semantic validity. This is not completeness or an
 IL-to-Ty2 proof translation.
 
-Verification: 153 kernel-checked statements across seventeen modules, with
-34 rejected invalid regression fixtures. No admitted proofs or additional
+Checkpoint 6 adds the source IL calculus using Gallin's alternative
+AS4.1-AS4.7 and R1-R8 presentation, with standard-model soundness and
+finite implication-chain discharge of assumptions. An explicit restricted
+proof compiler translates reflexivity, AS4.2 and R1-R3/R6-R8 into actual
+Ty2 proof trees. The other axiom families and R4-R5 are not yet compiled.
+
+Verification: 183 kernel-checked statements across twenty-one modules, with
+44 rejected invalid regression fixtures. No admitted proofs or additional
 global axioms. The model fields still carry the stated logical assumptions.
 
 ## Reproduce
@@ -80,6 +86,11 @@ not used to make a failing `--check` pass automatically.
 | `CalculusConnections.v` | Explicit derivation of a translated IL formula and the derivation-to-IL-validity theorem. |
 | `CalculusExamples.v` | Proof trees, relative consistency and counterexamples to capture and pointwise replacement. |
 | `CALCULUS.md` | Step-by-step account of the proof calculus, its semantics and scope. |
+| `ILCore.v` | Primitive source IL, logical macros, typed renaming and syntactic modal closure with its index-independence theorem. |
+| `ILCalculus.v` | Source axiom schemas and R1-R8, all-derivations soundness and finite implication-chain discharge. |
+| `ILCalculusExamples.v` | Source proof trees, semantic connection to Ty2, and countermodels to missing modal side conditions. |
+| `ILProofTranslation.v` | Explicit restricted source proof datatype and its proof-to-proof compiler into the actual Ty2 calculus. |
+| `IL_CALCULUS.md` | Step-by-step source-calculus guide, counterexamples and exact proof-compiler coverage. |
 | `MODEL_CORRESPONDENCE.md` | Explanation of the new model classes, reconstruction proof and exact scope. |
 | `SOURCE_MAP.md` | Page references, PDF fingerprint, encoding choices, and exact claim boundary. |
 | `verification.json` | Reproducible source hashes, dependency pins and machine-check results. |
@@ -126,11 +137,12 @@ Montague research checkpoint remain unchanged. No P/F grade, outcome,
 comparison edge, live-Coq library, or published PTQ verification record
 has been modified.
 
-Next: the source IL calculus and its connection to Ty2 derivations.
+Next: extend the proof compiler to lambda/Up congruence and the remaining
+source axioms. The source calculus and its standard soundness are in place.
 Description principles, proof-system correspondence and Henkin completeness
 are separate milestones. No colleague discussion or
 email approval is a prerequisite to implementation.
 
-Checkpoints 1-4 are preserved in commits `fb4d9db`, `f8543aa`, `f26c278`
-and `503e035`; the current verification record is checkpoint 5. No earlier PTQ checkpoint
+Checkpoints 1-5 are preserved in commits `fb4d9db`, `f8543aa`, `f26c278`,
+`503e035` and `67faced`; the current verification record is checkpoint 6. No earlier PTQ checkpoint
 was modified.

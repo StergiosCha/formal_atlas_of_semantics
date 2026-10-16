@@ -1,5 +1,9 @@
 # Checkpoint 5: a Ty2 proof calculus and its soundness
 
+This records checkpoint 5. Checkpoint 6 adds the source IL calculus and
+a restricted proof-to-proof compiler in `IL_CALCULUS.md`; it does not add
+completeness or the full proof interpretation of Theorem 8.3.
+
 ## Result
 
 The development now contains an object-language derivation datatype for
@@ -122,9 +126,9 @@ equation as an unconditional theorem of the calculus.
 
 Consequently this checkpoint implements a theorem calculus, not a rule
 allowing arbitrary local hypotheses to be treated as global theorems.
-There is no `ByHypothesis` constructor. A future treatment of derivability
-from assumptions must state the binding and discharge conditions; the
-existing semantic consequence relations do not supply that proof theory.
+There is no `ByHypothesis` constructor. Checkpoint 6 implements Gallin's
+finite implication-chain definition of derivability from assumptions for
+the source IL calculus. It does not add a local hypothesis constructor to R.
 
 ## 5. Prove soundness by induction on derivations
 
@@ -170,8 +174,9 @@ translation of `c = c`. It uses derived reflexivity and beta expansion.
 and the semantic correspondence, not by treating a semantic proof as
 an object-language derivation.
 
-This is an end-to-end connection for the encodings. It is not a
-translation of source IL proof trees, which have not yet been implemented.
+This is an end-to-end connection for the encodings. This particular result
+is not a translation of source proof trees. Those trees and a restricted
+compiler are added separately in checkpoint 6.
 
 ## 7. Verification and remaining scope
 
@@ -188,8 +193,8 @@ FunExt; it does not construct those foundational assumptions itself.
 Soundness does not provide completeness or a proof-search procedure for
 standard higher-order validity. Gallin's completeness discussion uses
 general/Henkin models. Those models, completeness, description principles
-D, a source IL calculus and the proof interpretation of Theorem 8.3 remain
-separate work. The source-mapped locally indexed presentation has not been
+D and the proof interpretation of Theorem 8.3 remain separate work. The
+source IL calculus is now covered by checkpoint 6. The source-mapped locally indexed presentation has not been
 proved equivalent to a second implementation using Gallin's named syntax.
 
 The prior semantics and PTQ results, atlas assessments, live Coq service

@@ -4,8 +4,8 @@ Date: 2026-10-16. This directory extends the source-first PTQ development.
 It does not replace or regrade an atlas record, amend a frozen PTQ source,
 or identify Gallin's model classes with those of MTT or TTR.
 
-Current checkpoint: 5. Checkpoints 1-4 remain in commits `fb4d9db`,
-`f8543aa`, `f26c278` and `503e035`, respectively.
+Current checkpoint: 6. Checkpoints 1-5 remain in commits `fb4d9db`,
+`f8543aa`, `f26c278`, `503e035` and `67faced`, respectively.
 
 ## Source consulted
 
@@ -32,6 +32,13 @@ Checkpoint 5 checked the rendered image of p. 60 for A1-A3, AS4 and R,
 including the variable types, equality signs and the occurrence restriction
 on R. The formalization is a typed, locally indexed theorem calculus;
 no equivalence with a separate named proof implementation is claimed.
+Checkpoint 6 reread pp. 11-23, including the modally closed class on p. 14,
+the guarded source beta schema and its alternatives, R1-R8, and the
+finite implication-chain definition of derivability from assumptions.
+The image of p. 19 was checked for the modal operators and side conditions.
+The implementation uses the alternative AS4.1-AS4.7/R1-R8 presentation,
+not an unchecked general substitution schema. Its equivalence with a
+second encoding of Gallin's primary presentation is not proved here.
 This is AI-assisted source consultation, not independent human approval.
 No claim is made to have audited the rest of the book or reconstructed its
 completeness proofs. Hahn and Richter (2015) is not the primary evidence
@@ -60,7 +67,12 @@ for this checkpoint.
 | Section 8, p. 60: rule R | `Substitution.ccontext`, `plug`; `Calculus.Derivation` | One occurrence can be replaced, including under lambdas. Binder declarations are not term positions. The equality derivation is valid at every hole environment. No local-hypothesis-to-global-theorem rule is added. |
 | Section 8, pp. 59-60: standard semantics and the Ty2 calculus | `ty2_axioms_sound`, `ty2_derivations_sound`, `standard_model_derivation_soundness` | Soundness by induction on explicit derivation trees. Full internal function spaces and explicit BooleanTruth/FunExt inputs. This is not the generalized completeness asserted on p. 60. |
 | Section 8, pp. 61-62: translate formulas and compare their meanings | `CalculusConnections.derived_il_translation_is_valid` | An actual target derivation implies IL semantic validity via the existing translation. A concrete translated-reflexivity proof tree is supplied. This does not construct an IL-to-Ty2 proof translation. |
-| Section 3, pp. 17-20; section 8, pp. 59-63 | Remaining boundary | The source IL calculus, general/Henkin models, description principles D, relative proof interpretations and completeness are not implemented here. |
+| Section 2, pp. 11-16 | `ILCore.ltm`, `include_il`, `lval`, logical macros | Primitive IL with the existing untensed interpretation. Logical operator applications are beta-reduced macros; necessity is equality of intensions. |
+| Section 2, p. 14: MC | `ModallyClosed`, `modally_closed_is_index_independent` | Exact generating cases, with separate bound/free variables. Syntactic modal closure implies semantic index independence; no converse. |
+| Section 3, pp. 19-20: alternative source calculus | `ILAxiom`, `ILDerivation`, `il_axioms_sound`, `il_derivations_sound` | A1-A3, AS4.1-AS4.7, A5, AS6 and R1-R8. Modal beta requires MC; A1-A3/A5 take variables. Standard-model soundness, not Henkin completeness. |
+| Section 3, p. 20: derivability from Gamma | `ILFrom`, `il_from_assumptions_sound` | Finite implication-chain theorem with premises in Gamma. Not a hypothesis constructor for unrestricted replacement. |
+| Section 8, p. 61, translation; section 3, pp. 19-20, selected rules | `ILProofTranslation` | Actual proof-to-proof compilation of reflexivity, AS4.2 and R1-R3/R6-R8. `il_at` is the body of the existing translation. R4-R5 and other axiom families are not yet compiled. |
+| Section 3, pp. 17-23; section 8, pp. 59-63 | Remaining boundary | General/Henkin models, description principles D, full relative proof interpretations and completeness are not implemented here. |
 
 ## Representation decisions
 
@@ -107,6 +119,12 @@ for this checkpoint.
    local hypothesis rule; adding one without binding restrictions would not
    preserve pointwise consequence under the unrestricted replacement rule.
    A checked Boolean counterexample explains this distinction.
+9. The source `ILDerivation` uses the alternative rules printed on p. 20.
+   `ILFrom` encodes that page's discharge definition. `ILPointwiseProof`
+   is a deliberately narrower proof fragment with a checked erasure to
+   `ILDerivation` and a compiler to Ty2 `Derivation`. It is not a new
+   meaning of full source derivability, and semantic validity is never
+   accepted as a target derivation constructor.
 
 ## Existing PTQ results used
 
@@ -148,6 +166,13 @@ derivation trees and their standard-model soundness. Relative consistency
 retains BooleanTruth and FunExt as inputs. Derived equality reasoning and
 an explicit proof of a translated IL formula use only the two derivation
 constructors. No completeness or proof-system equivalence follows.
+
+Checkpoint 6 implements source IL proof trees, their standard soundness,
+and finite implication-chain discharge. Countermodels reject unrestricted
+modal beta, pointwise replacement under Up, and A5 for arbitrary
+intension terms. A proof-to-proof compiler covers an explicitly declared
+fragment, with no semantic or completeness assumptions. The remaining
+source rules and axiom families are not silently treated as compiled.
 
 `ModelExamples.missing_temporal_coherence_changes_prediction` gives a
 standard target model whose future relation is reflexive. A translated

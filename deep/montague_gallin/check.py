@@ -22,14 +22,16 @@ import verify
 
 UNITS = ("Types", "Target", "Translation", "Examples", "Independent", "Correspondence", "ModelExamples",
          "Minimal", "MinimalCorrespondence", "Untensed", "UntensedTranslation", "UntensedModels", "UntensedExamples",
-         "Substitution", "Calculus", "CalculusConnections", "CalculusExamples")
+         "Substitution", "Calculus", "CalculusConnections", "CalculusExamples",
+         "ILCore", "ILCalculus", "ILCalculusExamples", "ILProofTranslation")
 DEPENDENCIES = ("Syntax", "Models", "Grammar", "Translation", "Meaning", "Postulates", "Examples",
                 "Named", "PostulateFormulas")
 PRELUDE = """From Coq Require Import List Bool.
 From MontaguePTQ Require Import Syntax Models Grammar Translation Meaning Postulates Examples Named PostulateFormulas.
 From MontagueGallin Require Import Types Target Translation Examples Independent Correspondence ModelExamples
   Minimal MinimalCorrespondence Untensed UntensedTranslation UntensedModels UntensedExamples
-  Substitution Calculus CalculusConnections CalculusExamples.
+  Substitution Calculus CalculusConnections CalculusExamples
+  ILCore ILCalculus ILCalculusExamples ILProofTranslation.
 Import ListNotations.
 """
 SIGNATURES = """
@@ -141,6 +143,32 @@ Definition checked_object_proof_example : Derivation (il_proof_formula il_consta
   il_constant_reflexivity_proof.
 Definition consistency_still_records_foundational_inputs : forall (B : BooleanTruth) (FE : FunExt) S P G,
   Derivation (@cfalse S P G) -> False := @ty2_no_derivation_of_false.
+Definition source_modal_closure_guarantees_all_indices : forall M sigma G a (p : ltm G a),
+  ModallyClosed p -> forall rho i j, lval M p rho sigma i = lval M p rho sigma j :=
+  @modally_closed_is_index_independent.
+Definition source_axioms_have_all_models_soundness : forall M sigma G (p : ltm G t),
+  ILAxiom p -> forall rho i, lval M p rho sigma i = true := @il_axioms_sound.
+Definition source_rules_have_all_environments_and_indices_soundness : forall M sigma G (p : ltm G t),
+  ILDerivation p -> forall rho i, lval M p rho sigma i = true := @il_derivations_sound.
+Definition source_assumptions_use_finite_implication_theorems : forall G (Gamma : ltm G t -> Prop) p,
+  ILFrom Gamma p -> forall M sigma rho i,
+  (forall q, Gamma q -> lval M q rho sigma i = true) -> lval M p rho sigma i = true :=
+  @il_from_assumptions_sound.
+Definition modal_beta_cannot_drop_the_side_condition : forall (B : BooleanTruth) (FE : FunExt),
+  ILDerivation forbidden_modal_beta -> False := @forbidden_modal_beta_has_no_derivation.
+Definition axiom_five_cannot_drop_variable_or_rigidity_conditions : forall B FE,
+  lval (modal_test_model B FE) (il_axiom5 (@LCon [] (intens t) 0) (LUp lfalse))
+    (il_empty _) (modal_test_assignment B FE) false = false :=
+  @axiom_five_cannot_accept_arbitrary_intension_terms.
+Definition assumptions_correspond_semantically_in_target : forall Gamma p, ILFrom Gamma p ->
+  ty2_standard_consequence (translated_il_theory (included_il_theory Gamma))
+    (il_minimal_translate (include_il p)) := @il_assumptions_imply_translated_consequence.
+Definition proof_compiler_reuses_the_existing_formula_translation : forall G a (p : ltm G a),
+  il_minimal_translate (include_il p) = CLam (il_at p) := @il_at_is_existing_translation_body.
+Definition restricted_proof_inputs_really_are_source_proofs : forall G (p : ltm G t),
+  ILPointwiseProof p -> ILDerivation p := @pointwise_proof_is_source_derivation.
+Definition restricted_proof_compiler_outputs_trees_without_semantic_inputs : forall G (p : ltm G t),
+  ILPointwiseProof p -> Derivation (il_at p) := @compile_pointwise_proof.
 """
 NEGATIVE = {
     "source_index_is_not_an_entity": (
@@ -262,6 +290,35 @@ NEGATIVE = {
     "relative_consistency_does_not_supply_its_own_foundations": (
         "Definition bad : forall S P G, Derivation (@cfalse S P G) -> False := "
         "@ty2_no_derivation_of_false.", "expected to have type"),
+    "source_primitive_syntax_has_no_primitive_box": (
+        "Definition bad : ltm [] t := IBox (@ICon [] t 0).", "expected to have type"),
+    "source_constant_is_not_modally_closed": (
+        "Definition bad : ModallyClosed (@LCon [] t 0) := MCUp (@LCon [] t 0).",
+        "expected to have type"),
+    "source_modal_beta_requires_a_side_condition": (
+        "Definition bad : ILAxiom forbidden_modal_beta := IL_AS47 (LVar vz) (LCon 0).",
+        "expected to have type"),
+    "source_axiom_five_requires_variables": (
+        "Definition bad := IL_A5 (@LCon [] (intens t) 0) (LCon 1).",
+        "expected to have type"),
+    "source_proof_is_not_a_host_equality": (
+        "Definition bad : ILDerivation (LEq (@LCon [] t 0) (LCon 0)) := eq_refl.",
+        "expected to have type"),
+    "source_hypothesis_discharge_is_not_an_unconditional_theorem": (
+        "Definition bad G (Gamma : ltm G t -> Prop) p : ILFrom Gamma p -> ILDerivation p := fun H => H.",
+        "expected to have type"),
+    "source_beta_exchange_cannot_capture_outer_variable": (
+        "Example bad : lrename (@LVar [t; t] t (vs vz)) lswap = LVar (vs vz). "
+        "Proof. reflexivity. Qed.", "Unable to unify"),
+    "source_invalid_modal_beta_has_no_proof": (
+        "Definition bad B FE : ILDerivation forbidden_modal_beta := "
+        "forbidden_modal_beta_has_no_derivation B FE.", "expected to have type"),
+    "restricted_proof_translation_is_not_the_general_case": (
+        "Definition bad : forall G (p : ltm G t), ILDerivation p -> Derivation (il_at p) := "
+        "@compile_pointwise_proof.", "expected to have type"),
+    "source_semantic_translation_is_not_a_target_derivation": (
+        "Definition bad (p : ltm [] t) (H : ILDerivation p) : Derivation (il_at p) := "
+        "il_derivation_implies_translated_validity H.", "expected to have type"),
 }
 
 
@@ -347,8 +404,8 @@ def check():
                 raise RuntimeError(f"Negative fixture failed for the wrong reason: {name}\n{result.stdout}")
             print(f"Rejected invalid fixture: {name}", flush=True)
     return {
-        "schema_version": 1, "checkpoint": 5, "coq_version": "8.20.1",
-        "scope": "Scoped Ty2 axiom/replacement calculus and standard-model soundness, retaining untensed IL and coherent PTQ correspondences",
+        "schema_version": 1, "checkpoint": 6, "coq_version": "8.20.1",
+        "scope": "Source IL alternative axiom/rule calculus, standard soundness, discharged hypotheses, and a restricted proof-to-proof compiler into Ty2",
         "files": files, "ptq_dependencies": dependencies,
         "proved_statement_count": len(names), "kernel_rechecked": True,
         "global_dependencies_by_statement": {name: [] for name in names},
@@ -391,7 +448,15 @@ def check():
             "ty2_explicit_derivation_trees": True,
             "ty2_standard_model_soundness": True,
             "ty2_derived_translation_implies_il_validity": True,
-            "ty2_completeness_or_il_proof_translation": False,
+            "ty2_completeness_or_general_il_proof_translation": False,
+            "source_il_primitive_syntax": True,
+            "source_il_modally_closed_terms_and_rigidity": True,
+            "source_il_alternative_AS41_AS47_R1_R8_calculus": True,
+            "source_il_all_derivations_standard_soundness": True,
+            "source_il_finite_implication_discharge_soundness": True,
+            "source_il_side_condition_countermodels": True,
+            "source_il_restricted_pointwise_proof_translation": True,
+            "source_il_general_proof_translation": False,
         },
         "model_class_boundary": {
             "covered": "all independent coherent valuations on all declared inhabited PTQ world-time frames",
@@ -420,6 +485,19 @@ def check():
             "source_connection": "a derivation of the actual translated IL formula implies its standard semantic validity",
             "not_claimed": ["completeness", "Henkin soundness/completeness", "IL+D to Ty2+D proof translation",
                             "named/indexed calculus equivalence", "unrestricted local-assumption rule"],
+        },
+        "source_proof_calculus_boundary": {
+            "source": "Gallin pp. 19-20: A1-A3, AS4.1-AS4.7, A5, AS6 and R1-R8",
+            "syntax": "primitive IL with derived logical macros and locally indexed binders",
+            "modal_beta": "AS4.7 requires the syntactic ModallyClosed predicate from p. 14",
+            "axiom_five": "variables only; validity is separately proved for modally closed intensions",
+            "hypotheses": "finite nested implication theorem as in p. 20, not unrestricted local replacement",
+            "soundness": "all implemented ILDerivation trees, models, assignments, environments and indices",
+            "restricted_proof_compiler": "ILPointwiseProof to actual Ty2 Derivation, with no semantic inputs",
+            "compiled_fragment": "derived reflexivity, AS4.2, R1-R3 and R6-R8; arbitrary primitive IL terms",
+            "not_yet_compiled": "R4-R5 and remaining axiom families",
+            "not_claimed": ["general IL proof translation", "description principles D", "Theorem 8.3",
+                            "Henkin completeness", "equivalence to a separately encoded named calculus"],
         },
         "negative_fixtures_rejected": sorted(NEGATIVE),
         "source_review": "AI-assisted primary-source consultation; no independent human review claimed",

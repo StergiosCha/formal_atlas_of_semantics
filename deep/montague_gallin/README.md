@@ -40,10 +40,17 @@ Checkpoint 6 adds the source IL calculus using Gallin's alternative
 AS4.1-AS4.7 and R1-R8 presentation, with standard-model soundness and
 finite implication-chain discharge of assumptions. An explicit restricted
 proof compiler translates reflexivity, AS4.2 and R1-R3/R6-R8 into actual
-Ty2 proof trees. The other axiom families and R4-R5 are not yet compiled.
+Ty2 proof trees. That checkpoint did not yet compile the other cases.
 
-Verification: 183 kernel-checked statements across twenty-one modules, with
-44 rejected invalid regression fixtures. No admitted proofs or additional
+Checkpoint 7 completes the general forward proof compiler: every
+`ILDerivation` becomes an actual Ty2 `Derivation` of the existing
+translation, covering all source axioms and R1-R8. Proofs from assumptions
+also translate, preserving their finite implication chains. Neither proof
+calculus nor the public formula translation was changed. The compiler
+has no model, semantic-truth or completeness inputs.
+
+Verification: 225 kernel-checked statements across twenty-six modules, with
+52 rejected invalid regression fixtures. No admitted proofs or additional
 global axioms. The model fields still carry the stated logical assumptions.
 
 ## Reproduce
@@ -91,6 +98,12 @@ not used to make a failing `--check` pass automatically.
 | `ILCalculusExamples.v` | Source proof trees, semantic connection to Ty2, and countermodels to missing modal side conditions. |
 | `ILProofTranslation.v` | Explicit restricted source proof datatype and its proof-to-proof compiler into the actual Ty2 calculus. |
 | `IL_CALCULUS.md` | Step-by-step source-calculus guide, counterexamples and exact proof-compiler coverage. |
+| `SyntaxAlgebra.v` | Model-free syntactic renaming and substitution laws. |
+| `ILCompileSyntax.v` | Generalized compiler, exact agreement with the existing translation, and binder/index substitution lemmas. |
+| `ILFullProofTranslation.v` | Every source axiom and every IL derivation compiled to an unchanged Ty2 proof tree. |
+| `ProofDischarge.v` | Finite implication discharge and proof translation with assumptions retained. |
+| `FullCompilerExamples.v` | Nested binders, guarded modal beta, intension extensionality and output-interface checks. |
+| `FULL_PROOF_TRANSLATION.md` | Completed proof-translation result, construction details and exact boundary. |
 | `MODEL_CORRESPONDENCE.md` | Explanation of the new model classes, reconstruction proof and exact scope. |
 | `SOURCE_MAP.md` | Page references, PDF fingerprint, encoding choices, and exact claim boundary. |
 | `verification.json` | Reproducible source hashes, dependency pins and machine-check results. |
@@ -137,12 +150,12 @@ Montague research checkpoint remain unchanged. No P/F grade, outcome,
 comparison edge, live-Coq library, or published PTQ verification record
 has been modified.
 
-Next: extend the proof compiler to lambda/Up congruence and the remaining
-source axioms. The source calculus and its standard soundness are in place.
-Description principles, proof-system correspondence and Henkin completeness
-are separate milestones. No colleague discussion or
+The general forward proof-translation step is complete. Packaging and
+publishing it is a separate next action. Description principles, reverse
+proof interpretations and Henkin completeness are separate research
+milestones, not remaining cases in this compiler. No colleague discussion or
 email approval is a prerequisite to implementation.
 
-Checkpoints 1-5 are preserved in commits `fb4d9db`, `f8543aa`, `f26c278`,
-`503e035` and `67faced`; the current verification record is checkpoint 6. No earlier PTQ checkpoint
+Checkpoints 1-6 are preserved in commits `fb4d9db`, `f8543aa`, `f26c278`,
+`503e035`, `67faced` and `30a4a28`; the current verification record is checkpoint 7. No earlier PTQ checkpoint
 was modified.

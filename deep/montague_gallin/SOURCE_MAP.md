@@ -4,8 +4,8 @@ Date: 2026-10-16. This directory extends the source-first PTQ development.
 It does not replace or regrade an atlas record, amend a frozen PTQ source,
 or identify Gallin's model classes with those of MTT or TTR.
 
-Current checkpoint: 6. Checkpoints 1-5 remain in commits `fb4d9db`,
-`f8543aa`, `f26c278`, `503e035` and `67faced`, respectively.
+Current checkpoint: 7. Checkpoints 1-6 remain in commits `fb4d9db`,
+`f8543aa`, `f26c278`, `503e035`, `67faced` and `30a4a28`, respectively.
 
 ## Source consulted
 
@@ -39,6 +39,11 @@ The image of p. 19 was checked for the modal operators and side conditions.
 The implementation uses the alternative AS4.1-AS4.7/R1-R8 presentation,
 not an unchecked general substitution schema. Its equivalence with a
 second encoding of Gallin's primary presentation is not proved here.
+Checkpoint 7 compiles every constructor of that established source
+calculus into the established Ty2 calculus, using the existing p. 61
+translation. Neither calculus nor the public formula translation was
+changed. This is a direct forward proof construction, not an appeal to
+the generalized completeness argument or description principles.
 This is AI-assisted source consultation, not independent human approval.
 No claim is made to have audited the rest of the book or reconstructed its
 completeness proofs. Hahn and Richter (2015) is not the primary evidence
@@ -71,7 +76,10 @@ for this checkpoint.
 | Section 2, p. 14: MC | `ModallyClosed`, `modally_closed_is_index_independent` | Exact generating cases, with separate bound/free variables. Syntactic modal closure implies semantic index independence; no converse. |
 | Section 3, pp. 19-20: alternative source calculus | `ILAxiom`, `ILDerivation`, `il_axioms_sound`, `il_derivations_sound` | A1-A3, AS4.1-AS4.7, A5, AS6 and R1-R8. Modal beta requires MC; A1-A3/A5 take variables. Standard-model soundness, not Henkin completeness. |
 | Section 3, p. 20: derivability from Gamma | `ILFrom`, `il_from_assumptions_sound` | Finite implication-chain theorem with premises in Gamma. Not a hypothesis constructor for unrestricted replacement. |
-| Section 8, p. 61, translation; section 3, pp. 19-20, selected rules | `ILProofTranslation` | Actual proof-to-proof compilation of reflexivity, AS4.2 and R1-R3/R6-R8. `il_at` is the body of the existing translation. R4-R5 and other axiom families are not yet compiled. |
+| Section 8, p. 61, translation; section 3, pp. 19-20, selected rules | `ILProofTranslation` | Checkpoint 6's restricted compiler is retained. `il_at` is the body of the existing translation. |
+| Sections 3 and 8, pp. 19-20, 60-61 | `ILFullProofTranslation.compile_all_axioms`, `compile_il_general`, `compile_il_proof` | Every implemented source axiom and R1-R8 produce proofs in the unchanged target calculus. No semantic or completeness inputs. |
+| Section 3, p. 20; section 8, p. 61 | `ProofDischarge.compile_il_from` | Source implication-chain proofs become target implication-chain proofs with the translated assumptions retained. |
+| Section 8, p. 61, binding and modal clauses | `SyntaxAlgebra`, `ILCompileSyntax` | Syntactic substitution/renaming equations, exact agreement with the existing compiler, guarded modal beta and index-beta cancellation. |
 | Section 3, pp. 17-23; section 8, pp. 59-63 | Remaining boundary | General/Henkin models, description principles D, full relative proof interpretations and completeness are not implemented here. |
 
 ## Representation decisions
@@ -125,6 +133,9 @@ for this checkpoint.
    `ILDerivation` and a compiler to Ty2 `Derivation`. It is not a new
    meaning of full source derivability, and semantic validity is never
    accepted as a target derivation constructor.
+   Checkpoint 7's `compile_il_proof` now accepts every `ILDerivation`;
+   the earlier restricted compiler remains a historical/test interface.
+   Target axioms and inference rules were not broadened to obtain it.
 
 ## Existing PTQ results used
 
@@ -173,6 +184,14 @@ modal beta, pointwise replacement under Up, and A5 for arbitrary
 intension terms. A proof-to-proof compiler covers an explicitly declared
 fragment, with no semantic or completeness assumptions. The remaining
 source rules and axiom families are not silently treated as compiled.
+
+Checkpoint 7 completes precisely that missing coverage. Every implemented
+IL proof and discharged-assumption proof compiles into a Ty2 proof of
+the unchanged formula translation. The construction is syntactic and
+has no semantic or completeness parameters. A5 becomes target A3 at
+index type s, and the guarded AS4.7 case uses proved syntactic index
+independence of modally closed source terms. There are no remaining
+uncompiled cases within `ILDerivation` or `ILFrom`.
 
 `ModelExamples.missing_temporal_coherence_changes_prediction` gives a
 standard target model whose future relation is reflexive. A translated

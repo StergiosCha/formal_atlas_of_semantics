@@ -21,3 +21,8 @@ ILCore.v
 ILCalculus.v
 ILCalculusExamples.v
 ILProofTranslation.v
+SyntaxAlgebra.v
+ILCompileSyntax.v
+ILFullProofTranslation.v
+ProofDischarge.v
+FullCompilerExamples.v

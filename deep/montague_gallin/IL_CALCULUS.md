@@ -1,5 +1,10 @@
 # Checkpoint 6: source IL proofs and a first proof compiler
 
+This document records checkpoint 6. Checkpoint 7 completes the general
+forward proof translation for every `ILDerivation` and `ILFrom`; see
+`FULL_PROOF_TRANSLATION.md`. The restrictions described below concern
+the original pointwise compiler, not the new full compiler.
+
 ## Result
 
 Gallin's source IL now has an explicit primitive syntax, a syntactic
@@ -231,9 +236,9 @@ signatures and rejects 44 invalid fixtures. There are 183 checked theorem,
 lemma and example statements; proof-tree definitions and the compiler are
 also checked and included in the declaration audit.
 
-Next: extend proof translation beyond the pointwise fragment, starting
-with binding/index-renaming lemmas needed by R4 and R5, then realize the
-remaining source axiom schemas as target derivations. Description
+That next step is now completed in checkpoint 7: binding/index-renaming
+lemmas, all remaining source axiom cases, and R4/R5 are covered by the
+general compiler. Description
 principles and the full theorem 8.3 require separate treatment. No
 completeness or full proof-system equivalence is claimed.
 

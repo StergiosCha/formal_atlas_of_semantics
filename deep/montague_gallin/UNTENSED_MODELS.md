@@ -178,8 +178,9 @@ IL in this representation. Checkpoint 5 now supplies the separate Ty2
 theorem calculus and its standard-model soundness in `CALCULUS.md`.
 The semantic correspondence is not itself a translation of proofs.
 Checkpoint 6 adds a source IL calculus and a restricted proof-to-proof
-compiler in `IL_CALCULUS.md`. Description principles D, full proof-system
-correspondence, Henkin models, completeness and a reverse syntax
+compiler in `IL_CALCULUS.md`; checkpoint 7 completes the forward proof
+compiler in `FULL_PROOF_TRANSLATION.md`. Description principles D, the
+full IL+D/Ty2+D correspondence, Henkin models, completeness and a reverse syntax
 translation remain separate work.
 
 The source passages are recorded in `SOURCE_MAP.md`. Consultation and

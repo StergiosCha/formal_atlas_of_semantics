@@ -55,6 +55,22 @@ def check(site, artifacts):
         expected = (ROOT / "deep/montague_ptq/Examples.v").read_bytes()
         assert downloaded == expected
         checks.append("Exact theorem navigation, outline search and byte-identical source download")
+        page.goto(site + "/#/research/gallin")
+        expect(page.get_by_role("heading", name="Gallin: from models to proofs.")).to_be_visible()
+        expect(page.locator('#nav a[data-r="research"]')).to_have_attribute("aria-current", "page")
+        assert page.locator('.research-files a').count() == 26
+        assert page.locator('.research-page a[href^="#/edit/"]').count() == 0
+        page.screenshot(path=str(artifacts / "gallin-desktop.png"), full_page=True)
+        page.locator('.gallin-page .entry-card').nth(1).click()
+        expect(page.locator('.reader-selection h2')).to_have_text("compile_il_proof")
+        expect(page.locator('.evidence-strip')).to_contain_text("no global axiom dependencies for this declaration")
+        expect(page.get_by_role("link", name="Back to research")).to_have_attribute("href", "#/research/gallin")
+        assert page.locator('a[href^="#/edit/"]').count() == 0
+        with page.expect_download() as info:
+            page.get_by_role("button", name="Download .v", exact=True).click()
+        gallin_download = Path(info.value.path()).read_bytes()
+        assert gallin_download == (ROOT / "deep/montague_gallin/ILFullProofTranslation.v").read_bytes()
+        checks.append("Separate Gallin section: 26 modules, proof-producing Definition audit and exact-byte compiler download")
         page.goto(site + "/#/research-proof/__proto__")
         assert page.locator('.reader-codebar').count() == 0
         page.goto(site + "/#/proof/atlas__ttr_model")
@@ -70,13 +86,23 @@ def check(site, artifacts):
         assert page.evaluate("document.documentElement.scrollWidth <= innerWidth + 1")
         page.screenshot(path=str(artifacts / "research-proof-mobile.png"), full_page=True)
         checks.append("Mobile research and proof views fit the viewport")
+        page.goto(site + "/#/research/gallin")
+        expect(page.get_by_role("heading", name="Gallin: from models to proofs.")).to_be_visible()
+        assert page.evaluate("document.documentElement.scrollWidth <= innerWidth + 1")
+        page.screenshot(path=str(artifacts / "gallin-mobile.png"), full_page=True)
+        page.locator('.gallin-page .entry-card').nth(2).click()
+        expect(page.locator('.reader-selection h2')).to_have_text("compile_il_from")
+        assert page.evaluate("document.documentElement.scrollWidth <= innerWidth + 1")
+        page.screenshot(path=str(artifacts / "gallin-proof-mobile.png"), full_page=True)
+        checks.append("Mobile Gallin page and assumption-discharge proof fit the viewport")
         assert not errors, errors
         revision = page.evaluate("D.revision")
         context.close()
         browser.close()
     result = {"site": site, "revision": revision, "checks": checks, "page_errors": errors,
               "blocked_external_requests": external, "paid_model_calls": 0, "coq_requests": 0,
-              "download_sha256": hashlib.sha256(downloaded).hexdigest()}
+              "download_sha256": hashlib.sha256(downloaded).hexdigest(),
+              "gallin_download_sha256": hashlib.sha256(gallin_download).hexdigest()}
     (artifacts / "result.json").write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps(result, indent=2))
     print("Artifacts:", artifacts)

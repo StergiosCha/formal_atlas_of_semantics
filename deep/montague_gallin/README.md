@@ -143,15 +143,17 @@ No independent human source review is claimed. Source consultation and
 proof engineering were AI-assisted; the proof assistant checks the
 consequences of the definitions, not their fidelity to the book.
 
-## Isolation and next step
+## Separate research publication
 
-This development is on `codex/gallin`. The published atlas and its
-Montague research checkpoint remain unchanged. No P/F grade, outcome,
-comparison edge, live-Coq library, or published PTQ verification record
-has been modified.
+This development is published from `main` in the app's dedicated
+[Gallin research section](https://orange-beach-0c447e210.5.azurestaticapps.net/#/research/gallin),
+with exact Coq source, declaration audits and revision-pinned reports.
+No P/F grade, outcome, comparison edge, live-Coq library or published PTQ
+verification record is changed by this publication. Research source is
+read-only in the browser; use the isolated checker locally to reproduce it.
+The production workflow reruns that checker before deploying the site.
 
-The general forward proof-translation step is complete. Packaging and
-publishing it is a separate next action. Description principles, reverse
+The general forward proof-translation step is complete. Description principles, reverse
 proof interpretations and Henkin completeness are separate research
 milestones, not remaining cases in this compiler. No colleague discussion or
 email approval is a prerequisite to implementation.

@@ -31,6 +31,12 @@ PACKAGES = (
         "boundary": "Preserves the older encoding's choices, including fixed-time necessity. Code-to-code preservation does not validate those choices against PTQ.",
         "documents": ["README.md", "LEGACY_SPEC.md", "OBSERVATION_SPEC.md"],
     },
+    {
+        "id": "montague_gallin", "namespace": "MontagueGallin", "title": "Gallin: models and proof translation",
+        "summary": "PTQ interpretation preservation, correspondence with specified Ty2 model classes, and forward translation of the implemented untensed IL proof calculus, including proofs from assumptions.",
+        "boundary": "Forward proof translation, not reverse proof equivalence, the description extension or Henkin completeness. Semantic results retain BooleanTruth and FunExt inputs. Independent source review is pending; the locally indexed source calculus is an explicit encoding choice.",
+        "documents": ["README.md", "SOURCE_MAP.md", "MODEL_CORRESPONDENCE.md", "UNTENSED_MODELS.md", "IL_CALCULUS.md", "FULL_PROOF_TRANSLATION.md"],
+    },
 )
 
 FEATURES = (
@@ -40,6 +46,15 @@ FEATURES = (
      "The nine object-language postulate families characterize precisely the encoded semantic admissibility conditions."),
     ("Examples.v", "temperature_countermodel", "An admissible temperature countermodel",
      "The translated premises hold and the translated conclusion fails in a supplied model satisfying the postulates, under explicit foundational inputs."),
+)
+
+GALLIN_FEATURES = (
+    ("UntensedModels.v", "untensed_standard_consequence", "Compare consequence across models",
+     "Untensed IL and its translation agree on consequence over the specified standard model classes, with explicit foundational premises."),
+    ("ILFullProofTranslation.v", "compile_il_proof", "Translate every implemented source proof",
+     "A proof-producing function covers all source axiom families and rules R1-R8. It takes a source derivation, not a semantic truth or completeness assumption."),
+    ("ProofDischarge.v", "compile_il_from", "Carry assumptions through the translation",
+     "Derivations from source premises become target derivations from the translated premises, with assumption discharge preserved."),
 )
 
 
@@ -56,7 +71,7 @@ def digest(raw):
 
 def bundle_research(repo):
     repo = Path(repo).resolve()
-    result = {"packages": [], "sources": {}, "features": [],
+    result = {"packages": [], "sources": {}, "features": [], "gallin_features": [],
               "source_review": "Independent semantic review pending", "live_execution": False}
     for config in PACKAGES:
         package = dict(config)
@@ -78,6 +93,9 @@ def bundle_research(repo):
         for filename, sha in checkpoint.get("core_dependencies", {}).items():
             if digest(read_public(repo, "deep/montague_core/" + filename)) != sha:
                 raise ValueError("Research core dependency drift")
+        for filename, sha in checkpoint.get("ptq_dependencies", {}).items():
+            if digest(read_public(repo, "deep/montague_ptq/" + filename)) != sha:
+                raise ValueError("Research PTQ dependency drift")
         keys = []
         statement_count = 0
         for filename, evidence in checkpoint["files"].items():
@@ -107,6 +125,13 @@ def bundle_research(repo):
                 recorded = {name: [] for name in proved}
             else:
                 raise ValueError(f"Missing research assumption checkpoint: {relative}")
+            # Proof-producing Definitions have their own audited dependencies.
+            # Do not count them as theorem/lemma statements or infer missing audits.
+            declaration_dependencies = checkpoint.get("global_dependencies_by_declaration", {})
+            for declaration in entries:
+                name = declaration["qualified"]
+                if name in declaration_dependencies:
+                    recorded[name] = declaration_dependencies[name]
             key = "research__" + config["id"] + "__" + filename[:-2]
             result["sources"][key] = {
                 "path": relative, "text": raw.decode("utf-8"), "sha256": digest(raw),
@@ -115,6 +140,7 @@ def bundle_research(repo):
                              "summary": config["summary"], "boundary": config["boundary"],
                              "coq_version": checkpoint["coq_version"],
                              "checkpoint_path": checkpoint_path, "checkpoint_sha256": digest(raw_checkpoint),
+                             "statement_count": len(proved),
                              "global_dependencies": recorded},
             }
             keys.append(key)
@@ -129,13 +155,15 @@ def bundle_research(repo):
         for document in package["documents"]:
             read_public(repo, document["path"])
         result["packages"].append(package)
-    for filename, name, title, summary in FEATURES:
-        key = "research__montague_ptq__" + filename[:-2]
-        matches = [d for d in result["sources"][key]["declarations"] if d["name"] == name and d["status"] == "proved"]
-        if len(matches) != 1:
-            raise ValueError(f"Missing research feature proof: {name}")
-        result["features"].append({"key": key, "line": matches[0]["line"], "name": name,
-                                   "title": title, "summary": summary})
+    for package, field, features in (("montague_ptq", "features", FEATURES),
+                                     ("montague_gallin", "gallin_features", GALLIN_FEATURES)):
+        for filename, name, title, summary in features:
+            key = "research__" + package + "__" + filename[:-2]
+            matches = [d for d in result["sources"][key]["declarations"] if d["name"] == name and d["status"] == "proved"]
+            if len(matches) != 1:
+                raise ValueError(f"Missing research feature proof: {name}")
+            result[field].append({"key": key, "line": matches[0]["line"], "name": name,
+                                  "kind": matches[0]["kind"], "title": title, "summary": summary})
     report = json.loads(read_public(repo, "deep/montague_ptq/reading_exploration.json"))
     if report["search_completeness_proved"] is not False:
         raise ValueError("Review the research scope before changing the completeness claim")

@@ -20,11 +20,12 @@ PTQ = HERE.parent / "montague_ptq"
 sys.path.insert(0, str(ROOT / "atlas_data"))
 import verify
 
-UNITS = ("Types", "Target", "Translation", "Examples")
-DEPENDENCIES = ("Syntax", "Models", "Grammar", "Translation", "Meaning", "Postulates", "Examples")
+UNITS = ("Types", "Target", "Translation", "Examples", "Independent", "Correspondence", "ModelExamples")
+DEPENDENCIES = ("Syntax", "Models", "Grammar", "Translation", "Meaning", "Postulates", "Examples",
+                "Named", "PostulateFormulas")
 PRELUDE = """From Coq Require Import List Bool.
-From MontaguePTQ Require Import Syntax Models Grammar Translation Meaning Postulates Examples.
-From MontagueGallin Require Import Types Target Translation Examples.
+From MontaguePTQ Require Import Syntax Models Grammar Translation Meaning Postulates Examples Named PostulateFormulas.
+From MontagueGallin Require Import Types Target Translation Examples Independent Correspondence ModelExamples.
 Import ListNotations.
 """
 SIGNATURES = """
@@ -49,6 +50,23 @@ Definition temperature_still_requires_foundations : forall (B : BooleanTruth) (F
   target_eval M sigma (english_translation temperature_rises) (gempty (carrier M)) (tt,false) = true /\\
   target_eval M sigma (english_translation ninety_rises) (gempty (carrier M)) (tt,false) = false :=
   temperature_countermodel_transported.
+Definition independent_target_can_reconstruct_a_source : forall F, coherent_model F -> model :=
+  @reconstruct_model.
+Definition target_roundtrip_covers_every_target_term : forall F (N : coherent_model F)
+  (theta : coherent_assignment F) G a (p : target_term G a) rho,
+  coherent_eval N theta p rho =
+  target_eval (reconstruct_model N) (reconstruct_assignment N theta) p rho :=
+  @target_roundtrip_interpretation.
+Definition independently_stated_postulates_characterize_admissibility :
+  forall F (N : coherent_model F), target_admissible N <-> admissible (reconstruct_model N) :=
+  @admissible_model_correspondence.
+Definition all_coherent_models_not_just_the_constructed_image : forall ps q,
+  admissible_target_consequence ps q <-> source_consequence admissible ps q :=
+  @admissible_consequence_correspondence.
+Definition independent_satisfiability : forall ps,
+  source_satisfiable ps <-> target_satisfiable ps := @admissible_satisfiability_correspondence.
+Definition standard_carriers_do_not_require_a_ptq_frame : forall S (N : standard_model S),
+  Type := fun S N => standard_indices N.
 """
 NEGATIVE = {
     "source_index_is_not_an_entity": (
@@ -78,6 +96,27 @@ NEGATIVE = {
         "target_eval M (sample_assignment B FE) (translate_intension (Box (@Con [] t 0))) "
         "(gempty (carrier M)) (tt,false) = true := "
         "proj2 (translated_necessity_keeps_both_coordinates B FE).", "expected to have type"),
+    "unrestricted_standard_model_is_not_temporally_coherent": (
+        "Definition bad : forall S, standard_model S -> model := @reconstruct_model.",
+        "expected to have type"),
+    "source_admissibility_cannot_be_dropped_from_embedding": (
+        "Definition bad : forall M, target_admissible (embed_model M) := @embed_preserves_admissibility.",
+        "expected to have type"),
+    "target_postulates_cannot_be_dropped_from_reconstruction": (
+        "Definition bad : forall F (N : coherent_model F), admissible (reconstruct_model N) := "
+        "@admissible_model_correspondence.", "expected to have type"),
+    "coherence_laws_cannot_be_omitted": (
+        "Definition bad (F : frame) (B : BooleanTruth) (FE : FunExt) "
+        "(L : forall a, source_symbol a -> gdomain F a) : coherent_model F := "
+        "{| coherent_truth := B; coherent_extensionality := FE; coherent_lex := L |}.",
+        "unresolved implicit arguments"),
+    "countermodel_predictions_do_not_agree_without_coherence": (
+        "Definition bad B FE : eval (one_moment_source B FE) future_tautology (empty_env _) "
+        "(fun a _ => one_moment_zero a) (tt,tt) = true := source_future_tautology_false B FE.",
+        "expected to have type"),
+    "model_roundtrip_is_not_a_reverse_syntax_translation": (
+        "Definition bad : forall G a, target_term G a -> tm [] t := @reconstruct_model.",
+        "expected to have type"),
 }
 
 
@@ -163,13 +202,13 @@ def check():
                 raise RuntimeError(f"Negative fixture failed for the wrong reason: {name}\n{result.stdout}")
             print(f"Rejected invalid fixture: {name}", flush=True)
     return {
-        "schema_version": 1, "checkpoint": 1, "coq_version": "8.20.1",
-        "scope": "source-first PTQ interpretation preserved in explicit-index Ty2 presentation",
+        "schema_version": 1, "checkpoint": 2, "coq_version": "8.20.1",
+        "scope": "PTQ and independent temporally coherent Ty2 models: interpretation, admissibility, consequence and satisfiability",
         "files": files, "ptq_dependencies": dependencies,
         "proved_statement_count": len(names), "kernel_rechecked": True,
         "global_dependencies_by_statement": {name: [] for name in names},
         "global_dependencies_by_declaration": {name: [] for name in audited},
-        "explicit_foundational_inputs": ["BooleanTruth and FunExt in the source model"],
+        "explicit_foundational_inputs": ["BooleanTruth and FunExt in source and target models"],
         "source_map_sha256": digest(HERE / "SOURCE_MAP.md"),
         "checker_sha256": digest(HERE / "check.py"),
         "coverage": {
@@ -180,10 +219,25 @@ def check():
             "english_tree_translation_composed": True,
             "admissible_temperature_countermodel_transported": True,
             "consequence_on_constructed_model_image": True,
+            "independent_standard_model_record": True,
+            "general_entity_and_index_domains": True,
+            "independent_temporally_coherent_model_correspondence": True,
+            "all_target_terms_preserved_by_model_roundtrip": True,
+            "translated_nine_postulate_families_characterize_admissibility": True,
+            "admissible_consequence_and_satisfiability_correspondence": True,
+            "countermodel_when_temporal_coherence_is_omitted": True,
             "all_independent_ty2_models": False,
             "elimination_of_connectives_into_gallin_minimal_syntax": False,
             "reverse_translation": False, "henkin_completeness": False,
             "gallin_axiomatic_calculus": False,
+        },
+        "model_class_boundary": {
+            "covered": "all independent coherent valuations on all declared inhabited PTQ world-time frames",
+            "temporal_relations": "same world and strictly later/earlier time",
+            "admissibility": "nine source meaning-postulate families evaluated as translated target formulas",
+            "unrestricted_standard_target_models": "defined but not included in the full tensed correspondence",
+            "arbitrary_index_isomorphisms": False,
+            "proof_system_correspondence": False,
         },
         "negative_fixtures_rejected": sorted(NEGATIVE),
         "source_review": "AI-assisted primary-source consultation; no independent human review claimed",

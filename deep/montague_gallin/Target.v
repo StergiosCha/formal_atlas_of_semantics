@@ -85,28 +85,33 @@ Fixpoint grename {S P G a} (u : gtm S P G a) : forall D, gren G D -> gtm S P D a
 Definition gweaken {S P G a b} (u : gtm S P G b) : gtm S P (a :: G) b :=
   grename u (fun _ v => gvs v).
 
-Definition genv F G := forall a, gvar G a -> gdomain F a.
-Definition gextend {F G a} (rho : genv F G) (x : gdomain F a) : genv F (a :: G) :=
+Definition value_env E I G := forall a, gvar G a -> value_domain E I a.
+Definition value_extend {E I G a} (rho : value_env E I G) (x : value_domain E I a)
+  : value_env E I (a :: G) :=
   fun b v => match v in gvar G' b' return
     match G' with [] => unit
-    | c :: G0 => genv F G0 -> gdomain F c -> gdomain F b' end with
+    | c :: G0 => value_env E I G0 -> value_domain E I c -> value_domain E I b' end with
   | @gz _ _ => fun _ x0 => x0
   | @gvs _ _ _ w => fun r _ => r _ w
   end rho x.
-Definition gempty F : genv F [] := fun a v =>
-  match v in gvar G b return match G with [] => gdomain F b | _ => unit end with
+Definition value_empty E I : value_env E I [] := fun a v =>
+  match v in gvar G b return match G with [] => value_domain E I b | _ => unit end with
   | gz => tt | gvs _ => tt end.
+(* Compatibility names for checkpoint 1. *)
+Definition genv F := value_env (entity F) (index F).
+Definition gextend {F G a} := @value_extend (entity F) (index F) G a.
+Definition gempty F := value_empty (entity F) (index F).
 
 Section Evaluation.
-Context {S P : gty -> Type} {F : frame}.
+Context {S P : gty -> Type} {E I : Type}.
 Variable B : BooleanTruth.
-Variable lex : forall a, S a -> gdomain F a.
-Variable free : forall a, P a -> gdomain F a.
-Fixpoint geval {G a} (u : gtm S P G a) (rho : genv F G) : gdomain F a :=
-  match u in gtm _ _ G' a' return genv F G' -> gdomain F a' with
+Variable lex : forall a, S a -> value_domain E I a.
+Variable free : forall a, P a -> value_domain E I a.
+Fixpoint geval {G a} (u : gtm S P G a) (rho : value_env E I G) : value_domain E I a :=
+  match u in gtm _ _ G' a' return value_env E I G' -> value_domain E I a' with
   | GVar v => fun r => r _ v
   | GFree n => fun _ => @free _ n | GCon n => fun _ => @lex _ n
-  | GLam p => fun r x => geval p (gextend r x)
+  | GLam p => fun r x => geval p (value_extend r x)
   | GApp p q => fun r => geval p r (geval q r)
   | GEq p q => fun r => truth B (geval p r = geval q r)
   | GNeg p => fun r => negb (geval p r)
@@ -114,8 +119,8 @@ Fixpoint geval {G a} (u : gtm S P G a) (rho : genv F G) : gdomain F a :=
   | GOr p q => fun r => orb (geval p r) (geval q r)
   | GImp p q => fun r => orb (negb (geval p r)) (geval q r)
   | GIff p q => fun r => Bool.eqb (geval p r) (geval q r)
-  | GAll p => fun r => truth B (forall x, geval p (gextend r x) = true)
-  | GEx p => fun r => truth B (exists x, geval p (gextend r x) = true)
+  | GAll p => fun r => truth B (forall x, geval p (value_extend r x) = true)
+  | GEx p => fun r => truth B (exists x, geval p (value_extend r x) = true)
   end rho.
 
 Theorem geval_rename (FE : FunExt) G a (p : gtm S P G a) :
@@ -128,17 +133,35 @@ Proof.
     try (rewrite IHp with (rho := rho); auto; fail).
   - apply FE; intro x; apply IHp; apply gvar_cases; cbn; auto.
   - apply truth_congr.
-    assert (K : forall x, geval (grename p (glift r)) (gextend tau x) =
-      geval p (gextend rho x)).
+    assert (K : forall x, geval (grename p (glift r)) (value_extend tau x) =
+      geval p (value_extend rho x)).
     { intro x; apply IHp; apply gvar_cases; cbn; auto. }
     split; intros Q x; [rewrite <- K | rewrite K]; apply Q.
   - apply truth_congr.
-    assert (K : forall x, geval (grename p (glift r)) (gextend tau x) =
-      geval p (gextend rho x)).
+    assert (K : forall x, geval (grename p (glift r)) (value_extend tau x) =
+      geval p (value_extend rho x)).
     { intro x; apply IHp; apply gvar_cases; cbn; auto. }
     split; intros [x Q]; exists x; [rewrite <- K | rewrite K]; exact Q.
 Qed.
 Corollary geval_weaken (FE : FunExt) G a b (p : gtm S P G b) rho x :
-  geval (@gweaken S P G a b p) (gextend rho x) = geval p rho.
+  geval (@gweaken S P G a b p) (value_extend rho x) = geval p rho.
 Proof. apply geval_rename; [exact FE | intros; reflexivity]. Qed.
 End Evaluation.
+
+(* Interpretation is insensitive to pointwise-equal symbol assignments.
+   This applies to every target term, not only translated source terms. *)
+Theorem geval_extensional {S P E I} (B : BooleanTruth) (FE : FunExt)
+  (lex1 lex2 : forall a, S a -> value_domain E I a)
+  (free1 free2 : forall a, P a -> value_domain E I a)
+  (HL : forall a c, lex1 a c = lex2 a c)
+  (HF : forall a v, free1 a v = free2 a v) G a (p : gtm S P G a) :
+  forall rho, geval B lex1 free1 p rho = geval B lex2 free2 p rho.
+Proof.
+  induction p; intro rho; cbn; try reflexivity; try apply HL; try apply HF;
+    try (rewrite IHp1, IHp2; reflexivity); try (rewrite IHp; reflexivity).
+  - apply FE; intro x; apply IHp.
+  - apply truth_congr; split; intros H x;
+      [rewrite <- IHp | rewrite IHp]; apply H.
+  - apply truth_congr; split; intros [x H]; exists x;
+      [rewrite <- IHp | rewrite IHp]; exact H.
+Qed.

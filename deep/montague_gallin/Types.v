@@ -11,11 +11,13 @@ Fixpoint translate_type (a : ty) : gty :=
   | arr a b => garr (translate_type a) (translate_type b)
   | intens a => garr gs (translate_type a)
   end.
-Fixpoint gdomain (F : frame) (a : gty) : Type :=
+(* Independent standard Ty2 domains: no source frame or model is needed. *)
+Fixpoint value_domain (E I : Type) (a : gty) : Type :=
   match a with
-  | ge => entity F | gt => bool | gs => index F
-  | garr a b => gdomain F a -> gdomain F b
+  | ge => E | gt => bool | gs => I
+  | garr a b => value_domain E I a -> value_domain E I b
   end.
+Definition gdomain (F : frame) := value_domain (entity F) (index F).
 
 Definition arrow_eq {A A' B B' : Type} (p : A = A') (q : B = B') :
   (A -> B) = (A' -> B').

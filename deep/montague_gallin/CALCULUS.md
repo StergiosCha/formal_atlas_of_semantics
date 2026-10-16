@@ -1,8 +1,9 @@
 # Checkpoint 5: a Ty2 proof calculus and its soundness
 
 This records checkpoint 5. Checkpoint 6 adds the source IL calculus and
-a restricted proof-to-proof compiler in `IL_CALCULUS.md`; it does not add
-completeness or the full proof interpretation of Theorem 8.3.
+a restricted proof-to-proof compiler in `IL_CALCULUS.md`. Checkpoint 7
+completes the general forward proof compiler in `FULL_PROOF_TRANSLATION.md`.
+Neither adds completeness or the full IL+D/Ty2+D result of Theorem 8.3.
 
 ## Result
 

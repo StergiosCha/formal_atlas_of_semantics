@@ -23,7 +23,8 @@ import verify
 UNITS = ("Types", "Target", "Translation", "Examples", "Independent", "Correspondence", "ModelExamples",
          "Minimal", "MinimalCorrespondence", "Untensed", "UntensedTranslation", "UntensedModels", "UntensedExamples",
          "Substitution", "Calculus", "CalculusConnections", "CalculusExamples",
-         "ILCore", "ILCalculus", "ILCalculusExamples", "ILProofTranslation")
+         "ILCore", "ILCalculus", "ILCalculusExamples", "ILProofTranslation",
+         "SyntaxAlgebra", "ILCompileSyntax", "ILFullProofTranslation", "ProofDischarge", "FullCompilerExamples")
 DEPENDENCIES = ("Syntax", "Models", "Grammar", "Translation", "Meaning", "Postulates", "Examples",
                 "Named", "PostulateFormulas")
 PRELUDE = """From Coq Require Import List Bool.
@@ -31,7 +32,8 @@ From MontaguePTQ Require Import Syntax Models Grammar Translation Meaning Postul
 From MontagueGallin Require Import Types Target Translation Examples Independent Correspondence ModelExamples
   Minimal MinimalCorrespondence Untensed UntensedTranslation UntensedModels UntensedExamples
   Substitution Calculus CalculusConnections CalculusExamples
-  ILCore ILCalculus ILCalculusExamples ILProofTranslation.
+  ILCore ILCalculus ILCalculusExamples ILProofTranslation
+  SyntaxAlgebra ILCompileSyntax ILFullProofTranslation ProofDischarge FullCompilerExamples.
 Import ListNotations.
 """
 SIGNATURES = """
@@ -169,6 +171,30 @@ Definition restricted_proof_inputs_really_are_source_proofs : forall G (p : ltm 
   ILPointwiseProof p -> ILDerivation p := @pointwise_proof_is_source_derivation.
 Definition restricted_proof_compiler_outputs_trees_without_semantic_inputs : forall G (p : ltm G t),
   ILPointwiseProof p -> Derivation (il_at p) := @compile_pointwise_proof.
+Definition general_compiler_agrees_syntactically_with_established_translation :
+  forall G a (p : ltm G a) D (r : variable_map G D) (i : gvar D gs),
+  lcompile p (variable_values r) (CVar i) =
+  eliminate (compile (embed_il (include_il p)) r (GVar i)) := @lcompile_agrees_with_existing.
+Definition all_source_axioms_produce_target_proofs : forall G (p : ltm G t), ILAxiom p ->
+  forall D (r : variable_map G D) i, Derivation (lcompile p (variable_values r) i) :=
+  @compile_all_axioms.
+Definition every_source_derivation_produces_target_proof : forall G (p : ltm G t),
+  ILDerivation p -> Derivation (il_at p) := @compile_il_proof.
+Definition arbitrary_variable_mappings_and_index_terms : forall G (p : ltm G t),
+  ILDerivation p -> forall D (r : variable_map G D)
+  (i : ctm source_symbol source_parameter D gs), Derivation (lcompile p (variable_values r) i) :=
+  @compile_il_general.
+Definition discharged_proofs_translate_without_semantic_inputs : forall G (Gamma : ltm G t -> Prop) p,
+  ILFrom Gamma p -> Ty2From (compiled_premises Gamma) (il_at p) := @compile_il_from.
+Definition discharge_preserves_implication_structure : forall G (ps : list (ltm G t)) p,
+  il_at (il_implication_chain ps p) = ty2_implication_chain (map (@il_at G t) ps) (il_at p) :=
+  @compile_implication_chain.
+Definition full_translation_does_not_make_forbidden_beta_derivable :
+  forall (B : BooleanTruth) (FE : FunExt), Derivation (il_at forbidden_modal_beta) -> False :=
+  @forbidden_modal_beta_has_no_target_derivation.
+Definition nested_lambda_and_intension_example : Derivation (il_at nested_scope_formula) :=
+  nested_scope_target_proof.
+Definition capture_avoiding_exchange_example : Derivation (il_at exchange_formula) := exchange_target_proof.
 """
 NEGATIVE = {
     "source_index_is_not_an_entity": (
@@ -319,6 +345,31 @@ NEGATIVE = {
     "source_semantic_translation_is_not_a_target_derivation": (
         "Definition bad (p : ltm [] t) (H : ILDerivation p) : Derivation (il_at p) := "
         "il_derivation_implies_translated_validity H.", "expected to have type"),
+    "full_compiler_does_not_accept_semantic_truth_as_a_source_proof": (
+        "Definition bad (p : ltm [] t) (H : il_standard_consequence (fun _ => False) (include_il p)) : "
+        "Derivation (il_at p) := compile_il_proof H.", "expected to have type"),
+    "full_compiler_cannot_omit_source_proof": (
+        "Definition bad : forall G (p : ltm G t), Derivation (il_at p) := @compile_il_proof.",
+        "expected to have type"),
+    "full_compiler_is_not_a_reverse_proof_translation": (
+        "Definition bad : forall G (p : ltm G t), Derivation (il_at p) -> ILDerivation p := "
+        "@compile_il_proof.", "expected to have type"),
+    "full_compiler_cannot_prove_an_unrestricted_modal_beta_instance": (
+        "Definition bad : Derivation (il_at forbidden_modal_beta) := "
+        "compile_il_proof (ILByAxiom (IL_AS47 (LVar vz) (MCUp (@LCon [] t 0)))).",
+        "expected to have type"),
+    "discharge_compiler_does_not_discard_the_hypotheses": (
+        "Definition bad : forall G (Gamma : ltm G t -> Prop) p, ILFrom Gamma p -> Derivation (il_at p) := "
+        "@compile_il_from.", "expected to have type"),
+    "discharge_does_not_broaden_local_hypotheses_to_global_theorems": (
+        "Definition bad (S P : gty -> Type) G (Gamma : ctm S P G gt -> Prop) p : "
+        "Ty2From Gamma p -> Derivation p := fun H => H.", "expected to have type"),
+    "syntactic_modal_closure_is_still_required": (
+        "Definition bad : forall G a (p : ltm G a) D (r : lvalues G D) i j, "
+        "lcompile p r i = lcompile p r j := @lcompile_modal_closed.", "expected to have type"),
+    "full_index_body_is_not_a_closed_proposition": (
+        "Definition bad : ctm source_symbol source_parameter [] gt := il_at nested_scope_formula.",
+        "expected to have type"),
 }
 
 
@@ -404,8 +455,8 @@ def check():
                 raise RuntimeError(f"Negative fixture failed for the wrong reason: {name}\n{result.stdout}")
             print(f"Rejected invalid fixture: {name}", flush=True)
     return {
-        "schema_version": 1, "checkpoint": 6, "coq_version": "8.20.1",
-        "scope": "Source IL alternative axiom/rule calculus, standard soundness, discharged hypotheses, and a restricted proof-to-proof compiler into Ty2",
+        "schema_version": 1, "checkpoint": 7, "coq_version": "8.20.1",
+        "scope": "Every implemented IL derivation compiles to an unchanged Ty2 derivation; all source axioms, R1-R8 and finite implication discharge",
         "files": files, "ptq_dependencies": dependencies,
         "proved_statement_count": len(names), "kernel_rechecked": True,
         "global_dependencies_by_statement": {name: [] for name in names},
@@ -448,7 +499,7 @@ def check():
             "ty2_explicit_derivation_trees": True,
             "ty2_standard_model_soundness": True,
             "ty2_derived_translation_implies_il_validity": True,
-            "ty2_completeness_or_general_il_proof_translation": False,
+            "ty2_completeness": False,
             "source_il_primitive_syntax": True,
             "source_il_modally_closed_terms_and_rigidity": True,
             "source_il_alternative_AS41_AS47_R1_R8_calculus": True,
@@ -456,7 +507,11 @@ def check():
             "source_il_finite_implication_discharge_soundness": True,
             "source_il_side_condition_countermodels": True,
             "source_il_restricted_pointwise_proof_translation": True,
-            "source_il_general_proof_translation": False,
+            "source_il_general_proof_translation": True,
+            "source_il_all_axioms_and_R1_R8_compiled": True,
+            "source_il_discharged_proofs_compiled": True,
+            "proof_compiler_has_semantic_or_completeness_inputs": False,
+            "proof_compiler_syntactically_matches_existing_translation": True,
         },
         "model_class_boundary": {
             "covered": "all independent coherent valuations on all declared inhabited PTQ world-time frames",
@@ -493,10 +548,11 @@ def check():
             "axiom_five": "variables only; validity is separately proved for modally closed intensions",
             "hypotheses": "finite nested implication theorem as in p. 20, not unrestricted local replacement",
             "soundness": "all implemented ILDerivation trees, models, assignments, environments and indices",
-            "restricted_proof_compiler": "ILPointwiseProof to actual Ty2 Derivation, with no semantic inputs",
-            "compiled_fragment": "derived reflexivity, AS4.2, R1-R3 and R6-R8; arbitrary primitive IL terms",
-            "not_yet_compiled": "R4-R5 and remaining axiom families",
-            "not_claimed": ["general IL proof translation", "description principles D", "Theorem 8.3",
+            "proof_compiler": "every ILDerivation to actual Ty2 Derivation, with no semantic or completeness inputs",
+            "compiled_fragment": "all ILAxiom constructors and all R1-R8; arbitrary contexts and primitive IL terms",
+            "hypothesis_compiler": "ILFrom Gamma p to Ty2From of translated premises and conclusion",
+            "not_yet_compiled": "none within the implemented ILDerivation and ILFrom datatypes",
+            "not_claimed": ["reverse proof translation", "description principles D", "Theorem 8.3",
                             "Henkin completeness", "equivalence to a separately encoded named calculus"],
         },
         "negative_fixtures_rejected": sorted(NEGATIVE),

@@ -4,6 +4,8 @@ Date: 2026-10-16. This directory extends the source-first PTQ development.
 It does not replace or regrade an atlas record, amend a frozen PTQ source,
 or identify Gallin's model classes with those of MTT or TTR.
 
+Current checkpoint: 2. Checkpoint 1 remains in commit `fb4d9db`.
+
 ## Source consulted
 
 Daniel Gallin (1975), *Intensional and Higher-Order Modal Logic: With
@@ -35,6 +37,7 @@ for this checkpoint.
 | Section 8, p. 61, (i)-(vii): IL-to-Ty2 translation | `Translation.compile` | Variables retain their values. A constant of source type a becomes a target constant of type s -> a applied to the current index. Application, abstraction and equality are structural; Up/Down become abstraction/application. |
 | Section 8, p. 62, Lemma 8.2.1 | `interpretation_preservation`; `open_preservation` | The checked analogue is preservation for every actual PTQ term and every source environment, in the constructed target interpretation. This also includes the declared tense extension. |
 | Section 8, p. 62, Theorem 8.2 | `Examples.consequence_on_model_image` | A restricted consequence correspondence over source models and their constructed targets. It is not the book's theorem over all independent standard Ty2 models. |
+| Section 8, pp. 59-62: standard models and preservation across model classes | `Independent.standard_model`; `embed_model`; `reconstruct_model`; `Correspondence.admissible_consequence_correspondence` | The independent standard record has arbitrary inhabited entity/index types. The full PTQ comparison covers independently chosen valuations on declared world-time frames, with explicit temporal coherence and translated postulates. This is the tensed, restricted analogue, not all of Gallin's Theorem 8.2. |
 | Section 2, p. 10, footnote 1: tensed English needs an extension | `index_future`, `index_past`; `Will`, `Has` compilation | The target s-domain is the existing PTQ world-time product. Named binary relations require the same world and earlier/later time. No additional logical tense constructor is introduced. |
 | Section 3, pp. 17-20; section 8, pp. 59-63 | Boundary only | General/Henkin models, the axiomatic calculi, description principles D, and relative interpretations of those calculi are not implemented here. |
 
@@ -56,9 +59,14 @@ for this checkpoint.
    connectives and quantifiers as explicit constructors with their standard
    semantics. Syntactic elimination of these constructors into lambda,
    application and equality has not been checked at this checkpoint.
-5. The target interpretation uses the PTQ frame as its entity/index carrier.
-   Therefore inhabitation and the linear-time structure remain available.
-   This implementation has no independent general-model record yet.
+5. The generic target evaluator now accepts arbitrary entity and index
+   carriers, without a PTQ frame. `standard_model` is independent of any
+   source model. The correspondence class `coherent_model F` uses a
+   declared inhabited world-time frame F and independently chosen target
+   constant valuations. Its two temporal laws require the designated
+   future/past relations to mean same-world strict temporal succession.
+   A Henkin/general-model record with restricted function domains is not
+   implemented.
 6. Boolean reflection and function extensionality remain explicit fields
    of the source model. No new global axiom is declared. A `Print
    Assumptions` result of closed does not remove these theorem inputs.
@@ -82,13 +90,22 @@ limits of grammar coverage continue to apply.
 ## What follows, and what does not
 
 Preservation of values, truth, and counterexamples follows for every source
-term in every constructed interpretation. Consequently, entailment agrees
-when quantified over the same source model class and its image. The model
-restriction can be `admissible`, retaining all PTQ meaning postulates.
+term. Checkpoint 1 established consequence over the source model class and
+its constructed image. Checkpoint 2 extends this to all independent
+temporally coherent valuations on declared PTQ frames, and proves
+satisfiability correspondence too. The target admissibility condition is
+the nine postulate families expressed and evaluated as translated target
+formulas, not a field assuming that reconstruction is admissible.
+
+`ModelExamples.missing_temporal_coherence_changes_prediction` gives a
+standard target model whose future relation is reflexive. A translated
+future tautology is true there but false in the paired one-moment PTQ
+frame. The missing coherence assumption therefore cannot be discarded.
 
 This does not yet prove Gallin's full Theorem 8.2, a reverse translation,
 proof-system correspondence, description principles, or Henkin completeness.
-The next mathematical step is to specify independent target models and
-prove the appropriate model correspondence, with the tense relations and
-the source-image restriction stated explicitly. Eliminating the extra
-connective constructors is a separate syntactic fidelity task.
+The next syntactic fidelity task is eliminating the extra connective
+constructors. The untensed comparison over arbitrary index carriers and
+their isomorphic presentations remains separate from the completed
+correspondence over declared world-time frames. This checkpoint does not
+prove a reverse translation of target syntax into source syntax.

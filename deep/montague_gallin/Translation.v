@@ -127,7 +127,9 @@ Proof.
     apply lift_application.
   - match goal with |- _ = ?rhs => change (truth B (E (compile p1 r i) rho = E (compile p2 r i) rho) = rhs) end.
     rewrite IHp1 with (tau := tau), IHp2 with (tau := tau); auto.
-    rewrite lift_equality; reflexivity.
+    apply truth_congr; split; intro K.
+    + apply (f_equal (lower_value F a)) in K; rewrite !lower_lift in K; exact K.
+    + exact (f_equal (lift_value F a) K).
   - match goal with |- _ = ?rhs => change (negb (E (compile p r i) rho) = rhs) end.
     rewrite IHp with (tau := tau); auto.
   - match goal with |- _ = ?rhs => change (andb (E (compile p1 r i) rho) (E (compile p2 r i) rho) = rhs) end.

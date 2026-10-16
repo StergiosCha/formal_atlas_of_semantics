@@ -1,7 +1,8 @@
 (* Explicit-index Ty2 presentation. Gallin pp. 58-60 gives lambda,
    application and equality as primitives; Boolean connectives and
    quantifiers are retained as additional constructors with their standard
-   semantics. Elimination into Gallin's minimal syntax is not proved here.
+   semantics. Minimal.v eliminates them into Gallin's minimal syntax and
+   proves interpretation preservation with an independent evaluator.
    No modal or tense constructor occurs in this target language. *)
 From Coq Require Import List Bool.
 From MontaguePTQ Require Import Models.

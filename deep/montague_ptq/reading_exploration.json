@@ -1,0 +1,427 @@
+{
+  "policy": "amended",
+  "model": "none",
+  "coq_version": "The Coq Proof Assistant, version 8.20.1",
+  "build_mode": "isolated",
+  "inputs_sha256": {
+    "explore_readings.py": "daf604ecba39cb391f08f4ab480007a06fdff7e761f116c35054e142321ec509",
+    "check_reading_exploration.py": "7524763d31bea594c37236e8f99552421a0f6737fd78d50ba1fabd1caf432e1b",
+    "Syntax.v": "939737ddbc139deb866ff7693b9f89a4aef350846c72b4f9cb0082e6f10e46cc",
+    "Models.v": "1cea47c2bb449ef510976ba18b04c852c82b154bfdee45eb53279be85c024b79",
+    "Grammar.v": "5a5f9b9e1f579fa9cff1011536fa7760da3c2fe527822528b1516432c4fbeb5f",
+    "Translation.v": "4f205512ca172e9ebf30939df09dc2719011a6265ed1181edcbcafb686acf62c",
+    "Meaning.v": "e2fc8d6302c0d63d0601b9f75f870c8562c74ddc951aa5f7156fcf3fa0c4385f",
+    "Postulates.v": "d1af635c4850894fc81d70994d2ae12890b9e1769cfd5a040a65bb3219fbd8a2",
+    "Examples.v": "0c4945f50591554db386d5b2335aa83aac5abbc960bf4038e845175657c31cb8",
+    "Named.v": "19c07e0fb45e3589bf5c7aad5390d40f0c287052abfcf05acaf7ad5a01ecf7ee",
+    "PostulateFormulas.v": "05b5b8d6ddb323de435c9aa2dfa788f35ba0fe82ce740033b326b6d194ea7588",
+    "Surface.v": "d3e7909cd63a590ce061a3e790e1bc72e92ab3746452baccccb756f366ade607",
+    "Catalogue.v": "1aa6ec6233fc62593a6802979cbdb94c7665feb29bdfd7271f1b055c8b4a6c9a",
+    "Reductions.v": "61c37b09366fdc65590ce492e3155e1b7b347673ab43670293cb2b09dff9da86",
+    "Scope.v": "9c850d3ec49a4dad4dc6bff5ef95262352eb5d366a916fa2d385c4385e1fa273",
+    "FreshNames.v": "64c2edef6dfea61442e351b548afebe48de4a805de7aeef7650e7ecdbde680c5",
+    "ReadingForms.v": "0a5204b34ac51f895c6574da4224224681fbee3cda2609760cb2b02f2b5e0d86",
+    "SurfaceInvariant.v": "9d0da5c997e96b298af3f5be8933f2fa7cc6fb35f2e45b8d3beff6130a5fef94",
+    "VacuousInsertion.v": "eb846203dfcb4de3c22ef50f3b47209277994bace30c9e902bfad9270a5cf97c",
+    "SurfaceAmendment.v": "1a674a5bf7211ca16a47d0a16e82da4f8c26df5b30993526931c76f7213a80f6",
+    "SurfaceAmendmentSafety.v": "264c4c9a8d57ff960e144ba82883103bbcafbfd2f18db4c6a4c645bb6c3059fb",
+    "ReadingClassification.v": "3ea6920a1be3b7317b157b9d6df851bdd521271c6198478597565b6b712193c0",
+    "AdditionalReadings.v": "5de749135d45a072f0a78e31e89b3fe0cf88ebe1a80caca6bfd710ef0196df09",
+    "PronounSupport.v": "398cbe903c3a37196629e272e9a89e17648b49909e23e9f2896556eac03ae9e8",
+    "GrammarRenaming.v": "886a0441183615e3bcd40c7e341cca8e08826040a16175df4c88f0a8d8c1f969",
+    "ReadingNormalization.v": "39e223cdf740e5395c811d97a2c7d8ed4c14dbec7627cd1182be6458dde2241a",
+    "RenamingNormalization.v": "82c28b6bce133d0f2f4d8742aa3502dbac87e6f1d40711de279265c961036953",
+    "SurfaceInverse.v": "7c39ed79db62e45332d30441ea58f83b1dc88b6b550a810aaf416159bc420788",
+    "SearchRank.v": "add4e7f4c3c2371d742a51e5e980221a95b62050265a3e5e4f12ff927b31484c"
+  },
+  "search_completeness_proved": false,
+  "groups_proved_pairwise_inequivalent": false,
+  "every_discovered_surface_kernel_checked": true,
+  "every_group_member_denotation_kernel_checked": true,
+  "every_group_mapped_to_registered_reading_in_all_admissible_models": true,
+  "witnesses": 2073,
+  "beta_eta_groups": 30,
+  "registered_classes_reached": 27,
+  "sentences": [
+    {
+      "sentence": 1,
+      "words": "Bill walks",
+      "witnesses": 2,
+      "beta_eta_groups": 1,
+      "registered_classes_reached": 1,
+      "groups": [
+        {
+          "group": 0,
+          "witnesses": 2,
+          "representative": "(s14 (s1_name bill) 0 (s4 (s1_pronoun 0) (s1_word (liv walk))))",
+          "canonical": "bill_walks"
+        }
+      ],
+      "generated_coq_sha256": "dd693614947955a740d1cd01996b1d6b0791a2f0558b44c50917ddbf5d0d7309"
+    },
+    {
+      "sentence": 2,
+      "words": "a man walks",
+      "witnesses": 2,
+      "beta_eta_groups": 1,
+      "registered_classes_reached": 1,
+      "groups": [
+        {
+          "group": 0,
+          "witnesses": 2,
+          "representative": "(s14 (s2 a_or_an (s1_word (lcn man))) 0 (s4 (s1_pronoun 0) (s1_word (liv walk))))",
+          "canonical": "a_man_walks"
+        }
+      ],
+      "generated_coq_sha256": "7cd4a1f6cc1a4a2cff62a7dd1524d93351a1fb6aa7acba3a2613ab0a320265c7"
+    },
+    {
+      "sentence": 3,
+      "words": "every man walks",
+      "witnesses": 2,
+      "beta_eta_groups": 1,
+      "registered_classes_reached": 1,
+      "groups": [
+        {
+          "group": 0,
+          "witnesses": 2,
+          "representative": "(s14 (s2 every (s1_word (lcn man))) 0 (s4 (s1_pronoun 0) (s1_word (liv walk))))",
+          "canonical": "every_man_walks"
+        }
+      ],
+      "generated_coq_sha256": "8abf124e2ae14cccf7d25b6c94da5a84da1f5c4e4410502b29153570cd37b780"
+    },
+    {
+      "sentence": 4,
+      "words": "the man walks",
+      "witnesses": 2,
+      "beta_eta_groups": 1,
+      "registered_classes_reached": 1,
+      "groups": [
+        {
+          "group": 0,
+          "witnesses": 2,
+          "representative": "(s14 (s2 the (s1_word (lcn man))) 0 (s4 (s1_pronoun 0) (s1_word (liv walk))))",
+          "canonical": "the_man_walks"
+        }
+      ],
+      "generated_coq_sha256": "ea0dd724dfd9e6a39d6d6ca125c586f6807f86aa12436919c841424004e91c0d"
+    },
+    {
+      "sentence": 5,
+      "words": "John finds a unicorn",
+      "witnesses": 7,
+      "beta_eta_groups": 2,
+      "registered_classes_reached": 1,
+      "groups": [
+        {
+          "group": 0,
+          "witnesses": 5,
+          "representative": "(s14 (s1_name john) 0 (s14 (s2 a_or_an (s1_word (lcn unicorn))) 1 (s4 (s1_pronoun 0) (s5 (s1_word (ltv find)) (s1_pronoun 1)))))",
+          "canonical": "finds_unicorn"
+        },
+        {
+          "group": 1,
+          "witnesses": 2,
+          "representative": "(s14 (s1_name john) 0 (s4 (s1_pronoun 0) (s5 (s1_word (ltv find)) (s2 a_or_an (s1_word (lcn unicorn))))))",
+          "canonical": "finds_unicorn"
+        }
+      ],
+      "generated_coq_sha256": "1325f90a960dfe39448daaa15e573a90aaec483c71ac44bdebf2eebf024aca3f"
+    },
+    {
+      "sentence": 6,
+      "words": "John seeks a unicorn",
+      "witnesses": 7,
+      "beta_eta_groups": 2,
+      "registered_classes_reached": 2,
+      "groups": [
+        {
+          "group": 0,
+          "witnesses": 5,
+          "representative": "(s14 (s1_name john) 0 (s14 (s2 a_or_an (s1_word (lcn unicorn))) 1 (s4 (s1_pronoun 0) (s5 (s1_word (ltv seek)) (s1_pronoun 1)))))",
+          "canonical": "seeks_unicorn_re"
+        },
+        {
+          "group": 1,
+          "witnesses": 2,
+          "representative": "(s14 (s1_name john) 0 (s4 (s1_pronoun 0) (s5 (s1_word (ltv seek)) (s2 a_or_an (s1_word (lcn unicorn))))))",
+          "canonical": "seeks_unicorn_dicto"
+        }
+      ],
+      "generated_coq_sha256": "a6176b427bf821fb4a0df9f9a1f3e14bc08f5b7ac198107b43db865d1aa65f87"
+    },
+    {
+      "sentence": 7,
+      "words": "John tries to find a unicorn",
+      "witnesses": 9,
+      "beta_eta_groups": 3,
+      "registered_classes_reached": 2,
+      "groups": [
+        {
+          "group": 0,
+          "witnesses": 5,
+          "representative": "(s14 (s1_name john) 0 (s14 (s2 a_or_an (s1_word (lcn unicorn))) 1 (s4 (s1_pronoun 0) (s8 (s1_word (lcontrol try_to)) (s5 (s1_word (ltv find)) (s1_pronoun 1))))))",
+          "canonical": "tries_unicorn_re"
+        },
+        {
+          "group": 1,
+          "witnesses": 2,
+          "representative": "(s14 (s1_name john) 0 (s4 (s1_pronoun 0) (s8 (s1_word (lcontrol try_to)) (s16 (s2 a_or_an (s1_word (lcn unicorn))) 0 (s5 (s1_word (ltv find)) (s1_pronoun 0))))))",
+          "canonical": "tries_unicorn_dicto"
+        },
+        {
+          "group": 2,
+          "witnesses": 2,
+          "representative": "(s14 (s1_name john) 0 (s4 (s1_pronoun 0) (s8 (s1_word (lcontrol try_to)) (s5 (s1_word (ltv find)) (s2 a_or_an (s1_word (lcn unicorn)))))))",
+          "canonical": "tries_unicorn_dicto"
+        }
+      ],
+      "generated_coq_sha256": "f9fa6902ec8f8231ebb7cdab954b011426ac992843e54a928b33f6f92f9686b6"
+    },
+    {
+      "sentence": 8,
+      "words": "John talks about a unicorn",
+      "witnesses": 7,
+      "beta_eta_groups": 2,
+      "registered_classes_reached": 2,
+      "groups": [
+        {
+          "group": 0,
+          "witnesses": 5,
+          "representative": "(s14 (s1_name john) 0 (s14 (s2 a_or_an (s1_word (lcn unicorn))) 1 (s4 (s1_pronoun 0) (s10 (s6 (s1_word (lprep about)) (s1_pronoun 1)) (s1_word (liv talk))))))",
+          "canonical": "talks_unicorn_re"
+        },
+        {
+          "group": 1,
+          "witnesses": 2,
+          "representative": "(s14 (s1_name john) 0 (s4 (s1_pronoun 0) (s10 (s6 (s1_word (lprep about)) (s2 a_or_an (s1_word (lcn unicorn)))) (s1_word (liv talk)))))",
+          "canonical": "talks_unicorn_dicto"
+        }
+      ],
+      "generated_coq_sha256": "bb6813e2f7d324682289687312f40c32a002f5bb403066338ca7c1e8922d312a"
+    },
+    {
+      "sentence": 9,
+      "words": "Bill is Mary",
+      "witnesses": 7,
+      "beta_eta_groups": 1,
+      "registered_classes_reached": 1,
+      "groups": [
+        {
+          "group": 0,
+          "witnesses": 7,
+          "representative": "(s14 (s1_name bill) 0 (s14 (s1_name mary) 1 (s4 (s1_pronoun 0) (s5 s1_be (s1_pronoun 1)))))",
+          "canonical": "bill_is_mary"
+        }
+      ],
+      "generated_coq_sha256": "311e5cfb30964553e8297d99743557e65b239a90aa0cae676b791a9cd4196224"
+    },
+    {
+      "sentence": 10,
+      "words": "Bill is a man",
+      "witnesses": 7,
+      "beta_eta_groups": 1,
+      "registered_classes_reached": 1,
+      "groups": [
+        {
+          "group": 0,
+          "witnesses": 7,
+          "representative": "(s14 (s1_name bill) 0 (s14 (s2 a_or_an (s1_word (lcn man))) 1 (s4 (s1_pronoun 0) (s5 s1_be (s1_pronoun 1)))))",
+          "canonical": "bill_is_man"
+        }
+      ],
+      "generated_coq_sha256": "e6594c7c36d69c2013639dc66187667e5b47d438b818c035af92e6e1b03c9054"
+    },
+    {
+      "sentence": 11,
+      "words": "the temperature is ninety",
+      "witnesses": 7,
+      "beta_eta_groups": 1,
+      "registered_classes_reached": 1,
+      "groups": [
+        {
+          "group": 0,
+          "witnesses": 7,
+          "representative": "(s14 (s1_name ninety) 0 (s14 (s2 the (s1_word (lcn temperature))) 1 (s4 (s1_pronoun 1) (s5 s1_be (s1_pronoun 0)))))",
+          "canonical": "temperature_is_ninety"
+        }
+      ],
+      "generated_coq_sha256": "91bb4da95bcfd816b22a076e09a65733eebd675d9a7f713c087d5e44ea83eb10"
+    },
+    {
+      "sentence": 12,
+      "words": "the temperature rises",
+      "witnesses": 2,
+      "beta_eta_groups": 1,
+      "registered_classes_reached": 1,
+      "groups": [
+        {
+          "group": 0,
+          "witnesses": 2,
+          "representative": "(s14 (s2 the (s1_word (lcn temperature))) 0 (s4 (s1_pronoun 0) (s1_word (liv rise))))",
+          "canonical": "temperature_rises"
+        }
+      ],
+      "generated_coq_sha256": "5692a5bd3c8e1dad0eff278865ee27a3510adc4b04e5f3d3fd5a641131418e6a"
+    },
+    {
+      "sentence": 13,
+      "words": "ninety rises",
+      "witnesses": 2,
+      "beta_eta_groups": 1,
+      "registered_classes_reached": 1,
+      "groups": [
+        {
+          "group": 0,
+          "witnesses": 2,
+          "representative": "(s14 (s1_name ninety) 0 (s4 (s1_pronoun 0) (s1_word (liv rise))))",
+          "canonical": "ninety_rises"
+        }
+      ],
+      "generated_coq_sha256": "42c71dbc44cab5232e6afdf3fff99f94645ef2c783ffc3e5ca87e13a0e487e1b"
+    },
+    {
+      "sentence": 14,
+      "words": "a price rises",
+      "witnesses": 2,
+      "beta_eta_groups": 1,
+      "registered_classes_reached": 1,
+      "groups": [
+        {
+          "group": 0,
+          "witnesses": 2,
+          "representative": "(s14 (s2 a_or_an (s1_word (lcn price))) 0 (s4 (s1_pronoun 0) (s1_word (liv rise))))",
+          "canonical": "a_price_rises"
+        }
+      ],
+      "generated_coq_sha256": "08e98fca365c9f01f054f082c2b1fc7f19a452b0aabf313611dc37ae65baed99"
+    },
+    {
+      "sentence": 15,
+      "words": "a woman loves every man",
+      "witnesses": 7,
+      "beta_eta_groups": 3,
+      "registered_classes_reached": 2,
+      "groups": [
+        {
+          "group": 0,
+          "witnesses": 3,
+          "representative": "(s14 (s2 a_or_an (s1_word (lcn woman))) 0 (s14 (s2 every (s1_word (lcn man))) 1 (s4 (s1_pronoun 0) (s5 (s1_word (ltv love)) (s1_pronoun 1)))))",
+          "canonical": "woman_loves_every_man"
+        },
+        {
+          "group": 1,
+          "witnesses": 2,
+          "representative": "(s14 (s2 a_or_an (s1_word (lcn woman))) 0 (s4 (s1_pronoun 0) (s5 (s1_word (ltv love)) (s2 every (s1_word (lcn man))))))",
+          "canonical": "woman_loves_every_man"
+        },
+        {
+          "group": 2,
+          "witnesses": 2,
+          "representative": "(s14 (s2 every (s1_word (lcn man))) 0 (s14 (s2 a_or_an (s1_word (lcn woman))) 1 (s4 (s1_pronoun 1) (s5 (s1_word (ltv love)) (s1_pronoun 0)))))",
+          "canonical": "every_man_loved_by_a_woman"
+        }
+      ],
+      "generated_coq_sha256": "bba76d8a1a5dd85e718918ebd76d1389390b136322f41d710cf034216b3cf2ab"
+    },
+    {
+      "sentence": 16,
+      "words": "John wishes to find a unicorn and eat it",
+      "witnesses": 39,
+      "beta_eta_groups": 2,
+      "registered_classes_reached": 2,
+      "groups": [
+        {
+          "group": 0,
+          "witnesses": 33,
+          "representative": "(s14 (s1_name john) 0 (s14 (s2 a_or_an (s1_word (lcn unicorn))) 1 (s14 (s1_pronoun 1) 2 (s4 (s1_pronoun 0) (s8 (s1_word (lcontrol wish_to)) (s12 conjunction (s5 (s1_word (ltv find)) (s1_pronoun 1)) (s5 (s1_word (ltv eat)) (s1_pronoun 2))))))))",
+          "canonical": "wish_unicorn_re"
+        },
+        {
+          "group": 1,
+          "witnesses": 6,
+          "representative": "(s14 (s1_name john) 0 (s4 (s1_pronoun 0) (s8 (s1_word (lcontrol wish_to)) (s16 (s2 a_or_an (s1_word (lcn unicorn))) 0 (s12 conjunction (s5 (s1_word (ltv find)) (s1_pronoun 0)) (s5 (s1_word (ltv eat)) (s1_pronoun 0)))))))",
+          "canonical": "wish_unicorn_dicto"
+        }
+      ],
+      "generated_coq_sha256": "acf7aa0a5741acbef2f63c539cdf2bae15014ef6b3f98d0b8ad1a4a1cf926a83"
+    },
+    {
+      "sentence": 17,
+      "words": "Mary believes that John finds a unicorn and he eats it",
+      "witnesses": 1842,
+      "beta_eta_groups": 3,
+      "registered_classes_reached": 3,
+      "groups": [
+        {
+          "group": 0,
+          "witnesses": 250,
+          "representative": "(s14 (s1_name john) 0 (s14 (s1_name mary) 1 (s14 (s1_pronoun 0) 2 (s14 (s2 a_or_an (s1_word (lcn unicorn))) 3 (s11 conjunction (s4 (s1_pronoun 1) (s7 (s1_word (latt believe_that)) (s4 (s1_pronoun 0) (s5 (s1_word (ltv find)) (s1_pronoun 3))))) (s4 (s1_pronoun 2) (s5 (s1_word (ltv eat)) (s1_pronoun 3))))))))",
+          "canonical": "belief_external_conjunction"
+        },
+        {
+          "group": 1,
+          "witnesses": 1367,
+          "representative": "(s14 (s1_name john) 0 (s14 (s1_name mary) 1 (s14 (s1_pronoun 0) 2 (s14 (s2 a_or_an (s1_word (lcn unicorn))) 3 (s14 (s1_pronoun 3) 4 (s4 (s1_pronoun 1) (s7 (s1_word (latt believe_that)) (s11 conjunction (s4 (s1_pronoun 0) (s5 (s1_word (ltv find)) (s1_pronoun 3))) (s4 (s1_pronoun 2) (s5 (s1_word (ltv eat)) (s1_pronoun 4)))))))))))",
+          "canonical": "belief_unicorn_re"
+        },
+        {
+          "group": 2,
+          "witnesses": 225,
+          "representative": "(s14 (s1_name john) 0 (s14 (s1_name mary) 1 (s14 (s1_pronoun 0) 2 (s4 (s1_pronoun 1) (s7 (s1_word (latt believe_that)) (s14 (s2 a_or_an (s1_word (lcn unicorn))) 3 (s11 conjunction (s4 (s1_pronoun 0) (s5 (s1_word (ltv find)) (s1_pronoun 3))) (s4 (s1_pronoun 2) (s5 (s1_word (ltv eat)) (s1_pronoun 3))))))))))",
+          "canonical": "belief_unicorn_dicto"
+        }
+      ],
+      "generated_coq_sha256": "976152698a73f31f5d830143aca8ab77eedff0d8b8dd842f8777a34ae07bf08f"
+    },
+    {
+      "sentence": 18,
+      "words": "John seeks a unicorn and Mary seeks it",
+      "witnesses": 74,
+      "beta_eta_groups": 1,
+      "registered_classes_reached": 1,
+      "groups": [
+        {
+          "group": 0,
+          "witnesses": 74,
+          "representative": "(s14 (s1_name john) 0 (s14 (s1_name mary) 1 (s14 (s2 a_or_an (s1_word (lcn unicorn))) 2 (s11 conjunction (s4 (s1_pronoun 0) (s5 (s1_word (ltv seek)) (s1_pronoun 2))) (s4 (s1_pronoun 1) (s5 (s1_word (ltv seek)) (s1_pronoun 2)))))))",
+          "canonical": "joint_seeking"
+        }
+      ],
+      "generated_coq_sha256": "64f09d6ac0fe9e0adb7a7a74f8eaa19bf320bfebeac159b3c1b6cd2ab49d7398"
+    },
+    {
+      "sentence": 19,
+      "words": "John tries to find a unicorn and wishes to eat it",
+      "witnesses": 23,
+      "beta_eta_groups": 1,
+      "registered_classes_reached": 1,
+      "groups": [
+        {
+          "group": 0,
+          "witnesses": 23,
+          "representative": "(s14 (s1_name john) 0 (s14 (s2 a_or_an (s1_word (lcn unicorn))) 1 (s14 (s1_pronoun 1) 2 (s4 (s1_pronoun 0) (s12 conjunction (s8 (s1_word (lcontrol try_to)) (s5 (s1_word (ltv find)) (s1_pronoun 1))) (s8 (s1_word (lcontrol wish_to)) (s5 (s1_word (ltv eat)) (s1_pronoun 2))))))))",
+          "canonical": "(joint_control try_to wish_to)"
+        }
+      ],
+      "generated_coq_sha256": "2effdea33fcf9c95f59d49d22d3c4559c1b5c53d316d41082f121a88b0a505c8"
+    },
+    {
+      "sentence": 20,
+      "words": "John wishes to find a unicorn and tries to eat it",
+      "witnesses": 23,
+      "beta_eta_groups": 1,
+      "registered_classes_reached": 1,
+      "groups": [
+        {
+          "group": 0,
+          "witnesses": 23,
+          "representative": "(s14 (s1_name john) 0 (s14 (s2 a_or_an (s1_word (lcn unicorn))) 1 (s14 (s1_pronoun 1) 2 (s4 (s1_pronoun 0) (s12 conjunction (s8 (s1_word (lcontrol wish_to)) (s5 (s1_word (ltv find)) (s1_pronoun 1))) (s8 (s1_word (lcontrol try_to)) (s5 (s1_word (ltv eat)) (s1_pronoun 2))))))))",
+          "canonical": "(joint_control wish_to try_to)"
+        }
+      ],
+      "generated_coq_sha256": "7bcb8e0266e91cc9b4c7da8930af377bca0387223b1000bc950ec287feded30e"
+    }
+  ]
+}

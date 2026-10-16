@@ -1,0 +1,6 @@
+-Q ../montague_ptq MontaguePTQ
+-Q . MontagueGallin
+Types.v
+Target.v
+Translation.v
+Examples.v

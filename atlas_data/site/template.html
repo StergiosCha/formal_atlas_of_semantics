@@ -192,6 +192,7 @@ footer .r{margin-left:auto}
     <a href="#/explore" data-r="explore">Explore</a>
     <a href="#/comparison" data-r="compare">Compare</a>
     <a href="#/experiment" data-r="experiment">Experiment</a>
+    <a href="#/research" data-r="research">Montague research</a>
     <a href="#/reading" data-r="about">About &amp; methods</a>
   </nav>
 </div></header>
@@ -425,6 +426,7 @@ function vHome(){
       <a class="textlink" href="#/reading">Reading the atlas responsibly</a>.</p>
       <div class="cta"><a class="btn" href="#/explore">Explore the atlas</a>
         <a class="btn ghost" href="#/result/witnesses">Start with a concrete result →</a></div>
+      <p class="small" style="margin-top:20px"><a class="textlink" href="#/research">New: source-first Montague research →</a><br>Separate proof packages, explicit assumptions and open questions. Atlas assessments are unchanged.</p>
     </div>
     <img class="heromark" src="assets/svg/mark-a-meridian.svg" alt="Formal Atlas mark: a lambda drawn as a meridian, with the proof-locked wedge">
     </div>
@@ -799,9 +801,40 @@ function filterCards(v){
     c.style.display = !v || c.dataset.s.includes(v) ? '' : 'none';});
 }
 
+/* Research is a separate collection, not a promotion of atlas records. */
+function vResearch(){
+  const research=D.research;if(!research)return notFound();
+  const main=research.packages.find(p=>p.id==='montague_ptq');
+  return `<div class="wrap discovery research-page"><section>
+    <span class="kicker">Research checkpoint / separate from atlas assessments</span>
+    <h1>Montague, from source to proof.</h1>
+    <p class="discovery-lead">Follow an English analysis through typed intensional logic to its interpretation. Read the actual Coq proofs, their model assumptions and the questions that remain open.</p>
+    <div class="research-notice"><b>Machine-checked encodings. Independent semantic review pending.</b> This collection does not change the survey's P/F levels, outcome labels, comparison edges or theorem totals. Gallin equivalence is a proposed next step, not a result of this release.</div>
+    <div class="research-metrics" aria-label="Source-first PTQ checkpoint"><div><strong>${main.modules}</strong><span>source-first PTQ modules</span></div><div><strong>${main.statements}</strong><span>proved statements, including supporting lemmas</span></div><div><strong>${main.negative_fixtures}</strong><span>invalid fixtures rejected by its checker</span></div></div>
+    <h2>Start with three results</h2>
+    <p>Each card opens the complete source at the supporting theorem. These are results about the stated encoding, not new linguistic discoveries.</p>
+    <div class="entry-grid">${research.features.map(f=>`<a class="entry-card" href="${proofURL(f.key,f.line)}"><span class="kicker">Source-first PTQ</span><h3>${esc(f.title)}</h3><p>${esc(f.summary)}</p><code>${esc(f.name)}</code><span class="entry-action">Read the real Coq proof →</span></a>`).join('')}</div>
+    <div class="research-columns"><article><h2>What the models commit to</h2><p>Entity, world and time carriers are inhabited; time is ordered. The truth domain is Boolean, with full internal Coq function spaces. Boolean reflection and function extensionality are explicit model inputs. No global axiom dependencies does not mean no assumptions.</p><p>The temperature countermodel satisfies all nine encoded PTQ postulate families. Source review remains separate from the proof that their formulas characterize the implemented model restrictions.</p></article>
+    <article><h2>What is still open</h2><p>All ${research.readings.witnesses.toLocaleString()} discovered analysis trees are certified against ${research.readings.registered_classes_reached} registered sentence-specific reading classes. This is not exhaustive classification of every possible reading.</p><p>Two printed strings are ungenerated under the implemented literal surface rules; a separately labelled inflection amendment restores them. Full source adequacy, Gallin equivalence and Henkin completeness are not claimed.</p></article></div>
+    <h2>Three packages, three different purposes</h2>
+    <p>Begin with source-first PTQ. The workbench and legacy bridge are supporting developments with different specifications and assumption boundaries.</p>
+    <div class="research-packages">${research.packages.map(p=>`<details class="research-package" ${p.id==='montague_ptq'?'open':''}><summary><span>${esc(p.title)}</span><small>${p.modules} modules · ${p.statements} proved statements</small></summary><p>${esc(p.summary)}</p><p class="research-boundary">${esc(p.boundary)}</p>
+      <div class="research-docs">${p.documents.map(d=>`<a class="textlink" href="${esc(repoFileURL(d.path))}">${esc(d.title.replace(/_/g,' ').replace(/\.md$/,''))} ↗</a>`).join('')}</div>
+      <ul class="research-files">${p.source_keys.map(key=>{const s=research.sources[key];return `<li><a href="${proofURL(key)}"><span>${esc(s.path.split('/').pop())}</span><small>${s.research.global_dependencies?Object.keys(s.research.global_dependencies).length:0} proved statements →</small></a></li>`;}).join('')}</ul>
+      <details class="research-reproduce"><summary>Reproduce this checkpoint</summary><p>From the full repository, using Coq ${esc(p.coq_version)} and Python 3:</p><pre>${esc(p.check_command)}</pre><p>The checker compiles isolated sources, kernel-rechecks proofs, audits assumptions and rejects invalid fixtures. <a class="textlink" href="${esc(repoFileURL(p.checkpoint))}">Inspect the recorded checkpoint ↗</a></p></details>
+    </details>`).join('')}</div>
+    <div class="research-columns"><article><span class="kicker">Next research milestone</span><h2>A source-backed Gallin connection</h2><p>The selected world-only IL/Ty2 translation in the workbench already preserves interpretation. Connecting the actual PTQ implementation to Gallin requires a direct source audit, explicit world/time treatment and a specified model correspondence. A forward embedding alone is not expressive equivalence.</p></article>
+    <article><span class="kicker">Using the code</span><h2>Read now. Reproduce locally.</h2><p>All ${Object.keys(research.sources).length} research modules have searchable source, theorem links and exact-byte downloads. Live execution of these new packages is not enabled in the public worker; use their separate build commands locally. The existing atlas live Coq workspace is unchanged.</p><a class="textlink" href="#/experiment">Open the existing atlas workspace →</a></article></div>
+    <p class="tiny dim">Deployment revision: ${esc(D.revision)}. Browsing makes no model calls and does not rerun Coq. Counts describe the recorded proof inventory, not independently approved source claims.</p>
+  </section></div>`;
+}
+
 /* Real source is bundled at build time. The index is navigation, not a proof checker. */
+function proofSource(key){
+  for(const sources of [D.proof_sources,D.research?.sources])if(sources&&Object.hasOwn(sources,key))return sources[key];
+}
 function proofURL(key,line){
-  return '#/proof/'+encodeURIComponent(key)+(line?'?line='+line:'');
+  return (D.research?.sources?.[key]?'#/research-proof/':'#/proof/')+encodeURIComponent(key)+(line?'?line='+line:'');
 }
 function proofLink(key,text){
   const source=(D.proof_sources||{})[key];
@@ -816,6 +849,12 @@ function proofAudit(source,decl){
   const audit=source.audit, assumptions=audit?.assumptions;
   if(!decl) return 'Select a declaration to inspect its recorded assumption audit.';
   if(decl.status==='admitted'||decl.status==='aborted') return `${esc(decl.status)} — no completed proof.`;
+  if(source.research){
+    const dependencies=source.research.global_dependencies[decl.qualified];
+    if(!dependencies)return 'No per-declaration audit is inferred for this definition. Inspect its type and the package checkpoint.';
+    return dependencies.length?`<p>Recorded global dependencies:</p><pre class="mono tiny">${dependencies.map(esc).join('\n')}</pre><p>Explicit theorem premises also apply.</p>`:
+      'Recorded research checkpoint: no global axiom dependencies for this theorem. Explicit model and theorem premises still apply.';
+  }
   const detail=assumptions?.detail?.[decl.qualified];
   if(detail) return `<pre class="mono tiny">${esc(detail.raw||detail.axioms.join('\n'))}</pre>`;
   if(decl.status==='proved'&&audit?.compile?.ok&&audit.statements?.[decl.qualified]
@@ -826,23 +865,25 @@ function proofAudit(source,decl){
   return 'No individual assumption audit recorded for this declaration; no closure claim is inferred.';
 }
 function vProof(key,requestedLine){
-  const source=(D.proof_sources||{})[key]; if(!source) return notFound();
+  const source=proofSource(key); if(!source) return notFound();
+  const research=source.research;
   const lines=source.text.split('\n');
   const parsed=Number(requestedLine);
   const line=Number.isInteger(parsed)&&parsed>0&&parsed<=lines.length?parsed:1;
   const decl=source.declarations.find(d=>d.line===line);
-  const record=byKey[key]||{}, theorem=(record.theorems||[]).find(t=>t.name===decl?.name||t.name===decl?.qualified);
+  const record=byKey[key]||(research?{summary:research.summary}:{}), theorem=(record.theorems||[]).find(t=>t.name===decl?.name||t.name===decl?.qualified);
   const revision=/^[a-f0-9]{40}$/.test(D.revision||'')?D.revision:'main';
   const github=repoFileURL(source.path)+'#L'+line;
-  return `<div class="reader-wrap"><div class="crumb"><a href="#/explore">Explore</a> / <a href="#/theory/${encodeURIComponent(key)}">Proof record</a> / Coq source</div>
+  return `<div class="reader-wrap"><div class="crumb">${research?'<a href="#/research">Montague research</a> / '+esc(research.title):`<a href="#/explore">Explore</a> / <a href="#/theory/${encodeURIComponent(key)}">Proof record</a>`} / Coq source</div>
     <section class="proof-reader"><div class="reader-heading"><div><span class="kicker">Read the evidence</span>
       <h1>${esc(source.path.split('/').pop())}</h1><p>Full repository source, including declarations, proof scripts and context.</p></div>
-      <a class="btn" href="#/edit/${encodeURIComponent(key)}?line=${line}">Edit and run in Coq →</a></div>
+      ${research?'<a class="btn ghost" href="#/research">Back to research →</a>':`<a class="btn" href="#/edit/${encodeURIComponent(key)}?line=${line}">Edit and run in Coq →</a>`}</div>
+    ${research?`<div class="research-notice"><b>Research library: read and download.</b> Live execution of these separately namespaced packages is not enabled in the public worker. ${esc(research.boundary)}</div>`:''}
     <div class="reader-layout"><aside class="reader-sidebar" aria-label="Claim and declarations">
       ${key==='atlas__witness_contract'||key==='atlas__ttr_model'?'<a class="reader-guided" href="#/result/witnesses">New here? Walk through “Witnesses matter” →</a>':''}
       <details class="reader-context" open><summary>What is being encoded?</summary><p>${esc(record.summary||'No summary recorded. Inspect the full source and its proof record.')}</p>
         ${theorem?`<h3>Claim in the record</h3><p>${esc(theorem.source_claim||'No source claim recorded for this theorem.')}</p>${theorem.note?`<p>${esc(theorem.note)}</p>`:''}`:''}
-        <a class="textlink" href="#/theory/${encodeURIComponent(key)}">Source mapping, additions and limits →</a>
+        <a class="textlink" href="${research?'#/research':'#/theory/'+encodeURIComponent(key)}">Source mapping, additions and limits →</a>
         <p class="reader-disclaimer">Record descriptions are not independent source-fidelity approval.</p></details>
       <details class="reader-outline" open><summary>Find a declaration <span>${source.declarations.length}</span></summary>
         <label for="proof-search">Search names</label><input type="search" id="proof-search" placeholder="e.g. shared_empty" oninput="filterProofOutline(this.value)">
@@ -853,8 +894,8 @@ function vProof(key,requestedLine){
         <h2>${decl?esc(decl.name):'Definitions, statements and proof scripts'}</h2>
         <p class="tiny dim">${decl?esc(decl.qualified):'The index helps navigation; Coq remains the parser and proof checker.'}</p></div>
       <div class="evidence-strip">
-        <details><summary>Compilation <span>${source.audit?.compile?source.audit.compile.ok?'Recorded pass':'Recorded failure':'Not recorded'}</span></summary>
-          <p>${source.audit?`Recorded compiler: Coq ${esc(source.audit.coq_version)}; compile ${source.audit.compile?.ok?'passed':'failed'}.`:'No mechanical audit sidecar.'} This page does not rerun the compiler.</p>
+        <details><summary>Compilation <span>${research?'Research checkpoint':source.audit?.compile?source.audit.compile.ok?'Recorded pass':'Recorded failure':'Not recorded'}</span></summary>
+          <p>${research?`Recorded Coq ${esc(research.coq_version)} compilation and kernel checkpoint; source hash matches. CI reruns the package checker.`:source.audit?`Recorded compiler: Coq ${esc(source.audit.coq_version)}; compile ${source.audit.compile?.ok?'passed':'failed'}.`:'No mechanical audit sidecar.'} This page does not rerun the compiler.</p>
           ${source.audit?.compile?.unsafe_flags?.length?`<p>Unsafe flags: ${source.audit.compile.unsafe_flags.map(esc).join(', ')}</p>`:''}</details>
         <details open><summary>Assumptions <span>${decl?'Selected declaration':'Choose a declaration'}</span></summary><div>${proofAudit(source,decl)}</div></details>
         <details><summary>Source correspondence <span>Separate review required</span></summary><p>Compilation and an assumptions audit do not establish faithfulness to a paper. Consult the source-specific review records; no whole-source approval is inferred here.</p></details>
@@ -868,6 +909,7 @@ function vProof(key,requestedLine){
         <span class="tiny dim">Ctrl / ⌘ + F to search focused code</span></div>
       <details class="reader-provenance"><summary>Source identity and recorded audit details</summary>
         <p>Revision: ${esc(D.revision||'working copy')}. Source SHA256: <code>${esc(source.sha256)}</code>.</p>
+        ${research?`<p>Research checkpoint: <a class="textlink" href="${esc(repoFileURL(research.checkpoint_path))}">${esc(research.checkpoint_path)}</a><br>Checkpoint SHA256: <code>${esc(research.checkpoint_sha256)}</code>.</p>`:''}
         <p>Audit records are not rerun by opening this page. Source bytes alone do not establish source fidelity or fresh verification. Original audits never transfer to edited copies.</p>
         ${source.index_warnings.length?`<p>Navigation-index warnings: ${source.index_warnings.map(esc).join('; ')}. Inspect the full file.</p>`:''}
         <p>A downloaded .v is not necessarily standalone. Use the <a class="textlink" href="https://github.com/StergiosCha/formal_atlas_of_semantics">repository build instructions</a> for its imports.</p></details>
@@ -875,7 +917,7 @@ function vProof(key,requestedLine){
 }
 let proofReader=null;
 function mountProofReader(key,line){
-  const source=D.proof_sources?.[key], el=document.getElementById('proof-editor');
+  const source=proofSource(key), el=document.getElementById('proof-editor');
   if(window.matchMedia?.('(max-width:750px)').matches)
     document.querySelectorAll('.reader-sidebar details').forEach(detail=>detail.open=false);
   if(!source||!el||!window.AtlasCodeEditor?.read)return;
@@ -901,7 +943,7 @@ async function copyProofLink(){
 }
 function downloadCoq(){
   const key=decodeURIComponent((location.hash.split('?')[0].split('/')[2])||'');
-  const source=(D.proof_sources||{})[key]; if(!source) return;
+  const source=proofSource(key); if(!source) return;
   const url=URL.createObjectURL(new Blob([source.text],{type:'text/plain;charset=utf-8'}));
   const link=document.createElement('a'); link.href=url; link.download=source.path.split('/').pop();
   document.body.appendChild(link); link.click(); link.remove();
@@ -1482,6 +1524,8 @@ function route(){
   if(!seg.length) html=vHome();
   else if(seg[0]==='explore') html=vExplore();
   else if(seg[0]==='experiment') html=vExperiment();
+  else if(seg[0]==='research') html=vResearch();
+  else if(seg[0]==='research-proof') {const key=decodeURIComponent(seg[1]||'');html=proofSource(key)?.research?vProof(key,q.line):notFound();}
   else if(seg[0]==='result'&&seg[1]==='witnesses') html=vWitnessResult();
   else if(seg[0]==='reading') html=vReading();
   else if(seg[0]==='sources') html=vSources();
@@ -1502,7 +1546,8 @@ function route(){
   else if(seg[0]==='exhibits') html=vExhibits();
   else html=notFound();
   if(['papers','theories','plate','sources'].includes(seg[0]))html=`<div class="wrap">${journeyNav(seg[0])}</div>`+html;
-  if(['reading','sources'].includes(seg[0]))tab='about';
+  if(['research','research-proof'].includes(seg[0]))tab='research';
+  else if(['reading','sources'].includes(seg[0]))tab='about';
   else if(['comparison','edges','edge'].includes(seg[0]))tab='compare';
   else if(['experiment','result','exhibits','check','edit'].includes(seg[0]))tab='experiment';
   else if(seg.length)tab='explore';
@@ -1517,7 +1562,7 @@ function route(){
     if(current)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
   });
   window.scrollTo(0,0);
-  if(seg[0]==='proof'){
+  if(['proof','research-proof'].includes(seg[0])){
     mountProofReader(decodeURIComponent(seg[1]||''),q.line);
     if(!proofReader&&/^\d+$/.test(q.line||''))document.getElementById('coq-L'+q.line)?.scrollIntoView?.({block:'center'});
   }

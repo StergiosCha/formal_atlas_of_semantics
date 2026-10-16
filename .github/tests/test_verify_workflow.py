@@ -72,7 +72,11 @@ class VerificationSetupTests(unittest.TestCase):
         self.assertEqual(result.stdout.splitlines(), ["GENERATE", "BUILD"])
 
     def test_mechanical_and_integrity_gates_remain_mandatory(self):
-        for name in ("coqchk — independent kernel recheck (atlas layer)",
+        for name in ("Check the Montague proof-theory workbench",
+                     "Check the actual legacy IL bridge",
+                     "Check the source-first PTQ reconstruction",
+                     "Check PTQ reading-search certificates",
+                     "coqchk — independent kernel recheck (atlas layer)",
                      "Mechanical verification (counts, assumptions, fingerprints)",
                      "Gate — measured state must match the committed records",
                      "Gate — atlas layer invariants"):
@@ -81,6 +85,25 @@ class VerificationSetupTests(unittest.TestCase):
             self.assertNotIn("if", STEPS[name])
         self.assertIn("git diff --exit-code -- atlas_data/records atlas_data/claims.lock",
                       STEPS["Gate — measured state must match the committed records"]["run"])
+
+    def test_montague_workbench_checks_its_own_checkpoint(self):
+        self.assertEqual(STEPS["Check the Montague proof-theory workbench"]["run"],
+                         "python3 deep/montague_core/check.py --check")
+
+    def test_legacy_bridge_keeps_a_separate_assumption_checkpoint(self):
+        self.assertEqual(STEPS["Check the actual legacy IL bridge"]["run"],
+                         "python3 deep/montague_legacy/check.py --check")
+
+    def test_source_first_ptq_has_its_own_mandatory_check(self):
+        self.assertEqual(STEPS["Check the source-first PTQ reconstruction"]["run"],
+                         "python3 deep/montague_ptq/check.py --check")
+
+    def test_ptq_reading_search_rechecks_certificates_without_rerecording(self):
+        command = STEPS["Check PTQ reading-search certificates"]["run"]
+        self.assertIn("python3 -m unittest discover -s deep/montague_ptq -p 'test_*.py'", command)
+        self.assertIn("--check-report deep/montague_ptq/reading_exploration.json", command)
+        self.assertNotIn("--output", command)
+        self.assertNotIn("--compiled-dir", command)
 
     def test_untracked_sidecars_cannot_escape_the_record_gate(self):
         with tempfile.TemporaryDirectory(prefix="atlas-ci-gate-") as directory:

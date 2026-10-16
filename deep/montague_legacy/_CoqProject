@@ -1,0 +1,9 @@
+-Q .. LegacyPTQ
+-Q ../montague_core MontagueProof
+-Q . MontagueLegacy
+IndexSyntax.v
+IndexModels.v
+LegacyTranslation.v
+LegacyExamples.v
+ObservationBridge.v
+ObservationExamples.v

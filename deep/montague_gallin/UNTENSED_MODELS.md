@@ -176,9 +176,11 @@ assignments are not assumptions about a nonexistent model class.
 The work includes the standard-model semantic correspondence for untensed
 IL in this representation. Checkpoint 5 now supplies the separate Ty2
 theorem calculus and its standard-model soundness in `CALCULUS.md`.
-This is not a translation of IL proofs: a source IL calculus, description
-principles D, proof-system correspondence, Henkin models, completeness
-and a reverse syntax translation remain separate work.
+The semantic correspondence is not itself a translation of proofs.
+Checkpoint 6 adds a source IL calculus and a restricted proof-to-proof
+compiler in `IL_CALCULUS.md`. Description principles D, full proof-system
+correspondence, Henkin models, completeness and a reverse syntax
+translation remain separate work.
 
 The source passages are recorded in `SOURCE_MAP.md`. Consultation and
 proof engineering were AI-assisted, with no independent human review

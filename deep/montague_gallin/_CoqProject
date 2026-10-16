@@ -17,3 +17,7 @@ Substitution.v
 Calculus.v
 CalculusConnections.v
 CalculusExamples.v
+ILCore.v
+ILCalculus.v
+ILCalculusExamples.v
+ILProofTranslation.v

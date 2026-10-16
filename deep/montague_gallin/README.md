@@ -24,8 +24,14 @@ written minimal evaluator agrees with the richer evaluator for every
 term. The PTQ, English-tree and admissible-model results compose with this
 elimination, including the temperature countermodel.
 
-Verification: 101 kernel-checked statements across nine modules, with
-20 rejected invalid regression fixtures. No admitted proofs or additional
+Checkpoint 4 adds untensed IL over arbitrary inhabited entity and index
+types. Its translation into minimal syntax preserves standard validity,
+consequence and satisfiability for arbitrary predicate-defined theories,
+over every standard model of the implemented target signature. No temporal
+coherence or PTQ meaning postulate is required for this untensed result.
+
+Verification: 133 kernel-checked statements across thirteen modules, with
+27 rejected invalid regression fixtures. No admitted proofs or additional
 global axioms. The model fields still carry the stated logical assumptions.
 
 ## Reproduce
@@ -58,6 +64,11 @@ not used to make a failing `--check` pass automatically.
 | `Minimal.v` | Minimal syntax and evaluator, Gallin's logical abbreviations, capture-avoiding weakening and general elimination preservation. |
 | `MinimalCorrespondence.v` | PTQ and English preservation, postulates, entailment, satisfiability and the countermodel in minimal target syntax. |
 | `MINIMAL_SYNTAX.md` | Step-by-step account of the completed connective elimination and its assumptions. |
+| `Untensed.v` | Explicit untensed syntax embedded into PTQ, arbitrary-index models and an independent evaluator. |
+| `UntensedTranslation.v` | All-open-term preservation using the existing compiler; compatibility with the actual PTQ evaluator. |
+| `UntensedModels.v` | Unrestricted standard-model reconstruction, arbitrary-theory consequence and satisfiability in minimal syntax. |
+| `UntensedExamples.v` | Bare Boolean indices, varying constants, cross-index necessity, unused temporal symbols and exact round-trip limits. |
+| `UNTENSED_MODELS.md` | Step-by-step explanation of the completed arbitrary-index correspondence. |
 | `MODEL_CORRESPONDENCE.md` | Explanation of the new model classes, reconstruction proof and exact scope. |
 | `SOURCE_MAP.md` | Page references, PDF fingerprint, encoding choices, and exact claim boundary. |
 | `verification.json` | Reproducible source hashes, dependency pins and machine-check results. |
@@ -80,10 +91,15 @@ such target models satisfying the translated meaning postulates. This
 extends checkpoint 1's result over a constructed image to an independently
 specified target model class.
 
-This is a model-correspondence result for the stated classes, not full
-equivalence of PTQ and every Ty2 or Henkin model. Unrestricted standard
-models are defined, but their arbitrary temporal relations need not match
-PTQ. A checked counterexample demonstrates the difference. Boolean reflection and function
+For untensed IL, checkpoint 4 covers every standard model of the implemented
+signature over arbitrary inhabited entity and index carriers, with
+arbitrary theories rather than finite lists only. This is the standard
+semantic correspondence of the kind stated in Gallin's Theorem 8.2,
+formalized with internal Rocq function spaces.
+
+This does not identify full tensed PTQ with every Ty2 or Henkin model.
+Arbitrary temporal relations need not match PTQ, as the checked
+counterexample demonstrates. Boolean reflection and function
 extensionality remain explicit model assumptions. The final target now
 has Gallin's minimal primitive syntax. The richer intermediate target is
 retained for readability, with a proved interpretation-preserving elimination.
@@ -99,11 +115,11 @@ Montague research checkpoint remain unchanged. No P/F grade, outcome,
 comparison edge, live-Coq library, or published PTQ verification record
 has been modified.
 
-Next: address the untensed comparison over arbitrary index carriers.
-Gallin's axiomatic calculus and Henkin
-completeness are separate later milestones. No colleague discussion or
+Next: encode Gallin's object-language axiomatic calculus and establish
+its soundness. Proof-system correspondence and Henkin completeness are
+separate later milestones. No colleague discussion or
 email approval is a prerequisite to implementation.
 
-Checkpoints 1 and 2 are preserved in commits `fb4d9db` and `f8543aa`;
-the current verification record is checkpoint 3. No earlier PTQ checkpoint
+Checkpoints 1, 2 and 3 are preserved in commits `fb4d9db`, `f8543aa` and
+`f26c278`; the current verification record is checkpoint 4. No earlier PTQ checkpoint
 was modified.

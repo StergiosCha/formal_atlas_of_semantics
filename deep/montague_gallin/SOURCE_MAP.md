@@ -4,8 +4,8 @@ Date: 2026-10-16. This directory extends the source-first PTQ development.
 It does not replace or regrade an atlas record, amend a frozen PTQ source,
 or identify Gallin's model classes with those of MTT or TTR.
 
-Current checkpoint: 3. Checkpoints 1 and 2 remain in commits `fb4d9db`
-and `f8543aa`, respectively.
+Current checkpoint: 4. Checkpoints 1, 2 and 3 remain in commits `fb4d9db`,
+`f8543aa` and `f26c278`, respectively.
 
 ## Source consulted
 
@@ -25,6 +25,9 @@ checked against a rendered page image because OCR missed several formulas.
 Checkpoint 3 rechecked the logical abbreviations on pp. 15-16 and their
 use in Ty2 on p. 60. The conjunction on p. 15 was checked visually against
 the scan, not reconstructed from the garbled OCR alone.
+Checkpoint 4 reread pp. 59-63, particularly the standard-model definition,
+Theorem 8.2 and its interpretation lemma, to separate the arbitrary-index
+untensed result from the previous tensed PTQ specialization.
 This is AI-assisted source consultation, not independent human approval.
 No claim is made to have audited the rest of the book or reconstructed its
 completeness proofs. Hahn and Richter (2015) is not the primary evidence
@@ -39,8 +42,11 @@ for this checkpoint.
 | Section 2, pp. 13-16: intension, extension and necessity | `Translation.compile` cases `Up`, `Down`, `Box` | Intension binds an explicit index; extension applies it; necessity quantifies over every index. |
 | Section 8, pp. 58-60: Ty2 types, terms and interpretation | `Types.gty`; `Target.gtm`; `Target.geval` | Three base types e, t, s. Gallin calls this two-sorted because entities and indices are the two sorts of individuals. |
 | Section 2, pp. 15-16; section 8, p. 60: logical abbreviations | `Minimal.ctrue`, `cfalse`, `cneg`, `cand`, `cimp`, `cor`, `call`, `cex` | Beta-reduced applications of Gallin's definitions. Fresh function binders in conjunction use proved capture-avoiding weakening. Boolean biconditional is equality at type t. |
-| Section 8, p. 59: five formation rules for Ty2 | `Minimal.ctm`; `ceval`; `elimination_preserves_interpretation` | Six constructors because bound and free variables are represented separately. The evaluator has no primitive connective or quantifier clauses. Elimination preserves every rich target term over arbitrary signatures, carriers and environments, given BooleanTruth and FunExt. |
+| Section 8, p. 59: four numbered formation rules covering five term forms | `Minimal.ctm`; `ceval`; `elimination_preserves_interpretation` | Six constructors because bound and free variables are represented separately. The evaluator has no primitive connective or quantifier clauses. Elimination preserves every rich target term over arbitrary signatures, carriers and environments, given BooleanTruth and FunExt. |
 | Section 8, pp. 60-62: standard interpretation and translation | `MinimalCorrespondence` | Composes primitive-syntax elimination with the existing PTQ proofs, including open terms, English trees, target-side postulates, entailment, satisfiability and the admissible countermodel. The temporal/model restrictions remain those of checkpoint 2. |
+| Section 2, pp. 10-16: untensed IL syntax and standard semantics | `Untensed.itm`, `idomain`, `il_model`, `ieval` | Independent syntax with no Will/Has, an embedding into the actual PTQ datatype, arbitrary inhabited E/I, and independently specified semantics. The connectives and Box have their usual source semantics; the target eliminates them. |
+| Section 8, p. 62, Lemma 8.2.1 over arbitrary D and I | `UntensedTranslation.untensed_interpretation_preservation` | All open terms, bound environments and free assignments. Reuses the actual compiler, with no temporal-symbol assumptions. Separate value-domain recursors are related by proved transports. |
+| Section 8, p. 62, Theorem 8.2(i)-(iii) | `UntensedModels.untensed_standard_validity`, `untensed_standard_consequence`, `untensed_standard_satisfiability` | Bidirectional standard-semantic correspondence for the implemented IL and target signature, arbitrary inhabited internal entity/index domains and predicate-defined theories. No temporal coherence or PTQ postulates. Minimal s -> t target terms are applied to the arbitrary index i, representing A* under assignment x_s/i. |
 | Section 8, p. 61, (i)-(vii): IL-to-Ty2 translation | `Translation.compile` | Variables retain their values. A constant of source type a becomes a target constant of type s -> a applied to the current index. Application, abstraction and equality are structural; Up/Down become abstraction/application. |
 | Section 8, p. 62, Lemma 8.2.1 | `interpretation_preservation`; `open_preservation` | The checked analogue is preservation for every actual PTQ term and every source environment, in the constructed target interpretation. This also includes the declared tense extension. |
 | Section 8, p. 62, Theorem 8.2 | `Examples.consequence_on_model_image` | A restricted consequence correspondence over source models and their constructed targets. It is not the book's theorem over all independent standard Ty2 models. |
@@ -77,6 +83,11 @@ for this checkpoint.
    future/past relations to mean same-world strict temporal succession.
    A Henkin/general-model record with restricted function domains is not
    implemented.
+   Checkpoint 4 additionally uses every `standard_model source_symbol`
+   for the untensed comparison. Its indices are not replaced by products.
+   The extra temporal symbols in the shared signature have arbitrary
+   values and are unused by translations. Only translated untensed terms,
+   indexed constants and assignments are recovered by this model round trip.
 6. Boolean reflection and function extensionality remain explicit fields
    of the source model. No new global axiom is declared. A `Print
    Assumptions` result of closed does not remove these theorem inputs.
@@ -111,14 +122,23 @@ same correspondence for actual minimal target formulas. The elimination
 theorem itself applies to arbitrary standard target models, without
 temporal coherence; coherence is needed when connecting back to tensed PTQ.
 
+Checkpoint 4 proves the untensed standard-semantic correspondence over
+arbitrary inhabited internal entity and index types. Its theories are
+arbitrary predicates on formulas, including infinite theories. The
+independent `ieval` is connected to the existing PTQ evaluator by
+`ptq_untensed_interpretation`, and its target is the existing compiler
+followed by minimal-syntax elimination. No source grammar or PTQ audit is
+changed, and this does not remove the conditions on the full tensed result.
+
 `ModelExamples.missing_temporal_coherence_changes_prediction` gives a
 standard target model whose future relation is reflexive. A translated
 future tautology is true there but false in the paired one-moment PTQ
 frame. The missing coherence assumption therefore cannot be discarded.
 
-This does not yet prove Gallin's full Theorem 8.2, a reverse translation,
-proof-system correspondence, description principles, or Henkin completeness.
-The connective-elimination task is complete. The untensed comparison over arbitrary index carriers and
-their isomorphic presentations remains separate from the completed
-correspondence over declared world-time frames. This checkpoint does not
-prove a reverse translation of target syntax into source syntax.
+Theorem 8.2's standard-semantic correspondences now have machine-checked
+counterparts for the implemented untensed IL and target signature. These
+use full internal Rocq function spaces, not a theorem identifying all
+external set-theoretic models with Rocq types. A reverse syntax translation,
+the proof-system correspondence of Theorem 8.3, description principles,
+general/Henkin models and completeness remain unimplemented. Arbitrary
+index isomorphisms for the full tensed PTQ comparison also remain separate.

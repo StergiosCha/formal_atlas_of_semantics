@@ -2,6 +2,9 @@
 
 Checkpoint 3 retains these model results and carries them into Gallin's
 minimal syntax. See `MINIMAL_SYNTAX.md` for that completed extension.
+Checkpoint 4 separately proves the untensed correspondence over arbitrary
+index carriers in `UNTENSED_MODELS.md`, without weakening this tensed
+result's temporal-coherence or admissibility requirements.
 
 ## Result
 

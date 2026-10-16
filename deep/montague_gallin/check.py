@@ -21,13 +21,13 @@ sys.path.insert(0, str(ROOT / "atlas_data"))
 import verify
 
 UNITS = ("Types", "Target", "Translation", "Examples", "Independent", "Correspondence", "ModelExamples",
-         "Minimal", "MinimalCorrespondence")
+         "Minimal", "MinimalCorrespondence", "Untensed", "UntensedTranslation", "UntensedModels", "UntensedExamples")
 DEPENDENCIES = ("Syntax", "Models", "Grammar", "Translation", "Meaning", "Postulates", "Examples",
                 "Named", "PostulateFormulas")
 PRELUDE = """From Coq Require Import List Bool.
 From MontaguePTQ Require Import Syntax Models Grammar Translation Meaning Postulates Examples Named PostulateFormulas.
 From MontagueGallin Require Import Types Target Translation Examples Independent Correspondence ModelExamples
-  Minimal MinimalCorrespondence.
+  Minimal MinimalCorrespondence Untensed UntensedTranslation UntensedModels UntensedExamples.
 Import ListNotations.
 """
 SIGNATURES = """
@@ -89,6 +89,31 @@ Definition minimal_entailment_ends_in_actual_core_formulas : forall (ps : list (
 Definition minimal_satisfiability_ends_in_actual_core_formulas : forall ps,
   source_satisfiable ps <-> core_satisfiable (map minimal_translate ps) :=
   @minimal_satisfiability_correspondence.
+Definition untensed_reconstruction_accepts_every_standard_model :
+  standard_model source_symbol -> il_model := il_reconstruct.
+Definition untensed_indices_are_not_replaced_by_products : forall N,
+  il_indices (il_reconstruct N) = standard_indices N := fun N => eq_refl.
+Definition untensed_backwards_covers_open_terms_and_all_models : forall
+  (N : standard_model source_symbol) theta G a (p : itm G a)
+  (rho : il_env (il_reconstruct N) G) i,
+  core_standard_eval N theta (il_minimal_translate p) (il_canonical_env rho) i =
+  il_lift (standard_entities N) (standard_indices N) a
+    (ieval (il_reconstruct N) p rho (il_reconstruct_assignment theta) i) :=
+  @untensed_backward_preservation.
+Definition untensed_theories_are_not_restricted_to_finite_lists :
+  forall (Gamma : il_formula -> Prop) (q : il_formula),
+  il_standard_consequence Gamma q <->
+  ty2_standard_consequence (translated_il_theory Gamma) (il_minimal_translate q) :=
+  @untensed_standard_consequence.
+Definition untensed_satisfiability_is_bidirectional : forall (Gamma : il_formula -> Prop),
+  il_standard_satisfiable Gamma <-> ty2_standard_satisfiable (translated_il_theory Gamma) :=
+  @untensed_standard_satisfiability.
+Definition untensed_source_is_connected_to_existing_ptq : forall M G a (p : itm G a) rho sigma i,
+  il_lift (entity (carrier M)) (index (carrier M)) a
+    (ieval (forget_ptq_time M) p (forget_ptq_env rho) (forget_ptq_free sigma) i) =
+  lift_value (carrier M) a (eval M (embed_il p) rho sigma i) := @ptq_untensed_interpretation.
+Definition untensed_source_does_not_silently_erase_tense : forall G (p : tm G t),
+  ~ exists q : itm G t, embed_il q = Will p := @no_untensed_representation_of_future.
 """
 NEGATIVE = {
     "source_index_is_not_an_entity": (
@@ -158,6 +183,31 @@ NEGATIVE = {
         "Definition bad F (N : coherent_model F) theta : "
         "core_eval N theta (@call source_symbol source_parameter [] gt (CVar gz)) (gempty F) = true := "
         "proj1 (minimal_boolean_quantifiers_differ N theta).", "expected to have type"),
+    "untensed_syntax_does_not_accept_future": (
+        "Definition bad : itm [] t := Will (@Con [] t 0).", "expected to have type"),
+    "untensed_reconstruction_is_not_full_ptq_reconstruction": (
+        "Definition bad : standard_model source_symbol -> model := il_reconstruct.",
+        "expected to have type"),
+    "untensed_theorem_does_not_accept_arbitrary_tensed_formulas": (
+        "Definition bad : forall p : tm [] t, is_untensed p = true := @embedded_il_is_untensed.",
+        "expected to have type"),
+    "untensed_roundtrip_does_not_recover_arbitrary_temporal_terms": (
+        "Definition bad B FE : let N := plain_model B FE true in "
+        "core_standard_eval (il_target (il_reconstruct N)) plain_assignment "
+        "(@CCon source_symbol source_parameter [] _ FutureRelation) "
+        "(value_empty bool bool) false false = true := "
+        "proj2 (untensed_roundtrip_does_not_preserve_temporal_terms B FE).",
+        "expected to have type"),
+    "untensed_necessity_is_not_current_index_truth": (
+        "Definition bad B FE : core_standard_eval (plain_model B FE true) plain_assignment "
+        "(il_minimal_translate (IBox (@ICon [] t 0))) (value_empty bool bool) true = true := "
+        "proj2 (arbitrary_index_necessity_sees_other_indices B FE true).", "expected to have type"),
+    "untensed_index_domain_is_not_silently_a_product": (
+        "Example bad B FE : standard_indices (plain_model B FE true) = (bool * bool)%type. "
+        "Proof. reflexivity. Qed.", "Unable to unify"),
+    "untensed_validity_correspondence_is_not_universal_validity": (
+        "Definition bad : forall q, il_standard_consequence (fun _ => False) q := "
+        "@untensed_standard_validity.", "expected to have type"),
 }
 
 
@@ -243,8 +293,8 @@ def check():
                 raise RuntimeError(f"Negative fixture failed for the wrong reason: {name}\n{result.stdout}")
             print(f"Rejected invalid fixture: {name}", flush=True)
     return {
-        "schema_version": 1, "checkpoint": 3, "coq_version": "8.20.1",
-        "scope": "PTQ to minimal Ty2 syntax: interpretation, admissibility, consequence and satisfiability over independent coherent models",
+        "schema_version": 1, "checkpoint": 4, "coq_version": "8.20.1",
+        "scope": "Untensed IL and minimal Ty2 over arbitrary inhabited index domains, plus the retained coherent tensed PTQ correspondence",
         "files": files, "ptq_dependencies": dependencies,
         "proved_statement_count": len(names), "kernel_rechecked": True,
         "global_dependencies_by_statement": {name: [] for name in names},
@@ -272,6 +322,13 @@ def check():
             "minimal_independent_evaluator": True,
             "minimal_elimination_all_signatures_carriers_environments": True,
             "minimal_english_countermodel_and_admissible_correspondences": True,
+            "untensed_il_independent_syntax_and_evaluator": True,
+            "untensed_preservation_all_open_terms": True,
+            "untensed_source_compatibility_with_existing_ptq": True,
+            "untensed_all_standard_models_over_arbitrary_entity_index_carriers": True,
+            "untensed_consequence_and_satisfiability_arbitrary_theories": True,
+            "untensed_minimal_target_syntax": True,
+            "untensed_needs_temporal_coherence_or_ptq_postulates": False,
             "reverse_translation": False, "henkin_completeness": False,
             "gallin_axiomatic_calculus": False,
         },
@@ -282,6 +339,16 @@ def check():
             "unrestricted_standard_target_models": "defined but not included in the full tensed correspondence",
             "arbitrary_index_isomorphisms": False,
             "proof_system_correspondence": False,
+        },
+        "untensed_model_class_boundary": {
+            "covered": "all independent standard models of the implemented target signature on arbitrary inhabited entity and index types",
+            "source": "explicit untensed IL syntax embedded in the actual PTQ syntax; no Will or Has constructors",
+            "function_spaces": "full internal Rocq function spaces, not external set equality or Henkin subdomains",
+            "theories": "arbitrary predicates on formulas, not only finite premise lists",
+            "postulates": "none imposed by the correspondence; object-language assumptions can be included in the theory",
+            "temporal_symbols": "arbitrary and unused by translations; not recovered by the source-to-target round trip",
+            "target_formulas": "minimal terms of type s -> t, applied to the arbitrary evaluation index",
+            "full_tensed_or_proof_system_correspondence": False,
         },
         "negative_fixtures_rejected": sorted(NEGATIVE),
         "source_review": "AI-assisted primary-source consultation; no independent human review claimed",

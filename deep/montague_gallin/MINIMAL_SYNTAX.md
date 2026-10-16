@@ -29,8 +29,9 @@ CApp  (* application *)
 CEq   (* equality at any target type, returning t *)
 ```
 
-Gallin has five formation rules. The extra constructor here is only the
-separation of bound and free variables in the encoding. There is no
+Gallin's four numbered formation rules cover five forms: variables,
+constants, application, abstraction and equality. The sixth constructor
+here only separates bound and free variables in the encoding. There is no
 primitive negation, conjunction, universal quantifier, existential
 quantifier, necessity or tense operator. No logical constants are added
 to the parameterized signature.
@@ -166,8 +167,8 @@ map records AI-assisted consultation; no independent human review is claimed.
 
 ## 7. Remaining work
 
-The next distinct comparison is untensed IL over arbitrary index carriers,
-not necessarily a declared PTQ world-time product. A reverse translation,
+Checkpoint 4 completes the next distinct comparison, untensed IL over
+arbitrary index carriers, in `UNTENSED_MODELS.md`. A reverse translation,
 an object-language proof calculus, description principles and Henkin
 completeness remain separate tasks. None is required to make the present
 minimal-syntax preservation theorem true.

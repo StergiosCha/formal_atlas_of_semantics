@@ -1,6 +1,7 @@
 (* Gallin 1975, section 8, pp. 58-60: e, t, s and functional types.
-   Here s denotes a PTQ world-time index. This is the declared tense
-   specialization, not an identification of worlds with times. *)
+   value_domain permits arbitrary entity and index carriers. gdomain
+   specializes the index sort to PTQ world-time pairs; the untensed
+   development uses arbitrary indices, without this specialization. *)
 From MontaguePTQ Require Import Syntax Models.
 Set Implicit Arguments.
 

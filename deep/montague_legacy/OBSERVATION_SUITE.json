@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "checkpoint": 7,
+  "scope": "Synthetic paired-model regressions, not an independently reviewed source benchmark",
+  "independent_semantic_review": false,
+  "cases": [
+    {"id": "O01", "reading": "Every man walks; John is a man. Therefore John walks.", "result": "valid_inference", "proof": "ObservationExamples.instantiation_agrees_for_all_tables"},
+    {"id": "O02", "reading": "Every man walks; every walker moves. Therefore every man moves.", "result": "valid_inference", "proof": "ObservationExamples.syllogism_agrees_for_all_tables"},
+    {"id": "O03", "reading": "John is a man. Therefore the man predicate has an entity witness.", "result": "valid_inference", "proof": "ObservationExamples.named_individual_supplies_a_witness"},
+    {"id": "O04", "reading": "Weather holds at every world. Therefore it holds at the actual world.", "result": "valid_inference", "proof": "ObservationExamples.necessity_elimination_agrees_for_all_tables"},
+    {"id": "O05", "reading": "Every man walks. Does it follow that the man predicate has an entity witness?", "result": "counterexample", "proof": "ObservationExamples.universal_has_no_existential_import", "fixture": "empty_people_tables"},
+    {"id": "O06", "reading": "Weather holds actually. Must it hold at every world?", "result": "counterexample", "proof": "ObservationExamples.actual_truth_does_not_license_necessity", "fixture": "varying_tables"},
+    {"id": "O07", "reading": "Rigid and varying concepts agree actually. Can they be substituted under necessity?", "result": "counterexample", "proof": "ObservationExamples.actual_agreement_does_not_license_necessary_substitution", "fixture": "varying_tables"},
+    {"id": "O08", "reading": "Double negation and the original proposition agree for the certified, reflected observation.", "result": "restricted_equivalence", "proof": "ObservationExamples.double_negation_agrees_on_reflected_observations"},
+    {"id": "O09", "reading": "Different lexical interpretations can change the same atomic observation.", "result": "precondition_diagnostic", "proof": "ObservationExamples.mismatched_lexicons_can_change_the_answer"}
+  ]
+}

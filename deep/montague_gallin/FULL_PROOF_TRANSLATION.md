@@ -199,6 +199,8 @@ Description principles D, the full IL+D/Ty2+D result of Theorem 8.3,
 reverse interpretations, general/Henkin models and completeness are not
 claimed. They are not hidden prerequisites in this forward compiler.
 
-The source PTQ checkpoint, atlas assessments, proof library served by the
-app and deployment remain unchanged. This checkpoint is local until a
-separate push/deployment step is requested.
+The source PTQ checkpoint, atlas assessments and live Coq library remain
+unchanged. This development is published separately from those assessments
+in the [Gallin research section](https://orange-beach-0c447e210.5.azurestaticapps.net/#/research/gallin),
+with read-only source, declaration audits and exact-byte downloads.
+The production workflow reruns the isolated checker before deployment.

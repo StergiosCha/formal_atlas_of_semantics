@@ -192,7 +192,7 @@ footer .r{margin-left:auto}
     <a href="#/explore" data-r="explore">Explore</a>
     <a href="#/comparison" data-r="compare">Compare</a>
     <a href="#/experiment" data-r="experiment">Experiment</a>
-    <a href="#/research" data-r="research">Montague research</a>
+    <a href="#/research" data-r="research">Research</a>
     <a href="#/reading" data-r="about">About &amp; methods</a>
   </nav>
 </div></header>
@@ -426,7 +426,7 @@ function vHome(){
       <a class="textlink" href="#/reading">Reading the atlas responsibly</a>.</p>
       <div class="cta"><a class="btn" href="#/explore">Explore the atlas</a>
         <a class="btn ghost" href="#/result/witnesses">Start with a concrete result →</a></div>
-      <p class="small" style="margin-top:20px"><a class="textlink" href="#/research">New: source-first Montague research →</a><br>Separate proof packages, explicit assumptions and open questions. Atlas assessments are unchanged.</p>
+      <p class="small" style="margin-top:20px"><a class="textlink" href="#/research">New: source-first Montague research →</a><br><a class="textlink" href="#/research/gallin">Gallin: models and proof translation →</a><br>Separate proof packages, explicit assumptions and open questions. Atlas assessments are unchanged.</p>
     </div>
     <img class="heromark" src="assets/svg/mark-a-meridian.svg" alt="Formal Atlas mark: a lambda drawn as a meridian, with the proof-locked wedge">
     </div>
@@ -802,6 +802,33 @@ function filterCards(v){
 }
 
 /* Research is a separate collection, not a promotion of atlas records. */
+function researchPackage(p,open=false){
+  return `<details class="research-package" ${open?'open':''}><summary><span>${esc(p.title)}</span><small>${p.modules} modules · ${p.statements} proved statements</small></summary><p>${esc(p.summary)}</p><p class="research-boundary">${esc(p.boundary)}</p>
+    <div class="research-docs">${p.documents.map(d=>`<a class="textlink" href="${esc(repoFileURL(d.path))}">${esc(d.title.replace(/_/g,' ').replace(/\.md$/,''))} ↗</a>`).join('')}</div>
+    <ul class="research-files">${p.source_keys.map(key=>{const s=D.research.sources[key];return `<li><a href="${proofURL(key)}"><span>${esc(s.path.split('/').pop())}</span><small>${s.research.statement_count} proved statements →</small></a></li>`;}).join('')}</ul>
+    <details class="research-reproduce"><summary>Reproduce this checkpoint</summary><p>From the full repository, using Coq ${esc(p.coq_version)} and Python 3:</p><pre>${esc(p.check_command)}</pre><p>The checker compiles isolated sources, kernel-rechecks proofs, audits assumptions and rejects invalid fixtures. <a class="textlink" href="${esc(repoFileURL(p.checkpoint))}">Inspect the recorded checkpoint ↗</a></p></details>
+  </details>`;
+}
+function vGallinResearch(){
+  const research=D.research, p=research?.packages.find(p=>p.id==='montague_gallin');if(!p)return notFound();
+  return `<div class="wrap discovery research-page gallin-page"><section>
+    <a class="textlink" href="#/research">← Montague research</a><br>
+    <span class="kicker">Gallin / separate research checkpoint</span>
+    <h1>Gallin: from models to proofs.</h1>
+    <p class="discovery-lead">Connect the source-first Montague implementation to explicit-index type theory. Compare specified model classes, then translate source derivations into target derivations.</p>
+    <div class="research-notice"><b>Machine-checked encodings. Independent semantic review pending.</b> This is a separate research section. It does not change atlas P/F grades, outcome labels, comparison edges, aggregate proof counts or the live Coq library.</div>
+    <div class="research-metrics" aria-label="Gallin checkpoint"><div><strong>${p.modules}</strong><span>separately checked Coq modules</span></div><div><strong>${p.statements}</strong><span>proved theorem, lemma and example statements</span></div><div><strong>${p.negative_fixtures}</strong><span>invalid fixtures rejected by its checker</span></div></div>
+    <h2>Three results, with the code behind them</h2>
+    <p>The proof compiler is a Coq function producing target derivations. Its audited Definitions are included in the source reader, separately from the theorem count above.</p>
+    <div class="entry-grid">${research.gallin_features.map(f=>`<a class="entry-card" href="${proofURL(f.key,f.line)}"><span class="kicker">${f.kind==='definition'?'Proof-producing definition':'Model correspondence'}</span><h3>${esc(f.title)}</h3><p>${esc(f.summary)}</p><code>${esc(f.name)}</code><span class="entry-action">Read the real Coq proof →</span></a>`).join('')}</div>
+    <div class="research-columns"><article><h2>How this connects to Montague</h2><p>The PTQ translation preserves interpretation of every implemented typed term. Independently specified target models on PTQ world-time frames reconstruct source models when their temporal relations satisfy the declared coherence laws. Translated meaning postulates delimit the admissible comparison.</p><p>A separate untensed result permits arbitrary inhabited index carriers and arbitrary premise theories. It uses standard models with full internal Rocq function spaces, not general Henkin models.</p></article>
+    <article><h2>What the proof compiler establishes</h2><p>Every derivation in the implemented locally indexed alternative IL calculus translates into a derivation in the target Ty2 calculus. This covers every source axiom family, rules R1-R8 and derivations from assumptions.</p><p>The compiler takes no model, Boolean reflection, function extensionality, semantic truth or completeness premise. The semantic model results separately retain their explicit BooleanTruth and FunExt inputs.</p></article></div>
+    <div class="research-columns"><article><h2>What is not claimed</h2><p>This is not reverse proof equivalence, the description-principle extension, full Gallin Theorem 8.3 or Henkin completeness. Nor does a forward translation establish unrestricted equivalence of Montague, TTR and MTT.</p><p>Correspondence between the locally indexed source calculus and Gallin's printed named presentation still needs its own adequacy argument and independent source review.</p></article>
+    <article><h2>Read now. Reproduce locally.</h2><p>Every module has searchable Coq source, declaration links, recorded assumption audits and exact-byte downloads. Live execution of this research package is not enabled in the public worker. The existing atlas workspace is unchanged.</p><p>Start with the full proof-translation report below for the derivation-by-derivation account, or the source map for book passages and encoding choices.</p></article></div>
+    <h2>Sources, reports and reproducibility</h2><div class="research-packages">${researchPackage(p,true)}</div>
+    <p class="tiny dim">Deployment revision: ${esc(D.revision)}. Browsing makes no model calls and does not rerun Coq. CI reruns the isolated package checker; machine checking is not independent approval of source fidelity.</p>
+  </section></div>`;
+}
 function vResearch(){
   const research=D.research;if(!research)return notFound();
   const main=research.packages.find(p=>p.id==='montague_ptq');
@@ -809,7 +836,7 @@ function vResearch(){
     <span class="kicker">Research checkpoint / separate from atlas assessments</span>
     <h1>Montague, from source to proof.</h1>
     <p class="discovery-lead">Follow an English analysis through typed intensional logic to its interpretation. Read the actual Coq proofs, their model assumptions and the questions that remain open.</p>
-    <div class="research-notice"><b>Machine-checked encodings. Independent semantic review pending.</b> This collection does not change the survey's P/F levels, outcome labels, comparison edges or theorem totals. Gallin equivalence is a proposed next step, not a result of this release.</div>
+    <div class="research-notice"><b>Machine-checked encodings. Independent semantic review pending.</b> This collection does not change the survey's P/F levels, outcome labels, comparison edges or theorem totals. The new <a class="textlink" href="#/research/gallin">Gallin model and proof translations</a> have their own section and explicit scope; unrestricted Gallin equivalence is not claimed.</div>
     <div class="research-metrics" aria-label="Source-first PTQ checkpoint"><div><strong>${main.modules}</strong><span>source-first PTQ modules</span></div><div><strong>${main.statements}</strong><span>proved statements, including supporting lemmas</span></div><div><strong>${main.negative_fixtures}</strong><span>invalid fixtures rejected by its checker</span></div></div>
     <h2>Start with three results</h2>
     <p>Each card opens the complete source at the supporting theorem. These are results about the stated encoding, not new linguistic discoveries.</p>
@@ -818,12 +845,8 @@ function vResearch(){
     <article><h2>What is still open</h2><p>All ${research.readings.witnesses.toLocaleString()} discovered analysis trees are certified against ${research.readings.registered_classes_reached} registered sentence-specific reading classes. This is not exhaustive classification of every possible reading.</p><p>Two printed strings are ungenerated under the implemented literal surface rules; a separately labelled inflection amendment restores them. Full source adequacy, Gallin equivalence and Henkin completeness are not claimed.</p></article></div>
     <h2>Three packages, three different purposes</h2>
     <p>Begin with source-first PTQ. The workbench and legacy bridge are supporting developments with different specifications and assumption boundaries.</p>
-    <div class="research-packages">${research.packages.map(p=>`<details class="research-package" ${p.id==='montague_ptq'?'open':''}><summary><span>${esc(p.title)}</span><small>${p.modules} modules · ${p.statements} proved statements</small></summary><p>${esc(p.summary)}</p><p class="research-boundary">${esc(p.boundary)}</p>
-      <div class="research-docs">${p.documents.map(d=>`<a class="textlink" href="${esc(repoFileURL(d.path))}">${esc(d.title.replace(/_/g,' ').replace(/\.md$/,''))} ↗</a>`).join('')}</div>
-      <ul class="research-files">${p.source_keys.map(key=>{const s=research.sources[key];return `<li><a href="${proofURL(key)}"><span>${esc(s.path.split('/').pop())}</span><small>${s.research.global_dependencies?Object.keys(s.research.global_dependencies).length:0} proved statements →</small></a></li>`;}).join('')}</ul>
-      <details class="research-reproduce"><summary>Reproduce this checkpoint</summary><p>From the full repository, using Coq ${esc(p.coq_version)} and Python 3:</p><pre>${esc(p.check_command)}</pre><p>The checker compiles isolated sources, kernel-rechecks proofs, audits assumptions and rejects invalid fixtures. <a class="textlink" href="${esc(repoFileURL(p.checkpoint))}">Inspect the recorded checkpoint ↗</a></p></details>
-    </details>`).join('')}</div>
-    <div class="research-columns"><article><span class="kicker">Next research milestone</span><h2>A source-backed Gallin connection</h2><p>The selected world-only IL/Ty2 translation in the workbench already preserves interpretation. Connecting the actual PTQ implementation to Gallin requires a direct source audit, explicit world/time treatment and a specified model correspondence. A forward embedding alone is not expressive equivalence.</p></article>
+    <div class="research-packages">${research.packages.filter(p=>p.id!=='montague_gallin').map(p=>researchPackage(p,p.id==='montague_ptq')).join('')}</div>
+    <div class="research-columns"><article><span class="kicker">New separate research section</span><h2>A source-backed Gallin connection</h2><p>The direct PTQ translation now preserves interpretation, with correspondence over specified target model classes. A separate proof compiler translates every derivation of the implemented untensed source calculus, including derivations from assumptions. These are scoped results, not unrestricted equivalence.</p><a class="textlink" href="#/research/gallin">Explore Gallin: models and proof translation →</a></article>
     <article><span class="kicker">Using the code</span><h2>Read now. Reproduce locally.</h2><p>All ${Object.keys(research.sources).length} research modules have searchable source, theorem links and exact-byte downloads. Live execution of these new packages is not enabled in the public worker; use their separate build commands locally. The existing atlas live Coq workspace is unchanged.</p><a class="textlink" href="#/experiment">Open the existing atlas workspace →</a></article></div>
     <p class="tiny dim">Deployment revision: ${esc(D.revision)}. Browsing makes no model calls and does not rerun Coq. Counts describe the recorded proof inventory, not independently approved source claims.</p>
   </section></div>`;
@@ -853,7 +876,7 @@ function proofAudit(source,decl){
     const dependencies=source.research.global_dependencies[decl.qualified];
     if(!dependencies)return 'No per-declaration audit is inferred for this definition. Inspect its type and the package checkpoint.';
     return dependencies.length?`<p>Recorded global dependencies:</p><pre class="mono tiny">${dependencies.map(esc).join('\n')}</pre><p>Explicit theorem premises also apply.</p>`:
-      'Recorded research checkpoint: no global axiom dependencies for this theorem. Explicit model and theorem premises still apply.';
+      `Recorded research checkpoint: no global axiom dependencies for this ${decl.kind==='theorem'?'theorem':'declaration'}. Explicit model and theorem premises still apply.`;
   }
   const detail=assumptions?.detail?.[decl.qualified];
   if(detail) return `<pre class="mono tiny">${esc(detail.raw||detail.axioms.join('\n'))}</pre>`;
@@ -867,6 +890,7 @@ function proofAudit(source,decl){
 function vProof(key,requestedLine){
   const source=proofSource(key); if(!source) return notFound();
   const research=source.research;
+  const researchHome=research?.package==='montague_gallin'?'#/research/gallin':'#/research';
   const lines=source.text.split('\n');
   const parsed=Number(requestedLine);
   const line=Number.isInteger(parsed)&&parsed>0&&parsed<=lines.length?parsed:1;
@@ -874,16 +898,16 @@ function vProof(key,requestedLine){
   const record=byKey[key]||(research?{summary:research.summary}:{}), theorem=(record.theorems||[]).find(t=>t.name===decl?.name||t.name===decl?.qualified);
   const revision=/^[a-f0-9]{40}$/.test(D.revision||'')?D.revision:'main';
   const github=repoFileURL(source.path)+'#L'+line;
-  return `<div class="reader-wrap"><div class="crumb">${research?'<a href="#/research">Montague research</a> / '+esc(research.title):`<a href="#/explore">Explore</a> / <a href="#/theory/${encodeURIComponent(key)}">Proof record</a>`} / Coq source</div>
+  return `<div class="reader-wrap"><div class="crumb">${research?`<a href="${researchHome}">Research</a> / `+esc(research.title):`<a href="#/explore">Explore</a> / <a href="#/theory/${encodeURIComponent(key)}">Proof record</a>`} / Coq source</div>
     <section class="proof-reader"><div class="reader-heading"><div><span class="kicker">Read the evidence</span>
       <h1>${esc(source.path.split('/').pop())}</h1><p>Full repository source, including declarations, proof scripts and context.</p></div>
-      ${research?'<a class="btn ghost" href="#/research">Back to research →</a>':`<a class="btn" href="#/edit/${encodeURIComponent(key)}?line=${line}">Edit and run in Coq →</a>`}</div>
+      ${research?`<a class="btn ghost" href="${researchHome}">Back to research →</a>`:`<a class="btn" href="#/edit/${encodeURIComponent(key)}?line=${line}">Edit and run in Coq →</a>`}</div>
     ${research?`<div class="research-notice"><b>Research library: read and download.</b> Live execution of these separately namespaced packages is not enabled in the public worker. ${esc(research.boundary)}</div>`:''}
     <div class="reader-layout"><aside class="reader-sidebar" aria-label="Claim and declarations">
       ${key==='atlas__witness_contract'||key==='atlas__ttr_model'?'<a class="reader-guided" href="#/result/witnesses">New here? Walk through “Witnesses matter” →</a>':''}
       <details class="reader-context" open><summary>What is being encoded?</summary><p>${esc(record.summary||'No summary recorded. Inspect the full source and its proof record.')}</p>
         ${theorem?`<h3>Claim in the record</h3><p>${esc(theorem.source_claim||'No source claim recorded for this theorem.')}</p>${theorem.note?`<p>${esc(theorem.note)}</p>`:''}`:''}
-        <a class="textlink" href="${research?'#/research':'#/theory/'+encodeURIComponent(key)}">Source mapping, additions and limits →</a>
+        <a class="textlink" href="${research?researchHome:'#/theory/'+encodeURIComponent(key)}">Source mapping, additions and limits →</a>
         <p class="reader-disclaimer">Record descriptions are not independent source-fidelity approval.</p></details>
       <details class="reader-outline" open><summary>Find a declaration <span>${source.declarations.length}</span></summary>
         <label for="proof-search">Search names</label><input type="search" id="proof-search" placeholder="e.g. shared_empty" oninput="filterProofOutline(this.value)">
@@ -1524,7 +1548,7 @@ function route(){
   if(!seg.length) html=vHome();
   else if(seg[0]==='explore') html=vExplore();
   else if(seg[0]==='experiment') html=vExperiment();
-  else if(seg[0]==='research') html=vResearch();
+  else if(seg[0]==='research') html=seg.length>2?notFound():seg[1]==='gallin'?vGallinResearch():!seg[1]?vResearch():notFound();
   else if(seg[0]==='research-proof') {const key=decodeURIComponent(seg[1]||'');html=proofSource(key)?.research?vProof(key,q.line):notFound();}
   else if(seg[0]==='result'&&seg[1]==='witnesses') html=vWitnessResult();
   else if(seg[0]==='reading') html=vReading();

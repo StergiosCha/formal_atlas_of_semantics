@@ -48,6 +48,12 @@ class DeploymentWorkflowTests(unittest.TestCase):
             self.assertIn(command, script)
         self.assertNotIn("ATLAS_PAPERS", script)
 
+    def test_gallin_publication_is_gated_by_its_isolated_checker(self):
+        commands = [step.get("run", "") for step in VERIFY["jobs"]["verify"]["steps"]]
+        self.assertIn("python3 deep/montague_gallin/check.py --check", commands)
+        reporting = DEPLOY["jobs"]["reporting"]["steps"][-1]["run"]
+        self.assertIn("test_research.cjs", reporting)
+
     def test_citation_does_not_invent_a_release_or_doi(self):
         citation = yaml.safe_load((ROOT / "CITATION.cff").read_text())
         self.assertEqual(citation["cff-version"], "1.2.0")

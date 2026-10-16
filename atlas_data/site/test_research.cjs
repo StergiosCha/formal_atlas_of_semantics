@@ -21,24 +21,39 @@ assert(app.innerHTML.includes('Independent semantic review pending'));
 assert(app.innerHTML.includes('Whole-search completeness is unproved'));
 assert(app.innerHTML.includes('Live execution of these new packages is not enabled'));
 assert(!app.innerHTML.includes('href="#/edit/research__'));
-assert.equal(Object.keys(data.research.sources).length,53);
-assert.equal(data.research.packages.length,3);
+assert(app.innerHTML.includes('href="#/research/gallin"'));
+const montague=app.innerHTML;
+run("location.hash='#/research/gallin';route()");
+const gallin=app.innerHTML;
+assert(gallin.includes('Gallin: from models to proofs.'));
+assert(gallin.includes('not reverse proof equivalence'));
+assert(gallin.includes('R1-R8'));
+assert(gallin.includes('Live execution of this research package is not enabled'));
+assert(!gallin.includes('href="#/edit/'));
+assert.equal(Object.keys(data.research.sources).length,79);
+assert.equal(data.research.packages.length,4);
 for(const [key,source] of Object.entries(data.research.sources)){
   assert(!data.proof_sources[key]);
-  assert(app.innerHTML.includes(`href="#/research-proof/${key}"`),key);
+  const isGallin=source.research.package==='montague_gallin';
+  assert((isGallin?gallin:montague).includes(`href="#/research-proof/${key}"`),key);
+  assert(!(isGallin?montague:gallin).includes(`href="#/research-proof/${key}"`),key);
   assert.equal(source.text,fs.readFileSync(path.join(root,source.path),'utf8'));
   assert.equal(source.sha256,crypto.createHash('sha256').update(source.text).digest('hex'));
 }
-for(const feature of data.research.features){
+for(const feature of [...data.research.features,...data.research.gallin_features]){
   run(`location.hash=${JSON.stringify(`#/research-proof/${feature.key}?line=${feature.line}`)};route()`);
   assert(app.innerHTML.includes(feature.name));
   assert(app.innerHTML.includes(`id="coq-L${feature.line}" class="proof-line selected"`));
   assert(app.innerHTML.includes('Proof.'));
   assert(app.innerHTML.includes('Download .v'));
-  assert(app.innerHTML.includes('no global axiom dependencies for this theorem'));
+  assert(app.innerHTML.includes('no global axiom dependencies for this '+(feature.kind==='definition'?'declaration':'theorem')));
   assert(app.innerHTML.includes('Explicit model and theorem premises still apply'));
   assert(!app.innerHTML.includes('Edit and run in Coq'));
   assert(!app.innerHTML.includes('href="#/theory/research__'));
+  if(feature.key.startsWith('research__montague_gallin__')){
+    assert(app.innerHTML.includes('href="#/research/gallin">Back to research'));
+    if(feature.kind==='definition')assert(app.innerHTML.includes('Defined.'));
+  }
 }
 const legacyKey='research__montague_legacy__LegacyTranslation';
 const legacy=data.research.sources[legacyKey];
@@ -46,6 +61,11 @@ const decl=legacy.declarations.find(d=>d.name==='legacy_open_preservation');
 assert(run(`vProof('${legacyKey}',${decl.line})`).includes('LegacyPTQ.PTQ_deep2'));
 run("D.revision='"+'a'.repeat(40)+"'");
 assert(run('vResearch()').includes(`/blob/${'a'.repeat(40)}/deep/montague_ptq/SOURCE_MAP.md`));
+assert(run('vGallinResearch()').includes(`/blob/${'a'.repeat(40)}/deep/montague_gallin/FULL_PROOF_TRANSLATION.md`));
+for(const route of ['#/research/missing','#/research/gallin/missing']){
+  run(`location.hash=${JSON.stringify(route)};route()`);
+  assert(!app.innerHTML.includes('research-page'));
+}
 for(const key of ['missing','__proto__','constructor']){
   run(`location.hash='#/research-proof/${key}';route()`);
   assert(!app.innerHTML.includes('reader-codebar'));
@@ -65,4 +85,4 @@ run(`location.hash='#/research-proof/${key}?line=1';downloadCoq()`);
 assert.equal(blob,'<img src=x onerror=alert(1)>');
 assert.equal(download,'Meaning.v');
 assert.equal(run('JSON.stringify([D.files,D.papers,D.edges,D.stats,D.workspace_library_sha256])'),before);
-console.log('Research routes, 53 source hashes, proof/dependency links, downloads and isolation from atlas/live library checked.');
+console.log('Separate Montague/Gallin routes, 79 source hashes, proof/definition audits, downloads and atlas/live-library isolation checked.');

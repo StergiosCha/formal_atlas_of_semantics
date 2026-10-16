@@ -64,12 +64,23 @@ The old ordinal means are retained only as history; map spacing is editorial.
 ## Development and review
 
 The app has a separate [Montague research area](https://orange-beach-0c447e210.5.azurestaticapps.net/#/research).
-It publishes the three research packages below with exact Coq source, theorem
+It publishes the PTQ, workbench and legacy packages below with exact Coq source, theorem
 navigation, assumption checkpoints and revision-pinned documentation. This does
 not change existing atlas assessments, comparison edges or aggregate counts.
 The research modules are read-only in the browser and downloadable; their
 separate namespaces are not yet installed in the public live Coq worker.
 The existing live atlas workspace and its library contract are unchanged.
+
+The separate [Gallin section](https://orange-beach-0c447e210.5.azurestaticapps.net/#/research/gallin)
+adds 26 modules, 225 proved statements and 52 rejected negative fixtures.
+It covers PTQ interpretation preservation, correspondence over specified Ty2
+model classes, and forward proof translation for every derivation of the
+implemented locally indexed untensed IL calculus, including assumptions.
+Proof-producing Definitions have their own recorded audits and source links.
+See the [full proof-translation report](deep/montague_gallin/FULL_PROOF_TRANSLATION.md)
+for the exact scope. Reverse proof equivalence, the description extension and
+Henkin completeness are not claimed. CI reruns this package's isolated checker
+before deployment; independent source review remains pending.
 
 The new [source-first PTQ reconstruction](deep/montague_ptq/README.md) has
 all typed S1-S17 analysis-rule families, a recursive T1-T17 translation and

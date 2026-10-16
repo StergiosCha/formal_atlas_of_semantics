@@ -51,6 +51,9 @@ jobs:
       - name: Check the source-first PTQ reconstruction
         run: python3 deep/montague_ptq/check.py --check
 
+      - name: Check the separate Gallin model and proof translations
+        run: python3 deep/montague_gallin/check.py --check
+
       - name: Check PTQ reading-search certificates
         run: |
           python3 -m unittest discover -s deep/montague_ptq -p 'test_*.py'

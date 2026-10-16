@@ -1,0 +1,377 @@
+{
+  "schema_version": 1,
+  "coq_version": "8.20.1",
+  "scope": "extensional C, selected Ty2 and world-only IL interpretation preservation; not full PTQ, legacy IL adequacy or Henkin completeness",
+  "files": {
+    "Syntax.v": {
+      "sha256": "b5b9075327a29a699df69195b2005f4f77b1a42033cc4c9230b6a887a214d2cc",
+      "proved_statements": [
+        "MontagueProof.Syntax.var_cons_cases"
+      ]
+    },
+    "Algebra.v": {
+      "sha256": "7ef7d6e12eef92ff02dd6c2870867e5611bb75ef9d4ee2b8b07738b17408052a",
+      "proved_statements": [
+        "MontagueProof.Algebra.rename_ext",
+        "MontagueProof.Algebra.subst_ext",
+        "MontagueProof.Algebra.rename_id",
+        "MontagueProof.Algebra.rename_comp",
+        "MontagueProof.Algebra.rename_weaken",
+        "MontagueProof.Algebra.subst_after_rename",
+        "MontagueProof.Algebra.rename_after_subst",
+        "MontagueProof.Algebra.subst_weaken",
+        "MontagueProof.Algebra.subst_comp",
+        "MontagueProof.Algebra.subst_renaming",
+        "MontagueProof.Algebra.subst_id",
+        "MontagueProof.Algebra.instantiate_weaken",
+        "MontagueProof.Algebra.rename_instantiate",
+        "MontagueProof.Algebra.subst_instantiate",
+        "MontagueProof.Algebra.map_rename_weaken",
+        "MontagueProof.Algebra.map_subst_weaken"
+      ]
+    },
+    "Models.v": {
+      "sha256": "b8d0b68d4808ae6f31fdcf563ccb613f02580840b469c17408333e7a7229e5c8",
+      "proved_statements": [
+        "MontagueProof.Models.eval_rename",
+        "MontagueProof.Models.eval_weaken",
+        "MontagueProof.Models.eval_substitution",
+        "MontagueProof.Models.eval_instantiate",
+        "MontagueProof.Models.beta_sound",
+        "MontagueProof.Models.falsity_meaning",
+        "MontagueProof.Models.neg_meaning",
+        "MontagueProof.Models.conj_meaning",
+        "MontagueProof.Models.disj_meaning",
+        "MontagueProof.Models.exists_meaning"
+      ]
+    },
+    "Calculus.v": {
+      "sha256": "7bca832f7ba10d722d5b02fe2f6881109cc7daa524b8dd6bb2d6df1784a8944d",
+      "proved_statements": [
+        "MontagueProof.Calculus.assumption_weakening",
+        "MontagueProof.Calculus.cut",
+        "MontagueProof.Calculus.derivation_sound",
+        "MontagueProof.Calculus.constructive_in_classical",
+        "MontagueProof.Calculus.constructive_sound",
+        "MontagueProof.Calculus.classical_sound",
+        "MontagueProof.Calculus.countermodel_blocks_derivation"
+      ]
+    },
+    "Structural.v": {
+      "sha256": "a827ad64c6e18f5df9fe8a355e096ef21e60615895502376fc8e27746bed0b5b",
+      "proved_statements": [
+        "MontagueProof.Structural.beta_renaming",
+        "MontagueProof.Structural.beta_substitution",
+        "MontagueProof.Structural.derivation_renaming",
+        "MontagueProof.Structural.derivation_weakening",
+        "MontagueProof.Structural.derivation_substitution",
+        "MontagueProof.Structural.derivation_instantiation"
+      ]
+    },
+    "Contexts.v": {
+      "sha256": "e7ff92ad410e733d4a952ef6b5cf57552b866547167936533e30a182f923e9d8",
+      "proved_statements": [
+        "MontagueProof.Contexts.lookup_in",
+        "MontagueProof.Contexts.in_lookup",
+        "MontagueProof.Contexts.lookup_flatten",
+        "MontagueProof.Contexts.mixed_to_split",
+        "MontagueProof.Contexts.split_to_mixed",
+        "MontagueProof.Contexts.mixed_split_equivalence",
+        "MontagueProof.Contexts.variables_only_empty",
+        "MontagueProof.Contexts.add_hypotheses_flatten",
+        "MontagueProof.Contexts.pack_flatten",
+        "MontagueProof.Contexts.packed_derivation",
+        "MontagueProof.Contexts.context_round_trip"
+      ]
+    },
+    "Examples.v": {
+      "sha256": "0a357dbeaf44238217b7197a8fd4d076884eda08096c9bb438af8767b9e3587b",
+      "proved_statements": [
+        "MontagueProof.Examples.john_walks_derivation",
+        "MontagueProof.Examples.syllogism_derivation",
+        "MontagueProof.Examples.existential_derivation",
+        "MontagueProof.Examples.classical_double_negation_derivation",
+        "MontagueProof.Examples.beta_conversion_derivation",
+        "MontagueProof.Examples.substitution_avoids_capture",
+        "MontagueProof.Examples.no_men_countermodel",
+        "MontagueProof.Examples.no_existential_import",
+        "MontagueProof.Examples.john_walks_in_all_models",
+        "MontagueProof.Examples.syllogism_in_all_models",
+        "MontagueProof.Examples.existential_in_all_models",
+        "MontagueProof.Examples.lexical_model_variation",
+        "MontagueProof.Examples.generalization_countermodel",
+        "MontagueProof.Examples.no_generalization_from_one_name"
+      ]
+    },
+    "StructuralExamples.v": {
+      "sha256": "3ccc969bcbb2807806483d854801ba36d19a854257fac5c54b7571dfa12d808d",
+      "proved_statements": [
+        "MontagueProof.StructuralExamples.interleaved_fresh_variable",
+        "MontagueProof.StructuralExamples.split_fresh_variable",
+        "MontagueProof.StructuralExamples.substitute_beneath_generalization",
+        "MontagueProof.StructuralExamples.weaken_open_derivation",
+        "MontagueProof.StructuralExamples.substitute_conversion_derivation",
+        "MontagueProof.StructuralExamples.classical_rule_survives_substitution",
+        "MontagueProof.StructuralExamples.beta_substitution_beneath_binder",
+        "MontagueProof.StructuralExamples.same_flattening",
+        "MontagueProof.StructuralExamples.different_interleavings",
+        "MontagueProof.StructuralExamples.round_trip_preserves_judgment"
+      ]
+    },
+    "BooleanModels.v": {
+      "sha256": "e9a3e8a884988e12d1a2b825f3a769584bf11cc884d8afbd5c5860a96cea3c96",
+      "proved_statements": [
+        "MontagueProof.BooleanModels.classical_decision_implies_excluded_middle",
+        "MontagueProof.BooleanModels.bimp_spec",
+        "MontagueProof.BooleanModels.beval_rename",
+        "MontagueProof.BooleanModels.beval_weaken",
+        "MontagueProof.BooleanModels.beval_substitution",
+        "MontagueProof.BooleanModels.beval_instantiate",
+        "MontagueProof.BooleanModels.beta_boolean_sound",
+        "MontagueProof.BooleanModels.bfalsity_value",
+        "MontagueProof.BooleanModels.bneg_value",
+        "MontagueProof.BooleanModels.bdouble_negation_value",
+        "MontagueProof.BooleanModels.derivation_boolean_sound",
+        "MontagueProof.BooleanModels.classical_boolean_sound",
+        "MontagueProof.BooleanModels.constructive_boolean_sound",
+        "MontagueProof.BooleanModels.boolean_countermodel_blocks_derivation"
+      ]
+    },
+    "BooleanFinite.v": {
+      "sha256": "32823ab3599cc587e080cfb8211f4b7242003d897172258a43eed9a2f67d2a38",
+      "proved_statements": [
+        "MontagueProof.BooleanFinite.finite_forall_spec",
+        "MontagueProof.BooleanFinite.tables_cover_points",
+        "MontagueProof.BooleanFinite.tables_complete",
+        "MontagueProof.BooleanFinite.finite_quantification_complete",
+        "MontagueProof.BooleanFinite.booleans_are_two_valued"
+      ]
+    },
+    "BooleanEquality.v": {
+      "sha256": "d01de327deffef24030dd124ca7d35991154ddd347bbb5caaca925839119b879",
+      "proved_statements": [
+        "MontagueProof.BooleanEquality.boolean_leibniz_predicates",
+        "MontagueProof.BooleanEquality.boolean_leibniz_equality",
+        "MontagueProof.BooleanEquality.finite_leibniz_equality",
+        "MontagueProof.BooleanEquality.decision_leibniz_equality"
+      ]
+    },
+    "BooleanExamples.v": {
+      "sha256": "b19b3fcb5f47e09d413cc66eaa8f46f3759b6c8cb3447bfe0e81e1b79a55a3a5",
+      "proved_statements": [
+        "MontagueProof.BooleanExamples.boolean_no_men_countermodel",
+        "MontagueProof.BooleanExamples.boolean_generalization_countermodel",
+        "MontagueProof.BooleanExamples.boolean_lexical_variation",
+        "MontagueProof.BooleanExamples.boolean_no_existential_import",
+        "MontagueProof.BooleanExamples.boolean_no_generalization_from_one_name",
+        "MontagueProof.BooleanExamples.boolean_john_walks_consequence",
+        "MontagueProof.BooleanExamples.boolean_syllogism_consequence",
+        "MontagueProof.BooleanExamples.boolean_existential_consequence",
+        "MontagueProof.BooleanExamples.boolean_double_negation_consequence",
+        "MontagueProof.BooleanExamples.four_individual_predicates",
+        "MontagueProof.BooleanExamples.sixteen_predicates_of_predicates",
+        "MontagueProof.BooleanExamples.higher_order_quantification_checks_all_functions",
+        "MontagueProof.BooleanExamples.finite_function_equality_reflects_denotation",
+        "MontagueProof.BooleanExamples.distinct_predicates_are_not_equal",
+        "MontagueProof.BooleanExamples.decision_model_quantifier_correct"
+      ]
+    },
+    "Ty2Syntax.v": {
+      "sha256": "821d68f108c17e684ff630ca39f4a46da12aaf6c603d23eca80ed38094de4290",
+      "proved_statements": [
+        "MontagueProof.Ty2Syntax.wvar_cons_cases"
+      ]
+    },
+    "Ty2Models.v": {
+      "sha256": "5a360a497d65f56dbdf00c8b63095550e4f354b31fe8968a356f3c987de65b2a",
+      "proved_statements": [
+        "MontagueProof.Ty2Models.weval_rename",
+        "MontagueProof.Ty2Models.weval_weaken",
+        "MontagueProof.Ty2Models.weval_substitution",
+        "MontagueProof.Ty2Models.weval_instantiate",
+        "MontagueProof.Ty2Models.wbeta_sound",
+        "MontagueProof.Ty2Models.wfalsity_value",
+        "MontagueProof.Ty2Models.wneg_value",
+        "MontagueProof.Ty2Models.necessity_meaning",
+        "MontagueProof.Ty2Models.intension_application_beta"
+      ]
+    },
+    "Ty2Calculus.v": {
+      "sha256": "6e0523004c3d7aea08505fb00d4fcf170e46eb661b18446a351bf577876bd87a",
+      "proved_statements": [
+        "MontagueProof.Ty2Calculus.world_derivation_sound",
+        "MontagueProof.Ty2Calculus.world_countermodel_blocks_derivation"
+      ]
+    },
+    "Ty2Embedding.v": {
+      "sha256": "0a201dba49da020bed5060020d53dea0ddf80bf5d3a2813c189f8b528371c1c7",
+      "proved_statements": [
+        "MontagueProof.Ty2Embedding.value_round_trips",
+        "MontagueProof.Ty2Embedding.lower_lift",
+        "MontagueProof.Ty2Embedding.lift_lower",
+        "MontagueProof.Ty2Embedding.embedding_interpretation",
+        "MontagueProof.Ty2Embedding.embedded_formula_interpretation",
+        "MontagueProof.Ty2Embedding.core_derivation_world_sound"
+      ]
+    },
+    "Ty2Examples.v": {
+      "sha256": "ee472ac4532ee368985d25d0cac1a505c2db8c5f4db2faaebbd30a73115350cd",
+      "proved_statements": [
+        "MontagueProof.Ty2Examples.world_sensitive_truth",
+        "MontagueProof.Ty2Examples.actual_truth_is_not_necessity",
+        "MontagueProof.Ty2Examples.necessity_elimination_derivation",
+        "MontagueProof.Ty2Examples.necessity_elimination_in_models",
+        "MontagueProof.Ty2Examples.no_necessitation_from_actual_assumption",
+        "MontagueProof.Ty2Examples.concepts_agree_actually",
+        "MontagueProof.Ty2Examples.concepts_disagree_elsewhere",
+        "MontagueProof.Ty2Examples.actual_agreement_does_not_preserve_necessity",
+        "MontagueProof.Ty2Examples.freezing_is_not_worldwise_re_evaluation",
+        "MontagueProof.Ty2Examples.explicit_world_beta_conversion",
+        "MontagueProof.Ty2Examples.typed_world_substitution_avoids_capture",
+        "MontagueProof.Ty2Examples.old_instantiation_in_world_models",
+        "MontagueProof.Ty2Examples.old_syllogism_in_world_models",
+        "MontagueProof.Ty2Examples.sixteen_world_dependent_predicates"
+      ]
+    },
+    "ILSyntax.v": {
+      "sha256": "98ab6425e99a1aa4f869011138d2eff5e0373fef87fc5d6e2223060178cf6966",
+      "proved_statements": [
+        "MontagueProof.ILSyntax.ivar_cons_cases"
+      ]
+    },
+    "ILTranslation.v": {
+      "sha256": "231c55688d5420a737bcf8efdc7d3b0ecbb2e542d2d21f97a55c482466b8ea52",
+      "proved_statements": [
+        "MontagueProof.ILTranslation.explicit_world_preservation",
+        "MontagueProof.ILTranslation.intension_translation_preservation",
+        "MontagueProof.ILTranslation.translated_truth_iff",
+        "MontagueProof.ILTranslation.translated_counterexample_iff",
+        "MontagueProof.ILTranslation.down_up_cancellation",
+        "MontagueProof.ILTranslation.variables_are_index_rigid",
+        "MontagueProof.ILTranslation.constants_are_index_rigid",
+        "MontagueProof.ILTranslation.up_is_index_rigid",
+        "MontagueProof.ILTranslation.box_is_index_rigid",
+        "MontagueProof.ILTranslation.up_down_for_rigid_intensions",
+        "MontagueProof.ILTranslation.implicit_necessity_meaning"
+      ]
+    },
+    "ILExamples.v": {
+      "sha256": "048e5ea7143efe590f0999bdf292fb435d748fe8be07f850377ce13c6a4651a6",
+      "proved_statements": [
+        "MontagueProof.ILExamples.source_world_sensitive_truth",
+        "MontagueProof.ILExamples.source_actual_truth_not_necessity",
+        "MontagueProof.ILExamples.assigned_variable_survives_world_shift",
+        "MontagueProof.ILExamples.il_binder_translation_is_capture_free",
+        "MontagueProof.ILExamples.down_translation_uses_current_world",
+        "MontagueProof.ILExamples.up_rebinds_world_but_not_assignment",
+        "MontagueProof.ILExamples.unsafe_index_substitution_changes_denotation",
+        "MontagueProof.ILExamples.source_freezing_and_recomputation_are_distinct",
+        "MontagueProof.ILExamples.target_preserves_freezing_counterexample",
+        "MontagueProof.ILExamples.up_down_requires_a_side_condition",
+        "MontagueProof.ILExamples.nested_extension_is_not_index_rigid",
+        "MontagueProof.ILExamples.quantification_survives_world_abstraction",
+        "MontagueProof.ILExamples.higher_order_quantification_is_not_a_sample",
+        "MontagueProof.ILExamples.implication_translation_regression",
+        "MontagueProof.ILExamples.target_beta_keeps_the_evaluation_world",
+        "MontagueProof.ILExamples.preservation_applies_to_open_intensional_terms"
+      ]
+    }
+  },
+  "proved_statement_count": 173,
+  "kernel_rechecked": true,
+  "global_axiom_dependencies": [],
+  "explicit_soundness_premises": {
+    "constructive": [
+      "FunExt"
+    ],
+    "classical": [
+      "FunExt",
+      "ClassicalTruth"
+    ]
+  },
+  "boolean_model_boundary": {
+    "truth_domain": "bool",
+    "arrow_domains": "full Coq function spaces; not external set-model adequacy",
+    "soundness": [
+      "FunExt",
+      "model includes total quantifiers with reflection proofs"
+    ],
+    "finite_model_construction": [
+      "FunExt",
+      "finite inhabited entity-domain data"
+    ],
+    "arbitrary_entity_domain_construction": [
+      "ClassicalDecision",
+      "inhabited entity domain"
+    ],
+    "finite_leibniz_equality": [
+      "FunExt",
+      "finite model construction"
+    ],
+    "henkin_models_implemented": false,
+    "possible_worlds_in_boolean_core": false,
+    "prop_boolean_adequacy_proved": false
+  },
+  "world_layer": {
+    "possible_worlds_implemented": true,
+    "truth_domain": "bool",
+    "entity_domains": "constant across worlds",
+    "necessity": "quantification over all worlds; no accessibility relation",
+    "soundness": [
+      "FunExt",
+      "reflected total model quantifiers"
+    ],
+    "core_bridge": "term interpretation and semantic consequence preservation",
+    "core_derivation_translation_proved": false,
+    "conservativity_proved": false,
+    "legacy_il_translation_proved": false,
+    "tense_implemented": false,
+    "henkin_completeness_proved": false
+  },
+  "structural_results_require_semantic_premises": false,
+  "il_translation": {
+    "source": "specified world-only Boolean IL fragment with rigid typed constants",
+    "target": "selected Ty2 with explicit world terms",
+    "preservation": "all typed terms under related environments and interpreted current-world term",
+    "premises": [
+      "FunExt",
+      "shared full internal domains and reflected model quantifiers"
+    ],
+    "source_evaluator_independent_of_translation": true,
+    "down_up_cancellation": "unconditional",
+    "up_down_cancellation": "proved for index-rigid intensions, given FunExt",
+    "unrestricted_il_beta_rule": false,
+    "legacy_ptq_bridge_proved": false,
+    "gallin_equivalence_proved": false,
+    "reverse_translation_proved": false,
+    "source_proof_calculus_implemented": false,
+    "tense_or_primitive_equality_implemented": false
+  },
+  "context_bridge_scope": "intrinsic interleaved and split C judgments; not named-source adequacy",
+  "negative_fixtures_rejected": [
+    "actual_agreement_is_not_concept_identity",
+    "actual_truth_does_not_imply_necessity",
+    "boolean_countermodel_rejects_existential_import",
+    "capture_is_not_substitution",
+    "classical_rule_requires_classical_mode",
+    "classical_soundness_needs_its_premise",
+    "constant_true_is_not_a_universal_quantifier",
+    "decision_construction_keeps_its_premise",
+    "distinct_predicates_are_not_leibniz_equal",
+    "flattening_is_not_context_identity",
+    "freezing_does_not_re_evaluate_at_another_world",
+    "il_index_sensitive_substitution_is_not_beta",
+    "il_translation_must_shift_assigned_variables",
+    "il_up_down_is_not_an_unconditional_inverse",
+    "il_world_binder_cannot_reassign_a_variable",
+    "interleaved_lookup_must_shift",
+    "local_assumptions_do_not_authorize_necessitation",
+    "one_name_cannot_be_generalized",
+    "one_predicate_is_not_full_quantification",
+    "substitution_must_transform_assumptions",
+    "weakening_must_shift_conclusion",
+    "world_substitution_must_avoid_capture",
+    "worlds_are_not_entities"
+  ],
+  "source_review": "not independently reviewed"
+}

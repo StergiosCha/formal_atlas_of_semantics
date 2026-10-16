@@ -1,0 +1,21 @@
+Check constructive_sound.
+Check classical_sound.
+Check world_derivation_sound.
+Check legacy_open_preservation.
+Print Assumptions legacy_open_preservation.
+Print observable.
+Print observation_relation.
+Check observation_preservation.
+Print Assumptions observation_preservation.
+Check observable_derivation_prop_sound.
+Check observation_entity_witnesses.
+Check total_truth_reflection_implies_classical_truth.
+Check observed_instantiation_derivation.
+Section WalkthroughDemo.
+Variable FE : FunExt.
+Eval cbv in (paired_boolean FE varying_tables weather_actual_o).
+Eval cbv in (paired_boolean FE varying_tables weather_necessary_o).
+Eval cbv in (paired_boolean FE empty_people_tables every_man_walks_o).
+Eval cbv in (some_man_boolean FE empty_people_tables).
+End WalkthroughDemo.
+Quit.

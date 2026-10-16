@@ -1,0 +1,21 @@
+-Q . MontagueProof
+Syntax.v
+Algebra.v
+Models.v
+Calculus.v
+Structural.v
+Contexts.v
+Examples.v
+StructuralExamples.v
+BooleanModels.v
+BooleanFinite.v
+BooleanEquality.v
+BooleanExamples.v
+Ty2Syntax.v
+Ty2Models.v
+Ty2Calculus.v
+Ty2Embedding.v
+Ty2Examples.v
+ILSyntax.v
+ILTranslation.v
+ILExamples.v

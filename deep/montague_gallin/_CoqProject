@@ -13,3 +13,7 @@ Untensed.v
 UntensedTranslation.v
 UntensedModels.v
 UntensedExamples.v
+Substitution.v
+Calculus.v
+CalculusConnections.v
+CalculusExamples.v

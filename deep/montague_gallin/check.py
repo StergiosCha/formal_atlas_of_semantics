@@ -21,13 +21,15 @@ sys.path.insert(0, str(ROOT / "atlas_data"))
 import verify
 
 UNITS = ("Types", "Target", "Translation", "Examples", "Independent", "Correspondence", "ModelExamples",
-         "Minimal", "MinimalCorrespondence", "Untensed", "UntensedTranslation", "UntensedModels", "UntensedExamples")
+         "Minimal", "MinimalCorrespondence", "Untensed", "UntensedTranslation", "UntensedModels", "UntensedExamples",
+         "Substitution", "Calculus", "CalculusConnections", "CalculusExamples")
 DEPENDENCIES = ("Syntax", "Models", "Grammar", "Translation", "Meaning", "Postulates", "Examples",
                 "Named", "PostulateFormulas")
 PRELUDE = """From Coq Require Import List Bool.
 From MontaguePTQ Require Import Syntax Models Grammar Translation Meaning Postulates Examples Named PostulateFormulas.
 From MontagueGallin Require Import Types Target Translation Examples Independent Correspondence ModelExamples
-  Minimal MinimalCorrespondence Untensed UntensedTranslation UntensedModels UntensedExamples.
+  Minimal MinimalCorrespondence Untensed UntensedTranslation UntensedModels UntensedExamples
+  Substitution Calculus CalculusConnections CalculusExamples.
 Import ListNotations.
 """
 SIGNATURES = """
@@ -114,6 +116,31 @@ Definition untensed_source_is_connected_to_existing_ptq : forall M G a (p : itm 
   lift_value (carrier M) a (eval M (embed_il p) rho sigma i) := @ptq_untensed_interpretation.
 Definition untensed_source_does_not_silently_erase_tense : forall G (p : tm G t),
   ~ exists q : itm G t, embed_il q = Will p := @no_untensed_representation_of_future.
+Definition substitution_sound_for_every_open_body : forall (S P : gty -> Type) E I
+  (B : BooleanTruth) (FE : FunExt)
+  (lex : forall a, S a -> value_domain E I a) (theta : forall a, P a -> value_domain E I a)
+  G a b (p : ctm S P (a :: G) b) (q : ctm S P G a) rho,
+  ceval B lex theta (CApp (CLam p) q) rho = ceval B lex theta (subst0 p q) rho :=
+  @beta_interpretation.
+Definition replacement_requires_all_hole_environments : forall (S P : gty -> Type) E I
+  (B : BooleanTruth) (FE : FunExt)
+  (lex : forall a, S a -> value_domain E I a) (theta : forall a, P a -> value_domain E I a)
+  D a G b (C : ccontext S P D a G b) (p q : ctm S P D a),
+  (forall rho, ceval B lex theta p rho = ceval B lex theta q rho) ->
+  forall tau, ceval B lex theta (plug C p) tau = ceval B lex theta (plug C q) tau :=
+  @replacement_preserves_global_equality.
+Definition soundness_is_for_explicit_derivation_trees : forall (S P : gty -> Type) E I
+  (B : BooleanTruth) (FE : FunExt)
+  (lex : forall a, S a -> value_domain E I a) (theta : forall a, P a -> value_domain E I a)
+  G (p : ctm S P G gt), Derivation p -> forall rho, ceval B lex theta p rho = true :=
+  @ty2_derivations_sound.
+Definition derivation_to_il_is_soundness_not_a_reverse_proof_translation : forall p,
+  Derivation (il_proof_formula p) -> il_standard_consequence (fun _ => False) p :=
+  @derived_il_translation_is_valid.
+Definition checked_object_proof_example : Derivation (il_proof_formula il_constant_reflexivity) :=
+  il_constant_reflexivity_proof.
+Definition consistency_still_records_foundational_inputs : forall (B : BooleanTruth) (FE : FunExt) S P G,
+  Derivation (@cfalse S P G) -> False := @ty2_no_derivation_of_false.
 """
 NEGATIVE = {
     "source_index_is_not_an_entity": (
@@ -208,6 +235,33 @@ NEGATIVE = {
     "untensed_validity_correspondence_is_not_universal_validity": (
         "Definition bad : forall q, il_standard_consequence (fun _ => False) q := "
         "@untensed_standard_validity.", "expected to have type"),
+    "host_equality_is_not_an_object_derivation": (
+        "Definition bad : Derivation (@CEq no_symbols no_symbols [] gt ctrue ctrue) := eq_refl.",
+        "expected to have type"),
+    "semantic_soundness_is_not_completeness": (
+        "Definition bad (S P : gty -> Type) E I (B : BooleanTruth) (FE : FunExt) "
+        "(lex : forall a, S a -> value_domain E I a) (theta : forall a, P a -> value_domain E I a) : "
+        "forall G (p : ctm S P G gt), (forall rho, ceval B lex theta p rho = true) -> Derivation p := "
+        "@ty2_derivations_sound S P E I B FE lex theta.", "expected to have type"),
+    "beta_substitution_cannot_capture_outer_variable": (
+        "Example bad : subst0 (@CLam no_symbols no_symbols [gt; gt] gt gt (CVar (gvs gz))) "
+        "(CVar gz) = @CLam no_symbols no_symbols [gt] gt gt (CVar gz). "
+        "Proof. reflexivity. Qed.", "Unable to unify"),
+    "pointwise_equality_is_not_a_derivation_for_replacement": (
+        "Definition bad B : Derivation (@CEq no_symbols no_symbols [gt] gt (CVar gz) ctrue) := "
+        "proj1 (pointwise_equality_cannot_justify_lambda_replacement B).", "expected to have type"),
+    "axiom_one_requires_a_variable_not_a_compound_term": (
+        "Definition bad : Derivation (@axiom1 no_symbols no_symbols [] (CLam (CVar gz))) := "
+        "ByAxiom (A1 (CLam (CVar gz))).", "expected to have type"),
+    "local_equality_does_not_make_lambda_functions_equal": (
+        "Definition bad B : ceval B no_valuation no_valuation "
+        "(@CLam no_symbols no_symbols [] gt gt (CVar gz)) (value_empty bool bool) = "
+        "ceval B no_valuation no_valuation (@CLam no_symbols no_symbols [] gt gt ctrue) "
+        "(value_empty bool bool) := proj2 (pointwise_equality_cannot_justify_lambda_replacement B).",
+        "expected to have type"),
+    "relative_consistency_does_not_supply_its_own_foundations": (
+        "Definition bad : forall S P G, Derivation (@cfalse S P G) -> False := "
+        "@ty2_no_derivation_of_false.", "expected to have type"),
 }
 
 
@@ -293,8 +347,8 @@ def check():
                 raise RuntimeError(f"Negative fixture failed for the wrong reason: {name}\n{result.stdout}")
             print(f"Rejected invalid fixture: {name}", flush=True)
     return {
-        "schema_version": 1, "checkpoint": 4, "coq_version": "8.20.1",
-        "scope": "Untensed IL and minimal Ty2 over arbitrary inhabited index domains, plus the retained coherent tensed PTQ correspondence",
+        "schema_version": 1, "checkpoint": 5, "coq_version": "8.20.1",
+        "scope": "Scoped Ty2 axiom/replacement calculus and standard-model soundness, retaining untensed IL and coherent PTQ correspondences",
         "files": files, "ptq_dependencies": dependencies,
         "proved_statement_count": len(names), "kernel_rechecked": True,
         "global_dependencies_by_statement": {name: [] for name in names},
@@ -330,7 +384,14 @@ def check():
             "untensed_minimal_target_syntax": True,
             "untensed_needs_temporal_coherence_or_ptq_postulates": False,
             "reverse_translation": False, "henkin_completeness": False,
-            "gallin_axiomatic_calculus": False,
+            "gallin_axiomatic_calculus": True,
+            "ty2_capture_avoiding_substitution": True,
+            "ty2_four_source_axiom_families": True,
+            "ty2_single_occurrence_replacement_under_binders": True,
+            "ty2_explicit_derivation_trees": True,
+            "ty2_standard_model_soundness": True,
+            "ty2_derived_translation_implies_il_validity": True,
+            "ty2_completeness_or_il_proof_translation": False,
         },
         "model_class_boundary": {
             "covered": "all independent coherent valuations on all declared inhabited PTQ world-time frames",
@@ -349,6 +410,16 @@ def check():
             "temporal_symbols": "arbitrary and unused by translations; not recovered by the source-to-target round trip",
             "target_formulas": "minimal terms of type s -> t, applied to the arbitrary evaluation index",
             "full_tensed_or_proof_system_correspondence": False,
+        },
+        "proof_calculus_boundary": {
+            "source": "Gallin p. 60, A1-A3, AS4 and R, in a typed locally indexed presentation",
+            "axiom_instances": "A1-A3 use contextual or named variables; AS4 uses capture-avoiding term substitution",
+            "inference_rules": "axiom introduction and one-occurrence replacement only; equality reasoning is derived",
+            "assumptions": "theorem calculus, not local-hypothesis consequence; R uses equality valid for all hole environments",
+            "soundness": "all derivations, signatures, assignments and environments in the full internal Boolean/function-space semantics",
+            "source_connection": "a derivation of the actual translated IL formula implies its standard semantic validity",
+            "not_claimed": ["completeness", "Henkin soundness/completeness", "IL+D to Ty2+D proof translation",
+                            "named/indexed calculus equivalence", "unrestricted local-assumption rule"],
         },
         "negative_fixtures_rejected": sorted(NEGATIVE),
         "source_review": "AI-assisted primary-source consultation; no independent human review claimed",

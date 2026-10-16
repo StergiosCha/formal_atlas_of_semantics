@@ -173,13 +173,12 @@ assignments are not assumptions about a nonexistent model class.
 
 ## 8. What remains separate
 
-The work now includes the standard-model semantic correspondence for
-untensed IL in this representation. The next distinct goal is Gallin's
-object-language proof calculus, rather than another extension of the
-same semantic theorem. An axiomatic derivation relation and soundness
-must precede any claim about proof-system correspondence. Description
-principles D, Henkin models, completeness and a reverse syntax translation
-are not supplied by the present result.
+The work includes the standard-model semantic correspondence for untensed
+IL in this representation. Checkpoint 5 now supplies the separate Ty2
+theorem calculus and its standard-model soundness in `CALCULUS.md`.
+This is not a translation of IL proofs: a source IL calculus, description
+principles D, proof-system correspondence, Henkin models, completeness
+and a reverse syntax translation remain separate work.
 
 The source passages are recorded in `SOURCE_MAP.md`. Consultation and
 proof engineering were AI-assisted, with no independent human review

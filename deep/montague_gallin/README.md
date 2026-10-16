@@ -30,8 +30,14 @@ consequence and satisfiability for arbitrary predicate-defined theories,
 over every standard model of the implemented target signature. No temporal
 coherence or PTQ meaning postulate is required for this untensed result.
 
-Verification: 133 kernel-checked statements across thirteen modules, with
-27 rejected invalid regression fixtures. No admitted proofs or additional
+Checkpoint 5 adds a typed theorem calculus for Gallin's Ty2 axioms and
+replacement rule, with capture-avoiding substitution, explicit derivation
+trees and standard-model soundness. A proof of a translated IL formula
+now implies its IL semantic validity. This is not completeness or an
+IL-to-Ty2 proof translation.
+
+Verification: 153 kernel-checked statements across seventeen modules, with
+34 rejected invalid regression fixtures. No admitted proofs or additional
 global axioms. The model fields still carry the stated logical assumptions.
 
 ## Reproduce
@@ -69,6 +75,11 @@ not used to make a failing `--check` pass automatically.
 | `UntensedModels.v` | Unrestricted standard-model reconstruction, arbitrary-theory consequence and satisfiability in minimal syntax. |
 | `UntensedExamples.v` | Bare Boolean indices, varying constants, cross-index necessity, unused temporal symbols and exact round-trip limits. |
 | `UNTENSED_MODELS.md` | Step-by-step explanation of the completed arbitrary-index correspondence. |
+| `Substitution.v` | Typed substitution, its semantic lemma, one-hole contexts and replacement under binders. |
+| `Calculus.v` | Source-mapped A1-A3, AS4 and R; derivation datatype, soundness and derived equality reasoning. |
+| `CalculusConnections.v` | Explicit derivation of a translated IL formula and the derivation-to-IL-validity theorem. |
+| `CalculusExamples.v` | Proof trees, relative consistency and counterexamples to capture and pointwise replacement. |
+| `CALCULUS.md` | Step-by-step account of the proof calculus, its semantics and scope. |
 | `MODEL_CORRESPONDENCE.md` | Explanation of the new model classes, reconstruction proof and exact scope. |
 | `SOURCE_MAP.md` | Page references, PDF fingerprint, encoding choices, and exact claim boundary. |
 | `verification.json` | Reproducible source hashes, dependency pins and machine-check results. |
@@ -115,11 +126,11 @@ Montague research checkpoint remain unchanged. No P/F grade, outcome,
 comparison edge, live-Coq library, or published PTQ verification record
 has been modified.
 
-Next: encode Gallin's object-language axiomatic calculus and establish
-its soundness. Proof-system correspondence and Henkin completeness are
-separate later milestones. No colleague discussion or
+Next: the source IL calculus and its connection to Ty2 derivations.
+Description principles, proof-system correspondence and Henkin completeness
+are separate milestones. No colleague discussion or
 email approval is a prerequisite to implementation.
 
-Checkpoints 1, 2 and 3 are preserved in commits `fb4d9db`, `f8543aa` and
-`f26c278`; the current verification record is checkpoint 4. No earlier PTQ checkpoint
+Checkpoints 1-4 are preserved in commits `fb4d9db`, `f8543aa`, `f26c278`
+and `503e035`; the current verification record is checkpoint 5. No earlier PTQ checkpoint
 was modified.

@@ -168,9 +168,10 @@ map records AI-assisted consultation; no independent human review is claimed.
 ## 7. Remaining work
 
 Checkpoint 4 completes the next distinct comparison, untensed IL over
-arbitrary index carriers, in `UNTENSED_MODELS.md`. A reverse translation,
-an object-language proof calculus, description principles and Henkin
-completeness remain separate tasks. None is required to make the present
+arbitrary index carriers, in `UNTENSED_MODELS.md`. Checkpoint 5 adds the
+Ty2 theorem calculus and standard-model soundness in `CALCULUS.md`.
+A reverse translation, IL proof interpretation, description principles
+and Henkin completeness remain separate tasks. None is required to make the present
 minimal-syntax preservation theorem true.
 
 The deployed atlas, its grades and comparisons, the live Coq service,

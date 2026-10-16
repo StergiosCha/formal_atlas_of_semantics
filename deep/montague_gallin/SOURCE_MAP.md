@@ -4,8 +4,8 @@ Date: 2026-10-16. This directory extends the source-first PTQ development.
 It does not replace or regrade an atlas record, amend a frozen PTQ source,
 or identify Gallin's model classes with those of MTT or TTR.
 
-Current checkpoint: 4. Checkpoints 1, 2 and 3 remain in commits `fb4d9db`,
-`f8543aa` and `f26c278`, respectively.
+Current checkpoint: 5. Checkpoints 1-4 remain in commits `fb4d9db`,
+`f8543aa`, `f26c278` and `503e035`, respectively.
 
 ## Source consulted
 
@@ -28,6 +28,10 @@ the scan, not reconstructed from the garbled OCR alone.
 Checkpoint 4 reread pp. 59-63, particularly the standard-model definition,
 Theorem 8.2 and its interpretation lemma, to separate the arbitrary-index
 untensed result from the previous tensed PTQ specialization.
+Checkpoint 5 checked the rendered image of p. 60 for A1-A3, AS4 and R,
+including the variable types, equality signs and the occurrence restriction
+on R. The formalization is a typed, locally indexed theorem calculus;
+no equivalence with a separate named proof implementation is claimed.
 This is AI-assisted source consultation, not independent human approval.
 No claim is made to have audited the rest of the book or reconstructed its
 completeness proofs. Hahn and Richter (2015) is not the primary evidence
@@ -52,7 +56,11 @@ for this checkpoint.
 | Section 8, p. 62, Theorem 8.2 | `Examples.consequence_on_model_image` | A restricted consequence correspondence over source models and their constructed targets. It is not the book's theorem over all independent standard Ty2 models. |
 | Section 8, pp. 59-62: standard models and preservation across model classes | `Independent.standard_model`; `embed_model`; `reconstruct_model`; `Correspondence.admissible_consequence_correspondence` | The independent standard record has arbitrary inhabited entity/index types. The full PTQ comparison covers independently chosen valuations on declared world-time frames, with explicit temporal coherence and translated postulates. This is the tensed, restricted analogue, not all of Gallin's Theorem 8.2. |
 | Section 2, p. 10, footnote 1: tensed English needs an extension | `index_future`, `index_past`; `Will`, `Has` compilation | The target s-domain is the existing PTQ world-time product. Named binary relations require the same world and earlier/later time. No additional logical tense constructor is introduced. |
-| Section 3, pp. 17-20; section 8, pp. 59-63 | Boundary only | General/Henkin models, the axiomatic calculi, description principles D, and relative interpretations of those calculi are not implemented here. |
+| Section 8, p. 60: A1, A2, A3 and AS4 | `Calculus.axiom1` through `axiom4`; `Ty2Axiom`; `Substitution.csubst` | A1-A3 admit contextual and named variables, not arbitrary compound terms as primitive instances. AS4 uses typed capture-avoiding substitution. All displayed logical operations expand into minimal syntax. |
+| Section 8, p. 60: rule R | `Substitution.ccontext`, `plug`; `Calculus.Derivation` | One occurrence can be replaced, including under lambdas. Binder declarations are not term positions. The equality derivation is valid at every hole environment. No local-hypothesis-to-global-theorem rule is added. |
+| Section 8, pp. 59-60: standard semantics and the Ty2 calculus | `ty2_axioms_sound`, `ty2_derivations_sound`, `standard_model_derivation_soundness` | Soundness by induction on explicit derivation trees. Full internal function spaces and explicit BooleanTruth/FunExt inputs. This is not the generalized completeness asserted on p. 60. |
+| Section 8, pp. 61-62: translate formulas and compare their meanings | `CalculusConnections.derived_il_translation_is_valid` | An actual target derivation implies IL semantic validity via the existing translation. A concrete translated-reflexivity proof tree is supplied. This does not construct an IL-to-Ty2 proof translation. |
+| Section 3, pp. 17-20; section 8, pp. 59-63 | Remaining boundary | The source IL calculus, general/Henkin models, description principles D, relative proof interpretations and completeness are not implemented here. |
 
 ## Representation decisions
 
@@ -94,6 +102,11 @@ for this checkpoint.
 7. Free-variable assignments are arbitrary, not selected examples.
    `canonical_environments_match` constructs a matching target environment
    for every source environment, so the preservation premise is not vacuous.
+8. `Derivation` has only axiom and single-occurrence replacement constructors.
+   Semantic truth is not a constructor argument. The proof calculus has no
+   local hypothesis rule; adding one without binding restrictions would not
+   preserve pointwise consequence under the unrestricted replacement rule.
+   A checked Boolean counterexample explains this distinction.
 
 ## Existing PTQ results used
 
@@ -129,6 +142,12 @@ independent `ieval` is connected to the existing PTQ evaluator by
 `ptq_untensed_interpretation`, and its target is the existing compiler
 followed by minimal-syntax elimination. No source grammar or PTQ audit is
 changed, and this does not remove the conditions on the full tensed result.
+
+Checkpoint 5 adds source-mapped Ty2 axioms, typed substitution and R, explicit
+derivation trees and their standard-model soundness. Relative consistency
+retains BooleanTruth and FunExt as inputs. Derived equality reasoning and
+an explicit proof of a translated IL formula use only the two derivation
+constructors. No completeness or proof-system equivalence follows.
 
 `ModelExamples.missing_temporal_coherence_changes_prediction` gives a
 standard target model whose future relation is reflexive. A translated

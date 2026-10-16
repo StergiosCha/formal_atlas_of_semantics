@@ -1,5 +1,8 @@
 # Checkpoint 2: independent models and what the correspondence proves
 
+Checkpoint 3 retains these model results and carries them into Gallin's
+minimal syntax. See `MINIMAL_SYNTAX.md` for that completed extension.
+
 ## Result
 
 Admissible PTQ consequence agrees with consequence in the independently
@@ -171,6 +174,8 @@ it does not erase these fields or certify source fidelity.
 This is a tensed, temporally restricted analogue of the standard-model
 comparison motivating Gallin's section 8. It is not a reconstruction of
 all of Theorem 8.2, of the Ty2 axiomatic calculus, of the description
-principles D, or of Henkin completeness. Extra connective constructors
-also remain in the target syntax. These are distinct next milestones,
-not missing cases of the correspondence proved at this checkpoint.
+principles D, or of Henkin completeness. At checkpoint 2 the target also
+retained extra connective constructors. Checkpoint 3 eliminates these
+constructors and transports the model correspondence into minimal syntax.
+The remaining model and proof-system questions are distinct milestones,
+not missing cases of the correspondence proved here.

@@ -20,12 +20,14 @@ PTQ = HERE.parent / "montague_ptq"
 sys.path.insert(0, str(ROOT / "atlas_data"))
 import verify
 
-UNITS = ("Types", "Target", "Translation", "Examples", "Independent", "Correspondence", "ModelExamples")
+UNITS = ("Types", "Target", "Translation", "Examples", "Independent", "Correspondence", "ModelExamples",
+         "Minimal", "MinimalCorrespondence")
 DEPENDENCIES = ("Syntax", "Models", "Grammar", "Translation", "Meaning", "Postulates", "Examples",
                 "Named", "PostulateFormulas")
 PRELUDE = """From Coq Require Import List Bool.
 From MontaguePTQ Require Import Syntax Models Grammar Translation Meaning Postulates Examples Named PostulateFormulas.
-From MontagueGallin Require Import Types Target Translation Examples Independent Correspondence ModelExamples.
+From MontagueGallin Require Import Types Target Translation Examples Independent Correspondence ModelExamples
+  Minimal MinimalCorrespondence.
 Import ListNotations.
 """
 SIGNATURES = """
@@ -67,6 +69,26 @@ Definition independent_satisfiability : forall ps,
   source_satisfiable ps <-> target_satisfiable ps := @admissible_satisfiability_correspondence.
 Definition standard_carriers_do_not_require_a_ptq_frame : forall S (N : standard_model S),
   Type := fun S N => standard_indices N.
+Definition minimal_preservation_covers_every_rich_target_term :
+  forall (S P : gty -> Type) (E I : Type) (B : BooleanTruth)
+    (lex : forall a, S a -> value_domain E I a)
+    (free : forall a, P a -> value_domain E I a) (FE : FunExt)
+    G a (p : gtm S P G a) rho,
+    ceval B lex free (eliminate p) rho = geval B lex free p rho :=
+  @elimination_preserves_interpretation.
+Definition minimal_translation_covers_open_source_terms : forall M G a (p : tm G a) rho sigma i,
+  core_eval (embed_model M) (target_free sigma) (minimal_translate p) (canonical_env rho) i =
+  lift_value (carrier M) a (eval M p rho sigma i) := @minimal_open_preservation.
+Definition minimal_syntax_has_an_exact_retraction : forall S P G a (p : ctm S P G a),
+  eliminate (include_core p) = p := @eliminate_core_identity.
+Definition minimal_target_postulates_still_characterize_admissibility : forall F (N : coherent_model F),
+  core_admissible N <-> admissible (reconstruct_model N) := @minimal_admissible_model_correspondence.
+Definition minimal_entailment_ends_in_actual_core_formulas : forall (ps : list (tm [] t)) (q : tm [] t),
+  core_consequence (map minimal_translate ps) (minimal_translate q) <->
+  source_consequence admissible ps q := @minimal_consequence_correspondence.
+Definition minimal_satisfiability_ends_in_actual_core_formulas : forall ps,
+  source_satisfiable ps <-> core_satisfiable (map minimal_translate ps) :=
+  @minimal_satisfiability_correspondence.
 """
 NEGATIVE = {
     "source_index_is_not_an_entity": (
@@ -117,6 +139,25 @@ NEGATIVE = {
     "model_roundtrip_is_not_a_reverse_syntax_translation": (
         "Definition bad : forall G a, target_term G a -> tm [] t := @reconstruct_model.",
         "expected to have type"),
+    "rich_connectives_are_not_minimal_constructors": (
+        "Definition bad : core_term [] gt := GNeg (GEq (GCon (IndexedConstant e 0)) "
+        "(GCon (IndexedConstant e 0))).", "expected to have type"),
+    "minimal_truth_is_not_minimal_falsity": (
+        "Example bad : @ctrue source_symbol source_parameter [] = cfalse. "
+        "Proof. reflexivity. Qed.", "Unable to unify"),
+    "universal_abbreviation_is_not_existential_abbreviation": (
+        "Example bad : @call source_symbol source_parameter [] gt (CVar gz) = cex (CVar gz). "
+        "Proof. reflexivity. Qed.", "Unable to unify"),
+    "minimal_translation_cannot_discard_bound_variables": (
+        "Example bad : eliminate (@GLam source_symbol source_parameter [] gt gt (GVar gz)) = "
+        "CLam ctrue. Proof. reflexivity. Qed.", "Unable to unify"),
+    "minimal_reconstruction_still_requires_postulates": (
+        "Definition bad : forall F (N : coherent_model F), admissible (reconstruct_model N) := "
+        "@minimal_admissible_model_correspondence.", "expected to have type"),
+    "minimal_boolean_universal_is_not_true": (
+        "Definition bad F (N : coherent_model F) theta : "
+        "core_eval N theta (@call source_symbol source_parameter [] gt (CVar gz)) (gempty F) = true := "
+        "proj1 (minimal_boolean_quantifiers_differ N theta).", "expected to have type"),
 }
 
 
@@ -202,8 +243,8 @@ def check():
                 raise RuntimeError(f"Negative fixture failed for the wrong reason: {name}\n{result.stdout}")
             print(f"Rejected invalid fixture: {name}", flush=True)
     return {
-        "schema_version": 1, "checkpoint": 2, "coq_version": "8.20.1",
-        "scope": "PTQ and independent temporally coherent Ty2 models: interpretation, admissibility, consequence and satisfiability",
+        "schema_version": 1, "checkpoint": 3, "coq_version": "8.20.1",
+        "scope": "PTQ to minimal Ty2 syntax: interpretation, admissibility, consequence and satisfiability over independent coherent models",
         "files": files, "ptq_dependencies": dependencies,
         "proved_statement_count": len(names), "kernel_rechecked": True,
         "global_dependencies_by_statement": {name: [] for name in names},
@@ -227,7 +268,10 @@ def check():
             "admissible_consequence_and_satisfiability_correspondence": True,
             "countermodel_when_temporal_coherence_is_omitted": True,
             "all_independent_ty2_models": False,
-            "elimination_of_connectives_into_gallin_minimal_syntax": False,
+            "elimination_of_connectives_into_gallin_minimal_syntax": True,
+            "minimal_independent_evaluator": True,
+            "minimal_elimination_all_signatures_carriers_environments": True,
+            "minimal_english_countermodel_and_admissible_correspondences": True,
             "reverse_translation": False, "henkin_completeness": False,
             "gallin_axiomatic_calculus": False,
         },

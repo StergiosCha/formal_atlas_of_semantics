@@ -18,8 +18,14 @@ temporal conditions. The nine meaning-postulate families are stated as
 translated target formulas. Admissibility, consequence and satisfiability
 agree in both directions for these model classes.
 
-Verification: 69 kernel-checked statements across seven modules, with
-14 rejected invalid regression fixtures. No admitted proofs or additional
+Checkpoint 3 eliminates every extra connective and quantifier constructor
+into Gallin's minimal lambda/application/equality syntax. An independently
+written minimal evaluator agrees with the richer evaluator for every
+term. The PTQ, English-tree and admissible-model results compose with this
+elimination, including the temperature countermodel.
+
+Verification: 101 kernel-checked statements across nine modules, with
+20 rejected invalid regression fixtures. No admitted proofs or additional
 global axioms. The model fields still carry the stated logical assumptions.
 
 ## Reproduce
@@ -49,6 +55,9 @@ not used to make a failing `--check` pass automatically.
 | `Independent.v` | Independent standard models, temporal-coherence conditions, reconstruction and interpretation-preserving model round trips. |
 | `Correspondence.v` | Translated postulates characterize admissibility; entailment and satisfiability agree across the two model classes. |
 | `ModelExamples.v` | Nonvacuity, the admissible temperature countermodel, and a counterexample when temporal coherence is dropped. |
+| `Minimal.v` | Minimal syntax and evaluator, Gallin's logical abbreviations, capture-avoiding weakening and general elimination preservation. |
+| `MinimalCorrespondence.v` | PTQ and English preservation, postulates, entailment, satisfiability and the countermodel in minimal target syntax. |
+| `MINIMAL_SYNTAX.md` | Step-by-step account of the completed connective elimination and its assumptions. |
 | `MODEL_CORRESPONDENCE.md` | Explanation of the new model classes, reconstruction proof and exact scope. |
 | `SOURCE_MAP.md` | Page references, PDF fingerprint, encoding choices, and exact claim boundary. |
 | `verification.json` | Reproducible source hashes, dependency pins and machine-check results. |
@@ -75,9 +84,9 @@ This is a model-correspondence result for the stated classes, not full
 equivalence of PTQ and every Ty2 or Henkin model. Unrestricted standard
 models are defined, but their arbitrary temporal relations need not match
 PTQ. A checked counterexample demonstrates the difference. Boolean reflection and function
-extensionality remain explicit model assumptions. The target currently
-retains connective constructors instead of eliminating them into Gallin's
-minimal lambda/application/equality syntax.
+extensionality remain explicit model assumptions. The final target now
+has Gallin's minimal primitive syntax. The richer intermediate target is
+retained for readability, with a proved interpretation-preserving elimination.
 
 No independent human source review is claimed. Source consultation and
 proof engineering were AI-assisted; the proof assistant checks the
@@ -90,11 +99,11 @@ Montague research checkpoint remain unchanged. No P/F grade, outcome,
 comparison edge, live-Coq library, or published PTQ verification record
 has been modified.
 
-Next: eliminate the extra connective constructors into Gallin's minimal
-lambda/application/equality syntax, then address the untensed comparison
-over arbitrary index carriers. Gallin's axiomatic calculus and Henkin
+Next: address the untensed comparison over arbitrary index carriers.
+Gallin's axiomatic calculus and Henkin
 completeness are separate later milestones. No colleague discussion or
 email approval is a prerequisite to implementation.
 
-Checkpoint 1 is preserved in commit `fb4d9db`; the current verification
-record is checkpoint 2. No earlier PTQ checkpoint was modified.
+Checkpoints 1 and 2 are preserved in commits `fb4d9db` and `f8543aa`;
+the current verification record is checkpoint 3. No earlier PTQ checkpoint
+was modified.

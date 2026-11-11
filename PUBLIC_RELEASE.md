@@ -59,5 +59,30 @@ All 169 Coq files and 123 additional proof checkpoints and protected research
 files were also checked for byte identity. This migration does not authorize
 future changes to claims, outcomes, assumptions or evidence.
 
-No commit, push, history rewrite, deployment, visibility change, archival DOI
-or independent source-review approval is implied by this cleanup.
+## Local history rewrite on 11 November 2026
+
+Following explicit approval, the cleanup was committed and all locally available
+branches were rewritten. Private documents and caches were removed throughout
+history, and personal paths and recipient headings were redacted. A complete
+Git recovery backup and bundle are retained privately outside the checkout.
+
+The rewrite processed 74 commits. Every historical Coq source blob remained
+unchanged. The main tree immediately before and after the rewrite had the same
+Git tree ID, so the rewrite did not alter the already-tested cleanup result.
+The full local history scan then checked 1,068 reachable file versions with no
+findings. These checks are not a guarantee about remote-only refs or caches.
+
+`HISTORY_REWRITE_2026_11_11.tsv` records the old and new commit IDs. In particular,
+the previously cited revision `9c2302fe106a3104081df8751fa715d1ca68f772` maps to
+`374e4a98ac106ea2bdf7f3c77d8648db6ce26703`. The original IDs and hashes inside
+historical evidence manifests remain as provenance identifiers. They are not
+promises that the private, pre-redaction snapshots remain publicly retrievable.
+
+The history tool removed the local `origin` remote as a safety precaution.
+No force-push was performed. GitHub still requires a separately approved update,
+including checking for remote changes and arranging any necessary cache or
+pull-request cleanup. Do not fetch or merge old history back into the sanitized
+checkout. Collaborators should re-clone after the remote update.
+
+No deployment, visibility change, archival DOI or independent source-review
+approval is implied by the rewrite.

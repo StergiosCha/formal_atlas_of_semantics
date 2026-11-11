@@ -79,10 +79,13 @@ historical evidence manifests remain as provenance identifiers. They are not
 promises that the private, pre-redaction snapshots remain publicly retrievable.
 
 The history tool removed the local `origin` remote as a safety precaution.
-No force-push was performed. GitHub still requires a separately approved update,
-including checking for remote changes and arranging any necessary cache or
-pull-request cleanup. Do not fetch or merge old history back into the sanitized
-checkout. Collaborators should re-clone after the remote update.
+The local rewrite did not itself update GitHub. Updating the remote requires
+separate approval and a check for newer work. Each existing remote branch must
+be updated with an explicit expected-old-revision lease. A secondary branch
+must not retain the pre-redaction history. Remote caches and pull-request refs
+may require separate GitHub assistance even after branch updates succeed.
+Do not fetch or merge old history back into the sanitized checkout.
+Collaborators should re-clone after the remote update.
 
 No deployment, visibility change, archival DOI or independent source-review
 approval is implied by the rewrite.

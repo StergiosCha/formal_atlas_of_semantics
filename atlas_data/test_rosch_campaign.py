@@ -26,8 +26,9 @@ class RoschCampaignTests(unittest.TestCase):
         self.assertEqual(len(names), 10)
         for name in names:
             with self.subTest(file=name):
+                from privacy_migration import expected_digest
                 self.assertEqual(hashlib.sha256((ROOT / name).read_bytes()).hexdigest(),
-                                 previous["files"][name])
+                                 expected_digest(name, previous["files"][name]))
 
     def test_all_eight_inventory_targets_have_scoped_dispositions(self):
         rec = record()

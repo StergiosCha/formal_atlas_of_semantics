@@ -6,6 +6,9 @@ the exact repository commit used.
 
 Before selecting and tagging a release:
 
+Run the [public-tree and history checks](PUBLIC_RELEASE.md) first. Removing
+private files from the current tree does not remove them from Git history.
+
 1. Review the source-registry migration status and retain its limitations.
    “230 surveyed sources” must not become “230 independently verified theories.”
 2. Verify the release commit through the Coq and reporting jobs, inspect the

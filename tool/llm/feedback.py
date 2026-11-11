@@ -1,6 +1,6 @@
 """Typed feedback extraction — coqc's complaint as structure, not stderr.
 
-A3_PLAN's rule: never paste raw compiler output back into the prompt.
+the verifier design's rule: never paste raw compiler output back into the prompt.
 Parse it into typed signals; the same structure is the student-facing
 lesson and the model-facing repair signal, and keeping raw available
 alongside is deliberate — it is ablation arm A1 in experiment E2.

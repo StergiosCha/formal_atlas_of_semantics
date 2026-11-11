@@ -2,10 +2,10 @@
 
 The iron rule everywhere: the model drafts, coqc disposes. No model text
 ever becomes a verdict; the verdict is the compiler's, and every round is
-logged to runs/*.jsonl — that log is the research dataset (A3_PLAN,
+logged to runs/*.jsonl — that log is the research dataset (the verifier design,
 "The research output nobody else has").
 
-Feedback arms (experiment E2 in A3_PLAN — pick with --feedback):
+Feedback arms (experiment E2 in the verifier design — pick with --feedback):
   none   A0  independent resample, no feedback
   raw    A1  the old behaviour: coqc output tail pasted back
   typed  A2  feedback.py's structured signals (default)
@@ -40,7 +40,7 @@ except FileNotFoundError:
 
 def vocabulary(imports: list[str]) -> str:
     """The imported theories' real names, so the drafter never guesses. This
-    is the signature manifest doing its job (A3_PLAN, NOT-STATABLE tier 1)."""
+    is the signature manifest doing its job (the verifier design, NOT-STATABLE tier 1)."""
     parts = []
     for imp in imports:
         s = SIGNATURES.get(imp)
@@ -164,7 +164,7 @@ def one_run(task: str, model: str, arm: str, rounds: int,
             # Iron rule: a bucket is only VERIFIED if Coq audited a theorem.
             # A comment-only or theorem-free draft compiles trivially — that
             # is the model issuing a verdict, and it gets labeled as exactly
-            # that (two-tier rule, A3_PLAN: NOT-STATABLE mechanism).
+            # that (two-tier rule, the verifier design: NOT-STATABLE mechanism).
             state["audit"] = resp["audit"]
             state["notes"] = draft.get("notes", "")
             state["code"] = draft["code"]

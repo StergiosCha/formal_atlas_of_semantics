@@ -147,7 +147,9 @@ class HeimCampaignTests(unittest.TestCase):
             if name in changed:
                 continue
             with self.subTest(file=name):
-                self.assertEqual(hashlib.sha256((ROOT / name).read_bytes()).hexdigest(), expected)
+                from privacy_migration import expected_digest
+                self.assertEqual(hashlib.sha256((ROOT / name).read_bytes()).hexdigest(),
+                                 expected_digest(name, expected))
 
 
 if __name__ == "__main__":

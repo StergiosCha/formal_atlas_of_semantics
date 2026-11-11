@@ -1,6 +1,6 @@
 #!/bin/bash
 # FORMAL-ATLAS bulk paper download — generated 2026-09-05
-cd /historical-home/Dropbox/formalizing_formal_semantics || exit 1
+cd "${ATLAS_CORPUS_ROOT:?Set ATLAS_CORPUS_ROOT to your external corpus directory}" || exit 1
 mkdir -p papers/foundations papers/dynamic papers/categorical papers/type_logical papers/inquisitive papers/probabilistic
 ok=0; fail=0
 curl -sL --fail --max-time 120 -A 'Mozilla/5.0' -o papers/foundations/Tarski_1944_TheSemanticConceptionOfTruth.pdf 'https://sites.ualberta.ca/~francisp/Phil426/TarskiTruth1944.pdf' && file papers/foundations/Tarski_1944_TheSemanticConceptionOfTruth.pdf | grep -qi pdf && { echo "OK   papers/foundations/Tarski_1944_TheSemanticConceptionOfTruth.pdf"; ok=$((ok+1)); } || { echo "FAIL papers/foundations/Tarski_1944_TheSemanticConceptionOfTruth.pdf"; rm -f papers/foundations/Tarski_1944_TheSemanticConceptionOfTruth.pdf; fail=$((fail+1)); }

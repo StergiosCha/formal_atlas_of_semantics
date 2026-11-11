@@ -23,8 +23,10 @@ def bundle_sources(records, repo):
     for record in records:
         key = record.get("key", record.get("_key"))
         original = record["file"]
-        # Historical records include the author's absolute checkout path.
-        relative = original.split("/revisiting-formal-semantics/", 1)[-1]
+        # A neutral historical root preserves old record identity. Resolve it
+        # only inside this checkout, with the same path confinement below.
+        relative = original.removeprefix("/historical-checkout/")
+        relative = relative.split("/revisiting-formal-semantics/", 1)[-1]
         path = (repo / relative).resolve()
         if not path.is_relative_to(repo) or path.suffix != ".v":
             raise ValueError(f"Unsafe proof source path: {original}")

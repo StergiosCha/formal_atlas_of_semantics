@@ -34,3 +34,30 @@ Thumbs.db
 .nra.cache
 __pycache__/
 *.pyc
+
+# Private assistant state, handovers, correspondence and local experiments
+.claude/
+.codex/
+.agents/
+HANDOVER*.md
+**/handover/
+**/handovers/
+**/PRIVATE_*
+**/REVIEW_EMAIL.md
+atlas_data/ANTIGRAVITY_PROMPT.md
+atlas_data/BRAND_PROMPT.md
+atlas_data/NEXT.md
+atlas_data/A3_PLAN.md
+private/
+handoff/
+
+# Local credentials must never be published. Examples may use placeholders.
+.env
+.env.*
+!.env.example
+!.env.template
+*.pem
+*.key
+*.p12
+*.pfx
+*.publishsettings

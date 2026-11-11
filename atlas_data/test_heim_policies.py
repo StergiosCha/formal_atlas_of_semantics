@@ -77,14 +77,16 @@ class HeimPolicyTests(unittest.TestCase):
         expected_changes = {"README.md", "_CoqProject", "atlas_data/ATLAS.md", "atlas_data/atlas.json",
                             "atlas_data/claims.lock", "atlas_data/paper_evidence.json", "atlas_data/site/index.html",
                             "atlas_data/test_heim_integration.py"}
-        # Explicit subsequent infrastructure revision; no proof/record hash
-        # exemption is added. See SOURCE_REGISTRY.md and its regression tests.
+        # Reporting revisions are excluded here. Private path redactions use
+        # exact before/after fingerprints, not a blanket record exemption.
         expected_changes |= {"atlas_data/build_site.py", "atlas_data/consolidate.py"}
         for path, expected in prior["files"].items():
             if path in expected_changes:
                 continue
             with self.subTest(file=path):
-                self.assertEqual(hashlib.sha256((ROOT / path).read_bytes()).hexdigest(), expected)
+                from privacy_migration import expected_digest
+                self.assertEqual(hashlib.sha256((ROOT / path).read_bytes()).hexdigest(),
+                                 expected_digest(path, expected))
 
     def test_prior_85_records_1129_claims_and_paper_outcomes_unchanged(self):
         data = ledger()
@@ -92,11 +94,13 @@ class HeimPolicyTests(unittest.TestCase):
         atlas = json.loads((HERE / "atlas.json").read_text())
         prior_files = [f for f in atlas["files"] if f["file"] in base["files"]]
         self.assertEqual(len(prior_files), 85)
-        self.assertEqual(digest(prior_files), base["files_sha256"])
+        from privacy_migration import expected_digest
+        self.assertEqual(digest(prior_files), expected_digest('heim_policy_files', base["files_sha256"]))
         for paper in atlas["papers"]:
             if str(paper["id"]) == "7":
                 self.assertIn(record()["file"], paper.pop("coq_files"))
-        self.assertEqual(digest(atlas["papers"]), base["papers_except_heim_links_sha256"])
+        self.assertEqual(digest(atlas["papers"]), expected_digest(
+            'heim_policy_papers', base["papers_except_heim_links_sha256"]))
         claims = json.loads((HERE / "claims.lock").read_text())["claims"]
         old_claims = {n: c for n, c in claims.items() if c["file"] in base["files"]}
         self.assertEqual(len(old_claims), 1129)

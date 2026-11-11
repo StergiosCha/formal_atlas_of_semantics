@@ -58,6 +58,8 @@ class RecordPathTests(unittest.TestCase):
             mech = json.loads((ROOT / "atlas_data/records" / (key + ".mech.json")).read_text())
             self.assertEqual(mech["file"], rel)
             self.assertEqual(mech["key"], key)
+        # Neutral historical roots preserve record identity without publishing
+        # a maintainer's filesystem path or promoting old source assessments.
         self.assertEqual(absolute_records, 17)
         self.assertEqual(index["extras/FocusEven.v"][0], "extras__FocusEven")
 

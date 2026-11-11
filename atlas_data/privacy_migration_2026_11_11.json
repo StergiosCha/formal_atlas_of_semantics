@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-11",
+  "baseline_commit": "9c2302fe106a3104081df8751fa715d1ca68f772",
+  "purpose": "Exact fingerprints after private filesystem paths were replaced by neutral labels. No change to scientific content is authorized. Original historical fingerprints remain in their original manifests.",
+  "validation": "The entire consolidated atlas equals the baseline after the documented path substitutions. All 169 Coq files and 123 additional proof checkpoints and protected research files are byte-identical.",
+  "fingerprints": {
+    "atlas_data/records/extras__FCS.json": {
+      "before": "2fb91ecb2f0194a643983d84c142b9e620a7c8e3e0bb5281cf5310b3c50760d9",
+      "after": "1710b7d9eba72ac75e18a91986f344629249ef529d2c87e03f1cd2e1a2628776"
+    },
+    "atlas_data/verify.py": {
+      "before": "02b177f0d52b88cf924e776e0b833b0f1f4ed05391280ce15ee39bd80a0fe439",
+      "after": "1046b79baeb49726c88fd72c225dbc2d3ff8fdb4c5e5055e115971ab598dd95d"
+    },
+    "atlas_data/campaigns/cohort2_2026_09_13.md": {
+      "before": "28537841c91c5b3d8e98aa900b4d882dbae5b6490e9f14ecca4ef4cf245502a5",
+      "after": "495ab2c808b98cbb547ee3c08415de7f5e259bca3adddd6374829ec912462dd8"
+    },
+    "atlas_data/campaigns/cohort2_2026_09_13_reading_audit.md": {
+      "before": "7770cb5886f3798ed376a4f790828a9e9e51e4a1ecf1be2137c590599f7e14c1",
+      "after": "dcbe47ec8d5f6ac8a3d0512a8e71d19807b7433d23dc15276886526cd119b8aa"
+    },
+    "heim_integration_files": {
+      "before": "7cd9ac1ed6936d1037be95372a2e8676ea7d30da14a05002e952cbdb4a6aefc4",
+      "after": "f46702abc3bdde191138844037006985cea4f35bff87ae31fa607486779aaf63"
+    },
+    "heim_integration_papers": {
+      "before": "5b5ed8ecbb9e917ae4fe91c89bfd715d715133b706842957782ee099214ab7de",
+      "after": "00522be300468b6b69481ce20515d364a131d931a1d07f953c60100bf0afcbcb"
+    },
+    "heim_policy_files": {
+      "before": "ad6908aa877bceea1fea1ad84a5e0e7760aa8e9fb8a2e2290d6684c2811af3d6",
+      "after": "5ab528c1321209333a1194da16d190c0a8023339370523a67661ab5569d25bbd"
+    },
+    "heim_policy_papers": {
+      "before": "5b5ed8ecbb9e917ae4fe91c89bfd715d715133b706842957782ee099214ab7de",
+      "after": "00522be300468b6b69481ce20515d364a131d931a1d07f953c60100bf0afcbcb"
+    },
+    "pre_source_registry_atlas": {
+      "before": "69d496ee4a293dbc7a4833c4761653ee40e2ef176b49522e8e3e446f2baf1438",
+      "after": "a226af2d48d1bf5aa8120911e84e873cd8b7501bf75fad0d6bfeadc54de17563"
+    },
+    "atlas_data/test_heim_campaign.py": {
+      "before": "fb0637db2e91a90cb86022d31929d3d83eecb3420e2e6723de9c8a86a8e338b0",
+      "after": "ab9767794f56d947bbf190f11e81a0e572d242d6c6dfa17eaa782b3e69fbeafa"
+    }
+  }
+}

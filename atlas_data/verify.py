@@ -32,7 +32,7 @@ REC = os.path.join(HERE, "records")
 _parent = os.path.dirname(HERE)
 REPO = os.environ.get("ATLAS_REPO") or (
     _parent if os.path.exists(os.path.join(_parent, "_CoqProject"))
-    else "/historical-checkout")
+    else os.path.join(_parent, "revisiting-formal-semantics"))
 ROOTS = ["shallow", "deep", "extras", "ttr_mtt", "atlas"]
 INCLUDES = [a for r in ROOTS for a in ("-R", os.path.join(REPO, r), "")]
 

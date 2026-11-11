@@ -1,6 +1,6 @@
 # Formal Atlas of Semantics
 
-**A short overview for technical review**
+**A short research overview**
 
 Discussion draft | 16 October 2026
 

@@ -95,7 +95,7 @@ ASSUMPTION** (with the assumption named), **NOT STATABLE** (with why the
 theory's vocabulary can't express it). That fourth bucket is the pedagogically
 valuable one and no existing tool has it.
 
-**B5. Look and feel.** See `BRAND_PROMPT.md` — cartographic atlas plate, λ as
+**B5. Look and feel.** The public assets in `site/assets/` use a cartographic atlas plate, λ as
 meridian, Proof General's locked-region amber as the accent, serif prose plus
 a monospace with real Greek glyphs. The failure mode to avoid is dark-mode
 neon "AI product"; the target is *Edward Tufte edits the Coq manual*.

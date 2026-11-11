@@ -99,7 +99,9 @@ class HeimIntegrationTests(unittest.TestCase):
             if name in shared:
                 continue
             with self.subTest(file=name):
-                self.assertEqual(hashlib.sha256((ROOT / name).read_bytes()).hexdigest(), expected)
+                from privacy_migration import expected_digest
+                self.assertEqual(hashlib.sha256((ROOT / name).read_bytes()).hexdigest(),
+                                 expected_digest(name, expected))
 
     def test_only_new_files_and_heim_links_change_consolidated_evidence(self):
         results = ledger()
@@ -107,11 +109,13 @@ class HeimIntegrationTests(unittest.TestCase):
         atlas = json.loads((HERE / "atlas.json").read_text())
         prior = [rec for rec in atlas["files"] if rec["file"] in baseline_files()]
         self.assertEqual(len(prior), baseline["file_count"])
-        self.assertEqual(digest(prior), baseline["files_sha256"])
+        from privacy_migration import expected_digest
+        self.assertEqual(digest(prior), expected_digest('heim_integration_files', baseline["files_sha256"]))
         for paper in atlas["papers"]:
             if str(paper["id"]) == "7":
                 self.assertLessEqual(set(results["files"]), set(paper.pop("coq_files")))
-        self.assertEqual(digest(atlas["papers"]), baseline["papers_except_heim_links_sha256"])
+        self.assertEqual(digest(atlas["papers"]), expected_digest(
+            'heim_integration_papers', baseline["papers_except_heim_links_sha256"]))
 
     def test_previous_claims_unchanged_and_61_new_claims_locked(self):
         results = ledger()

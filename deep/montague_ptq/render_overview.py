@@ -52,7 +52,7 @@ def main():
     doc = Document(word)
     doc.core_properties.title = "Formal Atlas of Semantics: a short overview"
     doc.core_properties.author = "Stergios Chatzikyriakidis"
-    doc.core_properties.subject = "Discussion draft for technical review"
+    doc.core_properties.subject = "Formal Atlas research overview"
     for section in doc.sections:
         section.page_width, section.page_height = Inches(8.27), Inches(11.69)
         section.top_margin = section.bottom_margin = Inches(0.65)

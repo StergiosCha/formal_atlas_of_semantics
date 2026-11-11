@@ -1,6 +1,6 @@
 # Final design: `atlas/inquisitive/InqB.v` — Basic Inquisitive Semantics (InqB)
 
-Target: `/historical-checkout/atlas/inquisitive/InqB.v` (single file; `mkdir -p atlas/inquisitive` first). Coq 8.20.1, stdlib only. Build from the repo root:
+Target: `atlas/inquisitive/InqB.v` (single file; `mkdir -p atlas/inquisitive` first). Coq 8.20.1, stdlib only. Build from the repo root:
 `coqc -R shallow "" -R deep "" -R extras "" -R ttr_mtt "" -R atlas "" atlas/inquisitive/InqB.v`. This document supersedes the earlier `inqb.md` in this directory.
 
 ## Judgment

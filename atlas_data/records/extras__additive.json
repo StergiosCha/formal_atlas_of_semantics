@@ -134,6 +134,6 @@
   }
  ],
  "source_gap": null,
- "notes": "Record produced by the 2026-09-05 batch audit sweep; pre-atlas pilot file predating the zero-axiom discipline (5 Parameter declarations, all pure type/constant signatures, so propositional_axioms = 0; Classical_Prop and FunctionalExtensionality imported but unused). Absolute path: /historical-checkout/extras/additive.v.",
+ "notes": "Record produced by the 2026-09-05 batch audit sweep; pre-atlas pilot file predating the zero-axiom discipline (5 Parameter declarations, all pure type/constant signatures, so propositional_axioms = 0; Classical_Prop and FunctionalExtensionality imported but unused). Absolute path: extras/additive.v.",
  "compiles": true
 }

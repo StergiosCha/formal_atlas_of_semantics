@@ -37,6 +37,8 @@ def main():
     parser.add_argument("--brief-packet", type=Path, required=True)
     parser.add_argument("--walkthrough-packet", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument("--cover-letter", type=Path,
+                        help="Optional private correspondence kept outside the repository")
     args = parser.parse_args()
     brief, walkthrough, out = (p.resolve() for p in
                                (args.brief_packet, args.walkthrough_packet, args.output_dir))
@@ -66,12 +68,13 @@ def main():
         target.parent.mkdir(exist_ok=True)
         shutil.copy2(directory / "MANIFEST.json", target)
     for source, target in (("REVIEW_START_HERE.md", "START_HERE.md"),
-                           ("REVIEW_RESPONSE.md", "REVIEW_RESPONSE.md"),
-                           ("REVIEW_EMAIL.md", "COVER_EMAIL.md")):
+                           ("REVIEW_RESPONSE.md", "REVIEW_RESPONSE.md")):
         text = (HERE / source).read_text()
         if "\u2014" in text or "\u2013" in text:
             raise RuntimeError(f"Unsupported dash in authored document: {source}")
         shutil.copy2(HERE / source, out / target)
+    if args.cover_letter:
+        shutil.copy2(args.cover_letter.resolve(), out / "COVER_EMAIL.md")
     shutil.copy2(__file__, out / "renderer" / Path(__file__).name)
 
     for name in ("START_HERE.md",):

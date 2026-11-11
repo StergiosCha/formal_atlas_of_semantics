@@ -7,7 +7,7 @@ before treating this workbench or the legacy correspondence as evidence of
 whole-paper fidelity. This branch's mathematical checkpoint is unchanged.
 
 Current status: checkpoint 7 is frozen for scientific review. Start with the
-[two-page review brief for technical review](REVIEW_BRIEF.md); the longer report
+[two-page review brief](REVIEW_BRIEF.md); the longer report
 is supporting evidence. The research sequence below is deferred, not required
 before review. No reviewer approval or published release is claimed.
 
@@ -19,8 +19,9 @@ before producing Word/PDF and a shareable archive. This is documentation of
 checkpoint 7, not a further mathematical checkpoint.
 
 For the combined review handoff, [reading instructions](REVIEW_START_HERE.md),
-the [blank response form](REVIEW_RESPONSE.md) and the
-[covering email draft](REVIEW_EMAIL.md) are maintained here.
+and the [blank response form](REVIEW_RESPONSE.md) are maintained here.
+Personal covering letters stay outside the repository and may be supplied
+to the assembler with `--cover-letter /path/to/private-letter.md`.
 `prepare_review_dispatch.py` combines the two existing hash-pinned export
 packets into a new directory and ZIP, checks source identity and reruns both
 proof checkers. The reading-instructions links target the assembled packet.

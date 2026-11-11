@@ -39,7 +39,8 @@ class ProofSourceTests(unittest.TestCase):
     def test_paths_missing_sources_and_wrong_audits_fail_build(self):
         with tempfile.TemporaryDirectory() as temp:
             repo = Path(temp)
-            for path in ("../escape.v", "/etc/escape.v", "README.md", "tool/private.v"):
+            for path in ("../escape.v", "/etc/escape.v", "README.md", "tool/private.v",
+                         "/historical-checkout/../escape.v", "/historical-checkout/tool/private.v"):
                 with self.assertRaises(ValueError, msg=path):
                     bundle_sources([{"file": path, "key": "bad"}], repo)
             with self.assertRaises(FileNotFoundError):

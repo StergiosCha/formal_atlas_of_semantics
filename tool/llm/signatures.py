@@ -1,6 +1,6 @@
 """Generate signatures.json — each atlas theory's actual vocabulary.
 
-v0 of A3_PLAN's signature manifest ("a NOT-STATABLE without a signature
+v0 of the verifier design's signature manifest ("a NOT-STATABLE without a signature
 manifest behind it is a guess wearing a badge"), produced from verify.py's
 comment-stripped parse rather than SerAPI (step 7 upgrades this). Fed into
 the draft prompt so models stop guessing constant names, and rendered by

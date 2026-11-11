@@ -33,13 +33,13 @@ class SourceRegistryTests(unittest.TestCase):
         self.assertNotIn(cooper["artifact_links"][0]["artifact"],
                          [a["artifact"] for a in old_cooper["artifact_links"]])
 
-    def test_research_and_historical_edges_are_byte_identical_to_pre_migration(self):
+    def test_research_and_historical_edges_match_documented_migrations(self):
         baseline = json.loads((HERE / "source_registry_baseline.json").read_text())
         # Reverse the reporting-schema migration and remove ONE explicitly
         # added comparison-infrastructure record. Recalculate historical
         # totals from the remaining records, not from a trusted replacement
         # snapshot. Every old paper, record, grade, edge and statistic is
-        # still checked against the original byte hash.
+        # checked exactly, using the documented privacy-redaction fingerprint.
         prior = legacy_atlas_view(self.atlas)
         prior["files"] = [f for f in prior["files"]
                           if f["file"] != "atlas/ttr/Witness_Contract.v"]
@@ -51,7 +51,9 @@ class SourceRegistryTests(unittest.TestCase):
             prior["stats"][field] = dict(Counter(f["_final"][field] for f in prior["files"]))
         prior["stats"]["disputed_records"] = [f["_key"] for f in prior["files"] if f["_final"]["disputed"]]
         historical = json.dumps(prior, indent=1, ensure_ascii=False).encode()
-        self.assertEqual(hashlib.sha256(historical).hexdigest(), baseline["atlas_sha256"])
+        from privacy_migration import expected_digest
+        self.assertEqual(hashlib.sha256(historical).hexdigest(),
+                         expected_digest('pre_source_registry_atlas', baseline["atlas_sha256"]))
         self.assertEqual(baseline["git_commit"], "91983bc561226f90f7b306620f7d4fe8fd07ed86")
 
     def test_offline_levels_and_outcomes_match_without_filesystem_search(self):

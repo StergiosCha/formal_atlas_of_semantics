@@ -26,6 +26,11 @@ class VerificationSetupTests(unittest.TestCase):
         self.assertEqual(JOB["steps"][0]["uses"], "actions/checkout@v4")
         self.assertEqual(WORKFLOW["permissions"], {"contents": "read"})
 
+    def test_checkout_is_marked_safe_before_tests_that_call_git(self):
+        command = STEPS["Check verification setup"]["run"]
+        self.assertLess(command.index('git config --global --add safe.directory "$PWD"'),
+                        command.index("python3 -m unittest discover -s .github/tests"))
+
     def test_root_uses_existing_coq_switch_and_failure_propagating_shell(self):
         self.assertEqual(shlex.split(JOB["defaults"]["run"]["shell"]),
                          ["opam", "exec", "--root=/home/coq/.opam", "--", "bash",

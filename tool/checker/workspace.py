@@ -70,7 +70,10 @@ def library():
     entries = json.loads(CATALOG.read_text())["files"]
     sources = {}
     for entry in entries:
-        relative = entry["file"].split("/revisiting-formal-semantics/", 1)[-1]
+        # Same neutral historical root that atlas_data/proof_sources.py strips
+        # for the site bundle; both sides must resolve the same relative paths.
+        relative = entry["file"].removeprefix("/historical-checkout/")
+        relative = relative.split("/revisiting-formal-semantics/", 1)[-1]
         path = (REPO / relative).resolve()
         if (not path.is_relative_to(REPO) or path.suffix != ".v"
                 or relative.split("/")[0] not in isolation.ROOTS):

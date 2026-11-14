@@ -30,32 +30,40 @@
      file is changed.
 
    WHAT IS FORMALIZED
+     Each line names results.  Their premises (listed carriers, uniqueness
+     of proofs, boolean reflection) are displayed in the statements and
+     are repeated here only where a summary would mislead without them.
      Part 1  Vocabulary: uniqueness of proofs, complete duplicate-free
              lists, cardinality; list lemmas, including a pigeonhole for
              relations.
-     Part 2  "Most" as a proposition ([L21] Appendix D): the literal form
-             with an injection from Fin(k), a list form, their agreement,
-             and the relation to Sundholm's proof object and to the
-             counting quantifier of Ranta_GQ.v.
+     Part 2  "Most" as a proposition ([L21] Appendix D): the form with an
+             injection from Fin(k), a list form, their equivalence on a
+             listed domain, the equivalence of the list form with the
+             inhabitation of Sundholm's proof object as Ranta_GQ.v states
+             it, and the relation to that file's counting quantifier.
      Part 3  Cardinality: [L21] (10), a subset type has no more objects
              than its base when the predicate has unique proofs; a
              Type-valued family for which the bound fails ([S89] p. 9,
-             first way); fidelity to the bijection with a k-element set.
+             first way); a bridge between the list form and the bijection
+             with Fin(n) of Appendix B.
      Part 4  The donkey sentence: the Sigma type of owner-donkey-proof
              triples ([L21] (5), [S89] (24)); the collection of owners
              with a weak existential ([L21] (13)); the pair, strong and
-             weak readings ([L21] (7), (12), (16)); for "every" they
-             agree; the strong reading entails the weak; the collection
-             counts owners.
+             weak readings ([L21] (7), (12), (16)); for "every", the pair
+             and strong readings agree with the doubly universal sentence
+             (the weak reading is not part of that result); for "most",
+             the strong reading entails the weak; the collection counts
+             owners when the proofs of the owner proposition are unique.
      Part 5  Counting forms of the three readings and the proofs that the
-             readings on types equal them.
+             readings on types are equivalent to them.
      Part 6  Sundholm's own alternative ([S89] (27)): A-injections; what
              they do and do not count; the map from his pairs to Luo's
              collection; agreement of all readings when nobody owns two
              donkeys.
      Part 7  Combining the two sums ([L21] section 4): the impredicative
-             existential (9), the encoding (22) and its strength, and why
-             a weak sum with unique proofs has no computing projection.
+             existential (9); the encoding (22), interderivable with
+             Sigma by two functions; and a limit on projections out of a
+             weak sum with unique proofs.
      Part 8  The weak sum as a truncation ([L21] (23)-(25)), through an
              interface with an axiom-free instance.
      Part 9  A mixed reading ([L21] (17)-(18)).
@@ -93,20 +101,28 @@
      [ARTIFACT-ii]  The collection of owners is stated for any
                     proposition Q equivalent to owning a donkey
                     ([weak_owner_spec]), not only for the literal
-                    existential [owner].  A complete list of
-                    {x | exists y, own x y} needs the proofs of that
-                    existential to be unique.  Rocq proves this when
-                    ownership is functional with unique proofs
-                    ([functional_owner_proofs_unique]) and leaves it open
-                    when someone owns two donkeys.  A boolean owner test
-                    has unique proofs outright.
+                    existential [owner].  The results that list or count
+                    the collection take uniqueness of the proofs of Q as
+                    a premise.  For the literal existential that premise
+                    is proved when ownership is functional with unique
+                    proofs ([functional_owner_proofs_unique]) and is not
+                    established when someone owns two donkeys.  A boolean
+                    owner test has unique proofs outright.  Nothing here
+                    shows that the premise is necessary.
      [ARTIFACT-iii] The models of Part 10 are boolean tables read as
-                    propositions.  Their readings on types are decided by
-                    counting ([bool_model_readings]).
+                    propositions, and their collection of owners is
+                    formed with a boolean owner test ([ownerP]).  On
+                    listed carriers the test is logically equivalent to
+                    the existential ([bool_model_premises]) and has
+                    unique proofs.  The collection is not identified with
+                    {x | exists y, own x y}.  The readings on types of
+                    these models are decided by counting
+                    ([bool_model_readings]).
      [ARTIFACT-iv]  [respects_first] and the results S2 to S4 of Part 6
-                    are a reading of [S89] (27).  The paper says that
+                    are one reading of [S89] (27).  The paper says that
                     notions such as A-finite can then be defined and does
-                    not define them.
+                    not define them.  Nothing here shows that this is the
+                    completion Sundholm intended, or that others fail.
      [ARTIFACT-v]   Zero axioms, zero global Parameters.  Every principle
                     a result depends on, such as uniqueness of proofs or
                     the truncation interface, is an explicit premise of
@@ -117,7 +133,8 @@
 Require Import List Arith Lia Bool Eqdep_dec.
 Import ListNotations.
 (* The standard library attaches a library warning to its finite types.
-   They are used only in Parts 2 and 3, to state fidelity to Fin(n). *)
+   They are used only in Parts 2 and 3, in the bridges between the list
+   forms and Fin(n). *)
 Set Warnings "-stdlib-vector".
 Require Coq.Vectors.Fin.
 Set Warnings "stdlib-vector".
@@ -333,8 +350,9 @@ Qed.
 (*  Part 2 — "Most" as a proposition ([L21] Appendix D; [S89] (23))           *)
 (* ========================================================================== *)
 
-(* The literal form: some k at least [n/2]+1 and an injection Fin(k) -> A
-   all of whose values satisfy P.  Every quantifier is the weak one. *)
+(* The form of [L21] Appendix D: some k at least [n/2]+1 and an injection
+   Fin(k) -> A all of whose values satisfy P.  Every quantifier is the
+   weak one. *)
 Definition most_fin (A : Type) (nA : nat) (P : A -> Prop) : Prop :=
   exists k : nat, k >= Nat.div nA 2 + 1 /\
   exists f : Fin.t k -> A,
@@ -390,8 +408,10 @@ Proof.
         apply Hall. rewrite <- Hw. apply in_map. exact Ha.
 Qed.
 
-(* [most_p] is Sundholm's proof object with its Sigma replaced by the weak
-   existential: [L21] section 3.2 describes Most this way. *)
+(* [most_p] has the shape of Sundholm's proof object with its Sigma
+   replaced by the weak existential: [L21] section 3.2 describes Most this
+   way.  The theorem is a logical equivalence with the inhabitation of
+   Ranta_GQ.most_wit, not an equality of proof objects. *)
 Theorem most_p_squashes_sundholm :
   forall (A : Type) (dom : list A) (P : A -> Prop),
     most_p dom P <-> inhabited (Ranta_GQ.most_wit A dom P).
@@ -568,9 +588,9 @@ Proof.
     + rewrite (IH i Hnd); [reflexivity | lia].
 Qed.
 
-(* Fidelity of [card] to the Fin(n) bijection of Appendix B.  The second
-   half takes decidable equality as a premise: computing the position of an
-   object in a list needs it. *)
+(* A bridge between [card] and the Fin(n) bijection of Appendix B.  The
+   half from a list to functions takes decidable equality as a premise:
+   the proof uses it to compute the position of an object in the list. *)
 Theorem card_iff_fin :
   forall (A : Type) (n : nat),
     ((exists (f : Fin.t n -> A) (g : A -> Fin.t n),
@@ -669,9 +689,9 @@ Definition reflects {F D : Type} (R : F -> D -> Prop) (rb : F -> D -> bool)
   : Prop := forall x y, rb x y = true <-> R x y.
 
 (* D0.  When nobody owns two donkeys and ownership has unique
-   proofs, the literal existential has unique proofs too.  So the premise
-   [proofs_unique Q] is an extra assumption only where the two counts can
-   differ. *)
+   proofs, the literal existential has unique proofs too.  In that case
+   the premise [proofs_unique Q] of the results below holds for the
+   literal existential.  The other cases are not characterized here. *)
 Theorem functional_owner_proofs_unique :
   forall (F D : Type) (own : F -> D -> Prop),
     functional_own own -> own_proofs_unique own ->
@@ -718,7 +738,8 @@ Proof.
   exists (exist _ y o); exact (Hs (exist _ y o)).
 Qed.
 
-(* D3.  The weak collection counts owners ([L21] section 3.2). *)
+(* D3.  The weak collection counts owners ([L21] section 3.2), once the
+   proofs of Q are unique. *)
 Theorem weak_collection_counts_owners :
   forall (F D : Type) (own : F -> D -> Prop) (Q : F -> Prop),
     weak_owner_spec own Q -> proofs_unique Q ->
@@ -907,8 +928,9 @@ Proof.
   - apply (pairs_image F D own ownb lF lD lS); assumption.
 Qed.
 
-(* D5-D7.  Each type-level reading equals its counting form.  These
-   justify computing the examples of Part 10 by counting. *)
+(* D5-D7.  Each type-level reading is equivalent to its counting form,
+   under the premises displayed.  These justify computing the examples of
+   Part 10 by counting. *)
 Theorem pair_counting_form :
   forall (F D : Type) (own beat : F -> D -> Prop) (ownb beatb : F -> D -> bool),
     reflects own ownb -> reflects beat beatb -> own_proofs_unique own ->
@@ -937,7 +959,7 @@ Proof.
   - apply Hmap. apply Hc. exact H.
 Qed.
 
-(* D6.  The strong reading on types equals its counting form
+(* D6.  The strong reading on types is equivalent to its counting form
    ([L21] (12)). *)
 Theorem strong_counting_form :
   forall (F D : Type) (own beat : F -> D -> Prop) (ownb beatb : F -> D -> bool)
@@ -972,7 +994,7 @@ Proof.
   - apply Hmap. apply Hc. exact H.
 Qed.
 
-(* D7.  The weak reading on types equals its counting form
+(* D7.  The weak reading on types is equivalent to its counting form
    ([L21] (16)). *)
 Theorem weak_counting_form :
   forall (F D : Type) (own beat : F -> D -> Prop) (ownb beatb : F -> D -> bool)
@@ -1091,11 +1113,12 @@ Definition forward {F D : Type} (own : F -> D -> Prop) (Q : F -> Prop)
        (ex_intro (fun y => own (Ranta.he F D own z) y)
           (Ranta.it F D own z) (projT2 (projT2 z)))).
 
-(* S4.  Added here.  Luo's collection is a target of exactly that kind: the
-   forgetful map is an A-injection, respects first components and is onto.
-   So counting Luo's collection with ordinary bijections is counting
-   Sundholm's pairs by first components, and the quantifier stays uniform
-   in its domain. *)
+(* S4.  Added here.  When the proofs of Q are unique, Luo's collection is a
+   target of that kind: the forgetful map is an A-injection, respects first
+   components and is onto.  On this reading of (27), counting Luo's
+   collection with ordinary bijections counts Sundholm's pairs by first
+   components.  No inverse of the map is given, and nothing here shows
+   that Sundholm intended this completion of (27). *)
 Theorem forward_realizes_owner_count :
   forall (F D : Type) (own : F -> D -> Prop) (Q : F -> Prop)
          (HQ : weak_owner_spec own Q),
@@ -1187,7 +1210,9 @@ Proof.
 Qed.
 
 (* [L21] section 4: (22) is strong, interderivable with Sigma by functions
-   of the theory.  Stated in Type because the functions are the content. *)
+   of the theory.  Stated in Type because the functions are the content.
+   The theorem gives the two functions.  It does not prove that they are
+   mutually inverse, and its universes are those of this declaration. *)
 Theorem ex22_is_strong :
   forall (A : Type) (B : A -> Type),
     ((ex22 A B -> {x : A & B x}) * ({x : A & B x} -> ex22 A B))%type.
@@ -1448,8 +1473,10 @@ Proof.
     + apply sig_filter_listing; exact HlF.
 Qed.
 
-(* Corollary.  On every boolean model with listed
-   carriers, Luo's three formulas, read on types, are decided by counting. *)
+(* Corollary.  On every boolean model with listed carriers, Luo's three
+   formulas, read on types, are decided by counting.  The collection of
+   owners is the one formed with the boolean owner test [ownerP]
+   (ARTIFACT-iii), not the literal collection [FEx]. *)
 Theorem bool_model_readings :
   forall (F D : Type) (ob bb : F -> D -> bool) (lF : list F) (lD : list D),
     listing lF -> listing lD ->
@@ -1596,9 +1623,10 @@ Proof.
   unfold weak_reading_c, Ranta_GQ.most_c, Ranta_GQ.cnt; vm_compute; lia.
 Qed.
 
-(* Corollary.  [L21] section 2, at the level of formulas (7), (12), (16):
-   on the ten-farmer model (7) holds and (12) and (16) fail; the triples
-   number 29 and the owners 10. *)
+(* Corollary.  [L21] section 2, at the level of formulas (7), (12), (16),
+   in the boolean interpretation of ARTIFACT-iii: on the ten-farmer model
+   (7) holds and (12) and (16) fail; the triples number 29 and the owners
+   10. *)
 Theorem luo_ten_farmers_type_level :
   most_pair (holds ownB10) (holds beatB10) (FSig_list ownB10 dF10 dD29) /\
   ~ most_strong (holds ownB10) (holds beatB10) (ownerP ownB10 dD29)
@@ -1644,8 +1672,9 @@ Proof.
   unfold strong_reading_c, Ranta_GQ.most_c, Ranta_GQ.cnt; vm_compute; lia.
 Qed.
 
-(* Corollary.  [L21] (14)-(16) at type level: on the three-farmer model the
-   weak reading holds and the strong reading fails. *)
+(* Corollary.  [L21] (14)-(16) at type level, in the same boolean
+   interpretation: on the three-farmer model the weak reading holds and
+   the strong reading fails. *)
 Theorem three_farmers_type_level :
   most_weak (holds ownB3) (holds beatB3) (ownerP ownB3 dD6)
     (sig_filter (ownerb_of ownB3 dD6) dF3) /\

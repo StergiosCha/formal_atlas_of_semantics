@@ -1,7 +1,7 @@
 {
   "file": "atlas/mtt_ranta/Donkey_Sums.v",
   "region": "modern type theories (MTT + Ranta pair)",
-  "summary": "Donkey anaphora with strong and weak sums, after Luo 2021, built on the donkey context of Ranta.v and the Sundholm-style quantifier of Ranta_GQ.v. The Sigma type of owner-donkey-proof triples is compared with the collection of owners formed with a weak existential. Luo's formula (10) is proved with uniqueness of proofs as a displayed premise, and the bound is shown to fail for Type-valued families. The pair, strong and weak readings of 'most farmers who own a donkey beat it' are proved equal to counting forms; for 'every' they agree, and the strong reading entails the weak. On Luo's ten-farmer model the pair reading holds and both of his readings fail. Sundholm's own alternative, counting by first components with A-injections (his formula (27)), is stated as printed, and the map from his pairs to Luo's collection is proved to be of that kind. The existential encodings (9) and (22) and a restricted truncation interface cover Luo's section 4.",
+  "summary": "Donkey anaphora with strong and weak sums, after Luo 2021, built on the donkey context of Ranta.v and the Sundholm-style quantifier of Ranta_GQ.v. The Sigma type of owner-donkey-proof triples is compared with the collection of owners formed with a weak existential. Luo's formula (10) is proved with uniqueness of proofs as a displayed premise, and the bound is shown to fail for Type-valued families. The pair, strong and weak readings of 'most farmers who own a donkey beat it' are proved equivalent to counting forms, under displayed premises; for 'every' the pair and strong readings agree, and for 'most' the strong reading entails the weak. On Luo's ten-farmer model, in a boolean interpretation whose collection of owners is formed with a boolean owner test, the pair reading holds and both of his readings fail. Sundholm's own alternative, counting by first components with A-injections (his formula (27)), is stated as printed, and the map from his pairs to Luo's collection is proved to be of that kind when the owner proposition has unique proofs. From Luo's section 4, the existential encodings (9) and (22) and a restricted truncation interface are formalized; its results about the type theories are not.",
   "sources": [
     {
       "citation": "Luo, Z. (2021). On Type-Theoretical Semantics of Donkey Anaphora. The 14-page version on the author's page; its file name indicates LACL 2021. A shorter version, 'Donkey Anaphora: Type-Theoretic Semantics with Both Strong and Weak Sums', is in the proceedings of the ESSLLI 2021 workshop CSTFRS, pp. 45-52.",
@@ -72,7 +72,7 @@
       "coq": "proofs_unique Q",
       "source": "L21 section 3.1, the proof-irrelevance rule",
       "match": "changed",
-      "note": "a premise of each result that needs it, not a rule of the theory (artifact v)"
+      "note": "a premise of each result that uses it, not a rule of the theory; not shown to be necessary (artifact v)"
     },
     {
       "coq": "ex9 A P; ex22 A B",
@@ -96,7 +96,7 @@
       "coq": "onto f; respects_first f",
       "source": "S89 (12), p. 5, for onto; none for respects_first",
       "match": "added",
-      "note": "the paper says notions such as A-finite can be defined and does not define them; respects_first is the converse condition that this reading of (27) needs (artifact iv)"
+      "note": "the paper says notions such as A-finite can be defined and does not define them; respects_first is a converse condition added by this reading of (27), which is not shown to be the one Sundholm intended (artifact iv)"
     },
     {
       "coq": "mixed_reading",
@@ -108,7 +108,7 @@
       "coq": "pair_reading_c / strong_reading_c / weak_reading_c; pairs_of; owners_of",
       "source": "none",
       "match": "added",
-      "note": "counting forms in the idiom of Ranta_GQ.most_c, proved equal to the readings on types"
+      "note": "counting forms in the idiom of Ranta_GQ.most_c, proved equivalent to the readings on types under displayed premises"
     }
   ],
   "theorems": [
@@ -130,7 +130,7 @@
     {
       "name": "most_p_squashes_sundholm",
       "status": "proved",
-      "source_claim": "L21 section 3.2 and Appendix D: Most as a proposition is S89's proof object (23) with the weak existential"
+      "source_claim": "L21 section 3.2 and Appendix D: Most as a proposition is logically equivalent to the inhabitation of S89's proof object (23), as Ranta_GQ.most_wit states it"
     },
     {
       "name": "most_p_counting",
@@ -140,7 +140,7 @@
     {
       "name": "most_fin_iff_most_p",
       "status": "proved",
-      "source_claim": "L21 Appendix D: the literal form with an injection from Fin(k) agrees with the list form"
+      "source_claim": "L21 Appendix D: the form with an injection from Fin(k) is equivalent to the list form on a listed domain"
     },
     {
       "name": "card_subset_le",
@@ -155,7 +155,7 @@
     {
       "name": "card_iff_fin",
       "status": "proved",
-      "source_claim": "L21 Appendix B; S89 (14): cardinality as a bijection with a k-element set; decidable equality assumed for one half"
+      "source_claim": "L21 Appendix B; S89 (14): the list form of cardinality against the bijection with Fin(n); decidable equality assumed for the half from a list to functions"
     },
     {
       "name": "pair_every_is_ranta",
@@ -165,12 +165,12 @@
     {
       "name": "functional_owner_proofs_unique",
       "status": "proved",
-      "source_claim": "added: with functional ownership the existential has unique proofs"
+      "source_claim": "added: with functional ownership and unique proofs of ownership, the existential has unique proofs"
     },
     {
       "name": "every_readings_agree",
       "status": "proved",
-      "source_claim": "L21 (4) against (12) with a universal quantifier; S89 p. 8 on (24) and (25): for 'every' the readings agree"
+      "source_claim": "L21 (4) against (12) with a universal quantifier; S89 p. 8 on (24) and (25): for 'every' the pair and strong readings agree with the doubly universal sentence"
     },
     {
       "name": "strong_implies_weak",
@@ -180,27 +180,27 @@
     {
       "name": "weak_collection_counts_owners",
       "status": "proved",
-      "source_claim": "L21 section 3.2: the Sigma type over the weak existential counts the donkey-owners"
+      "source_claim": "L21 section 3.2: the Sigma type over the weak existential counts the donkey-owners; uniqueness of the proofs of Q is a displayed premise"
     },
     {
       "name": "strong_collection_counts_pairs",
       "status": "proved",
-      "source_claim": "S89 p. 9, second way; L21 section 2: the triples number as many as the owner-donkey pairs"
+      "source_claim": "S89 p. 9, second way; L21 section 2: the triples number as many as the owner-donkey pairs; uniqueness of the proofs of ownership is a displayed premise"
     },
     {
       "name": "pair_counting_form",
       "status": "proved",
-      "source_claim": "L21 (7), S89 (26): the pair reading on types equals its counting form"
+      "source_claim": "L21 (7), S89 (26): the pair reading on types is equivalent to its counting form, under displayed premises"
     },
     {
       "name": "strong_counting_form",
       "status": "proved",
-      "source_claim": "L21 (12): the strong reading on types equals its counting form"
+      "source_claim": "L21 (12): the strong reading on types is equivalent to its counting form, under displayed premises"
     },
     {
       "name": "weak_counting_form",
       "status": "proved",
-      "source_claim": "L21 (16): the weak reading on types equals its counting form"
+      "source_claim": "L21 (16): the weak reading on types is equivalent to its counting form, under displayed premises"
     },
     {
       "name": "injection_is_A_injection",
@@ -220,12 +220,12 @@
     {
       "name": "forward_realizes_owner_count",
       "status": "proved",
-      "source_claim": "added: the map from S89's pairs to L21's collection is an A-injection that identifies pairs with the same owner and is onto"
+      "source_claim": "added: when the proofs of Q are unique, the map from S89's pairs to L21's collection is an A-injection that identifies pairs with the same owner and is onto"
     },
     {
       "name": "functional_readings_agree",
       "status": "proved",
-      "source_claim": "added: if nobody owns two donkeys the two collections have the same size and all three readings agree"
+      "source_claim": "added: if nobody owns two donkeys the two collections have the same size and all three readings agree; uniqueness premises displayed"
     },
     {
       "name": "ex9_is_exists",
@@ -235,12 +235,12 @@
     {
       "name": "ex22_is_strong",
       "status": "proved",
-      "source_claim": "L21 section 4, (22): the encoding over a universe of types is interderivable with Sigma"
+      "source_claim": "L21 section 4, (22): the encoding over a universe of types is interderivable with Sigma by two functions; inverse laws are not proved"
     },
     {
       "name": "weak_sum_no_projection",
       "status": "proved",
-      "source_claim": "added, after L21 section 4 on small Sigma-propositions: a weak sum with unique proofs has no projection that returns the witness of each introduction"
+      "source_claim": "added, after L21 section 4 on small Sigma-propositions: a weak sum with unique proofs has no projection that returns the witness of each introduction, unless its domain has at most one object"
     },
     {
       "name": "truncated_counts_owners",
@@ -250,7 +250,7 @@
     {
       "name": "truncated_strong_counting_form",
       "status": "proved",
-      "source_claim": "L21 (24): the strong reading over the truncated collection equals its counting form"
+      "source_claim": "L21 (24): the strong reading over the truncated collection is equivalent to its counting form; the truncation interface is a premise"
     },
     {
       "name": "bool_truncation_instance",
@@ -270,7 +270,7 @@
     {
       "name": "bool_model_readings",
       "status": "proved",
-      "source_claim": "added: on every boolean model with listed carriers the three readings on types are decided by counting"
+      "source_claim": "added: on every boolean model with listed carriers the three readings on types are decided by counting; the collection of owners is formed with the boolean owner test"
     },
     {
       "name": "below_model_instance",
@@ -310,7 +310,7 @@
     {
       "name": "luo_ten_farmers_type_level",
       "status": "proved",
-      "source_claim": "L21 section 2: on the ten-farmer model (7) holds on types, (12) and (16) fail, with 29 triples and 10 owners"
+      "source_claim": "L21 section 2: on the ten-farmer model (7) holds on types, (12) and (16) fail, with 29 triples and 10 owners; boolean interpretation, with the collection of owners formed by the boolean owner test"
     },
     {
       "name": "sep_weak_reading_true",
@@ -325,7 +325,7 @@
     {
       "name": "three_farmers_type_level",
       "status": "proved",
-      "source_claim": "L21 (14)-(16): a model on which the weak reading holds on types and the strong reading fails (model added)"
+      "source_claim": "L21 (14)-(16): a model on which the weak reading holds on types and the strong reading fails (model added; same boolean interpretation)"
     },
     {
       "name": "sundholm_model_pairs",
@@ -355,7 +355,7 @@
     {
       "name": "sundholm_model_type_level",
       "status": "proved",
-      "source_claim": "on the model of Ranta_GQ.sundholm_donkey_contrast all three readings fail on types"
+      "source_claim": "on the model of Ranta_GQ.sundholm_donkey_contrast all three readings fail on types (same boolean interpretation)"
     }
   ],
   "counts": {
@@ -370,14 +370,14 @@
       "DRAFT for the author's review; not an accepted source-level verdict.",
       "L21 (5), (7), (9), (12), (13), (16), (18), (22) and Appendix D are stated in the paper's own shape.",
       "L21 (10) is proved with uniqueness of proofs as a displayed premise (card_subset_le).",
-      "L21 section 2's ten-farmer model is computed: 29 triples, 10 owners, the pair reading holds and both of Luo's readings fail, on types as well as by counting (luo_ten_farmers_type_level).",
-      "S89 (27) is stated as printed; the map from S89's pairs to L21's collection is proved to be an A-injection that identifies pairs with the same owner and is onto (forward_realizes_owner_count)."
+      "L21 section 2's ten-farmer model is computed: 29 triples, 10 owners, the pair reading holds and both of Luo's readings fail, on types as well as by counting (luo_ten_farmers_type_level). This is a boolean interpretation: the collection of owners is formed with a boolean owner test, logically equivalent to the existential and not identified with it.",
+      "S89 (27) is stated as printed; when the proofs of Q are unique, the map from S89's pairs to L21's collection is proved to be an A-injection that identifies pairs with the same owner and is onto (forward_realizes_owner_count). The converse condition used to count owners is added here."
     ],
     "simplifications": [
       "finite types as complete duplicate-free lists",
       "the collection of owners over an arbitrary proposition Q equivalent to owning a donkey",
       "truncation restricted to one family of types",
-      "models are boolean tables read as propositions"
+      "models are boolean tables read as propositions, with the collection of owners formed by a boolean owner test"
     ],
     "omissions": [
       "UTT and Martin-Lof type theory with h-logic as type theories; the inconsistency of large Sigma-propositions and the remark on small ones (L21 section 4)",
@@ -403,15 +403,15 @@
     },
     {
       "class": "ii",
-      "description": "the collection of owners over any proposition Q equivalent to owning a donkey, not only the literal existential"
+      "description": "the collection of owners over any proposition Q equivalent to owning a donkey, not only the literal existential; the results that count it take uniqueness of the proofs of Q as a premise, which is not shown to be necessary"
     },
     {
       "class": "iii",
-      "description": "models are boolean tables read as propositions; their readings on types are decided by counting"
+      "description": "models are boolean tables read as propositions; their collection of owners is formed with a boolean owner test, logically equivalent to the existential on listed carriers and not identified with it; their readings on types are decided by counting"
     },
     {
       "class": "iv",
-      "description": "respects_first and the results built on it are a reading of S89 (27), which the paper leaves undefined"
+      "description": "respects_first and the results built on it are one reading of S89 (27); the paper says notions such as A-finite can be defined and does not define them, and nothing here shows this reading is the one Sundholm intended"
     },
     {
       "class": "v",

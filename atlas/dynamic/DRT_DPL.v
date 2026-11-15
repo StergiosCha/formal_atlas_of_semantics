@@ -19,6 +19,10 @@ Import ListNotations.
        Linguistics and Philosophy 14(1): 39–100.  [the comparison with DRT:
        a box becomes existential quantification over its universe followed
        by dynamic conjunction of its conditions]
+   TODO: add section, definition and page numbers for the three sources
+     (KvGR 2011: DRS syntax, verifying embeddings, the donkey DRSs;
+     Muskens 1996: boxes as relations; G&S 1991: the comparison with DRT),
+     here and at the theorems that cite them.
    Design document: atlas_data/designs/drt_dpl.md.
    Builds on DPL.v (models, assignments, the relational semantics [sem],
    truth, the donkey sentences), which this file leaves unchanged: DRT and

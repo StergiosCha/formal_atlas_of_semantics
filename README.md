@@ -153,19 +153,11 @@ make -f Makefile.coq shallow/PTQ.vo shallow/kratzer2.vo
 make -f Makefile.coq deep/kratzer_deep2.vo deep/theorems_deep_PTQ.vo
 ```
 
-Reporting checks require Python 3 and Node.js, but not the source PDFs:
+Reporting checks require Python 3 (with `fastapi` and `uvicorn`) and Node.js,
+but not the source PDFs. One script runs the same checks as CI:
 
 ```bash
-python3 -m unittest discover -s atlas_data -p 'test_*.py'
-python3 -m unittest discover -s tool/llm -p 'test_*.py'
-python3 atlas_data/build_site.py
-node atlas_data/site/test_landing.cjs
-node atlas_data/site/test_source_registry.cjs
-node atlas_data/site/test_claim_comparison.cjs
-node atlas_data/site/test_rosch_campaign.cjs
-node atlas_data/site/test_outcomes.cjs
-node atlas_data/site/test_proofs.cjs
-node atlas_data/site/test_edge_profiles.cjs
+bash tools/run_checks.sh
 ```
 
 Both the site and consolidated evidence now rebuild without external PDFs.

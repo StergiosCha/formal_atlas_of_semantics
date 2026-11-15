@@ -20888,7 +20888,7 @@
    ],
    "year": 2017,
    "authors": "Bekki, D. & Mineshima, K.",
-   "title": "Calculating Projections via Type Checking",
+   "title": "Context-Passing and Underspecification in Dependent Type Semantics",
    "note": "author name and title corrected (Mineshima; the Modern Perspectives chapter); linked",
    "level": "F3",
    "determination_candidates": [],

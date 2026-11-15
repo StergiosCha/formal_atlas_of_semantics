@@ -8,12 +8,20 @@ import json
 from pathlib import Path
 
 LEDGER = Path(__file__).with_name('privacy_migration_2026_11_11.json')
+# Later documented, non-scientific migrations, applied in order after LEDGER.
+LEDGERS = (LEDGER, Path(__file__).with_name('survey_correction_2026_11_15.json'))
 
 
-def expected_digest(scope, original):
-    entry = json.loads(LEDGER.read_text())['fingerprints'].get(scope)
+def step(ledger, scope, original):
+    entry = json.loads(ledger.read_text())['fingerprints'].get(scope)
     if entry is None:
         return original
     if entry['before'] != original:
-        raise ValueError(f'Unexpected historical privacy baseline: {scope}')
+        raise ValueError(f'Unexpected historical baseline in {ledger.name}: {scope}')
     return entry['after']
+
+
+def expected_digest(scope, original):
+    for ledger in LEDGERS:
+        original = step(ledger, scope, original)
+    return original

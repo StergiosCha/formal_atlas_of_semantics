@@ -1,0 +1,20 @@
+{
+ "date": "2026-11-15",
+ "baseline_commit": "4cd9ab236ff82f168a2b071eae6f7d2bff25b12b",
+ "purpose": "Exact fingerprints after one bibliographic correction from papers_corrections.json: survey paper 38 takes the title of the Bekki & Mineshima 2017 chapter that papers_addendum.json already names in its citation. No change to scientific content is authorized. Earlier fingerprints remain in their original manifests and in privacy_migration_2026_11_11.json.",
+ "validation": "The consolidated atlas differs from the baseline commit only in the title field of paper 38; the site page also carries the new generation date.",
+ "fingerprints": {
+  "heim_integration_papers": {
+   "before": "00522be300468b6b69481ce20515d364a131d931a1d07f953c60100bf0afcbcb",
+   "after": "33590b1c611431ff22235cff6674b70f3259423743a16a45c707093f53e96f07"
+  },
+  "heim_policy_papers": {
+   "before": "00522be300468b6b69481ce20515d364a131d931a1d07f953c60100bf0afcbcb",
+   "after": "33590b1c611431ff22235cff6674b70f3259423743a16a45c707093f53e96f07"
+  },
+  "pre_source_registry_atlas": {
+   "before": "a226af2d48d1bf5aa8120911e84e873cd8b7501bf75fad0d6bfeadc54de17563",
+   "after": "9ab69cddbaef8ea7669491f82d394a5ba4c3efb424c71f6b0221662b02f8f63c"
+  }
+ }
+}

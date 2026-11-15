@@ -233,7 +233,7 @@ const META = {
   extras__BarwiseCooper:  ['Barwise & Cooper','conservativity','montague'],
 };
 /* records outside the atlas layer carry an absolute path; show it repo-relative */
-const shortPath = p => String(p||'').replace(/^.*\/revisiting-formal-semantics\//,'');
+const shortPath = p => String(p||'').replace(/^(\/historical-checkout\/|.*\/revisiting-formal-semantics\/)/,'');
 const REGION_NAME = {montague:'Montague',typelogical:'Type-logical',mtt:'Modern type theory',
   dynamic:'Dynamic',inquisitive:'Inquisitive',probabilistic:'Probabilistic',categorical:'Categorical'};
 const REGION_ORDER = ['montague','typelogical','categorical','mtt','dynamic','inquisitive','probabilistic'];

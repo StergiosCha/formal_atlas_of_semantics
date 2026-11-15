@@ -82,6 +82,7 @@ atlas/inquisitive/InqB.v
 atlas/mtt_ranta/MTT.v
 atlas/mtt_ranta/Ranta.v
 atlas/mtt_ranta/Ranta_GQ.v
+atlas/mtt_ranta/Donkey_Sums.v
 atlas/mtt_ranta/MTT_vs_Ranta.v
 atlas/mtt_ranta/DTS.v
 atlas/mtt_ranta/DTS_Resolution.v

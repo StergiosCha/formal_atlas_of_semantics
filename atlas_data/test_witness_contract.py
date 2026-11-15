@@ -61,7 +61,7 @@ class WitnessContractTests(unittest.TestCase):
         self.assertEqual(rec["assessment_status"], "incomplete")
         self.assertEqual(rec["sources"], [])
         atlas = json.loads((HERE / "atlas.json").read_text())
-        self.assertEqual(len(atlas["files"]), 87)
+        self.assertEqual(len(atlas["files"]), 88)
         self.assertEqual(len(atlas["papers"]), 230)
         self.assertEqual(sum(f["_key"] == KEY for f in atlas["files"]), 1)
         self.assertTrue(all(rec["file"] not in p.get("coq_files", []) for p in atlas["papers"]))

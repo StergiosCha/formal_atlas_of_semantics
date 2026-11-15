@@ -4352,6 +4352,486 @@
    "since": "2026-09-13",
    "status": "active"
   },
+  "mtt_ranta.Donkey_Sums.A_injection_count_not_unique": {
+   "statement_sha": "f971928c4d6a852b",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.FSig_key_inj": {
+   "statement_sha": "0803027dc2ac1f39",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.FSig_list_listing": {
+   "statement_sha": "000d0947d0877070",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.NoDup_filter_l": {
+   "statement_sha": "4dcbae3af3b1d7af",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.NoDup_list_prod": {
+   "statement_sha": "5e567c152e93b348",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.NoDup_map_inj": {
+   "statement_sha": "0e73e9eae1ded05a",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.below_listing": {
+   "statement_sha": "f895bffdb80d6452",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.below_model_instance": {
+   "statement_sha": "76dc87e2039107b9",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.bool_model_counts": {
+   "statement_sha": "05f567c2e6620ecb",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.bool_model_premises": {
+   "statement_sha": "72f5dd3be9c5c31e",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.bool_model_readings": {
+   "statement_sha": "8045dbae8a910214",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.bool_proofs_unique": {
+   "statement_sha": "6418fd1ba48beed6",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.bool_truncation_instance": {
+   "statement_sha": "adeedafb8392b872",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.card_iff_fin": {
+   "statement_sha": "73466e52e4e8dc09",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.card_subset_le": {
+   "statement_sha": "5d996fe8bdabeb32",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.every_readings_agree": {
+   "statement_sha": "4fd7a9d2ae90ddbe",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.ex22_is_strong": {
+   "statement_sha": "643ed00281c98dae",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.ex9_is_exists": {
+   "statement_sha": "42d75bbf9729dac4",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.fin_list_NoDup": {
+   "statement_sha": "cf7bcca9b30e4e54",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.fin_list_complete": {
+   "statement_sha": "8651ce4971da6df3",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.fin_list_length": {
+   "statement_sha": "1d529fa6f52bd055",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.forward_realizes_owner_count": {
+   "statement_sha": "7a83369aef2327a9",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.functional_owner_proofs_unique": {
+   "statement_sha": "321e4e1f25696248",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.functional_readings_agree": {
+   "statement_sha": "8ce2f49fb1e7b73b",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.image_length": {
+   "statement_sha": "99501e9f552edd56",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.implb_true": {
+   "statement_sha": "b26b1c919069d10d",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.index_of_lt": {
+   "statement_sha": "e6538d1b070d6cb7",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.index_of_nth": {
+   "statement_sha": "0bc0707dbb53ac80",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.index_of_nth_inv": {
+   "statement_sha": "cb1d263a79a63b10",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.injection_is_A_injection": {
+   "statement_sha": "14ff937cd26bfa72",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.k_ge": {
+   "statement_sha": "5bec62b2f196079d",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.len_map": {
+   "statement_sha": "d98806cc2fdc360b",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.luo_ten_farmers_type_level": {
+   "statement_sha": "1cf42a1f1ca84d74",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.luo_ten_nonbeaters": {
+   "statement_sha": "8b0f00a990d56d88",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.luo_ten_owners": {
+   "statement_sha": "3328c94c81bf956f",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.luo_ten_pair_reading_true": {
+   "statement_sha": "ae3e9741ae40543b",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.luo_ten_pairs": {
+   "statement_sha": "d7995c640865301c",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.luo_ten_strong_reading_false": {
+   "statement_sha": "19833b881b3c10a7",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.luo_ten_weak_reading_false": {
+   "statement_sha": "4acef7ad96d969b1",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.mixed_reading_unfolds": {
+   "statement_sha": "810ebb28d6289c6f",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.most_fin_iff_most_p": {
+   "statement_sha": "ea984293bca066c8",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.most_p_counting": {
+   "statement_sha": "5c0b5b41bf8f8b1c",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.most_p_map": {
+   "statement_sha": "ddc9ca2cac8709b6",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.most_p_mono": {
+   "statement_sha": "cb9d93ec64455794",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.most_p_squashes_sundholm": {
+   "statement_sha": "743055672e26bd4b",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.owner_count_by_A_injection": {
+   "statement_sha": "43efad9ab81627a5",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.ownerb_spec": {
+   "statement_sha": "65ffb427c03c4a81",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.owners_image": {
+   "statement_sha": "28238c3819936025",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.pair_counting_form": {
+   "statement_sha": "a94a15cb0eec96ed",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.pair_every_is_ranta": {
+   "statement_sha": "406c3316121a1dd5",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.pairs_image": {
+   "statement_sha": "cce11f6a2d33eece",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.preimage_list": {
+   "statement_sha": "5a03b7700968bdf3",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.proj1_sig_inj": {
+   "statement_sha": "8e8f239a88fc4296",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.rel_bij_length": {
+   "statement_sha": "f73c2ad104e434fa",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.rel_inj_length": {
+   "statement_sha": "96e0649bff3d5a7c",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.sep_strong_reading_false": {
+   "statement_sha": "0984365624189cde",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.sep_weak_reading_true": {
+   "statement_sha": "5d827d7dab1aa54f",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.sig_filter_listing": {
+   "statement_sha": "e8f1347995b8ba38",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.sig_filter_listing_gen": {
+   "statement_sha": "ceb85d3279ab3210",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.sig_filter_proj": {
+   "statement_sha": "6b46e6e83ee126ae",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.strong_collection_counts_pairs": {
+   "statement_sha": "a6654f4ce3b52ad2",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.strong_counting_form": {
+   "statement_sha": "e27ff24f78bcf33b",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.strong_implies_weak": {
+   "statement_sha": "3ddadf49e1ff9ec8",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.strongb_spec": {
+   "statement_sha": "5cdc131f671dee6a",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.sundholm_model_carriers_listed": {
+   "statement_sha": "a8274dd2757d931a",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.sundholm_model_owners": {
+   "statement_sha": "2000d62381cd2a5c",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.sundholm_model_pairs": {
+   "statement_sha": "7dbb4e6d0a6aaaea",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.sundholm_model_strong_false": {
+   "statement_sha": "4c7433c9a7b62a8c",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.sundholm_model_type_level": {
+   "statement_sha": "73d70c923c512707",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.sundholm_model_weak_false": {
+   "statement_sha": "7426d276b55fabb3",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.three_farmers_type_level": {
+   "statement_sha": "8e9ee65558735aa5",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.truncated_counts_owners": {
+   "statement_sha": "a2c1d79138c87f23",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.truncated_strong_counting_form": {
+   "statement_sha": "65c0d350339dd432",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.two_k_gt": {
+   "statement_sha": "6f8a9dee3b1abc17",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.type_valued_fibres_can_increase_cardinality": {
+   "statement_sha": "b033687fb9fe0fb5",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.unique_proofs_instance": {
+   "statement_sha": "8a2c84ff824de338",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.weak_collection_counts_owners": {
+   "statement_sha": "85e3095f94a2c111",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.weak_counting_form": {
+   "statement_sha": "89ab29fa37e8916d",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.weak_sum_no_projection": {
+   "statement_sha": "a49136ac7c8b8afd",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
+  "mtt_ranta.Donkey_Sums.weakb_spec": {
+   "statement_sha": "2b76595adee84927",
+   "file": "atlas/mtt_ranta/Donkey_Sums.v",
+   "since": "2026-11-14",
+   "status": "active"
+  },
   "mtt_ranta.MTT.adv_some": {
    "statement_sha": "d4b3251a58e133f7",
    "file": "atlas/mtt_ranta/MTT.v",

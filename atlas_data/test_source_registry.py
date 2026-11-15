@@ -42,7 +42,8 @@ class SourceRegistryTests(unittest.TestCase):
         # checked exactly, using the documented privacy-redaction fingerprint.
         prior = legacy_atlas_view(self.atlas)
         prior["files"] = [f for f in prior["files"]
-                          if f["file"] != "atlas/ttr/Witness_Contract.v"]
+                          if f["file"] not in ("atlas/ttr/Witness_Contract.v",
+                                               "atlas/mtt_ranta/Donkey_Sums.v")]
         self.assertEqual(len(prior["files"]), 86)
         prior["generated_from"]["records"] = len(prior["files"])
         for field in ("theorems", "proved", "admitted"):

@@ -1,6 +1,6 @@
 # Formalizability Atlas of Semantics — current state
 
-Coq files audited: **87** · theorem statements: **1534** (proved 1521, admitted 12) · papers surveyed: **230** · records explicitly disputed by a reviewer: **0**
+Coq files audited: **88** · theorem statements: **1614** (proved 1601, admitted 12) · papers surveyed: **230** · records explicitly disputed by a reviewer: **0**
 
 ## Recorded file assessments (not reviewed paper outcomes)
 
@@ -13,7 +13,7 @@ These preserved file-level opinions do not establish source-wide conclusions. Co
 | 3 major restructuring | 16 |
 | 4 cannot | 0 |
 | n/a | 10 |
-| unassessed (incomplete scope) | 17 |
+| unassessed (incomplete scope) | 18 |
 
 ## Faithfulness verdicts
 
@@ -21,7 +21,7 @@ These preserved file-level opinions do not establish source-wide conclusions. Co
 |---|---|
 | faithful | 20 |
 | faithful-with-corrections | 1 |
-| partial | 53 |
+| partial | 54 |
 | unfaithful | 10 |
 | not_applicable | 3 |
 
@@ -237,6 +237,7 @@ All remain F3/unassessed. [Method and limitations](campaigns/claim_comparison_20
 | File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
 |---|---|---|---|---|---|---|
 | atlas/mtt_ranta/DTS.v | Bekki, D. (2014). Representing anaphora with dependent types. LACL, LNCS 8535.; Bekki, D. & Mineshima, K. (2017). Context-passing and underspecification in Dependent Type Semantics. In Chatzikyriakidis & Luo (eds), Modern Perspectives in Type-Theoretical Semantics. | 12/12 | partial | unassessed (incomplete scope) | iv | — |
+| atlas/mtt_ranta/Donkey_Sums.v | Luo, Z. (2021). On Type-Theoretical Semantics of Donkey Anaphora. The 14-page version on the author's page; its file name indicates LACL 2021. A shorter version, 'Donkey Anaphora: Type-Theoretic Semantics with Both Strong and Weak Sums', is in the proceedings of the ESSLLI 2021 workshop CSTFRS, pp. 45-52.; Sundholm, G. (1989). Constructive Generalized Quantifiers. Synthese 79(1): 1-12. | 80/80 | partial | unassessed (incomplete scope) | i, ii, iii, iv, v | — |
 | atlas/mtt_ranta/MTT.v | Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. ISTE/Wiley.; Luo, Z. (2012). Common nouns as types. LACL. | 35/35 | faithful | 1 as-is | i, ii, iii, iv | — |
 | atlas/mtt_ranta/MTT_vs_Ranta.v | Chatzikyriakidis & Luo 2020, §1.4.2, §2.3.1, §3.2-3.3.; Ranta 1995, §2.12, §2.16, §3.1, §3.7, §4.2, ch. 9. | 17/17 | faithful | n/a | iv | — |
 | atlas/mtt_ranta/Ranta.v | Ranta, A. (1995). Type-Theoretical Grammar. OUP. | 14/14 | faithful | 1 as-is | i, ii, iii, iv | — |

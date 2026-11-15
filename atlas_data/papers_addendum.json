@@ -35,6 +35,7 @@
   "replaces_citation": "Bekki, D. & Minami, K. (2017) - \"Calculating Projections via Type Checking\"",
   "citation": "Bekki, D. & Mineshima, K. (2017) - \"Context-Passing and Underspecification in Dependent Type Semantics\"",
   "authors": "Bekki, D. & Mineshima, K.",
+  "title": "Context-Passing and Underspecification in Dependent Type Semantics",
   "coq_files": [
    "atlas/mtt_ranta/DTS.v"
   ],

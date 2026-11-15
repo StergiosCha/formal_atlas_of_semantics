@@ -208,6 +208,11 @@ def main():
     for i, p in enumerate(papers):
         if p.get("id") in (None, ""):
             p["id"] = f"x{i}"
+    # Later field corrections, keyed on the stable id, so the frozen list and
+    # the frozen addendum are never edited in place.
+    by_num = {str(p["id"]): p for p in papers}
+    for c in load(os.path.join(HERE, "papers_corrections.json")) or []:
+        by_num[str(c["id"])].update({k: v for k, v in c.items() if k not in ("id", "note")})
 
     # Evidence links are additive and separate from the frozen survey and
     # intrinsic grades. A pilot remains F3 even when its bounded code is clean.

@@ -18,6 +18,9 @@ for(const path of ['explore','experiment','result/witnesses','reading','papers',
 }
 assert.equal((html.match(/data-r="(?:explore|compare|experiment|about)"/g)||[]).length,4);
 assert(route('explore').includes(`${data.papers.length} sources`));
+for(const file of data.files){
+  assert(!run(`shortPath(${JSON.stringify(file.file)})`).startsWith('/'),file.file);
+}
 assert(route('experiment').includes('No API key needed'));
 const key='atlas__witness_contract', result=route('result/witnesses');
 for(const name of ['independent_inhabited','shared_empty','no_total_recovery']){

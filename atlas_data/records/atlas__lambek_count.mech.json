@@ -1,0 +1,48 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "atlas/type_logical/Lambek_Count.v",
+  "key": "atlas__lambek_count",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "unsafe_flags": [],
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 8,
+    "proved": 8,
+    "admitted": 0,
+    "aborted": 0,
+    "admitted_definitions": 0,
+    "unparsed_status": 0,
+    "definitions": 3,
+    "toplevel_axioms": 0,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 8,
+    "closed": 8,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "statements": {
+    "type_logical.Lambek_Count.count_ctx_nil": "852efb755638410d",
+    "type_logical.Lambek_Count.count_ctx_cons": "77b765eb140c63fa",
+    "type_logical.Lambek_Count.count_ctx_app": "babe054ef1f69fd8",
+    "type_logical.Lambek_Count.count_invariant": "ab695bd91b57ca29",
+    "type_logical.Lambek_Count.CountExamples.unbalanced_not_derivable": "188f824c7d9edea2",
+    "type_logical.Lambek_Count.CountExamples.np_not_s": "ebe7d224bb36f560",
+    "type_logical.Lambek_Count.CountExamples.s_not_np": "0e1cd07fe2ab27a3",
+    "type_logical.Lambek_Count.CountExamples.extra_argument_rejected": "1f7f1166b717406c"
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

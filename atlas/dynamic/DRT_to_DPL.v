@@ -3,7 +3,7 @@ Require Import List Arith.
 Import ListNotations.
 
 (* ========================================================================== *)
-(*  DRT_DPL.v — Discourse Representation Theory and its translation into DPL  *)
+(*  DRT_to_DPL.v — Discourse Representation Theory and its translation into DPL *)
 (*  FORMAL-ATLAS / atlas/dynamic                                               *)
 (* ========================================================================== *)
 (*
@@ -24,6 +24,10 @@ Import ListNotations.
      Muskens 1996: boxes as relations; G&S 1991: the comparison with DRT),
      here and at the theorems that cite them.
    Design document: atlas_data/designs/drt_dpl.md.
+   File name: the design and the roadmap (A2) call this file DRT_DPL.v.  The
+   frozen survey pre-registers that path for two of its entries, so a file
+   there changes a survey level automatically.  The file is kept at
+   DRT_to_DPL.v until the atlas author decides on those links.
    Builds on DPL.v (models, assignments, the relational semantics [sem],
    truth, the donkey sentences), which this file leaves unchanged: DRT and
    DPL are interpreted in the same models.

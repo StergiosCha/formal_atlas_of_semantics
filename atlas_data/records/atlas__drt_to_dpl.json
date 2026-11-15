@@ -1,0 +1,130 @@
+{
+ "file": "atlas/dynamic/DRT_to_DPL.v",
+ "region": "dynamic semantics",
+ "summary": "Discourse representation structures with atomic, identity, negation, implication and disjunction conditions, interpreted in the models of DPL.v by verifying embeddings, and their translation into dynamic predicate logic: a box becomes existential quantification over its universe followed by the conjunction of its conditions. The translation is correct in both directions up to pointwise equality of assignments, truth is preserved, and the donkey DRSs get the truth conditions of DPL.v. A counterexample shows that reading DPL conjunction as DRS merge fails when a variable is reused.",
+ "sources": [
+  {
+   "citation": "Kamp, H., van Genabith, J. & Reyle, U. (2011). Discourse Representation Theory. Handbook of Philosophical Logic, vol. 15. Springer.",
+   "path": "papers/dynamic/Kamp_vanGenabith_Reyle_2011_DRT.pdf",
+   "available": "full"
+  },
+  {
+   "citation": "Muskens, R. (1996). Combining Montague semantics and discourse representation. Linguistics and Philosophy 19(2):143-186.",
+   "path": "papers/dynamic/Muskens_1996_CombiningMontagueDRT.pdf",
+   "available": "full"
+  },
+  {
+   "citation": "Groenendijk, J. & Stokhof, M. (1991). Dynamic Predicate Logic. Linguistics and Philosophy 14(1):39-100.",
+   "path": "papers/dynamic/Groenendijk_Stokhof_1991_DPL_preprint.pdf",
+   "available": "full"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "drs / cond",
+   "source": "KvGR 2011, DRS syntax (locator not yet given in the file)",
+   "match": "simplified",
+   "note": "universe and conditions as lists; no duplex conditions"
+  },
+  {
+   "coq": "verifies M K f g",
+   "source": "KvGR 2011, verifying embeddings; Muskens 1996, boxes as relations (locators not yet given)",
+   "match": "simplified",
+   "note": "g differs from f at most on the universe and satisfies the conditions"
+  },
+  {
+   "coq": "tr K",
+   "source": "G&S 1991, the comparison with DRT (locator not yet given)",
+   "match": "simplified",
+   "note": "a box becomes Ex u1 ... Ex un of the conjunction of its conditions"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "verifies_csat_same",
+   "status": "proved",
+   "source_claim": "added: verification depends only on the values of the assignments"
+  },
+  {
+   "name": "dpl_to_drt",
+   "status": "proved",
+   "source_claim": "G&S 1991: an output of the translated formula verifies the box"
+  },
+  {
+   "name": "drt_to_dpl",
+   "status": "proved",
+   "source_claim": "G&S 1991: a verifying embedding is an output of the translated formula, up to pointwise equality"
+  },
+  {
+   "name": "cond_test",
+   "status": "proved",
+   "source_claim": "every condition is translated to a test"
+  },
+  {
+   "name": "drt_dpl_truth",
+   "status": "proved",
+   "source_claim": "G&S 1991: the translation preserves truth"
+  },
+  {
+   "name": "drt_dpl_meaning",
+   "status": "proved",
+   "source_claim": "the two relations are equal; uses function extensionality"
+  },
+  {
+   "name": "drs_dk1_truth",
+   "status": "proved",
+   "source_claim": "the DRS for 'A farmer owns a donkey. He beats it.' has the doubly existential truth condition"
+  },
+  {
+   "name": "drs_dk2_truth",
+   "status": "proved",
+   "source_claim": "the DRS for 'If a farmer owns a donkey, he beats it.' has the doubly universal truth condition"
+  },
+  {
+   "name": "tr_dk1_truth",
+   "status": "proved",
+   "source_claim": "the translated DRS agrees in truth with dk1 of DPL.v"
+  },
+  {
+   "name": "tr_dk2_truth",
+   "status": "proved",
+   "source_claim": "the translated DRS agrees in truth with dk2 of DPL.v"
+  },
+  {
+   "name": "merge_not_conj",
+   "status": "proved",
+   "source_claim": "added: DPL conjunction is not DRS merge when a variable is reused"
+  }
+ ],
+ "counts": {
+  "theorems": 26,
+  "proved": 26,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "DRAFT for the author's review; not an accepted source-level verdict.",
+   "DRT and DPL are interpreted in the same models, those of DPL.v, which the file leaves unchanged.",
+   "The file's header says that section, definition and page numbers for its three sources are still to be added.",
+   "Accessibility as a syntactic relation, a translation from DPL to DRT, and duplex conditions are listed in the file as not formalized."
+  ]
+ },
+ "determination": "unassessed",
+ "determination_rationale": "DRAFT for the author. The sources' definitions are rendered relationally. One result, drt_dpl_meaning, uses function extensionality; the others print as closed.",
+ "assessment_status": "incomplete",
+ "artifact_classes": [
+  {
+   "class": "iii",
+   "description": "the exact equality of the two relations needs function extensionality, because DPL tests return the input assignment itself"
+  },
+  {
+   "class": "iv",
+   "description": "a universe is a list of variables; 'differs at most on the universe' is stated pointwise"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Roadmap item A2; design atlas_data/designs/drt_dpl.md, which names the file DRT_DPL.v. The frozen survey pre-registers that path for papers 6 (Kamp 1981) and 9 (Muskens 1996); a file there moves paper 9 from level F2 to F3 automatically. The file is therefore kept at DRT_to_DPL.v, with no survey link, until the author decides whether it covers those papers' claims. The file cites the 2011 handbook chapter, not Kamp 1981. Contributed by Aarne Talman (pull request). DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+ "compiles": true
+}

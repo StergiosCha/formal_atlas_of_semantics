@@ -1718,6 +1718,162 @@
    "since": "2026-09-05",
    "status": "active"
   },
+  "dynamic.DRT_to_DPL.all_of_csat_same": {
+   "statement_sha": "00a9bc25a4c68266",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.cond_test": {
+   "statement_sha": "4f8d738c021e0fb3",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.conj_all_sem": {
+   "statement_sha": "0effab21152f4510",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.dpl_to_drt": {
+   "statement_sha": "3a1db4df76345990",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.drs_cond_ind": {
+   "statement_sha": "35484205695a9dbb",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.drs_dk1_truth": {
+   "statement_sha": "24c8decf3b5cbf19",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.drs_dk2_truth": {
+   "statement_sha": "0e677a580c74d1b0",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.drt_dpl_meaning": {
+   "statement_sha": "049f707436c6687c",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.drt_dpl_truth": {
+   "statement_sha": "1cb77a3ca85238af",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.drt_to_dpl": {
+   "statement_sha": "028817ec797b4a8f",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.exs_elim": {
+   "statement_sha": "fd937e28b93d7db0",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.exs_intro": {
+   "statement_sha": "cb60ababfad88bca",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.merge_not_conj": {
+   "statement_sha": "025a1dd70f8da681",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.same_refl": {
+   "statement_sha": "d44c6737496c7378",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.same_sym": {
+   "statement_sha": "a136ac872ef9a512",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.tr_K_P": {
+   "statement_sha": "e885855d985b0d88",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.tr_K_Q": {
+   "statement_sha": "16b27bf52ef21b6d",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.tr_correct": {
+   "statement_sha": "4dea235639d2ab69",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.tr_dk1_truth": {
+   "statement_sha": "7d163a3a4294d7ae",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.tr_dk2_truth": {
+   "statement_sha": "12431466473cd6aa",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.tval_same": {
+   "statement_sha": "5a123c1a8307166e",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.two_refs": {
+   "statement_sha": "edc0c0f829dba0e7",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.upd2_0": {
+   "statement_sha": "1513e89bae6f6607",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.upd2_1": {
+   "statement_sha": "a94d4df90c3dcb7e",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.upd2_out": {
+   "statement_sha": "4db109973ae2ff39",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "dynamic.DRT_to_DPL.verifies_csat_same": {
+   "statement_sha": "4f0e4332ef22244f",
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
   "dynamic.Heim1982.agree_refl": {
    "statement_sha": "bd61fd3c6dd7f395",
    "file": "atlas/dynamic/Heim1982.v",
@@ -7632,6 +7788,138 @@
    "statement_sha": "8240a1d0b7cd869a",
    "file": "atlas/type_logical/Lambek.v",
    "since": "2026-09-05",
+   "status": "active"
+  },
+  "type_logical.Lambek_Count.CountExamples.extra_argument_rejected": {
+   "statement_sha": "1f7f1166b717406c",
+   "file": "atlas/type_logical/Lambek_Count.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "type_logical.Lambek_Count.CountExamples.np_not_s": {
+   "statement_sha": "ebe7d224bb36f560",
+   "file": "atlas/type_logical/Lambek_Count.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "type_logical.Lambek_Count.CountExamples.s_not_np": {
+   "statement_sha": "0e1cd07fe2ab27a3",
+   "file": "atlas/type_logical/Lambek_Count.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "type_logical.Lambek_Count.CountExamples.unbalanced_not_derivable": {
+   "statement_sha": "188f824c7d9edea2",
+   "file": "atlas/type_logical/Lambek_Count.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "type_logical.Lambek_Count.count_ctx_app": {
+   "statement_sha": "babe054ef1f69fd8",
+   "file": "atlas/type_logical/Lambek_Count.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "type_logical.Lambek_Count.count_ctx_cons": {
+   "statement_sha": "77b765eb140c63fa",
+   "file": "atlas/type_logical/Lambek_Count.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "type_logical.Lambek_Count.count_ctx_nil": {
+   "statement_sha": "852efb755638410d",
+   "file": "atlas/type_logical/Lambek_Count.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "type_logical.Lambek_Count.count_invariant": {
+   "statement_sha": "ab695bd91b57ca29",
+   "file": "atlas/type_logical/Lambek_Count.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "type_logical.Lambek_Decision.DecisionExamples.a_very_book_rejected": {
+   "statement_sha": "6444333ea321eda9",
+   "file": "atlas/type_logical/Lambek_Decision.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "type_logical.Lambek_Decision.DecisionExamples.every_man_walks": {
+   "statement_sha": "3acf5191c5cba68f",
+   "file": "atlas/type_logical/Lambek_Decision.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "type_logical.Lambek_Decision.DecisionExamples.john_walks": {
+   "statement_sha": "0473471ccc274fe3",
+   "file": "atlas/type_logical/Lambek_Decision.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "type_logical.Lambek_Decision.DecisionExamples.raised_not_lowered": {
+   "statement_sha": "def6c7087f399148",
+   "file": "atlas/type_logical/Lambek_Decision.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "type_logical.Lambek_Decision.DecisionExamples.type_raising": {
+   "statement_sha": "010a8d1da3d8f94c",
+   "file": "atlas/type_logical/Lambek_Decision.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "type_logical.Lambek_Decision.DecisionExamples.walks_john_rejected": {
+   "statement_sha": "83829d9d4bde82a2",
+   "file": "atlas/type_logical/Lambek_Decision.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "type_logical.Lambek_Decision.cf_derivable_dec": {
+   "statement_sha": "5786bce9bb60fafb",
+   "file": "atlas/type_logical/Lambek_Decision.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "type_logical.Lambek_Decision.derivable_b_spec": {
+   "statement_sha": "c9a6f45a311db814",
+   "file": "atlas/type_logical/Lambek_Decision.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "type_logical.Lambek_Decision.derivable_dec": {
+   "statement_sha": "c9f8dd41f50f024b",
+   "file": "atlas/type_logical/Lambek_Decision.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "type_logical.Lambek_Decision.holes_spec": {
+   "statement_sha": "fb29792adf18f91d",
+   "file": "atlas/type_logical/Lambek_Decision.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "type_logical.Lambek_Decision.prove_complete": {
+   "statement_sha": "248df0d7e9e966cc",
+   "file": "atlas/type_logical/Lambek_Decision.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "type_logical.Lambek_Decision.prove_complete_gen": {
+   "statement_sha": "4485f3cc60ac0608",
+   "file": "atlas/type_logical/Lambek_Decision.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "type_logical.Lambek_Decision.prove_sound": {
+   "statement_sha": "5201ab152b60dc72",
+   "file": "atlas/type_logical/Lambek_Decision.v",
+   "since": "2026-11-15",
+   "status": "active"
+  },
+  "type_logical.Lambek_Decision.splits_spec": {
+   "statement_sha": "9305883166b31c4c",
+   "file": "atlas/type_logical/Lambek_Decision.v",
+   "since": "2026-11-15",
    "status": "active"
   }
  }

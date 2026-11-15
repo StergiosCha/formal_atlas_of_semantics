@@ -1,6 +1,6 @@
 # Formalizability Atlas of Semantics — current state
 
-Coq files audited: **88** · theorem statements: **1614** (proved 1601, admitted 12) · papers surveyed: **230** · records explicitly disputed by a reviewer: **0**
+Coq files audited: **91** · theorem statements: **1662** (proved 1649, admitted 12) · papers surveyed: **230** · records explicitly disputed by a reviewer: **0**
 
 ## Recorded file assessments (not reviewed paper outcomes)
 
@@ -13,7 +13,7 @@ These preserved file-level opinions do not establish source-wide conclusions. Co
 | 3 major restructuring | 16 |
 | 4 cannot | 0 |
 | n/a | 10 |
-| unassessed (incomplete scope) | 18 |
+| unassessed (incomplete scope) | 21 |
 
 ## Faithfulness verdicts
 
@@ -21,7 +21,7 @@ These preserved file-level opinions do not establish source-wide conclusions. Co
 |---|---|
 | faithful | 20 |
 | faithful-with-corrections | 1 |
-| partial | 54 |
+| partial | 57 |
 | unfaithful | 10 |
 | not_applicable | 3 |
 
@@ -97,6 +97,7 @@ All remain F3/unassessed. [Method and limitations](campaigns/claim_comparison_20
 | File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
 |---|---|---|---|---|---|---|
 | atlas/dynamic/DPL.v | Groenendijk, J. & Stokhof, M. (1991). Dynamic Predicate Logic. Linguistics and Philosophy 14(1):39-100.; Dekker, P. (2012). Dynamic Semantics. Springer. Sec. 2.1. (source note) | 171/171 | faithful-with-corrections | 1 as-is | ii, iv, v | — |
+| atlas/dynamic/DRT_to_DPL.v | Kamp, H., van Genabith, J. & Reyle, U. (2011). Discourse Representation Theory. Handbook of Philosophical Logic, vol. 15. Springer.; Muskens, R. (1996). Combining Montague semantics and discourse representation. Linguistics and Philosophy 19(2):143-186. | 26/26 | partial | unassessed (incomplete scope) | iii, iv | — |
 | extras/DonkeyScope.v | Groenendijk, J. & Stokhof, M. (1991). Dynamic Predicate Logic. Linguistics and Philosophy 14:39-100. (section 4's DPL fragment); Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. PhD dissertation, UMass. (assignment-based dynamic binding, section 2 attempt 5) | 5/7 +2 adm | partial | n/a | iv | — |
 | extras/FCS2.v | Heim, I. (1982). The Semantics of Definite and Indefinite Noun Phrases. PhD dissertation, UMass Amherst.; Heim, I. (1983). File Change Semantics and the Familiarity Theory of Definiteness. In Meaning, Use, and Interpretation of Language, de Gruyter. | 2/4 +5 adm | unfaithful | 3 major restructuring | i, ii, iii, v | — |
 
@@ -320,6 +321,8 @@ All remain F3/unassessed. [Method and limitations](campaigns/claim_comparison_20
 | File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
 |---|---|---|---|---|---|---|
 | atlas/type_logical/Lambek.v | Lambek, J. (1958). The mathematics of sentence structure. Amer. Math. Monthly 65(3):154-170.; Moot, R. & Retoré, C. (2012). The Logic of Categorial Grammars. LNCS 6850. Ch. 2-3. | 40/40 | faithful | 1 as-is | ii, iv, v, iii | — |
+| atlas/type_logical/Lambek_Count.v | Lambek, J. (1958). The mathematics of sentence structure. Amer. Math. Monthly 65(3):154-170.; Moot, R. & Retoré, C. (2012). The Logic of Categorial Grammars. LNCS 6850. Ch. 2-3. | 8/8 | partial | unassessed (incomplete scope) | iv | — |
+| atlas/type_logical/Lambek_Decision.v | Lambek, J. (1958). The mathematics of sentence structure. Amer. Math. Monthly 65(3):154-170.; Moot, R. & Retoré, C. (2012). The Logic of Categorial Grammars. LNCS 6850. Ch. 2-3. | 14/14 | partial | unassessed (incomplete scope) | ii, iv | — |
 
 ## type-theoretic (MTT individuation)
 

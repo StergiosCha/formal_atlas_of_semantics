@@ -1,0 +1,89 @@
+{
+ "file": "atlas/type_logical/Lambek_Count.v",
+ "region": "type-logical grammar",
+ "summary": "The count invariant for the product-free Lambek calculus of Lambek.v: every derivation, with or without cut, preserves the polarity-weighted count of each primitive type. Its contrapositive gives non-derivability results on the fragment of Lambek.v. The invariant ignores word order, so it is a necessary condition only.",
+ "sources": [
+  {
+   "citation": "Lambek, J. (1958). The mathematics of sentence structure. Amer. Math. Monthly 65(3):154-170.",
+   "path": "papers/type_logical/Lambek_1958_MathematicsOfSentenceStructure.pdf",
+   "available": "full"
+  },
+  {
+   "citation": "Moot, R. & Retoré, C. (2012). The Logic of Categorial Grammars. LNCS 6850. Ch. 2-3.",
+   "path": "papers/type_logical/Moot_Retore_2012_LogicOfCategorialGrammars.pdf",
+   "available": "full"
+  }
+ ],
+ "definitions_mapped": [
+  {
+   "coq": "count p A",
+   "source": "Lambek 1958 §10; M&R §2.5",
+   "match": "exact",
+   "note": "occurrences of a primitive type, negative in argument position"
+  },
+  {
+   "coq": "count_ctx p Γ",
+   "source": "M&R Prop 2.6 p. 30",
+   "match": "exact",
+   "note": "the count of a context is the sum over its formulas"
+  }
+ ],
+ "theorems": [
+  {
+   "name": "count_ctx_app",
+   "status": "proved",
+   "source_claim": "added: the count of a concatenation is the sum of the counts"
+  },
+  {
+   "name": "count_invariant",
+   "status": "proved",
+   "source_claim": "Lambek 1958 §10; M&R Prop 2.6 p. 30: a derivable sequent is balanced for every primitive type"
+  },
+  {
+   "name": "unbalanced_not_derivable",
+   "status": "proved",
+   "source_claim": "M&R p. 30: the contrapositive, an unbalanced sequent is not derivable"
+  },
+  {
+   "name": "np_not_s",
+   "status": "proved",
+   "source_claim": "illustration on the fragment: np does not derive s"
+  },
+  {
+   "name": "s_not_np",
+   "status": "proved",
+   "source_claim": "illustration on the fragment: s does not derive np"
+  },
+  {
+   "name": "extra_argument_rejected",
+   "status": "proved",
+   "source_claim": "illustration of M&R Prop 2.6: np, np, np\\s does not derive s"
+  }
+ ],
+ "counts": {
+  "theorems": 8,
+  "proved": 8,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "DRAFT for the author's review; not an accepted source-level verdict.",
+   "The count and the invariant are stated for both the calculus with cut and the cut-free calculus, by one induction on Deriv.",
+   "The file states that the invariant is necessary and not sufficient, and names two balanced sequents it cannot reject."
+  ]
+ },
+ "determination": "unassessed",
+ "determination_rationale": "DRAFT for the author. The source statement transposes directly. Atom equality is a hypothesis of the section.",
+ "assessment_status": "incomplete",
+ "artifact_classes": [
+  {
+   "class": "iv",
+   "description": "contexts as lists; the count of a context as a fold"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Extension file of Lambek.v, which it leaves unchanged. Design item T24 of atlas_data/designs/lambek.md. Contributed by Aarne Talman (pull request). DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+ "compiles": true
+}

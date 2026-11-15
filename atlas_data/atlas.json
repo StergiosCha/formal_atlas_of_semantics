@@ -1,21 +1,21 @@
 {
  "generated_from": {
-  "records": 88,
+  "records": 91,
   "papers": 230
  },
  "stats": {
-  "theorems": 1614,
-  "proved": 1601,
+  "theorems": 1662,
+  "proved": 1649,
   "admitted": 12,
   "determination": {
-   "unassessed": 18,
+   "unassessed": 21,
    "as_is": 21,
    "not_applicable": 10,
    "slight_modification": 23,
    "major_restructuring": 16
   },
   "faithfulness": {
-   "partial": 54,
+   "partial": 57,
    "faithful": 20,
    "faithful-with-corrections": 1,
    "not_applicable": 3,
@@ -1498,6 +1498,162 @@
    "_final": {
     "faithfulness": "faithful-with-corrections",
     "determination": "as_is",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/dynamic/DRT_to_DPL.v",
+   "region": "dynamic semantics",
+   "summary": "Discourse representation structures with atomic, identity, negation, implication and disjunction conditions, interpreted in the models of DPL.v by verifying embeddings, and their translation into dynamic predicate logic: a box becomes existential quantification over its universe followed by the conjunction of its conditions. The translation is correct in both directions up to pointwise equality of assignments, truth is preserved, and the donkey DRSs get the truth conditions of DPL.v. A counterexample shows that reading DPL conjunction as DRS merge fails when a variable is reused.",
+   "sources": [
+    {
+     "citation": "Kamp, H., van Genabith, J. & Reyle, U. (2011). Discourse Representation Theory. Handbook of Philosophical Logic, vol. 15. Springer.",
+     "path": "papers/dynamic/Kamp_vanGenabith_Reyle_2011_DRT.pdf",
+     "available": "full"
+    },
+    {
+     "citation": "Muskens, R. (1996). Combining Montague semantics and discourse representation. Linguistics and Philosophy 19(2):143-186.",
+     "path": "papers/dynamic/Muskens_1996_CombiningMontagueDRT.pdf",
+     "available": "full"
+    },
+    {
+     "citation": "Groenendijk, J. & Stokhof, M. (1991). Dynamic Predicate Logic. Linguistics and Philosophy 14(1):39-100.",
+     "path": "papers/dynamic/Groenendijk_Stokhof_1991_DPL_preprint.pdf",
+     "available": "full"
+    }
+   ],
+   "definitions_mapped": [
+    {
+     "coq": "drs / cond",
+     "source": "KvGR 2011, DRS syntax (locator not yet given in the file)",
+     "match": "simplified",
+     "note": "universe and conditions as lists; no duplex conditions"
+    },
+    {
+     "coq": "verifies M K f g",
+     "source": "KvGR 2011, verifying embeddings; Muskens 1996, boxes as relations (locators not yet given)",
+     "match": "simplified",
+     "note": "g differs from f at most on the universe and satisfies the conditions"
+    },
+    {
+     "coq": "tr K",
+     "source": "G&S 1991, the comparison with DRT (locator not yet given)",
+     "match": "simplified",
+     "note": "a box becomes Ex u1 ... Ex un of the conjunction of its conditions"
+    }
+   ],
+   "theorems": [
+    {
+     "name": "verifies_csat_same",
+     "status": "proved",
+     "source_claim": "added: verification depends only on the values of the assignments"
+    },
+    {
+     "name": "dpl_to_drt",
+     "status": "proved",
+     "source_claim": "G&S 1991: an output of the translated formula verifies the box"
+    },
+    {
+     "name": "drt_to_dpl",
+     "status": "proved",
+     "source_claim": "G&S 1991: a verifying embedding is an output of the translated formula, up to pointwise equality"
+    },
+    {
+     "name": "cond_test",
+     "status": "proved",
+     "source_claim": "every condition is translated to a test"
+    },
+    {
+     "name": "drt_dpl_truth",
+     "status": "proved",
+     "source_claim": "G&S 1991: the translation preserves truth"
+    },
+    {
+     "name": "drt_dpl_meaning",
+     "status": "proved",
+     "source_claim": "the two relations are equal; uses function extensionality"
+    },
+    {
+     "name": "drs_dk1_truth",
+     "status": "proved",
+     "source_claim": "the DRS for 'A farmer owns a donkey. He beats it.' has the doubly existential truth condition"
+    },
+    {
+     "name": "drs_dk2_truth",
+     "status": "proved",
+     "source_claim": "the DRS for 'If a farmer owns a donkey, he beats it.' has the doubly universal truth condition"
+    },
+    {
+     "name": "tr_dk1_truth",
+     "status": "proved",
+     "source_claim": "the translated DRS agrees in truth with dk1 of DPL.v"
+    },
+    {
+     "name": "tr_dk2_truth",
+     "status": "proved",
+     "source_claim": "the translated DRS agrees in truth with dk2 of DPL.v"
+    },
+    {
+     "name": "merge_not_conj",
+     "status": "proved",
+     "source_claim": "added: DPL conjunction is not DRS merge when a variable is reused"
+    }
+   ],
+   "counts": {
+    "theorems": 26,
+    "proved": 26,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "DRAFT for the author's review; not an accepted source-level verdict.",
+     "DRT and DPL are interpreted in the same models, those of DPL.v, which the file leaves unchanged.",
+     "The file's header says that section, definition and page numbers for its three sources are still to be added.",
+     "Accessibility as a syntactic relation, a translation from DPL to DRT, and duplex conditions are listed in the file as not formalized."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "DRAFT for the author. The sources' definitions are rendered relationally. One result, drt_dpl_meaning, uses function extensionality; the others print as closed.",
+   "assessment_status": "incomplete",
+   "artifact_classes": [
+    {
+     "class": "iii",
+     "description": "the exact equality of the two relations needs function extensionality, because DPL tests return the input assignment itself"
+    },
+    {
+     "class": "iv",
+     "description": "a universe is a list of variables; 'differs at most on the universe' is stated pointwise"
+    }
+   ],
+   "source_gap": null,
+   "notes": "Roadmap item A2; design atlas_data/designs/drt_dpl.md, which names the file DRT_DPL.v. The frozen survey pre-registers that path for papers 6 (Kamp 1981) and 9 (Muskens 1996); a file there moves paper 9 from level F2 to F3 automatically. The file is therefore kept at DRT_to_DPL.v, with no survey link, until the author decides whether it covers those papers' claims. The file cites the 2011 handbook chapter, not Kamp 1981. Contributed by Aarne Talman (pull request). DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+   "compiles": true,
+   "_key": "atlas__drt_to_dpl",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 26,
+    "proved": 26,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 25,
+    "queried": 26,
+    "axioms": [
+     "FunctionalExtensionality.functional_extensionality_dep"
+    ],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
     "disputed": false
    }
   },
@@ -5125,6 +5281,271 @@
    "_final": {
     "faithfulness": "faithful",
     "determination": "as_is",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/type_logical/Lambek_Count.v",
+   "region": "type-logical grammar",
+   "summary": "The count invariant for the product-free Lambek calculus of Lambek.v: every derivation, with or without cut, preserves the polarity-weighted count of each primitive type. Its contrapositive gives non-derivability results on the fragment of Lambek.v. The invariant ignores word order, so it is a necessary condition only.",
+   "sources": [
+    {
+     "citation": "Lambek, J. (1958). The mathematics of sentence structure. Amer. Math. Monthly 65(3):154-170.",
+     "path": "papers/type_logical/Lambek_1958_MathematicsOfSentenceStructure.pdf",
+     "available": "full"
+    },
+    {
+     "citation": "Moot, R. & Retoré, C. (2012). The Logic of Categorial Grammars. LNCS 6850. Ch. 2-3.",
+     "path": "papers/type_logical/Moot_Retore_2012_LogicOfCategorialGrammars.pdf",
+     "available": "full"
+    }
+   ],
+   "definitions_mapped": [
+    {
+     "coq": "count p A",
+     "source": "Lambek 1958 §10; M&R §2.5",
+     "match": "exact",
+     "note": "occurrences of a primitive type, negative in argument position"
+    },
+    {
+     "coq": "count_ctx p Γ",
+     "source": "M&R Prop 2.6 p. 30",
+     "match": "exact",
+     "note": "the count of a context is the sum over its formulas"
+    }
+   ],
+   "theorems": [
+    {
+     "name": "count_ctx_app",
+     "status": "proved",
+     "source_claim": "added: the count of a concatenation is the sum of the counts"
+    },
+    {
+     "name": "count_invariant",
+     "status": "proved",
+     "source_claim": "Lambek 1958 §10; M&R Prop 2.6 p. 30: a derivable sequent is balanced for every primitive type"
+    },
+    {
+     "name": "unbalanced_not_derivable",
+     "status": "proved",
+     "source_claim": "M&R p. 30: the contrapositive, an unbalanced sequent is not derivable"
+    },
+    {
+     "name": "np_not_s",
+     "status": "proved",
+     "source_claim": "illustration on the fragment: np does not derive s"
+    },
+    {
+     "name": "s_not_np",
+     "status": "proved",
+     "source_claim": "illustration on the fragment: s does not derive np"
+    },
+    {
+     "name": "extra_argument_rejected",
+     "status": "proved",
+     "source_claim": "illustration of M&R Prop 2.6: np, np, np\\s does not derive s"
+    }
+   ],
+   "counts": {
+    "theorems": 8,
+    "proved": 8,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "DRAFT for the author's review; not an accepted source-level verdict.",
+     "The count and the invariant are stated for both the calculus with cut and the cut-free calculus, by one induction on Deriv.",
+     "The file states that the invariant is necessary and not sufficient, and names two balanced sequents it cannot reject."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "DRAFT for the author. The source statement transposes directly. Atom equality is a hypothesis of the section.",
+   "assessment_status": "incomplete",
+   "artifact_classes": [
+    {
+     "class": "iv",
+     "description": "contexts as lists; the count of a context as a fold"
+    }
+   ],
+   "source_gap": null,
+   "notes": "Extension file of Lambek.v, which it leaves unchanged. Design item T24 of atlas_data/designs/lambek.md. Contributed by Aarne Talman (pull request). DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+   "compiles": true,
+   "_key": "atlas__lambek_count",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 8,
+    "proved": 8,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 8,
+    "queried": 8,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/type_logical/Lambek_Decision.v",
+   "region": "type-logical grammar",
+   "summary": "Lambek's decision procedure for the product-free Lambek calculus of Lambek.v: a bottom-up search for a cut-free derivation, bounded by the number of connectives. The search is proved sound and complete, so derivability, with or without cut, is decidable. Computed examples include two balanced sequents that the count invariant cannot reject.",
+   "sources": [
+    {
+     "citation": "Lambek, J. (1958). The mathematics of sentence structure. Amer. Math. Monthly 65(3):154-170.",
+     "path": "papers/type_logical/Lambek_1958_MathematicsOfSentenceStructure.pdf",
+     "available": "full"
+    },
+    {
+     "citation": "Moot, R. & Retoré, C. (2012). The Logic of Categorial Grammars. LNCS 6850. Ch. 2-3.",
+     "path": "papers/type_logical/Moot_Retore_2012_LogicOfCategorialGrammars.pdf",
+     "available": "full"
+    }
+   ],
+   "definitions_mapped": [
+    {
+     "coq": "prove n Γ A",
+     "source": "Lambek 1958 §8; M&R §2.5",
+     "match": "simplified",
+     "note": "fuel-bounded boolean search over the axiom, the right rule and every left rule at every position"
+    },
+    {
+     "coq": "derivable_b Γ A",
+     "source": "Lambek 1958 §8",
+     "match": "simplified",
+     "note": "the search with fuel conn_seq + 1"
+    }
+   ],
+   "theorems": [
+    {
+     "name": "splits_spec",
+     "status": "proved",
+     "source_claim": "added: the enumeration of the ways to cut a list in two is correct"
+    },
+    {
+     "name": "holes_spec",
+     "status": "proved",
+     "source_claim": "added: the enumeration of the positions in a list is correct"
+    },
+    {
+     "name": "prove_sound",
+     "status": "proved",
+     "source_claim": "Lambek 1958 §8: every sequent the search accepts is cut-free derivable"
+    },
+    {
+     "name": "prove_complete",
+     "status": "proved",
+     "source_claim": "Lambek 1958 §8: every cut-free derivable sequent is accepted once the fuel exceeds its connective count"
+    },
+    {
+     "name": "derivable_b_spec",
+     "status": "proved",
+     "source_claim": "Lambek 1958 §8; M&R Prop 2.18: the bounded search decides derivability with cut"
+    },
+    {
+     "name": "derivable_dec",
+     "status": "proved",
+     "source_claim": "Lambek 1958 §8: derivability is decidable"
+    },
+    {
+     "name": "cf_derivable_dec",
+     "status": "proved",
+     "source_claim": "cut-free derivability is decidable"
+    },
+    {
+     "name": "john_walks",
+     "status": "proved",
+     "source_claim": "illustration: np, np\\s derives s"
+    },
+    {
+     "name": "walks_john_rejected",
+     "status": "proved",
+     "source_claim": "illustration: np\\s, np does not derive s; beyond the count invariant"
+    },
+    {
+     "name": "every_man_walks",
+     "status": "proved",
+     "source_claim": "M&R Ex 3.5 p. 81"
+    },
+    {
+     "name": "type_raising",
+     "status": "proved",
+     "source_claim": "M&R p. 30; Lambek 1958 §7: np derives s/(np\\s)"
+    },
+    {
+     "name": "raised_not_lowered",
+     "status": "proved",
+     "source_claim": "M&R p. 45: s/(n\\s) does not derive n; balanced"
+    },
+    {
+     "name": "a_very_book_rejected",
+     "status": "proved",
+     "source_claim": "M&R §2.5 p. 33: the empty-antecedent restriction rejects np/n, (n/n)/(n/n), n"
+    }
+   ],
+   "counts": {
+    "theorems": 14,
+    "proved": 14,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "DRAFT for the author's review; not an accepted source-level verdict.",
+     "Soundness and completeness are stated against cf_derivable and Deriv of Lambek.v, and decidability with cut uses that file's cut elimination (derivable_iff_cf).",
+     "The search returns a boolean, not a derivation; the file says so and gives no complexity bound."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "DRAFT for the author. The procedure is Lambek's, with fuel as the decreasing argument. Atom equality is a hypothesis of the section.",
+   "assessment_status": "incomplete",
+   "artifact_classes": [
+    {
+     "class": "ii",
+     "description": "the search is a fuel-bounded boolean function, not a derivation-producing procedure"
+    },
+    {
+     "class": "iv",
+     "description": "splits and holes of a list enumerate the rule positions"
+    }
+   ],
+   "source_gap": null,
+   "notes": "Extension file of Lambek.v, which it leaves unchanged. Design items T13 to T16 of atlas_data/designs/lambek.md. Contributed by Aarne Talman (pull request). DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+   "compiles": true,
+   "_key": "atlas__lambek_decision",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 14,
+    "proved": 14,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 14,
+    "queried": 14,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
     "disputed": false
    }
   },

@@ -1,0 +1,54 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "atlas/type_logical/Lambek_Decision.v",
+  "key": "atlas__lambek_decision",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "unsafe_flags": [],
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 14,
+    "proved": 14,
+    "admitted": 0,
+    "aborted": 0,
+    "admitted_definitions": 0,
+    "unparsed_status": 0,
+    "definitions": 9,
+    "toplevel_axioms": 0,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 14,
+    "closed": 14,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "statements": {
+    "type_logical.Lambek_Decision.splits_spec": "9305883166b31c4c",
+    "type_logical.Lambek_Decision.holes_spec": "fb29792adf18f91d",
+    "type_logical.Lambek_Decision.prove_sound": "5201ab152b60dc72",
+    "type_logical.Lambek_Decision.prove_complete_gen": "4485f3cc60ac0608",
+    "type_logical.Lambek_Decision.prove_complete": "248df0d7e9e966cc",
+    "type_logical.Lambek_Decision.derivable_b_spec": "c9a6f45a311db814",
+    "type_logical.Lambek_Decision.derivable_dec": "c9f8dd41f50f024b",
+    "type_logical.Lambek_Decision.cf_derivable_dec": "5786bce9bb60fafb",
+    "type_logical.Lambek_Decision.DecisionExamples.john_walks": "0473471ccc274fe3",
+    "type_logical.Lambek_Decision.DecisionExamples.walks_john_rejected": "83829d9d4bde82a2",
+    "type_logical.Lambek_Decision.DecisionExamples.every_man_walks": "3acf5191c5cba68f",
+    "type_logical.Lambek_Decision.DecisionExamples.type_raising": "010a8d1da3d8f94c",
+    "type_logical.Lambek_Decision.DecisionExamples.raised_not_lowered": "def6c7087f399148",
+    "type_logical.Lambek_Decision.DecisionExamples.a_very_book_rejected": "6444333ea321eda9"
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

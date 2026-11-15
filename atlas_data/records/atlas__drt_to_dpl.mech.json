@@ -1,0 +1,74 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "atlas/dynamic/DRT_to_DPL.v",
+  "key": "atlas__drt_to_dpl",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "unsafe_flags": [],
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 26,
+    "proved": 26,
+    "admitted": 0,
+    "aborted": 0,
+    "admitted_definitions": 0,
+    "unparsed_status": 0,
+    "definitions": 22,
+    "toplevel_axioms": 0,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 26,
+    "closed": 25,
+    "not_closed": 1,
+    "undocumented_axioms": [],
+    "detail": {
+      "dynamic.DRT_to_DPL.drt_dpl_meaning": {
+        "closed": false,
+        "axioms": [
+          "FunctionalExtensionality.functional_extensionality_dep"
+        ],
+        "raw": "Axioms:\nFunctionalExtensionality.functional_extensionality_dep :\n  forall (A : Type) (B : A -> Type) (f g : forall x : A, B x),\n  (forall x : A, f x = g x) -> f = g"
+      }
+    },
+    "unresolved": []
+  },
+  "statements": {
+    "dynamic.DRT_to_DPL.drs_cond_ind": "35484205695a9dbb",
+    "dynamic.DRT_to_DPL.same_refl": "d44c6737496c7378",
+    "dynamic.DRT_to_DPL.same_sym": "a136ac872ef9a512",
+    "dynamic.DRT_to_DPL.tval_same": "5a123c1a8307166e",
+    "dynamic.DRT_to_DPL.verifies_csat_same": "4f0e4332ef22244f",
+    "dynamic.DRT_to_DPL.all_of_csat_same": "00a9bc25a4c68266",
+    "dynamic.DRT_to_DPL.conj_all_sem": "0effab21152f4510",
+    "dynamic.DRT_to_DPL.exs_elim": "fd937e28b93d7db0",
+    "dynamic.DRT_to_DPL.exs_intro": "cb60ababfad88bca",
+    "dynamic.DRT_to_DPL.tr_correct": "4dea235639d2ab69",
+    "dynamic.DRT_to_DPL.dpl_to_drt": "3a1db4df76345990",
+    "dynamic.DRT_to_DPL.drt_to_dpl": "028817ec797b4a8f",
+    "dynamic.DRT_to_DPL.cond_test": "4f8d738c021e0fb3",
+    "dynamic.DRT_to_DPL.drt_dpl_truth": "1cb77a3ca85238af",
+    "dynamic.DRT_to_DPL.drt_dpl_meaning": "049f707436c6687c",
+    "dynamic.DRT_to_DPL.upd2_0": "1513e89bae6f6607",
+    "dynamic.DRT_to_DPL.upd2_1": "a94d4df90c3dcb7e",
+    "dynamic.DRT_to_DPL.upd2_out": "4db109973ae2ff39",
+    "dynamic.DRT_to_DPL.two_refs": "edc0c0f829dba0e7",
+    "dynamic.DRT_to_DPL.drs_dk1_truth": "24c8decf3b5cbf19",
+    "dynamic.DRT_to_DPL.drs_dk2_truth": "0e677a580c74d1b0",
+    "dynamic.DRT_to_DPL.tr_dk1_truth": "7d163a3a4294d7ae",
+    "dynamic.DRT_to_DPL.tr_dk2_truth": "12431466473cd6aa",
+    "dynamic.DRT_to_DPL.tr_K_P": "e885855d985b0d88",
+    "dynamic.DRT_to_DPL.tr_K_Q": "16b27bf52ef21b6d",
+    "dynamic.DRT_to_DPL.merge_not_conj": "025a1dd70f8da681"
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

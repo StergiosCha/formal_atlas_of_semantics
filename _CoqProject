@@ -70,6 +70,7 @@ ttr_mtt/TTR_types.v
 # --- atlas: FORMAL-ATLAS flagship formalisations (one per framework region) ---
 atlas/type_logical/Lambek.v
 atlas/type_logical/Lambek_Count.v
+atlas/type_logical/Lambek_Decision.v
 atlas/dynamic/DPL.v
 atlas/dynamic/Heim1982.v
 atlas/dynamic/Heim1982_Examples.v

@@ -50,28 +50,15 @@ For changed Coq files, rerun the relevant mechanical verification, inspect its
 assumptions and regenerate fingerprints as described in `atlas_data/verify.py`.
 Do not silently accept a changed record solely to make CI green.
 
-For reporting/UI changes:
+For reporting/UI changes, run the same checks as CI:
 
 ```bash
-python3 -m unittest discover -s atlas_data -p 'test_*.py'
-python3 atlas_data/build_site.py
-node atlas_data/site/test_landing.cjs
-node atlas_data/site/test_reading.cjs
-node atlas_data/site/test_source_registry.cjs
-node atlas_data/site/test_claim_comparison.cjs
-node atlas_data/site/test_rosch_campaign.cjs
-node atlas_data/site/test_outcomes.cjs
-node atlas_data/site/test_workspace.cjs
-git diff --check
+bash tools/run_checks.sh
 ```
 
-If you change consolidation inputs, rebuild before running those checks:
-
-```bash
-python3 atlas_data/source_registry.py
-python3 atlas_data/consolidate.py
-python3 atlas_data/build_site.py
-```
+The script rebuilds the source registry, consolidated evidence and site, runs
+the Python and Node tests, and fails if `atlas.json` or `ATLAS.md` are stale.
+Add `--editor` if you changed `tool/editor`.
 
 The [source registry](atlas_data/SOURCE_REGISTRY.md) makes these rebuilds
 independent of external PDF availability. F0–F2 retain a labelled historical

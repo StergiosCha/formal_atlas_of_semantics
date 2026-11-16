@@ -26,15 +26,22 @@ Registry login material is confined to a temporary root-only directory under
 `/run` and removed after the pull. No visitor OpenRouter keys are configured
 as VM secrets or stored in the service environment.
 
-Persistent-session image: `formalatlasacr.azurecr.io/atlas-checker@sha256:24f488c892065bfaab0b49ffd79d8e17a085cda5a7432cb49b38e7328da35495`.
-Built by ACR run `cac`, with the runtime implementation in commit `a5bd0ed`,
-on the fully compiled toolchain/library base from run `caa`. It contains Coq
-8.20.1 and coq-lsp package `0.2.5+8.20` (runtime version `0.2.5`). The published
-87-file library is unchanged. Unpublished theory additions in the research
-checkout are not part of this release. See `../SESSION_VALIDATION.md` for the
-candidate tests and the distinction between runtime and test-harness revisions.
+Current image, active since 15 November 2026 (UTC):
+`formalatlasacr.azurecr.io/atlas-checker@sha256:a3a858b2e91c781dd45e07a734e1f0287901260ee5c95b6fc35577aef27e57d8`.
+Built by ACR run `cad` from commit `c64ac19` with `tool/checker/Dockerfile`
+(the full build, since the library changed). It contains Coq 8.20.1, coq-lsp
+package `0.2.5+8.20` and the published 91-file library, whose fingerprint is
+`2777e8513cbb5e4e75a4d93410272396e49c938cf1e62b965b85568c860f5c5f`. The
+runtime code is unchanged from the persistent-session release. See
+"Library release, 2026-11-15" below.
 
-Rollback image, retained on the VM:
+Previous image (persistent sessions, 87-file library), retained on the VM for
+rollback: `formalatlasacr.azurecr.io/atlas-checker@sha256:24f488c892065bfaab0b49ffd79d8e17a085cda5a7432cb49b38e7328da35495`.
+Built by ACR run `cac`, with the runtime implementation in commit `a5bd0ed`,
+on the fully compiled toolchain/library base from run `caa`. See
+`../SESSION_VALIDATION.md` for its candidate tests.
+
+Older rollback image, also retained on the VM:
 `formalatlasacr.azurecr.io/atlas-checker@sha256:31a276f63ef8bb9c21d9d739632e38559a64a379f2960bcf7606b20301ddf8b6`.
 The activator prints its root-only backup directory. To roll back, restore
 `atlas-pull` and `atlas-coq.service` from that exact directory to their original
@@ -122,3 +129,32 @@ The previous image is retained. The activation backup is
 This section records worker activation only. Confirm frontend publication from
 the deployed site's revision, a successful CI run for that revision, and the
 public-browser smoke test. Worker checks alone do not establish publication.
+
+## Library release, 2026-11-15
+
+The library grew from 87 to 91 files (`Donkey_Sums.v`, `Lambek_Count.v`,
+`Lambek_Decision.v`, `DRT_to_DPL.v`), so the worker needed a new image.
+
+1. ACR run `cad` built the image above from a clean export of commit `c64ac19`
+   in 29 minutes; all 91 files compiled.
+2. `test-sessions.py` pulled the candidate on the VM and ran its 23 tests in a
+   separate container without network. All passed; production was unchanged.
+3. `activate-release.py` moved the service to the new image. It takes the old
+   and new images and library fingerprints as arguments, keeps a root-only
+   configuration backup, and restores the previous worker if a check fails.
+   Its in-container session test passed. The backup is
+   `/var/lib/atlas-deployments/release-20261115-awhrzyvw` on the VM.
+4. The public endpoint reports the new library fingerprint, which is the one
+   in the site published from `c64ac19`.
+5. `smoke_deployed.py` passed against the public endpoint and the published
+   site: real Coq, persistent sessions, 91 sources, matching fingerprints,
+   site revision `c64ac19`, no paid model call. The browser smoke test
+   (`smoke_public.py`) was not run for this release.
+
+A first activation attempt stopped at the script's argument check, before any
+change, because the new image name had been passed incorrectly.
+
+To roll back, restore `atlas-pull` and `atlas-coq.service` from the backup
+directory above to their original paths, run `systemctl daemon-reload`, and
+restart `atlas-coq`. The site would then again reject the worker as a
+mismatched release.

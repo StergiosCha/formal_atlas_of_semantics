@@ -1,0 +1,132 @@
+{
+ "file": "atlas/model_theoretic/Exceptional_Scope.v",
+ "region": "model-theoretic (composition: alternatives and scope)",
+ "summary": "Alternatives, evaluation and scope, after Charlow's dissertation. An indefinite denotes a set of alternatives in the State.Set monad, which also carries a stack of discourse referents; scope is taken by continuations, with Lift the monad's sequencing and Lower its injection. The monad laws; monadic application; scopal combination subsumes monadic application; binding; Reset leaves an indefinite or a pronoun unchanged and turns a universal into a truth value; an indefinite inside an island scopes over a negation outside it and a universal does not; and an indefinite binds a pronoun in the next sentence. A two-relative model separates the readings.",
+ "sources": [
+  {
+   "citation": "Charlow, S. (2014). On the semantics of exceptional scope. PhD dissertation, New York University.",
+   "path": "papers/foundations/Charlow_2014_OnTheSemanticsOfExceptional.pdf",
+   "available": "sections 2.3.3, 2.5.2, 3.2.1-3.2.2, 3.3.2, 3.4-3.5.2, Fact 3.16 and 4.3-4.4.2 read; chapter 5 and the appendices not read"
+  }
+ ],
+ "definitions_mapped": [],
+ "theorems": [
+  {
+   "name": "state_set_monad_laws",
+   "status": "proved",
+   "source_claim": "T1. The monad laws for Def 2.29."
+  },
+  {
+   "name": "application",
+   "status": "proved",
+   "source_claim": "T2. [C Fact 2.11, p. 45]"
+  },
+  {
+   "name": "S_subsumes_A",
+   "status": "proved",
+   "source_claim": "T3. [C Fact 3.14, p. 69]: monadic application is derivable from S, Lift and Lower. It holds by unfolding."
+  },
+  {
+   "name": "lift_eta",
+   "status": "proved",
+   "source_claim": "[C p. 67 and (3.20)]: a lifted value is its Montague lift."
+  },
+  {
+   "name": "binding",
+   "status": "proved",
+   "source_claim": "T4. [C Fact 2.12, p. 46] and [C Fact 2.13, p. 47]."
+  },
+  {
+   "name": "reset_monadic",
+   "status": "proved",
+   "source_claim": "T5. [C Fact 4.1, p. 91]: Reset does nothing to a tower whose scopal tier is monadic sequencing."
+  },
+  {
+   "name": "reset_indefinite",
+   "status": "proved",
+   "source_claim": "[C Fact 4.2, p. 91]: \"a linguist left\" survives Reset."
+  },
+  {
+   "name": "reset_pronoun",
+   "status": "proved",
+   "source_claim": "[C Fact 4.3, p. 91]: \"she left\" survives Reset."
+  },
+  {
+   "name": "reset_universal",
+   "status": "proved",
+   "source_claim": "T6. [C Fact 4.5, p. 92]: after Reset of \"a man met every linguist\" the indefinite and its dref stay on the scopal tier; the universal is a truth value on the bottom."
+  },
+  {
+   "name": "every_lower",
+   "status": "proved",
+   "source_claim": "[C Fact 4.4, p. 92]: \"every linguist left\" lowers to one truth value and the input stack."
+  },
+  {
+   "name": "exceptional_scope_negation",
+   "status": "proved",
+   "source_claim": "T7. (a) [C (4.8), p. 95]: the island's alternatives scope over the negation: one negated truth value per witness. (b) [C p. 96, \"will restrict the scope of a universal to its minimal tensed clause\"]: the same derivation with a universal..."
+  },
+  {
+   "name": "cross_sentential_binding",
+   "status": "proved",
+   "source_claim": "T8. (a) [C (4.7), pp. 94-95]: \"a man met every linguist, and he left\". Both sentences are Reset; the pronoun is bound by the indefinite and the dref is still on the output stack. (b) [C p. 95]: a Bind-shifted universal [C Fact 3.16, p...."
+  },
+  {
+   "name": "wide_scope_true",
+   "status": "proved",
+   "source_claim": "Exceptional scope: True is among the returned values (witness r2)."
+  },
+  {
+   "name": "wide_scope_false_too",
+   "status": "proved",
+   "source_claim": "It is nondeterministic: False is returned too (witness r1)."
+  },
+  {
+   "name": "narrow_scope_false",
+   "status": "proved",
+   "source_claim": "Narrow scope: negation over the evaluated island returns only False."
+  },
+  {
+   "name": "universal_trapped",
+   "status": "proved",
+   "source_claim": "A universal in the island cannot scope over the negation: the only value is True (\"not every relative ...\"), where the wide-scope universal reading (\"every relative did not ...\") would be False."
+  },
+  {
+   "name": "universal_value",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  }
+ ],
+ "counts": {
+  "theorems": 21,
+  "proved": 21,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "DRAFT for the author's review; not an accepted source-level verdict.",
+   "Equality of programs is pointwise, so no extensionality axiom is used.",
+   "Truth values are booleans and negation is a relation: the returned boolean is true exactly when no True is among the argument's values. The source writes a singleton set holding that proposition.",
+   "The pronoun returns nothing on the empty stack; the source gives no case for it.",
+   "The tower notation, the type system with evaluated types, internal Lift, the Binder Roof Constraint, the conditional case (4.9), plurals, disjunction and chapter 5 are not formalized."
+  ]
+ },
+ "determination": "unassessed",
+ "determination_rationale": "DRAFT for the author. The monad and the continuation layer transpose directly; lexical verb meanings are arbitrary boolean functions.",
+ "assessment_status": "incomplete",
+ "artifact_classes": [
+  {
+   "class": "iv",
+   "description": "pointwise equality in place of equality of functions; booleans as truth values; negation as a relation"
+  },
+  {
+   "class": "v",
+   "description": "zero axioms"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Standalone; standard library only. Semantic_Monads.v is unchanged. Not yet cross-reviewed. No survey entry is linked to this file. DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+ "compiles": true
+}

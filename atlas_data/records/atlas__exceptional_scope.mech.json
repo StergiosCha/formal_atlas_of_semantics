@@ -1,0 +1,61 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "atlas/model_theoretic/Exceptional_Scope.v",
+  "key": "atlas__exceptional_scope",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "unsafe_flags": [],
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 21,
+    "proved": 21,
+    "admitted": 0,
+    "aborted": 0,
+    "admitted_definitions": 0,
+    "unparsed_status": 0,
+    "definitions": 24,
+    "toplevel_axioms": 0,
+    "section_assumptions": 1
+  },
+  "assumptions": {
+    "queried": 21,
+    "closed": 21,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "statements": {
+    "model_theoretic.Exceptional_Scope.state_set_monad_laws": "a6aead0b71679e20",
+    "model_theoretic.Exceptional_Scope.application": "75dceed9774e467d",
+    "model_theoretic.Exceptional_Scope.S_subsumes_A": "15acb8c0ee2daf70",
+    "model_theoretic.Exceptional_Scope.lift_eta": "753b496a401041f1",
+    "model_theoretic.Exceptional_Scope.binding": "4af5fd9ca98bd6d0",
+    "model_theoretic.Exceptional_Scope.reset_monadic": "fc8b9ac78fb539b9",
+    "model_theoretic.Exceptional_Scope.reset_indefinite": "90e2b997d8dc2fd4",
+    "model_theoretic.Exceptional_Scope.reset_pronoun": "2a24434597ef662e",
+    "model_theoretic.Exceptional_Scope.every_spec": "2cfa904569837b61",
+    "model_theoretic.Exceptional_Scope.univ_bool": "e21f8782db86ffb3",
+    "model_theoretic.Exceptional_Scope.reset_universal": "617755ef60715ce3",
+    "model_theoretic.Exceptional_Scope.every_lower": "af4f7563c62d2084",
+    "model_theoretic.Exceptional_Scope.neg_island_spec": "70380cae1dc1335a",
+    "model_theoretic.Exceptional_Scope.exceptional_scope_negation": "e5d0bbdf69327a8d",
+    "model_theoretic.Exceptional_Scope.conj_lower": "7f0e91a4e661cb14",
+    "model_theoretic.Exceptional_Scope.cross_sentential_binding": "2a52aed349921f0d",
+    "model_theoretic.Exceptional_Scope.RelativeModel.wide_scope_true": "0dbf54aabc61f737",
+    "model_theoretic.Exceptional_Scope.RelativeModel.wide_scope_false_too": "1219df02a833c9af",
+    "model_theoretic.Exceptional_Scope.RelativeModel.narrow_scope_false": "6d45633357acd97e",
+    "model_theoretic.Exceptional_Scope.RelativeModel.universal_trapped": "41f27cfc9997e5ff",
+    "model_theoretic.Exceptional_Scope.RelativeModel.universal_value": "081240068e3e04e5"
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

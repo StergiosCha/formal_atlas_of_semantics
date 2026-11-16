@@ -1,0 +1,190 @@
+{
+ "file": "atlas/model_theoretic/Counterfactuals.v",
+ "region": "model-theoretic (modality: counterfactuals)",
+ "summary": "Counterfactual conditionals on finite ordering models. Truth at every closest antecedent-world agrees with Lewis's general truth condition; modus ponens holds under weak centering; conditional excluded middle holds under Stalnaker's assumption and fails without it; strengthening the antecedent, transitivity and contraposition fail on a four-world model of the Sobel sequence. In von Fintel's dynamic account the Sobel sequence is accepted in one order and rejected in the reverse.",
+ "sources": [
+  {
+   "citation": "Lewis, D. (1973). Counterfactuals. Blackwell.",
+   "path": "papers/foundations/Lewis_1973_Counterfactuals.pdf",
+   "available": "parts; a scan without a text layer, read by OCR"
+  },
+  {
+   "citation": "von Fintel, K. (2001). Counterfactuals in a dynamic context. In Ken Hale: A Life in Language. MIT Press.",
+   "path": "papers/foundations/Fintel_2001_CounterfactualsInADynamicContext.pdf",
+   "available": "parts; the text layer is unreadable, read by OCR"
+  },
+  {
+   "citation": "Gillies, A. (2007). Counterfactual scorekeeping. Linguistics and Philosophy 30: 329-360.",
+   "path": "papers/foundations/Gillies_2007_CounterfactualScorekeeping.pdf",
+   "available": "parts; manuscript version"
+  }
+ ],
+ "definitions_mapped": [],
+ "theorems": [
+  {
+   "name": "would_iff_lewis",
+   "status": "proved",
+   "source_claim": "T1. On a finite model the closest-worlds condition and Lewis's general condition agree. Lewis p. 20: under the Limit Assumption the truth conditions simplify in this way."
+  },
+  {
+   "name": "might_dual",
+   "status": "proved",
+   "source_claim": "T2. 'might' is the dual of 'would'. Lewis p. 21 takes this as the definition of 'might' and derives the closest-worlds condition; here the closest-worlds condition is the definition and the duality is derived."
+  },
+  {
+   "name": "vacuous_truth",
+   "status": "proved",
+   "source_claim": "T3. If there is no antecedent-world, 'would' is vacuously true and 'might' is false. Lewis p. 16 (the vacuous case), p. 22 (might)."
+  },
+  {
+   "name": "modus_ponens",
+   "status": "proved",
+   "source_claim": "T4. Modus ponens for 'would' under weak centering. Lewis p. 27 states the pattern; p. 29 says it survives the retreat to weak centering."
+  },
+  {
+   "name": "centering_and",
+   "status": "proved",
+   "source_claim": "T5. Under centering a true antecedent and a true consequent give a true counterfactual. Lewis p. 26, the second of the two inference-patterns at the foot of the page; p. 29 says it is lost under weak centering."
+  },
+  {
+   "name": "cem_stalnaker",
+   "status": "proved",
+   "source_claim": "T6. Conditional Excluded Middle under Stalnaker's Assumption. Lewis p. 79."
+  },
+  {
+   "name": "cem_stalnaker_at",
+   "status": "proved",
+   "source_claim": "T6'. Conditional Excluded Middle for one antecedent, from Stalnaker's Assumption at that antecedent. Lewis pp. 78-79."
+  },
+  {
+   "name": "stalnaker_linear_implies_at",
+   "status": "proved",
+   "source_claim": "ours: the linear form implies the assumption at every antecedent."
+  },
+  {
+   "name": "restricted_transitivity",
+   "status": "proved",
+   "source_claim": "T7. The valid special case of transitivity. Lewis p. 35, the simplified pattern: from X []-> A and (X & A) []-> C infer X []-> C."
+  },
+  {
+   "name": "vf_null_context",
+   "status": "proved",
+   "source_claim": "T8. In the null context, where the horizon at i is just {i}, the dynamic conditional has the same truth value as 'would'. von Fintel p. 139 (\"does not lead to a difference in the truth-conditions derived for an isolated..."
+  },
+  {
+   "name": "vf_decompose",
+   "status": "proved",
+   "source_claim": "ours: the dynamic conditional is the Lewis conditional together with a strict conditional over the worlds already in the horizon."
+  },
+  {
+   "name": "sobel_sequence",
+   "status": "proved",
+   "source_claim": "The Sobel sequence, von Fintel (10) p. 130; Lewis p. 10: both sentences are true at actual, together with the negated opposite of the second."
+  },
+  {
+   "name": "model_centered",
+   "status": "proved",
+   "source_claim": "The premises of T3, T4, T5, T8 are satisfiable: the model is centered (hence weakly centered) on actual, and 'never' has no worlds."
+  },
+  {
+   "name": "vacuous_instance",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  },
+  {
+   "name": "might_instance",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  },
+  {
+   "name": "restricted_transitivity_instance",
+   "status": "proved",
+   "source_claim": "T7 at work: all []-> usa and (all & usa) []-> peace, so all []-> peace."
+  },
+  {
+   "name": "strengthening_fails",
+   "status": "proved",
+   "source_claim": "Separating example 1. Strengthening the antecedent fails (Lewis p. 31): usa []-> war, but not (usa & all) []-> war."
+  },
+  {
+   "name": "transitivity_fails",
+   "status": "proved",
+   "source_claim": "Separating example 2. Transitivity fails (Lewis p. 32): all []-> usa and usa []-> war, but not all []-> war."
+  },
+  {
+   "name": "contraposition_fails",
+   "status": "proved",
+   "source_claim": "Separating example 3. Contraposition fails (Lewis p. 35): usa []-> not all, but not (all []-> not usa)."
+  },
+  {
+   "name": "cem_fails",
+   "status": "proved",
+   "source_claim": "Separating example 4. Conditional Excluded Middle fails when two closest antecedent-worlds are tied (Lewis p. 80: comparative similarity permits ties): neither usa []-> odd nor usa []-> not odd."
+  },
+  {
+   "name": "model_not_stalnaker",
+   "status": "proved",
+   "source_claim": "Hence the model does not satisfy Stalnaker's Assumption at actual."
+  },
+  {
+   "name": "stalnaker_at_on_the_model",
+   "status": "proved",
+   "source_claim": "Stalnaker's Assumption antecedent by antecedent: it fails at actual for 'usa', which has two tied closest worlds, and holds for 'all', which has one. So the assumption can hold of some antecedents of a model and not of others; the..."
+  },
+  {
+   "name": "model2_stalnaker",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  },
+  {
+   "name": "model2_cem_instance",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  },
+  {
+   "name": "sobel_dynamic_ok",
+   "status": "proved",
+   "source_claim": "The dynamic account on the same model, starting from the null context [actual]. von Fintel p. 142: the Lewis-Sobel sequence (10) is accepted, the reversed sequence (11) is not, because the horizon reached by the first sentence of (11)..."
+  },
+  {
+   "name": "reverse_sobel_dynamic_fails",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  },
+  {
+   "name": "sobel_static_order_free",
+   "status": "proved",
+   "source_claim": "By contrast the static 'would' does not see the order: both sentences are true at actual whichever comes first."
+  }
+ ],
+ "counts": {
+  "theorems": 35,
+  "proved": 35,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "DRAFT for the author's review; not an accepted source-level verdict.",
+   "Two sources were read by OCR; statements were taken from the prose and von Fintel's update rule was cross-checked against Gillies. The formula symbols should be checked against clean copies.",
+   "Stalnaker (1968) is not in the corpus; his assumption appears as Lewis states it."
+  ]
+ },
+ "determination": "unassessed",
+ "determination_rationale": "DRAFT for the author. Finite ordering models with a rank function stand in for systems of spheres.",
+ "assessment_status": "incomplete",
+ "artifact_classes": [
+  {
+   "class": "iii",
+   "description": "finitely many worlds with a numerical rank in place of systems of spheres"
+  },
+  {
+   "class": "v",
+   "description": "zero axioms"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Standalone; standard library only. The existing files on Kratzer's modality are unchanged. Not yet cross-reviewed. No survey entry is linked to this file. DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+ "compiles": true
+}

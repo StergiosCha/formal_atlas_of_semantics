@@ -1,0 +1,63 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "atlas/probabilistic/Bayesian_Semantics.v",
+  "key": "atlas__bayesian_semantics",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "unsafe_flags": [],
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 23,
+    "proved": 23,
+    "admitted": 0,
+    "aborted": 0,
+    "admitted_definitions": 0,
+    "unparsed_status": 0,
+    "definitions": 14,
+    "toplevel_axioms": 0,
+    "section_assumptions": 0
+  },
+  "assumptions": {
+    "queried": 23,
+    "closed": 23,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "statements": {
+    "probabilistic.Bayesian_Semantics.E1_many_has_mass_half": "dad842d735b4d765",
+    "probabilistic.Bayesian_Semantics.E2_before_observing": "813ee2c821c3ccf3",
+    "probabilistic.Bayesian_Semantics.E3_chair_example_1": "371a32b29eea95d4",
+    "probabilistic.Bayesian_Semantics.E4_chair_example_2": "2ac657cf4713c0a4",
+    "probabilistic.Bayesian_Semantics.B8_supported_not_entailed_and_inverse_fails": "b68004abfeb83a97",
+    "probabilistic.Bayesian_Semantics.mass_ext": "8149b27085a786ef",
+    "probabilistic.Bayesian_Semantics.mass_nonneg": "83902db935a19bcf",
+    "probabilistic.Bayesian_Semantics.mass_le": "33ea03894394b37d",
+    "probabilistic.Bayesian_Semantics.mass_split": "46b4136b9945cd96",
+    "probabilistic.Bayesian_Semantics.add_div": "5d2609f2ad88ad77",
+    "probabilistic.Bayesian_Semantics.qsum_pos_exists": "324c4de529e6b17b",
+    "probabilistic.Bayesian_Semantics.qsum_list_prod": "044bfec195ecef66",
+    "probabilistic.Bayesian_Semantics.mass_scale_inner": "5214097944fa1541",
+    "probabilistic.Bayesian_Semantics.mass_joint": "3e3499ee8b941478",
+    "probabilistic.Bayesian_Semantics.num_point": "d5977f78f4711e92",
+    "probabilistic.Bayesian_Semantics.point": "1041071b6a2f33c3",
+    "probabilistic.Bayesian_Semantics.B1_entailed_is_certain": "42cd1534576d3a27",
+    "probabilistic.Bayesian_Semantics.B2_monotone": "05c0fb2f2fe17c93",
+    "probabilistic.Bayesian_Semantics.B3_complement": "e809c384419d2ee4",
+    "probabilistic.Bayesian_Semantics.B4_chain": "c27b6be9290615db",
+    "probabilistic.Bayesian_Semantics.B5_literal_listener_is_conditioning": "20fb880bb8b291ad",
+    "probabilistic.Bayesian_Semantics.B6_uniform_is_counting": "e4cca94228239f18",
+    "probabilistic.Bayesian_Semantics.B7_quantifier_supports_instance": "9540e828d25538cf"
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

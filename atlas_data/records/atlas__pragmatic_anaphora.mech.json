@@ -1,0 +1,47 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "atlas/probabilistic/Pragmatic_Anaphora.v",
+  "key": "atlas__pragmatic_anaphora",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "unsafe_flags": [],
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 7,
+    "proved": 7,
+    "admitted": 0,
+    "aborted": 0,
+    "admitted_definitions": 0,
+    "unparsed_status": 0,
+    "definitions": 22,
+    "toplevel_axioms": 0,
+    "section_assumptions": 8
+  },
+  "assumptions": {
+    "queried": 7,
+    "closed": 7,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "statements": {
+    "probabilistic.Pragmatic_Anaphora.ev_coincide": "801c746fa0053b10",
+    "probabilistic.Pragmatic_Anaphora.complete_state_consistency": "eb16628273a34660",
+    "probabilistic.Pragmatic_Anaphora.PL0_bounds": "bca805cee33691e2",
+    "probabilistic.Pragmatic_Anaphora.mass_point": "84e939b89ab5d06a",
+    "probabilistic.Pragmatic_Anaphora.PL0_is_RSA_literal": "666d9ea5f5682a9d",
+    "probabilistic.Pragmatic_Anaphora.Emacs.emacs_preferred": "5b95fb9819c2b506",
+    "probabilistic.Pragmatic_Anaphora.Emacs.less_certain_with_animate_candidates": "ae165598f129b918"
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

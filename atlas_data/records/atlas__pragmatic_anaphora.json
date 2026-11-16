@@ -1,0 +1,70 @@
+{
+ "file": "atlas/probabilistic/Pragmatic_Anaphora.v",
+ "region": "probabilistic pragmatics",
+ "summary": "A finite fragment of Bayesian pragmatics for pronoun resolution. Non-contradiction with a complete world state is truth at it; the literal listener is bounded and, for unambiguous utterances, is the literal listener of RSA.v. On the paper's example 'Emacs is waiting for the command. It is prepared.' the listener resolves the pronoun to Emacs with probability 47336/57451 under the paper's animacy prior, and 315614/601949 when both candidates are likely animate.",
+ "sources": [
+  {
+   "citation": "Grove, J., Bernardy, J.-P. & Chatzikyriakidis, S. (2021). From compositional semantics to Bayesian pragmatics via logical inference. Proc. NALOMA 2021, pp. 60-70 (ACL Anthology 2021.naloma-1.8).",
+   "path": null,
+   "available": "not in the corpus; read from the public ACL Anthology copy; sections 2.3 to 5 read"
+  }
+ ],
+ "definitions_mapped": [],
+ "theorems": [
+  {
+   "name": "complete_state_consistency",
+   "status": "proved",
+   "source_claim": "N1. [GBC21] sec. 2.3, sec. 4. If a world state decides every atom of phi, then \"Gamma, phi does not entail a contradiction\" (some valuation satisfies both) holds exactly when phi is true at the world state."
+  },
+  {
+   "name": "PL0_bounds",
+   "status": "proved",
+   "source_claim": "N2. PL0 is nonnegative and grows with the proposition."
+  },
+  {
+   "name": "PL0_is_RSA_literal",
+   "status": "proved",
+   "source_claim": "N3. The bridge. If u means the same under every theta, the weights of theta sum to 1, and phi is the complete description of one world w, then PL0 is the literal listener of RSA.v before normalisation: the prior of w if u is true there,..."
+  },
+  {
+   "name": "emacs_preferred",
+   "status": "proved",
+   "source_claim": "With the paper's prior 0.2 for the animacy of things: the proposition about Emacs is more probable a priori and for the literal listener, and the pragmatic listener resolves \"it\" to Emacs with probability 47336/57451, about 0.82."
+  },
+  {
+   "name": "less_certain_with_animate_candidates",
+   "status": "proved",
+   "source_claim": "Separating case, after example (2): with the prior 0.9 that the paper gives to persons, animacy no longer discriminates, and the resolution is close to even: 315614/601949, about 0.52."
+  }
+ ],
+ "counts": {
+  "theorems": 7,
+  "proved": 7,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "DRAFT for the author's review; not an accepted source-level verdict.",
+   "Sections 2.1 and 2.2 (the monadic composition), the result tables and section 6 were not read.",
+   "World states are complete valuations, so the paper's logical-inference step reduces to evaluation."
+  ]
+ },
+ "determination": "unassessed",
+ "determination_rationale": "DRAFT for the author. A finite fragment with exact weights; the paper's theorem-prover step is not modelled.",
+ "assessment_status": "incomplete",
+ "artifact_classes": [
+  {
+   "class": "iii",
+   "description": "complete world states in place of sets of premises checked by a prover"
+  },
+  {
+   "class": "v",
+   "description": "zero axioms; decidable equality of worlds is a hypothesis of one section"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Builds on RSA.v and Bayesian_Semantics.v, which it leaves unchanged. Not yet cross-reviewed. No survey entry is linked to this file. DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+ "compiles": true
+}

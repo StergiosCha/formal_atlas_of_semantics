@@ -1,0 +1,90 @@
+{
+ "file": "atlas/model_theoretic/Scale_Structure.v",
+ "region": "model-theoretic (degree semantics)",
+ "summary": "Scale structure and the standards of gradable adjectives, after Kennedy and McNally. The endpoints of the four scale types; the antonym test (39); the 'half' tests (41)-(42); the comparative tests (43); and separating examples for relative adjectives (40), (44).",
+ "sources": [
+  {
+   "citation": "Kennedy, C. & McNally, L. (2005). Scale structure, degree modification, and the semantics of gradable predicates. Language 81(2): 345-381.",
+   "path": "papers/foundations/Kennedy_McNally_2005_ScaleStructureAndTheSemantic.pdf",
+   "available": "pp. 353-360 read"
+  }
+ ],
+ "definitions_mapped": [],
+ "theorems": [
+  {
+   "name": "endpoints",
+   "status": "proved",
+   "source_claim": "K1. (23): only the closed ends have endpoints."
+  },
+  {
+   "name": "absolute_antonyms",
+   "status": "proved",
+   "source_claim": "K2. (39) p. 359: \"The door is not open |= The door is closed\", and the same with the adjectives exchanged."
+  },
+  {
+   "name": "half_tests",
+   "status": "proved",
+   "source_claim": "K3. (41) p. 360: \"half dead |= not dead\"; (42): \"half open |= open\"."
+  },
+  {
+   "name": "comparative_tests",
+   "status": "proved",
+   "source_claim": "K4. (43a) p. 360: \"wetter than the countertop |= wet\", for a minimum standard; (43b): \"drier than the countertop |= the countertop is not dry\", for a maximum standard."
+  },
+  {
+   "name": "half_is_midpoint",
+   "status": "proved",
+   "source_claim": "K5. (21) p. 353: the degree of \"half\" is the midpoint."
+  },
+  {
+   "name": "the_doors",
+   "status": "proved",
+   "source_claim": "\"open\" has a minimum standard and \"closed\", its antonym, a maximum one. The door that is half open is open and is not closed; the shut door is closed and is not open."
+  },
+  {
+   "name": "zone_of_indifference",
+   "status": "proved",
+   "source_claim": "Separating example 1. (40) p. 359: \"not large\" does not entail \"small\". With a standard of 2/3 for \"large\" and 2/3 for its antonym, the door of size 1/2 is neither."
+  },
+  {
+   "name": "comparative_without_positive",
+   "status": "proved",
+   "source_claim": "Separating examples 2 and 3. (44) p. 360: with a relative standard, the comparative entails neither the positive form nor its negation."
+  },
+  {
+   "name": "comparative_with_positive",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  }
+ ],
+ "counts": {
+  "theorems": 9,
+  "proved": 9,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "DRAFT for the author's review; not an accepted source-level verdict.",
+   "Degrees are rational numbers and the four scales are the four intervals between 0 and 1.",
+   "The degree morpheme pos, degree modifiers and deverbal adjectives are not formalized."
+  ]
+ },
+ "determination": "unassessed",
+ "determination_rationale": "DRAFT for the author. The entailment tests transpose directly once the three standards are given.",
+ "assessment_status": "incomplete",
+ "artifact_classes": [
+  {
+   "class": "iv",
+   "description": "rational degrees; an adjective is its measure function; the antonym measures 1 - d"
+  },
+  {
+   "class": "v",
+   "description": "zero axioms"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Standalone; standard library only. Not yet cross-reviewed. No survey entry is linked to this file. DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+ "compiles": true
+}

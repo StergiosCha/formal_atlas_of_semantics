@@ -1,0 +1,196 @@
+{
+ "file": "atlas/model_theoretic/Semantic_Monads.v",
+ "region": "model-theoretic (composition: monads)",
+ "summary": "Monads in natural-language semantics. The three monad laws for the powerset, reader and continuation monads, stated pointwise; Shan's lifted application in each; Giorgolo and Asudeh's opacity readings on a small model; and two scope readings that differ on a model.",
+ "sources": [
+  {
+   "citation": "Shan, C. (2001). Monads for natural language semantics. Proc. ESSLLI 2001 Student Session, pp. 285-298 (arXiv:cs/0205026).",
+   "path": "papers/foundations/Shan_2001_MonadsForNaturalLanguageSemantics.pdf",
+   "available": "read in full; section 3 is not formalized"
+  },
+  {
+   "citation": "Giorgolo, G. & Asudeh, A. (2014). Monads as a solution for generalized opacity. Proc. EACL 2014 Workshop TTNLS, pp. 19-27.",
+   "path": "papers/foundations/Giorgolo_Asudeh_2014_MonadsAsASolutionFor.pdf",
+   "available": "sections 1-3 (pp. 19-25)"
+  }
+ ],
+ "definitions_mapped": [],
+ "theorems": [
+  {
+   "name": "set_monad_laws",
+   "status": "proved",
+   "source_claim": "T1. Left identity, right identity and associativity [Shan (24.3a-c), fn. 1 p. 286] for the powerset monad (24.4), as equivalences of membership."
+  },
+  {
+   "name": "reader_monad_laws",
+   "status": "proved",
+   "source_claim": "T2. The three laws (24.3a-c) for the reader monad (24.16), as equalities at every index w."
+  },
+  {
+   "name": "cont_monad_laws",
+   "status": "proved",
+   "source_claim": "T3. The three laws (24.3a-c) for the continuation monad (24.19), as equalities at every continuation c."
+  },
+  {
+   "name": "lifted_application",
+   "status": "proved",
+   "source_claim": "T4. Lifted application in the three monads: (24.9), (24.17), (24.21)."
+  },
+  {
+   "name": "secondary_rule",
+   "status": "proved",
+   "source_claim": "T5. The secondary rule in the three monads: A'_M f x = A_M f (unit x)."
+  },
+  {
+   "name": "AM_set",
+   "status": "proved",
+   "source_claim": "T4a. In the powerset monad A_M f x = { a b | a in f, b in x }. [Shan (24.9), p. 288]: pointwise function application over alternatives."
+  },
+  {
+   "name": "AM_reader",
+   "status": "proved",
+   "source_claim": "T4b. In the reader monad A_M f x = fun w => f w (x w). [Shan (24.17), p. 289]"
+  },
+  {
+   "name": "AM_cont",
+   "status": "proved",
+   "source_claim": "T4c. In the continuation monad A_M f x = fun c => f (fun g => x (fun y => c (g y))). [Shan (24.21), p. 290]"
+  },
+  {
+   "name": "reader_commutative",
+   "status": "proved",
+   "source_claim": "T6a. The reader monad is commutative: the order in which two computations are bound does not matter. G&A fn. 6 p. 23 use this to identify readings that differ only in that order."
+  },
+  {
+   "name": "transparent_substitution",
+   "status": "proved",
+   "source_claim": "T6b. Transparency of bind (ours; it is what makes G&A's reading (32) contradictory): if a and b have the same value at index i, then binding either into the same continuation gives the same result at i."
+  },
+  {
+   "name": "m1_bind_k1",
+   "status": "proved",
+   "source_claim": "m1 * k1 has exactly the four members Shan lists on p. 287, for any two relations like and hate."
+  },
+  {
+   "name": "john_smokes",
+   "status": "proved",
+   "source_claim": "[[John smokes]] evaluates to smoke(John). [Shan (24.20) and p. 291]"
+  },
+  {
+   "name": "john_smokes_true",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  },
+  {
+   "name": "everyone_smokes",
+   "status": "proved",
+   "source_claim": "[[everyone smokes]] evaluates to \"for all x, smoke x\". [Shan p. 291]"
+  },
+  {
+   "name": "everyone_smokes_false",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  },
+  {
+   "name": "everyone_not_pure",
+   "status": "proved",
+   "source_claim": "everyone is not unit of any individual: it uses its continuation non-trivially. [Shan p. 291, remark after (24.22)]"
+  },
+  {
+   "name": "fun_first_reading",
+   "status": "proved",
+   "source_claim": "With Shan's A_M (function first) the object quantifier takes widest scope."
+  },
+  {
+   "name": "arg_first_reading",
+   "status": "proved",
+   "source_claim": "With the argument evaluated first (AMr, ours) the subject takes widest scope."
+  },
+  {
+   "name": "scope_readings_differ",
+   "status": "proved",
+   "source_claim": "S1a. Separating example: on the model the two scope readings differ."
+  },
+  {
+   "name": "cont_not_commutative",
+   "status": "proved",
+   "source_claim": "S1b. Separating example: the continuation monad is NOT commutative (contrast T6a for the reader monad)."
+  },
+  {
+   "name": "opacity_readings",
+   "status": "proved",
+   "source_claim": "T8. The three readings together: (33), (34) and (30) of G&A."
+  },
+  {
+   "name": "reading31_truth_conditions",
+   "status": "proved",
+   "source_claim": "T8a. Reading (31) has the truth conditions (33): Mary Jane loves pp and does not love the entity she calls Spider-Man. [G&A (33), p. 24]"
+  },
+  {
+   "name": "reading32_contradictory",
+   "status": "proved",
+   "source_claim": "T8b. Reading (32), evaluated at the speaker's index, has the unsatisfiable truth conditions (34), whatever the love relation. [G&A (34), p. 24]"
+  },
+  {
+   "name": "reading29_contradictory",
+   "status": "proved",
+   "source_claim": "T8c. Reading (29) is false at every index, whatever the punch relation: sentence (2) has only a contradictory reading. [G&A (30), p. 24]"
+  },
+  {
+   "name": "reading31_true",
+   "status": "proved",
+   "source_claim": "Computed results: (31) is true and (32) is false on the model."
+  },
+  {
+   "name": "reading32_false",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  },
+  {
+   "name": "coreferring_at_sigma",
+   "status": "proved",
+   "source_claim": "The two names co-refer for the speaker."
+  },
+  {
+   "name": "substitution_holds_outside",
+   "status": "proved",
+   "source_claim": "Substitution holds OUTSIDE the scope of love: bound from outside (as in (32)), Spider-Man can be replaced by Peter Parker. Instance of T6b."
+  },
+  {
+   "name": "substitution_fails_under_love",
+   "status": "proved",
+   "source_claim": "S2. Separating example: substitution FAILS inside the argument of love. Co-reference at the speaker's index does not license replacing one term by the other under an arbitrary function on monadic values."
+  }
+ ],
+ "counts": {
+  "theorems": 32,
+  "proved": 32,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "DRAFT for the author's review; not an accepted source-level verdict.",
+   "The laws are stated pointwise, so no extensionality axiom is used.",
+   "Shan's monad morphisms and translations, the state and error monads, and Giorgolo and Asudeh's sequent calculus are not formalized.",
+   "Nothing is taken from Charlow's dissertation, which was not available."
+  ]
+ },
+ "determination": "unassessed",
+ "determination_rationale": "DRAFT for the author. The monads transpose directly; the opacity fragment is a small model.",
+ "assessment_status": "incomplete",
+ "artifact_classes": [
+  {
+   "class": "iv",
+   "description": "pointwise equality in place of equality of functions"
+  },
+  {
+   "class": "v",
+   "description": "zero axioms"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Standalone; standard library only. Not yet cross-reviewed. No survey entry is linked to this file. DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+ "compiles": true
+}

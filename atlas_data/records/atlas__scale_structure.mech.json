@@ -1,0 +1,49 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "atlas/model_theoretic/Scale_Structure.v",
+  "key": "atlas__scale_structure",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "unsafe_flags": [],
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 9,
+    "proved": 9,
+    "admitted": 0,
+    "aborted": 0,
+    "admitted_definitions": 0,
+    "unparsed_status": 0,
+    "definitions": 12,
+    "toplevel_axioms": 0,
+    "section_assumptions": 1
+  },
+  "assumptions": {
+    "queried": 9,
+    "closed": 9,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "statements": {
+    "model_theoretic.Scale_Structure.endpoints": "a17d0d1e7d6780fb",
+    "model_theoretic.Scale_Structure.absolute_antonyms": "f7eedcd42641dc43",
+    "model_theoretic.Scale_Structure.half_tests": "400c7d3ae3ea1443",
+    "model_theoretic.Scale_Structure.comparative_tests": "15fc8fe8dd1c0851",
+    "model_theoretic.Scale_Structure.half_is_midpoint": "6ba25c1ccbfd01d9",
+    "model_theoretic.Scale_Structure.Doors.the_doors": "bc1b0399fa7ddba0",
+    "model_theoretic.Scale_Structure.Doors.zone_of_indifference": "fbf24eecc9f3c787",
+    "model_theoretic.Scale_Structure.Doors.comparative_without_positive": "744af6833e0ed78e",
+    "model_theoretic.Scale_Structure.Doors.comparative_with_positive": "17ea8a3c06c03505"
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

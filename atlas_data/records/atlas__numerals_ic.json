@@ -1,0 +1,135 @@
+{
+ "file": "atlas/mtt_ranta/Numerals_IC.v",
+ "region": "modern type theories (MTT + Ranta pair)",
+ "summary": "Numerical quantifiers relative to the identity criteria of common nouns, after section 5.3 of the book. The numeral is 'at least n' for every n: n objects, pairwise distinct under the criterion, all satisfying the predicate. Counts transfer along a sub-setoid and not without inheritance of the criterion; under a dot-type the count is by double distinctness, which gives both separate counts and is not given by them; an adjective inside a Sigma-type moves into the predicate. Three closed models, among them two copies of one content: exactly two books physically, exactly one informationally.",
+ "sources": [
+  {
+   "citation": "Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. ISTE/Wiley.",
+   "path": "papers/foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf",
+   "available": "section 5.3 (pp. 108-119) read in full"
+  }
+ ],
+ "definitions_mapped": [],
+ "theorems": [
+  {
+   "name": "I1_two_copies_phy",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  },
+  {
+   "name": "I2_one_content_info",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  },
+  {
+   "name": "I3_split_model",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  },
+  {
+   "name": "S1_three_is_at_least_3",
+   "status": "proved",
+   "source_claim": "S1_three_is_at_least_3. The book's three-variable numeral is the generic numeral at 3."
+  },
+  {
+   "name": "S2_three_is_three0_on_restriction",
+   "status": "proved",
+   "source_claim": "S2_three_is_three0_on_restriction. Def 5.4 with a setoid B restricts to Def 5.3 over the sub-setoid: counting A-objects by B's criterion is counting in (A, kB restricted)."
+  },
+  {
+   "name": "S3_sub_setoid_transfer",
+   "status": "proved",
+   "source_claim": "S3_sub_setoid_transfer. (5.26), for every n: if (A, kA) is a sub-setoid of (B, kB), then n A's that P entail n B's that P."
+  },
+  {
+   "name": "S4_transfer_needs_inheritance",
+   "status": "proved",
+   "source_claim": "S4_transfer_needs_inheritance. Without inheritance the transfer fails: a subtype whose criterion is finer than the restriction (passengers counted by trips, persons by persons). There are two passengers and not two persons."
+  },
+  {
+   "name": "S5_downward",
+   "status": "proved",
+   "source_claim": "S5_downward. Numerals are downward closed: n+1 entails n."
+  },
+  {
+   "name": "S6_monotone",
+   "status": "proved",
+   "source_claim": "S6_monotone. Upward monotone in the predicate and along a further coercion."
+  },
+  {
+   "name": "S7_dot_is_pre",
+   "status": "proved",
+   "source_claim": "S7_dot_is_pre. The dot relation is a pre-setoid relation when its components are."
+  },
+  {
+   "name": "S8_dot_not_transitive",
+   "status": "proved",
+   "source_claim": "S8_dot_not_transitive. It is not an identity criterion: transitivity fails even when both components are equivalences (the book's remark after Def 5.6)."
+  },
+  {
+   "name": "S9_dot_double_distinctness",
+   "status": "proved",
+   "source_claim": "S9_dot_double_distinctness. (5.48), for every n: counting under the dot relation is counting objects that are distinct under both components."
+  },
+  {
+   "name": "S10_copredication_splits",
+   "status": "proved",
+   "source_claim": "S10_copredication_splits. Copredication entails the two separate counts."
+  },
+  {
+   "name": "S11_split_does_not_join",
+   "status": "proved",
+   "source_claim": "S11_split_does_not_join. The converse fails: \"John picked up three books and mastered three books\" does not entail \"John picked up and mastered three books\"."
+  },
+  {
+   "name": "S12_sigma_absorbs_adjective",
+   "status": "proved",
+   "source_claim": "S12_sigma_absorbs_adjective. (5.52)-(5.55): the adjective inside the Sigma-type moves into the predicate. \"Three heavy books\" counts books that are heavy; no premise on proofs of \"heavy\" is needed, because objects are compared by the..."
+  },
+  {
+   "name": "S13_reflexivity_needed",
+   "status": "proved",
+   "source_claim": "S13_reflexivity_needed. Why a pre-setoid relation must be reflexive: with an empty relation, one object counts as two."
+  },
+  {
+   "name": "S14_counting_form",
+   "status": "proved",
+   "source_claim": "S14_counting_form. Counting form: on a finite listing, with decidable criterion and predicate, \"at least n\" holds iff the P-objects fall into at least n classes."
+  },
+  {
+   "name": "copies_counted_phy",
+   "status": "proved",
+   "source_claim": "A use of S14_counting_form: the two-copies model, decided by counting."
+  }
+ ],
+ "counts": {
+  "theorems": 31,
+  "proved": 31,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "DRAFT for the author's review; not an accepted source-level verdict.",
+   "The book defines the numeral for three; the file states each result for every n and proves that the book's three-variable form is the instance at 3.",
+   "The dot-type is a product, which is all that counting needs; the book's rules for dot-types are not formalized."
+  ]
+ },
+ "determination": "unassessed",
+ "determination_rationale": "DRAFT for the author. The definitions transpose directly; generalising from three to n is the file's own step.",
+ "assessment_status": "incomplete",
+ "artifact_classes": [
+  {
+   "class": "iv",
+   "description": "the numeral for every n as a list of n pairwise distinct objects; subtyping as an explicit function"
+  },
+  {
+   "class": "v",
+   "description": "zero axioms"
+  }
+ ],
+ "source_gap": null,
+ "notes": "New file; MTT.v and the ttr_mtt/ files on individuation are unchanged. Not yet cross-reviewed. No survey entry is linked to this file. DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+ "compiles": true
+}

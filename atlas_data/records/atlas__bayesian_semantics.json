@@ -1,0 +1,105 @@
+{
+ "file": "atlas/probabilistic/Bayesian_Semantics.v",
+ "region": "probabilistic semantics",
+ "summary": "A finite, exact-weight fragment of compositional Bayesian semantics: a model is a finite list of configurations with rational weights and observation is conditioning. What the hypotheses entail has probability 1; probability is monotone along entailment; two observations in sequence are one joint observation; the literal listener of RSA.v is conditioning on truth; with equal weights the two printed forms of the generalized quantifier agree; and 'many' and 'most' make the corresponding instance probable above their thresholds. A worked chair model has exact values 1/2, 2/3 and 1/3.",
+ "sources": [
+  {
+   "citation": "Bernardy, J.-P., Blanck, R., Chatzikyriakidis, S. & Lappin, S. (2018). A Compositional Bayesian Semantics for Natural Language. Proc. First International Workshop on Language Cognition and Computational Models, pp. 1-10 (ACL Anthology W18-4101).",
+   "path": null,
+   "available": "not in the corpus; read from the public ACL Anthology copy"
+  }
+ ],
+ "definitions_mapped": [],
+ "theorems": [
+  {
+   "name": "B1_entailed_is_certain",
+   "status": "proved",
+   "source_claim": "B1_entailed_is_certain. What is entailed by the hypotheses is certain. modelSimple of sec. 2.1 is the case A = H."
+  },
+  {
+   "name": "B2_monotone",
+   "status": "proved",
+   "source_claim": "B2_monotone. Probability is monotone along entailment."
+  },
+  {
+   "name": "B3_complement",
+   "status": "proved",
+   "source_claim": "B3_complement. A sentence and its negation share the unit."
+  },
+  {
+   "name": "B4_chain",
+   "status": "proved",
+   "source_claim": "B4_chain. Two observations in sequence are one joint observation."
+  },
+  {
+   "name": "B5_literal_listener_is_conditioning",
+   "status": "proved",
+   "source_claim": "B5_literal_listener_is_conditioning. The bridge. The RSA literal listener, summed over a set of worlds, is the probability of that set given that the utterance is true."
+  },
+  {
+   "name": "B6_uniform_is_counting",
+   "status": "proved",
+   "source_claim": "B6_uniform_is_counting. With equal weights on individuals, eq. (2) is eq. (1): a ratio of cardinalities."
+  },
+  {
+   "name": "B7_quantifier_supports_instance",
+   "status": "proved",
+   "source_claim": "B7_quantifier_supports_instance. The prediction of sec. 2.4: \"if many chairs have four legs, then it is likely that any given chair has four legs\". Here \"likely\" is: more probable than the quantifier's threshold."
+  },
+  {
+   "name": "E1_many_has_mass_half",
+   "status": "proved",
+   "source_claim": "\"Many chairs have four legs\" holds in one configuration of the two."
+  },
+  {
+   "name": "E2_before_observing",
+   "status": "proved",
+   "source_claim": "Before the observation, a chair has four legs with probability 1/2."
+  },
+  {
+   "name": "E3_chair_example_1",
+   "status": "proved",
+   "source_claim": "chairExample1: after observing it, 2/3."
+  },
+  {
+   "name": "E4_chair_example_2",
+   "status": "proved",
+   "source_claim": "chairExample2, the inverse inference: 1/3."
+  },
+  {
+   "name": "B8_supported_not_entailed_and_inverse_fails",
+   "status": "proved",
+   "source_claim": "B8. Separation, on this model. The supported instance is not entailed: its probability is below 1. And the inverse inference is not supported by the semantics alone: here it is below 1/2. [BBCL18] reports 0.653 for the inverse under its..."
+  }
+ ],
+ "counts": {
+  "theorems": 23,
+  "proved": 23,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "DRAFT for the author's review; not an accepted source-level verdict.",
+   "The paper's priors are Gaussian and its numbers are sampling estimates; the file uses finite models with exact rational weights and does not reproduce those numbers.",
+   "Comparatives, vague predicates and learning (sections 2.2, 2.3, 3) are not formalized."
+  ]
+ },
+ "determination": "unassessed",
+ "determination_rationale": "DRAFT for the author. A finite analogue of the paper's semantics, not the paper's continuous model.",
+ "assessment_status": "incomplete",
+ "artifact_classes": [
+  {
+   "class": "iii",
+   "description": "finite lists of configurations with rational weights in place of vector spaces with Gaussian priors"
+  },
+  {
+   "class": "v",
+   "description": "zero axioms"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Builds on RSA.v, which it leaves unchanged. Not yet cross-reviewed. No survey entry is linked to this file. DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+ "compiles": true
+}

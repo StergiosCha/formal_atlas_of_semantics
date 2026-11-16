@@ -4142,6 +4142,846 @@
    "since": "2026-09-05",
    "status": "active"
   },
+  "inquisitive.Questions_Partitions.FourWorlds.cell_counts": {
+   "statement_sha": "f536000924a5657c",
+   "file": "atlas/inquisitive/Questions_Partitions.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "inquisitive.Questions_Partitions.FourWorlds.independent_questions": {
+   "statement_sha": "9ab12cd798e266b1",
+   "file": "atlas/inquisitive/Questions_Partitions.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "inquisitive.Questions_Partitions.FourWorlds.information_and_answers": {
+   "statement_sha": "97bd1a84cad18c59",
+   "file": "atlas/inquisitive/Questions_Partitions.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "inquisitive.Questions_Partitions.FourWorlds.whether_does_not_entail_who": {
+   "statement_sha": "79ba3d7d342efce4",
+   "file": "atlas/inquisitive/Questions_Partitions.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "inquisitive.Questions_Partitions.FourWorlds.who_entails_whether": {
+   "statement_sha": "c445ba7c435e4c38",
+   "file": "atlas/inquisitive/Questions_Partitions.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "inquisitive.Questions_Partitions.entails_iff_cells": {
+   "statement_sha": "11b92bf5accb5d0a",
+   "file": "atlas/inquisitive/Questions_Partitions.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "inquisitive.Questions_Partitions.inclusion_facts": {
+   "statement_sha": "32ce5825dcb8f2e2",
+   "file": "atlas/inquisitive/Questions_Partitions.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "inquisitive.Questions_Partitions.issue_bridge": {
+   "statement_sha": "d15be0e3d40b7f3a",
+   "file": "atlas/inquisitive/Questions_Partitions.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "inquisitive.Questions_Partitions.meet_cells": {
+   "statement_sha": "4770b6e0dadbf091",
+   "file": "atlas/inquisitive/Questions_Partitions.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "inquisitive.Questions_Partitions.offers_monotone": {
+   "statement_sha": "29eac0df4593ccf6",
+   "file": "atlas/inquisitive/Questions_Partitions.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "inquisitive.Questions_Partitions.question_is_partition": {
+   "statement_sha": "c68eb6441b847618",
+   "file": "atlas/inquisitive/Questions_Partitions.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "inquisitive.Questions_Partitions.whether_bipartition": {
+   "statement_sha": "96502c8a8c41695e",
+   "file": "atlas/inquisitive/Questions_Partitions.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "inquisitive.Questions_Partitions.who_from_whether": {
+   "statement_sha": "8230cccef9612683",
+   "file": "atlas/inquisitive/Questions_Partitions.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.Model.cem_fails": {
+   "statement_sha": "94a29f57863e408a",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.Model.closest_all": {
+   "statement_sha": "aa8857a6a4a0eecc",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.Model.closest_usa": {
+   "statement_sha": "a3f3c484b8d7b43d",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.Model.contraposition_fails": {
+   "statement_sha": "0e67b9dbcc343a5b",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.Model.horizon_after_all": {
+   "statement_sha": "5fb2ce0f7b333796",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.Model.might_instance": {
+   "statement_sha": "ca91e08161c7284c",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.Model.model2_cem_instance": {
+   "statement_sha": "541a100526dfb934",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.Model.model2_stalnaker": {
+   "statement_sha": "6e87b0095eb359af",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.Model.model_centered": {
+   "statement_sha": "ee63915c3fdd225f",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.Model.model_not_stalnaker": {
+   "statement_sha": "fdd40b0e0f0a6a22",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.Model.restricted_transitivity_instance": {
+   "statement_sha": "74f1c5ea1c329ecf",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.Model.reverse_sobel_dynamic_fails": {
+   "statement_sha": "89e4a63e49f42ead",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.Model.sobel_dynamic_ok": {
+   "statement_sha": "fdcbdb8f2d9594f7",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.Model.sobel_sequence": {
+   "statement_sha": "ca88869140fe24eb",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.Model.sobel_static_order_free": {
+   "statement_sha": "86e160630de5716b",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.Model.stalnaker_at_on_the_model": {
+   "statement_sha": "d12a930fdcc9aaf3",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.Model.strengthening_fails": {
+   "statement_sha": "f3fe7270b6f3ac2d",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.Model.transitivity_fails": {
+   "statement_sha": "796be644b381649e",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.Model.vacuous_instance": {
+   "statement_sha": "69fb177ff707f451",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.cem_stalnaker": {
+   "statement_sha": "48d0e2fb0b6ee533",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.cem_stalnaker_at": {
+   "statement_sha": "e179587e5ee723a8",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.centered_weakly": {
+   "statement_sha": "1acc3cba200a6910",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.centering_and": {
+   "statement_sha": "624c2986f35bd2b6",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.closest_spec": {
+   "statement_sha": "ef539bfb3a991458",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.exists_min": {
+   "statement_sha": "5808200a28ac5e66",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.existsb_negb_forallb": {
+   "statement_sha": "aee06ca0e8b9d489",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.might_dual": {
+   "statement_sha": "f7bd111cb05ecea0",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.modus_ponens": {
+   "statement_sha": "16d9af81444e1687",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.restricted_transitivity": {
+   "statement_sha": "0f2c37a5d6ecdd41",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.stalnaker_linear_implies_at": {
+   "statement_sha": "5cce237b53212626",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.strict_filter": {
+   "statement_sha": "03d0a2100beedfbd",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.vacuous_truth": {
+   "statement_sha": "0c01465679ccb460",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.vf_decompose": {
+   "statement_sha": "23062f1cacae2994",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.vf_null_context": {
+   "statement_sha": "bdfa09c3c2458f87",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Counterfactuals.would_iff_lewis": {
+   "statement_sha": "339efd0f4c6b2fbe",
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.C10_instance": {
+   "statement_sha": "3d636a7d87ecf62c",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.C10_mon_up_meets_dual": {
+   "statement_sha": "1128006310fcbdce",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.C1_lives_on_top": {
+   "statement_sha": "67a5fb949f25d611",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.C4_intersection_existential": {
+   "statement_sha": "38abbf56a4503a70",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.C5_intersection_iff_symmetric": {
+   "statement_sha": "1649bcbf65bb24cf",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.C6_premises_satisfiable": {
+   "statement_sha": "8439e551e95354f4",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.C6_strong_intersective_trivial": {
+   "statement_sha": "3d6c4095deec6843",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.C7_persistent_symmetric_mon_up": {
+   "statement_sha": "eb428528b1bc42d1",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.C9_negation_reverses_monotonicity": {
+   "statement_sha": "ba3b44b800d3d605",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.E5_nodup": {
+   "statement_sha": "5bb41432182d6dfd",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.at_least_ext": {
+   "statement_sha": "6645c9d0f2642487",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.card_counts_members": {
+   "statement_sha": "cab87b50be409293",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.card_ext": {
+   "statement_sha": "8501ad0ca2a68f85",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.card_mono": {
+   "statement_sha": "18a7b5b361614a07",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.cardl_ext": {
+   "statement_sha": "22767d13760606e7",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.cardl_mono": {
+   "statement_sha": "ceb1375ad28c5dc7",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.compl_sub": {
+   "statement_sha": "1a97bc87ee2bcea7",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.duals_on_model": {
+   "statement_sha": "41d0fa1f46bd92ed",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.every_anti_persistent": {
+   "statement_sha": "27532284515dcb9e",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.every_ext": {
+   "statement_sha": "eddacbe3cf6b4117",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.every_mon_up": {
+   "statement_sha": "9ede581b913e1fb9",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.every_not_intersective": {
+   "statement_sha": "4ec06e69a759fcf3",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.every_pos_strong": {
+   "statement_sha": "4dbee6ce3ec9a2ae",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.every_spec": {
+   "statement_sha": "c7696db1b84bda90",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.exactly_two_not_monotone": {
+   "statement_sha": "38fe8b9a5b980bcd",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.inter_absorb": {
+   "statement_sha": "5c4e60248db2db62",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.inter_ext": {
+   "statement_sha": "48a30450c94c0a37",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.inter_sub": {
+   "statement_sha": "3b905b4cb58b1b89",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.logical_determiners_live_on": {
+   "statement_sha": "0a282104056308da",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.model_values": {
+   "statement_sha": "24707a101a066a8a",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.monotonicity_profile": {
+   "statement_sha": "57fe5a055314326c",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.more_than_half_ext": {
+   "statement_sha": "40f6a737ed6a3085",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.mth_SP3_on_model": {
+   "statement_sha": "0a0fbc50acc57370",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.mth_fails_SP1_at_empty": {
+   "statement_sha": "91848006b942d572",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.no_anti_persistent": {
+   "statement_sha": "687aaff49008d489",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.no_ext": {
+   "statement_sha": "781424c431cf89e2",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.no_mon_down": {
+   "statement_sha": "43613a69cb6ef3e3",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.no_total_proper_strong": {
+   "statement_sha": "7363390f08e62d38",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.only_not_conservative": {
+   "statement_sha": "4f0fb8277a97028b",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.repetition_inflates_counts": {
+   "statement_sha": "77629447ba251358",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.self_dual_odd": {
+   "statement_sha": "2dd772130cb7c108",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.some_ext": {
+   "statement_sha": "f5068c598f45cd3b",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.some_lives_on": {
+   "statement_sha": "89f75b8758e48a44",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.some_meets_premises": {
+   "statement_sha": "ab9664fb1ef00b84",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.some_mon_up": {
+   "statement_sha": "3abc79cacf291020",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.some_not_all_persistent": {
+   "statement_sha": "7f992017f3b3677f",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.some_not_all_separates": {
+   "statement_sha": "f7067547d9672954",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.some_persistent": {
+   "statement_sha": "2ea732b41a74f6f9",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.some_spec": {
+   "statement_sha": "6cbfe307ae502ad9",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.some_symmetric": {
+   "statement_sha": "db8329a5d4be880c",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.GQ_Properties.sub_refl": {
+   "statement_sha": "9189cff28e861fbc",
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Scale_Structure.Doors.comparative_with_positive": {
+   "statement_sha": "17ea8a3c06c03505",
+   "file": "atlas/model_theoretic/Scale_Structure.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Scale_Structure.Doors.comparative_without_positive": {
+   "statement_sha": "744af6833e0ed78e",
+   "file": "atlas/model_theoretic/Scale_Structure.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Scale_Structure.Doors.the_doors": {
+   "statement_sha": "bc1b0399fa7ddba0",
+   "file": "atlas/model_theoretic/Scale_Structure.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Scale_Structure.Doors.zone_of_indifference": {
+   "statement_sha": "fbf24eecc9f3c787",
+   "file": "atlas/model_theoretic/Scale_Structure.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Scale_Structure.absolute_antonyms": {
+   "statement_sha": "f7eedcd42641dc43",
+   "file": "atlas/model_theoretic/Scale_Structure.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Scale_Structure.comparative_tests": {
+   "statement_sha": "15fc8fe8dd1c0851",
+   "file": "atlas/model_theoretic/Scale_Structure.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Scale_Structure.endpoints": {
+   "statement_sha": "a17d0d1e7d6780fb",
+   "file": "atlas/model_theoretic/Scale_Structure.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Scale_Structure.half_is_midpoint": {
+   "statement_sha": "6ba25c1ccbfd01d9",
+   "file": "atlas/model_theoretic/Scale_Structure.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Scale_Structure.half_tests": {
+   "statement_sha": "400c7d3ae3ea1443",
+   "file": "atlas/model_theoretic/Scale_Structure.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.AM'_cont": {
+   "statement_sha": "9f34a2ea1ccd0626",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.AM'_reader": {
+   "statement_sha": "7db4d51150648e65",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.AM'_set": {
+   "statement_sha": "949b9c3addeec1d0",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.AM_cont": {
+   "statement_sha": "1622e36eaa9ccb53",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.AM_reader": {
+   "statement_sha": "2408bc7afbdba2b8",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.AM_set": {
+   "statement_sha": "0cc9d790a73e5818",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.OpacityModel.coreferring_at_sigma": {
+   "statement_sha": "c3049cfd0a5e19d2",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.OpacityModel.opacity_readings": {
+   "statement_sha": "2324a7f6fb5614f0",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.OpacityModel.reading29_contradictory": {
+   "statement_sha": "3a57aaad41cf78af",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.OpacityModel.reading31_true": {
+   "statement_sha": "a4a5cb0d8e0415c6",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.OpacityModel.reading31_truth_conditions": {
+   "statement_sha": "756334754d345c24",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.OpacityModel.reading32_contradictory": {
+   "statement_sha": "4438462a20219258",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.OpacityModel.reading32_false": {
+   "statement_sha": "80cd3d058273b068",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.OpacityModel.substitution_fails_under_love": {
+   "statement_sha": "22fe4db295480559",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.OpacityModel.substitution_holds_outside": {
+   "statement_sha": "7890df5887288d18",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.ShanModel.arg_first_reading": {
+   "statement_sha": "919716a5e83b52e2",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.ShanModel.cont_not_commutative": {
+   "statement_sha": "1c6201dcb7f057c2",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.ShanModel.everyone_not_pure": {
+   "statement_sha": "5dcced741dc3a221",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.ShanModel.everyone_smokes": {
+   "statement_sha": "9b0e8e0d0f25da0f",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.ShanModel.everyone_smokes_false": {
+   "statement_sha": "10efaea4f6459a05",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.ShanModel.fun_first_reading": {
+   "statement_sha": "8249a0754230960e",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.ShanModel.john_smokes": {
+   "statement_sha": "0f37076c0927ab08",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.ShanModel.john_smokes_true": {
+   "statement_sha": "874952daf99f39be",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.ShanModel.m1_bind_k1": {
+   "statement_sha": "ccfd648de2d61ead",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.ShanModel.scope_readings_differ": {
+   "statement_sha": "dc4d511333618734",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.cont_monad_laws": {
+   "statement_sha": "d948669231708ed5",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.lifted_application": {
+   "statement_sha": "2ac8016523010774",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.reader_commutative": {
+   "statement_sha": "9e021a893d6a9f81",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.reader_monad_laws": {
+   "statement_sha": "47f224f0757955e1",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.secondary_rule": {
+   "statement_sha": "7c67e5ae31b51464",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.set_monad_laws": {
+   "statement_sha": "d7cd63631ab8dafd",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Semantic_Monads.transparent_substitution": {
+   "statement_sha": "5e68b1ccdacbb00a",
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
   "montague.PTQ.a_conservative": {
    "statement_sha": "d764c05d0f6b0350",
    "file": "atlas/montague/PTQ.v",
@@ -5330,6 +6170,192 @@
    "since": "2026-09-05",
    "status": "active"
   },
+  "mtt_ranta.Numerals_IC.I1_two_copies_phy": {
+   "statement_sha": "aa380462f5f0afeb",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.I2_one_content_info": {
+   "statement_sha": "4e5706c90d6a97e0",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.I3_split_model": {
+   "statement_sha": "cf8619c793cb884e",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.S10_copredication_splits": {
+   "statement_sha": "38c5319c98d5685e",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.S11_split_does_not_join": {
+   "statement_sha": "94e300389a1fd644",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.S12_sigma_absorbs_adjective": {
+   "statement_sha": "349918717153abc3",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.S13_reflexivity_needed": {
+   "statement_sha": "e448279faae084cc",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.S14_counting_form": {
+   "statement_sha": "104470c9c75cb120",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.S1_three_is_at_least_3": {
+   "statement_sha": "9baa437e7617f1a9",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.S2_three_is_three0_on_restriction": {
+   "statement_sha": "872f02b8c1b28303",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.S3_sub_setoid_transfer": {
+   "statement_sha": "a502f4deea606e23",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.S4_transfer_needs_inheritance": {
+   "statement_sha": "c3343ba6f9a2ce97",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.S5_downward": {
+   "statement_sha": "1a072f8a50009e66",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.S6_monotone": {
+   "statement_sha": "1163f4ac9d1440a2",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.S7_dot_is_pre": {
+   "statement_sha": "dd87dd609958af9d",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.S8_dot_not_transitive": {
+   "statement_sha": "2d81964d74e21128",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.S9_dot_double_distinctness": {
+   "statement_sha": "92a983c72de3a336",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.at_least_le": {
+   "statement_sha": "5cd54e8a15b1213b",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.copies_counted_phy": {
+   "statement_sha": "68522b26f2e02e2a",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.dedup_distinct": {
+   "statement_sha": "77ba45bc6bd57df7",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.dedup_in": {
+   "statement_sha": "dd13fd93a8b56f4a",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.dedup_rep": {
+   "statement_sha": "25bf5c905ae828f2",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.eq_is_equiv": {
+   "statement_sha": "9188d326b1760536",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.fop_and": {
+   "statement_sha": "c3158537ec00eb4b",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.fop_map_inv": {
+   "statement_sha": "7c8f3004abdd5411",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.fop_map_mono": {
+   "statement_sha": "88cda577134762cb",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.fop_mono": {
+   "statement_sha": "6d1637daa7f15d6d",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.in_sb": {
+   "statement_sha": "158ece4f2807683d",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.pigeon": {
+   "statement_sha": "2f077a181380a5ca",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.sig_lift": {
+   "statement_sha": "78d269b2fc5bd3fa",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "mtt_ranta.Numerals_IC.split_no_three": {
+   "statement_sha": "8b84e2845b738c19",
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
   "mtt_ranta.Ranta.ac_iso": {
    "statement_sha": "e3937b68199394b5",
    "file": "atlas/mtt_ranta/Ranta.v",
@@ -6180,6 +7206,420 @@
    "statement_sha": "e90642a4bcc7b4c9",
    "file": "atlas/pragmatics/Horn1984.v",
    "since": "2026-09-13",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.E_T15": {
+   "statement_sha": "7b49056171af2b53",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.E_T31": {
+   "statement_sha": "826a233175227efa",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.E_T76": {
+   "statement_sha": "2eb7db07505bb9af",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.E_T77": {
+   "statement_sha": "c8ba8bf0ee9d3b1b",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.E_contained_is_less_likely": {
+   "statement_sha": "a7014341c767bc9f",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.E_grid_size": {
+   "statement_sha": "e8e1ded829a4b30c",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.E_posterior": {
+   "statement_sha": "992524f81b2a7e3a",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.E_premise_mass": {
+   "statement_sha": "a1bdbf045d6cf61f",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.E_prior": {
+   "statement_sha": "333ee92a63d3dbbf",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.E_volumes": {
+   "statement_sha": "fc856e18cc547156",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.G1_certain": {
+   "statement_sha": "0fdc778a0d0b3f63",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.G2_lower_bound": {
+   "statement_sha": "7372ffad1b5d7029",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.G3_syllogism_learned": {
+   "statement_sha": "bb96db00b9c8b190",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.G4_most_learned": {
+   "statement_sha": "1ca77a31e2ecc64f",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.M_centre": {
+   "statement_sha": "83f186150a83ffb1",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.M_lt": {
+   "statement_sha": "6f54043c92b824cb",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.Mfun_cons": {
+   "statement_sha": "35c493b9e64493a9",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.X1_meet_is_intersection": {
+   "statement_sha": "1af285791ac695c8",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.X2_every_is_inclusion": {
+   "statement_sha": "7b37fc383c023b87",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.X3_every_transitive": {
+   "statement_sha": "548060e0aa0b1848",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.X4_inclusion_lowers_volume": {
+   "statement_sha": "d5e5c393309fea18",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.X5_every_implies_most": {
+   "statement_sha": "655f9978a0040887",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.X6_degree": {
+   "statement_sha": "3b7af551ce4e9796",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.X7_comparative_is_box": {
+   "statement_sha": "8166e7d76d14daa6",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.X8_union_is_not_a_box": {
+   "statement_sha": "a75c4d0f1c006288",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.absdiv_lt": {
+   "statement_sha": "0fceeb996314fe9f",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.centre_in": {
+   "statement_sha": "f792ab98c6b23254",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.deg_eq": {
+   "statement_sha": "b304c3ab47fb3a7e",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.every_sound": {
+   "statement_sha": "fcb60610033157fe",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.everyb_spec": {
+   "statement_sha": "22abf18340aa78e0",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.half_between": {
+   "statement_sha": "37ee32f6c810f94f",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.half_width_pos": {
+   "statement_sha": "179c1c50234b20c4",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.inb_scale_one": {
+   "statement_sha": "24681cf3a13e7ede",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.meet_cons": {
+   "statement_sha": "d8d191293886e60b",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.meet_every": {
+   "statement_sha": "e4d5c8bc249f059e",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.mul_le": {
+   "statement_sha": "f0ffd6c4124403db",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.vol_cons": {
+   "statement_sha": "abb6b9538e12178c",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.vol_nonneg": {
+   "statement_sha": "b9a565aa44e91e60",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Boxes.vol_pos": {
+   "statement_sha": "755cb7cefadeb220",
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Semantics.B1_entailed_is_certain": {
+   "statement_sha": "42cd1534576d3a27",
+   "file": "atlas/probabilistic/Bayesian_Semantics.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Semantics.B2_monotone": {
+   "statement_sha": "05c0fb2f2fe17c93",
+   "file": "atlas/probabilistic/Bayesian_Semantics.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Semantics.B3_complement": {
+   "statement_sha": "e809c384419d2ee4",
+   "file": "atlas/probabilistic/Bayesian_Semantics.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Semantics.B4_chain": {
+   "statement_sha": "c27b6be9290615db",
+   "file": "atlas/probabilistic/Bayesian_Semantics.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Semantics.B5_literal_listener_is_conditioning": {
+   "statement_sha": "20fb880bb8b291ad",
+   "file": "atlas/probabilistic/Bayesian_Semantics.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Semantics.B6_uniform_is_counting": {
+   "statement_sha": "e4cca94228239f18",
+   "file": "atlas/probabilistic/Bayesian_Semantics.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Semantics.B7_quantifier_supports_instance": {
+   "statement_sha": "9540e828d25538cf",
+   "file": "atlas/probabilistic/Bayesian_Semantics.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Semantics.B8_supported_not_entailed_and_inverse_fails": {
+   "statement_sha": "b68004abfeb83a97",
+   "file": "atlas/probabilistic/Bayesian_Semantics.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Semantics.E1_many_has_mass_half": {
+   "statement_sha": "dad842d735b4d765",
+   "file": "atlas/probabilistic/Bayesian_Semantics.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Semantics.E2_before_observing": {
+   "statement_sha": "813ee2c821c3ccf3",
+   "file": "atlas/probabilistic/Bayesian_Semantics.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Semantics.E3_chair_example_1": {
+   "statement_sha": "371a32b29eea95d4",
+   "file": "atlas/probabilistic/Bayesian_Semantics.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Semantics.E4_chair_example_2": {
+   "statement_sha": "2ac657cf4713c0a4",
+   "file": "atlas/probabilistic/Bayesian_Semantics.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Semantics.add_div": {
+   "statement_sha": "5d2609f2ad88ad77",
+   "file": "atlas/probabilistic/Bayesian_Semantics.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Semantics.mass_ext": {
+   "statement_sha": "8149b27085a786ef",
+   "file": "atlas/probabilistic/Bayesian_Semantics.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Semantics.mass_joint": {
+   "statement_sha": "3e3499ee8b941478",
+   "file": "atlas/probabilistic/Bayesian_Semantics.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Semantics.mass_le": {
+   "statement_sha": "33ea03894394b37d",
+   "file": "atlas/probabilistic/Bayesian_Semantics.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Semantics.mass_nonneg": {
+   "statement_sha": "83902db935a19bcf",
+   "file": "atlas/probabilistic/Bayesian_Semantics.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Semantics.mass_scale_inner": {
+   "statement_sha": "5214097944fa1541",
+   "file": "atlas/probabilistic/Bayesian_Semantics.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Semantics.mass_split": {
+   "statement_sha": "46b4136b9945cd96",
+   "file": "atlas/probabilistic/Bayesian_Semantics.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Semantics.num_point": {
+   "statement_sha": "d5977f78f4711e92",
+   "file": "atlas/probabilistic/Bayesian_Semantics.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Semantics.point": {
+   "statement_sha": "1041071b6a2f33c3",
+   "file": "atlas/probabilistic/Bayesian_Semantics.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Semantics.qsum_list_prod": {
+   "statement_sha": "044bfec195ecef66",
+   "file": "atlas/probabilistic/Bayesian_Semantics.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Bayesian_Semantics.qsum_pos_exists": {
+   "statement_sha": "324c4de529e6b17b",
+   "file": "atlas/probabilistic/Bayesian_Semantics.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Pragmatic_Anaphora.Emacs.emacs_preferred": {
+   "statement_sha": "5b95fb9819c2b506",
+   "file": "atlas/probabilistic/Pragmatic_Anaphora.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Pragmatic_Anaphora.Emacs.less_certain_with_animate_candidates": {
+   "statement_sha": "ae165598f129b918",
+   "file": "atlas/probabilistic/Pragmatic_Anaphora.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Pragmatic_Anaphora.PL0_bounds": {
+   "statement_sha": "bca805cee33691e2",
+   "file": "atlas/probabilistic/Pragmatic_Anaphora.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Pragmatic_Anaphora.PL0_is_RSA_literal": {
+   "statement_sha": "666d9ea5f5682a9d",
+   "file": "atlas/probabilistic/Pragmatic_Anaphora.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Pragmatic_Anaphora.complete_state_consistency": {
+   "statement_sha": "eb16628273a34660",
+   "file": "atlas/probabilistic/Pragmatic_Anaphora.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Pragmatic_Anaphora.ev_coincide": {
+   "statement_sha": "801c746fa0053b10",
+   "file": "atlas/probabilistic/Pragmatic_Anaphora.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "probabilistic.Pragmatic_Anaphora.mass_point": {
+   "statement_sha": "84e939b89ab5d06a",
+   "file": "atlas/probabilistic/Pragmatic_Anaphora.v",
+   "since": "2026-11-16",
    "status": "active"
   },
   "probabilistic.RSA.BergenTwoWorlds.bergen_all_truthful": {

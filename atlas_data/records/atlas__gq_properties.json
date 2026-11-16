@@ -1,0 +1,170 @@
+{
+ "file": "atlas/model_theoretic/GQ_Properties.v",
+ "region": "model-theoretic (generalized quantifiers)",
+ "summary": "Properties of determiners on finite universes, after Barwise and Cooper. The logical determiners live on their first argument; their monotonicity and persistence profiles; results C1, C4, C5, C7, C9 and C10 of the paper's Appendix C; and separating examples, among them 'only' read as a determiner, which is not conservative.",
+ "sources": [
+  {
+   "citation": "Barwise, J. & Cooper, R. (1981). Generalized quantifiers and natural language. Linguistics and Philosophy 4(2): 159-219.",
+   "path": "papers/foundations/Barwise_Cooper_1981_GeneralizedQuantifiers.pdf",
+   "available": "parts; see the file's header for the sections read"
+  }
+ ],
+ "definitions_mapped": [],
+ "theorems": [
+  {
+   "name": "card_counts_members",
+   "status": "proved",
+   "source_claim": "ours: what the counting determiners count. If the universe is listed without repetition, card A is the number of members of A: any repetition-free list of exactly the members of A has that length. The counting determiners (at_least,..."
+  },
+  {
+   "name": "E5_nodup",
+   "status": "proved",
+   "source_claim": "The model's universe is listed without repetition, so card_counts_members applies to it."
+  },
+  {
+   "name": "repetition_inflates_counts",
+   "status": "proved",
+   "source_claim": "Separating example (ours): on a universe that lists one individual twice, \"at least two\" things are self-identical, although there is only one."
+  },
+  {
+   "name": "logical_determiners_live_on",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  },
+  {
+   "name": "monotonicity_profile",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  },
+  {
+   "name": "C1_lives_on_top",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  },
+  {
+   "name": "C4_intersection_existential",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  },
+  {
+   "name": "C5_intersection_iff_symmetric",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  },
+  {
+   "name": "C6_strong_intersective_trivial",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  },
+  {
+   "name": "no_total_proper_strong",
+   "status": "proved",
+   "source_claim": "ours, a note on C6. For a TOTAL determiner that lives on its argument, strength already makes D(empty set) improper, so the hypothesis \"proper strong determiner\" of C6 (proper = defined for all A with D(A) proper, p. 210) has no..."
+  },
+  {
+   "name": "C7_persistent_symmetric_mon_up",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  },
+  {
+   "name": "C9_negation_reverses_monotonicity",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  },
+  {
+   "name": "C10_mon_up_meets_dual",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  },
+  {
+   "name": "model_values",
+   "status": "proved",
+   "source_claim": "Computed truth values: |man| = 3, |man n run| = 2."
+  },
+  {
+   "name": "only_not_conservative",
+   "status": "proved",
+   "source_claim": "Separating example 1 (ours): \"only\" does not live on its first argument. Only men run is false (3 runs), only men are men who run is true."
+  },
+  {
+   "name": "exactly_two_not_monotone",
+   "status": "proved",
+   "source_claim": "Separating example 2 (p. 185, \"exactly two men\" not monotone)."
+  },
+  {
+   "name": "some_not_all_separates",
+   "status": "proved",
+   "source_claim": "Separating example 3 (p. 211): \"some but not all\" is persistent but neither mon-up nor symmetric. So C7 needs its symmetry premise."
+  },
+  {
+   "name": "every_not_intersective",
+   "status": "proved",
+   "source_claim": "Separating example 4 (instance of C6, p. 211): \"every\" is positive strong and fails the intersection condition, hence (C5) is not symmetric."
+  },
+  {
+   "name": "some_meets_premises",
+   "status": "proved",
+   "source_claim": "Non-vacuity of T4, T6: \"some\" meets every premise of C5 and C7, and the conclusions are obtained through those theorems."
+  },
+  {
+   "name": "C6_premises_satisfiable",
+   "status": "proved",
+   "source_claim": "Non-vacuity of T5: the premises of C6 are jointly satisfiable (by the trivial determiner), and by T5 only trivially."
+  },
+  {
+   "name": "C10_instance",
+   "status": "proved",
+   "source_claim": "Non-vacuity of T8: Q = more than half the men; run is in Q, {0,1} is in the dual of Q, and C10 yields a common element."
+  },
+  {
+   "name": "duals_on_model",
+   "status": "proved",
+   "source_claim": "Duals, checked on all 32 x 32 pairs of subsets of E5. p. 197: the dual of \"some man\" is \"every man\"; pp. 198-199: the dual of \"more than half\" is \"at least half\"."
+  },
+  {
+   "name": "self_dual_odd",
+   "status": "proved",
+   "source_claim": "p. 197: on a set of odd cardinality \"more than half\" is self-dual (man has 3 elements); on one of even cardinality it is not (ours)."
+  },
+  {
+   "name": "mth_SP3_on_model",
+   "status": "proved",
+   "source_claim": "\"more than half\" against the postulates for \"most\" (Appendix B, p. 208). SP3 (two sets in most(A) meet) holds on the model for all A, X, Y. SP1 (A in most(A) for every A) fails at the empty set: ours, and the reason \"more than half\" is..."
+  },
+  {
+   "name": "mth_fails_SP1_at_empty",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  }
+ ],
+ "counts": {
+  "theorems": 51,
+  "proved": 51,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "DRAFT for the author's review; not an accepted source-level verdict.",
+   "Determiners are total here. C6 concerns proper strong determiners, which needs partial determiners; the file proves the claim established inside the proof of C6 and says so.",
+   "Counting determiners count members only when the universe has no repetition; the file states and proves this."
+  ]
+ },
+ "determination": "unassessed",
+ "determination_rationale": "DRAFT for the author. Finite universes as lists; total determiners.",
+ "assessment_status": "incomplete",
+ "artifact_classes": [
+  {
+   "class": "iv",
+   "description": "universes as lists; determiners as total boolean functions on predicates"
+  },
+  {
+   "class": "v",
+   "description": "zero axioms"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Standalone; standard library only. The legacy generalized-quantifier files are unchanged. Not yet cross-reviewed. No survey entry is linked to this file. DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+ "compiles": true
+}

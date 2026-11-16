@@ -46,7 +46,16 @@ class SourceRegistryTests(unittest.TestCase):
                                                "atlas/mtt_ranta/Donkey_Sums.v",
                                                "atlas/type_logical/Lambek_Count.v",
                                                "atlas/type_logical/Lambek_Decision.v",
-                                               "atlas/dynamic/DRT_to_DPL.v")]
+                                               "atlas/dynamic/DRT_to_DPL.v",
+                                               "atlas/mtt_ranta/Numerals_IC.v",
+                                               "atlas/probabilistic/Bayesian_Semantics.v",
+                                               "atlas/probabilistic/Bayesian_Boxes.v",
+                                               "atlas/probabilistic/Pragmatic_Anaphora.v",
+                                               "atlas/inquisitive/Questions_Partitions.v",
+                                               "atlas/model_theoretic/Counterfactuals.v",
+                                               "atlas/model_theoretic/GQ_Properties.v",
+                                               "atlas/model_theoretic/Semantic_Monads.v",
+                                               "atlas/model_theoretic/Scale_Structure.v")]
         self.assertEqual(len(prior["files"]), 86)
         prior["generated_from"]["records"] = len(prior["files"])
         for field in ("theorems", "proved", "admitted"):

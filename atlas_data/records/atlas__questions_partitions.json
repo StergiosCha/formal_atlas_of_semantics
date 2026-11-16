@@ -1,0 +1,110 @@
+{
+ "file": "atlas/inquisitive/Questions_Partitions.v",
+ "region": "inquisitive semantics (partition semantics of questions)",
+ "summary": "Questions as partitions of the set of indices, after Groenendijk and Stokhof's dissertation. A question is an equivalence relation whose answers form a partition; inclusion of questions in both printed forms; a constituent question is the intersection of its whether-questions; and, as a bridge to InqB.v, whether-p is the polar question ?p on inhabited states.",
+ "sources": [
+  {
+   "citation": "Groenendijk, J. & Stokhof, M. (1984). Studies on the Semantics of Questions and the Pragmatics of Answers. Dissertation, University of Amsterdam.",
+   "path": "papers/inquisitive/Groenendijk_Stokhof_1984_StudiesSemanticsQuestions.pdf",
+   "available": "pp. 213-224 read; the corpus copy is a scan with an OCR text layer"
+  }
+ ],
+ "definitions_mapped": [],
+ "theorems": [
+  {
+   "name": "question_is_partition",
+   "status": "proved",
+   "source_claim": "Q1. (2) gives an equivalence, and by (1) p. 214 the answers of an equivalence form a partition: every index lies in its own answer, and two answers that overlap are the same."
+  },
+  {
+   "name": "whether_bipartition",
+   "status": "proved",
+   "source_claim": "Q2. whether-p has two possible answers, p and not-p (p. 214), and whether-p and whether-not-p are the same question (p. 219)."
+  },
+  {
+   "name": "meet_cells",
+   "status": "proved",
+   "source_claim": "Q3. The intersection is again a question, and its answers are the intersections of the answers of the two."
+  },
+  {
+   "name": "entails_iff_cells",
+   "status": "proved",
+   "source_claim": "Q4. The two forms of (7) agree."
+  },
+  {
+   "name": "inclusion_facts",
+   "status": "proved",
+   "source_claim": "Q5. (8): every question is included in the one-cell partition. (9): the partition into singletons is included in every question. (10): an intersection is included in its first term. (11): Q is included in R iff their intersection is Q."
+  },
+  {
+   "name": "who_from_whether",
+   "status": "proved",
+   "source_claim": "Q6. p. 220: a constituent question can be constructed by intersection from the questions whether a G's, one for each a."
+  },
+  {
+   "name": "offers_monotone",
+   "status": "proved",
+   "source_claim": "Q7. If Q is included in R, an information set that offers an answer to Q offers an answer to R. This is inclusion read as answerhood (p. 221: every answer to Q implies an answer to R)."
+  },
+  {
+   "name": "issue_bridge",
+   "status": "proved",
+   "source_claim": "Q8. Bridge to InqB.v. The issue of a question is an inquisitive proposition; inclusion of questions gives refinement of issues; and on an inhabited state, whether-p is supported exactly when the polar question ?p = p or not-p is (the..."
+  },
+  {
+   "name": "cell_counts",
+   "status": "proved",
+   "source_claim": "whether-p makes a bipartition; the constituent question a four-fold one (p. 215: n is the number of possible denotations of the predicate)."
+  },
+  {
+   "name": "who_entails_whether",
+   "status": "proved",
+   "source_claim": "The constituent question includes each of its whether-questions."
+  },
+  {
+   "name": "whether_does_not_entail_who",
+   "status": "proved",
+   "source_claim": "Separating example 1: the converse inclusion fails."
+  },
+  {
+   "name": "independent_questions",
+   "status": "proved",
+   "source_claim": "Separating example 2: two independent whether-questions; neither is included in the other."
+  },
+  {
+   "name": "information_and_answers",
+   "status": "proved",
+   "source_claim": "Separating example 3: the information that p offers an answer to whether-p and not to the constituent question."
+  }
+ ],
+ "counts": {
+  "theorems": 13,
+  "proved": 13,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "DRAFT for the author's review; not an accepted source-level verdict.",
+   "Only pp. 213-224 were read. The union operations (4) and (6) and facts (12)-(13) are not formalized because the OCR of the formulas was not reliable.",
+   "The bridge to InqB.v is the file's own result, not a claim of the source."
+  ]
+ },
+ "determination": "unassessed",
+ "determination_rationale": "DRAFT for the author. The definitions transpose directly on finite sets of indices.",
+ "assessment_status": "incomplete",
+ "artifact_classes": [
+  {
+   "class": "iv",
+   "description": "finite lists of indices; questions as boolean relations"
+  },
+  {
+   "class": "v",
+   "description": "zero axioms"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Builds on InqB.v, which it leaves unchanged. Not yet cross-reviewed. No survey entry is linked to this file. DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+ "compiles": true
+}

@@ -1,6 +1,6 @@
 # Formalizability Atlas of Semantics — current state
 
-Coq files audited: **91** · theorem statements: **1662** (proved 1649, admitted 12) · papers surveyed: **230** · records explicitly disputed by a reviewer: **0**
+Coq files audited: **100** · theorem statements: **1902** (proved 1889, admitted 12) · papers surveyed: **230** · records explicitly disputed by a reviewer: **0**
 
 ## Recorded file assessments (not reviewed paper outcomes)
 
@@ -13,7 +13,7 @@ These preserved file-level opinions do not establish source-wide conclusions. Co
 | 3 major restructuring | 16 |
 | 4 cannot | 0 |
 | n/a | 10 |
-| unassessed (incomplete scope) | 21 |
+| unassessed (incomplete scope) | 30 |
 
 ## Faithfulness verdicts
 
@@ -21,7 +21,7 @@ These preserved file-level opinions do not establish source-wide conclusions. Co
 |---|---|
 | faithful | 20 |
 | faithful-with-corrections | 1 |
-| partial | 57 |
+| partial | 66 |
 | unfaithful | 10 |
 | not_applicable | 3 |
 
@@ -132,6 +132,12 @@ All remain F3/unassessed. [Method and limitations](campaigns/claim_comparison_20
 |---|---|---|---|---|---|---|
 | atlas/inquisitive/InqB.v | Ciardelli, I., Groenendijk, J. & Roelofsen, F. (2018). Inquisitive Semantics. OUP. Chs. 2-4.; Roelofsen, F. (2013). Algebraic foundations for the semantic treatment of inquisitive content. Synthese 190:79-102. | 192/192 | faithful | 1 as-is | i, ii, iii, iv, v | — |
 
+## inquisitive semantics (partition semantics of questions)
+
+| File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
+|---|---|---|---|---|---|---|
+| atlas/inquisitive/Questions_Partitions.v | Groenendijk, J. & Stokhof, M. (1984). Studies on the Semantics of Questions and the Pragmatics of Answers. Dissertation, University of Amsterdam. | 13/13 | partial | unassessed (incomplete scope) | iv, v | — |
+
 ## model-theoretic
 
 | File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
@@ -150,11 +156,23 @@ All remain F3/unassessed. [Method and limitations](campaigns/claim_comparison_20
 |---|---|---|---|---|---|---|
 | extras/Imperfective2.v | Dowty, D. R. 1979. Word Meaning and Montague Grammar. Reidel. Ch. 3 'Interval Semantics and the Progressive Tense': 3.1 The Imperfective Paradox (p. 133), 3.2 Truth Conditions Relative to Intervals, not Moments (p. 138), 3.4 Truth Conditions for the Progressive (p. 145), 3.6 On the Notion of 'Likeness' Among Possible Worlds (p. 150); also 7.5 The Present Perfect (p. 339).; Dowty, D. R. 1977. 'Toward a semantic analysis of verb aspect and the English "imperfective" progressive', Linguistics and Philosophy 1: 45-78 (the original version of ch. 3; cited as ref. 36 in DWP 1981). (source note) | 7/7 | partial | 2 slight modification | iv, iii | extras/ImperfectiveParadox.v |
 
+## model-theoretic (composition: monads)
+
+| File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
+|---|---|---|---|---|---|---|
+| atlas/model_theoretic/Semantic_Monads.v | Shan, C. (2001). Monads for natural language semantics. Proc. ESSLLI 2001 Student Session, pp. 285-298 (arXiv:cs/0205026).; Giorgolo, G. & Asudeh, A. (2014). Monads as a solution for generalized opacity. Proc. EACL 2014 Workshop TTNLS, pp. 19-27. | 32/32 | partial | unassessed (incomplete scope) | iv, v | — |
+
 ## model-theoretic (deep)
 
 | File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
 |---|---|---|---|---|---|---|
 | deep/theorems_deep_PTQ.v | Montague, R. (1973). 'The Proper Treatment of Quantification in Ordinary English'. Reprint on disk (pp. 17-34 pagination): sec. 2 IL syntax/semantics pp. 23-25 (clauses 1-10, clause 8 for box/W/H, clauses 9-10 for ^ and v); sec. 3 type map f(A/B)=<<s,f(B)>,f(A)> p. 25, T1-T17 pp. 26-27, meaning postulates (1)-(9) p. 28, starred reductions p. 29; sec. 4 examples pp. 29-31 incl. the Partee temperature argument pp. 30-31; Thomason editorial notes 9 ('necessarily always'), 10 (corrected clauses 1/9 and the [v^alpha] corollary), 12 (T3 variable collision), pp. 33-34.; Dowty, D., Wall, R. & Peters, S. (1981). Introduction to Montague Semantics. Ch. 5 p. 132 ('necessarily always' vs 'necessarily now', Montague used the former in PTQ); Ch. 5 p. 131 (system S5 'is essentially the one used by Montague in PTQ'); Ch. 5 Exercise 3 p. 139 (validity of box phi -> box box phi, schema (ii)); Ch. 6 (6-17) p. 154 ('down-up cancellation', with the remark that the converse fails); Ch. 7 (7-8) T4 p. 192 and derivation (7-18) p. 196 ('every man talks' via T2, T4, lambda-conversion, down-up); Appendix III pp. 279-282 (temperature puzzle (7-120)-(7-122'), f(IV)=f(CN)=<<s,e>,t> p. 280, MP6/MP7 p. 281). (source note) | 10/10 | partial | 2 slight modification | ii, iv | extras/theorems_PTQ.v |
+
+## model-theoretic (degree semantics)
+
+| File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
+|---|---|---|---|---|---|---|
+| atlas/model_theoretic/Scale_Structure.v | Kennedy, C. & McNally, L. (2005). Scale structure, degree modification, and the semantics of gradable predicates. Language 81(2): 345-381. | 9/9 | partial | unassessed (incomplete scope) | iv, v | — |
 
 ## model-theoretic (focus/alternatives)
 
@@ -168,6 +186,7 @@ All remain F3/unassessed. [Method and limitations](campaigns/claim_comparison_20
 | File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
 |---|---|---|---|---|---|---|
 | /historical-checkout/extras/BarwiseCooper.v | Barwise, J. & Cooper, R. (1981). Generalized Quantifiers and Natural Language. Linguistics and Philosophy 4(2): 159-219. (source note) | 6/6 | partial | 1 as-is | iv | — |
+| atlas/model_theoretic/GQ_Properties.v | Barwise, J. & Cooper, R. (1981). Generalized quantifiers and natural language. Linguistics and Philosophy 4(2): 159-219. | 51/51 | partial | unassessed (incomplete scope) | iv, v | — |
 
 ## model-theoretic (modality)
 
@@ -182,6 +201,12 @@ All remain F3/unassessed. [Method and limitations](campaigns/claim_comparison_20
 |---|---|---|---|---|---|---|
 | /historical-checkout/deep/kratzer_deep2.v | Kratzer, A. (1977). What 'must' and 'can' must and can mean. Linguistics and Philosophy 1(3): 337-355.; Kratzer, A. (2012). Modals and Conditionals. OUP. Ch.1 (rev. of 1977), Ch.2 'The Notional Category of Modality' (rev. of 1981), Ch.3. (source note) | 13/13 | partial | 2 slight modification | iv, v | shallow/kratzer2.v |
 | extras/kratzer_deep.v | Kratzer, A. (2012). Modals and Conditionals: New and Revised Perspectives. OUP. Ch.1 'What Must and Can Must and Can Mean' (revised Kratzer 1977), secs 1.1-1.4, pp.4-20; ch.2 'The Notional Category of Modality' (revised 1981), sec.2.3 'Basic notions' p.31.; Kratzer, A. (1977). What 'must' and 'can' must and can mean. Linguistics and Philosophy 1(3): 337-355. Definitions 1-4 p.344, Definition 5 p.346, Definition 6 p.347, sec.2.1 pp.347-349, Definitions 7-8 pp.351-352. (source note) | 6/6 | partial | 1 as-is | iv, v | deep/kratzer_deep2.v |
+
+## model-theoretic (modality: counterfactuals)
+
+| File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
+|---|---|---|---|---|---|---|
+| atlas/model_theoretic/Counterfactuals.v | Lewis, D. (1973). Counterfactuals. Blackwell.; von Fintel, K. (2001). Counterfactuals in a dynamic context. In Ken Hale: A Life in Language. MIT Press. | 35/35 | partial | unassessed (incomplete scope) | iii, v | — |
 
 ## model-theoretic (plurals/coordination: Boolean set-based semantics with choice functions; the region hint 'mereology/events' does not fit this file, which has no part structure and no events)
 
@@ -241,6 +266,7 @@ All remain F3/unassessed. [Method and limitations](campaigns/claim_comparison_20
 | atlas/mtt_ranta/Donkey_Sums.v | Luo, Z. (2021). On Type-Theoretical Semantics of Donkey Anaphora. The 14-page version on the author's page; its file name indicates LACL 2021. A shorter version, 'Donkey Anaphora: Type-Theoretic Semantics with Both Strong and Weak Sums', is in the proceedings of the ESSLLI 2021 workshop CSTFRS, pp. 45-52.; Sundholm, G. (1989). Constructive Generalized Quantifiers. Synthese 79(1): 1-12. | 80/80 | partial | unassessed (incomplete scope) | i, ii, iii, iv, v | — |
 | atlas/mtt_ranta/MTT.v | Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. ISTE/Wiley.; Luo, Z. (2012). Common nouns as types. LACL. | 35/35 | faithful | 1 as-is | i, ii, iii, iv | — |
 | atlas/mtt_ranta/MTT_vs_Ranta.v | Chatzikyriakidis & Luo 2020, §1.4.2, §2.3.1, §3.2-3.3.; Ranta 1995, §2.12, §2.16, §3.1, §3.7, §4.2, ch. 9. | 17/17 | faithful | n/a | iv | — |
+| atlas/mtt_ranta/Numerals_IC.v | Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. ISTE/Wiley. | 31/31 | partial | unassessed (incomplete scope) | iv, v | — |
 | atlas/mtt_ranta/Ranta.v | Ranta, A. (1995). Type-Theoretical Grammar. OUP. | 14/14 | faithful | 1 as-is | i, ii, iii, iv | — |
 | atlas/mtt_ranta/Ranta_GQ.v | Sundholm, G. (1989). Constructive Generalized Quantifiers. Synthese 79(1): 1-12.; Barwise, J. & Cooper, R. (1981). Generalized Quantifiers and Natural Language. L&P 4. | 30/30 | faithful | 1 as-is | i, ii, iii, iv | — |
 
@@ -289,7 +315,15 @@ All remain F3/unassessed. [Method and limitations](campaigns/claim_comparison_20
 
 | File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
 |---|---|---|---|---|---|---|
+| atlas/probabilistic/Pragmatic_Anaphora.v | Grove, J., Bernardy, J.-P. & Chatzikyriakidis, S. (2021). From compositional semantics to Bayesian pragmatics via logical inference. Proc. NALOMA 2021, pp. 60-70 (ACL Anthology 2021.naloma-1.8). | 7/7 | partial | unassessed (incomplete scope) | iii, v | — |
 | atlas/probabilistic/RSA.v | Goodman, N. & Frank, M. (2016). Pragmatic language interpretation as probabilistic inference. TiCS 20:818-829.; Frank, M. & Goodman, N. (2012). Predicting pragmatic reasoning in language games. Science 336:998 (+ Supplement). (source note) | 117/117 | faithful | 1 as-is | ii, iii, iv, v | — |
+
+## probabilistic semantics
+
+| File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
+|---|---|---|---|---|---|---|
+| atlas/probabilistic/Bayesian_Boxes.v | Bernardy, J.-P., Blanck, R., Chatzikyriakidis, S., Lappin, S. & Maskharashvili, A. (2019). Predicates as Boxes in Bayesian Semantics for Natural Language. NoDaLiDa 2019, pp. 333-337 (ACL Anthology W19-6137).; Bernardy, J.-P., Blanck, R., Chatzikyriakidis, S., Lappin, S. & Maskharashvili, A. (2019). Bayesian Inference Semantics: A Modelling System and A Test Suite. *SEM 2019, pp. 263-272 (ACL Anthology S19-1029). | 39/39 | partial | unassessed (incomplete scope) | iii, iv, v | — |
+| atlas/probabilistic/Bayesian_Semantics.v | Bernardy, J.-P., Blanck, R., Chatzikyriakidis, S. & Lappin, S. (2018). A Compositional Bayesian Semantics for Natural Language. Proc. First International Workshop on Language Cognition and Computational Models, pp. 1-10 (ACL Anthology W18-4101). | 23/23 | partial | unassessed (incomplete scope) | iii, v | — |
 
 ## tense and aspect
 

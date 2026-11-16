@@ -1,0 +1,53 @@
+{
+  "_generated_by": "atlas/verify.py (ROADMAP A3)",
+  "file": "atlas/inquisitive/Questions_Partitions.v",
+  "key": "atlas__questions_partitions",
+  "coq_version": "8.20.1",
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "warnings": 0,
+    "unsafe_flags": [],
+    "stderr_tail": ""
+  },
+  "counts": {
+    "theorems": 13,
+    "proved": 13,
+    "admitted": 0,
+    "aborted": 0,
+    "admitted_definitions": 0,
+    "unparsed_status": 0,
+    "definitions": 18,
+    "toplevel_axioms": 0,
+    "section_assumptions": 1
+  },
+  "assumptions": {
+    "queried": 13,
+    "closed": 13,
+    "not_closed": 0,
+    "undocumented_axioms": [],
+    "detail": {},
+    "unresolved": []
+  },
+  "statements": {
+    "inquisitive.Questions_Partitions.question_is_partition": "c68eb6441b847618",
+    "inquisitive.Questions_Partitions.whether_bipartition": "96502c8a8c41695e",
+    "inquisitive.Questions_Partitions.meet_cells": "4770b6e0dadbf091",
+    "inquisitive.Questions_Partitions.entails_iff_cells": "11b92bf5accb5d0a",
+    "inquisitive.Questions_Partitions.inclusion_facts": "32ce5825dcb8f2e2",
+    "inquisitive.Questions_Partitions.who_from_whether": "8230cccef9612683",
+    "inquisitive.Questions_Partitions.offers_monotone": "29eac0df4593ccf6",
+    "inquisitive.Questions_Partitions.issue_bridge": "d15be0e3d40b7f3a",
+    "inquisitive.Questions_Partitions.FourWorlds.cell_counts": "f536000924a5657c",
+    "inquisitive.Questions_Partitions.FourWorlds.who_entails_whether": "c445ba7c435e4c38",
+    "inquisitive.Questions_Partitions.FourWorlds.whether_does_not_entail_who": "79ba3d7d342efce4",
+    "inquisitive.Questions_Partitions.FourWorlds.independent_questions": "9ab12cd798e266b1",
+    "inquisitive.Questions_Partitions.FourWorlds.information_and_answers": "97bd1a84cad18c59"
+  },
+  "admitted_names": [],
+  "aborted_names": [],
+  "unparsed_names": [],
+  "toplevel_axiom_names": [],
+  "parse_warnings": [],
+  "disputes_vs_record": []
+}

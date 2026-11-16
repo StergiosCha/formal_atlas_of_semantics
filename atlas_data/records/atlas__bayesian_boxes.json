@@ -1,0 +1,164 @@
+{
+ "file": "atlas/probabilistic/Bayesian_Boxes.v",
+ "region": "probabilistic semantics",
+ "summary": "Predicates as boxes with rational bounds. The meet of two boxes is their intersection; for a non-empty box 'every P is Q' is inclusion of bounds and is transitive; a contained predicate has no larger volume; 'every' implies 'most'; membership is positive degree; a comparative is a box; a union of two boxes need not be a box. Learning is modelled on a finite grid of candidate boxes with rational weights: after 'every V is M' and 'every M is R' an individual of V is in R with probability exactly 1, and after 'most P are Q' with threshold theta the probability is at least theta.",
+ "sources": [
+  {
+   "citation": "Bernardy, J.-P., Blanck, R., Chatzikyriakidis, S., Lappin, S. & Maskharashvili, A. (2019). Predicates as Boxes in Bayesian Semantics for Natural Language. NoDaLiDa 2019, pp. 333-337 (ACL Anthology W19-6137).",
+   "path": null,
+   "available": "not in the corpus; read from the public ACL Anthology copy"
+  },
+  {
+   "citation": "Bernardy, J.-P., Blanck, R., Chatzikyriakidis, S., Lappin, S. & Maskharashvili, A. (2019). Bayesian Inference Semantics: A Modelling System and A Test Suite. *SEM 2019, pp. 263-272 (ACL Anthology S19-1029).",
+   "path": null,
+   "available": "not in the corpus; read from the public ACL Anthology copy; only the test inferences T15, T31, T76, T77 were used"
+  }
+ ],
+ "definitions_mapped": [],
+ "theorems": [
+  {
+   "name": "G1_certain",
+   "status": "proved",
+   "source_claim": "G1_certain. If the quantity is 1 wherever the premises hold, its posterior expectation is 1."
+  },
+  {
+   "name": "G2_lower_bound",
+   "status": "proved",
+   "source_claim": "G2_lower_bound. A lower bound that holds wherever the premises hold is a lower bound on the posterior expectation."
+  },
+  {
+   "name": "G3_syllogism_learned",
+   "status": "proved",
+   "source_claim": "G3_syllogism_learned. Test suite T76, learned: under any prior over non-empty boxes, after observing \"every V is M\" and \"every M is R\", an individual of V is in R with probability exactly 1."
+  },
+  {
+   "name": "G4_most_learned",
+   "status": "proved",
+   "source_claim": "G4_most_learned. After observing \"most P are Q\" with threshold theta, an individual of P is in Q with probability at least theta. The box counterpart of B7 in R3."
+  },
+  {
+   "name": "X1_meet_is_intersection",
+   "status": "proved",
+   "source_claim": "X1_meet_is_intersection (2.1). The meet of two boxes is their intersection."
+  },
+  {
+   "name": "X2_every_is_inclusion",
+   "status": "proved",
+   "source_claim": "X2_every_is_inclusion (2.2). For a non-empty box, the test on bounds is inclusion."
+  },
+  {
+   "name": "X3_every_transitive",
+   "status": "proved",
+   "source_claim": "X3_every_transitive (3). \"Every\" is transitive. Test suite T76."
+  },
+  {
+   "name": "X4_inclusion_lowers_volume",
+   "status": "proved",
+   "source_claim": "X4_inclusion_lowers_volume (3). A contained predicate has no larger volume."
+  },
+  {
+   "name": "X5_every_implies_most",
+   "status": "proved",
+   "source_claim": "X5_every_implies_most (2.3). \"Every\" implies \"most\", for any threshold up to 1."
+  },
+  {
+   "name": "X6_degree",
+   "status": "proved",
+   "source_claim": "X6_degree (2.4). Membership is positive degree, and the centre has degree 1. With it, test suite T15 holds in every box model: if Mary is tall and John is taller than Mary, then John is tall."
+  },
+  {
+   "name": "X7_comparative_is_box",
+   "status": "proved",
+   "source_claim": "X7_comparative_is_box (2.4). \"Taller than k\" is a box: the same centre, with half-widths scaled by 1 minus the degree of k."
+  },
+  {
+   "name": "X8_union_is_not_a_box",
+   "status": "proved",
+   "source_claim": "X8_union_is_not_a_box (2.5). Separation: a union of two boxes that is no box."
+  },
+  {
+   "name": "E_T76",
+   "status": "proved",
+   "source_claim": "T76. All violinists are musicians; all musicians read music; so all violinists read music."
+  },
+  {
+   "name": "E_volumes",
+   "status": "proved",
+   "source_claim": "The probabilities of the three predicates."
+  },
+  {
+   "name": "E_T77",
+   "status": "proved",
+   "source_claim": "T77. ... so 99 percent of violinists read music."
+  },
+  {
+   "name": "E_T31",
+   "status": "proved",
+   "source_claim": "T31, instantiation. John is a violinist; so John is a musician."
+  },
+  {
+   "name": "E_T15",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  },
+  {
+   "name": "E_grid_size",
+   "status": "proved",
+   "source_claim": "stated in the file; see its header"
+  },
+  {
+   "name": "E_prior",
+   "status": "proved",
+   "source_claim": "Before any observation: an arbitrary individual satisfies an arbitrary predicate with probability 1/2, and a P is a Q with probability 31/60."
+  },
+  {
+   "name": "E_premise_mass",
+   "status": "proved",
+   "source_claim": "The premises themselves: \"every P is Q\" has prior probability 7/20, \"most P are Q\" (threshold 7/10) has 37/100."
+  },
+  {
+   "name": "E_posterior",
+   "status": "proved",
+   "source_claim": "After observing \"most P are Q\": 73/74. After \"every P is Q\": 1."
+  },
+  {
+   "name": "E_contained_is_less_likely",
+   "status": "proved",
+   "source_claim": "[BBCLM19] sec. 3: a predicate contained in another has a lower chance of holding of an arbitrary individual than an arbitrary predicate has. Here: 2/5 against the prior 1/2; the containing predicate rises to 7/10."
+  }
+ ],
+ "counts": {
+  "theorems": 39,
+  "proved": 39,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "DRAFT for the author's review; not an accepted source-level verdict.",
+   "The paper's priors on box bounds and its sampling are replaced by a finite grid with exact weights.",
+   "Boxes are taken to lie in the unit box, where volume is probability. Negation is not formalized."
+  ]
+ },
+ "determination": "unassessed",
+ "determination_rationale": "DRAFT for the author. The geometry transposes directly; the learning results are a finite analogue.",
+ "assessment_status": "incomplete",
+ "artifact_classes": [
+  {
+   "class": "iii",
+   "description": "a finite grid of candidate boxes in place of continuous priors"
+  },
+  {
+   "class": "iv",
+   "description": "a box as a list of lower and upper bounds; a negative width counts as 0"
+  },
+  {
+   "class": "v",
+   "description": "zero axioms"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Builds on RSA.v and Bayesian_Semantics.v, which it leaves unchanged. Not yet cross-reviewed. No survey entry is linked to this file. DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+ "compiles": true
+}

@@ -1,21 +1,21 @@
 {
  "generated_from": {
-  "records": 91,
+  "records": 100,
   "papers": 230
  },
  "stats": {
-  "theorems": 1662,
-  "proved": 1649,
+  "theorems": 1902,
+  "proved": 1889,
   "admitted": 12,
   "determination": {
-   "unassessed": 21,
+   "unassessed": 30,
    "as_is": 21,
    "not_applicable": 10,
    "slight_modification": 23,
    "major_restructuring": 16
   },
   "faithfulness": {
-   "partial": 57,
+   "partial": 66,
    "faithful": 20,
    "faithful-with-corrections": 1,
    "not_applicable": 3,
@@ -293,6 +293,537 @@
     "trivial": 5,
     "vacuous": 0,
     "vacuous_names": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/probabilistic/Bayesian_Boxes.v",
+   "region": "probabilistic semantics",
+   "summary": "Predicates as boxes with rational bounds. The meet of two boxes is their intersection; for a non-empty box 'every P is Q' is inclusion of bounds and is transitive; a contained predicate has no larger volume; 'every' implies 'most'; membership is positive degree; a comparative is a box; a union of two boxes need not be a box. Learning is modelled on a finite grid of candidate boxes with rational weights: after 'every V is M' and 'every M is R' an individual of V is in R with probability exactly 1, and after 'most P are Q' with threshold theta the probability is at least theta.",
+   "sources": [
+    {
+     "citation": "Bernardy, J.-P., Blanck, R., Chatzikyriakidis, S., Lappin, S. & Maskharashvili, A. (2019). Predicates as Boxes in Bayesian Semantics for Natural Language. NoDaLiDa 2019, pp. 333-337 (ACL Anthology W19-6137).",
+     "path": null,
+     "available": "not in the corpus; read from the public ACL Anthology copy"
+    },
+    {
+     "citation": "Bernardy, J.-P., Blanck, R., Chatzikyriakidis, S., Lappin, S. & Maskharashvili, A. (2019). Bayesian Inference Semantics: A Modelling System and A Test Suite. *SEM 2019, pp. 263-272 (ACL Anthology S19-1029).",
+     "path": null,
+     "available": "not in the corpus; read from the public ACL Anthology copy; only the test inferences T15, T31, T76, T77 were used"
+    }
+   ],
+   "definitions_mapped": [],
+   "theorems": [
+    {
+     "name": "G1_certain",
+     "status": "proved",
+     "source_claim": "G1_certain. If the quantity is 1 wherever the premises hold, its posterior expectation is 1."
+    },
+    {
+     "name": "G2_lower_bound",
+     "status": "proved",
+     "source_claim": "G2_lower_bound. A lower bound that holds wherever the premises hold is a lower bound on the posterior expectation."
+    },
+    {
+     "name": "G3_syllogism_learned",
+     "status": "proved",
+     "source_claim": "G3_syllogism_learned. Test suite T76, learned: under any prior over non-empty boxes, after observing \"every V is M\" and \"every M is R\", an individual of V is in R with probability exactly 1."
+    },
+    {
+     "name": "G4_most_learned",
+     "status": "proved",
+     "source_claim": "G4_most_learned. After observing \"most P are Q\" with threshold theta, an individual of P is in Q with probability at least theta. The box counterpart of B7 in R3."
+    },
+    {
+     "name": "X1_meet_is_intersection",
+     "status": "proved",
+     "source_claim": "X1_meet_is_intersection (2.1). The meet of two boxes is their intersection."
+    },
+    {
+     "name": "X2_every_is_inclusion",
+     "status": "proved",
+     "source_claim": "X2_every_is_inclusion (2.2). For a non-empty box, the test on bounds is inclusion."
+    },
+    {
+     "name": "X3_every_transitive",
+     "status": "proved",
+     "source_claim": "X3_every_transitive (3). \"Every\" is transitive. Test suite T76."
+    },
+    {
+     "name": "X4_inclusion_lowers_volume",
+     "status": "proved",
+     "source_claim": "X4_inclusion_lowers_volume (3). A contained predicate has no larger volume."
+    },
+    {
+     "name": "X5_every_implies_most",
+     "status": "proved",
+     "source_claim": "X5_every_implies_most (2.3). \"Every\" implies \"most\", for any threshold up to 1."
+    },
+    {
+     "name": "X6_degree",
+     "status": "proved",
+     "source_claim": "X6_degree (2.4). Membership is positive degree, and the centre has degree 1. With it, test suite T15 holds in every box model: if Mary is tall and John is taller than Mary, then John is tall."
+    },
+    {
+     "name": "X7_comparative_is_box",
+     "status": "proved",
+     "source_claim": "X7_comparative_is_box (2.4). \"Taller than k\" is a box: the same centre, with half-widths scaled by 1 minus the degree of k."
+    },
+    {
+     "name": "X8_union_is_not_a_box",
+     "status": "proved",
+     "source_claim": "X8_union_is_not_a_box (2.5). Separation: a union of two boxes that is no box."
+    },
+    {
+     "name": "E_T76",
+     "status": "proved",
+     "source_claim": "T76. All violinists are musicians; all musicians read music; so all violinists read music."
+    },
+    {
+     "name": "E_volumes",
+     "status": "proved",
+     "source_claim": "The probabilities of the three predicates."
+    },
+    {
+     "name": "E_T77",
+     "status": "proved",
+     "source_claim": "T77. ... so 99 percent of violinists read music."
+    },
+    {
+     "name": "E_T31",
+     "status": "proved",
+     "source_claim": "T31, instantiation. John is a violinist; so John is a musician."
+    },
+    {
+     "name": "E_T15",
+     "status": "proved",
+     "source_claim": "stated in the file; see its header"
+    },
+    {
+     "name": "E_grid_size",
+     "status": "proved",
+     "source_claim": "stated in the file; see its header"
+    },
+    {
+     "name": "E_prior",
+     "status": "proved",
+     "source_claim": "Before any observation: an arbitrary individual satisfies an arbitrary predicate with probability 1/2, and a P is a Q with probability 31/60."
+    },
+    {
+     "name": "E_premise_mass",
+     "status": "proved",
+     "source_claim": "The premises themselves: \"every P is Q\" has prior probability 7/20, \"most P are Q\" (threshold 7/10) has 37/100."
+    },
+    {
+     "name": "E_posterior",
+     "status": "proved",
+     "source_claim": "After observing \"most P are Q\": 73/74. After \"every P is Q\": 1."
+    },
+    {
+     "name": "E_contained_is_less_likely",
+     "status": "proved",
+     "source_claim": "[BBCLM19] sec. 3: a predicate contained in another has a lower chance of holding of an arbitrary individual than an arbitrary predicate has. Here: 2/5 against the prior 1/2; the containing predicate rises to 7/10."
+    }
+   ],
+   "counts": {
+    "theorems": 39,
+    "proved": 39,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "DRAFT for the author's review; not an accepted source-level verdict.",
+     "The paper's priors on box bounds and its sampling are replaced by a finite grid with exact weights.",
+     "Boxes are taken to lie in the unit box, where volume is probability. Negation is not formalized."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "DRAFT for the author. The geometry transposes directly; the learning results are a finite analogue.",
+   "assessment_status": "incomplete",
+   "artifact_classes": [
+    {
+     "class": "iii",
+     "description": "a finite grid of candidate boxes in place of continuous priors"
+    },
+    {
+     "class": "iv",
+     "description": "a box as a list of lower and upper bounds; a negative width counts as 0"
+    },
+    {
+     "class": "v",
+     "description": "zero axioms"
+    }
+   ],
+   "source_gap": null,
+   "notes": "Builds on RSA.v and Bayesian_Semantics.v, which it leaves unchanged. Not yet cross-reviewed. No survey entry is linked to this file. DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+   "compiles": true,
+   "_key": "atlas__bayesian_boxes",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 39,
+    "proved": 39,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 39,
+    "queried": 39,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/probabilistic/Bayesian_Semantics.v",
+   "region": "probabilistic semantics",
+   "summary": "A finite, exact-weight fragment of compositional Bayesian semantics: a model is a finite list of configurations with rational weights and observation is conditioning. What the hypotheses entail has probability 1; probability is monotone along entailment; two observations in sequence are one joint observation; the literal listener of RSA.v is conditioning on truth; with equal weights the two printed forms of the generalized quantifier agree; and 'many' and 'most' make the corresponding instance probable above their thresholds. A worked chair model has exact values 1/2, 2/3 and 1/3.",
+   "sources": [
+    {
+     "citation": "Bernardy, J.-P., Blanck, R., Chatzikyriakidis, S. & Lappin, S. (2018). A Compositional Bayesian Semantics for Natural Language. Proc. First International Workshop on Language Cognition and Computational Models, pp. 1-10 (ACL Anthology W18-4101).",
+     "path": null,
+     "available": "not in the corpus; read from the public ACL Anthology copy"
+    }
+   ],
+   "definitions_mapped": [],
+   "theorems": [
+    {
+     "name": "B1_entailed_is_certain",
+     "status": "proved",
+     "source_claim": "B1_entailed_is_certain. What is entailed by the hypotheses is certain. modelSimple of sec. 2.1 is the case A = H."
+    },
+    {
+     "name": "B2_monotone",
+     "status": "proved",
+     "source_claim": "B2_monotone. Probability is monotone along entailment."
+    },
+    {
+     "name": "B3_complement",
+     "status": "proved",
+     "source_claim": "B3_complement. A sentence and its negation share the unit."
+    },
+    {
+     "name": "B4_chain",
+     "status": "proved",
+     "source_claim": "B4_chain. Two observations in sequence are one joint observation."
+    },
+    {
+     "name": "B5_literal_listener_is_conditioning",
+     "status": "proved",
+     "source_claim": "B5_literal_listener_is_conditioning. The bridge. The RSA literal listener, summed over a set of worlds, is the probability of that set given that the utterance is true."
+    },
+    {
+     "name": "B6_uniform_is_counting",
+     "status": "proved",
+     "source_claim": "B6_uniform_is_counting. With equal weights on individuals, eq. (2) is eq. (1): a ratio of cardinalities."
+    },
+    {
+     "name": "B7_quantifier_supports_instance",
+     "status": "proved",
+     "source_claim": "B7_quantifier_supports_instance. The prediction of sec. 2.4: \"if many chairs have four legs, then it is likely that any given chair has four legs\". Here \"likely\" is: more probable than the quantifier's threshold."
+    },
+    {
+     "name": "E1_many_has_mass_half",
+     "status": "proved",
+     "source_claim": "\"Many chairs have four legs\" holds in one configuration of the two."
+    },
+    {
+     "name": "E2_before_observing",
+     "status": "proved",
+     "source_claim": "Before the observation, a chair has four legs with probability 1/2."
+    },
+    {
+     "name": "E3_chair_example_1",
+     "status": "proved",
+     "source_claim": "chairExample1: after observing it, 2/3."
+    },
+    {
+     "name": "E4_chair_example_2",
+     "status": "proved",
+     "source_claim": "chairExample2, the inverse inference: 1/3."
+    },
+    {
+     "name": "B8_supported_not_entailed_and_inverse_fails",
+     "status": "proved",
+     "source_claim": "B8. Separation, on this model. The supported instance is not entailed: its probability is below 1. And the inverse inference is not supported by the semantics alone: here it is below 1/2. [BBCL18] reports 0.653 for the inverse under its..."
+    }
+   ],
+   "counts": {
+    "theorems": 23,
+    "proved": 23,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "DRAFT for the author's review; not an accepted source-level verdict.",
+     "The paper's priors are Gaussian and its numbers are sampling estimates; the file uses finite models with exact rational weights and does not reproduce those numbers.",
+     "Comparatives, vague predicates and learning (sections 2.2, 2.3, 3) are not formalized."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "DRAFT for the author. A finite analogue of the paper's semantics, not the paper's continuous model.",
+   "assessment_status": "incomplete",
+   "artifact_classes": [
+    {
+     "class": "iii",
+     "description": "finite lists of configurations with rational weights in place of vector spaces with Gaussian priors"
+    },
+    {
+     "class": "v",
+     "description": "zero axioms"
+    }
+   ],
+   "source_gap": null,
+   "notes": "Builds on RSA.v, which it leaves unchanged. Not yet cross-reviewed. No survey entry is linked to this file. DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+   "compiles": true,
+   "_key": "atlas__bayesian_semantics",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 23,
+    "proved": 23,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 23,
+    "queried": 23,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/model_theoretic/Counterfactuals.v",
+   "region": "model-theoretic (modality: counterfactuals)",
+   "summary": "Counterfactual conditionals on finite ordering models. Truth at every closest antecedent-world agrees with Lewis's general truth condition; modus ponens holds under weak centering; conditional excluded middle holds under Stalnaker's assumption and fails without it; strengthening the antecedent, transitivity and contraposition fail on a four-world model of the Sobel sequence. In von Fintel's dynamic account the Sobel sequence is accepted in one order and rejected in the reverse.",
+   "sources": [
+    {
+     "citation": "Lewis, D. (1973). Counterfactuals. Blackwell.",
+     "path": "papers/foundations/Lewis_1973_Counterfactuals.pdf",
+     "available": "parts; a scan without a text layer, read by OCR"
+    },
+    {
+     "citation": "von Fintel, K. (2001). Counterfactuals in a dynamic context. In Ken Hale: A Life in Language. MIT Press.",
+     "path": "papers/foundations/Fintel_2001_CounterfactualsInADynamicContext.pdf",
+     "available": "parts; the text layer is unreadable, read by OCR"
+    },
+    {
+     "citation": "Gillies, A. (2007). Counterfactual scorekeeping. Linguistics and Philosophy 30: 329-360.",
+     "path": "papers/foundations/Gillies_2007_CounterfactualScorekeeping.pdf",
+     "available": "parts; manuscript version"
+    }
+   ],
+   "definitions_mapped": [],
+   "theorems": [
+    {
+     "name": "would_iff_lewis",
+     "status": "proved",
+     "source_claim": "T1. On a finite model the closest-worlds condition and Lewis's general condition agree. Lewis p. 20: under the Limit Assumption the truth conditions simplify in this way."
+    },
+    {
+     "name": "might_dual",
+     "status": "proved",
+     "source_claim": "T2. 'might' is the dual of 'would'. Lewis p. 21 takes this as the definition of 'might' and derives the closest-worlds condition; here the closest-worlds condition is the definition and the duality is derived."
+    },
+    {
+     "name": "vacuous_truth",
+     "status": "proved",
+     "source_claim": "T3. If there is no antecedent-world, 'would' is vacuously true and 'might' is false. Lewis p. 16 (the vacuous case), p. 22 (might)."
+    },
+    {
+     "name": "modus_ponens",
+     "status": "proved",
+     "source_claim": "T4. Modus ponens for 'would' under weak centering. Lewis p. 27 states the pattern; p. 29 says it survives the retreat to weak centering."
+    },
+    {
+     "name": "centering_and",
+     "status": "proved",
+     "source_claim": "T5. Under centering a true antecedent and a true consequent give a true counterfactual. Lewis p. 26, the second of the two inference-patterns at the foot of the page; p. 29 says it is lost under weak centering."
+    },
+    {
+     "name": "cem_stalnaker",
+     "status": "proved",
+     "source_claim": "T6. Conditional Excluded Middle under Stalnaker's Assumption. Lewis p. 79."
+    },
+    {
+     "name": "cem_stalnaker_at",
+     "status": "proved",
+     "source_claim": "T6'. Conditional Excluded Middle for one antecedent, from Stalnaker's Assumption at that antecedent. Lewis pp. 78-79."
+    },
+    {
+     "name": "stalnaker_linear_implies_at",
+     "status": "proved",
+     "source_claim": "ours: the linear form implies the assumption at every antecedent."
+    },
+    {
+     "name": "restricted_transitivity",
+     "status": "proved",
+     "source_claim": "T7. The valid special case of transitivity. Lewis p. 35, the simplified pattern: from X []-> A and (X & A) []-> C infer X []-> C."
+    },
+    {
+     "name": "vf_null_context",
+     "status": "proved",
+     "source_claim": "T8. In the null context, where the horizon at i is just {i}, the dynamic conditional has the same truth value as 'would'. von Fintel p. 139 (\"does not lead to a difference in the truth-conditions derived for an isolated..."
+    },
+    {
+     "name": "vf_decompose",
+     "status": "proved",
+     "source_claim": "ours: the dynamic conditional is the Lewis conditional together with a strict conditional over the worlds already in the horizon."
+    },
+    {
+     "name": "sobel_sequence",
+     "status": "proved",
+     "source_claim": "The Sobel sequence, von Fintel (10) p. 130; Lewis p. 10: both sentences are true at actual, together with the negated opposite of the second."
+    },
+    {
+     "name": "model_centered",
+     "status": "proved",
+     "source_claim": "The premises of T3, T4, T5, T8 are satisfiable: the model is centered (hence weakly centered) on actual, and 'never' has no worlds."
+    },
+    {
+     "name": "vacuous_instance",
+     "status": "proved",
+     "source_claim": "stated in the file; see its header"
+    },
+    {
+     "name": "might_instance",
+     "status": "proved",
+     "source_claim": "stated in the file; see its header"
+    },
+    {
+     "name": "restricted_transitivity_instance",
+     "status": "proved",
+     "source_claim": "T7 at work: all []-> usa and (all & usa) []-> peace, so all []-> peace."
+    },
+    {
+     "name": "strengthening_fails",
+     "status": "proved",
+     "source_claim": "Separating example 1. Strengthening the antecedent fails (Lewis p. 31): usa []-> war, but not (usa & all) []-> war."
+    },
+    {
+     "name": "transitivity_fails",
+     "status": "proved",
+     "source_claim": "Separating example 2. Transitivity fails (Lewis p. 32): all []-> usa and usa []-> war, but not all []-> war."
+    },
+    {
+     "name": "contraposition_fails",
+     "status": "proved",
+     "source_claim": "Separating example 3. Contraposition fails (Lewis p. 35): usa []-> not all, but not (all []-> not usa)."
+    },
+    {
+     "name": "cem_fails",
+     "status": "proved",
+     "source_claim": "Separating example 4. Conditional Excluded Middle fails when two closest antecedent-worlds are tied (Lewis p. 80: comparative similarity permits ties): neither usa []-> odd nor usa []-> not odd."
+    },
+    {
+     "name": "model_not_stalnaker",
+     "status": "proved",
+     "source_claim": "Hence the model does not satisfy Stalnaker's Assumption at actual."
+    },
+    {
+     "name": "stalnaker_at_on_the_model",
+     "status": "proved",
+     "source_claim": "Stalnaker's Assumption antecedent by antecedent: it fails at actual for 'usa', which has two tied closest worlds, and holds for 'all', which has one. So the assumption can hold of some antecedents of a model and not of others; the..."
+    },
+    {
+     "name": "model2_stalnaker",
+     "status": "proved",
+     "source_claim": "stated in the file; see its header"
+    },
+    {
+     "name": "model2_cem_instance",
+     "status": "proved",
+     "source_claim": "stated in the file; see its header"
+    },
+    {
+     "name": "sobel_dynamic_ok",
+     "status": "proved",
+     "source_claim": "The dynamic account on the same model, starting from the null context [actual]. von Fintel p. 142: the Lewis-Sobel sequence (10) is accepted, the reversed sequence (11) is not, because the horizon reached by the first sentence of (11)..."
+    },
+    {
+     "name": "reverse_sobel_dynamic_fails",
+     "status": "proved",
+     "source_claim": "stated in the file; see its header"
+    },
+    {
+     "name": "sobel_static_order_free",
+     "status": "proved",
+     "source_claim": "By contrast the static 'would' does not see the order: both sentences are true at actual whichever comes first."
+    }
+   ],
+   "counts": {
+    "theorems": 35,
+    "proved": 35,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "DRAFT for the author's review; not an accepted source-level verdict.",
+     "Two sources were read by OCR; statements were taken from the prose and von Fintel's update rule was cross-checked against Gillies. The formula symbols should be checked against clean copies.",
+     "Stalnaker (1968) is not in the corpus; his assumption appears as Lewis states it."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "DRAFT for the author. Finite ordering models with a rank function stand in for systems of spheres.",
+   "assessment_status": "incomplete",
+   "artifact_classes": [
+    {
+     "class": "iii",
+     "description": "finitely many worlds with a numerical rank in place of systems of spheres"
+    },
+    {
+     "class": "v",
+     "description": "zero axioms"
+    }
+   ],
+   "source_gap": null,
+   "notes": "Standalone; standard library only. The existing files on Kratzer's modality are unchanged. Not yet cross-reviewed. No survey entry is linked to this file. DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+   "compiles": true,
+   "_key": "atlas__counterfactuals",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 35,
+    "proved": 35,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 35,
+    "queried": 35,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
    },
    "_final": {
     "faithfulness": "partial",
@@ -1998,6 +2529,200 @@
     "trivial": 5,
     "vacuous": 0,
     "vacuous_names": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/model_theoretic/GQ_Properties.v",
+   "region": "model-theoretic (generalized quantifiers)",
+   "summary": "Properties of determiners on finite universes, after Barwise and Cooper. The logical determiners live on their first argument; their monotonicity and persistence profiles; results C1, C4, C5, C7, C9 and C10 of the paper's Appendix C; and separating examples, among them 'only' read as a determiner, which is not conservative.",
+   "sources": [
+    {
+     "citation": "Barwise, J. & Cooper, R. (1981). Generalized quantifiers and natural language. Linguistics and Philosophy 4(2): 159-219.",
+     "path": "papers/foundations/Barwise_Cooper_1981_GeneralizedQuantifiers.pdf",
+     "available": "parts; see the file's header for the sections read"
+    }
+   ],
+   "definitions_mapped": [],
+   "theorems": [
+    {
+     "name": "card_counts_members",
+     "status": "proved",
+     "source_claim": "ours: what the counting determiners count. If the universe is listed without repetition, card A is the number of members of A: any repetition-free list of exactly the members of A has that length. The counting determiners (at_least,..."
+    },
+    {
+     "name": "E5_nodup",
+     "status": "proved",
+     "source_claim": "The model's universe is listed without repetition, so card_counts_members applies to it."
+    },
+    {
+     "name": "repetition_inflates_counts",
+     "status": "proved",
+     "source_claim": "Separating example (ours): on a universe that lists one individual twice, \"at least two\" things are self-identical, although there is only one."
+    },
+    {
+     "name": "logical_determiners_live_on",
+     "status": "proved",
+     "source_claim": "stated in the file; see its header"
+    },
+    {
+     "name": "monotonicity_profile",
+     "status": "proved",
+     "source_claim": "stated in the file; see its header"
+    },
+    {
+     "name": "C1_lives_on_top",
+     "status": "proved",
+     "source_claim": "stated in the file; see its header"
+    },
+    {
+     "name": "C4_intersection_existential",
+     "status": "proved",
+     "source_claim": "stated in the file; see its header"
+    },
+    {
+     "name": "C5_intersection_iff_symmetric",
+     "status": "proved",
+     "source_claim": "stated in the file; see its header"
+    },
+    {
+     "name": "C6_strong_intersective_trivial",
+     "status": "proved",
+     "source_claim": "stated in the file; see its header"
+    },
+    {
+     "name": "no_total_proper_strong",
+     "status": "proved",
+     "source_claim": "ours, a note on C6. For a TOTAL determiner that lives on its argument, strength already makes D(empty set) improper, so the hypothesis \"proper strong determiner\" of C6 (proper = defined for all A with D(A) proper, p. 210) has no..."
+    },
+    {
+     "name": "C7_persistent_symmetric_mon_up",
+     "status": "proved",
+     "source_claim": "stated in the file; see its header"
+    },
+    {
+     "name": "C9_negation_reverses_monotonicity",
+     "status": "proved",
+     "source_claim": "stated in the file; see its header"
+    },
+    {
+     "name": "C10_mon_up_meets_dual",
+     "status": "proved",
+     "source_claim": "stated in the file; see its header"
+    },
+    {
+     "name": "model_values",
+     "status": "proved",
+     "source_claim": "Computed truth values: |man| = 3, |man n run| = 2."
+    },
+    {
+     "name": "only_not_conservative",
+     "status": "proved",
+     "source_claim": "Separating example 1 (ours): \"only\" does not live on its first argument. Only men run is false (3 runs), only men are men who run is true."
+    },
+    {
+     "name": "exactly_two_not_monotone",
+     "status": "proved",
+     "source_claim": "Separating example 2 (p. 185, \"exactly two men\" not monotone)."
+    },
+    {
+     "name": "some_not_all_separates",
+     "status": "proved",
+     "source_claim": "Separating example 3 (p. 211): \"some but not all\" is persistent but neither mon-up nor symmetric. So C7 needs its symmetry premise."
+    },
+    {
+     "name": "every_not_intersective",
+     "status": "proved",
+     "source_claim": "Separating example 4 (instance of C6, p. 211): \"every\" is positive strong and fails the intersection condition, hence (C5) is not symmetric."
+    },
+    {
+     "name": "some_meets_premises",
+     "status": "proved",
+     "source_claim": "Non-vacuity of T4, T6: \"some\" meets every premise of C5 and C7, and the conclusions are obtained through those theorems."
+    },
+    {
+     "name": "C6_premises_satisfiable",
+     "status": "proved",
+     "source_claim": "Non-vacuity of T5: the premises of C6 are jointly satisfiable (by the trivial determiner), and by T5 only trivially."
+    },
+    {
+     "name": "C10_instance",
+     "status": "proved",
+     "source_claim": "Non-vacuity of T8: Q = more than half the men; run is in Q, {0,1} is in the dual of Q, and C10 yields a common element."
+    },
+    {
+     "name": "duals_on_model",
+     "status": "proved",
+     "source_claim": "Duals, checked on all 32 x 32 pairs of subsets of E5. p. 197: the dual of \"some man\" is \"every man\"; pp. 198-199: the dual of \"more than half\" is \"at least half\"."
+    },
+    {
+     "name": "self_dual_odd",
+     "status": "proved",
+     "source_claim": "p. 197: on a set of odd cardinality \"more than half\" is self-dual (man has 3 elements); on one of even cardinality it is not (ours)."
+    },
+    {
+     "name": "mth_SP3_on_model",
+     "status": "proved",
+     "source_claim": "\"more than half\" against the postulates for \"most\" (Appendix B, p. 208). SP3 (two sets in most(A) meet) holds on the model for all A, X, Y. SP1 (A in most(A) for every A) fails at the empty set: ours, and the reason \"more than half\" is..."
+    },
+    {
+     "name": "mth_fails_SP1_at_empty",
+     "status": "proved",
+     "source_claim": "stated in the file; see its header"
+    }
+   ],
+   "counts": {
+    "theorems": 51,
+    "proved": 51,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "DRAFT for the author's review; not an accepted source-level verdict.",
+     "Determiners are total here. C6 concerns proper strong determiners, which needs partial determiners; the file proves the claim established inside the proof of C6 and says so.",
+     "Counting determiners count members only when the universe has no repetition; the file states and proves this."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "DRAFT for the author. Finite universes as lists; total determiners.",
+   "assessment_status": "incomplete",
+   "artifact_classes": [
+    {
+     "class": "iv",
+     "description": "universes as lists; determiners as total boolean functions on predicates"
+    },
+    {
+     "class": "v",
+     "description": "zero axioms"
+    }
+   ],
+   "source_gap": null,
+   "notes": "Standalone; standard library only. The legacy generalized-quantifier files are unchanged. Not yet cross-reviewed. No survey entry is linked to this file. DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+   "compiles": true,
+   "_key": "atlas__gq_properties",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 51,
+    "proved": 51,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 51,
+    "queried": 51,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
    },
    "_final": {
     "faithfulness": "partial",
@@ -6001,6 +6726,165 @@
    }
   },
   {
+   "file": "atlas/mtt_ranta/Numerals_IC.v",
+   "region": "modern type theories (MTT + Ranta pair)",
+   "summary": "Numerical quantifiers relative to the identity criteria of common nouns, after section 5.3 of the book. The numeral is 'at least n' for every n: n objects, pairwise distinct under the criterion, all satisfying the predicate. Counts transfer along a sub-setoid and not without inheritance of the criterion; under a dot-type the count is by double distinctness, which gives both separate counts and is not given by them; an adjective inside a Sigma-type moves into the predicate. Three closed models, among them two copies of one content: exactly two books physically, exactly one informationally.",
+   "sources": [
+    {
+     "citation": "Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. ISTE/Wiley.",
+     "path": "papers/foundations/Chatzikyriakidis_Luo_2020_FormalSemanticsInMTT.pdf",
+     "available": "section 5.3 (pp. 108-119) read in full"
+    }
+   ],
+   "definitions_mapped": [],
+   "theorems": [
+    {
+     "name": "I1_two_copies_phy",
+     "status": "proved",
+     "source_claim": "stated in the file; see its header"
+    },
+    {
+     "name": "I2_one_content_info",
+     "status": "proved",
+     "source_claim": "stated in the file; see its header"
+    },
+    {
+     "name": "I3_split_model",
+     "status": "proved",
+     "source_claim": "stated in the file; see its header"
+    },
+    {
+     "name": "S1_three_is_at_least_3",
+     "status": "proved",
+     "source_claim": "S1_three_is_at_least_3. The book's three-variable numeral is the generic numeral at 3."
+    },
+    {
+     "name": "S2_three_is_three0_on_restriction",
+     "status": "proved",
+     "source_claim": "S2_three_is_three0_on_restriction. Def 5.4 with a setoid B restricts to Def 5.3 over the sub-setoid: counting A-objects by B's criterion is counting in (A, kB restricted)."
+    },
+    {
+     "name": "S3_sub_setoid_transfer",
+     "status": "proved",
+     "source_claim": "S3_sub_setoid_transfer. (5.26), for every n: if (A, kA) is a sub-setoid of (B, kB), then n A's that P entail n B's that P."
+    },
+    {
+     "name": "S4_transfer_needs_inheritance",
+     "status": "proved",
+     "source_claim": "S4_transfer_needs_inheritance. Without inheritance the transfer fails: a subtype whose criterion is finer than the restriction (passengers counted by trips, persons by persons). There are two passengers and not two persons."
+    },
+    {
+     "name": "S5_downward",
+     "status": "proved",
+     "source_claim": "S5_downward. Numerals are downward closed: n+1 entails n."
+    },
+    {
+     "name": "S6_monotone",
+     "status": "proved",
+     "source_claim": "S6_monotone. Upward monotone in the predicate and along a further coercion."
+    },
+    {
+     "name": "S7_dot_is_pre",
+     "status": "proved",
+     "source_claim": "S7_dot_is_pre. The dot relation is a pre-setoid relation when its components are."
+    },
+    {
+     "name": "S8_dot_not_transitive",
+     "status": "proved",
+     "source_claim": "S8_dot_not_transitive. It is not an identity criterion: transitivity fails even when both components are equivalences (the book's remark after Def 5.6)."
+    },
+    {
+     "name": "S9_dot_double_distinctness",
+     "status": "proved",
+     "source_claim": "S9_dot_double_distinctness. (5.48), for every n: counting under the dot relation is counting objects that are distinct under both components."
+    },
+    {
+     "name": "S10_copredication_splits",
+     "status": "proved",
+     "source_claim": "S10_copredication_splits. Copredication entails the two separate counts."
+    },
+    {
+     "name": "S11_split_does_not_join",
+     "status": "proved",
+     "source_claim": "S11_split_does_not_join. The converse fails: \"John picked up three books and mastered three books\" does not entail \"John picked up and mastered three books\"."
+    },
+    {
+     "name": "S12_sigma_absorbs_adjective",
+     "status": "proved",
+     "source_claim": "S12_sigma_absorbs_adjective. (5.52)-(5.55): the adjective inside the Sigma-type moves into the predicate. \"Three heavy books\" counts books that are heavy; no premise on proofs of \"heavy\" is needed, because objects are compared by the..."
+    },
+    {
+     "name": "S13_reflexivity_needed",
+     "status": "proved",
+     "source_claim": "S13_reflexivity_needed. Why a pre-setoid relation must be reflexive: with an empty relation, one object counts as two."
+    },
+    {
+     "name": "S14_counting_form",
+     "status": "proved",
+     "source_claim": "S14_counting_form. Counting form: on a finite listing, with decidable criterion and predicate, \"at least n\" holds iff the P-objects fall into at least n classes."
+    },
+    {
+     "name": "copies_counted_phy",
+     "status": "proved",
+     "source_claim": "A use of S14_counting_form: the two-copies model, decided by counting."
+    }
+   ],
+   "counts": {
+    "theorems": 31,
+    "proved": 31,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "DRAFT for the author's review; not an accepted source-level verdict.",
+     "The book defines the numeral for three; the file states each result for every n and proves that the book's three-variable form is the instance at 3.",
+     "The dot-type is a product, which is all that counting needs; the book's rules for dot-types are not formalized."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "DRAFT for the author. The definitions transpose directly; generalising from three to n is the file's own step.",
+   "assessment_status": "incomplete",
+   "artifact_classes": [
+    {
+     "class": "iv",
+     "description": "the numeral for every n as a list of n pairwise distinct objects; subtyping as an explicit function"
+    },
+    {
+     "class": "v",
+     "description": "zero axioms"
+    }
+   ],
+   "source_gap": null,
+   "notes": "New file; MTT.v and the ttr_mtt/ files on individuation are unchanged. Not yet cross-reviewed. No survey entry is linked to this file. DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+   "compiles": true,
+   "_key": "atlas__numerals_ic",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 31,
+    "proved": 31,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 31,
+    "queried": 31,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
+    "disputed": false
+   }
+  },
+  {
    "file": "atlas/pilots/Rosch1978.v",
    "region": "cognitive",
    "summary": "P1 bounded Rosch pilot: finite cue validity, fixed-cue inclusion boundary, assigned category-specific cue sensitivity, and membership/typicality separation. Does not derive a basic level or model human processing.",
@@ -6364,6 +7248,100 @@
    }
   },
   {
+   "file": "atlas/probabilistic/Pragmatic_Anaphora.v",
+   "region": "probabilistic pragmatics",
+   "summary": "A finite fragment of Bayesian pragmatics for pronoun resolution. Non-contradiction with a complete world state is truth at it; the literal listener is bounded and, for unambiguous utterances, is the literal listener of RSA.v. On the paper's example 'Emacs is waiting for the command. It is prepared.' the listener resolves the pronoun to Emacs with probability 47336/57451 under the paper's animacy prior, and 315614/601949 when both candidates are likely animate.",
+   "sources": [
+    {
+     "citation": "Grove, J., Bernardy, J.-P. & Chatzikyriakidis, S. (2021). From compositional semantics to Bayesian pragmatics via logical inference. Proc. NALOMA 2021, pp. 60-70 (ACL Anthology 2021.naloma-1.8).",
+     "path": null,
+     "available": "not in the corpus; read from the public ACL Anthology copy; sections 2.3 to 5 read"
+    }
+   ],
+   "definitions_mapped": [],
+   "theorems": [
+    {
+     "name": "complete_state_consistency",
+     "status": "proved",
+     "source_claim": "N1. [GBC21] sec. 2.3, sec. 4. If a world state decides every atom of phi, then \"Gamma, phi does not entail a contradiction\" (some valuation satisfies both) holds exactly when phi is true at the world state."
+    },
+    {
+     "name": "PL0_bounds",
+     "status": "proved",
+     "source_claim": "N2. PL0 is nonnegative and grows with the proposition."
+    },
+    {
+     "name": "PL0_is_RSA_literal",
+     "status": "proved",
+     "source_claim": "N3. The bridge. If u means the same under every theta, the weights of theta sum to 1, and phi is the complete description of one world w, then PL0 is the literal listener of RSA.v before normalisation: the prior of w if u is true there,..."
+    },
+    {
+     "name": "emacs_preferred",
+     "status": "proved",
+     "source_claim": "With the paper's prior 0.2 for the animacy of things: the proposition about Emacs is more probable a priori and for the literal listener, and the pragmatic listener resolves \"it\" to Emacs with probability 47336/57451, about 0.82."
+    },
+    {
+     "name": "less_certain_with_animate_candidates",
+     "status": "proved",
+     "source_claim": "Separating case, after example (2): with the prior 0.9 that the paper gives to persons, animacy no longer discriminates, and the resolution is close to even: 315614/601949, about 0.52."
+    }
+   ],
+   "counts": {
+    "theorems": 7,
+    "proved": 7,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "DRAFT for the author's review; not an accepted source-level verdict.",
+     "Sections 2.1 and 2.2 (the monadic composition), the result tables and section 6 were not read.",
+     "World states are complete valuations, so the paper's logical-inference step reduces to evaluation."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "DRAFT for the author. A finite fragment with exact weights; the paper's theorem-prover step is not modelled.",
+   "assessment_status": "incomplete",
+   "artifact_classes": [
+    {
+     "class": "iii",
+     "description": "complete world states in place of sets of premises checked by a prover"
+    },
+    {
+     "class": "v",
+     "description": "zero axioms; decidable equality of worlds is a hypothesis of one section"
+    }
+   ],
+   "source_gap": null,
+   "notes": "Builds on RSA.v and Bayesian_Semantics.v, which it leaves unchanged. Not yet cross-reviewed. No survey entry is linked to this file. DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+   "compiles": true,
+   "_key": "atlas__pragmatic_anaphora",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 7,
+    "proved": 7,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 7,
+    "queried": 7,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
+    "disputed": false
+   }
+  },
+  {
    "file": "atlas/montague/PTQ.v",
    "region": "montague lineage",
    "summary": "The zero-axiom PTQ core, the trunk of the Montague lineage: IL types shallowly with intension/extension over an abstract Index; term phrases as generalized quantifiers with type raising (star); the determiners every/a/no and the fragment sentences; quantifying-in with both scopes of 'every man loves a woman' (inverse entails surface; the readings proved genuinely distinct by a bool countermodel); the seek/find contrast — intensional verbs take quantifier objects, de dicto seek carries no existential commitment (axiom-free existence countermodel), lifted verbs collapse de dicto/de re (the meaning-postulate shape), de re always commits; Barwise-Cooper hooks (conservativity and monotonicity of the PTQ determiners); the minimal modal layer (box with K, T, Nec) for the Kratzer edge.",
@@ -6691,6 +7669,140 @@
    "_final": {
     "faithfulness": "faithful",
     "determination": "as_is",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/inquisitive/Questions_Partitions.v",
+   "region": "inquisitive semantics (partition semantics of questions)",
+   "summary": "Questions as partitions of the set of indices, after Groenendijk and Stokhof's dissertation. A question is an equivalence relation whose answers form a partition; inclusion of questions in both printed forms; a constituent question is the intersection of its whether-questions; and, as a bridge to InqB.v, whether-p is the polar question ?p on inhabited states.",
+   "sources": [
+    {
+     "citation": "Groenendijk, J. & Stokhof, M. (1984). Studies on the Semantics of Questions and the Pragmatics of Answers. Dissertation, University of Amsterdam.",
+     "path": "papers/inquisitive/Groenendijk_Stokhof_1984_StudiesSemanticsQuestions.pdf",
+     "available": "pp. 213-224 read; the corpus copy is a scan with an OCR text layer"
+    }
+   ],
+   "definitions_mapped": [],
+   "theorems": [
+    {
+     "name": "question_is_partition",
+     "status": "proved",
+     "source_claim": "Q1. (2) gives an equivalence, and by (1) p. 214 the answers of an equivalence form a partition: every index lies in its own answer, and two answers that overlap are the same."
+    },
+    {
+     "name": "whether_bipartition",
+     "status": "proved",
+     "source_claim": "Q2. whether-p has two possible answers, p and not-p (p. 214), and whether-p and whether-not-p are the same question (p. 219)."
+    },
+    {
+     "name": "meet_cells",
+     "status": "proved",
+     "source_claim": "Q3. The intersection is again a question, and its answers are the intersections of the answers of the two."
+    },
+    {
+     "name": "entails_iff_cells",
+     "status": "proved",
+     "source_claim": "Q4. The two forms of (7) agree."
+    },
+    {
+     "name": "inclusion_facts",
+     "status": "proved",
+     "source_claim": "Q5. (8): every question is included in the one-cell partition. (9): the partition into singletons is included in every question. (10): an intersection is included in its first term. (11): Q is included in R iff their intersection is Q."
+    },
+    {
+     "name": "who_from_whether",
+     "status": "proved",
+     "source_claim": "Q6. p. 220: a constituent question can be constructed by intersection from the questions whether a G's, one for each a."
+    },
+    {
+     "name": "offers_monotone",
+     "status": "proved",
+     "source_claim": "Q7. If Q is included in R, an information set that offers an answer to Q offers an answer to R. This is inclusion read as answerhood (p. 221: every answer to Q implies an answer to R)."
+    },
+    {
+     "name": "issue_bridge",
+     "status": "proved",
+     "source_claim": "Q8. Bridge to InqB.v. The issue of a question is an inquisitive proposition; inclusion of questions gives refinement of issues; and on an inhabited state, whether-p is supported exactly when the polar question ?p = p or not-p is (the..."
+    },
+    {
+     "name": "cell_counts",
+     "status": "proved",
+     "source_claim": "whether-p makes a bipartition; the constituent question a four-fold one (p. 215: n is the number of possible denotations of the predicate)."
+    },
+    {
+     "name": "who_entails_whether",
+     "status": "proved",
+     "source_claim": "The constituent question includes each of its whether-questions."
+    },
+    {
+     "name": "whether_does_not_entail_who",
+     "status": "proved",
+     "source_claim": "Separating example 1: the converse inclusion fails."
+    },
+    {
+     "name": "independent_questions",
+     "status": "proved",
+     "source_claim": "Separating example 2: two independent whether-questions; neither is included in the other."
+    },
+    {
+     "name": "information_and_answers",
+     "status": "proved",
+     "source_claim": "Separating example 3: the information that p offers an answer to whether-p and not to the constituent question."
+    }
+   ],
+   "counts": {
+    "theorems": 13,
+    "proved": 13,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "DRAFT for the author's review; not an accepted source-level verdict.",
+     "Only pp. 213-224 were read. The union operations (4) and (6) and facts (12)-(13) are not formalized because the OCR of the formulas was not reliable.",
+     "The bridge to InqB.v is the file's own result, not a claim of the source."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "DRAFT for the author. The definitions transpose directly on finite sets of indices.",
+   "assessment_status": "incomplete",
+   "artifact_classes": [
+    {
+     "class": "iv",
+     "description": "finite lists of indices; questions as boolean relations"
+    },
+    {
+     "class": "v",
+     "description": "zero axioms"
+    }
+   ],
+   "source_gap": null,
+   "notes": "Builds on InqB.v, which it leaves unchanged. Not yet cross-reviewed. No survey entry is linked to this file. DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+   "compiles": true,
+   "_key": "atlas__questions_partitions",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 13,
+    "proved": 13,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 13,
+    "queried": 13,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
     "disputed": false
    }
   },
@@ -7307,6 +8419,340 @@
    "_final": {
     "faithfulness": "faithful",
     "determination": "as_is",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/model_theoretic/Scale_Structure.v",
+   "region": "model-theoretic (degree semantics)",
+   "summary": "Scale structure and the standards of gradable adjectives, after Kennedy and McNally. The endpoints of the four scale types; the antonym test (39); the 'half' tests (41)-(42); the comparative tests (43); and separating examples for relative adjectives (40), (44).",
+   "sources": [
+    {
+     "citation": "Kennedy, C. & McNally, L. (2005). Scale structure, degree modification, and the semantics of gradable predicates. Language 81(2): 345-381.",
+     "path": "papers/foundations/Kennedy_McNally_2005_ScaleStructureAndTheSemantic.pdf",
+     "available": "pp. 353-360 read"
+    }
+   ],
+   "definitions_mapped": [],
+   "theorems": [
+    {
+     "name": "endpoints",
+     "status": "proved",
+     "source_claim": "K1. (23): only the closed ends have endpoints."
+    },
+    {
+     "name": "absolute_antonyms",
+     "status": "proved",
+     "source_claim": "K2. (39) p. 359: \"The door is not open |= The door is closed\", and the same with the adjectives exchanged."
+    },
+    {
+     "name": "half_tests",
+     "status": "proved",
+     "source_claim": "K3. (41) p. 360: \"half dead |= not dead\"; (42): \"half open |= open\"."
+    },
+    {
+     "name": "comparative_tests",
+     "status": "proved",
+     "source_claim": "K4. (43a) p. 360: \"wetter than the countertop |= wet\", for a minimum standard; (43b): \"drier than the countertop |= the countertop is not dry\", for a maximum standard."
+    },
+    {
+     "name": "half_is_midpoint",
+     "status": "proved",
+     "source_claim": "K5. (21) p. 353: the degree of \"half\" is the midpoint."
+    },
+    {
+     "name": "the_doors",
+     "status": "proved",
+     "source_claim": "\"open\" has a minimum standard and \"closed\", its antonym, a maximum one. The door that is half open is open and is not closed; the shut door is closed and is not open."
+    },
+    {
+     "name": "zone_of_indifference",
+     "status": "proved",
+     "source_claim": "Separating example 1. (40) p. 359: \"not large\" does not entail \"small\". With a standard of 2/3 for \"large\" and 2/3 for its antonym, the door of size 1/2 is neither."
+    },
+    {
+     "name": "comparative_without_positive",
+     "status": "proved",
+     "source_claim": "Separating examples 2 and 3. (44) p. 360: with a relative standard, the comparative entails neither the positive form nor its negation."
+    },
+    {
+     "name": "comparative_with_positive",
+     "status": "proved",
+     "source_claim": "stated in the file; see its header"
+    }
+   ],
+   "counts": {
+    "theorems": 9,
+    "proved": 9,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "DRAFT for the author's review; not an accepted source-level verdict.",
+     "Degrees are rational numbers and the four scales are the four intervals between 0 and 1.",
+     "The degree morpheme pos, degree modifiers and deverbal adjectives are not formalized."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "DRAFT for the author. The entailment tests transpose directly once the three standards are given.",
+   "assessment_status": "incomplete",
+   "artifact_classes": [
+    {
+     "class": "iv",
+     "description": "rational degrees; an adjective is its measure function; the antonym measures 1 - d"
+    },
+    {
+     "class": "v",
+     "description": "zero axioms"
+    }
+   ],
+   "source_gap": null,
+   "notes": "Standalone; standard library only. Not yet cross-reviewed. No survey entry is linked to this file. DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+   "compiles": true,
+   "_key": "atlas__scale_structure",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 9,
+    "proved": 9,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 9,
+    "queried": 9,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/model_theoretic/Semantic_Monads.v",
+   "region": "model-theoretic (composition: monads)",
+   "summary": "Monads in natural-language semantics. The three monad laws for the powerset, reader and continuation monads, stated pointwise; Shan's lifted application in each; Giorgolo and Asudeh's opacity readings on a small model; and two scope readings that differ on a model.",
+   "sources": [
+    {
+     "citation": "Shan, C. (2001). Monads for natural language semantics. Proc. ESSLLI 2001 Student Session, pp. 285-298 (arXiv:cs/0205026).",
+     "path": "papers/foundations/Shan_2001_MonadsForNaturalLanguageSemantics.pdf",
+     "available": "read in full; section 3 is not formalized"
+    },
+    {
+     "citation": "Giorgolo, G. & Asudeh, A. (2014). Monads as a solution for generalized opacity. Proc. EACL 2014 Workshop TTNLS, pp. 19-27.",
+     "path": "papers/foundations/Giorgolo_Asudeh_2014_MonadsAsASolutionFor.pdf",
+     "available": "sections 1-3 (pp. 19-25)"
+    }
+   ],
+   "definitions_mapped": [],
+   "theorems": [
+    {
+     "name": "set_monad_laws",
+     "status": "proved",
+     "source_claim": "T1. Left identity, right identity and associativity [Shan (24.3a-c), fn. 1 p. 286] for the powerset monad (24.4), as equivalences of membership."
+    },
+    {
+     "name": "reader_monad_laws",
+     "status": "proved",
+     "source_claim": "T2. The three laws (24.3a-c) for the reader monad (24.16), as equalities at every index w."
+    },
+    {
+     "name": "cont_monad_laws",
+     "status": "proved",
+     "source_claim": "T3. The three laws (24.3a-c) for the continuation monad (24.19), as equalities at every continuation c."
+    },
+    {
+     "name": "lifted_application",
+     "status": "proved",
+     "source_claim": "T4. Lifted application in the three monads: (24.9), (24.17), (24.21)."
+    },
+    {
+     "name": "secondary_rule",
+     "status": "proved",
+     "source_claim": "T5. The secondary rule in the three monads: A'_M f x = A_M f (unit x)."
+    },
+    {
+     "name": "AM_set",
+     "status": "proved",
+     "source_claim": "T4a. In the powerset monad A_M f x = { a b | a in f, b in x }. [Shan (24.9), p. 288]: pointwise function application over alternatives."
+    },
+    {
+     "name": "AM_reader",
+     "status": "proved",
+     "source_claim": "T4b. In the reader monad A_M f x = fun w => f w (x w). [Shan (24.17), p. 289]"
+    },
+    {
+     "name": "AM_cont",
+     "status": "proved",
+     "source_claim": "T4c. In the continuation monad A_M f x = fun c => f (fun g => x (fun y => c (g y))). [Shan (24.21), p. 290]"
+    },
+    {
+     "name": "reader_commutative",
+     "status": "proved",
+     "source_claim": "T6a. The reader monad is commutative: the order in which two computations are bound does not matter. G&A fn. 6 p. 23 use this to identify readings that differ only in that order."
+    },
+    {
+     "name": "transparent_substitution",
+     "status": "proved",
+     "source_claim": "T6b. Transparency of bind (ours; it is what makes G&A's reading (32) contradictory): if a and b have the same value at index i, then binding either into the same continuation gives the same result at i."
+    },
+    {
+     "name": "m1_bind_k1",
+     "status": "proved",
+     "source_claim": "m1 * k1 has exactly the four members Shan lists on p. 287, for any two relations like and hate."
+    },
+    {
+     "name": "john_smokes",
+     "status": "proved",
+     "source_claim": "[[John smokes]] evaluates to smoke(John). [Shan (24.20) and p. 291]"
+    },
+    {
+     "name": "john_smokes_true",
+     "status": "proved",
+     "source_claim": "stated in the file; see its header"
+    },
+    {
+     "name": "everyone_smokes",
+     "status": "proved",
+     "source_claim": "[[everyone smokes]] evaluates to \"for all x, smoke x\". [Shan p. 291]"
+    },
+    {
+     "name": "everyone_smokes_false",
+     "status": "proved",
+     "source_claim": "stated in the file; see its header"
+    },
+    {
+     "name": "everyone_not_pure",
+     "status": "proved",
+     "source_claim": "everyone is not unit of any individual: it uses its continuation non-trivially. [Shan p. 291, remark after (24.22)]"
+    },
+    {
+     "name": "fun_first_reading",
+     "status": "proved",
+     "source_claim": "With Shan's A_M (function first) the object quantifier takes widest scope."
+    },
+    {
+     "name": "arg_first_reading",
+     "status": "proved",
+     "source_claim": "With the argument evaluated first (AMr, ours) the subject takes widest scope."
+    },
+    {
+     "name": "scope_readings_differ",
+     "status": "proved",
+     "source_claim": "S1a. Separating example: on the model the two scope readings differ."
+    },
+    {
+     "name": "cont_not_commutative",
+     "status": "proved",
+     "source_claim": "S1b. Separating example: the continuation monad is NOT commutative (contrast T6a for the reader monad)."
+    },
+    {
+     "name": "opacity_readings",
+     "status": "proved",
+     "source_claim": "T8. The three readings together: (33), (34) and (30) of G&A."
+    },
+    {
+     "name": "reading31_truth_conditions",
+     "status": "proved",
+     "source_claim": "T8a. Reading (31) has the truth conditions (33): Mary Jane loves pp and does not love the entity she calls Spider-Man. [G&A (33), p. 24]"
+    },
+    {
+     "name": "reading32_contradictory",
+     "status": "proved",
+     "source_claim": "T8b. Reading (32), evaluated at the speaker's index, has the unsatisfiable truth conditions (34), whatever the love relation. [G&A (34), p. 24]"
+    },
+    {
+     "name": "reading29_contradictory",
+     "status": "proved",
+     "source_claim": "T8c. Reading (29) is false at every index, whatever the punch relation: sentence (2) has only a contradictory reading. [G&A (30), p. 24]"
+    },
+    {
+     "name": "reading31_true",
+     "status": "proved",
+     "source_claim": "Computed results: (31) is true and (32) is false on the model."
+    },
+    {
+     "name": "reading32_false",
+     "status": "proved",
+     "source_claim": "stated in the file; see its header"
+    },
+    {
+     "name": "coreferring_at_sigma",
+     "status": "proved",
+     "source_claim": "The two names co-refer for the speaker."
+    },
+    {
+     "name": "substitution_holds_outside",
+     "status": "proved",
+     "source_claim": "Substitution holds OUTSIDE the scope of love: bound from outside (as in (32)), Spider-Man can be replaced by Peter Parker. Instance of T6b."
+    },
+    {
+     "name": "substitution_fails_under_love",
+     "status": "proved",
+     "source_claim": "S2. Separating example: substitution FAILS inside the argument of love. Co-reference at the speaker's index does not license replacing one term by the other under an arbitrary function on monadic values."
+    }
+   ],
+   "counts": {
+    "theorems": 32,
+    "proved": 32,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "DRAFT for the author's review; not an accepted source-level verdict.",
+     "The laws are stated pointwise, so no extensionality axiom is used.",
+     "Shan's monad morphisms and translations, the state and error monads, and Giorgolo and Asudeh's sequent calculus are not formalized.",
+     "Nothing is taken from Charlow's dissertation, which was not available."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "DRAFT for the author. The monads transpose directly; the opacity fragment is a small model.",
+   "assessment_status": "incomplete",
+   "artifact_classes": [
+    {
+     "class": "iv",
+     "description": "pointwise equality in place of equality of functions"
+    },
+    {
+     "class": "v",
+     "description": "zero axioms"
+    }
+   ],
+   "source_gap": null,
+   "notes": "Standalone; standard library only. Not yet cross-reviewed. No survey entry is linked to this file. DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+   "compiles": true,
+   "_key": "atlas__semantic_monads",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 32,
+    "proved": 32,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 32,
+    "queried": 32,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
     "disputed": false
    }
   },

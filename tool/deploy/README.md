@@ -27,7 +27,7 @@ Registry login material is confined to a temporary root-only directory under
 as VM secrets or stored in the service environment.
 
 Current image, active since 15 November 2026 (UTC):
-`formalatlasacr.azurecr.io/atlas-checker@sha256:a3a858b2e91c781dd45e07a734e1f0287901260ee5c95b6fc35577aef27e57d8`.
+`formalatlasacr.azurecr.io/atlas-checker@sha256:dbb6e5535a21197e3b10afb84acee566cb1d9e94cb3de736be4a05e241dd44ae`.
 Built by ACR run `cad` from commit `c64ac19` with `tool/checker/Dockerfile`
 (the full build, since the library changed). It contains Coq 8.20.1, coq-lsp
 package `0.2.5+8.20` and the published 91-file library, whose fingerprint is
@@ -36,7 +36,7 @@ runtime code is unchanged from the persistent-session release. See
 "Library release, 2026-11-15" below.
 
 Previous image (persistent sessions, 87-file library), retained on the VM for
-rollback: `formalatlasacr.azurecr.io/atlas-checker@sha256:24f488c892065bfaab0b49ffd79d8e17a085cda5a7432cb49b38e7328da35495`.
+rollback: `formalatlasacr.azurecr.io/atlas-checker@sha256:a3a858b2e91c781dd45e07a734e1f0287901260ee5c95b6fc35577aef27e57d8`.
 Built by ACR run `cac`, with the runtime implementation in commit `a5bd0ed`,
 on the fully compiled toolchain/library base from run `caa`. See
 `../SESSION_VALIDATION.md` for its candidate tests.
@@ -158,3 +158,26 @@ To roll back, restore `atlas-pull` and `atlas-coq.service` from the backup
 directory above to their original paths, run `systemctl daemon-reload`, and
 restart `atlas-coq`. The site would then again reject the worker as a
 mismatched release.
+
+## Library release, 2026-11-16
+
+The library grew from 91 to 100 files (nine files under `atlas/mtt_ranta`,
+`atlas/probabilistic`, `atlas/inquisitive` and `atlas/model_theoretic`), so
+the worker needed a new image. The steps were those of the previous release.
+
+1. ACR run `cae` built the image above from a clean export of commit `372264e`
+   in 28 minutes; all 100 files compiled. Its library is that of the merge
+   commit `0798ead`.
+2. `test-sessions.py` ran its 23 tests on the candidate on the VM. All passed;
+   production was unchanged.
+3. `activate-release.py` moved the service to the new image and its
+   in-container session test passed. The backup is
+   `/var/lib/atlas-deployments/release-20261116-0zfkkr0u` on the VM.
+4. `smoke_deployed.py` passed against the public endpoint and the published
+   site: real Coq, persistent sessions, 100 sources, matching fingerprints,
+   site revision `0798ead`, no paid model call. The browser smoke test
+   (`smoke_public.py`) was not run for this release.
+
+Between the site's publication and the activation, about an hour, the site
+rejected the worker as a mismatched release. Rollback is as described above,
+from the backup directory of this release.

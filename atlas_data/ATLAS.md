@@ -1,6 +1,6 @@
 # Formalizability Atlas of Semantics — current state
 
-Coq files audited: **100** · theorem statements: **1902** (proved 1889, admitted 12) · papers surveyed: **230** · records explicitly disputed by a reviewer: **0**
+Coq files audited: **101** · theorem statements: **1923** (proved 1910, admitted 12) · papers surveyed: **230** · records explicitly disputed by a reviewer: **0**
 
 ## Recorded file assessments (not reviewed paper outcomes)
 
@@ -13,7 +13,7 @@ These preserved file-level opinions do not establish source-wide conclusions. Co
 | 3 major restructuring | 16 |
 | 4 cannot | 0 |
 | n/a | 10 |
-| unassessed (incomplete scope) | 30 |
+| unassessed (incomplete scope) | 31 |
 
 ## Faithfulness verdicts
 
@@ -21,7 +21,7 @@ These preserved file-level opinions do not establish source-wide conclusions. Co
 |---|---|
 | faithful | 20 |
 | faithful-with-corrections | 1 |
-| partial | 66 |
+| partial | 67 |
 | unfaithful | 10 |
 | not_applicable | 3 |
 
@@ -155,6 +155,12 @@ All remain F3/unassessed. [Method and limitations](campaigns/claim_comparison_20
 | File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
 |---|---|---|---|---|---|---|
 | extras/Imperfective2.v | Dowty, D. R. 1979. Word Meaning and Montague Grammar. Reidel. Ch. 3 'Interval Semantics and the Progressive Tense': 3.1 The Imperfective Paradox (p. 133), 3.2 Truth Conditions Relative to Intervals, not Moments (p. 138), 3.4 Truth Conditions for the Progressive (p. 145), 3.6 On the Notion of 'Likeness' Among Possible Worlds (p. 150); also 7.5 The Present Perfect (p. 339).; Dowty, D. R. 1977. 'Toward a semantic analysis of verb aspect and the English "imperfective" progressive', Linguistics and Philosophy 1: 45-78 (the original version of ch. 3; cited as ref. 36 in DWP 1981). (source note) | 7/7 | partial | 2 slight modification | iv, iii | extras/ImperfectiveParadox.v |
+
+## model-theoretic (composition: alternatives and scope)
+
+| File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
+|---|---|---|---|---|---|---|
+| atlas/model_theoretic/Exceptional_Scope.v | Charlow, S. (2014). On the semantics of exceptional scope. PhD dissertation, New York University. | 21/21 | partial | unassessed (incomplete scope) | iv, v | — |
 
 ## model-theoretic (composition: monads)
 

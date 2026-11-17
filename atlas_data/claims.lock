@@ -4430,6 +4430,132 @@
    "since": "2026-11-16",
    "status": "active"
   },
+  "model_theoretic.Exceptional_Scope.RelativeModel.narrow_scope_false": {
+   "statement_sha": "6d45633357acd97e",
+   "file": "atlas/model_theoretic/Exceptional_Scope.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Exceptional_Scope.RelativeModel.universal_trapped": {
+   "statement_sha": "41f27cfc9997e5ff",
+   "file": "atlas/model_theoretic/Exceptional_Scope.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Exceptional_Scope.RelativeModel.universal_value": {
+   "statement_sha": "081240068e3e04e5",
+   "file": "atlas/model_theoretic/Exceptional_Scope.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Exceptional_Scope.RelativeModel.wide_scope_false_too": {
+   "statement_sha": "1219df02a833c9af",
+   "file": "atlas/model_theoretic/Exceptional_Scope.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Exceptional_Scope.RelativeModel.wide_scope_true": {
+   "statement_sha": "0dbf54aabc61f737",
+   "file": "atlas/model_theoretic/Exceptional_Scope.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Exceptional_Scope.S_subsumes_A": {
+   "statement_sha": "15acb8c0ee2daf70",
+   "file": "atlas/model_theoretic/Exceptional_Scope.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Exceptional_Scope.application": {
+   "statement_sha": "75dceed9774e467d",
+   "file": "atlas/model_theoretic/Exceptional_Scope.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Exceptional_Scope.binding": {
+   "statement_sha": "4af5fd9ca98bd6d0",
+   "file": "atlas/model_theoretic/Exceptional_Scope.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Exceptional_Scope.conj_lower": {
+   "statement_sha": "7f0e91a4e661cb14",
+   "file": "atlas/model_theoretic/Exceptional_Scope.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Exceptional_Scope.cross_sentential_binding": {
+   "statement_sha": "2a52aed349921f0d",
+   "file": "atlas/model_theoretic/Exceptional_Scope.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Exceptional_Scope.every_lower": {
+   "statement_sha": "af4f7563c62d2084",
+   "file": "atlas/model_theoretic/Exceptional_Scope.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Exceptional_Scope.every_spec": {
+   "statement_sha": "2cfa904569837b61",
+   "file": "atlas/model_theoretic/Exceptional_Scope.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Exceptional_Scope.exceptional_scope_negation": {
+   "statement_sha": "e5d0bbdf69327a8d",
+   "file": "atlas/model_theoretic/Exceptional_Scope.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Exceptional_Scope.lift_eta": {
+   "statement_sha": "753b496a401041f1",
+   "file": "atlas/model_theoretic/Exceptional_Scope.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Exceptional_Scope.neg_island_spec": {
+   "statement_sha": "70380cae1dc1335a",
+   "file": "atlas/model_theoretic/Exceptional_Scope.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Exceptional_Scope.reset_indefinite": {
+   "statement_sha": "90e2b997d8dc2fd4",
+   "file": "atlas/model_theoretic/Exceptional_Scope.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Exceptional_Scope.reset_monadic": {
+   "statement_sha": "fc8b9ac78fb539b9",
+   "file": "atlas/model_theoretic/Exceptional_Scope.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Exceptional_Scope.reset_pronoun": {
+   "statement_sha": "2a24434597ef662e",
+   "file": "atlas/model_theoretic/Exceptional_Scope.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Exceptional_Scope.reset_universal": {
+   "statement_sha": "617755ef60715ce3",
+   "file": "atlas/model_theoretic/Exceptional_Scope.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Exceptional_Scope.state_set_monad_laws": {
+   "statement_sha": "a6aead0b71679e20",
+   "file": "atlas/model_theoretic/Exceptional_Scope.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
+  "model_theoretic.Exceptional_Scope.univ_bool": {
+   "statement_sha": "e21f8782db86ffb3",
+   "file": "atlas/model_theoretic/Exceptional_Scope.v",
+   "since": "2026-11-16",
+   "status": "active"
+  },
   "model_theoretic.GQ_Properties.C10_instance": {
    "statement_sha": "3d636a7d87ecf62c",
    "file": "atlas/model_theoretic/GQ_Properties.v",

@@ -26,20 +26,32 @@ Registry login material is confined to a temporary root-only directory under
 `/run` and removed after the pull. No visitor OpenRouter keys are configured
 as VM secrets or stored in the service environment.
 
-Current image, active since 15 November 2026 (UTC):
-`formalatlasacr.azurecr.io/atlas-checker@sha256:dbb6e5535a21197e3b10afb84acee566cb1d9e94cb3de736be4a05e241dd44ae`.
-Built by ACR run `cad` from commit `c64ac19` with `tool/checker/Dockerfile`
+Current image, active since 17 November 2026 (UTC):
+`formalatlasacr.azurecr.io/atlas-checker@sha256:e1fbed8cddc140c19356a2fa28aa1562b42041f56d408f6e9d0e359abaa730ff`.
+Built by ACR run `caf` from commit `3693ae5` with `tool/checker/Dockerfile`
 (the full build, since the library changed). It contains Coq 8.20.1, coq-lsp
-package `0.2.5+8.20` and the published 91-file library, whose fingerprint is
-`2777e8513cbb5e4e75a4d93410272396e49c938cf1e62b965b85568c860f5c5f`. The
+package `0.2.5+8.20` and the published 101-file library, whose fingerprint is
+`6bea22a5284d9dd65770a03beb7705834231c256d66eb275e14c011405e39caf`. The
 runtime code is unchanged from the persistent-session release. See
-"Library release, 2026-11-15" below.
+"Library release, 2026-11-17" below.
 
-Previous image (persistent sessions, 87-file library), retained on the VM for
-rollback: `formalatlasacr.azurecr.io/atlas-checker@sha256:a3a858b2e91c781dd45e07a734e1f0287901260ee5c95b6fc35577aef27e57d8`.
-Built by ACR run `cac`, with the runtime implementation in commit `a5bd0ed`,
-on the fully compiled toolchain/library base from run `caa`. See
-`../SESSION_VALIDATION.md` for its candidate tests.
+Previous image (100-file library, fingerprint
+`b8ddbe31be1c3b31a610cd6eef3b9a482faf069fb7ca5b61f1f807844f81b8da`), retained
+on the VM for rollback:
+`formalatlasacr.azurecr.io/atlas-checker@sha256:dbb6e5535a21197e3b10afb84acee566cb1d9e94cb3de736be4a05e241dd44ae`.
+Built by ACR run `cae` from commit `372264e`. See "Library release,
+2026-11-16" below.
+
+Earlier images, not removed by any release since:
+- 91-file library (fingerprint
+  `2777e8513cbb5e4e75a4d93410272396e49c938cf1e62b965b85568c860f5c5f`):
+  `formalatlasacr.azurecr.io/atlas-checker@sha256:a3a858b2e91c781dd45e07a734e1f0287901260ee5c95b6fc35577aef27e57d8`,
+  ACR run `cad` from commit `c64ac19`. See "Library release, 2026-11-15".
+- Persistent sessions, 87-file library:
+  `formalatlasacr.azurecr.io/atlas-checker@sha256:24f488c892065bfaab0b49ffd79d8e17a085cda5a7432cb49b38e7328da35495`,
+  ACR run `cac`, with the runtime implementation in commit `a5bd0ed`, on the
+  toolchain and library base from run `caa`. See `../SESSION_VALIDATION.md`
+  for its candidate tests.
 
 Older rollback image, also retained on the VM:
 `formalatlasacr.azurecr.io/atlas-checker@sha256:31a276f63ef8bb9c21d9d739632e38559a64a379f2960bcf7606b20301ddf8b6`.
@@ -181,3 +193,31 @@ the worker needed a new image. The steps were those of the previous release.
 Between the site's publication and the activation, about an hour, the site
 rejected the worker as a mismatched release. Rollback is as described above,
 from the backup directory of this release.
+
+## Library release, 2026-11-17
+
+The library grew from 100 to 101 files (`atlas/model_theoretic/Exceptional_Scope.v`),
+so the worker needed a new image. The steps were those of the previous
+release, in a different order: the image was built and tested before the
+merge, so that the site and the worker were out of step only briefly.
+
+1. ACR run `caf` built the image above from a clean export of commit `3693ae5`
+   in 27 minutes; all 101 files compiled. Its library is that of the merge
+   commit `3ad8f65`.
+2. `test-sessions.py` ran its 23 tests on the candidate on the VM. All passed;
+   production was unchanged.
+3. Pull request 14 was merged, and `activate-release.py` moved the service to
+   the new image; its in-container session test passed. The backup is
+   `/var/lib/atlas-deployments/release-20261117-b85eof6k` on the VM.
+4. `smoke_deployed.py` passed against the public endpoint and the published
+   site: real Coq, persistent sessions, 101 sources, matching fingerprints,
+   site revision `3ad8f65`, no paid model call. The browser smoke test
+   (`smoke_public.py`) was not run for this release.
+
+The activation finished before the site was republished. In between, for less
+than a quarter of an hour, the site rejected the worker as a mismatched
+release. Rollback is as described above, from the backup directory of this
+release.
+
+This section also corrects the image list near the top of this file: the
+record of the 2026-11-16 release replaced digests without their descriptions.

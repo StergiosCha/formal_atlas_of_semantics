@@ -214,6 +214,25 @@ Chatzikyriakidis, with the [repository URL](https://github.com/StergiosCha/forma
 and the exact commit you used. The accompanying paper, *Revisiting formal
 semantics using proof assistants*, is in progress.
 
+The atlas is described in the following paper; please cite it when you use the
+atlas in your work:
+
+> Stergios Chatzikyriakidis and Aarne Talman. 2026. *Formalizing Formal
+> Semantics: The Formal Atlas*. arXiv:2611.19509.
+> https://arxiv.org/abs/2611.19509
+
+```bibtex
+@misc{chatzikyriakidis2026formalizingformalsemanticsformal,
+  title={Formalizing Formal Semantics: The Formal Atlas},
+  author={Stergios Chatzikyriakidis and Aarne Talman},
+  year={2026},
+  eprint={2611.19509},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL},
+  url={https://arxiv.org/abs/2611.19509}
+}
+```
+
 [CITATION.cff](CITATION.cff) supplies machine-readable metadata.
 [Release preparation](RELEASING.md) and the
 [independent-review packages](atlas_data/audits/INDEPENDENT_REVIEW_PACKAGES.md)

@@ -22,6 +22,13 @@ assert(app.innerHTML.includes('Whole-search completeness is unproved'));
 assert(app.innerHTML.includes('Live execution of these new packages is not enabled'));
 assert(!app.innerHTML.includes('href="#/edit/research__'));
 assert(app.innerHTML.includes('href="#/research/gallin"'));
+const comparisonPage='research/ttr-mtt-montague/index.html';
+assert(app.innerHTML.includes(`href="${comparisonPage}#books"`));
+assert(run('vComparison()').includes(`href="${comparisonPage}#books"`));
+const study=fs.readFileSync(path.join(__dirname,comparisonPage),'utf8');
+for(const id of ['books','five-farmers','attitudes','modification','verification','sources']){
+  assert(study.includes(`id="${id}"`),id);
+}
 const montague=app.innerHTML;
 run("location.hash='#/research/gallin';route()");
 const gallin=app.innerHTML;

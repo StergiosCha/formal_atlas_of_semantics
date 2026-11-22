@@ -63,6 +63,8 @@ The old ordinal means are retained only as history; map spacing is editorial.
 
 ## Development and review
 
+The [TTR, MTT and Montague comparison](https://orange-beach-0c447e210.5.azurestaticapps.net/research/ttr-mtt-montague/index.html) starts with counting books and farmers, and continues through belief, modality, adjectives and dependent event types. Each section links to the source passages and the accompanying [Rocq development](research/ttr-mtt-montague/).
+
 The app has a separate [Montague research area](https://orange-beach-0c447e210.5.azurestaticapps.net/#/research).
 It publishes the PTQ, workbench and legacy packages below with exact Coq source, theorem
 navigation, assumption checkpoints and revision-pinned documentation. This does

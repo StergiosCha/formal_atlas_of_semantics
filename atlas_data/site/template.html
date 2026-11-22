@@ -838,6 +838,7 @@ function vResearch(){
     <p class="discovery-lead">Follow an English analysis through typed intensional logic to its interpretation. Read the actual Coq proofs, their model assumptions and the questions that remain open.</p>
     <div class="research-notice"><b>Machine-checked encodings. Independent semantic review pending.</b> This collection does not change the survey's P/F levels, outcome labels, comparison edges or theorem totals. The new <a class="textlink" href="#/research/gallin">Gallin model and proof translations</a> have their own section and explicit scope; unrestricted Gallin equivalence is not claimed.</div>
     <div class="research-metrics" aria-label="Source-first PTQ checkpoint"><div><strong>${main.modules}</strong><span>source-first PTQ modules</span></div><div><strong>${main.statements}</strong><span>proved statements, including supporting lemmas</span></div><div><strong>${main.negative_fixtures}</strong><span>invalid fixtures rejected by its checker</span></div></div>
+    <div class="block"><h2>Counting, belief and events in TTR, MTT and Montague</h2><p>What counts as three books? Compare the readings on the same shelf, then follow the five-farmer example, attitude reports and event modifiers to the source passages and Rocq proofs.</p><a class="textlink" href="research/ttr-mtt-montague/index.html#books">Read the three-way comparison →</a></div>
     <h2>Start with three results</h2>
     <p>Each card opens the complete source at the supporting theorem. These are results about the stated encoding, not new linguistic discoveries.</p>
     <div class="entry-grid">${research.features.map(f=>`<a class="entry-card" href="${proofURL(f.key,f.line)}"><span class="kicker">Source-first PTQ</span><h3>${esc(f.title)}</h3><p>${esc(f.summary)}</p><code>${esc(f.name)}</code><span class="entry-action">Read the real Coq proof →</span></a>`).join('')}</div>
@@ -1008,6 +1009,7 @@ function vComparison(){
   return `<div class="wrap"><div class="crumb"><a href="#/">Atlas</a> / Claim comparison</div>
     <section style="padding-top:24px"><h2>${esc(c.title)}</h2>
     <p style="margin-top:16px;max-width:none">${esc(c.method)}</p>
+    <p>For a worked comparison, see <a href="research/ttr-mtt-montague/index.html#books">counting, belief and events in TTR, MTT and Montague</a>.</p>
     <p style="margin-top:12px">P grades describe the source; F levels describe pipeline progress.
       These profiles describe what the checked fragment actually establishes. They do not change either grade.</p>
     <div style="overflow-x:auto"><table><thead><tr><th>Source</th><th>Source supplies</th><th>Checked scope</th><th>Examples preserved?</th><th>Encoding robustness</th></tr></thead><tbody>

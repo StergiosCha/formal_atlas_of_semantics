@@ -1,0 +1,252 @@
+$ coqc -q -Q atlas/mtt_ranta mtt_ranta -Q atlas/montague montague -Q atlas/ttr ttr -Q deep/montague_ptq MontaguePTQ -Q ttr_mtt Book -Q check '' check/CMM_Queries.v
+preservation_statement =
+forall (A B : Type) (f : A -> B) (p i : A -> A -> Prop) (p' i' : B -> B -> Prop)
+  (E : A -> Prop) (E' : B -> Prop),
+(forall x : A, E x -> E' (f x)) ->
+(forall x y : A, p' (f x) (f y) -> p x y) ->
+(forall x y : A, i' (f x) (f y) -> i x y) -> joint p i E -> joint p' i' E'
+     : Prop
+noun_quantification_statement =
+forall (A I D Base Pred : Type) (c : A -> I) (noun vp : I -> Prop)
+  (M : TTR_Model.model D Base Pred) (T : I -> TTR.ty Base Pred),
+(forall x : I, MTT_vs_DTS.image_predicate A I c x <-> noun x) ->
+(forall x : I, TTR_Model.inhabited_at M (T x) <-> noun x) ->
+(MTT.every A (fun a : A => vp (c a)) <-> PTQ.d_every I noun vp) /\
+((forall x : I, TTR_Model.inhabited_at M (T x) -> vp x) <-> PTQ.d_every I noun vp)
+     : Prop
+modal_bridge_statement =
+forall (D Base Pred : Type) (M : Models.model) (u : Syntax.tm nil Syntax.t)
+  (rho : Models.env M nil) (sigma : Models.free_env M) (i : Models.index (Models.carrier M))
+  (assignment : Models.index (Models.carrier M) -> TTR_Model.model D Base Pred)
+  (T : TTR.ty Base Pred),
+(forall j : Models.index (Models.carrier M),
+ Models.eval M u rho sigma j = true <-> TTR_Model.inhabited_at (assignment j) T) ->
+Models.eval M (Syntax.Box u) rho sigma i = true <->
+TTR_Model.necessary D Base Pred
+  (fun m : TTR_Model.model D Base Pred =>
+   exists j : Models.index (Models.carrier M), assignment j = m) T
+     : Prop
+role_diamond_statement =
+forall (a p : bool) (v : two_role_event a p),
+proj1_sig (forget_patient a p v) = proj1_sig (forget_agent a p v)
+     : Prop
+one_work_per_copy_statement =
+forall books : list facet,
+(forall x y : facet, List.In x books -> List.In y books -> fst x = fst y -> snd x = snd y) ->
+three_apart (different_at snd) books = three_apart apart_both books
+     : Prop
+cooper_shelf
+     : facet_counts shelf = (10, 3, true)
+Closed under the global context
+separate_copies
+     : facet_counts ((0, 0) :: (1, 0) :: (2, 0) :: nil) = (3, 1, false)
+Closed under the global context
+one_anthology
+     : facet_counts ((0, 0) :: (0, 1) :: (0, 2) :: nil) = (1, 3, false)
+Closed under the global context
+two_marginals_overcount
+     : facet_counts crossed = (3, 3, false)
+Closed under the global context
+same_marginals_true
+     : facet_counts ((0, 0) :: (1, 1) :: (2, 2) :: nil) = (3, 3, true)
+Closed under the global context
+not_transitive_on_crossed
+     : (shares_facet (0, 1) (0, 0), shares_facet (0, 0) (1, 0), shares_facet (0, 1) (1, 0)) =
+       (true, true, false)
+Closed under the global context
+passenger_counts
+     : let reports := ((0, 10) :: (0, 10) :: (0, 11) :: nil)%list in
+       (length reports, label_count fst reports, label_count snd reports) = (3, 1, 2)
+Closed under the global context
+cooper_proportions
+     : (length (List.filter (fun fd : nat * nat => likes (fst fd) (snd fd)) ownerships),
+        length ownerships,
+        length
+          (List.filter (Donkey_Sums.strongb_of owns likes donkeys)
+             (Donkey_Sums.owners_of owns farmers donkeys)),
+        length (Donkey_Sums.owners_of owns farmers donkeys)) = (50, 54, 1, 5)
+Closed under the global context
+cooper_on_luo_readings
+     : Donkey_Sums.pair_reading_c owns likes farmers donkeys /\
+       ~ Donkey_Sums.strong_reading_c owns likes farmers donkeys /\
+       ~ Donkey_Sums.weak_reading_c owns likes farmers donkeys
+Closed under the global context
+divided_households
+     : Donkey_Sums.weak_reading_c Donkey_Sums.ownb3 split_likes (List.seq 0 3) (List.seq 0 6) /\
+       ~ Donkey_Sums.strong_reading_c Donkey_Sums.ownb3 split_likes (List.seq 0 3) (List.seq 0 6)
+Closed under the global context
+nontrivial_noun_assignment
+     : (forall e : bool, MTT_vs_DTS.image_predicate unit bool (fun _ : unit => true) e <-> e = true) /\
+       (forall e : bool, TTR_Model.inhabited_at noun_assignment (noun_ptype e) <-> e = true)
+Closed under the global context
+intensions_coincide
+     : denotation purchase = denotation sale
+Closed under the global context
+report_cannot_factor
+     : ~
+       (exists F : Models.domain two_times (Syntax.intens Syntax.t) -> bool,
+          forall d : description, F (denotation d) = pleased d)
+Closed under the global context
+unrestricted_modal_agreement
+     : prelim_necessity (tt, true) (fun _ : Models.index two_times => true)
+         (fun _ : Models.index two_times => true) (denotation purchase) =
+       all_indices (denotation purchase)
+Closed under the global context
+restricted_modal_difference
+     : (prelim_necessity (tt, true) (fun _ : Models.index two_times => true) snd
+          (denotation purchase), all_indices (denotation purchase)) = (
+       true, false)
+Closed under the global context
+skill_varies_by_profession
+     : (skilled surgeon tt, skilled violinist tt) = (true, false)
+Closed under the global context
+manner_requires_same_event
+     : let w := {| actor := true; patient := false; writing := true; illegible := false |} in
+       let i := {| actor := true; patient := false; writing := false; illegible := true |} in
+       (wrote true (w :: i :: nil), wrote_illegibly true (w :: i :: nil),
+        wrote_illegibly true
+          ({| actor := true; patient := false; writing := true; illegible := true |} :: nil)) =
+       (true, false, true)
+Closed under the global context
+unfulfilled_allegation
+     : (allegedly_wrote true ((false, true) :: nil), wrote true nil) = (true, false)
+Closed under the global context
+one_occurrence_both_roles
+     : let v := {| actor := true; patient := false; writing := true; illegible := true |} in
+       let both :=
+         exist (fun z : occurrence => actor z = true /\ patient z = false) v (conj eq_refl eq_refl)
+         in
+       proj1_sig (forget_patient true false both) = proj1_sig (forget_agent true false both)
+Closed under the global context
+binder_order_in_empty_context
+     : (domains_in_scope nil (person 0 :: event_of 0 :: nil),
+        domains_in_scope nil (event_of 0 :: person 0 :: nil),
+        domains_in_scope nil (bare_event :: person 0 :: nil)) = (true, false, true)
+Closed under the global context
+Kiss.assignment_respects_arity
+     : forall ver : bool,
+       TTR_Model.admissible Kiss.atom unit unit (fun _ : unit => (tt :: tt :: nil)%list)
+         (Kiss.assignment ver)
+Closed under the global context
+Kiss.three_observations_match
+     : forall ver a p : bool,
+       (Kiss.occurs ver a p <-> Kiss.relation ver a p = true) /\
+       ((exists k : Kiss.token, Kiss.record_witness ver a p k) <-> Kiss.relation ver a p = true)
+Closed under the global context
+Kiss.same_pairs_different_manner
+     : (forall a p : Models.entity two_times, Kiss.relation true a p = Kiss.relation false a p) /\
+       Kiss.record_witness true true false Kiss.passionate /\
+       ~ Kiss.record_witness false true false Kiss.passionate
+Closed under the global context
+Display.readings_after_context_resolution
+     : let books := Display.eligible Display.stock in
+       (three_apart apart_both books, three_apart (different_at fst) books) = (false, true)
+Closed under the global context
+belief_relation_need_not_close_under_entailment
+     : let p := denotation purchase in
+       let q := fun _ : Models.index two_times => true in
+       (forall i : Models.index two_times, p i = true -> q i = true) /\
+       attributed p = true /\ attributed q = false
+Closed under the global context
+necessity_on_the_image
+     : modal_bridge_statement
+Closed under the global context
+every_under_the_noun_correspondence
+     : noun_quantification_statement
+Closed under the global context
+[exit 0]
+27 new example and theorem proofs closed under the global context.
+$ coqc -q -Q atlas/mtt_ranta mtt_ranta -Q atlas/montague montague -Q atlas/ttr ttr -Q deep/montague_ptq MontaguePTQ -Q ttr_mtt Book -Q check '' check/CMM_AtlasQueries.v
+Book_Individuation.copred_dd1
+     : Book_Individuation.three_c Book_Individuation.Book
+         (Book_Individuation.and Book_Individuation.PhyInfo
+            (fun x : Book_Individuation.PhyInfo =>
+             Book_Individuation.picked_up Book_Individuation.John
+               (Book_Individuation.p x))
+            (fun x : Book_Individuation.PhyInfo =>
+             Book_Individuation.mastered Book_Individuation.John
+               (Book_Individuation.i x))) ->
+       Book_Individuation.three_f Book_Individuation.PHY
+         (Book_Individuation.picked_up Book_Individuation.John) /\
+       Book_Individuation.three_f Book_Individuation.INFO
+         (Book_Individuation.mastered Book_Individuation.John)
+Axioms:
+Book_Individuation.picked_up :
+  Book_Individuation.Human -> Book_Individuation.Phy -> Prop
+Book_Individuation.mastered :
+  Book_Individuation.Human -> Book_Individuation.Info -> Prop
+Book_Individuation.bf : Book_Individuation.Book -> Book_Individuation.PhyInfo
+Book_Individuation.Phy : Book_Individuation.DomCN
+Book_Individuation.John : Book_Individuation.Human
+Book_Individuation.Info : Book_Individuation.DomCN
+Book_Individuation.IC_Phy : Book_Individuation.Equiv Book_Individuation.Phy
+Book_Individuation.IC_Info : Book_Individuation.Equiv Book_Individuation.Info
+Book_Individuation.Book : Book_Individuation.DomCN
+Book_Individuation.copred_dd2
+     : Book_Individuation.three_c Book_Individuation.Book
+         (Book_Individuation.and Book_Individuation.PhyInfo
+            (fun x : Book_Individuation.PhyInfo =>
+             Book_Individuation.picked_up Book_Individuation.John
+               (Book_Individuation.p x))
+            (fun x : Book_Individuation.PhyInfo =>
+             Book_Individuation.mastered Book_Individuation.John
+               (Book_Individuation.i x))) ->
+       exists x y z : Book_Individuation.Book,
+         ~
+         Book_Individuation.eq1 (Book_Individuation.D Book_Individuation.PHY)
+           (Book_Individuation.E Book_Individuation.PHY)
+           (Book_Individuation.p (Book_Individuation.bf x))
+           (Book_Individuation.p (Book_Individuation.bf y)) /\
+         ~
+         Book_Individuation.eq1 (Book_Individuation.D Book_Individuation.PHY)
+           (Book_Individuation.E Book_Individuation.PHY)
+           (Book_Individuation.p (Book_Individuation.bf y))
+           (Book_Individuation.p (Book_Individuation.bf z)) /\
+         ~
+         Book_Individuation.eq1 (Book_Individuation.D Book_Individuation.PHY)
+           (Book_Individuation.E Book_Individuation.PHY)
+           (Book_Individuation.p (Book_Individuation.bf x))
+           (Book_Individuation.p (Book_Individuation.bf z)) /\
+         Book_Individuation.picked_up Book_Individuation.John
+           (Book_Individuation.p (Book_Individuation.bf x)) /\
+         Book_Individuation.picked_up Book_Individuation.John
+           (Book_Individuation.p (Book_Individuation.bf y)) /\
+         Book_Individuation.picked_up Book_Individuation.John
+           (Book_Individuation.p (Book_Individuation.bf z)) /\
+         ~
+         Book_Individuation.eq1
+           (Book_Individuation.D Book_Individuation.INFO)
+           (Book_Individuation.E Book_Individuation.INFO)
+           (Book_Individuation.i (Book_Individuation.bf x))
+           (Book_Individuation.i (Book_Individuation.bf y)) /\
+         ~
+         Book_Individuation.eq1
+           (Book_Individuation.D Book_Individuation.INFO)
+           (Book_Individuation.E Book_Individuation.INFO)
+           (Book_Individuation.i (Book_Individuation.bf y))
+           (Book_Individuation.i (Book_Individuation.bf z)) /\
+         ~
+         Book_Individuation.eq1
+           (Book_Individuation.D Book_Individuation.INFO)
+           (Book_Individuation.E Book_Individuation.INFO)
+           (Book_Individuation.i (Book_Individuation.bf x))
+           (Book_Individuation.i (Book_Individuation.bf z)) /\
+         Book_Individuation.mastered Book_Individuation.John
+           (Book_Individuation.i (Book_Individuation.bf x)) /\
+         Book_Individuation.mastered Book_Individuation.John
+           (Book_Individuation.i (Book_Individuation.bf y)) /\
+         Book_Individuation.mastered Book_Individuation.John
+           (Book_Individuation.i (Book_Individuation.bf z))
+Axioms:
+Book_Individuation.picked_up :
+  Book_Individuation.Human -> Book_Individuation.Phy -> Prop
+Book_Individuation.mastered :
+  Book_Individuation.Human -> Book_Individuation.Info -> Prop
+Book_Individuation.bf : Book_Individuation.Book -> Book_Individuation.PhyInfo
+Book_Individuation.Phy : Book_Individuation.DomCN
+Book_Individuation.John : Book_Individuation.Human
+Book_Individuation.Info : Book_Individuation.DomCN
+Book_Individuation.IC_Phy : Book_Individuation.Equiv Book_Individuation.Phy
+Book_Individuation.IC_Info : Book_Individuation.Equiv Book_Individuation.Info
+Book_Individuation.Book : Book_Individuation.DomCN
+[exit 0]

@@ -1,0 +1,37 @@
+$ coqchk -silent -o -Q atlas/mtt_ranta mtt_ranta -Q atlas/montague montague -Q atlas/ttr ttr -Q deep/montague_ptq MontaguePTQ -Q ttr_mtt Book -Q check '' CMM_Comparison_spec CMM_Comparison_spec_probe Book.Book_Individuation
+
+CONTEXT SUMMARY
+===============
+
+* Theory: Set is predicative
+
+* Theory: Rewrite rules are not allowed
+
+* Axioms:
+    Book.Book_Individuation.picked_up
+    Book.Book_Individuation.IC_Info
+    Book.Book_Individuation.mastered
+    Book.Book_Individuation.IC_Phy
+    Book.Book_Individuation.Human
+    Book.Book_Individuation.Heavy
+    Book.Book_Individuation.walk
+    Book.Book_Individuation.John
+    Book.Book_Individuation.Info
+    Book.Book_Individuation.Book
+    Book.Book_Individuation.WaP
+    Book.Book_Individuation.Phy
+    Book.Book_Individuation.OTS
+    Book.Book_Individuation.Man
+    Book.Book_Individuation.mh
+    Book.Book_Individuation.bf
+    Book.Book_Individuation.WL
+    Book.Book_Individuation.Informative
+    Book.Book_Individuation.IC_Human
+
+* Constants/Inductives relying on type-in-type: <none>
+
+* Constants/Inductives relying on unsafe (co)fixpoints: <none>
+
+* Inductives whose positivity is assumed: <none>
+
+[exit 0]

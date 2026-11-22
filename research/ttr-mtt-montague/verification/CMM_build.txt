@@ -1,0 +1,288 @@
+$ git clone --quiet --no-hardlinks --no-checkout ATLAS_CHECKOUT atlas
+
+[exit 0]
+$ git checkout --quiet -b scratch-cmm f6774ec0adc45e90096eb41e4f9310cb91a4a9d5
+
+[exit 0]
+$ git rev-parse HEAD
+f6774ec0adc45e90096eb41e4f9310cb91a4a9d5
+[exit 0]
+$ coqc --version
+The Coq Proof Assistant, version 8.20.1
+compiled with OCaml 5.2.1
+[exit 0]
+SHA256 e0d183763e204f851cc719e8bd87649063a0c5f1814d6828eee46168b7b81fc8  atlas/mtt_ranta/MTT.v
+$ coqc -q -Q atlas/mtt_ranta mtt_ranta -Q atlas/montague montague -Q atlas/ttr ttr -Q deep/montague_ptq MontaguePTQ -Q ttr_mtt Book -Q check '' atlas/mtt_ranta/MTT.v
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+[exit 0]
+SHA256 9b6ffbd7f82c30be4efc37cc85c435fa0412b354f082d000ba1348e6e8ac0a39  atlas/mtt_ranta/Ranta.v
+$ coqc -q -Q atlas/mtt_ranta mtt_ranta -Q atlas/montague montague -Q atlas/ttr ttr -Q deep/montague_ptq MontaguePTQ -Q ttr_mtt Book -Q check '' atlas/mtt_ranta/Ranta.v
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+[exit 0]
+SHA256 86b2d8d21d7a36a28703c74e9fe4b2d57bf5dffeee69145f1b0a50393a3920c8  atlas/mtt_ranta/DTS.v
+$ coqc -q -Q atlas/mtt_ranta mtt_ranta -Q atlas/montague montague -Q atlas/ttr ttr -Q deep/montague_ptq MontaguePTQ -Q ttr_mtt Book -Q check '' atlas/mtt_ranta/DTS.v
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+[exit 0]
+SHA256 cf778bd356b205c78bff107ff355a53335734bccb1c3919803361b07e24c8171  atlas/mtt_ranta/MTT_vs_Ranta.v
+$ coqc -q -Q atlas/mtt_ranta mtt_ranta -Q atlas/montague montague -Q atlas/ttr ttr -Q deep/montague_ptq MontaguePTQ -Q ttr_mtt Book -Q check '' atlas/mtt_ranta/MTT_vs_Ranta.v
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+[exit 0]
+SHA256 8834967dfffe2e11d3a560b5c7b15e00151f5c2ae8fa31df0c53164d89548d8a  atlas/mtt_ranta/MTT_vs_DTS.v
+$ coqc -q -Q atlas/mtt_ranta mtt_ranta -Q atlas/montague montague -Q atlas/ttr ttr -Q deep/montague_ptq MontaguePTQ -Q ttr_mtt Book -Q check '' atlas/mtt_ranta/MTT_vs_DTS.v
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+[exit 0]
+SHA256 d7934a4b60abd79c1ca3af985a3786336810520c1242ce59dc1896740f1180a2  atlas/montague/PTQ.v
+$ coqc -q -Q atlas/mtt_ranta mtt_ranta -Q atlas/montague montague -Q atlas/ttr ttr -Q deep/montague_ptq MontaguePTQ -Q ttr_mtt Book -Q check '' atlas/montague/PTQ.v
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+[exit 0]
+SHA256 c9dd3f947031e40f7d51f8ca82403182a90785b9df97cf025a3e65e0c79aebf8  atlas/mtt_ranta/Ranta_GQ.v
+$ coqc -q -Q atlas/mtt_ranta mtt_ranta -Q atlas/montague montague -Q atlas/ttr ttr -Q deep/montague_ptq MontaguePTQ -Q ttr_mtt Book -Q check '' atlas/mtt_ranta/Ranta_GQ.v
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+[exit 0]
+SHA256 a2412bf87f1a32da74546a5f6b4f20b379d51e3e248ff37ed7f2571824ee4468  atlas/mtt_ranta/Donkey_Sums.v
+$ coqc -q -Q atlas/mtt_ranta mtt_ranta -Q atlas/montague montague -Q atlas/ttr ttr -Q deep/montague_ptq MontaguePTQ -Q ttr_mtt Book -Q check '' atlas/mtt_ranta/Donkey_Sums.v
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+[exit 0]
+SHA256 3d3647202929eb3c234e3ee044171e00cb668f6715d95b658d624ed1e82b1830  atlas/ttr/TTR.v
+$ coqc -q -Q atlas/mtt_ranta mtt_ranta -Q atlas/montague montague -Q atlas/ttr ttr -Q deep/montague_ptq MontaguePTQ -Q ttr_mtt Book -Q check '' atlas/ttr/TTR.v
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+[exit 0]
+SHA256 d1144efd70b6e68c452f1cf25e1bf2e10e81d1843afdf8e522d06a82e5d35072  atlas/ttr/TTR_Model.v
+$ coqc -q -Q atlas/mtt_ranta mtt_ranta -Q atlas/montague montague -Q atlas/ttr ttr -Q deep/montague_ptq MontaguePTQ -Q ttr_mtt Book -Q check '' atlas/ttr/TTR_Model.v
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+Closed under the global context
+[exit 0]
+SHA256 939737ddbc139deb866ff7693b9f89a4aef350846c72b4f9cb0082e6f10e46cc  deep/montague_ptq/Syntax.v
+$ coqc -q -Q atlas/mtt_ranta mtt_ranta -Q atlas/montague montague -Q atlas/ttr ttr -Q deep/montague_ptq MontaguePTQ -Q ttr_mtt Book -Q check '' deep/montague_ptq/Syntax.v
+
+[exit 0]
+SHA256 1cea47c2bb449ef510976ba18b04c852c82b154bfdee45eb53279be85c024b79  deep/montague_ptq/Models.v
+$ coqc -q -Q atlas/mtt_ranta mtt_ranta -Q atlas/montague montague -Q atlas/ttr ttr -Q deep/montague_ptq MontaguePTQ -Q ttr_mtt Book -Q check '' deep/montague_ptq/Models.v
+File "./deep/montague_ptq/Models.v", line 17, characters 0-20:
+Warning: This command is just asserting the names of arguments of truth. If
+this is what you want, add ': assert' to silence the warning. If you want to
+clear implicit arguments, add ': clear implicits'. If you want to clear
+notation scopes, add ': clear scopes' [arguments-assert,vernacular,default]
+[exit 0]
+SHA256 36079039af3691ffaf7d29384977389f2288944df9c8296459e4e820d73fd61d  ttr_mtt/Book_Individuation.v
+$ coqc -q -Q atlas/mtt_ranta mtt_ranta -Q atlas/montague montague -Q atlas/ttr ttr -Q deep/montague_ptq MontaguePTQ -Q ttr_mtt Book -Q check '' ttr_mtt/Book_Individuation.v
+walk John
+     : Prop
+three_f HUMAN walk
+     : Prop
+exists x : Book, OTS x /\ x = WaP /\ WL x
+     : Prop
+exists x : BOOK1, OTS x /\ E BOOK2 x x /\ x = WaP /\ WL x
+     : Prop
+[exit 0]
+SHA256 252e6e70186dc56118a4415574ec6abc5ca3a0af2ee5cb1ee291d152f2a11beb  check/CMM_Comparison_spec.v
+$ coqc -q -Q atlas/mtt_ranta mtt_ranta -Q atlas/montague montague -Q atlas/ttr ttr -Q deep/montague_ptq MontaguePTQ -Q ttr_mtt Book -Q check '' check/CMM_Comparison_spec.v
+
+[exit 0]
+SHA256 53c793ff04fd208aa65a6611bd0485652c54024882e3a34772a6668c1c463572  check/CMM_Comparison_spec_probe.v
+$ coqc -q -Q atlas/mtt_ranta mtt_ranta -Q atlas/montague montague -Q atlas/ttr ttr -Q deep/montague_ptq MontaguePTQ -Q ttr_mtt Book -Q check '' check/CMM_Comparison_spec_probe.v
+
+[exit 0]

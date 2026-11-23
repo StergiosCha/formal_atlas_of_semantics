@@ -14,7 +14,7 @@ write_files:
       import json, subprocess, tempfile, urllib.parse, urllib.request
       from pathlib import Path
       registry = 'formalatlasacr.azurecr.io'
-      image = 'formalatlasacr.azurecr.io/atlas-checker@sha256:e1fbed8cddc140c19356a2fa28aa1562b42041f56d408f6e9d0e359abaa730ff'
+      image = 'formalatlasacr.azurecr.io/atlas-checker@sha256:980d9e6eeeb7aac91eb4b9acb9f86f817a093cd1573cfa2c2c9b8ba2bc72ab78'
       try:
           query = urllib.parse.urlencode({'api-version':'2018-02-01','resource':'https://management.azure.com/'})
           req = urllib.request.Request('http://169.254.169.254/metadata/identity/oauth2/token?'+query, headers={'Metadata':'true'})
@@ -45,7 +45,7 @@ write_files:
       [Service]
       Type=simple
       ExecStartPre=/usr/local/sbin/atlas-pull
-      ExecStart=/usr/bin/docker run --rm --name atlas-coq-worker --cap-drop ALL --security-opt no-new-privileges:true --security-opt seccomp=unconfined --security-opt apparmor=unconfined --read-only --tmpfs /tmp:rw,nosuid,nodev,size=256m --pids-limit 256 --memory 3g --cpus 2 --log-opt max-size=10m --log-opt max-file=3 -p 127.0.0.1:8477:8477 formalatlasacr.azurecr.io/atlas-checker@sha256:e1fbed8cddc140c19356a2fa28aa1562b42041f56d408f6e9d0e359abaa730ff uvicorn server:app --app-dir /srv --host 0.0.0.0 --port 8477 --proxy-headers --forwarded-allow-ips 172.17.0.1
+      ExecStart=/usr/bin/docker run --rm --name atlas-coq-worker --cap-drop ALL --security-opt no-new-privileges:true --security-opt seccomp=unconfined --security-opt apparmor=unconfined --read-only --tmpfs /tmp:rw,nosuid,nodev,size=256m --pids-limit 256 --memory 3g --cpus 2 --log-opt max-size=10m --log-opt max-file=3 -p 127.0.0.1:8477:8477 formalatlasacr.azurecr.io/atlas-checker@sha256:980d9e6eeeb7aac91eb4b9acb9f86f817a093cd1573cfa2c2c9b8ba2bc72ab78 uvicorn server:app --app-dir /srv --host 0.0.0.0 --port 8477 --proxy-headers --forwarded-allow-ips 172.17.0.1
       ExecStop=/usr/bin/docker stop -t 10 atlas-coq-worker
       Restart=always
       RestartSec=30

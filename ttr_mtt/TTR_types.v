@@ -5,7 +5,7 @@
     - Basic types and the witness/assignment function A (A2)
     - Predicate types / ptypes (A3)
     - Function types and partial function types (A4)
-    - Set types and plurality types (A5)
+    - Finite set types (A5), represented by the values of labelled fields
     - Singleton types (A6)
     - Join types (A7) and Meet types (A8)
 
@@ -74,8 +74,8 @@ Definition val_to_type (v : Val) : option TTRType :=
     Design note on strict positivity: Function type witnessing
     (wit_fun) cannot refer to 'witnesses' in a negative position
     (left of ->). We use an external Prop parameter instead.
-    This means function type witnessing must be established
-    separately and fed in as evidence. Same for set types. *)
+    The raw function constructor does not enforce the intended condition.
+    Set membership below is strictly positive in witnesses. *)
 
 Inductive witnesses (M : TTRModel) : Val -> TTRType -> Prop :=
 
@@ -120,10 +120,12 @@ Inductive witnesses (M : TTRModel) : Val -> TTRType -> Prop :=
       witnesses M a T2 ->
       witnesses M a (TMeet T1 T2)
 
-  (** A5: Set types — X witnesses set(T).
-      Same trick: external Prop to avoid negative occurrence. *)
-  | wit_set : forall (T : TTRType) (ls : LabelledSet) (H : Prop),
-      H ->
+  (** Cooper (2023), p. 59 (51)-(52) and Appendix A5, p. 403.
+      In this finite encoding the members are the field values.
+      Unique labels ensure that lookup visits every stored member. *)
+  | wit_set : forall (T : TTRType) (ls : LabelledSet),
+      wf_labelled_set ls = true ->
+      (forall l v, ls_lookup ls l = Some v -> witnesses M v T) ->
       witnesses M (VLSet ls) (TSet T)
 
   (** Record types — base case: empty record type *)
@@ -138,8 +140,7 @@ Inductive witnesses (M : TTRModel) : Val -> TTRType -> Prop :=
       witnesses M r (TRecType rest) ->
       witnesses M r (TRecType (LSCons (FPair l T_val) rest)).
 
-(** Smart constructors for function/set witnessing that capture
-    the intended semantics while satisfying strict positivity *)
+(** Convenience constructors for function and set witnesses. *)
 
 Definition wit_fun_proper (M : TTRModel) (T1 T2 : TTRType) (f : Val)
   (Hfun : forall a, witnesses M a T1 -> exists b, witnesses M b T2)
@@ -147,9 +148,10 @@ Definition wit_fun_proper (M : TTRModel) (T1 T2 : TTRType) (f : Val)
   wit_fun M T1 T2 f _ Hfun.
 
 Definition wit_set_proper (M : TTRModel) (T : TTRType) (ls : LabelledSet)
+  (Hwf : wf_labelled_set ls = true)
   (Hall : forall l v, ls_lookup ls l = Some v -> witnesses M v T)
   : witnesses M (VLSet ls) (TSet T) :=
-  wit_set M T ls _ Hall.
+  wit_set M T ls Hwf Hall.
 
 (** * Subtyping
     Cooper: T1 is a subtype of T2 iff

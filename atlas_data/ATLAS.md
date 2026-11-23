@@ -1,6 +1,6 @@
 # Formalizability Atlas of Semantics — current state
 
-Coq files audited: **101** · theorem statements: **1923** (proved 1910, admitted 12) · papers surveyed: **230** · records explicitly disputed by a reviewer: **0**
+Coq files audited: **102** · theorem statements: **1954** (proved 1941, admitted 12) · papers surveyed: **230** · records explicitly disputed by a reviewer: **0**
 
 ## Recorded file assessments (not reviewed paper outcomes)
 
@@ -13,7 +13,7 @@ These preserved file-level opinions do not establish source-wide conclusions. Co
 | 3 major restructuring | 16 |
 | 4 cannot | 0 |
 | n/a | 10 |
-| unassessed (incomplete scope) | 31 |
+| unassessed (incomplete scope) | 32 |
 
 ## Faithfulness verdicts
 
@@ -21,7 +21,7 @@ These preserved file-level opinions do not establish source-wide conclusions. Co
 |---|---|
 | faithful | 20 |
 | faithful-with-corrections | 1 |
-| partial | 67 |
+| partial | 68 |
 | unfaithful | 10 |
 | not_applicable | 3 |
 
@@ -161,6 +161,7 @@ All remain F3/unassessed. [Method and limitations](campaigns/claim_comparison_20
 | File | Source | Proved/Total | Faithful | Determination | Artifacts | Dup of |
 |---|---|---|---|---|---|---|
 | atlas/model_theoretic/Exceptional_Scope.v | Charlow, S. (2014). On the semantics of exceptional scope. PhD dissertation, New York University. | 21/21 | partial | unassessed (incomplete scope) | iv, v | — |
+| atlas/model_theoretic/Focus_Alternatives.v | Charlow, S. (2014). On the semantics of exceptional scope. PhD dissertation, New York University. | 31/31 | partial | unassessed (incomplete scope) | iv, v | — |
 
 ## model-theoretic (composition: monads)
 

@@ -4556,6 +4556,192 @@
    "since": "2026-11-16",
    "status": "active"
   },
+  "model_theoretic.Focus_Alternatives.IntroModel.crossed_false": {
+   "statement_sha": "7c9cab3df4b03f93",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.IntroModel.eqE_refl": {
+   "statement_sha": "a2f736f66069916a",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.IntroModel.eqE_true": {
+   "statement_sha": "840e61d1999b72d1",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.IntroModel.inj_first": {
+   "statement_sha": "de8ebcc5cbbb2c99",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.IntroModel.inj_pair": {
+   "statement_sha": "60237979225591a0",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.IntroModel.inj_second": {
+   "statement_sha": "f87e457a5c7dd9c3",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.IntroModel.inner_distinct": {
+   "statement_sha": "9b3160933bbae429",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.IntroModel.intro_inj": {
+   "statement_sha": "54f7dc7ffa2dc60f",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.IntroModel.nested_true": {
+   "statement_sha": "e76f5d9d0d1374f3",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.IntroModel.unselective_false": {
+   "statement_sha": "a06c0091a5402639",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.PaperModel.abstraction_overgenerates": {
+   "statement_sha": "7f475c0089868550",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.also_feq": {
+   "statement_sha": "46b17f34d9eecf8b",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.association_single": {
+   "statement_sha": "b0c3c541c3043b8b",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.association_unselective": {
+   "statement_sha": "27ae4a9bae3a7802",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.binding_lost_on_evaluation": {
+   "statement_sha": "e3ec907cb53f87da",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.binding_simplification": {
+   "statement_sha": "65c50643f661e7c1",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.focus_application": {
+   "statement_sha": "3c22654791eb96d9",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.focus_monad_laws": {
+   "statement_sha": "7a48ec2cb0a49146",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.focus_survives_reset": {
+   "statement_sha": "f3883da024a35227",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.focus_value": {
+   "statement_sha": "62033495284f03b0",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.inner_spec": {
+   "statement_sha": "5551fc4e3bce46bb",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.layered_island": {
+   "statement_sha": "610034e4a4c6a8c4",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.no_binding_on_empty_stack": {
+   "statement_sha": "2391d193685c5453",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.only_printed_form": {
+   "statement_sha": "cb28ea9aafded2b5",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.reader_set_binding": {
+   "statement_sha": "fcf6f03ec1b9d40b",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.reader_set_monad_laws": {
+   "statement_sha": "4a1b49a6a0857b4a",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.reader_set_reset_indefinite": {
+   "statement_sha": "67240893a4268765",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.reader_set_reset_universal": {
+   "statement_sha": "54ae0e02fa643221",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.runiv_bool": {
+   "statement_sha": "fa43239570cc89bc",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.selective_across_island": {
+   "statement_sha": "d32319f811184b7c",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
+  "model_theoretic.Focus_Alternatives.selective_association": {
+   "statement_sha": "423b4dd7b0f2f0e5",
+   "file": "atlas/model_theoretic/Focus_Alternatives.v",
+   "since": "2026-11-23",
+   "status": "active"
+  },
   "model_theoretic.GQ_Properties.C10_instance": {
    "statement_sha": "3d636a7d87ecf62c",
    "file": "atlas/model_theoretic/GQ_Properties.v",

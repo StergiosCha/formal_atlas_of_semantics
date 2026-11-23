@@ -1,0 +1,155 @@
+{
+ "file": "atlas/model_theoretic/Focus_Alternatives.v",
+ "region": "model-theoretic (composition: alternatives and scope)",
+ "summary": "Focus and alternatives as side effects, after Chapter 5 of Charlow's dissertation. The Focus monad pairs a value with its set of alternatives; F-marking puts the alternatives in and \"only\" and \"also\" consume them. The monad laws; application; association of \"only\" with one focus and with two; selective association, where \"also\" and \"only\" each take their own focus; Reset leaves a focus unchanged, so selective association also holds across a scope island. A four-person model separates the nested, crossed and unselective readings. The second part replaces State.Set by the Reader.Set monad: an indefinite still survives Reset, a universal becomes a truth value, a pronoun is bound inside a sentence, and binding across sentences is lost. A three-reader model shows the overgeneration of the abstraction rule in example (5.39).",
+ "sources": [
+  {
+   "citation": "Charlow, S. (2014). On the semantics of exceptional scope. PhD dissertation, New York University.",
+   "path": "papers/foundations/Charlow_2014_OnTheSemanticsOfExceptional.pdf",
+   "available": "sections 5.4.1-5.4.4 (pp. 135-145) and 5.5 (pp. 147-159) read; sections 5.1-5.3 not read; section 5.4.5 read and not formalized"
+  }
+ ],
+ "definitions_mapped": [],
+ "theorems": [
+  {
+   "name": "focus_monad_laws",
+   "status": "proved",
+   "source_claim": "T1. The monad laws for the Focus monad [C Def 5.6, p. 139]."
+  },
+  {
+   "name": "focus_application",
+   "status": "proved",
+   "source_claim": "T2. [C Fact 5.4, p. 139]: application is ordinary on the values and pointwise on the alternatives."
+  },
+  {
+   "name": "focus_value",
+   "status": "proved",
+   "source_claim": "[C (5.30), p. 140]."
+  },
+  {
+   "name": "only_printed_form",
+   "status": "proved",
+   "source_claim": "The gloss used for \"only\" agrees with the equation printed in [C Def 5.10, p. 141] when the regular value is among the alternatives."
+  },
+  {
+   "name": "association_single",
+   "status": "proved",
+   "source_claim": "T3. [C p. 141]: \"only met JOHN\" holds iff John was met and no other alternative was. Carries a distinctness premise the print does not state."
+  },
+  {
+   "name": "association_unselective",
+   "status": "proved",
+   "source_claim": "T3. [C pp. 141-142]: with two foci, one \"only\" associates with the pair. Same premise."
+  },
+  {
+   "name": "selective_association",
+   "status": "proved",
+   "source_claim": "T4. [C pp. 142-143]: \"also\" over the outer focus and \"only\" over the inner one; (5.27b) and (5.28b) are instances. Carries two distinctness premises."
+  },
+  {
+   "name": "focus_survives_reset",
+   "status": "proved",
+   "source_claim": "T5. [C p. 144]: Reset leaves a focus tower unchanged."
+  },
+  {
+   "name": "layered_island",
+   "status": "proved",
+   "source_claim": "[C p. 144]: the evaluated island is a program of programs."
+  },
+  {
+   "name": "selective_across_island",
+   "status": "proved",
+   "source_claim": "T5. [C p. 144]: feeding the inner layer of the island to \"only\" gives the configuration of T4."
+  },
+  {
+   "name": "nested_true",
+   "status": "proved",
+   "source_claim": "Four-person model: the nested reading of \"also only introduced BILL to SUE\" is true."
+  },
+  {
+   "name": "crossed_false",
+   "status": "proved",
+   "source_claim": "Four-person model: the crossed reading is false."
+  },
+  {
+   "name": "unselective_false",
+   "status": "proved",
+   "source_claim": "Four-person model: the unselective reading is false."
+  },
+  {
+   "name": "reader_set_monad_laws",
+   "status": "proved",
+   "source_claim": "The monad laws for the Reader.Set monad [C p. 153]."
+  },
+  {
+   "name": "reader_set_reset_indefinite",
+   "status": "proved",
+   "source_claim": "T6. [C Fact 5.7, p. 154]: an indefinite's alternatives survive Reset."
+  },
+  {
+   "name": "reader_set_reset_universal",
+   "status": "proved",
+   "source_claim": "T6. [C Fact 5.8, p. 155]: a universal becomes one truth value."
+  },
+  {
+   "name": "binding_simplification",
+   "status": "proved",
+   "source_claim": "[C Fact 5.12, p. 157]."
+  },
+  {
+   "name": "reader_set_binding",
+   "status": "proved",
+   "source_claim": "T7. [C p. 157]: a bind-shifted indefinite binds a pronoun in its scope at any stack."
+  },
+  {
+   "name": "binding_lost_on_evaluation",
+   "status": "proved",
+   "source_claim": "T7. [C p. 158]: after evaluation a pronoun in the next sentence reads the incoming stack."
+  },
+  {
+   "name": "no_binding_on_empty_stack",
+   "status": "proved",
+   "source_claim": "On the empty stack that pronoun returns nothing."
+  },
+  {
+   "name": "abstraction_overgenerates",
+   "status": "proved",
+   "source_claim": "T8. [C (5.39), pp. 150-151]: in the three-reader model the abstraction rule admits a function that makes \"nobody read a paper\" true while the wide and the narrow reading are false."
+  }
+ ],
+ "counts": {
+  "theorems": 31,
+  "proved": 31,
+  "admitted": 0,
+  "propositional_axioms": 0
+ },
+ "faithfulness": {
+  "verdict": "partial",
+  "evidence": [
+   "DRAFT for the author's review; not an accepted source-level verdict.",
+   "Properties are compared extensionally (the same individuals at the same worlds), so no extensionality axiom is used. The source uses set identity.",
+   "\"only\" follows the gloss under Def 5.10, not the printed equation; only_printed_form relates the two.",
+   "The steps from a set of properties to a set of individuals (pp. 141-143) need distinct alternatives to give distinct properties. The print does not state this. The theorems carry it as a premise, and the four-person model discharges it by letting worlds vary. No conclusion about the source is drawn.",
+   "Alternatives of an individual are restricted to a relation Alt; the source prints the sets without a restriction.",
+   "In the Reader.Set part truth values are booleans, negation is a relation and the pronoun returns nothing on the empty stack, as in Exceptional_Scope.v.",
+   "The overgeneration example starts from the set printed in (5.39a); states and assignment modification are not modelled.",
+   "Rooth's two-dimensional semantics as a separate system (Def 5.4, 5.5), doubly focused words, the two monads layered (5.4.5), disjunction (Def 5.20), Fact 5.9, the repair of Def 5.14-5.15 and the Binder Roof Constraint argument are not formalized."
+  ]
+ },
+ "determination": "unassessed",
+ "determination_rationale": "DRAFT for the author. The two monads and the continuation layer transpose directly; the passage from properties to individuals needs a premise the print leaves unstated.",
+ "assessment_status": "incomplete",
+ "artifact_classes": [
+  {
+   "class": "iv",
+   "description": "extensional comparison of properties in place of set identity; booleans as truth values; negation as a relation"
+  },
+  {
+   "class": "v",
+   "description": "zero axioms"
+  }
+ ],
+ "source_gap": null,
+ "notes": "Standalone; standard library only. It does not import Exceptional_Scope.v and repeats the continuation layer for the two other monads. Not yet cross-reviewed. No survey entry is linked to this file. DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+ "compiles": true
+}

@@ -109,6 +109,7 @@ atlas/model_theoretic/GQ_Properties.v
 atlas/model_theoretic/Semantic_Monads.v
 atlas/model_theoretic/Scale_Structure.v
 atlas/model_theoretic/Exceptional_Scope.v
+atlas/model_theoretic/Focus_Alternatives.v
 atlas/categorical/DisCoCat.v
 atlas/pilots/Grice1975.v
 atlas/pilots/Tarski1944.v

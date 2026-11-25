@@ -932,6 +932,18 @@
       ],
       "manifests": []
     },
+    "e5b424e44e430e1cf396624a79bbee6d2ac88ea39f068826ea14c6bacb06ceea": {
+      "sha256": "e5b424e44e430e1cf396624a79bbee6d2ac88ea39f068826ea14c6bacb06ceea",
+      "paths": [
+        "AMGL36_SLIDES.pdf"
+      ],
+      "manifests": [
+        {
+          "path": "research/greek-double-ke/source_manifest.json",
+          "sha256": "63b2b4d1f57c4fcf256d26f4ccafc0b5a75e6d7e749b1b7cacd01de4ed531640"
+        }
+      ]
+    },
     "e786d3446e3d4c813bfa8e9cd2cf5248349001e7dc6a62a9867fbd31c1b701fd": {
       "sha256": "e786d3446e3d4c813bfa8e9cd2cf5248349001e7dc6a62a9867fbd31c1b701fd",
       "paths": [
@@ -4603,6 +4615,50 @@
           "sha256": "4001b7b63ea7c9ef1c7cf3135646fe9aa9ecd7c48d8324b362d5efccbb7a8ef6",
           "status": "documented",
           "scope": "Explicit Cooper 2023 formal-appendix target, with the subsequent source-audit correction retained."
+        }
+      ]
+    },
+    {
+      "paper_id": null,
+      "supplement_id": "chatzikyriakidis-spathas-2015-ke",
+      "citation": "Stergios Chatzikyriakidis and Giorgos Spathas (2015), Bisyndetic Distributive Conjunction and Additive ke under a Diachronic Perspective",
+      "artifact_links": [
+        {
+          "artifact": "e5b424e44e430e1cf396624a79bbee6d2ac88ea39f068826ea14c6bacb06ceea",
+          "status": "documented",
+          "edition": "AMGL36 slide deck, Thessaloniki, 24 April 2015",
+          "identity_reference": {
+            "path": "research/greek-double-ke/README.md",
+            "sha256": "1b73af61238fa8355342c4ee27a7c3a5ff6a0cf82478003fe9d19e2123cc6e32"
+          },
+          "identity_note": "The title slide gives both authors, venue and date. The citation corrects the transposed letters in “Distirbutive”.",
+          "identifiers": []
+        }
+      ],
+      "consultations": [
+        {
+          "artifact": "e5b424e44e430e1cf396624a79bbee6d2ac88ea39f068826ea14c6bacb06ceea",
+          "report": {
+            "path": "research/greek-double-ke/README.md",
+            "sha256": "1b73af61238fa8355342c4ee27a7c3a5ff6a0cf82478003fe9d19e2123cc6e32"
+          },
+          "passages": [
+            "slide 1, title and authors",
+            "slides 3 and 17–21, historical proposal",
+            "slide 6, lexical entries",
+            "slides 13–15, distribution and the praise example",
+            "slides 18–19, double additivity and mutual alternatives"
+          ],
+          "reviewer": "Codex, source-to-implementation check against the AMGL36 slides on 25 November 2026",
+          "independent_review": false
+        }
+      ],
+      "designs": [
+        {
+          "path": "research/greek-double-ke/DoubleAdditive.v",
+          "sha256": "12825a007ff7b8bed8731de38d139857876b391af6574aabffe67b34013812da",
+          "status": "documented",
+          "scope": "Two additive entries, entailment to distribution over two individuals, assumptions for the converse, and a comparison with proposition alternatives."
         }
       ]
     }

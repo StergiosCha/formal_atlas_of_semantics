@@ -1,18 +1,18 @@
 # Source registry and conservative migration
 
-The registry covers all **230 frozen survey entries**, plus Cooper 2023 as a
-separate supplementary work. It does not identify Cooper 2023 with survey ID50
+The registry covers all **230 frozen survey entries**, plus two supplementary works, Cooper (2023)
+and the AMGL36 talk by Chatzikyriakidis and Spathas (2015). It does not identify Cooper 2023 with survey ID50
 (Cooper 2005), mint a new grade, approve an outcome, or claim that all
 bibliographic metadata has now been verified.
 
 ## Current checkpoint
 
-- 138 distinct SHA256-identified artifacts, referenced by corpus-relative
+- 139 distinct SHA256-identified artifacts, referenced by corpus-relative
   paths; no source PDFs are redistributed.
 - Seven surveyed sources have imported, source-specific identity evidence:
   Heim 1982, Coecke–Sadrzadeh–Clark 2010, Bekki–Mineshima 2017, C&L 2020,
   Derrida's Signature Event Context, Austin's book and Horn's taxonomy.
-  Cooper 2023 has a separate documented supplementary link.
+  The two supplementary entries each link to their own source and scope.
 - “Documented” means that a named audit supplies the source/artifact link.
   It does not certify an independent reader, complete bibliographic metadata,
   whole-source fidelity or empirical adequacy.

@@ -17,9 +17,9 @@ const context = vm.createContext({
 });
 script.runInContext(context, {timeout: 5000});
 const page = app.innerHTML;
-assert.equal((page.match(/<article class="block" id="source-/g) || []).length, 231);
+assert.equal((page.match(/<article class="block" id="source-/g) || []).length, 232);
 assert(page.includes('230 survey sources'));
-assert(page.includes('138 hashed artifacts'));
+assert(page.includes('139 hashed artifacts'));
 assert(page.includes('7 survey sources with documented identity links'));
 assert(page.includes('104 published low-tier labels'));
 assert(page.includes('evidence-registration'));
@@ -47,4 +47,4 @@ assert(!vm.runInContext('vSources()', context).includes(attack));
 assert(vm.runInContext('vSources()', context).includes('&lt;img'));
 vm.runInContext("D.source_registry = null", context);
 assert(vm.runInContext('vSources()', context).includes('Source registry unavailable'));
-console.log('230 registry entries, separate Cooper supplement, candidates, missing metadata, provenance and escaping checked.');
+console.log('230 registry entries, separate Cooper and Greek double-ke supplements, candidates, missing metadata, provenance and escaping checked.');

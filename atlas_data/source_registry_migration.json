@@ -3,10 +3,10 @@
   "migration_status": "pending_review",
   "baseline_commit": "91983bc561226f90f7b306620f7d4fe8fd07ed86",
   "survey_sources": 230,
-  "artifact_count": 138,
+  "artifact_count": 139,
   "sources_with_documented_identity": 7,
   "sources_with_candidates_only": 126,
-  "supplementary_sources": 1,
+  "supplementary_sources": 2,
   "differences": [
     {
       "paper_id": 2,

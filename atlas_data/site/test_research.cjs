@@ -29,7 +29,26 @@ const study=fs.readFileSync(path.join(__dirname,comparisonPage),'utf8');
 for(const id of ['books','five-farmers','attitudes','modification','verification','sources']){
   assert(study.includes(`id="${id}"`),id);
 }
+const greekRoute='#/research/greek-double-ke';
+assert(app.innerHTML.includes(`href="${greekRoute}"`));
+const greek=run('vGreekDoubleKe()');
+const greekSource=fs.readFileSync(path.join(root,data.greek_double_ke.path),'utf8');
+assert.equal(data.greek_double_ke.text,greekSource);
+assert(greek.includes('Stergios Chatzikyriakidis and Giorgos Spathas'));
+assert(greek.includes('Herodotus 1.11.2'));
+assert(run('vSources()').includes(`href="${greekRoute}"`));
+for(const key of ['extras__additive','extras__additive_new']){
+  assert(run(`vTheory('${key}')`).includes(`href="${greekRoute}"`));
+  assert(run(`vProof('${key}')`).includes(`href="${greekRoute}"`));
+}
+const results=[...greek.matchAll(/DoubleAdditive\.v#L(\d+)"><code>(\w+)<\/code>/g)];
+assert.equal(results.length,7);
+for(const [,line,name] of results){
+  assert(greekSource.split('\n')[Number(line)-1].includes(name),name);
+}
 const montague=app.innerHTML;
+run(`location.hash='${greekRoute}';route()`);
+assert.equal(app.innerHTML,greek);
 run("location.hash='#/research/gallin';route()");
 const gallin=app.innerHTML;
 assert(gallin.includes('Gallin: from models to proofs.'));

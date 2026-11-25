@@ -65,6 +65,8 @@ The old ordinal means are retained only as history; map spacing is editorial.
 
 The [TTR, MTT and Montague comparison](https://orange-beach-0c447e210.5.azurestaticapps.net/research/ttr-mtt-montague/index.html) starts with counting books and farmers, and continues through belief, modality, adjectives and dependent event types. Each section links to the source passages and the accompanying [Rocq development](research/ttr-mtt-montague/).
 
+[Greek double *ke*](https://orange-beach-0c447e210.5.azurestaticapps.net/#/research/greek-double-ke) presents Chatzikyriakidis and Spathas’s AMGL36 analysis. Five [Rocq results](research/greek-double-ke/DoubleAdditive.v) give the entailment from double additivity to distribution and the conditions for the converse, with a separate discussion of Homer and Herodotus.
+
 The app has a separate [Montague research area](https://orange-beach-0c447e210.5.azurestaticapps.net/#/research).
 It publishes the PTQ, workbench and legacy packages below with exact Coq source, theorem
 navigation, assumption checkpoints and revision-pinned documentation. This does

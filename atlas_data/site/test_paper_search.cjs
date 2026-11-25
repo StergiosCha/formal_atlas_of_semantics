@@ -61,6 +61,10 @@ for (const supplement of data.source_registry.supplementary_sources) {
   assert(data.paper_index.some(work => [work.citation, ...work.aliases].includes(supplement.citation) &&
     work.links.some(link => link.href === '#/sources?entry=' + supplement.supplement_id)));
 }
+for (const p of data.papers) {
+  const href='#/sources?entry='+encodeURIComponent(p.id);
+  assert(data.paper_index.some(w=>[w.citation,...w.aliases].includes(p.citation) && w.links.some(l=>l.href===href)),p.citation);
+}
 // A new standalone Rocq study must have a discoverable source before it is deployed.
 const researchDir = path.resolve(__dirname, '../../research');
 const studyLinks = {

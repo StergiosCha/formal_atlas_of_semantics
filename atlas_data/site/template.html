@@ -556,7 +556,7 @@ function vReading(){
 
 function journeyNav(active){
   return `<nav class="journey-nav" aria-label="Explore the atlas">${[
-    ['explore','Overview'],['papers','Papers'],['theories','Proof records'],['plate','Theory map'],['sources','Source registry']
+    ['explore','Overview'],['papers','Papers'],['files','Rocq files'],['theories','Proof records'],['plate','Theory map'],['sources','Source registry']
   ].map(([route,label])=>`<a href="#/${route}"${route===active?' aria-current="page"':''}>${label}</a>`).join('')}</nav>`;
 }
 function vExplore(){
@@ -657,15 +657,21 @@ function vSources(q={}){
   if(!registry) return '<div class="wrap"><section><h2>Source registry unavailable</h2></section></div>';
   const summary=registry.summary;
   const comparisons=new Map(summary.sources.map(s=>[String(s.paper_id),s]));
-  const refLink=ref=>`<a class="textlink" href="https://github.com/StergiosCha/formal_atlas_of_semantics/blob/main/${ref.path.split('/').map(encodeURIComponent).join('/')}">${esc(ref.path)}</a>`;
+  const refLink=ref=>{
+    const href=proofKeyByPath.has(ref.path)?fileURL(ref.path):repoFileURL(ref.path);
+    return `<a class="textlink" href="${esc(href)}">${esc(ref.path)}</a>`;
+  };
+  const entries=[...registry.sources,...registry.supplementary_sources]
+    .filter(s=>!q.entry||String(s.paper_id??s.supplement_id)===q.entry)
+    .sort((a,b)=>a.citation.localeCompare(b.citation,'en'));
   const entry=source=>{
     const row=comparisons.get(String(source.paper_id));
     return `<article class="block" id="source-${esc(source.paper_id??source.supplement_id)}" data-source-search="${esc(source.citation)}">
       <h3>${esc(source.citation)}</h3>
-      <p class="small">${row?`Survey ID ${esc(source.paper_id)} · published ${esc(row.published_level)} · documented-only comparison ${esc(row.registered_only_level)} (not adopted)`:
-        'Supplementary source — outside the frozen 230-source survey; no P grade or F promotion'}</p>
       ${source.supplement_id==='chatzikyriakidis-spathas-2015-ke'?`<p><a class="textlink" href="${greekKeStudyURL}">Read the double-ke study and proofs</a></p>`:''}
       <details ${q.entry===String(source.paper_id??source.supplement_id)?"open":""}><summary>Artifact identity, reading and design evidence</summary>
+        <p class="small">${row?`Original survey ID ${esc(source.paper_id)} · published ${esc(row.published_level)} · documented-only comparison ${esc(row.registered_only_level)} (not adopted)`:
+          'Registered after the original survey.'}</p>
         ${source.artifact_links.length?source.artifact_links.map(link=>{
           const artifact=registry.artifacts[link.artifact];
           return `<div class="small" style="margin-top:14px;overflow-wrap:anywhere">
@@ -689,7 +695,7 @@ function vSources(q={}){
   };
   return `<div class="wrap"><div class="crumb"><a href="#/">Atlas</a> / Source registry</div><section>
     <div class="sechead"><h2>Source provenance, made explicit</h2></div>
-    <p>${summary.survey_sources} survey sources · ${summary.artifact_count} hashed artifacts ·
+    <p>${registry.sources.length+registry.supplementary_sources.length} registered works · ${summary.survey_sources} survey sources · ${summary.artifact_count} hashed artifacts ·
       ${summary.sources_with_documented_identity} survey sources with documented identity links.
       A hash identifies bytes, not the correctness of a citation or a reading.</p>
     <p class="small" style="margin-top:14px">${summary.differences.length} published low-tier labels lack
@@ -702,8 +708,7 @@ function vSources(q={}){
     <p class="small"><a class="textlink" id="registry-paper-link" href="#/papers">Search all papers and implementations</a></p>
     <div id="registry-work-results"></div>
     ${q.entry ? `<p><a href="#/sources">View the full registry</a></p>` : ''}
-    ${registry.sources.filter(s=>!q.entry||String(s.paper_id)===q.entry).map(entry).join('')}
-    <h2>Supplementary works</h2>${registry.supplementary_sources.filter(s=>!q.entry||s.supplement_id===q.entry).map(entry).join('')}
+    ${entries.map(entry).join('')}
   </section></div>`;
 }
 
@@ -845,7 +850,7 @@ function relatedGreekKe(key){
 
 function vGreekDoubleKe(){
   const source=D.greek_double_ke;
-  const proof=name=>`<a class="textlink" href="${repoFileURL(source.path)}#L${source.lines[name]}"><code>${esc(name)}</code></a>`;
+  const proof=name=>`<a class="textlink" href="${fileURL(source.path,source.lines[name])}"><code>${esc(name)}</code></a>`;
   return `<div class="wrap discovery research-page"><section>
     <div class="crumb"><a href="#/research">Atlas research</a> / Greek double <i>ke</i></div>
     <h1>Bisyndetic Distributive Conjunction and Additive <i>ke</i> under a Diachronic Perspective</h1>
@@ -861,7 +866,7 @@ function vGreekDoubleKe(){
       <li>The talk requires another individual. The focus paper by Chatzikyriakidis, Michelioudakis and Spathas requires another true proposition in (5b). For alternatives generated by applying a predicate to individuals, the two requirements agree if every eligible individual distinct from the associate gives a different proposition. The file also gives a counterexample using a constant predicate. ${proof('individual_proposition_witness')} · ${proof('individual_distinctness_is_not_proposition_distinctness')}</li>
     </ol>
     <p>The fragment treats distribution over the two named individuals. Its explicit worlds and context restrictions are Atlas choices. <a class="textlink" href="${repoFileURL('research/greek-double-ke/README.md')}">Slide references and reproduction instructions</a></p>
-    <details class="research-reproduce"><summary>Read the complete Rocq file</summary><pre><code>${esc(source.text)}</code></pre></details>
+    <p><a class="textlink" href="${fileURL(source.path)}">Read the complete Rocq file · DoubleAdditive.v</a></p>
     <h2>What the Greek evidence tells us</h2>
     <p>The talk proposes that paired additives could be reanalysed on the model of <i>te … te</i> and <i>te … ke</i>. In <i>Iliad</i> 18.419–420, the golden attendants already have intelligence when the poet adds “voice and strength”, <span lang="grc">ἐν δὲ καὶ αὐδὴ καὶ σθένος</span>. The first <i>καί</i> can add the pair to what precedes, or the two nouns can each bear a marker. In 15.498, “house and holding” raises a similar question about where the first particle attaches. These are reasons to keep the classification of Homeric examples open. <a href="https://scaife.perseus.org/reader/urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:18.419-18.420/">Iliad 18.419–420</a> · <a href="https://scaife.perseus.org/reader/urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:15.497-15.499/">Iliad 15.497–499</a></p>
     <p>Herodotus gives us a closer comparison. The queen’s offer to Gyges of herself and the kingship uses <span lang="grc">τε … καί</span>. The account of Gyges gaining the wife and the kingship uses <span lang="grc">καί … καί</span>. Both patterns were available for the same two referents. The date and direction of reanalysis remain open. <a href="https://scaife.perseus.org/reader/urn:cts:greekLit:tlg0016.tlg001.perseus-grc2:1.11.2/">Herodotus 1.11.2</a> · <a href="https://scaife.perseus.org/reader/urn:cts:greekLit:tlg0016.tlg001.perseus-grc2:1.12.2/">1.12.2</a></p>
@@ -896,9 +901,13 @@ function vResearch(){
 
 /* Real source is bundled at build time. The index is navigation, not a proof checker. */
 function proofSource(key){
-  for(const sources of [D.proof_sources,D.research?.sources])if(sources&&Object.hasOwn(sources,key))return sources[key];
+  for(const sources of [D.proof_sources,D.research?.sources,D.reader_files])if(sources&&Object.hasOwn(sources,key))return sources[key];
+}
+function fileURL(path,line){
+  return '#/file/'+encodeURIComponent(path)+(line?'?line='+line:'');
 }
 function proofURL(key,line){
+  if(Object.hasOwn(D.reader_files||{},key))return fileURL(key,line);
   return (D.research?.sources?.[key]?'#/research-proof/':'#/proof/')+encodeURIComponent(key)+(line?'?line='+line:'');
 }
 function proofLink(key,text){
@@ -929,9 +938,16 @@ function proofAudit(source,decl){
   }
   return 'No individual assumption audit recorded for this declaration; no closure claim is inferred.';
 }
-function vProof(key,requestedLine){
+function vProof(key,requestedLine,pin={}){
   const source=proofSource(key); if(!source) return notFound();
+  if(pin.sha && pin.sha!==source.sha256){
+    const historical=/^[a-f0-9]{40}$/.test(pin.rev)?repoFileURL(source.path).replace(/\/blob\/[^/]+\//,'/blob/'+pin.rev+'/') : null;
+    return `<div class="wrap"><section><h2>The cited file has changed</h2><p>This study cites an earlier version of ${esc(source.path)}.</p>
+      ${historical?`<a class="textlink" href="${esc(historical)}${/^\d+$/.test(requestedLine||'')?'#L'+requestedLine:''}">Read the cited version on GitHub</a> · `:''}
+      <a class="textlink" href="${fileURL(source.path)}">Read the current file in the Atlas</a></section></div>`;
+  }
   const research=source.research;
+  const fileOnly=Object.hasOwn(D.reader_files||{},key);
   const researchHome=research?.package==='montague_gallin'?'#/research/gallin':'#/research';
   const lines=source.text.split('\n');
   const parsed=Number(requestedLine);
@@ -940,18 +956,18 @@ function vProof(key,requestedLine){
   const record=byKey[key]||(research?{summary:research.summary}:{}), theorem=(record.theorems||[]).find(t=>t.name===decl?.name||t.name===decl?.qualified);
   const revision=/^[a-f0-9]{40}$/.test(D.revision||'')?D.revision:'main';
   const github=repoFileURL(source.path)+'#L'+line;
-  return `<div class="reader-wrap"><div class="crumb">${research?`<a href="${researchHome}">Research</a> / `+esc(research.title):`<a href="#/explore">Explore</a> / <a href="#/theory/${encodeURIComponent(key)}">Proof record</a>`} / Coq source</div>
+  return `<div class="reader-wrap"><div class="crumb"><a href="#/files">Rocq files</a>${research?` / <a href="${researchHome}">${esc(research.title)}</a>`:fileOnly?'':` / <a href="#/theory/${encodeURIComponent(key)}">Proof record</a>`}</div>
     <section class="proof-reader"><div class="reader-heading"><div><span class="kicker">Read the evidence</span>
       <h1>${esc(source.path.split('/').pop())}</h1><p>Full repository source, including declarations, proof scripts and context.</p></div>
-      ${research?`<a class="btn ghost" href="${researchHome}">Back to research →</a>`:`<a class="btn" href="#/edit/${encodeURIComponent(key)}?line=${line}">Edit and run in Coq →</a>`}</div>
+      ${research?`<a class="btn ghost" href="${researchHome}">Back to research →</a>`:fileOnly?'':`<a class="btn" href="#/edit/${encodeURIComponent(key)}?line=${line}">Edit and run in Coq →</a>`}</div>
     ${research?`<div class="research-notice"><b>Research library: read and download.</b> Live execution of these separately namespaced packages is not enabled in the public worker. ${esc(research.boundary)}</div>`:''}
     ${relatedGreekKe(key)}
     <div class="reader-layout"><aside class="reader-sidebar" aria-label="Claim and declarations">
       ${key==='atlas__witness_contract'||key==='atlas__ttr_model'?'<a class="reader-guided" href="#/result/witnesses">New here? Walk through “Witnesses matter” →</a>':''}
-      <details class="reader-context" open><summary>What is being encoded?</summary><p>${esc(record.summary||'No summary recorded. Inspect the full source and its proof record.')}</p>
+      ${fileOnly?'':`<details class="reader-context" open><summary>What is being encoded?</summary><p>${esc(record.summary||'No summary recorded. Inspect the full source and its proof record.')}</p>
         ${theorem?`<h3>Claim in the record</h3><p>${esc(theorem.source_claim||'No source claim recorded for this theorem.')}</p>${theorem.note?`<p>${esc(theorem.note)}</p>`:''}`:''}
         <a class="textlink" href="${research?researchHome:'#/theory/'+encodeURIComponent(key)}">Source mapping, additions and limits →</a>
-        <p class="reader-disclaimer">Record descriptions are not independent source-fidelity approval.</p></details>
+        <p class="reader-disclaimer">Record descriptions are not independent source-fidelity approval.</p></details>`}
       <details class="reader-outline" open><summary>Find a declaration <span>${source.declarations.length}</span></summary>
         <label for="proof-search">Search names</label><input type="search" id="proof-search" placeholder="e.g. shared_empty" oninput="filterProofOutline(this.value)">
         <nav aria-label="Coq declarations" id="proof-outline">${source.declarations.map(d=>`<a href="${proofURL(key,d.line)}" data-name="${esc(d.name.toLowerCase())}"${d===decl?' aria-current="location"':''}><span>${esc(d.name)}</span><small>${esc(d.keyword)} · L${d.line}</small></a>`).join('')}</nav>
@@ -1009,7 +1025,8 @@ async function copyProofLink(){
   catch(_){status.textContent='Copy the page address from your browser.';}
 }
 function downloadCoq(){
-  const key=decodeURIComponent((location.hash.split('?')[0].split('/')[2])||'');
+  const [,route,id]=location.hash.split('?')[0].split('/');
+  const key=route==='file'?proofKeyByPath.get(decodeURIComponent(id)):decodeURIComponent(id||'');
   const source=proofSource(key); if(!source) return;
   const url=URL.createObjectURL(new Blob([source.text],{type:'text/plain;charset=utf-8'}));
   const link=document.createElement('a'); link.href=url; link.download=source.path.split('/').pop();
@@ -1255,14 +1272,25 @@ function papersURL(query,filter='',value=''){
 }
 function searchWorkList(query){
   const works=(D.paper_index||[]).filter(w=>matchesPaper([w.citation,...w.aliases].join(' '),query));
-  if(!works.length) return '<p class="small">No matching works in the implementation records or research studies.</p>';
+  if(!works.length) return '<p class="small">No matching works.</p>';
   const list=works.map(w=>`<li style="margin-bottom:10px">${esc(w.citation)}<br>
     ${w.links.map(link=>`<a class="textlink small" href="${esc(link.href)}">${esc(link.label)}</a>`).join(' · ')}</li>`).join('');
-  const heading=`${works.length} ${works.length===1?'entry':'entries'} in implementation records and research studies`;
-  return query.trim()?`<p><strong>${heading}</strong></p><ul>${list}</ul>`:
-    `<details><summary>Browse works cited in implementations and studies (${works.length} entries)</summary><ul>${list}</ul></details>`;
+  return `<p class="small">${works.length} ${works.length===1?'entry':'entries'}</p><ul>${list}</ul>`;
 }
-const proofKeyByPath=new Map(Object.entries(D.proof_sources||{}).map(([key,source])=>[source.path,key]));
+const proofKeyByPath=new Map([D.proof_sources,D.research?.sources,D.reader_files].flatMap(group=>
+  Object.entries(group||{}).map(([key,source])=>[source.path,key])));
+function vFiles(){
+  const paths=[...proofKeyByPath.keys()].sort();
+  return `<div class="wrap"><section><div class="sechead"><h1>Rocq files</h1></div><p>Read and download all ${paths.length} files in this revision.</p>
+    <div class="controls"><input type="search" aria-label="Find a Rocq file" placeholder="Find a filename or folder…" oninput="filterFiles(this.value)"></div>
+    <p class="small" id="file-count" aria-live="polite"></p>
+    <ul id="file-list">${paths.map(path=>`<li data-path="${esc(path)}"><a class="textlink" href="${fileURL(path)}">${esc(path)}</a></li>`).join('')}</ul></section></div>`;
+}
+function filterFiles(query){
+  let count=0;
+  document.querySelectorAll('#file-list li').forEach(row=>{row.hidden=!matchesPaper(row.dataset.path,query);if(!row.hidden)count++;});
+  $('#file-count').textContent=query?count+' matching files':'';
+}
 function paperTerms(p){
   return [p.citation,p.authors,p.title,p.topic,...(p.coq_present||[])].filter(Boolean).join(' ');
 }
@@ -1277,7 +1305,7 @@ function vPapers(q){
   <section style="padding-top:24px">
     <div class="sechead"><h1>Find a paper</h1></div>
     <div class="controls"><input type="search" id="pq" aria-label="Search papers by author, title or topic" placeholder="Search author, title, topic…" value="${esc(query)}" oninput="pFilter()"></div>
-    <div id="work-results">${searchWorkList(query)}</div>
+    <details class="block"${lvl||fm?' open':''}><summary>Grades and outcomes in the original survey</summary>
     <div class="sechead" style="margin-top:24px"><h2>${D.papers.length} papers surveyed</h2>
       <span class="note">Two orthogonal axes. <b>Evidence</b> (F0–F5) is how far the paper has traveled
       through this pipeline — ${totals.formalized} have reached F4/F5. <b>Formality</b> (P0–P5) is how
@@ -1315,7 +1343,8 @@ function vPapers(q){
       <td>${esc(p.citation)}${paperOutcomeHTML(p)}</td>
       <td class="small dim">${esc(p.topic)}</td>
       <td class="n mono tiny">${files.length?files.map(f=>`<a href="#/proof/${encodeURIComponent(proofKeyByPath.get(f))}">${esc(f.split('/').pop())}</a>`).join('<br>'):'—'}</td></tr>`;}).join('')}
-    </tbody></table></section></div>`;
+    </tbody></table></details>
+    <div id="work-results">${searchWorkList(query)}</div></section></div>`;
 }
 function pFilter(){
   const query=$('#pq').value;
@@ -1654,11 +1683,13 @@ function route(){
   else if(seg[0]==='edge') {html=vEdge(seg[1]); tab='edges';}
   else if(seg[0]==='region') {html=vRegion(seg[1]); tab='';}
   else if(seg[0]==='papers') html=vPapers(q);
+  else if(seg[0]==='files') html=vFiles();
+  else if(seg[0]==='file'&&seg.length===2) html=vProof(proofKeyByPath.get(decodeURIComponent(seg[1])),q.line,q);
   else if(seg[0]==='comparison') html=vComparison();
   else if(seg[0]==='check') html=vCheck();
   else if(seg[0]==='exhibits') html=vExhibits();
   else html=notFound();
-  if(['papers','theories','plate','sources'].includes(seg[0]))html=`<div class="wrap">${journeyNav(seg[0])}</div>`+html;
+  if(['papers','files','theories','plate','sources'].includes(seg[0]))html=`<div class="wrap">${journeyNav(seg[0])}</div>`+html;
   if(['research','research-proof'].includes(seg[0]))tab='research';
   else if(['reading','sources'].includes(seg[0]))tab='about';
   else if(['comparison','edges','edge'].includes(seg[0]))tab='compare';
@@ -1675,8 +1706,11 @@ function route(){
     if(current)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
   });
   window.scrollTo(0,0);
-  if(['proof','research-proof'].includes(seg[0])){
-    mountProofReader(decodeURIComponent(seg[1]||''),q.line);
+  if(['proof','research-proof','file'].includes(seg[0])){
+    const id=decodeURIComponent(seg[1]||'');
+    const key=seg[0]==='file'?proofKeyByPath.get(id):id;
+    if(q.sha&&proofSource(key)?.sha256!==q.sha)return;
+    mountProofReader(key,q.line);
     if(!proofReader&&/^\d+$/.test(q.line||''))document.getElementById('coq-L'+q.line)?.scrollIntoView?.({block:'center'});
   }
 }

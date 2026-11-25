@@ -9,6 +9,7 @@ import json, os, re, sys, shutil, datetime
 from source_registry import load_registry, report as registry_report
 from proof_sources import bundle_sources, library_fingerprint
 from research import bundle_research
+from paper_search import build_paper_index
 from pathlib import Path
 from verify import parse
 
@@ -95,9 +96,6 @@ def main():
             "final": r.get("_final", {}), "verify": {"agrees": v.get("agrees"), "disputes": v.get("disputes", []), "confidence": v.get("confidence")} if v else None,
             "mech": r.get("_mech"), "probe": r.get("_probe"), "counts_claimed": r.get("counts_claimed"),
         })
-    known_files = {f["file"] for f in slim_files}
-    for p in papers:
-        p["coq_present"] = [f for f in p.get("coq_files", []) if f in known_files]
     data = {"generated": datetime.date.today().isoformat(), "regions": [{"key": k, "name": n} for k, n, _ in REGIONS],
             "papers": papers, "files": slim_files, "stats": stats, "edges": edges,
             "claim_comparison": atlas.get("claim_comparison") if os.path.exists(atlas_path) else None}
@@ -113,10 +111,14 @@ def main():
     revision = revision if re.fullmatch(r"[a-f0-9]{40}", revision) else "working copy"
     data["revision"] = revision
     data["proof_sources"] = bundle_sources(slim_files, os.path.dirname(HERE))
+    known_files = {source["path"] for source in data["proof_sources"].values()}
+    for paper in papers:
+        paper["coq_present"] = [path for path in paper.get("coq_files", []) if path in known_files]
     data["workspace_library_sha256"] = library_fingerprint(data["proof_sources"])
     # Independently audited research is neither an atlas assessment nor a
     # change to the deployed live worker's library contract.
     data["research"] = bundle_research(os.path.dirname(HERE))
+    data["paper_index"] = build_paper_index(data, Path(HERE).parent)
     greek_path = "research/greek-double-ke/DoubleAdditive.v"
     greek_source = Path(HERE).parent / greek_path
     declarations, _ = parse(str(greek_source))

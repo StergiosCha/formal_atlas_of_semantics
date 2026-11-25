@@ -567,7 +567,7 @@ function vExplore(){
     ${journeyNav('explore')}
     <div class="entry-grid">
       <a class="entry-card" href="#/papers"><span class="kicker">01 / Sources</span><h2>Find a paper</h2>
-        <p>Browse ${totals.papers} sources by author, topic, intrinsic formality and pipeline evidence.</p><span class="entry-action">Browse papers →</span></a>
+        <p>Search by author or title across implementations and studies. Browse ${totals.papers} sources by topic, formality and evidence.</p><span class="entry-action">Browse papers →</span></a>
       <a class="entry-card" href="#/theories"><span class="kicker">02 / Implementations</span><h2>Inspect a proof record</h2>
         <p>See what was encoded, what was proved, and which choices were added along the way.</p><span class="entry-action">Read proof records →</span></a>
       <a class="entry-card" href="#/plate"><span class="kicker">03 / Connections</span><h2>Explore the map</h2>
@@ -652,7 +652,7 @@ function repoFileURL(path){
   return 'https://github.com/StergiosCha/formal_atlas_of_semantics/blob/'+revision+'/'+path.split('/').map(encodeURIComponent).join('/');
 }
 
-function vSources(){
+function vSources(q={}){
   const registry=D.source_registry;
   if(!registry) return '<div class="wrap"><section><h2>Source registry unavailable</h2></section></div>';
   const summary=registry.summary;
@@ -665,7 +665,7 @@ function vSources(){
       <p class="small">${row?`Survey ID ${esc(source.paper_id)} · published ${esc(row.published_level)} · documented-only comparison ${esc(row.registered_only_level)} (not adopted)`:
         'Supplementary source — outside the frozen 230-source survey; no P grade or F promotion'}</p>
       ${source.supplement_id==='chatzikyriakidis-spathas-2015-ke'?`<p><a class="textlink" href="${greekKeStudyURL}">Read the double-ke study and proofs</a></p>`:''}
-      <details><summary>Artifact identity, reading and design evidence</summary>
+      <details ${q.entry===String(source.paper_id??source.supplement_id)?"open":""}><summary>Artifact identity, reading and design evidence</summary>
         ${source.artifact_links.length?source.artifact_links.map(link=>{
           const artifact=registry.artifacts[link.artifact];
           return `<div class="small" style="margin-top:14px;overflow-wrap:anywhere">
@@ -699,14 +699,21 @@ function vSources(){
       “Documented” means a source-specific audit supplies the link; it does not mean independent
       review. Local file availability is checked separately and is not asserted by this page.</p>
     <div class="controls" style="margin-top:24px"><input type="search" aria-label="Filter source registry" placeholder="Find author or title…" oninput="sourceFilter(this.value)"></div>
-    ${registry.sources.map(entry).join('')}
-    <h2>Supplementary works</h2>${registry.supplementary_sources.map(entry).join('')}
+    <p class="small"><a class="textlink" id="registry-paper-link" href="#/papers">Search all papers and implementations</a></p>
+    <div id="registry-work-results"></div>
+    ${q.entry ? `<p><a href="#/sources">View the full registry</a></p>` : ''}
+    ${registry.sources.filter(s=>!q.entry||String(s.paper_id)===q.entry).map(entry).join('')}
+    <h2>Supplementary works</h2>${registry.supplementary_sources.filter(s=>!q.entry||s.supplement_id===q.entry).map(entry).join('')}
   </section></div>`;
 }
 
 function sourceFilter(value){
+  const link=$('#registry-paper-link');
+  if(link) link.href=papersURL(value);
+  const results=$('#registry-work-results');
+  if(results) results.innerHTML=value.trim()?searchWorkList(value):'';
   document.querySelectorAll('[data-source-search]').forEach(entry=>{
-    entry.hidden=!entry.dataset.sourceSearch.toLowerCase().includes(value.toLowerCase());
+    entry.hidden=!matchesPaper(entry.dataset.sourceSearch,value);
   });
 }
 
@@ -1233,14 +1240,45 @@ function vEdge(key){
   </section></div>`;
 }
 
+function paperWords(text){
+  return String(text||'').normalize('NFD').replace(/\p{M}/gu,'').toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();
+}
+function matchesPaper(text,query){
+  const words=paperWords(text);
+  return paperWords(query).split(' ').every(token=>words.includes(token));
+}
+function papersURL(query,filter='',value=''){
+  const parts=[];
+  if(query) parts.push('q='+encodeURIComponent(query));
+  if(filter) parts.push(filter+'='+encodeURIComponent(value));
+  return '#/papers'+(parts.length?'?'+parts.join('&'):'');
+}
+function searchWorkList(query){
+  const works=(D.paper_index||[]).filter(w=>matchesPaper([w.citation,...w.aliases].join(' '),query));
+  if(!works.length) return '<p class="small">No matching works in the implementation records or research studies.</p>';
+  const list=works.map(w=>`<li style="margin-bottom:10px">${esc(w.citation)}<br>
+    ${w.links.map(link=>`<a class="textlink small" href="${esc(link.href)}">${esc(link.label)}</a>`).join(' · ')}</li>`).join('');
+  const heading=`${works.length} ${works.length===1?'entry':'entries'} in implementation records and research studies`;
+  return query.trim()?`<p><strong>${heading}</strong></p><ul>${list}</ul>`:
+    `<details><summary>Browse works cited in implementations and studies (${works.length} entries)</summary><ul>${list}</ul></details>`;
+}
+const proofKeyByPath=new Map(Object.entries(D.proof_sources||{}).map(([key,source])=>[source.path,key]));
+function paperTerms(p){
+  return [p.citation,p.authors,p.title,p.topic,...(p.coq_present||[])].filter(Boolean).join(' ');
+}
 function vPapers(q){
-  const lvl=(q&&q.level)||'', fm=(q&&q.formality)||'';
+  const lvl=q?.level||'', fm=q?.formality||'', query=q?.q||'';
+  const survey=D.papers.filter(p=>(!lvl||p.level===lvl)&&(!fm||String(p.formality)===fm));
+  const count=survey.filter(p=>matchesPaper(paperTerms(p),query)).length;
   const LAB={F0:'surveyed only',F1:'sourced',F2:'designed',F3:'piloted',F4:'formalized',F5:'verified & connected'};
   const PLAB={0:'discursive',1:'systematic prose',2:'semi-formal',3:'formal fragments',4:'full system',5:'machine-checked'};
   const hasFm=D.papers.some(p=>p.formality!==undefined);
   return `<div class="wrap"><div class="crumb"><a href="#/">Atlas</a> / Papers</div>
   <section style="padding-top:24px">
-    <div class="sechead"><h2>${D.papers.length} papers surveyed</h2>
+    <div class="sechead"><h1>Find a paper</h1></div>
+    <div class="controls"><input type="search" id="pq" aria-label="Search papers by author, title or topic" placeholder="Search author, title, topic…" value="${esc(query)}" oninput="pFilter()"></div>
+    <div id="work-results">${searchWorkList(query)}</div>
+    <div class="sechead" style="margin-top:24px"><h2>${D.papers.length} papers surveyed</h2>
       <span class="note">Two orthogonal axes. <b>Evidence</b> (F0–F5) is how far the paper has traveled
       through this pipeline — ${totals.formalized} have reached F4/F5. <b>Formality</b> (P0–P5) is how
       formal the paper is on its own pages, graded once and frozen
@@ -1256,30 +1294,42 @@ function vPapers(q){
     ${D.claim_comparison?`<p class="small" style="margin-top:18px"><a href="#/comparison">Compare source-claim coverage beneath the F3 label</a>:
       direct fragments, representations, added commitments and uncovered claims. No tier score is inferred.</p>`:''}
     <div class="controls" style="margin-top:26px">
-      <input type="search" id="pq" placeholder="Search author, title, topic…" oninput="pFilter()">
-      <button class="chip ${lvl||fm?'':'on'}" onclick="go('#/papers')">All</button>
+      <button class="chip ${lvl||fm?'':'on'}" onclick="go(papersURL($('#pq').value))">All</button>
       ${['F5','F4','F3','F2','F1','F0'].map(l=>
-        `<button class="chip ${lvl===l?'on':''}" onclick="go('#/papers?level=${l}')">${l} · ${LAB[l]}</button>`).join('')}
+        `<button class="chip ${lvl===l?'on':''}" onclick="go(papersURL($('#pq').value,'level','${l}'))">${l} · ${LAB[l]}</button>`).join('')}
     </div>
     ${hasFm?`<div class="controls" style="margin-top:8px">
       ${[5,4,3,2,1,0].map(l=>
-        `<button class="chip ${fm===String(l)?'on':''}" onclick="go('#/papers?formality=${l}')">P${l} · ${PLAB[l]}</button>`).join('')}
+        `<button class="chip ${fm===String(l)?'on':''}" onclick="go(papersURL($('#pq').value,'formality','${l}'))">P${l} · ${PLAB[l]}</button>`).join('')}
     </div>`:''}
+    <p class="small" id="survey-matches" aria-live="polite">${count} matching survey entries</p>
     <table><thead><tr><th class="n">Evidence</th>${hasFm?'<th class="n">Formality</th>':''}<th>Paper</th><th>Topic</th><th class="n">Coq</th></tr></thead>
-    <tbody id="prows">${D.papers.filter(p=>(!lvl||p.level===lvl)&&(!fm||String(p.formality)===fm)).map(p=>{
+    <tbody id="prows">${survey.map(p=>{
       const files=(p.coq_present||p.coq_files||[]);
-      return `<tr data-s="${esc((p.citation+' '+p.topic+' '+(p.title||'')).toLowerCase())}">
+      const terms=paperTerms(p);
+      return `<tr data-s="${esc(terms)}"${matchesPaper(terms,query)?'':' hidden'}>
       <td class="n"><span class="b ${p.level>='F4'?'ok':p.level>='F2'?'mid':'q'}">${esc(p.level||'')}</span>
         ${(D.claim_comparison?.profiles||[]).some(x=>String(x.paper_id)===String(p.id))?'<div class="tiny"><a href="#/comparison">claim profile</a></div>':''}</td>
       ${hasFm?`<td class="n">${p.formality!==undefined?`<span class="b ${p.formality>=4?'ok':p.formality>=2?'mid':'q'}"
         title="${esc(p.formality_rationale||'')}">P${p.formality}</span>${p.formality_confidence==='low'?'<span class="tiny dim"> ?</span>':''}`:'—'}</td>`:''}
       <td>${esc(p.citation)}${paperOutcomeHTML(p)}</td>
       <td class="small dim">${esc(p.topic)}</td>
-      <td class="n mono tiny">${files.length?files.map(f=>esc(f.split('/').pop())).join('<br>'):'—'}</td></tr>`;}).join('')}
+      <td class="n mono tiny">${files.length?files.map(f=>`<a href="#/proof/${encodeURIComponent(proofKeyByPath.get(f))}">${esc(f.split('/').pop())}</a>`).join('<br>'):'—'}</td></tr>`;}).join('')}
     </tbody></table></section></div>`;
 }
-function pFilter(){const v=$('#pq').value.toLowerCase();
-  document.querySelectorAll('#prows tr').forEach(r=>r.style.display=!v||r.dataset.s.includes(v)?'':'none');}
+function pFilter(){
+  const query=$('#pq').value;
+  $('#work-results').innerHTML=searchWorkList(query);
+  let count=0;
+  document.querySelectorAll('#prows tr').forEach(row=>{
+    row.hidden=!matchesPaper(row.dataset.s,query);
+    if(!row.hidden) count++;
+  });
+  $('#survey-matches').textContent=count+' matching survey entries';
+  const params=new URLSearchParams(location.hash.split('?')[1]||'');
+  const filter=params.has('level')?'level':params.has('formality')?'formality':'';
+  history.replaceState(null,'',papersURL(query,filter,params.get(filter)));
+}
 
 function notFound(){return `<div class="wrap empty"><h2>Not on the map.</h2>
   <p style="margin-top:12px"><a class="btn" href="#/" style="margin-top:16px">Back to the atlas</a></p></div>`;}
@@ -1591,7 +1641,7 @@ function route(){
   else if(seg[0]==='research-proof') {const key=decodeURIComponent(seg[1]||'');html=proofSource(key)?.research?vProof(key,q.line):notFound();}
   else if(seg[0]==='result'&&seg[1]==='witnesses') html=vWitnessResult();
   else if(seg[0]==='reading') html=vReading();
-  else if(seg[0]==='sources') html=vSources();
+  else if(seg[0]==='sources') html=vSources(q);
   else if(seg[0]==='plate') html=vPlate();
   else if(seg[0]==='theories') html=vTheories();
   else if(seg[0]==='theory') {html=vTheory(seg[1]); tab='theories';}

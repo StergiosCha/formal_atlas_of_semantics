@@ -48,6 +48,7 @@ jobs:
           node atlas_data/site/test_landing.cjs
           node atlas_data/site/test_reading.cjs
           node atlas_data/site/test_source_registry.cjs
+          node atlas_data/site/test_paper_search.cjs
           node atlas_data/site/test_claim_comparison.cjs
           node atlas_data/site/test_rosch_campaign.cjs
           node atlas_data/site/test_outcomes.cjs

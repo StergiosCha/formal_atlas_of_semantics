@@ -1,5 +1,7 @@
 """Public papers linked to implementation records, source supplements, and research studies."""
 from pathlib import Path
+import re
+import unicodedata
 from urllib.parse import quote
 
 
@@ -46,6 +48,7 @@ def build_paper_index(data, root):
         link = {"label": label, "href": href}
         if link not in work["links"]:
             work["links"].append(link)
+        return work
 
     for record in data["files"]:
         key = record["key"]
@@ -74,8 +77,10 @@ def build_paper_index(data, root):
         if key == "chatzikyriakidis-spathas-2015-ke":
             add(source["citation"], "Study and proofs", "#/research/greek-double-ke",
                 aliases=("AMGL36 double ke ke…ke καί καί",))
+            add(source["citation"], "DoubleAdditive.v", "#/file/" + quote("research/greek-double-ke/DoubleAdditive.v", safe=""))
         if key == "cooper-2023":
             add(source["citation"], "Set types in Rocq", "#/proof/ttr_mtt__TTR_types")
+            add(source["citation"], "SetTypeChecks.v", "#/file/" + quote("research/ttr-set-types/SetTypeChecks.v", safe=""))
 
     add(FOCUS_TITLE, "Comparison with double ke", "#/research/greek-double-ke")
     for citation in comparison_citations(root):
@@ -91,5 +96,26 @@ def build_paper_index(data, root):
             # Workbenches may cover several sources. Keep their own titles and links.
             add(package["title"], "Research code", "#/research-proof/" + package["source_keys"][0],
                 aliases=(package["namespace"],))
+
+    # Attach a survey entry to a cited work only on a unique title, first author
+    # and year match. The survey's topic and files remain searchable either way.
+    def words(value):
+        decomposed = unicodedata.normalize("NFKD", str(value or "").casefold())
+        return " ".join(re.findall(r"\w+", "".join(c for c in decomposed if not unicodedata.combining(c))))
+
+    citations = {key: [words(c) for c in [w["citation"], *w["aliases"]]] for key, w in works.items()}
+    proof_keys = {s["path"]: k for k, s in data["proof_sources"].items()}
+    for paper in data["papers"]:
+        title = words(paper.get("title"))
+        first_author = words((paper.get("authors") or "").split(",")[0]).split()
+        year = str(paper.get("year") or "")
+        matches = [key for key, variants in citations.items() if title and first_author and year and any(
+            f" {title} " in f" {v} " and v.split()[:1] == first_author[:1] and year in v.split()
+            for v in variants)]
+        key = matches[0] if len(matches) == 1 else "survey:" + str(paper["id"])
+        href = "#/sources?entry=" + quote(str(paper["id"]), safe="")
+        add(paper["citation"], "Source record", href, identity=key, aliases=(paper["topic"],))
+        for path in paper.get("coq_present", []):
+            add(paper["citation"], Path(path).name, "#/proof/" + proof_keys[path], identity=key)
 
     return sorted(works.values(), key=lambda work: work["citation"].casefold())

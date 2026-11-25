@@ -1,8 +1,10 @@
 """Render the study for the static Atlas. Requires pandoc and a full git checkout."""
 import argparse
+import hashlib
 import re
 import subprocess
 from pathlib import Path
+from urllib.parse import quote
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -35,6 +37,14 @@ def render(commit):
     article = re.sub(r"\]\((?!https?://|#)([^)]+)\)", lambda m: "](" + prefix + m[1] + ")", article)
     body = subprocess.run(["pandoc", "--from=markdown-smart", "--to=html5", "--wrap=none"],
                           input=article, capture_output=True, check=True, text=True).stdout
+    def reader_link(match):
+        commit, path, line = match.groups()
+        raw = subprocess.check_output(["git", "show", f"{commit}:{path}"], cwd=ROOT)
+        digest = hashlib.sha256(raw).hexdigest()
+        return f'href="../../#/file/{quote(path, safe="")}?line={line or 1}&amp;sha={digest}&amp;rev={commit}"'
+
+    body = re.sub(r'href="https://github\.com/StergiosCha/formal_atlas_of_semantics/blob/'
+                  r'([0-9a-f]{40})/([^"#]+?\.v)(?:#L(\d+))?"', reader_link, body)
     template = (HERE / "page.html").read_text()
     SITE.parent.mkdir(parents=True, exist_ok=True)
     SITE.write_text(template.replace("<!-- ARTICLE -->", body))

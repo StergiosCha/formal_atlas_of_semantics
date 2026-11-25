@@ -33,7 +33,7 @@ const greekRoute='#/research/greek-double-ke';
 assert(app.innerHTML.includes(`href="${greekRoute}"`));
 const greek=run('vGreekDoubleKe()');
 const greekSource=fs.readFileSync(path.join(root,data.greek_double_ke.path),'utf8');
-assert.equal(data.greek_double_ke.text,greekSource);
+assert.equal(data.reader_files[data.greek_double_ke.path].text,greekSource);
 assert(greek.includes('Stergios Chatzikyriakidis and Giorgos Spathas'));
 assert(greek.includes('Herodotus 1.11.2'));
 assert(run('vSources()').includes(`href="${greekRoute}"`));
@@ -41,7 +41,7 @@ for(const key of ['extras__additive','extras__additive_new']){
   assert(run(`vTheory('${key}')`).includes(`href="${greekRoute}"`));
   assert(run(`vProof('${key}')`).includes(`href="${greekRoute}"`));
 }
-const results=[...greek.matchAll(/DoubleAdditive\.v#L(\d+)"><code>(\w+)<\/code>/g)];
+const results=[...greek.matchAll(/DoubleAdditive\.v\?line=(\d+)"><code>(\w+)<\/code>/g)];
 assert.equal(results.length,7);
 for(const [,line,name] of results){
   assert(greekSource.split('\n')[Number(line)-1].includes(name),name);

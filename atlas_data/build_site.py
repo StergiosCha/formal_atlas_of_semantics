@@ -7,11 +7,10 @@ brand handoff folder is present alongside, it is re-synced first so a re-theme
 propagates without a manual copy."""
 import json, os, re, sys, shutil, datetime
 from source_registry import load_registry, report as registry_report
-from proof_sources import bundle_sources, library_fingerprint
+from proof_sources import bundle_reader_files, bundle_sources, library_fingerprint
 from research import bundle_research
 from paper_search import build_paper_index
 from pathlib import Path
-from verify import parse
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.join(HERE, "site")
@@ -118,14 +117,14 @@ def main():
     # Independently audited research is neither an atlas assessment nor a
     # change to the deployed live worker's library contract.
     data["research"] = bundle_research(os.path.dirname(HERE))
+    indexed_paths = known_files | {s["path"] for s in data["research"]["sources"].values()}
+    data["reader_files"] = bundle_reader_files(Path(HERE).parent, indexed_paths)
     data["paper_index"] = build_paper_index(data, Path(HERE).parent)
     greek_path = "research/greek-double-ke/DoubleAdditive.v"
-    greek_source = Path(HERE).parent / greek_path
-    declarations, _ = parse(str(greek_source))
+    greek_source = data["reader_files"][greek_path]
     data["greek_double_ke"] = {
         "path": greek_path,
-        "text": greek_source.read_text(encoding="utf-8"),
-        "lines": {d["name"]: d["line"] for d in declarations if d["kind"] == "theorem"},
+        "lines": {d["name"].rsplit(".", 1)[-1]: d["line"] for d in greek_source["declarations"] if d["kind"] == "theorem"},
     }
     blob = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
     html = tpl.replace("__ATLAS_DATA__", blob).replace("__GENERATED__", data["generated"]).replace("__REVISION__", revision)

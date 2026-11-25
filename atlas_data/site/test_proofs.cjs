@@ -20,6 +20,34 @@ const context = vm.createContext({
 });
 script.runInContext(context, {timeout: 5000});
 const run = s => vm.runInContext(s, context);
+const tracked = require('node:child_process').execFileSync('git', ['ls-files','-z','--','*.v'], {cwd:root,encoding:'utf8'}).split('\0').filter(Boolean).sort();
+const index = run('vFiles()');
+assert.deepEqual(Array.from(run('[...proofKeyByPath.keys()].sort()')), tracked);
+for(const file of tracked){
+  const href='#/file/'+encodeURIComponent(file);
+  assert(index.includes('href="'+href+'"'),file);
+  const loaded=run('proofSource(proofKeyByPath.get('+JSON.stringify(file)+'))');
+  const raw=fs.readFileSync(path.join(root,file));
+  assert.equal(loaded.text,raw.toString('utf8'),file);
+  assert.equal(loaded.sha256,crypto.createHash('sha256').update(raw).digest('hex'),file);
+  run('location.hash='+JSON.stringify(href)+';route()');
+  assert(app.innerHTML.includes('Download .v'),file);
+  assert.equal(app.innerHTML.includes('Edit and run in Coq'),Object.hasOwn(data.proof_sources,run('proofKeyByPath.get('+JSON.stringify(file)+')')),file);
+}
+const comparison = fs.readFileSync(path.join(__dirname,'research/ttr-mtt-montague/index.html'),'utf8');
+assert(!/href="https:\/\/github\.com\/StergiosCha\/formal_atlas_of_semantics\/blob\/[^"]*\.v(?:#L\d+)?"/.test(comparison));
+const studyLinks=[...comparison.matchAll(/href="\.\.\/\.\.\/(#\/file\/[^"]+)"/g)];
+assert(studyLinks.length>0);
+for(const [,url] of studyLinks){
+  const hash=url.replaceAll('&amp;','&');
+  run('location.hash='+JSON.stringify(hash)+';route()');
+  assert(app.innerHTML.includes('Download .v'),url);
+  const line=new URLSearchParams(hash.split('?')[1]).get('line');
+  assert(app.innerHTML.includes('id="coq-L'+line+'" class="proof-line selected"'),url);
+}
+run('location.hash='+JSON.stringify(studyLinks[0][1].replaceAll('&amp;','&').replace(/sha=[a-f0-9]+/,'sha=old'))+';route()');
+assert(app.innerHTML.includes('The cited file has changed'));
+assert(!app.innerHTML.includes('Download .v'));
 assert.equal(Object.keys(data.proof_sources).length, data.files.length);
 for (const [key, source] of Object.entries(data.proof_sources)) {
   const raw = fs.readFileSync(path.join(root, source.path));

@@ -1,6 +1,6 @@
 # Formalizability Atlas of Semantics — current state
 
-Coq files audited: **102** · theorem statements: **1954** (proved 1941, admitted 12) · papers surveyed: **230** · records explicitly disputed by a reviewer: **0**
+Coq files audited: **103** · theorem statements: **1999** (proved 1986, admitted 12) · papers surveyed: **230** · records explicitly disputed by a reviewer: **0**
 
 ## Recorded file assessments (not reviewed paper outcomes)
 
@@ -13,7 +13,7 @@ These preserved file-level opinions do not establish source-wide conclusions. Co
 | 3 major restructuring | 16 |
 | 4 cannot | 0 |
 | n/a | 10 |
-| unassessed (incomplete scope) | 32 |
+| unassessed (incomplete scope) | 33 |
 
 ## Faithfulness verdicts
 
@@ -21,7 +21,7 @@ These preserved file-level opinions do not establish source-wide conclusions. Co
 |---|---|
 | faithful | 20 |
 | faithful-with-corrections | 1 |
-| partial | 68 |
+| partial | 69 |
 | unfaithful | 10 |
 | not_applicable | 3 |
 
@@ -46,6 +46,7 @@ All remain F3/unassessed. [Method and limitations](campaigns/claim_comparison_20
 | atlas/mtt_ranta/MTT_vs_DTS.v | Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories.; Bekki, D. & Mineshima, K. (2017). Context-Passing and Underspecification in Dependent Type Semantics. | 5/5 | faithful | n/a | iv | — |
 | atlas/ttr/TTR.v | Cooper, R. (2023). From Perception to Communication. OUP. | 65/65 | faithful | 2 slight modification | iv | — |
 | atlas/ttr/TTR_Model.v | Cooper, R. (2023). From Perception to Communication. OUP. | 10/10 | faithful | 2 slight modification | iv | — |
+| atlas/ttr/TTR_Stratified.v | Cooper, R. (2023). From Perception to Communication. OUP. | 45/45 | partial | unassessed (incomplete scope) | iv, v | — |
 | atlas/ttr/TTR_vs_MTT.v | Cooper, R. (2023). From Perception to Communication. OUP.; Chatzikyriakidis, S. & Luo, Z. (2020). Formal Semantics in Modern Type Theories. | 6/6 | faithful | n/a | iv | — |
 | atlas/ttr/Witness_Contract.v |  | 30/30 | not_applicable | n/a | — | — |
 

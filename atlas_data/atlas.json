@@ -1,21 +1,21 @@
 {
  "generated_from": {
-  "records": 102,
+  "records": 103,
   "papers": 230
  },
  "stats": {
-  "theorems": 1954,
-  "proved": 1941,
+  "theorems": 1999,
+  "proved": 1986,
   "admitted": 12,
   "determination": {
-   "unassessed": 32,
+   "unassessed": 33,
    "as_is": 21,
    "not_applicable": 10,
    "slight_modification": 23,
    "major_restructuring": 16
   },
   "faithfulness": {
-   "partial": 68,
+   "partial": 69,
    "faithful": 20,
    "faithful-with-corrections": 1,
    "not_applicable": 3,
@@ -9595,6 +9595,305 @@
    "_final": {
     "faithfulness": "faithful",
     "determination": "slight_modification",
+    "disputed": false
+   }
+  },
+  {
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "region": "TTR and modern type theories: scoped comparisons",
+   "summary": "Existence of a stratified system of types satisfying the witness conditions of Cooper's Appendix A for basic types, ptypes, function types, dependent function types, singleton, join and meet types, Type^n, records, record types, dependent record types and manifest fields. The source states each construct as a condition on a given system; this file builds one system and proves it meets them together. Types and witness sets are defined together: ty c P says that the object c is a type whose witnesses are the objects satisfying P, which gives function types their real clause without a negative occurrence. Orders are built by recursion, each seeing the one below. Proved: one witness set per type, the clauses as biconditionals, cumulativity, no Type^k a witness of itself, independence of the order in which fields were added, and that a function type from an inhabited type into an empty one has no witness. A concrete system shows the conditions can be met.",
+   "sources": [
+    {
+     "citation": "Cooper, R. (2023). From Perception to Communication. OUP.",
+     "path": "papers/foundations/Cooper_2023_FromPerceptionToCommunication.pdf",
+     "available": "Appendix A1-A11.2 (pp. 398-410) and section 1.4.3.2 read; A5, A9, A11.3-A13 read or skimmed and not formalized; chapters 2-8 not read for this file"
+    }
+   ],
+   "definitions_mapped": [],
+   "theorems": [
+    {
+     "name": "eqv_refl",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "dom_is_eqv",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "Forall2_eqv_args",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "tyl_length",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "famok_apps",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "ty_functional",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "lift_wit",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "famok_lift",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "ty_step_mut",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "TY_unfold",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "one_witness_set",
+     "status": "proved",
+     "source_claim": "S1. At every order a type has exactly one witness set. Not stated in the source; needed for the biconditional clauses of Appendix A to define the witness relation."
+    },
+    {
+     "name": "TY_step",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "wit_ext",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "wit_up",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "istype_up",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "wit_down",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "tyl_of_wits",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "wits_of_tyl",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "tyl_of_types",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "A2_basic_types",
+     "status": "proved",
+     "source_claim": "S2. [C23 A2.1 clause 4, p. 400]: a : T iff a is in A(T)."
+    },
+    {
+     "name": "A3_ptypes",
+     "status": "proved",
+     "source_claim": "S2. [C23 A3.2 clauses 5 and 8, p. 401]: P(a1,...,an) is a ptype iff the arguments witness an arity of P; its witnesses are F(P(a1,...,an))."
+    },
+    {
+     "name": "A4_function_types",
+     "status": "proved",
+     "source_claim": "S2. [C23 A4 clauses 1-2, p. 401]: f : (T1 -> T2) iff f is a function whose domain is the witnesses of T1 and whose range is included in the witnesses of T2. Functions are those of the model (difference D3)."
+    },
+    {
+     "name": "A6_singleton_types",
+     "status": "proved",
+     "source_claim": "S2. [C23 A6 clauses 1-2, pp. 403-404]: b : T_a iff b : T and a = b."
+    },
+    {
+     "name": "A7_A8_join_meet_types",
+     "status": "proved",
+     "source_claim": "S2. [C23 A7, A8, p. 404]: binary join and meet types."
+    },
+    {
+     "name": "univ_level",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "univ_clause",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "A10_stratification",
+     "status": "proved",
+     "source_claim": "S3. [C23 A10 clauses 2, 4, 5, p. 406]: Type^n is included in Type^(n+1); Type^n is in Type^n for n > 0; T : Type^n iff T is in Type^(n-1). Also: no Type^k is a witness of itself."
+    },
+    {
+     "name": "A10_dependent_function_types",
+     "status": "proved",
+     "source_claim": "S4. [C23 A10, dependent function types, clauses 1-2, p. 406]."
+    },
+    {
+     "name": "A11_record_types",
+     "status": "proved",
+     "source_claim": "S5. [C23 A11.2 clauses 1-8 and the intensional clauses 2-3, p. 409]: Rec, ERec, adding a plain field, RecType^n. The typedness condition of A11.1 is not imposed (difference D1)."
+    },
+    {
+     "name": "ty_arrows",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "dep_ext",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "A11_dependent_record_types",
+     "status": "proved",
+     "source_claim": "S6. [C23 A11.2, dependent record types, clauses 1-2, pp. 409-410]: r witnesses R with the field <l, <F, <pi1,...,pim>>> iff r : R, r.pi_i : T_i, and r.l : F(r.pi1)...(r.pim)."
+    },
+    {
+     "name": "record_type_witness",
+     "status": "proved",
+     "source_claim": "S7. A record witnesses a record type iff it is a record and meets the condition of each field. Not stated in the source in this form."
+    },
+    {
+     "name": "order_independent",
+     "status": "proved",
+     "source_claim": "S7. Two orders of adding the same fields give the same witnesses. Not stated in the source; its definition by decomposing R u {field} needs it."
+    },
+    {
+     "name": "manifest_field",
+     "status": "proved",
+     "source_claim": "S8. [C23 A11.2, p. 410]: the manifest field [l=a : T] is the field <l, T_a>; it is witnessed exactly by records with r.l = a."
+    },
+    {
+     "name": "consistency",
+     "status": "proved",
+     "source_claim": "S8. An empty type exists at every order; (T -> empty) has no witness when T has one and has the empty function as witness when T has none. Not stated in the source."
+    },
+    {
+     "name": "ind_type",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "ind_wit",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "dog_type",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "dog_wit",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "dog_family",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "R0_clause",
+     "status": "proved",
+     "source_claim": "Auxiliary lemma."
+    },
+    {
+     "name": "example_dependent_record_type",
+     "status": "proved",
+     "source_claim": "Non-vacuity: in a concrete system, [x : Ind, c : dog(x)] is a type with one record that witnesses it and one that does not."
+    },
+    {
+     "name": "example_function_types",
+     "status": "proved",
+     "source_claim": "Non-vacuity: (Ind -> Ind) has a witness and (Ind -> Nothing) has none."
+    },
+    {
+     "name": "example_manifest_field",
+     "status": "proved",
+     "source_claim": "Non-vacuity: a manifest field in the concrete system."
+    }
+   ],
+   "counts": {
+    "theorems": 45,
+    "proved": 45,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "faithfulness": {
+    "verdict": "partial",
+    "evidence": [
+     "DRAFT for the author's review; not an accepted source-level verdict.",
+     "D1. A11.1 requires every value in a record to be of some type. This is not imposed: a record is a finite labelled set with distinct labels. The condition makes Rec refer to all types of the system; whether a system with it exists is not settled here.",
+     "D2. Partial function types (A4), set and plurality types (A5), generalized joins and meets, modal systems (A9), merges and A11.3-A11.8, list and string types (A12, A13) are not modelled.",
+     "D3. Functions are abstract names with an application map. A function type contains the functions of the right domain and range that exist in the model, not all set-theoretic functions.",
+     "D4. Types are built with constructors, not as labelled sets with reserved labels. Records and record types are lists; order_independent shows field order does not affect witnesses.",
+     "D5. The assignments A and F do not vary with the order and are not required to be disjoint from the types.",
+     "D6. Rec is the record type with no fields.",
+     "The result is the existence of one system, relative to the consistency of Rocq. It is not a normalisation result: the source has no reduction relation."
+    ]
+   },
+   "determination": "unassessed",
+   "determination_rationale": "DRAFT for the author. The clauses transpose as biconditionals once types and witness sets are defined together; the typedness condition on records (A11.1) is dropped and is the main open point.",
+   "assessment_status": "incomplete",
+   "artifact_classes": [
+    {
+     "class": "iv",
+     "description": "witness sets as predicates on one value type; functions as names with an application map; types as constructors; records as lists"
+    },
+    {
+     "class": "v",
+     "description": "zero axioms"
+    }
+   ],
+   "source_gap": null,
+   "notes": "Standalone; standard library only. It does not import TTR.v, which covers a first-order fragment (basic types, ptypes, meet, record types) with subtyping and merge and leaves out function types and stratification. Not yet cross-reviewed. No survey entry is linked to this file. DRAFT RECORD: the faithfulness verdict, the determination and the assessment status are the author's to set.",
+   "compiles": true,
+   "_key": "atlas__ttr_stratified",
+   "_verify": null,
+   "counts_claimed": {
+    "theorems": 45,
+    "proved": 45,
+    "admitted": 0,
+    "propositional_axioms": 0
+   },
+   "_mech": {
+    "compiles": true,
+    "coq_version": "8.20.1",
+    "closed": 45,
+    "queried": 45,
+    "axioms": [],
+    "undocumented_axioms": [],
+    "unsafe_flags": [],
+    "toplevel_axioms": 0,
+    "disputes": []
+   },
+   "_final": {
+    "faithfulness": "partial",
+    "determination": "unassessed",
     "disputed": false
    }
   },

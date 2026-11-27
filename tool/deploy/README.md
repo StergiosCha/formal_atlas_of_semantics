@@ -26,23 +26,27 @@ Registry login material is confined to a temporary root-only directory under
 `/run` and removed after the pull. No visitor OpenRouter keys are configured
 as VM secrets or stored in the service environment.
 
-Current image, active since 23 November 2026 (UTC):
-`formalatlasacr.azurecr.io/atlas-checker@sha256:980d9e6eeeb7aac91eb4b9acb9f86f817a093cd1573cfa2c2c9b8ba2bc72ab78`.
-Built by ACR run `cag` from commit `6a1abe5` with `tool/checker/Dockerfile`
+Current image, active since 27 November 2026 (UTC):
+`formalatlasacr.azurecr.io/atlas-checker@sha256:d0660ad6e1fe1b8b3df72055d70792c2b88f937d6c60398ad34b9e12d9b54842`.
+Built by ACR run `cah` from commit `bd88862` with `tool/checker/Dockerfile`
 (the full build, since the library changed). It contains Coq 8.20.1, coq-lsp
-package `0.2.5+8.20` and the published 102-file library, whose fingerprint is
-`93ab82a016cf810ff7eb4a7ad8dc4d14b620e13252e020d01ccdf9928c6058ba`. The
+package `0.2.5+8.20` and the published 103-file library, whose fingerprint is
+`a0dcffe9572df6e4981c17e4751ede102b4aad9ad52b60b5f6145c841c4f1209`. The
 runtime code is unchanged from the persistent-session release. See
-"Library release, 2026-11-23" below.
+"Library release, 2026-11-27" below.
 
-Previous image (101-file library, fingerprint
-`6bea22a5284d9dd65770a03beb7705834231c256d66eb275e14c011405e39caf`), retained
+Previous image (102-file library, fingerprint
+`93ab82a016cf810ff7eb4a7ad8dc4d14b620e13252e020d01ccdf9928c6058ba`), retained
 on the VM for rollback:
-`formalatlasacr.azurecr.io/atlas-checker@sha256:e1fbed8cddc140c19356a2fa28aa1562b42041f56d408f6e9d0e359abaa730ff`.
-Built by ACR run `caf` from commit `3693ae5`. See "Library release,
-2026-11-17" below.
+`formalatlasacr.azurecr.io/atlas-checker@sha256:980d9e6eeeb7aac91eb4b9acb9f86f817a093cd1573cfa2c2c9b8ba2bc72ab78`.
+Built by ACR run `cag` from commit `6a1abe5`. See "Library release,
+2026-11-23" below.
 
 Earlier images, not removed by any release since:
+- 101-file library (fingerprint
+  `6bea22a5284d9dd65770a03beb7705834231c256d66eb275e14c011405e39caf`):
+  `formalatlasacr.azurecr.io/atlas-checker@sha256:e1fbed8cddc140c19356a2fa28aa1562b42041f56d408f6e9d0e359abaa730ff`,
+  ACR run `caf` from commit `3693ae5`. See "Library release, 2026-11-17".
 - 100-file library (fingerprint
   `b8ddbe31be1c3b31a610cd6eef3b9a482faf069fb7ca5b61f1f807844f81b8da`):
   `formalatlasacr.azurecr.io/atlas-checker@sha256:dbb6e5535a21197e3b10afb84acee566cb1d9e94cb3de736be4a05e241dd44ae`,
@@ -249,3 +253,31 @@ The activation finished before the site was republished. In between, while
 the deployment run completed, the site rejected the worker as a mismatched
 release. Rollback is as described above, from the backup directory of this
 release.
+
+## Library release, 2026-11-27
+
+The library grew from 102 to 103 files (`atlas/ttr/TTR_Stratified.v`), so the
+worker needed a new image. The order was that of the previous release.
+
+1. ACR run `cah` built the image above from a clean export of commit `bd88862`
+   in 24 minutes. Its library is that of the merge commit `66c0e42`. The build
+   log could not be downloaded afterwards; that all 103 files are in the image
+   rests on the worker reporting the fingerprint of the 103-file library.
+2. `test-sessions.py` ran its 23 tests on the candidate on the VM. All passed;
+   production was unchanged.
+3. Pull request 23 was merged, and `activate-release.py` moved the service to
+   the new image. The Azure client lost its connection before the script's
+   output arrived, so the in-container session test is not on record for this
+   release. A separate read-only query showed the service on the new image,
+   `atlas-coq`, `caddy` and `atlas-metadata-guard` active, and the backup at
+   `/var/lib/atlas-deployments/release-20261127-m07o2hif` on the VM.
+4. `smoke_deployed.py` passed against the public endpoint and the published
+   site: real Coq, persistent sessions, 103 sources, matching fingerprints,
+   site revision `66c0e42`, no paid model call. It was run from a copy with
+   the site download limit raised from 30 to 240 seconds, because the link
+   from the machine running it was slow; nothing else differed. The browser
+   smoke test (`smoke_public.py`) was not run for this release.
+
+The site was republished before the activation finished. In between, the site
+rejected the worker as a mismatched release. Rollback is as described above,
+from the backup directory of this release.

@@ -97,6 +97,7 @@ atlas/ttr/TTR.v
 atlas/ttr/TTR_Model.v
 atlas/ttr/TTR_vs_MTT.v
 atlas/ttr/Witness_Contract.v
+atlas/ttr/TTR_Stratified.v
 atlas/montague/PTQ.v
 atlas/montague/PTQ_vs_Lambek.v
 atlas/montague/PTQ_vs_MTT.v

@@ -9086,6 +9086,276 @@
    "since": "2026-09-12",
    "status": "active"
   },
+  "ttr.TTR_Stratified.A10_dependent_function_types": {
+   "statement_sha": "8fe0e131c1fa224e",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.A10_stratification": {
+   "statement_sha": "8b3e58bb28dd3ecb",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.A11_dependent_record_types": {
+   "statement_sha": "c2d90c5f311c2a63",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.A11_record_types": {
+   "statement_sha": "b0e15f21c2d2960e",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.A2_basic_types": {
+   "statement_sha": "203a9e96ba677424",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.A3_ptypes": {
+   "statement_sha": "67e7b63f90a36c1c",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.A4_function_types": {
+   "statement_sha": "8a24542fa20c6d9d",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.A6_singleton_types": {
+   "statement_sha": "bdd3336358fbcd3c",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.A7_A8_join_meet_types": {
+   "statement_sha": "e1ead0726e741bf3",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.Example.R0_clause": {
+   "statement_sha": "afd2ab6351832759",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.Example.dog_family": {
+   "statement_sha": "83df76bbb6d4645a",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.Example.dog_type": {
+   "statement_sha": "031fbad9107d1961",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.Example.dog_wit": {
+   "statement_sha": "f0d2fd0c856b1a15",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.Example.example_dependent_record_type": {
+   "statement_sha": "af988502eb597a63",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.Example.example_function_types": {
+   "statement_sha": "933cddfc3fb87369",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.Example.example_manifest_field": {
+   "statement_sha": "70fc3d154ad5673d",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.Example.ind_type": {
+   "statement_sha": "c641e150e9b2c621",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.Example.ind_wit": {
+   "statement_sha": "9d4ba98272fce7ee",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.Forall2_eqv_args": {
+   "statement_sha": "dd85b7c921ae2c37",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.TY_step": {
+   "statement_sha": "6ac0a42a4730f28b",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.TY_unfold": {
+   "statement_sha": "30eee71168f9e8ac",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.consistency": {
+   "statement_sha": "2abaa06d7fb11b77",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.dep_ext": {
+   "statement_sha": "a6b4881af3d83f4a",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.dom_is_eqv": {
+   "statement_sha": "7abf99d94ab1f75f",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.eqv_refl": {
+   "statement_sha": "c042f4a1fd2b9b82",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.famok_apps": {
+   "statement_sha": "6411b7da28db315a",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.famok_lift": {
+   "statement_sha": "b70c3c2fb3245a27",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.istype_up": {
+   "statement_sha": "b55bf2007f3bb07d",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.lift_wit": {
+   "statement_sha": "ef625ffafbe15d2d",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.manifest_field": {
+   "statement_sha": "103dc608b4d40c9e",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.one_witness_set": {
+   "statement_sha": "376988a879c061fc",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.order_independent": {
+   "statement_sha": "3a37db01e1fc74c0",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.record_type_witness": {
+   "statement_sha": "866d7067b473ac9b",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.ty_arrows": {
+   "statement_sha": "b8ae79f8d517a098",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.ty_functional": {
+   "statement_sha": "f247c29228e78262",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.ty_step_mut": {
+   "statement_sha": "2261bd1413e6553d",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.tyl_length": {
+   "statement_sha": "1f0467b0eb0bbd1b",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.tyl_of_types": {
+   "statement_sha": "e089c1c08c74329f",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.tyl_of_wits": {
+   "statement_sha": "162411746af82ece",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.univ_clause": {
+   "statement_sha": "e5d0ddf9ca614643",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.univ_level": {
+   "statement_sha": "cb16fcec0bccaa34",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.wit_down": {
+   "statement_sha": "c111a3060a0b57e0",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.wit_ext": {
+   "statement_sha": "e9b0e9978d8cbdc2",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.wit_up": {
+   "statement_sha": "9b822d442bf7a2d5",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
+  "ttr.TTR_Stratified.wits_of_tyl": {
+   "statement_sha": "6d04f2097f0b6589",
+   "file": "atlas/ttr/TTR_Stratified.v",
+   "since": "2026-11-26",
+   "status": "active"
+  },
   "ttr.TTR_vs_MTT.LossOfInformation.no_inverse_from_subject": {
    "statement_sha": "318719eedf0e1ecb",
    "file": "atlas/ttr/TTR_vs_MTT.v",

@@ -57,7 +57,8 @@ class SourceRegistryTests(unittest.TestCase):
                                                "atlas/model_theoretic/Semantic_Monads.v",
                                                "atlas/model_theoretic/Scale_Structure.v",
                                                "atlas/model_theoretic/Exceptional_Scope.v",
-                                               "atlas/model_theoretic/Focus_Alternatives.v")]
+                                               "atlas/model_theoretic/Focus_Alternatives.v",
+                                               "atlas/ttr/TTR_Stratified.v")]
         self.assertEqual(len(prior["files"]), 86)
         prior["generated_from"]["records"] = len(prior["files"])
         for field in ("theorems", "proved", "admitted"):
